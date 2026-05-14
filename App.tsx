@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { ToastProvider } from './components/Toast';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -16,10 +16,33 @@ import ScreenshotFromVideo from './pages/ScreenshotFromVideo';
 import VideoToPng from './pages/VideoToPng';
 import VideoToPngGuide from './pages/blog/VideoToPngGuide';
 
+// Component to handle hash-based scrolling
+const ScrollToHash: React.FC = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Small delay to ensure DOM is ready
+    setTimeout(() => {
+      if (location.hash) {
+        const id = location.hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }, 100);
+  }, [location]);
+
+  return null;
+};
+
 const App: React.FC = () => {
   return (
     <ToastProvider>
       <BrowserRouter>
+        <ScrollToHash />
         <div className="min-h-screen bg-gray-950 text-gray-100 selection:bg-cyan-500/30 flex flex-col font-sans">
           <Header />
           
