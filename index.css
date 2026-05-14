@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Existing global styles from index.html <style> block */
+body {
+  background-color: #030712;
+  color: #f3f4f6;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #030712; }
+::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #374151; }
+
+details summary::-webkit-details-marker { display: none; }
+
+@keyframes shrinkToast {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+@keyframes toastEnter {
+  from { opacity: 0; transform: translateX(2rem); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.toast-progress {
+  animation: shrinkToast 4s linear forwards;
+}
+.toast-enter {
+  animation: toastEnter 0.3s ease-out forwards;
+}

@@ -1,0 +1,122 @@
+<!-- Open this file in browser, click Save, place og-image.png in /public/ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Generate OG Image</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body { 
+      background: #111; 
+      color: #fff; 
+      font-family: sans-serif; 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      justify-content: center; 
+      min-height: 100vh; 
+      margin: 0; 
+    }
+    canvas { 
+      border: 1px solid #333; 
+      margin-bottom: 20px; 
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+    button { 
+      padding: 12px 24px; 
+      font-size: 16px; 
+      cursor: pointer; 
+      background: #22d3ee;
+      color: #030712;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #06b6d4;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="ogCanvas" width="1200" height="630"></canvas>
+  <button onclick="saveImage()">Save as PNG</button>
+
+  <script>
+    async function drawCanvas() {
+      // Ensure font is loaded
+      await document.fonts.ready;
+      
+      const canvas = document.getElementById('ogCanvas');
+      const ctx = canvas.getContext('2d');
+
+      // Background (#030712)
+      ctx.fillStyle = '#030712';
+      ctx.fillRect(0, 0, 1200, 630);
+
+      // Title
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 76px "Sora", sans-serif';
+      ctx.textBaseline = 'middle';
+      ctx.textAlign = 'center';
+      ctx.fillText('Video to Image Sequence', 600, 260);
+
+      // Tagline (#22d3ee)
+      ctx.fillStyle = '#22d3ee';
+      ctx.font = 'bold 36px "Sora", sans-serif';
+      ctx.fillText('Free Online Frame Extractor — No Upload, No Limits', 600, 350);
+
+      // Badges
+      const badges = ['✅ No File Size Limit', '🔒 100% Private', '⚡ Instant'];
+      ctx.font = '22px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+
+      badges.forEach((text, i) => {
+        const x = 600 + (i - 1) * 320;
+        const y = 520;
+        
+        // pill background
+        const width = ctx.measureText(text).width + 60;
+        ctx.fillStyle = '#111827';
+        ctx.strokeStyle = '#1f2937';
+        ctx.lineWidth = 2;
+        
+        // Custom round rect for canvas
+        const r = 25;
+        const cx = x - width / 2;
+        const cy = y - 25;
+        ctx.beginPath();
+        ctx.moveTo(cx + r, cy);
+        ctx.arcTo(cx + width, cy, cx + width, cy + 50, r);
+        ctx.arcTo(cx + width, cy + 50, cx, cy + 50, r);
+        ctx.arcTo(cx, cy + 50, cx, cy, r);
+        ctx.arcTo(cx, cy, cx + width, cy, r);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+
+        // text
+        ctx.fillStyle = '#9ca3af';
+        ctx.fillText(text, x, y);
+      });
+    }
+
+    function saveImage() {
+      const canvas = document.getElementById('ogCanvas');
+      const link = document.createElement('a');
+      link.download = 'og-image.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+
+    // Call drawCanvas, waiting for fonts
+    if (document.fonts) {
+      document.fonts.load('bold 76px "Sora"').then(drawCanvas);
+    } else {
+      setTimeout(drawCanvas, 500);
+    }
+  </script>
+</body>
+</html>

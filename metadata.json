@@ -1,0 +1,6 @@
+{
+  "name": "FrameFlow - Video to Image Sequence",
+  "description": "A powerful client-side tool to convert any video into a high-quality image sequence. Customize FPS and download as a ZIP archive.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
