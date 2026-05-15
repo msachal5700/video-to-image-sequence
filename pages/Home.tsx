@@ -25,6 +25,18 @@ const faqs = [
     a: 'Video to Image Sequence Online is the best free alternative — it has no file size limit, no server upload, batch processing, ZIP download, individual frame downloads, and custom FPS control. All completely free.' },
   { q: 'Do I need to create an account or install anything?',
     a: 'No. Just open the website and start converting. No account, no download, no installation. Works on any device with a modern browser.' },
+  { q: 'What is a video to image sequence converter?',
+    a: 'A video to image sequence converter extracts individual frames from a video and saves them as separate image files.' },
+  { q: 'Can I extract frames from an MP4 video?',
+    a: 'Yes, you can upload an MP4 video and extract frames as JPG or PNG images.' },
+  { q: 'Which format is better, JPG or PNG?',
+    a: 'JPG is better for smaller file size. PNG is better for higher quality and editing.' },
+  { q: 'Can I use this tool for YouTube videos?',
+    a: 'If you have the video file downloaded legally, you can upload it and extract frames.' },
+  { q: 'Is this tool free?',
+    a: 'Yes, this tool is free to use.' },
+  { q: 'Why should I extract frames from a video?',
+    a: 'You may need frames for thumbnails, editing, animation, AI training datasets, visual analysis, or presentations.' },
 ]
 
 const Home: React.FC = () => {
@@ -111,7 +123,103 @@ const Home: React.FC = () => {
       </div>
 
       <AdUnit label="Advertisement" className="max-w-5xl mx-auto my-12" />
+      {/* ── HOW THIS TOOL WORKS ── */}
+      <section className="max-w-4xl mx-auto py-16 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">
+          How This Video to Image Sequence Tool Works
+        </h2>
+        <p className="text-gray-400 mb-6 leading-relaxed">
+          This tool extracts individual frames from your video and converts them into downloadable image files. You can upload a video, choose the output format, and download frames as JPG or PNG images.
+        </p>
+        <p className="text-gray-400 mb-6 font-semibold text-white">The process is simple:</p>
+        <ol className="text-gray-400 space-y-2 mb-6 list-decimal list-inside">
+          <li>Upload your video file.</li>
+          <li>Select the image format.</li>
+          <li>Choose how many frames you want to extract.</li>
+          <li>Download the extracted image sequence.</li>
+        </ol>
+        <p className="text-gray-400 leading-relaxed">
+          This is useful for animation, video editing, AI dataset creation, thumbnails, motion analysis, and frame-by-frame review.
+        </p>
+      </section>
 
+      {/* ── SUPPORTED VIDEO FORMATS ── */}
+      <section className="max-w-4xl mx-auto py-16 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">
+          Supported Video Formats
+        </h2>
+        <p className="text-gray-400 mb-6 leading-relaxed">
+          Our tool supports common video formats such as:
+        </p>
+        <ul className="text-gray-400 space-y-2 mb-6 list-disc list-inside">
+          <li>MP4</li>
+          <li>MOV</li>
+          <li>WEBM</li>
+          <li>AVI</li>
+          <li>MKV</li>
+        </ul>
+        <p className="text-gray-400 leading-relaxed">
+          For best results, use <strong className="text-white">MP4</strong> because it is widely supported, fast to process, and works well in most browsers.
+        </p>
+      </section>
+
+      {/* ── SUPPORTED IMAGE OUTPUT FORMATS ── */}
+      <section className="max-w-4xl mx-auto py-16 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">
+          Supported Image Output Formats
+        </h2>
+        <p className="text-gray-400 mb-6 leading-relaxed">
+          You can extract frames as:
+        </p>
+        <div className="space-y-4 mb-6">
+          <div>
+            <p className="text-white font-semibold mb-1">JPG/JPEG</p>
+            <p className="text-gray-400">best for smaller file size and general use.</p>
+          </div>
+          <div>
+            <p className="text-white font-semibold mb-1">PNG</p>
+            <p className="text-gray-400">best for high-quality frames, transparent graphics, design work, and editing.</p>
+          </div>
+        </div>
+        <p className="text-gray-400 leading-relaxed">
+          Choose <strong className="text-white">JPG</strong> if you want faster downloads. Choose <strong className="text-white">PNG</strong> if image quality matters more.
+        </p>
+      </section>
+
+      {/* ── WHO CAN USE THIS TOOL ── */}
+      <section className="max-w-4xl mx-auto py-16 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">
+          Who Can Use This Tool?
+        </h2>
+        <p className="text-gray-400 mb-6 leading-relaxed">
+          This tool is useful for:
+        </p>
+        <ul className="text-gray-400 space-y-2 list-disc list-inside">
+          <li>Video editors who need frame-by-frame screenshots.</li>
+          <li>Animators who need image sequences from video clips.</li>
+          <li>AI developers who need video frames for datasets.</li>
+          <li>YouTubers who want thumbnails from videos.</li>
+          <li>Designers who want still images from motion footage.</li>
+          <li>Students who need visual frames for projects.</li>
+          <li>Researchers who analyze motion or visual changes in videos.</li>
+        </ul>
+      </section>
+
+      {/* ── PRIVACY AND FILE SAFETY ── */}
+      <section className="max-w-4xl mx-auto py-16 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">
+          Privacy and File Safety
+        </h2>
+        <p className="text-gray-400 mb-6 leading-relaxed">
+          Your uploaded video is processed directly in your browser whenever possible. This means your video does not need to be stored permanently on our servers.
+        </p>
+        <p className="text-gray-400 mb-6 leading-relaxed">
+          We do not ask for login, account creation, or personal information. After processing, you can download your extracted frames immediately.
+        </p>
+        <p className="text-gray-400 leading-relaxed">
+          <strong className="text-white">For privacy, avoid uploading sensitive, private, or confidential videos to any online tool.</strong>
+        </p>
+      </section>
       {/* ── HOW IT WORKS ── */}
       <section id="how-it-works" className="max-w-4xl mx-auto py-16 px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-3 font-display">
