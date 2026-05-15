@@ -1,7 +1,7 @@
 {
   "redirects": [
     {
-      "source": "https://www.videotoimagesequence.online/(.*)",
+      "source": "/(.*)",
       "destination": "https://videotoimagesequence.online/$1",
       "permanent": true
     }
