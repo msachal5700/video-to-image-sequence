@@ -1,9 +1,11 @@
 import React, { useState, memo } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Header: React.FC = () => {
   const [open, setOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
   
   return (
     <header className="sticky top-0 z-50 bg-gray-950/90 backdrop-blur border-b border-gray-800 font-display">
@@ -24,8 +26,18 @@ const Header: React.FC = () => {
           <Link to="/#faq" className="hover:text-white transition">FAQ</Link>
         </nav>
 
+        {/* Theme Toggle */}
+        <button
+          onClick={toggleTheme}
+          className="text-gray-400 hover:text-white transition p-2 rounded-lg hover:bg-gray-800/50"
+          aria-label="Toggle theme"
+          title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+        >
+          {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+        </button>
+
         {/* Mobile menu */}
-        <button className="md:hidden text-gray-400" onClick={() => setOpen(!open)}>
+        <button className="md:hidden text-gray-400 ml-2" onClick={() => setOpen(!open)}>
           {open ? <X /> : <Menu />}
         </button>
         {open && (

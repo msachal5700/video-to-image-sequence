@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { ToastProvider } from './components/Toast';
+import { ThemeProvider } from './contexts/ThemeContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -55,35 +56,37 @@ const ScrollToHash: React.FC = () => {
 
 const App: React.FC = () => {
   return (
-    <ToastProvider>
-      <BrowserRouter>
-        <ScrollToHash />
-        <div className="min-h-screen bg-gray-950 text-gray-100 selection:bg-cyan-500/30 flex flex-col font-sans">
-          <Header />
-          
-          <main className="flex-grow">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/images-to-video" element={<ImagesToVideoPage />} />
-              <Route path="/mp4-to-jpg" element={<Mp4ToJpg />} />
-              <Route path="/screenshot-from-video" element={<ScreenshotFromVideo />} />
-              <Route path="/video-to-png" element={<VideoToPng />} />
-              <Route path="/blog" element={<BlogIndex />} />
-              <Route path="/blog/extract-frames-from-video-online" element={<ExtractFramesOnline />} />
-              <Route path="/blog/mp4-to-image-sequence-guide" element={<Mp4ToImageSequence />} />
-              <Route path="/blog/video-to-png-frames-free" element={<VideoToPngFrames />} />
-              <Route path="/blog/video-to-png-frames-guide" element={<VideoToPngGuide />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="/terms-of-service" element={<TermsOfService />} />
-              <Route path="/about-us" element={<AboutUs />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </main>
+    <ThemeProvider>
+      <ToastProvider>
+        <BrowserRouter>
+          <ScrollToHash />
+          <div className="min-h-screen bg-gray-950 text-gray-100 selection:bg-cyan-500/30 flex flex-col font-sans transition-colors duration-300">
+            <Header />
+            
+            <main className="flex-grow">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/images-to-video" element={<ImagesToVideoPage />} />
+                <Route path="/mp4-to-jpg" element={<Mp4ToJpg />} />
+                <Route path="/screenshot-from-video" element={<ScreenshotFromVideo />} />
+                <Route path="/video-to-png" element={<VideoToPng />} />
+                <Route path="/blog" element={<BlogIndex />} />
+                <Route path="/blog/extract-frames-from-video-online" element={<ExtractFramesOnline />} />
+                <Route path="/blog/mp4-to-image-sequence-guide" element={<Mp4ToImageSequence />} />
+                <Route path="/blog/video-to-png-frames-free" element={<VideoToPngFrames />} />
+                <Route path="/blog/video-to-png-frames-guide" element={<VideoToPngGuide />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/terms-of-service" element={<TermsOfService />} />
+                <Route path="/about-us" element={<AboutUs />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </main>
 
-          <Footer />
-        </div>
-      </BrowserRouter>
-    </ToastProvider>
+            <Footer />
+          </div>
+        </BrowserRouter>
+      </ToastProvider>
+    </ThemeProvider>
   );
 };
 
