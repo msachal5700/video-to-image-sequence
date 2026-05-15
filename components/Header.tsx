@@ -33,6 +33,7 @@ const Header: React.FC = () => {
             <Link to="/" onClick={() => setOpen(false)}>Tool</Link>
             <Link to="/images-to-video" onClick={() => setOpen(false)}>Images to Video</Link>
             <Link to="/blog" onClick={() => setOpen(false)}>Blog</Link>
+            <Link to="/#how-it-works" onClick={() => setOpen(false)}>How it Works</Link>
             <Link to="/#faq" onClick={() => setOpen(false)}>FAQ</Link>
           </div>
         )}

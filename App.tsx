@@ -21,18 +21,33 @@ const ScrollToHash: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Small delay to ensure DOM is ready
-    setTimeout(() => {
+    // Retry logic to handle cases where DOM isn't ready yet
+    const scrollToElement = () => {
       if (location.hash) {
         const id = location.hash.replace('#', '');
         const element = document.getElementById(id);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          return true;
         }
+        return false;
       } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        return true;
       }
-    }, 100);
+    };
+
+    // Try immediately, then with delays to handle slow DOM rendering
+    let attempts = 0;
+    const maxAttempts = 5;
+    const retryInterval = setInterval(() => {
+      if (scrollToElement() || attempts >= maxAttempts) {
+        clearInterval(retryInterval);
+      }
+      attempts++;
+    }, 150);
+
+    return () => clearInterval(retryInterval);
   }, [location]);
 
   return null;
