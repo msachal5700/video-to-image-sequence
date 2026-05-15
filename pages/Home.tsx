@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import VideoToImages from './VideoToImages';
 import AdUnit from '../components/AdUnit';
+import AdsterraAd from '../components/AdsterraAd';
 import SEOHead from '../components/SEOHead';
 
 const faqs = [
@@ -43,11 +44,11 @@ const Home: React.FC = () => {
   return (
     <div className="w-full mx-auto pb-16 font-sans">
       <SEOHead
-        title="Video to Image Sequence Online | Free Frame Extractor — No Upload"
-        description="Extract frames from MP4, MOV, and WEBM videos as JPG or PNG images instantly. 100% browser-based, no file size limit, completely private. Free forever."
+        title="Video to Image Sequence Converter Online – Extract Frames from Video"
+        description="Convert video to image sequence online for free. Extract frames from MP4, MOV, WEBM, AVI, and MKV videos as JPG or PNG images directly from your browser."
         canonical="https://videotoimagesequence.online/"
-        ogTitle="Video to Image Sequence — Free Online Frame Extractor"
-        ogDescription="Extract every frame from MP4, MOV, WEBM videos as high-quality JPG or PNG. No file size limit. 100% private. No server upload."
+        ogTitle="Video to Image Sequence Converter Online – Extract Frames from Video"
+        ogDescription="Convert video to image sequence online for free. Extract frames from MP4, MOV, WEBM, AVI, and MKV videos as JPG or PNG images directly from your browser."
         ogImage="https://videotoimagesequence.online/og-image.png"
         ogType="website"
       />
@@ -96,9 +97,6 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Top Ad Unit */}
-      <AdUnit label="Advertisement" className="max-w-5xl mx-auto" />
-
       {/* Tool Switcher Tabs */}
       <div className="flex justify-center mb-10 px-4">
         <div className="bg-gray-900 p-1.5 rounded-xl border border-gray-800 flex flex-col sm:flex-row gap-2 sm:gap-0">
@@ -122,7 +120,11 @@ const Home: React.FC = () => {
         <VideoToImages />
       </div>
 
-      <AdUnit label="Advertisement" className="max-w-5xl mx-auto my-12" />
+      {/* Adsterra Ad Block */}
+      <div className="max-w-5xl mx-auto">
+        <AdsterraAd />
+      </div>
+
       {/* ── HOW THIS TOOL WORKS ── */}
       <section className="max-w-4xl mx-auto py-16 px-4">
         <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">
@@ -361,6 +363,62 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* ── RELATED VIDEO FRAME TOOLS AND GUIDES ── */}
+      <section className="max-w-5xl mx-auto py-16 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-3 font-display">
+          Related Video Frame Tools and Guides
+        </h2>
+        <p className="text-gray-500 text-center text-sm mb-10">
+          Explore more tools and guides for video frame extraction
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {[
+            {
+              href: '/mp4-to-jpg',
+              title: 'MP4 to Image Sequence Guide',
+              desc: 'Learn how to convert MP4 videos to image sequences quickly and efficiently.',
+              icon: '📚'
+            },
+            {
+              href: '/mp4-to-jpg',
+              title: 'Extract Frames from Video',
+              desc: 'A comprehensive guide on extracting and saving individual frames from any video format.',
+              icon: '🎯'
+            },
+            {
+              href: '/video-to-png',
+              title: 'Video to PNG Sequence',
+              desc: 'Extract lossless PNG frames perfect for high-quality design work and VFX compositing.',
+              icon: '🎨'
+            },
+            {
+              href: '/images-to-video',
+              title: 'Image Sequence to Video',
+              desc: 'Combine extracted image sequences back into a video file with custom frame rates.',
+              icon: '🎬'
+            },
+            {
+              href: '/screenshot-from-video',
+              title: 'Screenshot from Video',
+              desc: 'Capture the perfect frame from any video as a high-resolution screenshot.',
+              icon: '📸'
+            },
+            {
+              href: '/video-to-png',
+              title: 'Video to JPG Converter',
+              desc: 'Convert video files to JPG image sequences for fast downloads and easy sharing.',
+              icon: '📷'
+            },
+          ].map(({ href, title, desc, icon }) => (
+            <Link key={href} to={href} className="bg-gray-900 border border-gray-800 rounded-xl p-5 hover:border-cyan-800 hover:bg-gray-900/80 transition-all group block text-left">
+              <div className="text-3xl mb-3 group-hover:scale-110 transition-transform inline-block">{icon}</div>
+              <h3 className="text-white font-semibold mb-2 group-hover:text-cyan-400 transition-colors text-sm md:text-base">{title}</h3>
+              <p className="text-gray-500 text-xs md:text-sm leading-relaxed">{desc}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       {/* ── FAQ Section ── */}
       <section id="faq" className="max-w-3xl mx-auto py-16 px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-3 font-display">
@@ -383,8 +441,6 @@ const Home: React.FC = () => {
           ))}
         </div>
       </section>
-
-      <AdUnit label="Advertisement" className="max-w-5xl mx-auto mb-12" />
     </div>
   );
 };
