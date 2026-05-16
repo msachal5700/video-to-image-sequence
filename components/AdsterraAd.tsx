@@ -1,40 +1,41 @@
-import { useEffect } from 'react';
+import React, { useEffect, useRef, memo } from 'react';
 
-export default function AdsterraAd() {
+interface AdsterraAdProps {
+  className?: string;
+  label?: string;
+}
+
+const AdsterraAd = ({ className = '', label = '' }: AdsterraAdProps) => {
+  const ref = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = 'https://code.adsterra.com/banners/adsterra_ad.js';
-    script.async = true;
-
-    const adContainer = document.getElementById('adsterra-ad-container');
-
-    if (adContainer && !adContainer.querySelector('script')) {
-      adContainer.appendChild(script);
+    if (ref.current && !ref.current.hasChildNodes()) {
+      const script = document.createElement('script');
+      script.async = true;
+      script.setAttribute('data-cfasync', 'false');
+      // Adsterra banner script - update with your Adsterra publisher ID
+      script.src = 'https://code.adsterra.com/banners/adsterra_ad.js';
+      
+      const div = document.createElement('div');
+      div.id = 'adsterra-ad-container';
+      
+      ref.current.appendChild(script);
+      ref.current.appendChild(div);
     }
-
-    return () => {
-      if (adContainer) {
-        adContainer.innerHTML = '';
-      }
-    };
   }, []);
 
   return (
-    <div className="w-full flex justify-center py-8">
-      <div
-        id="adsterra-ad-container"
-        className="w-full max-w-[728px] min-h-[90px] flex items-center justify-center bg-gray-900/50 rounded-lg"
-      >
+    <div className={`w-full flex flex-col items-center my-8 ${className}`}>
+      {label && <p className="text-[10px] text-gray-700 mb-1 uppercase tracking-wider">{label}</p>}
+      <div ref={ref} className="w-full flex flex-col items-center justify-center min-h-[90px]">
         {import.meta.env.DEV && (
-          <div className="text-center">
-            <span className="text-xs text-gray-500 block">
-              📢 Adsterra ad placeholder (development)
-            </span>
-            <span className="text-xs text-gray-600">728×90 banner</span>
+          <div className="text-center text-xs text-gray-500">
+            📢 Adsterra ad (development mode)
           </div>
         )}
       </div>
     </div>
   );
-}
+};
+
+export default memo(AdsterraAd);
