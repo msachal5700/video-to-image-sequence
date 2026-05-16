@@ -1,24 +1,30 @@
 import React, { useEffect, useRef, memo } from 'react';
 
-interface AdsterraAdProps {
+interface AtOptionsAdProps {
   className?: string;
   label?: string;
 }
 
-const AdsterraAd = ({ className = '', label = '' }: AdsterraAdProps) => {
+const AtOptionsAd = ({ className = '', label = '' }: AtOptionsAdProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (ref.current && ref.current.children.length === 0) {
+      const scriptTag = document.createElement('script');
+      scriptTag.innerHTML = `
+        atOptions = {
+          'key' : '6d4606d2eeb8071b4f629017dbc9bba9',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+      `;
+      ref.current.appendChild(scriptTag);
+
       const script = document.createElement('script');
       script.async = true;
-      script.setAttribute('data-cfasync', 'false');
-      script.src = 'https://pl28128840.effectivecpmnetwork.com/999c8cf3f03558a8b1b5b28a2f0a1248/invoke.js';
-      
-      const div = document.createElement('div');
-      div.id = 'container-999c8cf3f03558a8b1b5b28a2f0a1248';
-      
-      ref.current.appendChild(div);
+      script.src = 'https://www.highperformanceformat.com/6d4606d2eeb8071b4f629017dbc9bba9/invoke.js';
       ref.current.appendChild(script);
     }
   }, []);
@@ -37,4 +43,4 @@ const AdsterraAd = ({ className = '', label = '' }: AdsterraAdProps) => {
   );
 };
 
-export default memo(AdsterraAd);
+export default memo(AtOptionsAd);
