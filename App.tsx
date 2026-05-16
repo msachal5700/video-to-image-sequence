@@ -16,6 +16,7 @@ import Mp4ToJpg from './pages/Mp4ToJpg';
 import ScreenshotFromVideo from './pages/ScreenshotFromVideo';
 import VideoToPng from './pages/VideoToPng';
 import VideoToPngGuide from './pages/blog/VideoToPngGuide';
+import ExtractFramesFromVideo from './pages/ExtractFramesFromVideo';
 
 // Component to handle hash-based scrolling
 const ScrollToHash: React.FC = () => {
@@ -66,6 +67,7 @@ const App: React.FC = () => {
             <main className="flex-grow">
               <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/extract-frames-from-video" element={<ExtractFramesFromVideo />} />
                 <Route path="/images-to-video" element={<ImagesToVideoPage />} />
                 <Route path="/mp4-to-jpg" element={<Mp4ToJpg />} />
                 <Route path="/screenshot-from-video" element={<ScreenshotFromVideo />} />

@@ -375,16 +375,16 @@ const Home: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {[
             {
+              href: '/extract-frames-from-video',
+              title: 'Extract Frames from Video',
+              desc: 'Free online tool to extract individual frames from any video format as JPG or PNG images.',
+              icon: '🎯'
+            },
+            {
               href: '/mp4-to-jpg',
               title: 'MP4 to Image Sequence Guide',
               desc: 'Learn how to convert MP4 videos to image sequences quickly and efficiently.',
               icon: '📚'
-            },
-            {
-              href: '/mp4-to-jpg',
-              title: 'Extract Frames from Video',
-              desc: 'A comprehensive guide on extracting and saving individual frames from any video format.',
-              icon: '🎯'
             },
             {
               href: '/video-to-png',
