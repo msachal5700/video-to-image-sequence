@@ -66,6 +66,15 @@ const ExtractFramesFromVideo: React.FC = () => {
             </span>
           ))}
         </div>
+
+        <div className="max-w-2xl mx-auto mb-8 text-center">
+          <Link
+            to="/"
+            className="inline-flex items-center justify-center rounded-full border border-cyan-600 bg-cyan-950/50 px-5 py-3 text-sm font-semibold text-cyan-400 transition-colors hover:bg-cyan-900 hover:text-white"
+          >
+            video to image sequence converter
+          </Link>
+        </div>
       </section>
 
       {/* Main Tool Content */}
@@ -265,7 +274,7 @@ const ExtractFramesFromVideo: React.FC = () => {
             to="/"
             className="block bg-gray-900 border border-gray-800 rounded-lg p-4 hover:border-cyan-800 transition-colors group"
           >
-            <p className="text-cyan-400 font-semibold group-hover:text-cyan-300">→ Video to Image Sequence Converter</p>
+            <p className="text-cyan-400 font-semibold group-hover:text-cyan-300">video to image sequence converter</p>
             <p className="text-gray-500 text-sm mt-1">The main tool for converting videos to image sequences with advanced features.</p>
           </Link>
           <Link
