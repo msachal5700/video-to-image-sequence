@@ -11,22 +11,22 @@ const VideoToPngFrames: React.FC = () => {
       "@type": "BlogPosting",
       "headline": "Video to PNG Frames — Best Free Method in 2026",
       "description": "The fastest and most private way to convert video files to PNG image sequences without uploading to any server. Lossless quality, free forever.",
-      "url": "https://videotoimagesequence.online/blog/video-to-png-frames-free",
-      "mainEntityOfPage": "https://videotoimagesequence.online/blog/video-to-png-frames-free",
+      "url": "https://www.videotoimagesequence.online/blog/video-to-png-frames-free",
+      "mainEntityOfPage": "https://www.videotoimagesequence.online/blog/video-to-png-frames-free",
       "keywords": ["video to PNG", "extract PNG frames", "lossless video frames", "video PNG sequence"],
       "datePublished": "2026-04-23",
       "dateModified": "2026-04-23",
       "author": { "@type": "Organization", "name": "Video to Image Sequence Online" },
-      "publisher": { "@type": "Organization", "name": "Video to Image Sequence Online", "logo": { "@type": "ImageObject", "url": "https://videotoimagesequence.online/og-image.png" } },
-      "image": "https://videotoimagesequence.online/og-image.png"
+      "publisher": { "@type": "Organization", "name": "Video to Image Sequence Online", "logo": { "@type": "ImageObject", "url": "https://www.videotoimagesequence.online/og-image.png" } },
+      "image": "https://www.videotoimagesequence.online/og-image.png"
     },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://videotoimagesequence.online" },
-        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://videotoimagesequence.online/blog" },
-        { "@type": "ListItem", "position": 3, "name": "Video to PNG Frames", "item": "https://videotoimagesequence.online/blog/video-to-png-frames-free" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.videotoimagesequence.online" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.videotoimagesequence.online/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Video to PNG Frames", "item": "https://www.videotoimagesequence.online/blog/video-to-png-frames-free" }
       ]
     }]);
     document.head.appendChild(script);
@@ -40,10 +40,10 @@ const VideoToPngFrames: React.FC = () => {
       <SEOHead
         title="Video to PNG Frames — Best Free Method in 2026"
         description="The fastest and most private way to convert video files to PNG image sequences without uploading to any server. Lossless quality, free forever."
-        canonical="https://videotoimagesequence.online/blog/video-to-png-frames-free"
+        canonical="https://www.videotoimagesequence.online/blog/video-to-png-frames-free"
         ogTitle="Video to PNG Frames — Best Free Method 2026"
         ogDescription="Convert any MP4, MOV or WEBM video to lossless PNG frames instantly in your browser. No upload, no limit."
-        ogImage="https://videotoimagesequence.online/og-image.png"
+        ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="article"
         articleDate="2026-04-23"
       />

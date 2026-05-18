@@ -11,22 +11,22 @@ const ExtractFramesOnline: React.FC = () => {
       "@type": "BlogPosting",
       "headline": "How to Extract Frames from Any Video Online Free — No Install Needed",
       "description": "A complete step-by-step guide to extracting frames from MP4, MOV, and WEBM videos directly in your browser. No software, no upload, no file size limit.",
-      "url": "https://videotoimagesequence.online/blog/extract-frames-from-video-online",
-      "mainEntityOfPage": "https://videotoimagesequence.online/blog/extract-frames-from-video-online",
+      "url": "https://www.videotoimagesequence.online/blog/extract-frames-from-video-online",
+      "mainEntityOfPage": "https://www.videotoimagesequence.online/blog/extract-frames-from-video-online",
       "keywords": ["extract frames from video", "video to image sequence", "online frame extractor", "MP4 to JPG"],
       "datePublished": "2026-04-23",
       "dateModified": "2026-04-23",
       "author": { "@type": "Organization", "name": "Video to Image Sequence Online" },
-      "publisher": { "@type": "Organization", "name": "Video to Image Sequence Online", "logo": { "@type": "ImageObject", "url": "https://videotoimagesequence.online/og-image.png" } },
-      "image": "https://videotoimagesequence.online/og-image.png"
+      "publisher": { "@type": "Organization", "name": "Video to Image Sequence Online", "logo": { "@type": "ImageObject", "url": "https://www.videotoimagesequence.online/og-image.png" } },
+      "image": "https://www.videotoimagesequence.online/og-image.png"
     },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://videotoimagesequence.online" },
-        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://videotoimagesequence.online/blog" },
-        { "@type": "ListItem", "position": 3, "name": "Extract Frames Online", "item": "https://videotoimagesequence.online/blog/extract-frames-from-video-online" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.videotoimagesequence.online" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.videotoimagesequence.online/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Extract Frames Online", "item": "https://www.videotoimagesequence.online/blog/extract-frames-from-video-online" }
       ]
     }]);
     document.head.appendChild(script);
@@ -40,10 +40,10 @@ const ExtractFramesOnline: React.FC = () => {
       <SEOHead
         title="How to Extract Frames from Any Video Online Free — No Install Needed"
         description="A complete step-by-step guide to extracting frames from MP4, MOV, and WEBM videos directly in your browser. No software, no upload, no file size limit."
-        canonical="https://videotoimagesequence.online/blog/extract-frames-from-video-online"
+        canonical="https://www.videotoimagesequence.online/blog/extract-frames-from-video-online"
         ogTitle="How to Extract Frames from Any Video Online (Free, No Install)"
         ogDescription="Step-by-step guide to browser-based video frame extraction. No upload, no install, works on any device."
-        ogImage="https://videotoimagesequence.online/og-image.png"
+        ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="article"
         articleDate="2026-04-23"
       />

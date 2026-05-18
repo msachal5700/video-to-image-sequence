@@ -36,7 +36,7 @@ const Mp4ToJpg: React.FC = () => {
         "name": "How to convert MP4 to JPG online",
         "description": "Convert MP4 video to JPG images online for free. Extract every frame as a high-quality JPG instantly in your browser.",
         "step": [
-          { "@type": "HowToStep", "name": "Open the tool", "text": "Open videotoimagesequence.online/mp4-to-jpg" },
+          { "@type": "HowToStep", "name": "Open the tool", "text": "Open https://www.videotoimagesequence.online/mp4-to-jpg" },
           { "@type": "HowToStep", "name": "Upload MP4", "text": "Drag and drop your MP4 file into the tool above" },
           { "@type": "HowToStep", "name": "Choose JPG format", "text": "Select JPG as output format and choose your FPS" },
           { "@type": "HowToStep", "name": "Extract frames", "text": "Click Extract Frames and wait for processing" },
@@ -50,7 +50,7 @@ const Mp4ToJpg: React.FC = () => {
           "@type": "SpeakableSpecification",
           "cssSelector": ["h1", ".hero-description"]
         },
-        "url": "https://videotoimagesequence.online/mp4-to-jpg"
+        "url": "https://www.videotoimagesequence.online/mp4-to-jpg"
       }
     ]);
     document.head.appendChild(script);
@@ -64,10 +64,10 @@ const Mp4ToJpg: React.FC = () => {
       <SEOHead
         title="MP4 to JPG Converter Online Free — Extract JPG Frames from MP4"
         description="Convert MP4 video to JPG images online for free. Extract every frame as a high-quality JPG instantly in your browser. No upload, no file size limit, 100% private."
-        canonical="https://videotoimagesequence.online/mp4-to-jpg"
+        canonical="https://www.videotoimagesequence.online/mp4-to-jpg"
         ogTitle="MP4 to JPG Converter — Free, No Upload, No Limits"
         ogDescription="Extract JPG frames from any MP4 video instantly in your browser. Free forever, no account needed."
-        ogImage="https://videotoimagesequence.online/og-image.png"
+        ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
       />
       

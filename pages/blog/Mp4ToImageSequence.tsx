@@ -11,22 +11,22 @@ const Mp4ToImageSequence: React.FC = () => {
       "@type": "BlogPosting",
       "headline": "MP4 to Image Sequence: Complete Beginner Guide 2026",
       "description": "Everything you need to know about converting MP4 videos into a sequence of JPG or PNG images for editing, animation, VFX, and machine learning datasets.",
-      "url": "https://videotoimagesequence.online/blog/mp4-to-image-sequence-guide",
-      "mainEntityOfPage": "https://videotoimagesequence.online/blog/mp4-to-image-sequence-guide",
+      "url": "https://www.videotoimagesequence.online/blog/mp4-to-image-sequence-guide",
+      "mainEntityOfPage": "https://www.videotoimagesequence.online/blog/mp4-to-image-sequence-guide",
       "keywords": ["MP4 to image sequence", "MP4 to JPG", "video frame extraction", "convert MP4 to images"],
       "datePublished": "2026-04-23",
       "dateModified": "2026-04-23",
       "author": { "@type": "Organization", "name": "Video to Image Sequence Online" },
-      "publisher": { "@type": "Organization", "name": "Video to Image Sequence Online", "logo": { "@type": "ImageObject", "url": "https://videotoimagesequence.online/og-image.png" } },
-      "image": "https://videotoimagesequence.online/og-image.png"
+      "publisher": { "@type": "Organization", "name": "Video to Image Sequence Online", "logo": { "@type": "ImageObject", "url": "https://www.videotoimagesequence.online/og-image.png" } },
+      "image": "https://www.videotoimagesequence.online/og-image.png"
     },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://videotoimagesequence.online" },
-        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://videotoimagesequence.online/blog" },
-        { "@type": "ListItem", "position": 3, "name": "MP4 to Image Sequence", "item": "https://videotoimagesequence.online/blog/mp4-to-image-sequence-guide" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.videotoimagesequence.online" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.videotoimagesequence.online/blog" },
+        { "@type": "ListItem", "position": 3, "name": "MP4 to Image Sequence", "item": "https://www.videotoimagesequence.online/blog/mp4-to-image-sequence-guide" }
       ]
     }]);
     document.head.appendChild(script);
@@ -40,10 +40,10 @@ const Mp4ToImageSequence: React.FC = () => {
       <SEOHead
         title="MP4 to Image Sequence: Complete Beginner Guide 2026"
         description="Everything you need to know about converting MP4 videos into a sequence of JPG or PNG images for editing, animation, VFX, and machine learning datasets."
-        canonical="https://videotoimagesequence.online/blog/mp4-to-image-sequence-guide"
+        canonical="https://www.videotoimagesequence.online/blog/mp4-to-image-sequence-guide"
         ogTitle="MP4 to Image Sequence — Complete Beginner Guide"
         ogDescription="Learn how to extract every frame from an MP4 video as JPG or PNG images, free in your browser."
-        ogImage="https://videotoimagesequence.online/og-image.png"
+        ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="article"
         articleDate="2026-04-23"
       />

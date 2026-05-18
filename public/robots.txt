@@ -1,38 +1,10 @@
 # Allow all standard crawlers
 User-agent: *
 Allow: /
-Disallow: /migrated_prompt_history/
+
 Disallow: /generate-og.html
-Disallow: /*.local
 Disallow: /dist/
-
-# Explicitly allow AI crawlers for ChatGPT/Perplexity/Claude citations
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: cohere-ai
-Allow: /
-
-User-agent: Googlebot
-Allow: /
-
-User-agent: bingbot
-Allow: /
-
-User-agent: Slurp
-Allow: /
+Disallow: /migrated_prompt_history/
 
 # Sitemap location
-Sitemap: https://videotoimagesequence.online/sitemap.xml
+Sitemap: https://www.videotoimagesequence.online/sitemap.xml

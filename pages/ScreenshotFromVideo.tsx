@@ -36,7 +36,7 @@ const ScreenshotFromVideo: React.FC = () => {
         "name": "How to take a screenshot from a video online",
         "description": "Take a screenshot from any video online for free. Capture the exact frame you need from MP4, MOV, or WEBM videos instantly in your browser.",
         "step": [
-          { "@type": "HowToStep", "name": "Open the tool", "text": "Open videotoimagesequence.online/screenshot-from-video" },
+          { "@type": "HowToStep", "name": "Open the tool", "text": "Open https://www.videotoimagesequence.online/screenshot-from-video" },
           { "@type": "HowToStep", "name": "Upload video", "text": "Upload your video to our tool above" },
           { "@type": "HowToStep", "name": "Extract frames", "text": "Let it extract frames at your chosen FPS" },
           { "@type": "HowToStep", "name": "Find frame", "text": "Hover over any frame in the grid" },
@@ -50,7 +50,7 @@ const ScreenshotFromVideo: React.FC = () => {
           "@type": "SpeakableSpecification",
           "cssSelector": ["h1", ".hero-description"]
         },
-        "url": "https://videotoimagesequence.online/screenshot-from-video"
+        "url": "https://www.videotoimagesequence.online/screenshot-from-video"
       }
     ]);
     document.head.appendChild(script);
@@ -64,10 +64,10 @@ const ScreenshotFromVideo: React.FC = () => {
       <SEOHead
         title="Screenshot from Video Online Free — Capture Any Frame Instantly"
         description="Take a screenshot from any video online for free. Capture the exact frame you need from MP4, MOV, or WEBM videos instantly in your browser. No upload required."
-        canonical="https://videotoimagesequence.online/screenshot-from-video"
+        canonical="https://www.videotoimagesequence.online/screenshot-from-video"
         ogTitle="Screenshot from Video — Free Online Frame Capture Tool"
         ogDescription="Capture any frame from your video as a JPG or PNG screenshot. Free, instant, no upload needed."
-        ogImage="https://videotoimagesequence.online/og-image.png"
+        ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
       />
       

@@ -16,12 +16,6 @@ const posts = [
     description: 'Everything you need to know about converting MP4 videos into a sequence of JPG or PNG images for editing, animation, and VFX.',
   },
   {
-    slug: 'video-to-png-frames-free',
-    title: 'Video to PNG Frames — Best Free Method in 2026',
-    date: 'April 2026',
-    description: 'The fastest and most private way to convert video files to PNG image sequences without uploading to any server.',
-  },
-  {
     slug: 'video-to-png-frames-guide',
     title: 'How to Convert Video to PNG Frames Online — Complete 2026 Guide',
     date: 'April 27, 2026',
@@ -35,10 +29,10 @@ const BlogIndex: React.FC = () => {
       <SEOHead
         title="Video Editing Guides & Tutorials | Video to Image Sequence Blog"
         description="Free guides on extracting video frames, converting MP4 to image sequences, and exporting PNG frames. Tips for animators, developers, and creators."
-        canonical="https://videotoimagesequence.online/blog"
+        canonical="https://www.videotoimagesequence.online/blog"
         ogTitle="Video Editing Guides — Video to Image Sequence Blog"
         ogDescription="Tutorials and tips for frame extraction, image sequences, batch processing, and more."
-        ogImage="https://videotoimagesequence.online/og-image.png"
+        ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
       />
       <div className="text-center mb-16">

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { ToastProvider } from './components/Toast';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Header from './components/Header';
@@ -10,7 +10,6 @@ import NotFound from './pages/NotFound';
 import BlogIndex from './pages/BlogIndex';
 import ExtractFramesOnline from './pages/blog/ExtractFramesOnline';
 import Mp4ToImageSequence from './pages/blog/Mp4ToImageSequence';
-import VideoToPngFrames from './pages/blog/VideoToPngFrames';
 import { PrivacyPolicy, TermsOfService, AboutUs } from './pages/Legal';
 import Mp4ToJpg from './pages/Mp4ToJpg';
 import ScreenshotFromVideo from './pages/ScreenshotFromVideo';
@@ -75,7 +74,7 @@ const App: React.FC = () => {
                 <Route path="/blog" element={<BlogIndex />} />
                 <Route path="/blog/extract-frames-from-video-online" element={<ExtractFramesOnline />} />
                 <Route path="/blog/mp4-to-image-sequence-guide" element={<Mp4ToImageSequence />} />
-                <Route path="/blog/video-to-png-frames-free" element={<VideoToPngFrames />} />
+                <Route path="/blog/video-to-png-frames-free" element={<Navigate to="/blog/video-to-png-frames-guide" replace />} />
                 <Route path="/blog/video-to-png-frames-guide" element={<VideoToPngGuide />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/terms-of-service" element={<TermsOfService />} />

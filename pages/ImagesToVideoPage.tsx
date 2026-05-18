@@ -66,10 +66,10 @@ const ImagesToVideoPage: React.FC = () => {
       <SEOHead
         title="Images to Video Converter — Free Online Tool | No Upload Needed"
         description="Convert a sequence of JPG or PNG images into a video online for free. No upload required. Browser-based, private, and instant. Supports custom FPS."
-        canonical="https://videotoimagesequence.online/images-to-video"
+        canonical="https://www.videotoimagesequence.online/images-to-video"
         ogTitle="Images to Video Converter — Free & Private"
         ogDescription="Turn your image sequence into a video instantly in your browser. No upload, no account, no file size limit."
-        ogImage="https://videotoimagesequence.online/og-image.png"
+        ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
       />
       {/* ── HERO SECTION ── */}

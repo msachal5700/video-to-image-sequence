@@ -8,7 +8,7 @@ const NotFound: React.FC = () => {
       <SEOHead
         title="404 — Page Not Found | Video to Image Sequence"
         description="This page does not exist. Go back to the homepage to extract frames from your video for free."
-        canonical="https://videotoimagesequence.online/404"
+        canonical="https://www.videotoimagesequence.online/404"
         noindex={true}
       />
       <h1 className="text-8xl md:text-9xl font-black text-cyan-400 font-display mb-6">404</h1>

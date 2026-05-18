@@ -1,4 +1,11 @@
 {
+  "redirects": [
+    {
+      "source": "/blog/video-to-png-frames-free",
+      "destination": "/blog/video-to-png-frames-guide",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
@@ -7,15 +14,20 @@
   ],
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/sitemap.xml",
       "headers": [
         {
-          "key": "X-Robots-Tag",
-          "value": "index, follow"
-        },
+          "key": "Content-Type",
+          "value": "application/xml"
+        }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
         {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600, stale-while-revalidate=86400"
+          "key": "Content-Type",
+          "value": "text/plain"
         }
       ]
     },

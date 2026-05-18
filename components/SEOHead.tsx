@@ -10,6 +10,7 @@ interface SEOHeadProps {
   ogType?: 'website' | 'article';
   articleDate?: string;
   noindex?: boolean;
+  nofollow?: boolean;
 }
 
 const setMeta = (selector: string, attr: string, value: string) => {
@@ -40,14 +41,19 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   ogImage,
   ogType,
   articleDate,
-  noindex
+  noindex,
+  nofollow
 }) => {
   useEffect(() => {
     // Set title
     document.title = title;
 
     // Set description and robots
-    setMeta('meta[name="description"]', 'content', description);
+    let robotsContent = 'index, follow';
+    if (noindex) {
+      robotsContent = nofollow ? 'noindex, nofollow' : 'noindex, follow';
+    }
+    setMeta('meta[name="robots"]', 'content', robotsContent);
     setMeta('meta[name="robots"]', 'content', noindex ? 'noindex, nofollow' : 'index, follow');
     
     // Set canonical - ensure proper update
@@ -78,7 +84,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     if (articleDate) {
       setMeta('meta[property="article:published_time"]', 'content', articleDate);
     }
-  }, [title, description, canonical, ogTitle, ogDescription, ogImage, ogType, articleDate, noindex]);
+  }, [title, description, canonical, ogTitle, ogDescription, ogImage, ogType, articleDate, noindex, nofollow]);
 
   return null;
 };

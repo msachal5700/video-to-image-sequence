@@ -47,10 +47,10 @@ const Home: React.FC = () => {
       <SEOHead
         title="Video to Image Sequence Converter Online – Extract Frames from Video"
         description="Convert video to image sequence online for free. Extract frames from MP4, MOV, WEBM, AVI, and MKV videos as JPG or PNG images directly from your browser."
-        canonical="https://videotoimagesequence.online/"
+        canonical="https://www.videotoimagesequence.online/"
         ogTitle="Video to Image Sequence Converter Online – Extract Frames from Video"
         ogDescription="Convert video to image sequence online for free. Extract frames from MP4, MOV, WEBM, AVI, and MKV videos as JPG or PNG images directly from your browser."
-        ogImage="https://videotoimagesequence.online/og-image.png"
+        ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
       />
       

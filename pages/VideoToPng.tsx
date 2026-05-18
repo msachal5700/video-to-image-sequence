@@ -36,7 +36,7 @@ const VideoToPng: React.FC = () => {
         "name": "How to extract PNG frames from a video",
         "description": "Convert video to PNG images online for free. Extract lossless PNG frames from MP4, MOV, and WEBM videos in your browser.",
         "step": [
-          { "@type": "HowToStep", "name": "Open the tool", "text": "Open videotoimagesequence.online/video-to-png" },
+          { "@type": "HowToStep", "name": "Open the tool", "text": "Open https://www.videotoimagesequence.online/video-to-png" },
           { "@type": "HowToStep", "name": "Upload video", "text": "Drop your video into our tool above" },
           { "@type": "HowToStep", "name": "Select format", "text": "Select PNG as the output format and choose your FPS setting" },
           { "@type": "HowToStep", "name": "Extract frames", "text": "Click Extract and wait for processing" },
@@ -50,7 +50,7 @@ const VideoToPng: React.FC = () => {
           "@type": "SpeakableSpecification",
           "cssSelector": ["h1", ".hero-description"]
         },
-        "url": "https://videotoimagesequence.online/video-to-png"
+        "url": "https://www.videotoimagesequence.online/video-to-png"
       }
     ]);
     document.head.appendChild(script);
@@ -64,10 +64,10 @@ const VideoToPng: React.FC = () => {
       <SEOHead
         title="Video to PNG Converter Online Free — Extract PNG Frames Instantly"
         description="Convert video to PNG images online for free. Extract lossless PNG frames from MP4, MOV, and WEBM videos in your browser. No upload, no file size limit, 100% private."
-        canonical="https://videotoimagesequence.online/video-to-png"
+        canonical="https://www.videotoimagesequence.online/video-to-png"
         ogTitle="Video to PNG Converter — Free, Lossless, No Upload"
         ogDescription="Extract lossless PNG frames from any video instantly in your browser. Perfect for VFX, game dev, and ML datasets."
-        ogImage="https://videotoimagesequence.online/og-image.png"
+        ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
       />
       

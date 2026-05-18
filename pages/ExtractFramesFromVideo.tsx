@@ -41,10 +41,10 @@ const ExtractFramesFromVideo: React.FC = () => {
       <SEOHead
         title="Extract Frames from Video Online – Free Video Frame Extractor"
         description="Extract frames from video online for free. Upload MP4, MOV, WEBM, AVI, or MKV videos and save frames as JPG or PNG images."
-        canonical="https://videotoimagesequence.online/extract-frames-from-video"
+        canonical="https://www.videotoimagesequence.online/extract-frames-from-video"
         ogTitle="Extract Frames from Video Online – Free Video Frame Extractor"
         ogDescription="Extract frames from video online for free. Upload MP4, MOV, WEBM, AVI, or MKV videos and save frames as JPG or PNG images."
-        ogImage="https://videotoimagesequence.online/og-image.png"
+        ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
       />
 

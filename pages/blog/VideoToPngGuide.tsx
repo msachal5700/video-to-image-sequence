@@ -12,7 +12,7 @@ export default function VideoToPngGuide() {
         "@type": "BlogPosting",
         "headline": "How to Convert Video to PNG Frames Online — Complete 2026 Guide",
         "description": "Learn exactly how to extract lossless PNG frames from any video file free in your browser. No software, no upload, no quality loss. Step-by-step guide for VFX, game dev, and ML engineers.",
-        "url": "https://videotoimagesequence.online/blog/video-to-png-frames-guide",
+        "url": "https://www.videotoimagesequence.online/blog/video-to-png-frames-guide",
         "datePublished": "2026-04-27",
         "dateModified": "2026-04-27",
         "author": {
@@ -23,7 +23,7 @@ export default function VideoToPngGuide() {
           "@type": "Organization",
           "name": "Video to Image Sequence Online"
         },
-        "mainEntityOfPage": "https://videotoimagesequence.online/blog/video-to-png-frames-guide",
+        "mainEntityOfPage": "https://www.videotoimagesequence.online/blog/video-to-png-frames-guide",
         "keywords": [
           "video to PNG", "extract PNG frames from video",
           "video to PNG sequence", "convert video to PNG online",
@@ -34,9 +34,9 @@ export default function VideoToPngGuide() {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://videotoimagesequence.online" },
-          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://videotoimagesequence.online/blog" },
-          { "@type": "ListItem", "position": 3, "name": "Video to PNG Frames Guide", "item": "https://videotoimagesequence.online/blog/video-to-png-frames-guide" }
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.videotoimagesequence.online" },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.videotoimagesequence.online/blog" },
+          { "@type": "ListItem", "position": 3, "name": "Video to PNG Frames Guide", "item": "https://www.videotoimagesequence.online/blog/video-to-png-frames-guide" }
         ]
       },
       {
@@ -48,7 +48,7 @@ export default function VideoToPngGuide() {
             "name": "How do I convert a video to PNG images online for free?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Go to videotoimagesequence.online/video-to-png, drop your MP4, MOV or WEBM video, select PNG as output format, choose your FPS, and click Extract. All PNG frames download as a ZIP file instantly in your browser."
+              "text": "Go to https://www.videotoimagesequence.online/video-to-png, drop your MP4, MOV or WEBM video, select PNG as output format, choose your FPS, and click Extract. All PNG frames download as a ZIP file instantly in your browser."
             }
           },
           {
@@ -95,10 +95,10 @@ export default function VideoToPngGuide() {
       <SEOHead
         title="How to Convert Video to PNG Frames Online Free — Complete 2026 Guide"
         description="Learn exactly how to extract lossless PNG frames from any video file free in your browser. No software, no upload, no quality loss. Step-by-step guide for VFX, game dev, and ML engineers."
-        canonical="https://videotoimagesequence.online/blog/video-to-png-frames-guide"
+        canonical="https://www.videotoimagesequence.online/blog/video-to-png-frames-guide"
         ogTitle="How to Convert Video to PNG Frames Online Free — 2026 Guide"
         ogDescription="Extract lossless PNG frames from any video instantly in your browser. No upload, no size limit, free forever."
-        ogImage="https://videotoimagesequence.online/og-image.png"
+        ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="article"
         articleDate="2026-04-27"
       />
@@ -537,7 +537,7 @@ export default function VideoToPngGuide() {
             {[
               {
                 q: 'How do I convert a video to PNG images online for free?',
-                a: 'Go to videotoimagesequence.online/video-to-png, drop your MP4, MOV or WEBM video into the tool, select PNG as the output format, choose your desired FPS setting, and click Extract Frames. All PNG frames will be generated in your browser and available to download as a ZIP archive. The entire process is free and your video never leaves your device.'
+                a: 'Go to https://www.videotoimagesequence.online/video-to-png, drop your MP4, MOV or WEBM video into the tool, select PNG as the output format, choose your desired FPS setting, and click Extract Frames. All PNG frames will be generated in your browser and available to download as a ZIP archive. The entire process is free and your video never leaves your device.'
               },
               {
                 q: 'Why is PNG better than JPG for video frame extraction?',
