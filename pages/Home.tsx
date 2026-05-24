@@ -245,17 +245,10 @@ const Home: React.FC = () => {
           Supported Video Formats
         </h2>
         <p className="text-gray-400 mb-6 leading-relaxed">
-          Our tool supports common video formats such as:
+          Best supported formats: MP4, MOV, and WEBM.
         </p>
-        <ul className="text-gray-400 space-y-2 mb-6 list-disc list-inside">
-          <li>MP4</li>
-          <li>MOV</li>
-          <li>WEBM</li>
-          <li>AVI <span style={{fontSize:'0.75em',color:'#9ca3af'}}>(browser-dependent)</span></li>
-          <li>MKV <span style={{fontSize:'0.75em',color:'#9ca3af'}}>(browser-dependent)</span></li>
-        </ul>
         <p className="text-gray-400 leading-relaxed">
-          For best results, use <strong className="text-white">MP4</strong> because it is widely supported, fast to process, and works well in most browsers.
+          Other formats such as AVI or MKV may work only when your browser supports the video codec.
         </p>
       </section>
 
@@ -397,7 +390,7 @@ const Home: React.FC = () => {
             </thead>
             <tbody className="divide-y divide-gray-800/50">
               {[
-                ['File size limit',          '✅ No Server Limit (RAM dependent)', '❌ 200MB',      '❌ 100-200MB'],
+                ['File size handling',       '✅ No server upload required; limited by browser/device RAM', '❌ 200MB',      '❌ 100-200MB'],
                 ['Server upload required',   '✅ Never',       '❌ Always',     '❌ Always'],
                 ['100% Private',             '✅ Yes',         '❌ No',         '❌ No'],
                 ['Individual frame preview', '✅ Full grid',   '✅ Yes',        '⚠️ Limited'],
