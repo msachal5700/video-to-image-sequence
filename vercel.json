@@ -1,8 +1,34 @@
 {
   "redirects": [
     {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "videotoimagesequence.online"
+        }
+      ],
+      "destination": "https://www.videotoimagesequence.online/$1",
+      "permanent": true
+    },
+    {
       "source": "/blog/video-to-png-frames-free",
       "destination": "/blog/video-to-png-frames-guide",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/terms-of-service",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/about-us",
+      "destination": "/about",
       "permanent": true
     }
   ],

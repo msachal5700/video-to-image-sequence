@@ -76,9 +76,12 @@ const App: React.FC = () => {
                 <Route path="/blog/mp4-to-image-sequence-guide" element={<Mp4ToImageSequence />} />
                 <Route path="/blog/video-to-png-frames-free" element={<Navigate to="/blog/video-to-png-frames-guide" replace />} />
                 <Route path="/blog/video-to-png-frames-guide" element={<VideoToPngGuide />} />
-                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                <Route path="/terms-of-service" element={<TermsOfService />} />
-                <Route path="/about-us" element={<AboutUs />} />
+                <Route path="/privacy" element={<PrivacyPolicy />} />
+                <Route path="/terms" element={<TermsOfService />} />
+                <Route path="/about" element={<AboutUs />} />
+                <Route path="/privacy-policy" element={<Navigate to="/privacy" replace />} />
+                <Route path="/terms-of-service" element={<Navigate to="/terms" replace />} />
+                <Route path="/about-us" element={<Navigate to="/about" replace />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>

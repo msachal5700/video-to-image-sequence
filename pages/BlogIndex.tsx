@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
+import Breadcrumb from '../components/Breadcrumb';
 
 const posts = [
   {
@@ -35,6 +36,7 @@ const BlogIndex: React.FC = () => {
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
       />
+      <Breadcrumb items={[{ label: 'Blog', path: '/blog' }]} />
       <div className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white font-display">Video Editing <span className="text-cyan-400">Guides</span></h1>
         <p className="text-gray-400 text-lg max-w-2xl mx-auto">Tutorials, tips, and free tools to help you extract frames, create image sequences, and optimize your media workflow.</p>

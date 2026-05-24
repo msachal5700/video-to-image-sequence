@@ -1,69 +1,70 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import VideoToImages from './VideoToImages';
 import SEOHead from '../components/SEOHead';
+import Breadcrumb from '../components/Breadcrumb';
+import { Link } from 'react-router-dom';
 
 const faqs = [
   {
     q: 'How do I take a screenshot from a video online?',
-    a: 'Upload your video to our tool above, let it extract frames, then hover over any frame in the grid and click the download button to save that exact frame as a JPG or PNG.'
+    a: 'Upload your video above, let the tool extract frames at your chosen interval, browse the grid, and click the download button on your desired frame to save it as a JPG or PNG.'
   },
   {
     q: 'What resolution will my video screenshot be?',
-    a: 'The screenshot will be the full native resolution of your video — 1080p, 4K, or whatever resolution your video was recorded at.'
+    a: 'The screenshot will match the native resolution of your source video file (e.g. 1080p or 4K) — far sharper than a standard monitor screenshot which is capped by screen resolution.'
   },
   {
-    q: 'Can I capture a specific timestamp from my video?',
-    a: 'Yes. Set the FPS to a high value to get more frames, then browse the frame grid to find the exact moment you want and download just that frame.'
+    q: 'Can I capture a specific frame or timestamp?',
+    a: 'Yes. Choose a high FPS setting (like 30 FPS) to extract consecutive frames around the time you want, and then download the exact image.'
   },
   {
-    q: 'Does this work for MP4, MOV, and WEBM videos?',
-    a: 'Yes. Our tool supports MP4, MOV, and WEBM — the three most common video formats used by phones, cameras, and screen recorders.'
+    q: 'Is there a file size limit for video screenshots?',
+    a: 'No server upload limit. Processing happens in your browser, so very large files may depend on your device memory, browser performance, and video length.'
   },
   {
-    q: 'Is taking a screenshot from a video free?',
-    a: 'Yes. Our tool is completely free, requires no account, and has no file size limit.'
+    q: 'Does it work for MP4, MOV, and WEBM videos?',
+    a: 'Yes. It supports the three most common video formats used by screen recorders, cameras, and mobile devices.'
   }
 ];
 
 const ScreenshotFromVideo: React.FC = () => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.text = JSON.stringify([
-      {
-        "@context": "https://schema.org",
-        "@type": "HowTo",
-        "name": "How to take a screenshot from a video online",
-        "description": "Take a screenshot from any video online for free. Capture the exact frame you need from MP4, MOV, or WEBM videos instantly in your browser.",
-        "step": [
-          { "@type": "HowToStep", "name": "Open the tool", "text": "Open https://www.videotoimagesequence.online/screenshot-from-video" },
-          { "@type": "HowToStep", "name": "Upload video", "text": "Upload your video to our tool above" },
-          { "@type": "HowToStep", "name": "Extract frames", "text": "Let it extract frames at your chosen FPS" },
-          { "@type": "HowToStep", "name": "Find frame", "text": "Hover over any frame in the grid" },
-          { "@type": "HowToStep", "name": "Download screenshot", "text": "Click the download button to save that exact frame as a JPG or PNG" }
-        ]
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "speakable": {
-          "@type": "SpeakableSpecification",
-          "cssSelector": ["h1", ".hero-description"]
-        },
-        "url": "https://www.videotoimagesequence.online/screenshot-from-video"
+  // Construct Application & FAQ JSON-LD schemas
+  const schemas = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Screenshot from Video",
+      "url": "https://www.videotoimagesequence.online/screenshot-from-video",
+      "image": "https://www.videotoimagesequence.online/og-image.png",
+      "description": "Take a screenshot from any video online for free. Capture the exact frame you need from MP4, MOV, or WEBM videos instantly in your browser.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires HTML5 and Javascript support",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
       }
-    ]);
-    document.head.appendChild(script);
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, []);
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    }
+  ];
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
       <SEOHead
         title="Screenshot from Video Online Free — Capture Any Frame Instantly"
-        description="Take a screenshot from any video online for free. Capture the exact frame you need from MP4, MOV, or WEBM videos instantly in your browser. No upload required."
+        description="Take a screenshot from any video online for free. Capture the exact frame you need from MP4, MOV, or WEBM videos instantly in your browser. No server upload required."
         canonical="https://www.videotoimagesequence.online/screenshot-from-video"
         ogTitle="Screenshot from Video — Free Online Frame Capture Tool"
         ogDescription="Capture any frame from your video as a JPG or PNG screenshot. Free, instant, no upload needed."
@@ -71,25 +72,33 @@ const ScreenshotFromVideo: React.FC = () => {
         ogType="website"
       />
       
+      {/* Schemas */}
+      <script type="application/ld+json">
+        {JSON.stringify(schemas)}
+      </script>
+
+      {/* Breadcrumb */}
+      <Breadcrumb items={[{ label: 'Tools' }, { label: 'Screenshot from Video', path: '/screenshot-from-video' }]} />
+
       {/* ── HERO SECTION ── */}
-      <section className="text-center max-w-4xl mx-auto pt-16 pb-10 px-4">
+      <section className="text-center max-w-4xl mx-auto pt-10 pb-10 px-4">
         <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-tight font-display">
           Screenshot from Video<br />
           <span className="text-cyan-400">Capture Any Frame Online — Free & Instant</span>
         </h1>
 
         <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed hero-description">
-          Difference between this tool and a regular screenshot — regular screenshots capture whatever is on screen at a moment, but this tool lets you seek to any exact timestamp and capture that precise frame as a full-resolution JPG or PNG.
+          Take a screenshot from any video online for free. Extract the exact frame you need from MP4, MOV, or WEBM videos in full native resolution. No file uploads, no watermarks, completely private.
         </p>
 
         {/* Trust badges */}
         <div className="flex flex-wrap justify-center gap-3 text-xs text-gray-400 mb-10">
           {[
-            '✅ Full Resolution',
-            '🎯 Exact Frame',
-            '🔒 Private',
-            '⚡ No Upload',
-            '🆓 Free'
+            '🎯 Native Resolution Capture',
+            '🔒 100% Private (Local)',
+            '⚡ Instant Processing',
+            '📷 JPG & PNG Output',
+            '🆓 Free Forever'
           ].map(badge => (
             <span key={badge} className="bg-gray-900 border border-gray-800 px-3 py-1.5 rounded-full">
               {badge}
@@ -103,66 +112,128 @@ const ScreenshotFromVideo: React.FC = () => {
         <VideoToImages />
       </div>
 
-      {/* How is this different from pressing Print Screen? */}
-      <section className="max-w-4xl mx-auto py-16 px-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 font-display">
-          How is this different from pressing Print Screen?
+      {/* ── BROWSER SECURITY & PRIVACY ── */}
+      <section className="max-w-4xl mx-auto py-12 px-4 mt-8">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">
+          Secure, Client-Side Frame Capturing
+        </h2>
+        <p className="text-gray-400 leading-relaxed">
+          Avoid sending private video content, screen recordings, or camera uploads to third-party cloud servers. Our browser-based extraction engine uses modern web video decoders to process files locally. Because no files are uploaded, your frames stay safe on your computer, making this tool perfect for private media and security footage.
+        </p>
+      </section>
+
+      {/* ── HOW TO USE ── */}
+      <section className="max-w-4xl mx-auto py-12 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 font-display">
+          How to Capture a Full-Resolution Screenshot from Video
+        </h2>
+        <div className="bg-gray-900 border border-gray-800 rounded-3xl p-6 md:p-8">
+          <ol className="list-decimal pl-6 space-y-4 text-gray-300 marker:text-cyan-500 marker:font-bold">
+            <li>
+              <strong className="text-white">Load Video File:</strong> Drag and drop your MP4, MOV, or WEBM video file into the tool above.
+            </li>
+            <li>
+              <strong className="text-white">Select Format:</strong> Choose between JPG (smaller files) or PNG (lossless format).
+            </li>
+            <li>
+              <strong className="text-white">Set Freq (FPS):</strong> Choose the extraction frequency. Set a high value (like 30 FPS) to get consecutive frames of a fast-moving scene.
+            </li>
+            <li>
+              <strong className="text-white">Extract:</strong> Click "Extract Frames Now" to load the frame grid.
+            </li>
+            <li>
+              <strong className="text-white">Download Screenshot:</strong> Hover over the target frame in the grid and click the download button to save it locally.
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      {/* ── HOW IS THIS DIFFERENT ── */}
+      <section className="max-w-4xl mx-auto py-12 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">
+          How is this different from Print Screen?
         </h2>
         <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 md:p-8 space-y-4 text-gray-300">
           <ul className="list-disc pl-5 space-y-4 marker:text-cyan-500">
-            <li>Print Screen / cmd+shift+4 captures whatever resolution your monitor shows.</li>
-            <li>This tool captures the full native video resolution (e.g. 1920x1080 or 4K).</li>
-            <li>No compression artifacts from screen recording.</li>
-            <li>Works on any video even if it is DRM-free local file.</li>
+            <li>
+              <strong className="text-white">Full Native Quality:</strong> Print Screen (or CMD+Shift+4) only grabs the resolution of your display monitor. Our tool exports at the video\'s native resolution (e.g. 1920x1080 or 4K), even if your screen is low-res.
+            </li>
+            <li>
+              <strong className="text-white">Zero UI Elements:</strong> Captures clean video frames without player interfaces, cursor marks, or browser toolbars.
+            </li>
+            <li>
+              <strong className="text-white">Frame Accuracy:</strong> Lets you parse consecutive frames to capture split-second moments that are hard to capture by pausing a normal player.
+            </li>
           </ul>
         </div>
       </section>
 
-      {/* Best ways to take a screenshot from a video */}
-      <section className="max-w-5xl mx-auto py-16 px-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 font-display">
-          Best ways to take a screenshot from a video
+      {/* ── LIMITATIONS & MEMORY WARNING ── */}
+      <section className="max-w-4xl mx-auto py-12 px-4">
+        <div className="bg-cyan-950/20 border-l-4 border-cyan-500 rounded-r-2xl p-6">
+          <h2 className="text-lg font-bold text-white mb-2">
+            ⚠️ Browser Processing Notice
+          </h2>
+          <p className="text-gray-400 text-sm leading-relaxed">
+            No server upload limit. Processing happens in your browser, so very large files may depend on your device memory, browser performance, and video length. Extracting a very long sequence of images can consume significant RAM. If the browser tab feels sluggish or crashes, decrease the FPS setting to output fewer frames.
+          </p>
+        </div>
+      </section>
+
+      {/* ── TROUBLESHOOTING ── */}
+      <section className="max-w-4xl mx-auto py-12 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">
+          Troubleshooting Common Issues
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6">
-            <h3 className="text-white font-semibold text-lg mb-4">Browser Tool (this site)</h3>
-            <ul className="space-y-2 text-gray-400 text-sm list-disc pl-4">
-              <li><strong className="text-white">Best for:</strong> full resolution, private files, no install.</li>
-              <li>Instantly accessible and highly precise.</li>
-            </ul>
+        <div className="space-y-4">
+          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
+            <h3 className="text-white font-semibold mb-2">Unable to find the exact frame</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              If the moment you want to capture lies between extracted frames, increase your FPS setting (e.g. up to 30 or 60 FPS) to decrease the gap between the previewed images.
+            </p>
           </div>
-          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6">
-            <h3 className="text-white font-semibold text-lg mb-4">VLC Media Player</h3>
-            <ul className="space-y-2 text-gray-400 text-sm list-disc pl-4">
-              <li><strong className="text-white">Best for:</strong> desktop users who already have VLC installed.</li>
-              <li>Must know the keyboard shortcut, quality is configurable.</li>
-            </ul>
-          </div>
-          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6">
-            <h3 className="text-white font-semibold text-lg mb-4">FFmpeg</h3>
-            <ul className="space-y-2 text-gray-400 text-sm list-disc pl-4">
-              <li><strong className="text-white">Best for:</strong> developers and batch processing via command line.</li>
-              <li>Steep learning curve but extremely powerful.</li>
-            </ul>
-          </div>
-          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6">
-            <h3 className="text-white font-semibold text-lg mb-4">Video Editing Software</h3>
-            <ul className="space-y-2 text-gray-400 text-sm list-disc pl-4">
-              <li><strong className="text-white">Best for:</strong> users already in Premiere, DaVinci, Final Cut.</li>
-              <li>Heavy operation for just one screenshot.</li>
-            </ul>
+          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
+            <h3 className="text-white font-semibold mb-2">Black Frames Extracted</h3>
+            <p className="text-gray-405 text-sm leading-relaxed">
+              Some videos contain black frames at the very beginning (fade-in). Let the parser extract further into the video or check your video codec parameters.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Screenshot from Video FAQ */}
-      <section id="faq" className="max-w-3xl mx-auto py-16 px-4">
+      {/* ── RELATED TOOLS (INTERNAL LINKING) ── */}
+      <section className="max-w-4xl mx-auto py-12 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 font-display">
+          More Free Online Frame Extractors
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          <Link to="/mp4-to-jpg" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">MP4 to JPG</h3>
+            <p className="text-gray-500 text-xs">Convert MP4 videos into high-quality JPGs.</p>
+          </Link>
+          <Link to="/video-to-png" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video to PNG</h3>
+            <p className="text-gray-500 text-xs">Extract lossless transparent PNG frames.</p>
+          </Link>
+          <Link to="/extract-frames-from-video" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Frame Extractor</h3>
+            <p className="text-gray-500 text-xs">Supports MP4, MOV, WEBM and more.</p>
+          </Link>
+          <Link to="/images-to-video" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Images to Video</h3>
+            <p className="text-gray-500 text-xs">Stitch frame sequences into a WebM video.</p>
+          </Link>
+        </div>
+      </section>
+
+      {/* ── FAQ Section ── */}
+      <section id="faq" className="max-w-3xl mx-auto py-12 px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-10 font-display">
-          Screenshot from Video FAQ
+          Frequently Asked Questions
         </h2>
         <div className="space-y-3">
           {faqs.map((faq, i) => (
-            <details key={i} className="border border-gray-800 bg-gray-900/50 rounded-2xl p-5 cursor-pointer group hover:border-cyan-800 transition-colors">
+            <details key={i} className="border border-gray-800 bg-gray-900/50 rounded-2xl p-5 cursor-pointer group hover:border-cyan-850 transition-colors">
               <summary className="font-medium text-white text-sm md:text-base list-none flex justify-between items-center group-open:text-cyan-400">
                 {faq.q}
                 <span className="text-cyan-400 transition-transform group-open:rotate-180">

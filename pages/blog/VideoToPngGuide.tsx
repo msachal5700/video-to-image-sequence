@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
+import Breadcrumb from '../../components/Breadcrumb';
 
 export default function VideoToPngGuide() {
   useEffect(() => {
@@ -32,15 +33,6 @@ export default function VideoToPngGuide() {
       },
       {
         "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.videotoimagesequence.online" },
-          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.videotoimagesequence.online/blog" },
-          { "@type": "ListItem", "position": 3, "name": "Video to PNG Frames Guide", "item": "https://www.videotoimagesequence.online/blog/video-to-png-frames-guide" }
-        ]
-      },
-      {
-        "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
           {
@@ -64,7 +56,7 @@ export default function VideoToPngGuide() {
             "name": "Can I extract PNG frames from 4K video online?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Since all processing happens in your browser with no server upload, there is no file size or resolution limit. 4K PNG extraction works the same as 1080p. The only constraint is your device RAM."
+              "text": "Yes. Since all processing happens in your browser with no server upload, you can process 4K video. 4K PNG extraction works the same as 1080p, with the only constraints being your device RAM and processing power."
             }
           },
           {
@@ -72,7 +64,7 @@ export default function VideoToPngGuide() {
             "name": "What is the best free tool to extract PNG frames from video?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Video to Image Sequence Online at videotoimagesequence.online/video-to-png is the best free option. It requires no upload, has no file size limit, outputs lossless PNG, supports custom FPS, and processes everything privately in your browser."
+              "text": "Video to Image Sequence Online at www.videotoimagesequence.online/video-to-png is the best free option. It requires no upload, processes files locally in device memory, outputs lossless PNG, supports custom FPS, and processes everything privately in your browser."
             }
           },
           {
@@ -97,22 +89,16 @@ export default function VideoToPngGuide() {
         description="Learn exactly how to extract lossless PNG frames from any video file free in your browser. No software, no upload, no quality loss. Step-by-step guide for VFX, game dev, and ML engineers."
         canonical="https://www.videotoimagesequence.online/blog/video-to-png-frames-guide"
         ogTitle="How to Convert Video to PNG Frames Online Free — 2026 Guide"
-        ogDescription="Extract lossless PNG frames from any video instantly in your browser. No upload, no size limit, free forever."
+        ogDescription="Extract lossless PNG frames from any video instantly in your browser. No upload, processed locally in device memory, free forever."
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="article"
         articleDate="2026-04-27"
       />
 
-      {/* Breadcrumb */}
-      <div className="max-w-4xl mx-auto px-4 pt-8 pb-2">
-        <nav className="flex items-center gap-2 text-xs text-gray-500">
-          <Link to="/" className="hover:text-cyan-400 transition">Home</Link>
-          <span>/</span>
-          <Link to="/blog" className="hover:text-cyan-400 transition">Blog</Link>
-          <span>/</span>
-          <span className="text-gray-400">Video to PNG Frames Guide</span>
-        </nav>
-      </div>
+      <Breadcrumb items={[
+        { label: 'Blog', path: '/blog' },
+        { label: 'Video to PNG Frames Guide' }
+      ]} />
 
       {/* Article Header */}
       <header className="max-w-4xl mx-auto px-4 pt-8 pb-12">
@@ -270,7 +256,7 @@ export default function VideoToPngGuide() {
               {
                 num: '01',
                 title: 'Open the Video to PNG Tool',
-                desc: 'Navigate to videotoimagesequence.online/video-to-png in any modern browser — Chrome, Firefox, Safari, or Edge all work perfectly. No installation required. The tool loads instantly.'
+                desc: 'Navigate to www.videotoimagesequence.online/video-to-png in any modern browser — Chrome, Firefox, Safari, or Edge all work perfectly. No installation required. The tool loads instantly.'
               },
               {
                 num: '02',
@@ -495,7 +481,7 @@ export default function VideoToPngGuide() {
                 diffColor: 'text-cyan-400',
                 pros: 'No install, no upload, free, private, instant results on any device',
                 cons: 'Requires modern browser, very large files need sufficient device RAM',
-                command: 'videotoimagesequence.online/video-to-png'
+                command: 'www.videotoimagesequence.online/video-to-png'
               },
             ].map((alt) => (
               <div key={alt.method}
@@ -545,11 +531,11 @@ export default function VideoToPngGuide() {
               },
               {
                 q: 'Can I extract PNG frames from 4K video online for free?',
-                a: 'Yes. Since all processing happens locally in your browser with no file upload to any server, there is no imposed file size or resolution limit. You can process 4K videos the same as 1080p videos. The only practical constraint is your device RAM — close other browser tabs when processing very large 4K files.'
+                a: 'Yes. Since all processing happens locally in your browser with no file upload to any server, you can process 4K videos. The only constraints are your local device RAM and browser memory resources — we recommend closing other browser tabs when processing very large 4K files.'
               },
               {
                 q: 'What is the best free tool to extract PNG frames from video?',
-                a: 'Video to Image Sequence Online at videotoimagesequence.online/video-to-png is the best free option available. It requires no server upload so your files stay completely private, has no file size limit, outputs true lossless PNG, supports custom FPS from 1 to 60, allows batch processing of multiple videos, and works on any device without installation.'
+                a: 'Video to Image Sequence Online at www.videotoimagesequence.online/video-to-png is the best free option available. It requires no server upload so your files stay completely private, processes frames directly in local device memory, outputs true lossless PNG, supports custom FPS from 1 to 60, allows batch processing of multiple videos, and works on any device without installation.'
               },
               {
                 q: 'How large are PNG files extracted from video?',

@@ -8,7 +8,7 @@ import SEOHead from '../components/SEOHead';
 
 const faqs = [
   { q: 'Is there a file size limit?',
-    a: 'No. Video to Image Sequence Online processes everything in your browser. There is no upload and no file size limit at all — convert videos of any size for free.' },
+    a: 'No server upload limit. Processing happens in your browser, so very large files may depend on your device memory, browser performance, and video length.' },
   { q: 'What video formats are supported?',
     a: 'MP4, MOV, and WEBM — the three most common formats used by phones, cameras, and screen recorders.' },
   { q: 'Should I extract frames as JPG or PNG?',
@@ -24,7 +24,7 @@ const faqs = [
   { q: 'Can I download individual frames?',
     a: 'Yes. Every extracted frame appears in a visual grid. Hover over any frame and click the download button to save that specific frame.' },
   { q: 'What is the best free alternative for extracting video frames?',
-    a: 'Video to Image Sequence Online is the best free alternative — it has no file size limit, no server upload, batch processing, ZIP download, individual frame downloads, and custom FPS control. All completely free.' },
+    a: 'Video to Image Sequence Online is the best free alternative — it has no server upload limit (processing happens locally in your browser, so very large files may depend on your device memory, browser performance, and video length), batch processing, ZIP download, individual frame downloads, and custom FPS control. All completely free.' },
   { q: 'Do I need to create an account or install anything?',
     a: 'No. Just open the website and start converting. No account, no download, no installation. Works on any device with a modern browser.' },
   { q: 'What is a video to image sequence converter?',
@@ -59,7 +59,7 @@ const Home: React.FC = () => {
         {/* Badge */}
         <div className="inline-flex items-center gap-2 bg-cyan-950/50 border border-cyan-800 text-cyan-400 text-xs font-medium px-3 py-1.5 rounded-full mb-6">
           <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse" />
-          100% Free · No Upload · No Limits
+          100% Free · No Upload · Local Browser Processing
         </div>
 
         {/* H1 — SEO + AI optimized */}
@@ -74,7 +74,7 @@ const Home: React.FC = () => {
           browser-based tool that extracts every frame from <strong className="text-white">MP4, MOV, and WEBM</strong> videos as high-quality
           <strong className="text-white"> JPG or PNG images</strong>.
           Unlike other tools, it requires <strong className="text-white">no file upload</strong>,
-          has <strong className="text-white">no file size limit</strong>, supports
+          has <strong className="text-white">no server upload limit</strong> (processing happens locally in your browser, so very large files may depend on your device memory, browser performance, and video length), supports
           <strong className="text-white"> batch processing</strong>,
           <strong className="text-white"> ZIP download</strong>, and custom FPS control —
           all completely free and <strong className="text-white">100% private</strong>.
@@ -83,7 +83,7 @@ const Home: React.FC = () => {
         {/* Trust badges */}
         <div className="flex flex-wrap justify-center gap-3 text-xs text-gray-400 mb-10">
           {[
-            '✅ No File Size Limit',
+            '✅ No Server Upload Limit',
             '🔒 100% Private',
             '⚡ Instant — No Upload',
             '📦 ZIP Download',
@@ -214,13 +214,13 @@ const Home: React.FC = () => {
           Privacy and File Safety
         </h2>
         <p className="text-gray-400 mb-6 leading-relaxed">
-          Your uploaded video is processed directly in your browser whenever possible. This means your video does not need to be stored permanently on our servers.
+          Your video is processed entirely inside your browser. Because we use client-side JavaScript APIs, your files are never uploaded to any server or stored on the cloud. They stay 100% local on your computer.
         </p>
         <p className="text-gray-400 mb-6 leading-relaxed">
-          We do not ask for login, account creation, or personal information. After processing, you can download your extracted frames immediately.
+          We do not ask for signups, accounts, or personal information. You get maximum privacy and instant speed since no time is wasted uploading or downloading large video files.
         </p>
         <p className="text-gray-400 leading-relaxed">
-          <strong className="text-white">For privacy, avoid uploading sensitive, private, or confidential videos to any online tool.</strong>
+          <strong className="text-white">Your files are completely private. This tool is safe to use for sensitive, private, or confidential videos because zero data leaves your local device.</strong>
         </p>
       </section>
       {/* ── HOW IT WORKS ── */}
@@ -296,7 +296,7 @@ const Home: React.FC = () => {
               <tr className="bg-gray-900 border-b border-gray-800">
                 <th className="px-5 py-4 text-left text-gray-400 font-medium whitespace-nowrap">Feature</th>
                 <th className="px-5 py-4 text-center font-bold text-cyan-400 whitespace-nowrap">
-                  videotoimagesequence.online ✦
+                  www.videotoimagesequence.online ✦
                 </th>
                 <th className="px-5 py-4 text-center text-gray-400 font-medium whitespace-nowrap">Cloud Converters</th>
                 <th className="px-5 py-4 text-center text-gray-400 font-medium whitespace-nowrap">Others</th>
@@ -304,7 +304,7 @@ const Home: React.FC = () => {
             </thead>
             <tbody className="divide-y divide-gray-800/50">
               {[
-                ['File size limit',          '✅ Unlimited',   '❌ 200MB',      '❌ 100-200MB'],
+                ['File size limit',          '✅ No Server Limit (RAM dependent)', '❌ 200MB',      '❌ 100-200MB'],
                 ['Server upload required',   '✅ Never',       '❌ Always',     '❌ Always'],
                 ['100% Private',             '✅ Yes',         '❌ No',         '❌ No'],
                 ['Individual frame preview', '✅ Full grid',   '✅ Yes',        '⚠️ Limited'],

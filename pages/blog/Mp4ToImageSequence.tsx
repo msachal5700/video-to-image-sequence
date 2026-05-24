@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
+import Breadcrumb from '../../components/Breadcrumb';
 
 const Mp4ToImageSequence: React.FC = () => {
   useEffect(() => {
     const script = document.createElement('script');
     script.type = 'application/ld+json';
-    script.text = JSON.stringify([{
+    script.text = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "BlogPosting",
       "headline": "MP4 to Image Sequence: Complete Beginner Guide 2026",
@@ -19,16 +20,7 @@ const Mp4ToImageSequence: React.FC = () => {
       "author": { "@type": "Organization", "name": "Video to Image Sequence Online" },
       "publisher": { "@type": "Organization", "name": "Video to Image Sequence Online", "logo": { "@type": "ImageObject", "url": "https://www.videotoimagesequence.online/og-image.png" } },
       "image": "https://www.videotoimagesequence.online/og-image.png"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.videotoimagesequence.online" },
-        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.videotoimagesequence.online/blog" },
-        { "@type": "ListItem", "position": 3, "name": "MP4 to Image Sequence", "item": "https://www.videotoimagesequence.online/blog/mp4-to-image-sequence-guide" }
-      ]
-    }]);
+    });
     document.head.appendChild(script);
     return () => {
       document.head.removeChild(script);
@@ -47,7 +39,13 @@ const Mp4ToImageSequence: React.FC = () => {
         ogType="article"
         articleDate="2026-04-23"
       />
-      <div className="mb-10 text-center">
+      
+      <Breadcrumb items={[
+        { label: 'Blog', path: '/blog' },
+        { label: 'MP4 to Image Sequence' }
+      ]} />
+
+      <div className="mb-10 text-center mt-6">
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 font-display">MP4 to Image Sequence: Complete Beginner Guide</h1>
         <p className="text-cyan-400 font-mono text-sm tracking-wider uppercase">April 2026 • 6 min read</p>
       </div>
@@ -75,9 +73,9 @@ const Mp4ToImageSequence: React.FC = () => {
           like FFmpeg. Today, you can do it instantly right in your web browser.
         </p>
         <p>
-          At <Link to="/" className="text-cyan-400 hover:text-cyan-300 transition-colors font-medium underline underline-offset-4 decoration-cyan-400/30 hover:decoration-cyan-400">videotoimagesequence.online</Link>, 
+          At <Link to="/" className="text-cyan-400 hover:text-cyan-300 transition-colors font-medium underline underline-offset-4 decoration-cyan-400/30 hover:decoration-cyan-400">www.videotoimagesequence.online</Link>, 
           we built a powerful, entirely local video processor. This means <strong className="text-white">files never leave your computer</strong>. 
-          The extraction happens instantly, securely, and with zero file-size limits.
+          The extraction happens instantly, securely, and is processed locally in your device memory (limited only by your browser's allocated memory).
         </p>
 
         <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">Step-by-Step Instructions</h2>
@@ -92,7 +90,7 @@ const Mp4ToImageSequence: React.FC = () => {
         <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">Conclusion</h2>
         <p>
           Converting an MP4 into an image sequence doesn't have to be a complicated, technical chore. 
-          By utilizing modern browser APIs, you can process high-quality frames securely and entirely for free.
+          By utilizing modern browser APIs, you can process high-quality frames securely and entirely locally in device memory.
         </p>
         <p className="mt-12 text-center">
           <Link to="/" className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-2xl text-gray-950 bg-cyan-400 hover:bg-cyan-300 transition-all transform hover:-translate-y-1 shadow-lg shadow-cyan-500/20">

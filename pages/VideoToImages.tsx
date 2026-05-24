@@ -231,7 +231,7 @@ const VideoToImages: React.FC = () => {
           Convert Video to <span className="text-cyan-400">Image Sequence</span>
         </h2>
         <p className="text-gray-400 text-lg">
-          Extract frames from MP4, MOV, WebM. No uploads, unlimited size.
+          Extract frames from MP4, MOV, WebM. No server upload limit.
         </p>
       </div>
 
@@ -241,9 +241,9 @@ const VideoToImages: React.FC = () => {
             <Dropzone onFileSelect={handleFileSelect} />
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12 mb-4">
                <div className="text-center space-y-2">
-                  <div className="w-12 h-12 bg-cyan-950/50 border border-cyan-900 rounded-full flex items-center justify-center mx-auto text-cyan-400 font-bold text-2xl">∞</div>
-                  <h3 className="font-semibold text-white">Unlimited</h3>
-                  <p className="text-sm text-gray-500">Process huge files locally.</p>
+                  <div className="w-12 h-12 bg-cyan-950/50 border border-cyan-900 rounded-full flex items-center justify-center mx-auto text-cyan-400 font-bold text-xl">🔒</div>
+                  <h3 className="font-semibold text-white">No Server Uploads</h3>
+                  <p className="text-sm text-gray-500">Processing happens in your browser locally, so large files depend on your device memory.</p>
                </div>
                <div className="text-center space-y-2">
                   <div className="w-12 h-12 bg-cyan-950/50 border border-cyan-900 rounded-full flex items-center justify-center mx-auto text-cyan-400 font-bold text-xl">ZIP</div>

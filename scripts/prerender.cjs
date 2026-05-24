@@ -70,9 +70,9 @@ const routes = [
   '/blog/extract-frames-from-video-online',
   '/blog/mp4-to-image-sequence-guide',
   '/blog/video-to-png-frames-guide',
-  '/about-us',
-  '/privacy-policy',
-  '/terms-of-service',
+  '/about',
+  '/privacy',
+  '/terms',
   '/404'
 ];
 

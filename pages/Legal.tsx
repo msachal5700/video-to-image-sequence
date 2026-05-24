@@ -21,9 +21,9 @@ export const PrivacyPolicy: React.FC = () => (
     <SEOHead
       title="Privacy Policy | Video to Image Sequence Online"
       description="Our privacy policy. Your videos never leave your device. No data is collected, stored, or transmitted to any server."
-      canonical="https://www.videotoimagesequence.online/privacy-policy"
+      canonical="https://www.videotoimagesequence.online/privacy"
       noindex={true}
-      nofollow={false}
+      nofollow={true}
     />
     <LegalLayout title="Privacy Policy">
       <p>Last updated: {new Date().toLocaleDateString()}</p>
@@ -45,9 +45,9 @@ export const TermsOfService: React.FC = () => (
     <SEOHead
       title="Terms of Service | Video to Image Sequence Online"
       description="Terms of service for Video to Image Sequence Online. Free to use, no account required."
-      canonical="https://www.videotoimagesequence.online/terms-of-service"
+      canonical="https://www.videotoimagesequence.online/terms"
       noindex={true}
-      nofollow={false}
+      nofollow={true}
     />
     <LegalLayout title="Terms of Service">
       <h2>1. Acceptance of Terms</h2>
@@ -67,7 +67,7 @@ export const AboutUs: React.FC = () => (
     <SEOHead
       title="About Us | Video to Image Sequence Online"
       description="Learn about Video to Image Sequence Online — a free, private, browser-based tool for extracting frames from videos."
-      canonical="https://www.videotoimagesequence.online/about-us"
+      canonical="https://www.videotoimagesequence.online/about"
       noindex={false}
     />
     <LegalLayout title="About Us">

@@ -48,13 +48,11 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     // Set title
     document.title = title;
 
-    // Set description and robots
-    let robotsContent = 'index, follow';
-    if (noindex) {
-      robotsContent = nofollow ? 'noindex, nofollow' : 'noindex, follow';
-    }
+    // Set robots
+    const robotsContent = noindex 
+      ? (nofollow ? "noindex, nofollow" : "noindex, follow")
+      : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
     setMeta('meta[name="robots"]', 'content', robotsContent);
-    setMeta('meta[name="robots"]', 'content', noindex ? 'noindex, nofollow' : 'index, follow');
     
     // Set canonical - ensure proper update
     const existingCanonical = document.querySelector('link[rel="canonical"]');
