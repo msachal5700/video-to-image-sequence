@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import VideoToImages from './VideoToImages';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
@@ -28,9 +28,12 @@ const faqs = [
 ];
 
 const Mp4ToJpg: React.FC = () => {
-  // Construct Application & FAQ JSON-LD schemas
-  const schemas = [
-    {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = 'mp4-to-jpg-schemas';
+    
+    const webAppSchema = {
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "MP4 to JPG Converter",
@@ -45,8 +48,9 @@ const Mp4ToJpg: React.FC = () => {
         "price": "0",
         "priceCurrency": "USD"
       }
-    },
-    {
+    };
+
+    const faqSchema = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": faqs.map(faq => ({
@@ -57,8 +61,16 @@ const Mp4ToJpg: React.FC = () => {
           "text": faq.a
         }
       }))
-    }
-  ];
+    };
+
+    script.text = JSON.stringify([webAppSchema, faqSchema]);
+    document.head.appendChild(script);
+
+    return () => {
+      const el = document.getElementById('mp4-to-jpg-schemas');
+      if (el) el.remove();
+    };
+  }, []);
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
@@ -71,11 +83,6 @@ const Mp4ToJpg: React.FC = () => {
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
       />
-      
-      {/* Schemas */}
-      <script type="application/ld+json">
-        {JSON.stringify(schemas)}
-      </script>
 
       {/* Breadcrumb */}
       <Breadcrumb items={[{ label: 'Tools' }, { label: 'MP4 to JPG', path: '/mp4-to-jpg' }]} />
@@ -148,27 +155,144 @@ const Mp4ToJpg: React.FC = () => {
         </div>
       </section>
 
-      {/* ── SUPPORTED FORMATS ── */}
+      {/* ── SETTINGS GUIDELINES TABLE ── */}
+      <section className="max-w-4xl mx-auto py-12 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 font-display text-left">
+          Recommended Settings for Frame Extraction
+        </h2>
+        <p className="text-gray-400 mb-6 leading-relaxed">
+          Depending on your specific project goals, use the following configurations to optimize processing speed and export quality:
+        </p>
+        <div className="overflow-x-auto rounded-2xl border border-gray-800 mb-8">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="bg-gray-900 border-b border-gray-800">
+                <th className="px-5 py-4 text-left text-gray-400 font-medium">Use Case</th>
+                <th className="px-5 py-4 text-center text-gray-400 font-medium">Recommended Format</th>
+                <th className="px-5 py-4 text-center text-gray-400 font-medium">Recommended FPS</th>
+                <th className="px-5 py-4 text-left text-gray-400 font-medium">Why This Setting</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-800/50">
+              <tr className="hover:bg-gray-900/50 transition-colors">
+                <td className="px-5 py-3 text-gray-300 font-medium">Machine Learning / AI datasets</td>
+                <td className="px-5 py-3 text-center text-cyan-400 font-semibold">JPG</td>
+                <td className="px-5 py-3 text-center">1 to 5 FPS</td>
+                <td className="px-5 py-3 text-gray-400">Keeps dataset size manageable while providing sufficient visual variations for model training.</td>
+              </tr>
+              <tr className="hover:bg-gray-900/50 transition-colors">
+                <td className="px-5 py-3 text-gray-300 font-medium">High-end VFX Compositing</td>
+                <td className="px-5 py-3 text-center text-cyan-400 font-semibold">PNG</td>
+                <td className="px-5 py-3 text-center">All Frames</td>
+                <td className="px-5 py-3 text-gray-400">Preserves raw pixel colors and lossless visual quality required for chroma-keying and tracking.</td>
+              </tr>
+              <tr className="hover:bg-gray-900/50 transition-colors">
+                <td className="px-5 py-3 text-gray-300 font-medium">YouTube Thumbnails</td>
+                <td className="px-5 py-3 text-center text-cyan-400 font-semibold">JPG</td>
+                <td className="px-5 py-3 text-center">Custom / Single frame</td>
+                <td className="px-5 py-3 text-gray-400">Smaller file size ready to upload directly to Google console without hitting size limits.</td>
+              </tr>
+              <tr className="hover:bg-gray-900/50 transition-colors">
+                <td className="px-5 py-3 text-gray-300 font-medium">Web / Social Media Previews</td>
+                <td className="px-5 py-3 text-center text-cyan-400 font-semibold">JPG</td>
+                <td className="px-5 py-3 text-center">1 FPS</td>
+                <td className="px-5 py-3 text-gray-400">Fast downloads and extremely light weight zip packages for rapid reviews.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* ── CODEC & FORMAT LIMITATIONS GUIDE ── */}
       <section className="max-w-4xl mx-auto py-12 px-4">
         <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">
-          Supported Video Formats
+          Codec Support & Browser Compatibility Guide
         </h2>
         <p className="text-gray-400 leading-relaxed mb-6">
-          While this page is optimized for MP4 files, our processing worker supports the standard containers decoded by modern browsers:
+          Because this converter runs entirely in your local browser, it uses your operating system and web browser's native codecs. Here is how different encoders behave:
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
-            <h3 className="text-white font-semibold mb-2">MP4 (.mp4)</h3>
-            <p className="text-gray-500 text-xs leading-relaxed">The best format for frame extraction. Highly optimized browser decoding ensures fast performance.</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+            <h3 className="text-white font-semibold text-lg mb-2">H.264 / AVC (Standard MP4)</h3>
+            <p className="text-gray-500 text-sm leading-relaxed mb-3">
+              Universal support. Works perfectly on Chrome, Safari, Firefox, and Edge across Windows, macOS, Android, and iOS.
+            </p>
+            <span className="inline-block bg-cyan-950 border border-cyan-800 text-cyan-400 text-xs px-2.5 py-1 rounded-full font-semibold">
+              Highly Recommended
+            </span>
           </div>
-          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
-            <h3 className="text-white font-semibold mb-2">WEBM (.webm)</h3>
-            <p className="text-gray-500 text-xs leading-relaxed">Fully supported container commonly used for screen recordings and web assets.</p>
+          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+            <h3 className="text-white font-semibold text-lg mb-2">HEVC / H.265 (iPhone/Action Cams)</h3>
+            <p className="text-gray-500 text-sm leading-relaxed mb-3">
+              Supported natively on Apple devices (Safari macOS/iOS) and Windows browsers if hardware acceleration/HEVC extensions are configured.
+            </p>
+            <span className="inline-block bg-yellow-950 border border-yellow-800 text-yellow-500 text-xs px-2.5 py-1 rounded-full font-semibold">
+              Compatibility Varies
+            </span>
           </div>
-          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
-            <h3 className="text-white font-semibold mb-2">MOV (.mov)</h3>
-            <p className="text-gray-500 text-xs leading-relaxed">Supported video file type from Apple devices. Great for design and editing footage.</p>
+          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+            <h3 className="text-white font-semibold text-lg mb-2">ProRes / DNxHD (Professional)</h3>
+            <p className="text-gray-500 text-sm leading-relaxed mb-3">
+              Not natively decodable by standard web browsers. We recommend transcoding ProRes clips to H.264 using FFmpeg before processing.
+            </p>
+            <span className="inline-block bg-red-950 border border-red-800 text-red-500 text-xs px-2.5 py-1 rounded-full font-semibold">
+              Pre-transcode Recommended
+            </span>
           </div>
+          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+            <h3 className="text-white font-semibold text-lg mb-2">AV1 / VP9 (Modern Web Videos)</h3>
+            <p className="text-gray-500 text-sm leading-relaxed mb-3">
+              Excellent support in Chrome, Firefox, and Edge. Provides super fast decoding for modern web-optimized MP4/WebM files.
+            </p>
+            <span className="inline-block bg-cyan-950 border border-cyan-800 text-cyan-400 text-xs px-2.5 py-1 rounded-full font-semibold">
+              Supported
+            </span>
+          </div>
+        </div>
+      </section>
+
+      {/* ── COMPARATIVE GUIDE ── */}
+      <section className="max-w-4xl mx-auto py-12 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 font-display">
+          How We Compare to Desktop Tools & Ezgif
+        </h2>
+        <div className="overflow-x-auto rounded-2xl border border-gray-800">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="bg-gray-900 border-b border-gray-800">
+                <th className="px-5 py-4 text-left text-gray-400 font-medium">Feature / Limit</th>
+                <th className="px-5 py-4 text-center font-bold text-cyan-400">Our Local Converter</th>
+                <th className="px-5 py-4 text-center text-gray-400 font-medium">Ezgif / Cloud Tools</th>
+                <th className="px-5 py-4 text-center text-gray-400 font-medium">FFmpeg (CLI)</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-800/50">
+              <tr className="hover:bg-gray-900/50 transition-colors">
+                <td className="px-5 py-3 text-gray-300 font-medium">File Size Limits</td>
+                <td className="px-5 py-3 text-center bg-cyan-950/10 text-cyan-400 font-semibold">No Server Limit</td>
+                <td className="px-5 py-3 text-center text-gray-500">Max 100MB - 200MB</td>
+                <td className="px-5 py-3 text-center text-gray-400">Unlimited</td>
+              </tr>
+              <tr className="hover:bg-gray-900/50 transition-colors">
+                <td className="px-5 py-3 text-gray-300 font-medium">Privacy & Security</td>
+                <td className="px-5 py-3 text-center bg-cyan-950/10 text-cyan-400 font-semibold">100% Private (Local)</td>
+                <td className="px-5 py-3 text-center text-gray-500">Uploads to cloud server</td>
+                <td className="px-5 py-3 text-center text-gray-400">Offline / Secure</td>
+              </tr>
+              <tr className="hover:bg-gray-900/50 transition-colors">
+                <td className="px-5 py-3 text-gray-300 font-medium">Ease of Use</td>
+                <td className="px-5 py-3 text-center bg-cyan-950/10 text-cyan-400 font-semibold">Simple UI (Drag-n-Drop)</td>
+                <td className="px-5 py-3 text-center text-gray-500">Simple UI</td>
+                <td className="px-5 py-3 text-center text-gray-400">Steep CLI Command curve</td>
+              </tr>
+              <tr className="hover:bg-gray-900/50 transition-colors">
+                <td className="px-5 py-3 text-gray-300 font-medium">Installation</td>
+                <td className="px-5 py-3 text-center bg-cyan-950/10 text-cyan-400 font-semibold">None (Open website)</td>
+                <td className="px-5 py-3 text-center text-gray-500">None</td>
+                <td className="px-5 py-3 text-center text-gray-400">Requires download/compile</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
 
@@ -176,10 +300,10 @@ const Mp4ToJpg: React.FC = () => {
       <section className="max-w-4xl mx-auto py-12 px-4">
         <div className="bg-cyan-950/20 border-l-4 border-cyan-500 rounded-r-2xl p-6">
           <h2 className="text-lg font-bold text-white mb-2">
-            ⚠️ Browser Processing Notice
+            ⚠️ Browser Processing & RAM Limits
           </h2>
           <p className="text-gray-400 text-sm leading-relaxed">
-            No server upload limit. Processing happens in your browser, so very large files may depend on your device memory, browser performance, and video length. Extracting high FPS (e.g., 60 FPS) from a long 4K video consumes significant RAM. If the browser tab crashes, try selecting a lower FPS or converting shorter video segments.
+            Because processing is client-side, extracting thousands of high-resolution JPG images requires substantial device RAM. If you are converting a long video (e.g. 5+ minutes) at a high frame rate (e.g. 30 FPS), your browser tab may run out of memory and crash. To prevent this, process your videos in shorter chunks or lower the extraction FPS (e.g. 5 FPS).
           </p>
         </div>
       </section>

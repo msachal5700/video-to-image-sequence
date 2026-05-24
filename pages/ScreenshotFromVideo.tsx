@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import VideoToImages from './VideoToImages';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
@@ -28,9 +28,12 @@ const faqs = [
 ];
 
 const ScreenshotFromVideo: React.FC = () => {
-  // Construct Application & FAQ JSON-LD schemas
-  const schemas = [
-    {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = 'screenshot-from-video-schemas';
+    
+    const webAppSchema = {
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "Screenshot from Video",
@@ -45,8 +48,9 @@ const ScreenshotFromVideo: React.FC = () => {
         "price": "0",
         "priceCurrency": "USD"
       }
-    },
-    {
+    };
+
+    const faqSchema = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": faqs.map(faq => ({
@@ -57,8 +61,16 @@ const ScreenshotFromVideo: React.FC = () => {
           "text": faq.a
         }
       }))
-    }
-  ];
+    };
+
+    script.text = JSON.stringify([webAppSchema, faqSchema]);
+    document.head.appendChild(script);
+
+    return () => {
+      const el = document.getElementById('screenshot-from-video-schemas');
+      if (el) el.remove();
+    };
+  }, []);
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
@@ -72,11 +84,6 @@ const ScreenshotFromVideo: React.FC = () => {
         ogType="website"
       />
       
-      {/* Schemas */}
-      <script type="application/ld+json">
-        {JSON.stringify(schemas)}
-      </script>
-
       {/* Breadcrumb */}
       <Breadcrumb items={[{ label: 'Tools' }, { label: 'Screenshot from Video', path: '/screenshot-from-video' }]} />
 

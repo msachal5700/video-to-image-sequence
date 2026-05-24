@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import VideoToImages from './VideoToImages';
 import AdUnit from '../components/AdUnit';
@@ -42,6 +42,96 @@ const faqs = [
 ]
 
 const Home: React.FC = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = 'home-schemas';
+    
+    const webAppSchema = {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "@id": "https://www.videotoimagesequence.online/#webapp",
+      "name": "Video to Image Sequence Online",
+      "alternateName": [
+        "Video Frame Extractor",
+        "MP4 to Image Sequence Converter",
+        "Video to PNG Sequence Online"
+      ],
+      "url": "https://www.videotoimagesequence.online",
+      "description": "Free browser-based tool to extract frames from MP4, MOV, WEBM videos as JPG/PNG image sequences. Processed locally in device memory, 100% private, batch processing, ZIP download, custom FPS.",
+      "applicationCategory": "MultimediaApplication",
+      "applicationSubCategory": "Video Converter",
+      "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
+      "browserRequirements": "Requires modern browser with JavaScript enabled",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "featureList": [
+        "No server upload — 100% private processing",
+        "Processed locally in browser memory",
+        "JPG and PNG output format selection",
+        "Custom FPS frame rate control (all, 1, 5, 10, 24, 30 FPS)",
+        "ZIP download of all frames",
+        "Batch processing of multiple videos",
+        "MP4, MOV, WEBM input support"
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "xPath": [
+          "/html/head/meta[@name='description']/@content"
+        ]
+      },
+      "mainEntity": {
+        "@id": "https://www.videotoimagesequence.online/#faq"
+      }
+    };
+
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": "https://www.videotoimagesequence.online/#faq",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    };
+
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.videotoimagesequence.online" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.videotoimagesequence.online/blog" }
+      ]
+    };
+
+    const orgSchema = {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Video to Image Sequence Online",
+      "url": "https://www.videotoimagesequence.online",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.videotoimagesequence.online/favicon.svg",
+        "width": 32,
+        "height": 32
+      },
+      "description": "Free online video frame extraction tool. Convert any video to image sequences in your browser."
+    };
+
+    script.text = JSON.stringify([webAppSchema, faqSchema, breadcrumbSchema, orgSchema]);
+    document.head.appendChild(script);
+
+    return () => {
+      const el = document.getElementById('home-schemas');
+      if (el) {
+        el.remove();
+      }
+    };
+  }, []);
+
   return (
     <div className="w-full mx-auto pb-16 font-sans">
       <SEOHead

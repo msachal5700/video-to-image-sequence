@@ -54,7 +54,7 @@ const Footer = () => {
   <a 
     href="https://www.toolpilot.ai" 
     target="_blank" 
-    rel="noopener"
+    rel="noopener noreferrer nofollow"
     className="inline-flex items-center gap-2 text-xs text-gray-600 hover:text-gray-400 transition"
   >
     <img 

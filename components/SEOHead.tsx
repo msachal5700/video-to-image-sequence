@@ -48,6 +48,9 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     // Set title
     document.title = title;
 
+    // Set description
+    setMeta('meta[name="description"]', 'content', description);
+
     // Set robots
     const robotsContent = noindex 
       ? (nofollow ? "noindex, nofollow" : "noindex, follow")

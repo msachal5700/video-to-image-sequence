@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import VideoToImages from './VideoToImages';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
@@ -28,9 +28,12 @@ const faqs = [
 ];
 
 const VideoToPng: React.FC = () => {
-  // Construct Application & FAQ JSON-LD schemas
-  const schemas = [
-    {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = 'video-to-png-schemas';
+    
+    const webAppSchema = {
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "Video to PNG Converter",
@@ -45,8 +48,9 @@ const VideoToPng: React.FC = () => {
         "price": "0",
         "priceCurrency": "USD"
       }
-    },
-    {
+    };
+
+    const faqSchema = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": faqs.map(faq => ({
@@ -57,8 +61,16 @@ const VideoToPng: React.FC = () => {
           "text": faq.a
         }
       }))
-    }
-  ];
+    };
+
+    script.text = JSON.stringify([webAppSchema, faqSchema]);
+    document.head.appendChild(script);
+
+    return () => {
+      const el = document.getElementById('video-to-png-schemas');
+      if (el) el.remove();
+    };
+  }, []);
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
@@ -71,11 +83,6 @@ const VideoToPng: React.FC = () => {
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
       />
-      
-      {/* Schemas */}
-      <script type="application/ld+json">
-        {JSON.stringify(schemas)}
-      </script>
 
       {/* Breadcrumb */}
       <Breadcrumb items={[{ label: 'Tools' }, { label: 'Video to PNG', path: '/video-to-png' }]} />

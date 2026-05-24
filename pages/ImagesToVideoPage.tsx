@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ImagesToVideo from './ImagesToVideo';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
@@ -24,9 +24,12 @@ const faqs = [
 ];
 
 const ImagesToVideoPage: React.FC = () => {
-  // Construct Application & FAQ JSON-LD schemas
-  const schemas = [
-    {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = 'images-to-video-schemas';
+    
+    const webAppSchema = {
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "Images to Video Converter",
@@ -41,8 +44,9 @@ const ImagesToVideoPage: React.FC = () => {
         "price": "0",
         "priceCurrency": "USD"
       }
-    },
-    {
+    };
+
+    const faqSchema = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": faqs.map(faq => ({
@@ -53,8 +57,16 @@ const ImagesToVideoPage: React.FC = () => {
           "text": faq.a
         }
       }))
-    }
-  ];
+    };
+
+    script.text = JSON.stringify([webAppSchema, faqSchema]);
+    document.head.appendChild(script);
+
+    return () => {
+      const el = document.getElementById('images-to-video-schemas');
+      if (el) el.remove();
+    };
+  }, []);
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
@@ -68,10 +80,6 @@ const ImagesToVideoPage: React.FC = () => {
         ogType="website"
       />
       
-      {/* Schemas */}
-      <script type="application/ld+json">
-        {JSON.stringify(schemas)}
-      </script>
 
       {/* Breadcrumb */}
       <Breadcrumb items={[{ label: 'Tools' }, { label: 'Images to Video', path: '/images-to-video' }]} />
