@@ -93,7 +93,8 @@ export const extractFramesLegacy = async ({
             if (!zip) throw new Error('ZIP_FAILED: JSZip instance was unexpectedly destroyed.');
             const blob = await zip.generateAsync({ 
               type: 'blob',
-               // DEFLATE is fine for PNG, but STORE is best for JPG
+              compression: format === 'png' ? 'DEFLATE' : 'STORE',
+              compressionOptions: format === 'png' ? { level: 3 } : undefined,
             });
             zip = null; // allow GC to collect the JSZip instance
             resolve(blob);

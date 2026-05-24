@@ -152,6 +152,11 @@ const Controls: React.FC<ControlsProps> = ({
                <span className="text-sm font-medium text-gray-300">Estimated Output:</span>
                <span className="text-xl font-bold text-white font-mono">{estimatedFrames.toLocaleString()} <span className="text-xs font-medium text-cyan-400 tracking-wider">IMAGES</span></span>
             </div>
+            {estimatedFrames > 1000 && (
+              <p className="text-yellow-400 text-xs mt-2">
+                {estimatedFrames.toLocaleString()} frames may be slow on mobile. Consider lowering FPS.
+              </p>
+            )}
           </div>
         </div>
 

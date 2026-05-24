@@ -114,7 +114,8 @@ async function processVideo(payload: any) {
               processedFrames,
               totalFrames,
               progress: Math.round((processedFrames / totalFrames) * 100),
-              estimatedTimeRemaining: est
+              estimatedTimeRemaining: est,
+              startTime
             });
 
             if (maxFrames && processedFrames >= maxFrames) {

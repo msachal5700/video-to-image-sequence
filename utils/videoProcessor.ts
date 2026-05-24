@@ -1,3 +1,4 @@
+import React from 'react';
 import { ProcessingStats, OutputFormat } from '../types';
 import { extractFramesLegacy } from '../workers/frameExtractor.legacy';
 
@@ -24,10 +25,11 @@ export interface ProcessVideoOptions {
   maxFrames?: number; // default undefined = no limit
   onProgress: (stats: ProcessingStats) => void;
   onFrame?: (frameBlob: Blob, index: number) => void;
+  workerRef?: React.MutableRefObject<Worker | null>;
 }
 
 export const extractFramesAndZip = async (options: ProcessVideoOptions): Promise<Blob> => {
-  const { file, fps, format, quality = 0.8, maxFrames, onProgress, onFrame } = options;
+  const { file, fps, format, quality = 0.8, maxFrames, onProgress, onFrame, workerRef } = options;
 
   const supportsWorker = typeof OffscreenCanvas !== 'undefined' && typeof VideoDecoder !== 'undefined';
 
@@ -39,10 +41,15 @@ export const extractFramesAndZip = async (options: ProcessVideoOptions): Promise
     try {
       const arrayBuffer = await file.arrayBuffer();
       const worker = new Worker(new URL('../workers/frameExtractor.worker.ts', import.meta.url), { type: 'module' });
+      
+      if (workerRef) {
+        workerRef.current = worker;
+      }
 
       worker.onmessage = (e) => {
         const { type } = e.data;
         if (type === 'FALLBACK') {
+          if (workerRef) workerRef.current = null;
           worker.terminate();
           extractFramesLegacy(options).then(resolve).catch(reject);
         } else if (type === 'PROGRESS') {
@@ -51,21 +58,23 @@ export const extractFramesAndZip = async (options: ProcessVideoOptions): Promise
             totalFrames: e.data.totalFrames,
             progress: e.data.progress,
             estimatedTimeRemaining: e.data.estimatedTimeRemaining,
-            startTime: Date.now() // The worker doesn't manage start time correctly across threads, but progress does estimate it
+            startTime: e.data.startTime
           });
         } else if (type === 'FRAME') {
           if (onFrame) onFrame(e.data.blob, e.data.index);
         } else if (type === 'COMPLETE') {
+          if (workerRef) workerRef.current = null;
           worker.terminate();
           resolve(e.data.zipBlob);
         } else if (type === 'ERROR') {
+          if (workerRef) workerRef.current = null;
           worker.terminate();
-          // Also fallback on error to be safe, sometimes WebCodecs fails strangely
           extractFramesLegacy(options).then(resolve).catch(reject);
         }
       };
 
       worker.onerror = (err) => {
+        if (workerRef) workerRef.current = null;
         worker.terminate();
         extractFramesLegacy(options).then(resolve).catch(reject);
       };
@@ -82,6 +91,7 @@ export const extractFramesAndZip = async (options: ProcessVideoOptions): Promise
       }, [arrayBuffer]);
 
     } catch (err) {
+      if (workerRef) workerRef.current = null;
       extractFramesLegacy(options).then(resolve).catch(reject);
     }
   });

@@ -23,6 +23,7 @@ const VideoToImages: React.FC = () => {
   const [currentQueueIndex, setCurrentQueueIndex] = useState(0);
   const [completedZips, setCompletedZips] = useState<{ url: string; name: string }[]>([]);
   const cancelRef = useRef(false);
+  const activeWorkerRef = useRef<Worker | null>(null);
 
   const [videoMetadata, setVideoMetadata] = useState<VideoMetadata | null>(null);
   const [selectedFps, setSelectedFps] = useState<FrameRate>(30);
@@ -45,10 +46,17 @@ const VideoToImages: React.FC = () => {
   useEffect(() => {
     return () => {
       // Cleanup all object URLs when component unmounts
-      completedZips.forEach(zip => URL.revokeObjectURL(zip.url));
+      setCompletedZips(prev => {
+        prev.forEach(zip => URL.revokeObjectURL(zip.url));
+        return [];
+      });
       cleanupFrameUrls();
+      if (activeWorkerRef.current) {
+        activeWorkerRef.current.terminate();
+        activeWorkerRef.current = null;
+      }
     };
-  }, [completedZips, cleanupFrameUrls]);
+  }, [cleanupFrameUrls]);
 
   const handleFileSelect = useCallback((selectedFile: File) => {
     if (!selectedFile.type.startsWith('video/')) {
@@ -139,13 +147,15 @@ const VideoToImages: React.FC = () => {
             file: queue[i],
             fps: selectedFps,
             format: outputFormat,
+            maxFrames: 5000,
             onProgress: (stats) => {
               setProcessingStats(stats);
               if (stats.progress === 100) {
                  setAppState(AppState.ZIPPING);
               }
             },
-            onFrame: handleFrame
+            onFrame: handleFrame,
+            workerRef: activeWorkerRef
           });
 
           const url = URL.createObjectURL(zipBlob);
@@ -181,6 +191,10 @@ const VideoToImages: React.FC = () => {
 
   const handleCancelQueue = () => {
     cancelRef.current = true;
+    if (activeWorkerRef.current) {
+      activeWorkerRef.current.terminate();
+      activeWorkerRef.current = null;
+    }
     setAppState(AppState.COMPLETED); // Treat as done with what we have
   };
 
@@ -199,9 +213,16 @@ const VideoToImages: React.FC = () => {
     setExtractedFrames([]);
     setVisibleFrames(30);
     
-    completedZips.forEach(zip => URL.revokeObjectURL(zip.url));
-    setCompletedZips([]);
-  }, [completedZips, cleanupFrameUrls]);
+    if (activeWorkerRef.current) {
+      activeWorkerRef.current.terminate();
+      activeWorkerRef.current = null;
+    }
+    
+    setCompletedZips(prev => {
+      prev.forEach(zip => URL.revokeObjectURL(zip.url));
+      return [];
+    });
+  }, [cleanupFrameUrls]);
 
   const handleLoadMore = () => {
     setVisibleFrames(prev => prev + 30);
