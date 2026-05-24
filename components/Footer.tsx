@@ -12,8 +12,9 @@ const Footer = () => {
               <span className="text-cyan-400">▶</span> Video to Image Sequence Online
             </div>
             <p className="text-gray-600 text-sm leading-relaxed">
-              Free browser-based video frame extractor. Convert any video to JPG/PNG
-              image sequences instantly — no upload, no limits, completely private.
+              Free browser-based video frame extractor. Convert MP4, MOV, and WEBM
+              videos to JPG/PNG image sequences — no server upload, processed locally
+              in your browser.
             </p>
           </div>
 

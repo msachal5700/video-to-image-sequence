@@ -1,7 +1,7 @@
 {
   "name": "Video to Image Sequence Online",
   "short_name": "VideoToFrames",
-  "description": "Free online video frame extractor. Convert MP4, MOV, WEBM to JPG or PNG sequences. No upload. No limits. 100% private.",
+  "description": "Free online video frame extractor. Convert MP4, MOV, and WEBM videos to JPG or PNG sequences in your browser. No server upload required.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#030712",
@@ -9,8 +9,23 @@
   "orientation": "portrait-primary",
   "categories": ["utilities", "productivity"],
   "icons": [
-    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" },
-    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
   ]
 }

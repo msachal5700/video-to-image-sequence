@@ -1,9 +1,9 @@
 # Video to Image Sequence Online
 
-Free browser-based tool to extract frames from MP4, MOV, and WEBM videos as JPG/PNG image sequences. No file size limit, 100% private, batch processing, and ZIP download.
+Free browser-based tool to extract frames from MP4, MOV, and WEBM videos as JPG/PNG image sequences. No server upload required — processing happens locally in your browser. 100% private, batch processing, and ZIP download.
 
 ## Features
-- **Unlimited File Size:** Processes videos entirely in the browser.
+- **No Server Upload:** Processes videos entirely in the browser. Large files depend on your device memory, browser performance, and video length.
 - **100% Private:** Videos are never uploaded to any server.
 - **Lossless PNGs:** Supports alpha channel transparency.
 - **Custom FPS Control:** Extract every frame, 1 FPS, 5 FPS, 10 FPS, etc.

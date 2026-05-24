@@ -118,7 +118,10 @@ const Home: React.FC = () => {
         "width": 32,
         "height": 32
       },
-      "description": "Free online video frame extraction tool. Convert any video to image sequences in your browser."
+      "description": "Free online video frame extraction tool. Convert MP4, MOV, and WEBM videos to image sequences in your browser.",
+      "sameAs": [
+        "https://x.com/videotoimage"
+      ]
     };
 
     script.text = JSON.stringify([webAppSchema, faqSchema, breadcrumbSchema, orgSchema]);
@@ -136,10 +139,10 @@ const Home: React.FC = () => {
     <div className="w-full mx-auto pb-16 font-sans">
       <SEOHead
         title="Video to Image Sequence Converter Online – Extract Frames from Video"
-        description="Convert video to image sequence online for free. Extract frames from MP4, MOV, WEBM, AVI, and MKV videos as JPG or PNG images directly from your browser."
+        description="Convert video to image sequence online for free. Extract frames from MP4, MOV, and WEBM videos as JPG or PNG images directly in your browser — no server upload required."
         canonical="https://www.videotoimagesequence.online/"
         ogTitle="Video to Image Sequence Converter Online – Extract Frames from Video"
-        ogDescription="Convert video to image sequence online for free. Extract frames from MP4, MOV, WEBM, AVI, and MKV videos as JPG or PNG images directly from your browser."
+        ogDescription="Convert video to image sequence online for free. Extract frames from MP4, MOV, and WEBM videos as JPG or PNG images directly in your browser — no server upload required."
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
       />
@@ -248,8 +251,8 @@ const Home: React.FC = () => {
           <li>MP4</li>
           <li>MOV</li>
           <li>WEBM</li>
-          <li>AVI</li>
-          <li>MKV</li>
+          <li>AVI <span style={{fontSize:'0.75em',color:'#9ca3af'}}>(browser-dependent)</span></li>
+          <li>MKV <span style={{fontSize:'0.75em',color:'#9ca3af'}}>(browser-dependent)</span></li>
         </ul>
         <p className="text-gray-400 leading-relaxed">
           For best results, use <strong className="text-white">MP4</strong> because it is widely supported, fast to process, and works well in most browsers.
@@ -324,7 +327,7 @@ const Home: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             { step: '01', title: 'Drop Your Video',
-              desc: 'Drag and drop your MP4, MOV, or WEBM file. Drop multiple files for batch processing. Any file size works.' },
+              desc: 'Drag and drop your MP4, MOV, or WEBM file. Drop multiple files for batch processing. Large files depend on your device memory and browser.' },
             { step: '02', title: 'Choose Settings',
               desc: 'Select your frame rate (FPS) and output format (JPG or PNG). Customize exactly how many frames to extract.' },
             { step: '03', title: 'Download Frames',
@@ -467,7 +470,7 @@ const Home: React.FC = () => {
             {
               href: '/extract-frames-from-video',
               title: 'Extract Frames from Video',
-              desc: 'Free online tool to extract individual frames from any video format as JPG or PNG images.',
+              desc: 'Free online tool to extract individual frames from MP4, MOV, and WEBM videos as JPG or PNG images.',
               icon: '🎯'
             },
             {
@@ -491,7 +494,7 @@ const Home: React.FC = () => {
             {
               href: '/screenshot-from-video',
               title: 'Screenshot from Video',
-              desc: 'Capture the perfect frame from any video as a high-resolution screenshot.',
+              desc: 'Capture the perfect frame from your video as a high-resolution screenshot.',
               icon: '📸'
             },
             {
