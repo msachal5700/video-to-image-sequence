@@ -83,7 +83,7 @@ export default function VideoToPngGuide() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100">
+    <article className="max-w-3xl mx-auto py-16 px-6 font-sans">
       <SEOHead
         title="How to Convert Video to PNG Frames Online Free — Complete 2026 Guide"
         description="Learn exactly how to extract lossless PNG frames from any video file free in your browser. No software, no upload, no quality loss. Step-by-step guide for VFX, game dev, and ML engineers."
@@ -100,59 +100,20 @@ export default function VideoToPngGuide() {
         { label: 'Video to PNG Frames Guide' }
       ]} />
 
-      {/* Article Header */}
-      <header className="max-w-4xl mx-auto px-4 pt-8 pb-12">
-        <div className="flex items-center gap-2 mb-6">
-          <span className="bg-cyan-950 border border-cyan-800 text-cyan-400 
-            text-xs px-3 py-1 rounded-full">
-            PNG Extraction
-          </span>
-          <span className="text-gray-500 text-xs">April 27, 2026</span>
-          <span className="text-gray-500 text-xs">·</span>
-          <span className="text-gray-500 text-xs">12 min read</span>
-        </div>
-
-        <h1 className="text-3xl md:text-5xl font-bold font-display text-white 
-          leading-tight mb-6">
-          How to Convert Video to PNG Frames Online —{' '}
-          <span className="text-cyan-400">Complete 2026 Guide</span>
+      <div className="mb-10 text-center mt-6">
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 font-display leading-tight">
+          How to Convert Video to PNG Frames Online — <span className="text-cyan-400">Complete 2026 Guide</span>
         </h1>
+        <p className="text-cyan-400 font-mono text-xs tracking-wider uppercase">April 2026 • 12 min read</p>
+      </div>
 
-        <p className="text-gray-400 text-lg md:text-xl leading-relaxed mb-8">
-          PNG is the professional standard for video frame extraction. Unlike JPG,
-          PNG preserves every single pixel with zero quality loss — making it
-          essential for VFX compositing, game development, and machine learning
-          datasets. This guide covers everything you need to know about converting
-          video to PNG frames online, completely free, without uploading your file
-          to any server.
-        </p>
-
-        {/* Quick stats bar */}
-        <div className="grid grid-cols-3 gap-4 bg-gray-900 border border-gray-800 
-          rounded-2xl p-6">
-          {[
-            { label: 'Processing', value: '100% Browser' },
-            { label: 'Output Quality', value: 'Lossless PNG' },
-            { label: 'Cost', value: 'Free Forever' },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="text-cyan-400 font-bold text-lg">{stat.value}</div>
-              <div className="text-gray-500 text-xs mt-1">{stat.label}</div>
-            </div>
-          ))}
-        </div>
-      </header>
-
-      {/* Article Body */}
-      <article className="max-w-4xl mx-auto px-4 pb-20 prose prose-invert 
-        prose-cyan max-w-none">
-
+      <div className="text-gray-300 space-y-6 leading-relaxed text-lg lg:text-xl">
         {/* Section 1 */}
-        <section className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+        <section className="mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">
             What Does "Video to PNG" Actually Mean?
           </h2>
-          <p className="text-gray-400 leading-relaxed mb-4">
+          <p>
             When people say they want to convert a video to PNG, they mean
             extracting individual frames from a video file and saving each frame
             as a separate PNG image. A 30-second video recorded at 30 frames per
@@ -160,13 +121,13 @@ export default function VideoToPngGuide() {
             can be saved as a PNG file — a still image that captures that exact
             moment in the video with complete detail.
           </p>
-          <p className="text-gray-400 leading-relaxed mb-4">
+          <p>
             This process is called frame extraction or video to image sequence
             conversion. The resulting PNG files can be used for anything from
             creating video thumbnails to building machine learning training
             datasets to compositing visual effects in professional film production.
           </p>
-          <p className="text-gray-400 leading-relaxed">
+          <p>
             The key word is PNG specifically — not JPG. PNG uses lossless
             compression which means every pixel in the extracted frame is
             mathematically identical to the corresponding pixel in the original
@@ -178,11 +139,11 @@ export default function VideoToPngGuide() {
         </section>
 
         {/* Section 2 - Why PNG */}
-        <section className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+        <section className="mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">
             Why PNG Instead of JPG for Video Frames?
           </h2>
-          <p className="text-gray-400 leading-relaxed mb-6">
+          <p>
             This is the most common question from users new to frame extraction.
             Both JPG and PNG are image formats, so why does the choice matter?
             The answer comes down to one fundamental difference in how each
@@ -190,13 +151,13 @@ export default function VideoToPngGuide() {
           </p>
 
           {/* Comparison Table */}
-          <div className="overflow-x-auto mb-8">
-            <table className="w-full border-collapse">
+          <div className="overflow-x-auto my-6">
+            <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="bg-gray-900 border border-gray-800">
-                  <th className="text-left p-4 text-white font-semibold">Property</th>
-                  <th className="text-left p-4 text-cyan-400 font-semibold">PNG</th>
-                  <th className="text-left p-4 text-gray-400 font-semibold">JPG</th>
+                  <th className="p-4 text-white font-semibold">Property</th>
+                  <th className="p-4 text-cyan-400 font-semibold">PNG</th>
+                  <th className="p-4 text-gray-400 font-semibold">JPG</th>
                 </tr>
               </thead>
               <tbody>
@@ -219,14 +180,14 @@ export default function VideoToPngGuide() {
             </table>
           </div>
 
-          <p className="text-gray-400 leading-relaxed mb-4">
+          <p>
             JPG compression works by analyzing the image and discarding information
             that the human eye is less likely to notice — particularly fine details
             at edges and areas of high contrast. For casual use like sharing on
             social media, this is perfectly acceptable. The files are smaller and
             the quality loss is usually invisible at normal viewing sizes.
           </p>
-          <p className="text-gray-400 leading-relaxed">
+          <p>
             But for professional workflows, that discarded information matters
             enormously. A VFX artist compositing a PNG sequence into a film scene
             needs clean, sharp edges for their rotoscoping masks. A game developer
@@ -239,11 +200,11 @@ export default function VideoToPngGuide() {
         </section>
 
         {/* Section 3 - How to extract */}
-        <section className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+        <section className="mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">
             How to Extract PNG Frames from Video Online — Step by Step
           </h2>
-          <p className="text-gray-400 leading-relaxed mb-8">
+          <p>
             The fastest and most private way to convert video to PNG frames online
             is using a browser-based tool that processes your video locally on
             your device. This approach requires no software installation, no
@@ -251,7 +212,7 @@ export default function VideoToPngGuide() {
             Here is the complete process using our free tool:
           </p>
 
-          <div className="space-y-6 mb-8">
+          <div className="space-y-6 my-6">
             {[
               {
                 num: '01',
@@ -280,10 +241,8 @@ export default function VideoToPngGuide() {
               },
             ].map((step) => (
               <div key={step.num}
-                className="flex gap-6 bg-gray-900 border border-gray-800 
-                  rounded-2xl p-6">
-                <div className="text-cyan-400 font-bold text-3xl font-display 
-                  shrink-0 w-12">
+                className="flex gap-6 bg-gray-900/50 border border-gray-800/80 rounded-2xl p-6">
+                <div className="text-cyan-400 font-bold text-3xl font-display shrink-0 w-12">
                   {step.num}
                 </div>
                 <div>
@@ -299,8 +258,7 @@ export default function VideoToPngGuide() {
           </div>
 
           {/* CTA Box */}
-          <div className="bg-cyan-950 border border-cyan-800 rounded-2xl p-8 
-            text-center">
+          <div className="bg-cyan-950/40 border border-cyan-800/60 rounded-2xl p-8 text-center my-6">
             <h3 className="text-white font-bold text-xl mb-3">
               Ready to Extract PNG Frames?
             </h3>
@@ -309,9 +267,7 @@ export default function VideoToPngGuide() {
             </p>
             <Link
               to="/video-to-png"
-              className="inline-flex items-center gap-2 bg-cyan-500 
-                hover:bg-cyan-400 text-gray-950 font-bold px-8 py-3 
-                rounded-xl transition-colors"
+              className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-gray-950 font-bold px-8 py-3 rounded-xl transition-colors"
             >
               Extract PNG Frames Free →
             </Link>
@@ -319,17 +275,17 @@ export default function VideoToPngGuide() {
         </section>
 
         {/* Section 4 - Use Cases */}
-        <section className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+        <section className="mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">
             Who Needs PNG Frames from Video?
           </h2>
-          <p className="text-gray-400 leading-relaxed mb-8">
+          <p>
             PNG frame extraction is used across a wide range of professional
             creative and technical disciplines. Understanding the specific use
             case helps you configure the extraction settings for the best results.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 my-6">
             {[
               {
                 icon: '🎬',
@@ -357,15 +313,17 @@ export default function VideoToPngGuide() {
               },
             ].map((card) => (
               <div key={card.title}
-                className="bg-gray-900 border border-gray-800 rounded-2xl p-6">
-                <div className="text-3xl mb-4">{card.icon}</div>
-                <h3 className="text-white font-bold text-lg mb-3">
-                  {card.title}
-                </h3>
-                <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                  {card.desc}
-                </p>
-                <div className="bg-gray-800 rounded-xl p-3">
+                className="bg-gray-900/60 border border-gray-800/80 rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                  <div className="text-3xl mb-4">{card.icon}</div>
+                  <h3 className="text-white font-bold text-lg mb-3">
+                    {card.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm leading-relaxed mb-4">
+                    {card.desc}
+                  </p>
+                </div>
+                <div className="bg-gray-800/50 rounded-xl p-3 mt-2">
                   <p className="text-cyan-400 text-xs">
                     <span className="font-bold">💡 Pro Tip:</span> {card.tip}
                   </p>
@@ -376,30 +334,30 @@ export default function VideoToPngGuide() {
         </section>
 
         {/* Section 5 - File size guide */}
-        <section className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+        <section className="mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">
             How Large Will Your PNG Files Be?
           </h2>
-          <p className="text-gray-400 leading-relaxed mb-6">
+          <p>
             PNG files are significantly larger than JPG files because they store
             complete lossless data. Understanding the expected file sizes helps
             you plan storage and choose the right FPS setting for your project.
           </p>
 
-          <div className="overflow-x-auto mb-6">
-            <table className="w-full border-collapse">
+          <div className="overflow-x-auto my-6">
+            <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="bg-gray-900 border border-gray-800">
-                  <th className="text-left p-4 text-white font-semibold">
+                  <th className="p-4 text-white font-semibold">
                     Resolution
                   </th>
-                  <th className="text-left p-4 text-cyan-400 font-semibold">
+                  <th className="p-4 text-cyan-400 font-semibold">
                     Avg PNG Frame Size
                   </th>
-                  <th className="text-left p-4 text-gray-400 font-semibold">
+                  <th className="p-4 text-gray-400 font-semibold">
                     100 Frames ZIP Size
                   </th>
-                  <th className="text-left p-4 text-gray-400 font-semibold">
+                  <th className="p-4 text-gray-400 font-semibold">
                     1 Min at 30FPS ZIP
                   </th>
                 </tr>
@@ -424,7 +382,7 @@ export default function VideoToPngGuide() {
             </table>
           </div>
 
-          <div className="bg-gray-900 border border-yellow-800/50 rounded-2xl p-6">
+          <div className="bg-gray-900/60 border border-yellow-800/40 rounded-2xl p-6 my-6">
             <p className="text-yellow-400 font-bold mb-2">
               ⚠️ Storage Planning Tip
             </p>
@@ -439,17 +397,17 @@ export default function VideoToPngGuide() {
         </section>
 
         {/* Section 6 - Alternatives */}
-        <section className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+        <section className="mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">
             Other Ways to Extract PNG Frames from Video
           </h2>
-          <p className="text-gray-400 leading-relaxed mb-6">
+          <p>
             Browser-based tools are the easiest approach, but it is worth
             knowing the alternatives so you can choose the right method for
             your specific situation.
           </p>
 
-          <div className="space-y-4">
+          <div className="space-y-4 my-6">
             {[
               {
                 method: 'FFmpeg (Command Line)',
@@ -485,7 +443,7 @@ export default function VideoToPngGuide() {
               },
             ].map((alt) => (
               <div key={alt.method}
-                className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+                className="bg-gray-900/50 border border-gray-800/80 rounded-xl p-6">
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="text-white font-bold">{alt.method}</h3>
                   <span className={`text-xs font-bold ${alt.diffColor}`}>
@@ -506,7 +464,7 @@ export default function VideoToPngGuide() {
                     <p className="text-gray-400 text-xs">{alt.cons}</p>
                   </div>
                 </div>
-                <div className="bg-gray-800 rounded-lg px-4 py-2">
+                <div className="bg-gray-800/50 rounded-lg px-4 py-2">
                   <code className="text-cyan-400 text-xs">{alt.command}</code>
                 </div>
               </div>
@@ -515,11 +473,11 @@ export default function VideoToPngGuide() {
         </section>
 
         {/* FAQ Section */}
-        <section className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-8">
+        <section className="mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">
             Frequently Asked Questions
           </h2>
-          <div className="space-y-4">
+          <div className="space-y-4 my-6">
             {[
               {
                 q: 'How do I convert a video to PNG images online for free?',
@@ -543,13 +501,10 @@ export default function VideoToPngGuide() {
               },
             ].map((item, i) => (
               <details key={i}
-                className="bg-gray-900 border border-gray-800 rounded-xl p-5 
-                  group cursor-pointer">
-                <summary className="text-white font-medium list-none flex 
-                  justify-between items-center gap-4">
+                className="bg-gray-900/50 border border-gray-800/80 rounded-xl p-5 group cursor-pointer">
+                <summary className="text-white font-medium list-none flex justify-between items-center gap-4">
                   <span>{item.q}</span>
-                  <span className="text-cyan-400 text-xl shrink-0 
-                    group-open:rotate-45 transition-transform">
+                  <span className="text-cyan-400 text-xl shrink-0 group-open:rotate-45 transition-transform">
                     +
                   </span>
                 </summary>
@@ -562,9 +517,8 @@ export default function VideoToPngGuide() {
         </section>
 
         {/* Final CTA */}
-        <section className="bg-gradient-to-br from-gray-900 to-cyan-950 
-          border border-cyan-900 rounded-3xl p-10 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+        <section className="bg-gradient-to-br from-gray-900 to-cyan-950/60 border border-cyan-900/80 rounded-3xl p-10 text-center my-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 font-display">
             Start Extracting PNG Frames Now
           </h2>
           <p className="text-gray-400 mb-8 max-w-xl mx-auto">
@@ -574,17 +528,13 @@ export default function VideoToPngGuide() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/video-to-png"
-              className="inline-flex items-center justify-center gap-2 
-                bg-cyan-500 hover:bg-cyan-400 text-gray-950 font-bold 
-                px-8 py-4 rounded-xl transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-gray-950 font-bold px-8 py-4 rounded-xl transition-colors"
             >
               Extract PNG Frames Free →
             </Link>
             <Link
               to="/blog"
-              className="inline-flex items-center justify-center gap-2 
-                bg-gray-800 hover:bg-gray-700 text-white font-medium 
-                px-8 py-4 rounded-xl transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-700 text-white font-medium px-8 py-4 rounded-xl transition-colors"
             >
               Read More Guides
             </Link>
@@ -593,10 +543,10 @@ export default function VideoToPngGuide() {
 
         {/* Related Articles */}
         <section className="mt-16">
-          <h2 className="text-xl font-bold text-white mb-6">
+          <h2 className="text-xl font-bold text-white mb-6 font-display border-b border-gray-800 pb-2">
             Related Articles
           </h2>
-          <div className="grid md:grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-3 gap-4 my-6">
             {[
               {
                 to: '/blog/mp4-to-image-sequence-guide',
@@ -609,7 +559,7 @@ export default function VideoToPngGuide() {
                 title: 'How to Extract Frames from Any Video Online Free'
               },
               {
-                to: '/blog/video-to-png-frames-free',
+                to: '/blog/video-to-png-frames-guide',
                 tag: 'PNG Frames',
                 title: 'Video to PNG Frames — Best Free Method in 2026'
               },
@@ -617,21 +567,19 @@ export default function VideoToPngGuide() {
               <Link
                 key={article.to}
                 to={article.to}
-                className="bg-gray-900 border border-gray-800 rounded-xl p-5 
-                  hover:border-cyan-800 transition-colors group"
+                className="bg-gray-900/50 border border-gray-800/80 rounded-xl p-5 hover:border-cyan-800 transition-colors group"
               >
                 <span className="text-xs text-cyan-400 font-medium">
                   {article.tag}
                 </span>
-                <p className="text-white text-sm font-medium mt-2 
-                  group-hover:text-cyan-400 transition-colors leading-snug">
+                <p className="text-white text-sm font-medium mt-2 group-hover:text-cyan-400 transition-colors leading-snug">
                   {article.title}
                 </p>
               </Link>
             ))}
           </div>
         </section>
-      </article>
-    </div>
+      </div>
+    </article>
   );
 }
