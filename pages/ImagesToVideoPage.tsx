@@ -72,10 +72,10 @@ const ImagesToVideoPage: React.FC = () => {
     <div className="w-full mx-auto pb-16 font-sans">
       <SEOHead
         title="Images to Video Converter Online Free — Stitch Images to Video"
-        description="Convert a sequence of JPG or PNG images into a video online for free. No server upload required. Browser-based, private, and instant. Supports custom FPS."
+        description="Convert a sequence of JPG or PNG images into a video online for free. No server upload required. Browser-based, private, and local. Supports custom FPS."
         canonical="https://www.videotoimagesequence.online/images-to-video"
         ogTitle="Images to Video Converter — Free & Private"
-        ogDescription="Turn your image sequence into a video instantly in your browser. No upload, no account, no server limits."
+        ogDescription="Turn your image sequence into a video locally in your browser. No server upload, no account, processed on device."
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
       />

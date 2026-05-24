@@ -39,7 +39,7 @@ const Mp4ToJpg: React.FC = () => {
       "name": "MP4 to JPG Converter",
       "url": "https://www.videotoimagesequence.online/mp4-to-jpg",
       "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Convert MP4 video to JPG images online for free. Extract every frame as a high-quality JPG instantly in your browser.",
+      "description": "Convert MP4 video to JPG images online for free. Extract every frame as a high-quality JPG locally in your browser.",
       "applicationCategory": "MultimediaApplication",
       "operatingSystem": "All",
       "browserRequirements": "Requires HTML5 and Javascript support",
@@ -76,10 +76,10 @@ const Mp4ToJpg: React.FC = () => {
     <div className="w-full mx-auto pb-16 font-sans">
       <SEOHead
         title="MP4 to JPG Converter Online Free — Extract JPG Frames from MP4"
-        description="Convert MP4 video to JPG images online for free. Extract every frame as a high-quality JPG instantly in your browser. No server upload required."
+        description="Convert MP4 video to JPG images online for free. Extract every frame as a high-quality JPG locally in your browser. No server upload required."
         canonical="https://www.videotoimagesequence.online/mp4-to-jpg"
         ogTitle="MP4 to JPG Converter — Free, No Upload"
-        ogDescription="Extract JPG frames from any MP4 video instantly in your browser. Free forever, no account needed."
+        ogDescription="Extract JPG frames from MP4, MOV, and WEBM videos locally in your browser. Free forever, no account needed."
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
       />
@@ -95,7 +95,7 @@ const Mp4ToJpg: React.FC = () => {
         </h1>
 
         <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed hero-description">
-          Convert MP4 video to JPG images online for free. Extract every frame as a high-quality JPG sequence instantly in your browser. Since files are processed locally, your video data never leaves your device.
+          Convert MP4 video to JPG images online for free. Extract every frame as a high-quality JPG sequence locally in your browser. Since files are processed locally, your video data never leaves your device.
         </p>
 
         {/* Trust badges */}
@@ -271,7 +271,7 @@ const Mp4ToJpg: React.FC = () => {
                 <td className="px-5 py-3 text-gray-300 font-medium">File Size Limits</td>
                 <td className="px-5 py-3 text-center bg-cyan-950/10 text-cyan-400 font-semibold">No Server Limit</td>
                 <td className="px-5 py-3 text-center text-gray-500">Max 100MB - 200MB</td>
-                <td className="px-5 py-3 text-center text-gray-400">Unlimited</td>
+                <td className="px-5 py-3 text-center text-gray-400">No CLI Limit</td>
               </tr>
               <tr className="hover:bg-gray-900/50 transition-colors">
                 <td className="px-5 py-3 text-gray-300 font-medium">Privacy & Security</td>

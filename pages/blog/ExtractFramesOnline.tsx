@@ -10,7 +10,7 @@ const ExtractFramesOnline: React.FC = () => {
     script.text = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "BlogPosting",
-      "headline": "How to Extract Frames from Any Video Online Free — No Install Needed",
+      "headline": "How to Extract Frames from Video Online Free — No Install Needed",
       "description": "A complete step-by-step guide to extracting frames from MP4, MOV, and WEBM videos directly in your browser. No software, no upload, processed locally in device memory.",
       "url": "https://www.videotoimagesequence.online/blog/extract-frames-from-video-online",
       "mainEntityOfPage": "https://www.videotoimagesequence.online/blog/extract-frames-from-video-online",
@@ -30,10 +30,10 @@ const ExtractFramesOnline: React.FC = () => {
   return (
     <article className="max-w-3xl mx-auto py-16 px-6 font-sans">
       <SEOHead
-        title="How to Extract Frames from Any Video Online Free — No Install Needed"
+        title="How to Extract Frames from Video Online Free — No Install Needed"
         description="A complete step-by-step guide to extracting frames from MP4, MOV, and WEBM videos directly in your browser. No software, no upload, processed locally in device memory."
         canonical="https://www.videotoimagesequence.online/blog/extract-frames-from-video-online"
-        ogTitle="How to Extract Frames from Any Video Online (Free, No Install)"
+        ogTitle="How to Extract Frames from Video Online (Free, No Install)"
         ogDescription="Step-by-step guide to browser-based video frame extraction. No upload, no install, works on any device."
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="article"
@@ -46,7 +46,7 @@ const ExtractFramesOnline: React.FC = () => {
       ]} />
 
       <div className="mb-10 text-center mt-6">
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 font-display">How to Extract Frames from Any Video Online (Free, No Install)</h1>
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 font-display">How to Extract Frames from Video Online (Free, No Install)</h1>
         <p className="text-cyan-400 font-mono text-sm tracking-wider uppercase">April 2026 • 5 min read</p>
       </div>
 

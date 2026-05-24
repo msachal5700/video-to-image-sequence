@@ -432,13 +432,13 @@ const Home: React.FC = () => {
             {
               href: '/mp4-to-jpg',
               title: 'MP4 to JPG Converter',
-              desc: 'Extract JPG frames from any MP4 video free in your browser.',
+              desc: 'Extract JPG frames from MP4 video in your browser.',
               icon: '🎞️'
             },
             {
               href: '/screenshot-from-video',
               title: 'Screenshot from Video',
-              desc: 'Capture any exact frame from a video as a full-resolution image.',
+              desc: 'Capture video frames in full-resolution locally.',
               icon: '📸'
             },
             {

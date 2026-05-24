@@ -6,7 +6,7 @@ import Breadcrumb from '../components/Breadcrumb';
 const posts = [
   {
     slug: 'extract-frames-from-video-online',
-    title: 'How to Extract Frames from Any Video Online (Free, No Install)',
+    title: 'How to Extract Frames from Video Online (Free, No Install)',
     date: 'April 2026',
     description: 'A complete guide to extracting frames from MP4, MOV, and WEBM videos directly in your browser — no software needed.',
   },
@@ -20,7 +20,7 @@ const posts = [
     slug: 'video-to-png-frames-guide',
     title: 'How to Convert Video to PNG Frames Online — Complete 2026 Guide',
     date: 'April 27, 2026',
-    description: 'Learn exactly how to extract lossless PNG frames from any video file free in your browser. No software, no upload, no quality loss. Complete guide for VFX, game dev, and ML engineers.',
+    description: 'Learn exactly how to extract lossless PNG frames from MP4, MOV, and WEBM videos locally in your browser. Private browser processing. Large files depend on your device and browser.',
   },
 ];
 

@@ -63,21 +63,68 @@ const routes = [
   '/404',
 ];
 
+const routeTextMap = {
+  '/': 'Video to Image Sequence',
+  '/extract-frames-from-video': 'Extract Frames from Video',
+  '/images-to-video': 'Images to Video',
+  '/mp4-to-jpg': 'MP4 to JPG',
+  '/screenshot-from-video': 'Screenshot from Video',
+  '/video-to-png': 'Video to PNG',
+  '/blog': 'Blog',
+  '/blog/extract-frames-from-video-online': 'Extract Frames from Video',
+  '/blog/mp4-to-image-sequence-guide': 'MP4 to Image Sequence',
+  '/blog/video-to-png-frames-guide': 'Video to PNG',
+  '/about': 'About',
+  '/privacy': 'Privacy',
+  '/terms': 'Terms',
+  '/404': '404',
+};
+
 async function runPrerender() {
   server.listen(PORT, async () => {
     console.log(`Temporary server running on http://localhost:${PORT}`);
     let browser;
+    let exitCode = 0;
     try {
-      const executablePath = await chromium.executablePath(
-        'https://github.com/Sparticuz/chromium/releases/download/v131.0.1/chromium-v131.0.1-pack.tar'
-      );
+      let launchOptions = {};
+      
+      if (process.platform === 'win32' || process.platform === 'darwin') {
+        // Local Windows/macOS - use standard Google Chrome
+        const winChromePaths = [
+          'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+          'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+          path.join(process.env.LOCALAPPDATA || '', 'Google\\Chrome\\Application\\chrome.exe')
+        ];
+        let localPath = null;
+        for (const p of winChromePaths) {
+          if (fs.existsSync(p)) {
+            localPath = p;
+            break;
+          }
+        }
+        if (!localPath && process.platform === 'darwin') {
+          localPath = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+        }
+        
+        launchOptions = {
+          executablePath: localPath || undefined,
+          headless: true,
+          defaultViewport: { width: 1280, height: 800 },
+        };
+      } else {
+        // Serverless Vercel environment (Linux) - use @sparticuz/chromium-min
+        const executablePath = await chromium.executablePath(
+          'https://github.com/Sparticuz/chromium/releases/download/v131.0.1/chromium-v131.0.1-pack.tar'
+        );
+        launchOptions = {
+          args: chromium.args,
+          defaultViewport: chromium.defaultViewport || { width: 1280, height: 800 },
+          executablePath,
+          headless: chromium.headless,
+        };
+      }
 
-      browser = await puppeteer.launch({
-        args: chromium.args,
-        executablePath,
-        headless: true,
-        defaultViewport: { width: 1280, height: 800 },
-      });
+      browser = await puppeteer.launch(launchOptions);
 
       const page = await browser.newPage();
       await page.setUserAgent('Mozilla/5.0 (compatible; Prerenderer/1.0)');
@@ -87,9 +134,41 @@ async function runPrerender() {
         const url = `http://localhost:${PORT}${route}`;
 
         await page.goto(url, { waitUntil: 'networkidle0', timeout: 60000 });
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        
+        const expectedText = routeTextMap[route];
+        
+        // Wait for React content before capturing
+        await page.waitForFunction(
+          (text) => {
+            const h1 = document.querySelector('h1');
+            const desc = document.querySelector('meta[name="description"]');
+            const canonical = document.querySelector('link[rel="canonical"]');
+            const title = document.title;
+            const bodyText = document.body ? document.body.innerText : '';
+            return !!h1 && !!desc && !!canonical && !!title && bodyText.includes(text);
+          },
+          { timeout: 15000 },
+          expectedText
+        );
 
         const html = await page.content();
+
+        // Route validation:
+        if (!html.includes('<title>')) {
+          throw new Error(`Validation failed for route ${route}: HTML is missing <title> tag.`);
+        }
+        if (!html.includes('name="description"')) {
+          throw new Error(`Validation failed for route ${route}: HTML is missing meta description tag.`);
+        }
+        if (!html.includes('rel="canonical"')) {
+          throw new Error(`Validation failed for route ${route}: HTML is missing canonical link.`);
+        }
+        if (!html.includes('<h1')) {
+          throw new Error(`Validation failed for route ${route}: HTML is missing <h1> element.`);
+        }
+        if (!html.includes(expectedText)) {
+          throw new Error(`Validation failed for route ${route}: HTML is missing expected text "${expectedText}".`);
+        }
 
         let targetFilePath;
         if (route === '/') {
@@ -111,16 +190,22 @@ async function runPrerender() {
       console.log('Prerendering complete.');
     } catch (err) {
       console.error('Prerendering failed:', err);
-      process.exit(1);
+      exitCode = 1;
     } finally {
-      if (browser) await browser.close();
+      if (browser) {
+        try {
+          await browser.close();
+        } catch (e) {
+          console.error('Error closing browser:', e);
+        }
+      }
       server.close(() => {
         if (fs.existsSync(TEMP_INDEX)) {
           fs.unlinkSync(TEMP_INDEX);
           console.log('Cleaned up temp files.');
         }
-        console.log('Server stopped.');
-        process.exit(0);
+        console.log(`Server stopped. Exiting with code ${exitCode}`);
+        process.exit(exitCode);
       });
     }
   });

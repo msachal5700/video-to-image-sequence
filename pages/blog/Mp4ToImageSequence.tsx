@@ -70,12 +70,12 @@ const Mp4ToImageSequence: React.FC = () => {
         <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">How to Do It in Your Browser (No Install Needed)</h2>
         <p>
           Traditionally, extracting frames required heavy, expensive software like Adobe Premiere or command-line scripts 
-          like FFmpeg. Today, you can do it instantly right in your web browser.
+          like FFmpeg. Today, you can do it right in your web browser.
         </p>
         <p>
           At <Link to="/" className="text-cyan-400 hover:text-cyan-300 transition-colors font-medium underline underline-offset-4 decoration-cyan-400/30 hover:decoration-cyan-400">www.videotoimagesequence.online</Link>, 
           we built a powerful, entirely local video processor. This means <strong className="text-white">files never leave your computer</strong>. 
-          The extraction happens instantly, securely, and is processed locally in your device memory (limited only by your browser's allocated memory).
+          The extraction happens securely, and is processed locally in your device memory (limited only by your browser's allocated memory).
         </p>
 
         <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">Step-by-Step Instructions</h2>

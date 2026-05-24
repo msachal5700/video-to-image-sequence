@@ -231,7 +231,7 @@ const VideoToImages: React.FC = () => {
           Convert Video to <span className="text-cyan-400">Image Sequence</span>
         </h2>
         <p className="text-gray-400 text-lg">
-          Extract frames from MP4, MOV, WebM. No server upload limit.
+          Extract frames from MP4, MOV, and WEBM videos locally. Large files depend on your device memory.
         </p>
       </div>
 

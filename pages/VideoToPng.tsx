@@ -75,11 +75,11 @@ const VideoToPng: React.FC = () => {
   return (
     <div className="w-full mx-auto pb-16 font-sans">
       <SEOHead
-        title="Video to PNG Converter Online Free — Extract PNG Frames Instantly"
+        title="Video to PNG Converter Online Free — Extract PNG Frames Locally"
         description="Convert video to PNG images online for free. Extract lossless PNG frames from MP4, MOV, and WEBM videos in your browser. No server upload required."
         canonical="https://www.videotoimagesequence.online/video-to-png"
         ogTitle="Video to PNG Converter — Free, Lossless, No Upload"
-        ogDescription="Extract lossless PNG frames from any video instantly in your browser. Perfect for VFX, game dev, and ML datasets."
+        ogDescription="Extract lossless PNG frames from MP4, MOV, and WEBM videos locally in your browser. Perfect for VFX, game dev, and ML datasets."
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
       />

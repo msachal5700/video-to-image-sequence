@@ -39,7 +39,7 @@ const ScreenshotFromVideo: React.FC = () => {
       "name": "Screenshot from Video",
       "url": "https://www.videotoimagesequence.online/screenshot-from-video",
       "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Take a screenshot from any video online for free. Capture the exact frame you need from MP4, MOV, or WEBM videos instantly in your browser.",
+      "description": "Take a screenshot from MP4, MOV, and WEBM videos online for free. Capture the exact frame you need locally in your browser.",
       "applicationCategory": "MultimediaApplication",
       "operatingSystem": "All",
       "browserRequirements": "Requires HTML5 and Javascript support",
@@ -75,11 +75,11 @@ const ScreenshotFromVideo: React.FC = () => {
   return (
     <div className="w-full mx-auto pb-16 font-sans">
       <SEOHead
-        title="Screenshot from Video Online Free — Capture Any Frame Instantly"
-        description="Take a screenshot from any video online for free. Capture the exact frame you need from MP4, MOV, or WEBM videos instantly in your browser. No server upload required."
+        title="Screenshot from Video Online Free — Capture Video Frames Locally"
+        description="Take a screenshot from MP4, MOV, and WEBM videos online for free. Capture the exact frame you need locally in your browser. No server upload required."
         canonical="https://www.videotoimagesequence.online/screenshot-from-video"
         ogTitle="Screenshot from Video — Free Online Frame Capture Tool"
-        ogDescription="Capture any frame from your video as a JPG or PNG screenshot. Free, instant, no upload needed."
+        ogDescription="Capture any frame from your video as a JPG or PNG screenshot. Free, local browser processing, no server upload."
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
       />
@@ -91,11 +91,11 @@ const ScreenshotFromVideo: React.FC = () => {
       <section className="text-center max-w-4xl mx-auto pt-10 pb-10 px-4">
         <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-tight font-display">
           Screenshot from Video<br />
-          <span className="text-cyan-400">Capture Any Frame Online — Free & Instant</span>
+          <span className="text-cyan-400">Capture Video Frames Online — Free & Local</span>
         </h1>
 
         <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed hero-description">
-          Take a screenshot from any video online for free. Extract the exact frame you need from MP4, MOV, or WEBM videos in full native resolution. No file uploads, no watermarks, completely private.
+          Take a screenshot from MP4, MOV, and WEBM videos online for free. Extract the exact frame you need in full native resolution. No server uploads, no watermarks, completely private.
         </p>
 
         {/* Trust badges */}
