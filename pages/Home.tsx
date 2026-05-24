@@ -405,7 +405,7 @@ const Home: React.FC = () => {
               icon: '📸'
             },
             {
-              href: '/video-to-png',
+              href: '/mp4-to-jpg',
               title: 'Video to JPG Converter',
               desc: 'Convert video files to JPG image sequences for fast downloads and easy sharing.',
               icon: '📷'

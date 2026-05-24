@@ -22,7 +22,7 @@ async function processVideo(payload: any) {
   let zip: JSZip | null = new JSZip();
   const startTime = Date.now();
 
-  const mp4boxfile = MP4Box.createFile();
+  const mp4boxfile: any = MP4Box.createFile();
   let videoTrack: any = null;
   let decoder: VideoDecoder | null = null;
 
@@ -138,9 +138,10 @@ async function processVideo(payload: any) {
       let description: Uint8Array | undefined;
       
       for (const entry of trak.mdia.minf.stbl.stsd.entries) {
-        const box = entry.avcC || entry.hvcC || entry.vpcC || entry.av1C;
+        const anyEntry = entry as any;
+        const box = anyEntry.avcC || anyEntry.hvcC || anyEntry.vpcC || anyEntry.av1C;
         if (box) {
-          const stream = new MP4Box.DataStream(undefined, 0, MP4Box.DataStream.BIG_ENDIAN);
+          const stream = new MP4Box.DataStream(undefined, 0, (MP4Box.DataStream as any).BIG_ENDIAN);
           box.write(stream);
           description = new Uint8Array(stream.buffer, 8); // Skip box header
           break;

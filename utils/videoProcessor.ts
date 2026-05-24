@@ -27,7 +27,7 @@ export interface ProcessVideoOptions {
 }
 
 export const extractFramesAndZip = async (options: ProcessVideoOptions): Promise<Blob> => {
-  const { file, fps, format, quality = 0.8, onProgress, onFrame } = options;
+  const { file, fps, format, quality = 0.8, maxFrames, onProgress, onFrame } = options;
 
   const supportsWorker = typeof OffscreenCanvas !== 'undefined' && typeof VideoDecoder !== 'undefined';
 
