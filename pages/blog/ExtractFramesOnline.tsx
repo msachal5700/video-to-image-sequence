@@ -87,7 +87,7 @@ const ExtractFramesOnline: React.FC = () => {
         <p>This means:</p>
         <ul className="list-none pl-0 space-y-3 mt-4">
           <li className="flex items-start gap-3"><span className="text-cyan-400 mt-1">✓</span> <span><strong className="text-white">Local device processing</strong> — handles large files, limited only by your browser's memory</span></li>
-          <li className="flex items-start gap-3"><span className="text-cyan-400 mt-1">✓</span> <span><strong className="text-white">No upload required</strong> — instant processing starts immediately</span></li>
+          <li className="flex items-start gap-3"><span className="text-cyan-400 mt-1">✓</span> <span><strong className="text-white">No upload required</strong> — fast local processing starts immediately</span></li>
           <li className="flex items-start gap-3"><span className="text-cyan-400 mt-1">✓</span> <span><strong className="text-white">100% private</strong> — your video stays securely on your computer</span></li>
           <li className="flex items-start gap-3"><span className="text-cyan-400 mt-1">✓</span> <span><strong className="text-white">Free forever</strong> — no account, no watermark, no hidden costs</span></li>
         </ul>

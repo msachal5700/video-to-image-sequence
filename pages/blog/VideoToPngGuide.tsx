@@ -437,7 +437,7 @@ export default function VideoToPngGuide() {
                 method: 'Browser Tool (This Site)',
                 difficulty: 'Beginner',
                 diffColor: 'text-cyan-400',
-                pros: 'No install, no upload, free, private, instant results on any device',
+                pros: 'No install, no upload, free, private, fast results on any device',
                 cons: 'Requires modern browser, very large files need sufficient device RAM',
                 command: 'www.videotoimagesequence.online/video-to-png'
               },

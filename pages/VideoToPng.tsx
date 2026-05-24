@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     q: 'Is there a file size limit for video to PNG conversion?',
-    a: 'No server upload limit. Processing happens in your browser, so very large files may depend on your device memory, browser performance, and video length.'
+    a: 'No server upload required. Processing happens in your browser, so large files depend on your device memory, browser performance, video length, and codec support.'
   },
   {
     q: 'How large will the extracted PNG frames be?',
@@ -205,7 +205,7 @@ const VideoToPng: React.FC = () => {
             ⚠️ Browser Processing Notice
           </h2>
           <p className="text-gray-400 text-sm leading-relaxed">
-            No server upload limit. Processing happens in your browser, so very large files may depend on your device memory, browser performance, and video length. Because PNG files utilize lossless encoding, they consume much more RAM than JPG files during rendering. If you experience performance issues, consider lowering the FPS setting or dividing large videos into smaller segments before converting.
+            No server upload required. Processing happens in your browser, so large files depend on your device memory, browser performance, video length, and codec support. Because PNG files utilize lossless encoding, they consume much more RAM than JPG files during rendering. If you experience performance issues, consider lowering the FPS setting or dividing large videos into smaller segments before converting.
           </p>
         </div>
       </section>

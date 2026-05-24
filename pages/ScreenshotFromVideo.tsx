@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     q: 'Is there a file size limit for video screenshots?',
-    a: 'No server upload limit. Processing happens in your browser, so very large files may depend on your device memory, browser performance, and video length.'
+    a: 'No server upload required. Processing happens in your browser, so large files depend on your device memory, browser performance, video length, and codec support.'
   },
   {
     q: 'Does it work for MP4, MOV, and WEBM videos?',
@@ -103,7 +103,7 @@ const ScreenshotFromVideo: React.FC = () => {
           {[
             '🎯 Native Resolution Capture',
             '🔒 100% Private (Local)',
-            '⚡ Instant Processing',
+            '⚡ Fast Local Processing',
             '📷 JPG & PNG Output',
             '🆓 Free Forever'
           ].map(badge => (
@@ -182,7 +182,7 @@ const ScreenshotFromVideo: React.FC = () => {
             ⚠️ Browser Processing Notice
           </h2>
           <p className="text-gray-400 text-sm leading-relaxed">
-            No server upload limit. Processing happens in your browser, so very large files may depend on your device memory, browser performance, and video length. Extracting a very long sequence of images can consume significant RAM. If the browser tab feels sluggish or crashes, decrease the FPS setting to output fewer frames.
+            No server upload required. Processing happens in your browser, so large files depend on your device memory, browser performance, video length, and codec support. Extracting a very long sequence of images can consume significant RAM. If the browser tab feels sluggish or crashes, decrease the FPS setting to output fewer frames.
           </p>
         </div>
       </section>

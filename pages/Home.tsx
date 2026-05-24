@@ -8,7 +8,7 @@ import SEOHead from '../components/SEOHead';
 
 const faqs = [
   { q: 'Is there a file size limit?',
-    a: 'No server upload limit. Processing happens in your browser, so very large files may depend on your device memory, browser performance, and video length.' },
+    a: 'No server upload required. Processing happens in your browser, so large files depend on your device memory, browser performance, video length, and codec support.' },
   { q: 'What video formats are supported?',
     a: 'MP4, MOV, and WEBM — the three most common formats used by phones, cameras, and screen recorders.' },
   { q: 'Should I extract frames as JPG or PNG?',
@@ -24,7 +24,7 @@ const faqs = [
   { q: 'Can I download individual frames?',
     a: 'Yes. Every extracted frame appears in a visual grid. Hover over any frame and click the download button to save that specific frame.' },
   { q: 'What is the best free alternative for extracting video frames?',
-    a: 'Video to Image Sequence Online is the best free alternative — it has no server upload limit (processing happens locally in your browser, so very large files may depend on your device memory, browser performance, and video length), batch processing, ZIP download, individual frame downloads, and custom FPS control. All completely free.' },
+    a: 'Video to Image Sequence Online is the best free alternative — it requires no server upload (processing happens locally in your browser, so large files depend on your device memory, browser performance, video length, and codec support), batch processing, ZIP download, individual frame downloads, and custom FPS control. All completely free.' },
   { q: 'Do I need to create an account or install anything?',
     a: 'No. Just open the website and start converting. No account, no download, no installation. Works on any device with a modern browser.' },
   { q: 'What is a video to image sequence converter?',
@@ -167,7 +167,7 @@ const Home: React.FC = () => {
           browser-based tool that extracts every frame from <strong className="text-white">MP4, MOV, and WEBM</strong> videos as high-quality
           <strong className="text-white"> JPG or PNG images</strong>.
           Unlike other tools, it requires <strong className="text-white">no file upload</strong>,
-          has <strong className="text-white">no server upload limit</strong> (processing happens locally in your browser, so very large files may depend on your device memory, browser performance, and video length), supports
+          requires <strong className="text-white">no server upload</strong> (processing happens locally in your browser, so large files depend on your device memory, browser performance, video length, and codec support), supports
           <strong className="text-white"> batch processing</strong>,
           <strong className="text-white"> ZIP download</strong>, and custom FPS control —
           all completely free and <strong className="text-white">100% private</strong>.
@@ -176,9 +176,9 @@ const Home: React.FC = () => {
         {/* Trust badges */}
         <div className="flex flex-wrap justify-center gap-3 text-xs text-gray-400 mb-10">
           {[
-            '✅ No Server Upload Limit',
+            '✅ No Server Upload Required',
             '🔒 100% Private',
-            '⚡ Instant — No Upload',
+            '⚡ Fast local processing · No upload',
             '📦 ZIP Download',
             '🎬 Batch Processing',
             '🎨 Custom FPS',
@@ -310,7 +310,7 @@ const Home: React.FC = () => {
           Your video is processed entirely inside your browser. Because we use client-side JavaScript APIs, your files are never uploaded to any server or stored on the cloud. They stay 100% local on your computer.
         </p>
         <p className="text-gray-400 mb-6 leading-relaxed">
-          We do not ask for signups, accounts, or personal information. You get maximum privacy and instant speed since no time is wasted uploading or downloading large video files.
+          We do not ask for signups, accounts, or personal information. You get maximum privacy and fast local processing speed since no time is wasted uploading or downloading large video files.
         </p>
         <p className="text-gray-400 leading-relaxed">
           <strong className="text-white">Your files are completely private. This tool is safe to use for sensitive, private, or confidential videos because zero data leaves your local device.</strong>

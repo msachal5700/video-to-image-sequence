@@ -11,7 +11,7 @@ const faqs = [
   },
   {
     q: 'Is there a file size limit for MP4 to JPG conversion?',
-    a: 'No server upload limit. Processing happens in your browser, so very large files may depend on your device memory, browser performance, and video length.'
+    a: 'No server upload required. Processing happens in your browser, so large files depend on your device memory, browser performance, video length, and codec support.'
   },
   {
     q: 'How many JPG frames will I get from my MP4?',
@@ -102,7 +102,7 @@ const Mp4ToJpg: React.FC = () => {
         <div className="flex flex-wrap justify-center gap-3 text-xs text-gray-400 mb-10">
           {[
             '🔒 100% Private (Local)',
-            '⚡ Instant Conversion',
+            '⚡ Fast Local Conversion',
             '📦 ZIP Download',
             '🎨 Custom FPS Control',
             '🆓 Free Forever'

@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const faqs = [
   {
     q: 'Is there a file size limit for images?',
-    a: 'No server upload limit. Processing happens in your browser, so very large files may depend on your device memory, browser performance, and video length.'
+    a: 'No server upload required. Processing happens in your browser, so large files depend on your device memory, browser performance, video length, and codec support.'
   },
   {
     q: 'What video format does the Images to Video tool output?',
@@ -35,7 +35,7 @@ const ImagesToVideoPage: React.FC = () => {
       "name": "Images to Video Converter",
       "url": "https://www.videotoimagesequence.online/images-to-video",
       "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Convert a sequence of JPG or PNG images into a video online for free. No upload required. Browser-based, private, and instant.",
+      "description": "Convert a sequence of JPG or PNG images into a video online for free. No upload required. Browser-based, private, and fast.",
       "applicationCategory": "MultimediaApplication",
       "operatingSystem": "All",
       "browserRequirements": "Requires HTML5 and Javascript support",
@@ -99,7 +99,7 @@ const ImagesToVideoPage: React.FC = () => {
         <div className="flex flex-wrap justify-center gap-3 text-xs text-gray-400 mb-10">
           {[
             '🔒 100% Private (Local)',
-            '⚡ Instant Stitching',
+            '⚡ Fast Local Stitching',
             '🎨 JPG, PNG, WebP Input',
             '🎬 WebM Output',
             '🆓 Free Forever'
@@ -179,7 +179,7 @@ const ImagesToVideoPage: React.FC = () => {
             ⚠️ Browser Processing Notice
           </h2>
           <p className="text-gray-400 text-sm leading-relaxed">
-            No server upload limit. Processing happens in your browser, so very large files may depend on your device memory, browser performance, and video length. Stitching hundreds of ultra-high-resolution images (such as 4K PNGs) can stress browser RAM. For large sequences, close extra tabs or stitch frames in smaller segments.
+            No server upload required. Processing happens in your browser, so large files depend on your device memory, browser performance, video length, and codec support. Stitching hundreds of ultra-high-resolution images (such as 4K PNGs) can stress browser RAM. For large sequences, close extra tabs or stitch frames in smaller segments.
           </p>
         </div>
       </section>

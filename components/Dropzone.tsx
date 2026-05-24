@@ -99,7 +99,7 @@ const Dropzone: React.FC<DropzoneProps> = ({ onFileSelect }) => {
                 Drop your video here
               </p>
               <p className="text-gray-500 text-sm mb-1">
-                MP4, MOV, WEBM supported · Any file size · Drop multiple files for batch
+                MP4, MOV, WEBM supported · Large files depend on your device and browser · Drop multiple files for batch
               </p>
               <p className="text-cyan-400 text-xs">or click to browse</p>
             </>

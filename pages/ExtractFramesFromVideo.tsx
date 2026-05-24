@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     q: 'Is there a file size limit for frame extraction?',
-    a: 'No server upload limit. Processing happens in your browser, so very large files may depend on your device memory, browser performance, and video length.'
+    a: 'No server upload required. Processing happens in your browser, so large files depend on your device memory, browser performance, video length, and codec support.'
   },
   {
     q: 'Should I export frames as JPG or PNG?',
@@ -39,7 +39,7 @@ const ExtractFramesFromVideo: React.FC = () => {
       "name": "Extract Frames from Video",
       "url": "https://www.videotoimagesequence.online/extract-frames-from-video",
       "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Extract frames from video online for free. Upload MP4, MOV, WEBM, AVI, or MKV videos and save frames as JPG or PNG images.",
+      "description": "Extract frames from video online for free. Convert MP4, MOV, and WEBM videos to JPG or PNG sequences in your browser. No server upload required.",
       "applicationCategory": "MultimediaApplication",
       "operatingSystem": "All",
       "browserRequirements": "Requires HTML5 and Javascript support",
@@ -76,10 +76,10 @@ const ExtractFramesFromVideo: React.FC = () => {
     <div className="w-full mx-auto pb-16 font-sans">
       <SEOHead
         title="Extract Frames from Video Online — Free Video Frame Extractor"
-        description="Extract frames from video online for free. Upload MP4, MOV, WEBM, AVI, or MKV videos and save frames as JPG or PNG images. No server upload required."
+        description="Extract frames from video online for free. Convert MP4, MOV, and WEBM videos to JPG or PNG sequences in your browser. No server upload required."
         canonical="https://www.videotoimagesequence.online/extract-frames-from-video"
         ogTitle="Extract Frames from Video Online — Free Video Frame Extractor"
-        ogDescription="Extract frames from video online for free. Upload MP4, MOV, WEBM, AVI, or MKV videos and save frames as JPG or PNG images."
+        ogDescription="Extract frames from video online for free. Convert MP4, MOV, and WEBM videos to JPG or PNG sequences in your browser. No server upload required."
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
       />
@@ -125,7 +125,7 @@ const ExtractFramesFromVideo: React.FC = () => {
           Local, Secure Video Decoding
         </h2>
         <p className="text-gray-400 leading-relaxed">
-          Most online frame extraction services require you to upload massive video files to their cloud servers, which is slow and exposes your data. Our tool leverages WebCodecs and canvas decoding to process files directly inside your browser. No files are uploaded, keeping your video private and making extraction instant.
+          Most online frame extraction services require you to upload massive video files to their cloud servers, which is slow and exposes your data. Our tool leverages WebCodecs and canvas decoding to process files directly inside your browser. No files are uploaded, keeping your video private and making extraction fast.
         </p>
       </section>
 
@@ -163,13 +163,19 @@ const ExtractFramesFromVideo: React.FC = () => {
           Supported Video Formats
         </h2>
         <p className="text-gray-400 leading-relaxed mb-6">
-          Our browser-based decoder is optimized to handle standard HTML5 video containers:
+          Best supported: MP4, MOV, and WEBM. Other formats such as AVI or MKV may work only when your browser supports the video codec.
         </p>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-          {['MP4', 'MOV', 'WEBM', 'AVI', 'MKV'].map(format => (
+          {['MP4', 'MOV', 'WEBM'].map(format => (
             <div key={format} className="bg-gray-900 border border-gray-800 rounded-lg p-4 text-center">
               <p className="text-cyan-400 font-bold text-lg">{format}</p>
-              <p className="text-gray-500 text-xs mt-1">Supported</p>
+              <p className="text-gray-500 text-xs mt-1">Best Supported</p>
+            </div>
+          ))}
+          {['AVI', 'MKV'].map(format => (
+            <div key={format} className="bg-gray-900 border border-gray-800 rounded-lg p-4 text-center opacity-60">
+              <p className="text-gray-400 font-bold text-lg">{format}</p>
+              <p className="text-gray-500 text-xs mt-1">Codec Dependent</p>
             </div>
           ))}
         </div>
@@ -182,7 +188,7 @@ const ExtractFramesFromVideo: React.FC = () => {
             ⚠️ Browser Processing Notice
           </h2>
           <p className="text-gray-400 text-sm leading-relaxed">
-            No server upload limit. Processing happens in your browser, so very large files may depend on your device memory, browser performance, and video length. Heavy 4K files or high FPS extraction sequences can exceed browser memory bounds. If the tab freezes, close background tabs and run extraction with a lower FPS.
+            No server upload required. Processing happens in your browser, so large files depend on your device memory, browser performance, video length, and codec support. Heavy 4K files or high FPS extraction sequences can exceed browser memory bounds. If the tab freezes, close background tabs and run extraction with a lower FPS.
           </p>
         </div>
       </section>
