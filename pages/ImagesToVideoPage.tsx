@@ -25,6 +25,11 @@ const faqs = [
 
 const ImagesToVideoPage: React.FC = () => {
   useEffect(() => {
+    const existing = document.getElementById('images-to-video-schemas');
+    if (existing) {
+      existing.remove();
+    }
+
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.id = 'images-to-video-schemas';

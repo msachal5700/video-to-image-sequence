@@ -29,6 +29,11 @@ const faqs = [
 
 const Mp4ToJpg: React.FC = () => {
   useEffect(() => {
+    const existing = document.getElementById('mp4-to-jpg-schemas');
+    if (existing) {
+      existing.remove();
+    }
+
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.id = 'mp4-to-jpg-schemas';
@@ -115,7 +120,7 @@ const Mp4ToJpg: React.FC = () => {
       />
 
       {/* Breadcrumb */}
-      <Breadcrumb items={[{ label: 'MP4 to JPG', path: '/mp4-to-jpg' }]} />
+      <Breadcrumb items={[{ label: 'Tools', path: '/#tool' }, { label: 'MP4 to JPG', path: '/mp4-to-jpg' }]} />
 
       {/* ── HERO SECTION ── */}
       <section className="text-center max-w-4xl mx-auto pt-10 pb-10 px-4">

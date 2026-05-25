@@ -22,12 +22,17 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
         "name": "Home",
         "item": "https://www.videotoimagesequence.online"
       },
-      ...items.map((item, index) => ({
-        "@type": "ListItem",
-        "position": index + 2,
-        "name": item.label,
-        "item": item.path ? `https://www.videotoimagesequence.online${item.path}` : undefined
-      }))
+      ...items.map((item, index) => {
+        const listItem: any = {
+          "@type": "ListItem",
+          "position": index + 2,
+          "name": item.label
+        };
+        if (item.path) {
+          listItem.item = `https://www.videotoimagesequence.online${item.path}`;
+        }
+        return listItem;
+      })
     ]
   };
 

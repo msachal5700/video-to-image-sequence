@@ -26,6 +26,11 @@ const posts = [
 
 const BlogIndex: React.FC = () => {
   useEffect(() => {
+    const existing = document.getElementById('blog-index-schemas');
+    if (existing) {
+      existing.remove();
+    }
+
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.id = 'blog-index-schemas';

@@ -29,6 +29,11 @@ const faqs = [
 
 const ExtractFramesFromVideo: React.FC = () => {
   useEffect(() => {
+    const existing = document.getElementById('extract-frames-from-video-schemas');
+    if (existing) {
+      existing.remove();
+    }
+
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.id = 'extract-frames-from-video-schemas';

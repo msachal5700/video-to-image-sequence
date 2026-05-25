@@ -29,6 +29,11 @@ const faqs = [
 
 const ScreenshotFromVideo: React.FC = () => {
   useEffect(() => {
+    const existing = document.getElementById('screenshot-from-video-schemas');
+    if (existing) {
+      existing.remove();
+    }
+
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.id = 'screenshot-from-video-schemas';

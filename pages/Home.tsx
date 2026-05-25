@@ -43,6 +43,11 @@ const faqs = [
 
 const Home: React.FC = () => {
   useEffect(() => {
+    const existing = document.getElementById('home-schemas');
+    if (existing) {
+      existing.remove();
+    }
+
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.id = 'home-schemas';

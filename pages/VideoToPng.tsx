@@ -29,6 +29,11 @@ const faqs = [
 
 const VideoToPng: React.FC = () => {
   useEffect(() => {
+    const existing = document.getElementById('video-to-png-schemas');
+    if (existing) {
+      existing.remove();
+    }
+
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.id = 'video-to-png-schemas';
