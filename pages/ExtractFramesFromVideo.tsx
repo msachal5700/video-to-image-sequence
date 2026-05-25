@@ -116,7 +116,7 @@ const ExtractFramesFromVideo: React.FC = () => {
       
 
       {/* Breadcrumb */}
-      <Breadcrumb items={[{ label: 'Tools' }, { label: 'Extract Frames', path: '/extract-frames-from-video' }]} />
+      <Breadcrumb items={[{ label: 'Extract Frames', path: '/extract-frames-from-video' }]} />
 
       {/* ── HERO SECTION ── */}
       <section className="text-center max-w-4xl mx-auto pt-10 pb-10 px-4">

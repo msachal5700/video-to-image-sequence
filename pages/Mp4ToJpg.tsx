@@ -115,7 +115,7 @@ const Mp4ToJpg: React.FC = () => {
       />
 
       {/* Breadcrumb */}
-      <Breadcrumb items={[{ label: 'Tools' }, { label: 'MP4 to JPG', path: '/mp4-to-jpg' }]} />
+      <Breadcrumb items={[{ label: 'MP4 to JPG', path: '/mp4-to-jpg' }]} />
 
       {/* ── HERO SECTION ── */}
       <section className="text-center max-w-4xl mx-auto pt-10 pb-10 px-4">

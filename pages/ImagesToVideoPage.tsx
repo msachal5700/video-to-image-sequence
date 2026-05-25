@@ -112,7 +112,7 @@ const ImagesToVideoPage: React.FC = () => {
       
 
       {/* Breadcrumb */}
-      <Breadcrumb items={[{ label: 'Tools' }, { label: 'Images to Video', path: '/images-to-video' }]} />
+      <Breadcrumb items={[{ label: 'Images to Video', path: '/images-to-video' }]} />
 
       {/* ── HERO SECTION ── */}
       <section className="text-center max-w-4xl mx-auto pt-10 pb-10 px-4">

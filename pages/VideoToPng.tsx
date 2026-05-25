@@ -115,7 +115,7 @@ const VideoToPng: React.FC = () => {
       />
 
       {/* Breadcrumb */}
-      <Breadcrumb items={[{ label: 'Tools' }, { label: 'Video to PNG', path: '/video-to-png' }]} />
+      <Breadcrumb items={[{ label: 'Video to PNG', path: '/video-to-png' }]} />
 
       {/* ── HERO SECTION ── */}
       <section className="text-center max-w-4xl mx-auto pt-10 pb-10 px-4">
