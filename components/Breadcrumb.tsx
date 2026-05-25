@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 interface BreadcrumbItem {
   label: string;
@@ -11,6 +11,8 @@ interface BreadcrumbProps {
 }
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
+  const location = useLocation();
+
   // Construct BreadcrumbList JSON-LD schema
   const schema = {
     "@context": "https://schema.org",
@@ -23,15 +25,13 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
         "item": "https://www.videotoimagesequence.online"
       },
       ...items.map((item, index) => {
-        const listItem: any = {
+        const path = item.path || location.pathname;
+        return {
           "@type": "ListItem",
           "position": index + 2,
-          "name": item.label
+          "name": item.label,
+          "item": `https://www.videotoimagesequence.online${path}`
         };
-        if (item.path) {
-          listItem.item = `https://www.videotoimagesequence.online${item.path}`;
-        }
-        return listItem;
       })
     ]
   };
