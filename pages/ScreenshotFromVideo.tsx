@@ -63,7 +63,37 @@ const ScreenshotFromVideo: React.FC = () => {
       }))
     };
 
-    script.text = JSON.stringify([webAppSchema, faqSchema]);
+    const howToSchema = {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Take a Screenshot from Video Online",
+      "description": "Learn how to capture high-resolution screenshots from MP4, MOV, or WEBM video frames locally.",
+      "totalTime": "PT1M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Load Your Video",
+          "text": "Select your video file from your local computer or phone."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Seek to Target Frame",
+          "text": "Use the video scrubber or frame-stepping controls to locate the exact moment."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Capture Screenshot",
+          "text": "Click the Capture Screenshot button to draw the frame at full resolution onto a canvas."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Download Still Image",
+          "text": "Download the captured frame as a PNG or JPG still image locally."
+        }
+      ]
+    };
+
+    script.text = JSON.stringify([webAppSchema, faqSchema, howToSchema]);
     document.head.appendChild(script);
 
     return () => {

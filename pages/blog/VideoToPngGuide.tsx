@@ -14,8 +14,8 @@ export default function VideoToPngGuide() {
         "headline": "How to Convert Video to PNG Frames Online — Complete 2026 Guide",
         "description": "Learn exactly how to extract lossless PNG frames from MP4, MOV, and WEBM videos locally in your browser. Private browser processing. Large files depend on your device and browser.",
         "url": "https://www.videotoimagesequence.online/blog/video-to-png-frames-guide",
-        "datePublished": "2026-04-27",
-        "dateModified": "2026-04-27",
+        "datePublished": "2026-05-24",
+        "dateModified": "2026-05-24",
         "author": {
           "@type": "Organization",
           "name": "Video to Image Sequence Online"
@@ -92,7 +92,7 @@ export default function VideoToPngGuide() {
         ogDescription="Extract lossless PNG frames from MP4, MOV, and WEBM videos locally in your browser. Private browser processing. Large files depend on your device and browser."
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="article"
-        articleDate="2026-04-27"
+        articleDate="2026-05-24"
       />
 
       <Breadcrumb items={[
@@ -104,7 +104,7 @@ export default function VideoToPngGuide() {
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 font-display leading-tight">
           How to Convert Video to PNG Frames Online — <span className="text-cyan-400">Complete 2026 Guide</span>
         </h1>
-        <p className="text-cyan-400 font-mono text-xs tracking-wider uppercase">April 2026 • 12 min read</p>
+        <p className="text-cyan-400 font-mono text-xs tracking-wider uppercase">May 2026 • 12 min read</p>
       </div>
 
       <div className="text-gray-300 space-y-6 leading-relaxed text-lg lg:text-xl">

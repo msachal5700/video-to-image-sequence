@@ -25,6 +25,43 @@ const posts = [
 ];
 
 const BlogIndex: React.FC = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = 'blog-index-schemas';
+    script.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Video to Image Sequence Online Blog Posts",
+      "numberOfItems": 3,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "How to Extract Frames from Video Online (Free, No Install)",
+          "url": "https://www.videotoimagesequence.online/blog/extract-frames-from-video-online"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "MP4 to Image Sequence: Complete Beginner Guide",
+          "url": "https://www.videotoimagesequence.online/blog/mp4-to-image-sequence-guide"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How to Convert Video to PNG Frames Online — Complete 2026 Guide",
+          "url": "https://www.videotoimagesequence.online/blog/video-to-png-frames-guide"
+        }
+      ]
+    });
+    document.head.appendChild(script);
+    return () => {
+      const el = document.getElementById('blog-index-schemas');
+      if (el) el.remove();
+    };
+  }, []);
+
   return (
     <main className="max-w-4xl mx-auto py-16 px-6 font-sans">
       <SEOHead

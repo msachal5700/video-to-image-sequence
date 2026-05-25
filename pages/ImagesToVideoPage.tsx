@@ -59,7 +59,37 @@ const ImagesToVideoPage: React.FC = () => {
       }))
     };
 
-    script.text = JSON.stringify([webAppSchema, faqSchema]);
+    const howToSchema = {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Convert Images to Video Online",
+      "description": "Learn how to stitch a sequence of images into a WebM video locally in your browser.",
+      "totalTime": "PT1M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Select Image Files",
+          "text": "Drop your image sequence files in alphabetical order into the compilation tool."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Set Frame Rate",
+          "text": "Choose the target playback speed (FPS) for the output video."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Encode the Video",
+          "text": "Compile the frames using MediaRecorder directly in your browser memory."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Save Video File",
+          "text": "Download the generated WebM video file to your local drive."
+        }
+      ]
+    };
+
+    script.text = JSON.stringify([webAppSchema, faqSchema, howToSchema]);
     document.head.appendChild(script);
 
     return () => {

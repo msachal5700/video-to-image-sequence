@@ -63,7 +63,37 @@ const ExtractFramesFromVideo: React.FC = () => {
       }))
     };
 
-    script.text = JSON.stringify([webAppSchema, faqSchema]);
+    const howToSchema = {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Extract Frames from Video Online",
+      "description": "Step-by-step instructions to extract individual frame images from video files.",
+      "totalTime": "PT1M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Open the Frame Extractor",
+          "text": "Access the browser-based tool and load your MP4, MOV, or WEBM file."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Configure Extraction Rate",
+          "text": "Select the target frame rate (FPS) to dictate how frequently frames are sliced."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Generate the Frame Sequence",
+          "text": "Process the video locally in device memory to decode frame images."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Download Output Zip",
+          "text": "Download all extracted frames packaged inside a clean ZIP archive."
+        }
+      ]
+    };
+
+    script.text = JSON.stringify([webAppSchema, faqSchema, howToSchema]);
     document.head.appendChild(script);
 
     return () => {

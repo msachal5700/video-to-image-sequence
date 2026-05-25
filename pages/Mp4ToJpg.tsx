@@ -63,7 +63,37 @@ const Mp4ToJpg: React.FC = () => {
       }))
     };
 
-    script.text = JSON.stringify([webAppSchema, faqSchema]);
+    const howToSchema = {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Convert MP4 to JPG Online",
+      "description": "A quick guide to converting MP4 videos to a sequence of JPG images without uploading files.",
+      "totalTime": "PT1M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Upload MP4 File",
+          "text": "Drag and drop your MP4 file into the local converter tool zone."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Choose JPG and FPS",
+          "text": "Set the output format to JPG and configure your target frames-per-second rate."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Extract JPG Sequence",
+          "text": "Run local browser decoding to extract every frame as a JPG image."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Download JPG Zip",
+          "text": "Click Download All as ZIP to fetch the entire extracted JPG archive."
+        }
+      ]
+    };
+
+    script.text = JSON.stringify([webAppSchema, faqSchema, howToSchema]);
     document.head.appendChild(script);
 
     return () => {

@@ -98,12 +98,75 @@ const Home: React.FC = () => {
       }))
     };
 
-    const breadcrumbSchema = {
+    const navigationSchema = {
       "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
+      "@type": "ItemList",
+      "name": "Site Navigation Tools",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.videotoimagesequence.online" },
-        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.videotoimagesequence.online/blog" }
+        {
+          "@type": "SiteNavigationElement",
+          "position": 1,
+          "name": "Video to Image Sequence Converter",
+          "url": "https://www.videotoimagesequence.online"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 2,
+          "name": "MP4 to JPG Converter",
+          "url": "https://www.videotoimagesequence.online/mp4-to-jpg"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 3,
+          "name": "Video to PNG Converter",
+          "url": "https://www.videotoimagesequence.online/video-to-png"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 4,
+          "name": "Screenshot from Video",
+          "url": "https://www.videotoimagesequence.online/screenshot-from-video"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 5,
+          "name": "Extract Frames from Video",
+          "url": "https://www.videotoimagesequence.online/extract-frames-from-video"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 6,
+          "name": "Images to Video Converter",
+          "url": "https://www.videotoimagesequence.online/images-to-video"
+        }
+      ]
+    };
+
+    const howToSchema = {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Convert Video to Image Sequence Online",
+      "description": "Learn how to extract frame sequences from video files locally inside your web browser.",
+      "totalTime": "PT1M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Load Your Video File",
+          "text": "Drag and drop your video file (MP4, MOV, or WEBM) into the browser-based upload zone.",
+          "url": "https://www.videotoimagesequence.online/#dropzone"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Select Output Settings",
+          "text": "Choose your desired image format (JPG or PNG) and custom frame rate (FPS).",
+          "url": "https://www.videotoimagesequence.online/#settings"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Extract and Download Frames",
+          "text": "Click Extract Frames and preview the sequence. Download all frames as a ZIP file.",
+          "url": "https://www.videotoimagesequence.online/#preview"
+        }
       ]
     };
 
@@ -124,7 +187,7 @@ const Home: React.FC = () => {
       ]
     };
 
-    script.text = JSON.stringify([webAppSchema, faqSchema, breadcrumbSchema, orgSchema]);
+    script.text = JSON.stringify([webAppSchema, faqSchema, navigationSchema, howToSchema, orgSchema]);
     document.head.appendChild(script);
 
     return () => {

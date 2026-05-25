@@ -63,7 +63,37 @@ const VideoToPng: React.FC = () => {
       }))
     };
 
-    script.text = JSON.stringify([webAppSchema, faqSchema]);
+    const howToSchema = {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Convert Video to PNG Online",
+      "description": "Learn how to extract lossless PNG frames from MP4, MOV, and WEBM videos directly in your browser.",
+      "totalTime": "PT1M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Select Your Video",
+          "text": "Load your MP4, MOV, or WEBM video file into the converter dropzone."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Configure Lossless PNG",
+          "text": "Select PNG as the output format to preserve pixel-perfect frame accuracy."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Choose Frame Rate",
+          "text": "Specify the target FPS or choose to extract every frame."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Export PNG Sequence",
+          "text": "Generate and download the compiled lossless PNG images inside a ZIP folder."
+        }
+      ]
+    };
+
+    script.text = JSON.stringify([webAppSchema, faqSchema, howToSchema]);
     document.head.appendChild(script);
 
     return () => {
