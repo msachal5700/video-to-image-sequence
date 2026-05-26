@@ -40,6 +40,7 @@ export const extractFramesAndZip = async (options: ProcessVideoOptions): Promise
   return new Promise(async (resolve, reject) => {
     try {
       const arrayBuffer = await file.arrayBuffer();
+      console.log('[MAIN] Creating Web Worker...');
       const worker = new Worker(new URL('../workers/frameExtractor.worker.ts', import.meta.url), { type: 'module' });
       
       if (workerRef) {
@@ -48,7 +49,9 @@ export const extractFramesAndZip = async (options: ProcessVideoOptions): Promise
 
       worker.onmessage = (e) => {
         const { type } = e.data;
+        console.log('[MAIN] Worker onmessage type:', type, e.data);
         if (type === 'FALLBACK') {
+          console.warn('[MAIN] Worker requested FALLBACK, running legacy seeker');
           if (workerRef) workerRef.current = null;
           worker.terminate();
           extractFramesLegacy(options).then(resolve).catch(reject);
@@ -63,10 +66,12 @@ export const extractFramesAndZip = async (options: ProcessVideoOptions): Promise
         } else if (type === 'FRAME') {
           if (onFrame) onFrame(e.data.blob, e.data.index);
         } else if (type === 'COMPLETE') {
+          console.log('[MAIN] Worker completed frame extraction successfully');
           if (workerRef) workerRef.current = null;
           worker.terminate();
           resolve(e.data.zipBlob);
         } else if (type === 'ERROR') {
+          console.error('[MAIN] Worker error event received, falling back to legacy', e.data.message);
           if (workerRef) workerRef.current = null;
           worker.terminate();
           extractFramesLegacy(options).then(resolve).catch(reject);
@@ -74,11 +79,13 @@ export const extractFramesAndZip = async (options: ProcessVideoOptions): Promise
       };
 
       worker.onerror = (err) => {
+        console.error('[MAIN] Worker.onerror fired, falling back to legacy:', err);
         if (workerRef) workerRef.current = null;
         worker.terminate();
         extractFramesLegacy(options).then(resolve).catch(reject);
       };
 
+      console.log('[MAIN] Posting START message to worker, buffer size:', arrayBuffer.byteLength);
       worker.postMessage({
         type: 'START',
         payload: {
@@ -91,6 +98,7 @@ export const extractFramesAndZip = async (options: ProcessVideoOptions): Promise
       }, [arrayBuffer]);
 
     } catch (err) {
+      console.error('[MAIN] Failed in worker startup try block:', err);
       if (workerRef) workerRef.current = null;
       extractFramesLegacy(options).then(resolve).catch(reject);
     }

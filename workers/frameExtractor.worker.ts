@@ -2,25 +2,33 @@ import JSZip from 'jszip';
 // @ts-ignore
 import * as MP4Box from 'mp4box';
 
+console.log('[WORKER] Script loaded');
+
 self.onmessage = async (e) => {
   const { type, payload } = e.data;
+  console.log('[WORKER] onmessage received type:', type);
   if (type === 'START') {
     try {
+      console.log('[WORKER] VideoDecoder:', typeof VideoDecoder, 'OffscreenCanvas:', typeof OffscreenCanvas);
       if (typeof VideoDecoder === 'undefined' || typeof OffscreenCanvas === 'undefined') {
+        console.log('[WORKER] Browser does not support VideoDecoder or OffscreenCanvas, falling back.');
         self.postMessage({ type: 'FALLBACK' });
         return;
       }
       await processVideo(payload);
     } catch (err: any) {
+      console.error('[WORKER] processVideo failed with error:', err);
       self.postMessage({ type: 'FALLBACK' });
     }
   }
 };
 
 async function processVideo(payload: any) {
+  console.log('[WORKER] processVideo started');
   const { arrayBuffer, fps, format, quality, maxFrames } = payload;
   let zip: JSZip | null = new JSZip();
   const startTime = Date.now();
+  const pendingFramePromises: Promise<void>[] = [];
 
   const mp4boxfile: any = MP4Box.createFile();
   let videoTrack: any = null;
@@ -45,6 +53,7 @@ async function processVideo(payload: any) {
   });
 
   mp4boxfile.onError = (e: any) => {
+    console.error('[WORKER] MP4Box onError triggered:', e);
     clearTimeout(fallbackTimer);
     resolvePromise.reject(new Error(e));
   };
@@ -52,6 +61,7 @@ async function processVideo(payload: any) {
   (arrayBuffer as any).fileStart = 0;
 
   mp4boxfile.onReady = (info: any) => {
+    console.log('[WORKER] MP4Box onReady triggered. Info:', info);
     clearTimeout(fallbackTimer);
     videoTrack = info.videoTracks[0];
     if (!videoTrack) {
@@ -76,59 +86,67 @@ async function processVideo(payload: any) {
     ctx = canvas.getContext('2d') as OffscreenCanvasRenderingContext2D;
 
     decoder = new VideoDecoder({
-      output: async (frame: VideoFrame) => {
+      output: (frame: VideoFrame) => {
         if (isCanceled) { frame.close(); return; }
 
         // If we are close or past the next frame time, capture it
         if (frame.timestamp >= nextFrameTime) {
-          ctx!.drawImage(frame, 0, 0, canvas!.width, canvas!.height);
-          
+          // Create a temporary canvas for this frame to avoid race conditions
+          const tempCanvas = new OffscreenCanvas(canvas!.width, canvas!.height);
+          const tempCtx = tempCanvas.getContext('2d');
+          tempCtx!.drawImage(frame, 0, 0, tempCanvas.width, tempCanvas.height);
+
           const mimeType = format === 'png' ? 'image/png' : 'image/jpeg';
           const exportQuality = format === 'png' ? 1.0 : quality;
           
-          try {
-            const blob = await canvas!.convertToBlob({
-              type: mimeType,
-              quality: exportQuality
-            });
-            
-            const extension = format === 'png' ? 'png' : 'jpg';
-            const fileName = `frame_${processedFrames.toString().padStart(6, '0')}.${extension}`;
-            
-            if (zip) {
-              if (format === 'jpg') {
-                zip.file(fileName, blob, { compression: 'STORE' });
-              } else {
-                zip.file(fileName, blob, { compression: 'DEFLATE', compressionOptions: { level: 3 } });
-              }
-            }
-            
-            self.postMessage({ type: 'FRAME', blob, index: processedFrames });
-            
-            processedFrames++;
-            nextFrameTime += timeIntervalMicroseconds;
-            
-            const elapsed = (Date.now() - startTime) / 1000;
-            const fpsProcessing = processedFrames / elapsed;
-            const remaining = totalFrames - processedFrames;
-            const est = remaining / fpsProcessing;
-            
-            self.postMessage({
-              type: 'PROGRESS',
-              processedFrames,
-              totalFrames,
-              progress: Math.round((processedFrames / totalFrames) * 100),
-              estimatedTimeRemaining: est,
-              startTime
-            });
+          const currentFrameIndex = processedFrames;
+          processedFrames++;
+          nextFrameTime += timeIntervalMicroseconds;
 
-            if (maxFrames && processedFrames >= maxFrames) {
-               isCanceled = true;
-               if (decoder && decoder.state === 'configured') decoder.flush();
+          const framePromise = (async () => {
+            try {
+              const blob = await tempCanvas.convertToBlob({
+                type: mimeType,
+                quality: exportQuality
+              });
+              
+              const extension = format === 'png' ? 'png' : 'jpg';
+              const fileName = `frame_${currentFrameIndex.toString().padStart(6, '0')}.${extension}`;
+              
+              if (zip) {
+                if (format === 'jpg') {
+                  zip.file(fileName, blob, { compression: 'STORE' });
+                } else {
+                  zip.file(fileName, blob, { compression: 'DEFLATE', compressionOptions: { level: 3 } });
+                }
+              }
+              
+              self.postMessage({ type: 'FRAME', blob, index: currentFrameIndex });
+              
+              const elapsed = (Date.now() - startTime) / 1000;
+              const fpsProcessing = processedFrames / elapsed;
+              const remaining = totalFrames - processedFrames;
+              const est = remaining / fpsProcessing;
+              
+              self.postMessage({
+                type: 'PROGRESS',
+                processedFrames,
+                totalFrames,
+                progress: Math.round((processedFrames / totalFrames) * 100),
+                estimatedTimeRemaining: est,
+                startTime
+              });
+
+              if (maxFrames && processedFrames >= maxFrames) {
+                 isCanceled = true;
+                 if (decoder && decoder.state === 'configured') decoder.flush();
+              }
+            } catch (err: any) {
+               console.error("Frame export error", err);
             }
-          } catch (err: any) {
-             console.error("Frame export error", err);
-          }
+          })();
+
+          pendingFramePromises.push(framePromise);
         }
         
         frame.close();
@@ -160,23 +178,23 @@ async function processVideo(payload: any) {
         description
       };
 
-      VideoDecoder.isConfigSupported(config).then(support => {
-        if (!support.supported) {
-          resolvePromise.reject(new Error('Codec not supported'));
-          return;
-        }
-        decoder!.configure(config);
-        mp4boxfile.setExtractionOptions(videoTrack.id, null, { nbSamples: 10000 });
-        mp4boxfile.start();
-      }).catch(resolvePromise.reject);
+      decoder!.configure(config);
+      mp4boxfile.setExtractionOptions(videoTrack.id, null, { nbSamples: 10000 });
+      mp4boxfile.start();
+      console.log('[WORKER] VideoDecoder configured and MP4Box start() called synchronously');
     } catch (e) {
+      console.error('[WORKER] Exception in onReady synchronous block:', e);
       resolvePromise.reject(e);
     }
   };
 
   mp4boxfile.onSamples = (trackId: any, user: any, samples: any[]) => {
+    console.log('[WORKER] MP4Box onSamples triggered. Sample count:', samples.length);
     for (const sample of samples) {
-      if (!decoder || decoder.state !== 'configured') break;
+      if (!decoder || decoder.state !== 'configured') {
+        console.warn('[WORKER] Decoder not ready during sample processing, state:', decoder?.state);
+        break;
+      }
       const type = sample.is_sync ? 'key' : 'delta';
       const chunk = new EncodedVideoChunk({
         type: type as EncodedVideoChunkType,
@@ -192,35 +210,39 @@ async function processVideo(payload: any) {
     }
   };
   
-  mp4boxfile.onFlush = async () => {
+  // Set a timeout to catch files that aren't MP4s or supported
+  fallbackTimer = setTimeout(() => {
+     console.warn('[WORKER] MP4Box Parsing Timeout - falling back to legacy seeker');
+     resolvePromise.reject(new Error('MP4Box Parsing Timeout - falling back'));
+  }, 2000);
+
+  try {
+    console.log('[WORKER] Appending buffer to MP4Box, size:', arrayBuffer.byteLength);
+    mp4boxfile.appendBuffer(arrayBuffer);
+    console.log('[WORKER] Flushing MP4Box...');
+    mp4boxfile.flush();
+    console.log('[WORKER] Buffer appended & flushed. Triggering VideoDecoder flush...');
+    
     if (decoder && decoder.state === 'configured') {
-      try {
-        await decoder.flush();
-      } catch(e) {
-        console.error("Decoder flush error", e);
-      }
+      await decoder.flush();
+      console.log('[WORKER] VideoDecoder flushed. Waiting for all pending frames...');
+      await Promise.all(pendingFramePromises);
+      console.log('[WORKER] All pending frames processed. Generating ZIP...');
+      
       if (!zip) {
         resolvePromise.reject(new Error('ZIP instance destroyed.'));
         return;
       }
       const zipBlob = await zip.generateAsync({ type: 'blob' });
       zip = null; // GC collection mark
+      console.log('[WORKER] ZIP generated, posting COMPLETE');
       self.postMessage({ type: 'COMPLETE', zipBlob });
       resolvePromise.resolve();
     } else {
-       resolvePromise.reject(new Error('Decoder not initialized before flush'));
+      resolvePromise.reject(new Error('Decoder not initialized before flush'));
     }
-  };
-
-  // Set a timeout to catch files that aren't MP4s or supported
-  fallbackTimer = setTimeout(() => {
-     resolvePromise.reject(new Error('MP4Box Parsing Timeout - falling back'));
-  }, 2000);
-
-  try {
-    mp4boxfile.appendBuffer(arrayBuffer);
-    mp4boxfile.flush();
   } catch(e) {
+    console.error('[WORKER] Exception in processing:', e);
     clearTimeout(fallbackTimer);
     resolvePromise.reject(e);
   }
