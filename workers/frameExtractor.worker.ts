@@ -36,6 +36,8 @@ async function processVideo(payload: any) {
   let nextFrameTime = 0;
   let isCanceled = false;
   
+  let fallbackTimer: any = null;
+  
   const resolvePromise: any = {};
   const promise = new Promise((resolve, reject) => {
     resolvePromise.resolve = resolve;
@@ -43,12 +45,14 @@ async function processVideo(payload: any) {
   });
 
   mp4boxfile.onError = (e: any) => {
+    clearTimeout(fallbackTimer);
     resolvePromise.reject(new Error(e));
   };
   
   (arrayBuffer as any).fileStart = 0;
 
   mp4boxfile.onReady = (info: any) => {
+    clearTimeout(fallbackTimer);
     videoTrack = info.videoTracks[0];
     if (!videoTrack) {
        resolvePromise.reject(new Error('No video track found'));
@@ -209,14 +213,13 @@ async function processVideo(payload: any) {
   };
 
   // Set a timeout to catch files that aren't MP4s or supported
-  const fallbackTimer = setTimeout(() => {
+  fallbackTimer = setTimeout(() => {
      resolvePromise.reject(new Error('MP4Box Parsing Timeout - falling back'));
   }, 2000);
 
   try {
     mp4boxfile.appendBuffer(arrayBuffer);
     mp4boxfile.flush();
-    clearTimeout(fallbackTimer);
   } catch(e) {
     clearTimeout(fallbackTimer);
     resolvePromise.reject(e);
