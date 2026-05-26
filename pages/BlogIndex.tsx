@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
+import AdsterraAd from '../components/AdsterraAd';
 
 const posts = [
   {
@@ -99,6 +100,11 @@ const BlogIndex: React.FC = () => {
             </Link>
           </article>
         ))}
+      </div>
+
+      {/* Adsterra Ad — Blog Index */}
+      <div className="max-w-5xl mx-auto px-4 mt-8">
+        <AdsterraAd label="Advertisement" />
       </div>
     </main>
   );

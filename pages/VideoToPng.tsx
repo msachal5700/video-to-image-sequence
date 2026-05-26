@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import VideoToImages from './VideoToImages';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
+import AdsterraAd from '../components/AdsterraAd';
 import { Link } from 'react-router-dom';
 
 const faqs = [
@@ -149,6 +150,11 @@ const VideoToPng: React.FC = () => {
         </div>
       </section>
 
+      {/* Adsterra Ad — Pre-Tool */}
+      <div className="max-w-5xl mx-auto px-4">
+        <AdsterraAd label="Advertisement" />
+      </div>
+
       {/* Main Tool Content */}
       <div className="animate-fade-in min-h-[400px] px-4 max-w-5xl mx-auto text-center">
         <div className="mb-4 inline-block bg-cyan-950/40 border border-cyan-800 text-cyan-400 px-4 py-2 rounded-lg text-sm font-medium">
@@ -192,6 +198,11 @@ const VideoToPng: React.FC = () => {
           </ol>
         </div>
       </section>
+
+      {/* Adsterra Ad — Post How-To */}
+      <div className="max-w-5xl mx-auto px-4">
+        <AdsterraAd label="Advertisement" />
+      </div>
 
       {/* ── JPG VS PNG COMPARISON ── */}
       <section className="max-w-5xl mx-auto py-12 px-4">

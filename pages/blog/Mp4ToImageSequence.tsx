@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import Breadcrumb from '../../components/Breadcrumb';
+import AdsterraAd from '../../components/AdsterraAd';
 
 const Mp4ToImageSequence: React.FC = () => {
   useEffect(() => {
@@ -87,6 +88,11 @@ const Mp4ToImageSequence: React.FC = () => {
           Our browser-based pipeline decodes the MP4 container structure locally, utilizing hardware acceleration via standard browser APIs. By drawing decoded frames directly onto Canvas buffers, the tool bypasses the need to transmit data to external servers, protecting your security and eliminating network delays.
         </p>
 
+        {/* Adsterra Ad — Mid Article */}
+        <div className="my-10">
+          <AdsterraAd label="Advertisement" />
+        </div>
+
         <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">Step-by-Step Instructions</h2>
         <p>
           Generating an image sequence from an MP4 video is quick and straightforward. Follow these exact steps:
@@ -147,6 +153,10 @@ const Mp4ToImageSequence: React.FC = () => {
             Convert Your MP4 Now
           </Link>
         </p>
+      </div>
+      {/* Adsterra Ad — End of Article */}
+      <div className="my-10">
+        <AdsterraAd label="Advertisement" />
       </div>
     </article>
   );

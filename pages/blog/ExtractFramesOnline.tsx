@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import Breadcrumb from '../../components/Breadcrumb';
+import AdsterraAd from '../../components/AdsterraAd';
 
 const ExtractFramesOnline: React.FC = () => {
   useEffect(() => {
@@ -108,6 +109,11 @@ const ExtractFramesOnline: React.FC = () => {
           <li className="flex items-start gap-3"><span className="text-cyan-400 mt-1">✓</span> <span><strong className="text-white">Free forever</strong> — no accounts, registration, watermarks, or subscription fees</span></li>
         </ul>
 
+        {/* Adsterra Ad — Mid Article */}
+        <div className="my-10">
+          <AdsterraAd label="Advertisement" />
+        </div>
+
         <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">Step-by-Step: How to Extract Frames</h2>
         <p>
           Converting your video file to still frames takes less than a minute. Here are the step-by-step instructions:
@@ -163,6 +169,10 @@ const ExtractFramesOnline: React.FC = () => {
             Convert Video to Images Now
           </Link>
         </p>
+      </div>
+      {/* Adsterra Ad — End of Article */}
+      <div className="my-10">
+        <AdsterraAd label="Advertisement" />
       </div>
     </article>
   );

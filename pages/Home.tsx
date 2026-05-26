@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import VideoToImages from './VideoToImages';
 import AdUnit from '../components/AdUnit';
 import AdsterraAd from '../components/AdsterraAd';
-import AtOptionsAd from '../components/AtOptionsAd';
 import SEOHead from '../components/SEOHead';
 
 const faqs = [
@@ -597,9 +596,9 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* AtOptions Ad Block - After FAQ */}
+      {/* Adsterra Ad — Post FAQ */}
       <div className="max-w-5xl mx-auto">
-        <AtOptionsAd />
+        <AdsterraAd label="Advertisement" />
       </div>
     </div>
   );

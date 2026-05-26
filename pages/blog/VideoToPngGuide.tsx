@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import Breadcrumb from '../../components/Breadcrumb';
+import AdsterraAd from '../../components/AdsterraAd';
 
 export default function VideoToPngGuide() {
   useEffect(() => {
@@ -333,6 +334,11 @@ export default function VideoToPngGuide() {
           </div>
         </section>
 
+        {/* Adsterra Ad — Mid Article */}
+        <div className="my-10">
+          <AdsterraAd label="Advertisement" />
+        </div>
+
         {/* Section 5 - File size guide */}
         <section className="mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">
@@ -579,6 +585,10 @@ export default function VideoToPngGuide() {
             ))}
           </div>
         </section>
+      </div>
+      {/* Adsterra Ad — End of Article */}
+      <div className="my-10">
+        <AdsterraAd label="Advertisement" />
       </div>
     </article>
   );

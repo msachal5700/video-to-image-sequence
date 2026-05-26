@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import ImagesToVideo from './ImagesToVideo';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
+import AdsterraAd from '../components/AdsterraAd';
 import { Link } from 'react-router-dom';
 
 const faqs = [
@@ -146,6 +147,11 @@ const ImagesToVideoPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Adsterra Ad — Pre-Tool */}
+      <div className="max-w-5xl mx-auto px-4">
+        <AdsterraAd label="Advertisement" />
+      </div>
+
       {/* Main Tool Content */}
       <div className="animate-fade-in min-h-[400px] px-4">
         <ImagesToVideo />
@@ -183,6 +189,11 @@ const ImagesToVideoPage: React.FC = () => {
           </ol>
         </div>
       </section>
+
+      {/* Adsterra Ad — Post How-To */}
+      <div className="max-w-5xl mx-auto px-4">
+        <AdsterraAd label="Advertisement" />
+      </div>
 
       {/* ── SUPPORTED FORMATS ── */}
       <section className="max-w-4xl mx-auto py-12 px-4">
