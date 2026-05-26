@@ -118,6 +118,7 @@ const ScreenshotFromVideo: React.FC = () => {
         ogDescription="Capture any frame from your video as a JPG or PNG screenshot. Free, local browser processing, no server upload."
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
+        keywords="screenshot from video, video frame grabber, extract still from video, video frame capture"
       />
       
       {/* Breadcrumb */}

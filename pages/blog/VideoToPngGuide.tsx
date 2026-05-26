@@ -94,6 +94,7 @@ export default function VideoToPngGuide() {
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="article"
         articleDate="2026-05-24"
+        keywords="video to png frames, convert video to png sequence, lossless png frame extraction, video to png guide, extract png from video"
       />
 
       <Breadcrumb items={[

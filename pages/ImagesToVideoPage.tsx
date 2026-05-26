@@ -114,6 +114,7 @@ const ImagesToVideoPage: React.FC = () => {
         ogDescription="Turn your image sequence into a video locally in your browser. No server upload, no account, processed on device."
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
+        keywords="images to video, image sequence to video, convert images to mp4, stitch images to video"
       />
       
 

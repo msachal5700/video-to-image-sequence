@@ -11,6 +11,7 @@ interface SEOHeadProps {
   articleDate?: string;
   noindex?: boolean;
   nofollow?: boolean;
+  keywords?: string;
 }
 
 const setMeta = (selector: string, attr: string, value: string) => {
@@ -42,7 +43,8 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   ogType,
   articleDate,
   noindex,
-  nofollow
+  nofollow,
+  keywords
 }) => {
   useEffect(() => {
     // Set title
@@ -85,7 +87,12 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     if (articleDate) {
       setMeta('meta[property="article:published_time"]', 'content', articleDate);
     }
-  }, [title, description, canonical, ogTitle, ogDescription, ogImage, ogType, articleDate, noindex, nofollow]);
+
+    // Set Keywords
+    if (keywords) {
+      setMeta('meta[name="keywords"]', 'content', keywords);
+    }
+  }, [title, description, canonical, ogTitle, ogDescription, ogImage, ogType, articleDate, noindex, nofollow, keywords]);
 
   return null;
 };

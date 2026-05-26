@@ -69,6 +69,9 @@ export const AboutUs: React.FC = () => (
       description="Learn about Video to Image Sequence Online — a free, private, browser-based tool for extracting frames from videos."
       canonical="https://www.videotoimagesequence.online/about"
       noindex={false}
+      ogTitle="About Us — Video to Image Sequence"
+      ogDescription="Learn about Video to Image Sequence Online — a free, private, browser-based tool for extracting frames from videos locally in your browser."
+      keywords="about video to image sequence online, free video frame extractor details, private browser processing"
     />
     <LegalLayout title="About Us">
       <p>Video to Image Sequence Online was built to solve a simple problem: extracting high-quality frames from videos shouldn't require paying for heavy desktop software or uploading 5GB files to slow, limit-restricted servers.</p>

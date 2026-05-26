@@ -114,7 +114,7 @@ async function runPrerender() {
       } else {
         // Serverless Vercel environment (Linux) - use @sparticuz/chromium-min
         const executablePath = await chromium.executablePath(
-          'https://github.com/Sparticuz/chromium/releases/download/v131.0.1/chromium-v131.0.1-pack.tar'
+          'https://github.com/Sparticuz/chromium/releases/download/v148.0.0/chromium-v148.0.0-pack.x64.tar'
         );
         launchOptions = {
           args: chromium.args,

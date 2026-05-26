@@ -39,6 +39,7 @@ const Mp4ToImageSequence: React.FC = () => {
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="article"
         articleDate="2026-05-24"
+        keywords="mp4 to image sequence, convert mp4 to images, mp4 frame extraction guide, mp4 sequence, extract frames from mp4"
       />
       
       <Breadcrumb items={[

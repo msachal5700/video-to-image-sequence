@@ -118,6 +118,7 @@ const VideoToPng: React.FC = () => {
         ogDescription="Extract lossless PNG frames from MP4, MOV, and WEBM videos locally in your browser. Perfect for VFX, game dev, and ML datasets."
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
+        keywords="video to png, extract png frames, mp4 to png, lossless frame extractor"
       />
 
       {/* Breadcrumb */}

@@ -78,6 +78,7 @@ const BlogIndex: React.FC = () => {
         ogDescription="Tutorials and tips for frame extraction, image sequences, batch processing, and more."
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
+        keywords="video editing guides, frame extraction tutorials, image sequence guides, video to images guides, video processing blog"
       />
       <Breadcrumb items={[{ label: 'Blog', path: '/blog' }]} />
       <div className="text-center mb-16">

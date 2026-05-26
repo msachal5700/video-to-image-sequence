@@ -118,6 +118,7 @@ const Mp4ToJpg: React.FC = () => {
         ogDescription="Extract JPG frames from MP4, MOV, and WEBM videos locally in your browser. Free forever, no account needed."
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
+        keywords="mp4 to jpg, mp4 to jpeg converter, extract jpg from mp4, mp4 frame extractor"
       />
 
       {/* Breadcrumb */}

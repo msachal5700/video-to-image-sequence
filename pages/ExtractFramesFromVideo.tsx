@@ -118,6 +118,7 @@ const ExtractFramesFromVideo: React.FC = () => {
         ogDescription="Extract frames from video online for free. Convert MP4, MOV, and WEBM videos to JPG or PNG sequences in your browser. No server upload required."
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
+        keywords="extract frames from video, video frame extractor, convert video to images, video to frame sequence"
       />
       
 

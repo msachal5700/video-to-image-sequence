@@ -26,19 +26,7 @@ const faqs = [
     a: 'Video to Image Sequence Online is the best free alternative — it requires no server upload (processing happens locally in your browser, so large files depend on your device memory, browser performance, video length, and codec support), batch processing, ZIP download, individual frame downloads, and custom FPS control. All completely free.' },
   { q: 'Do I need to create an account or install anything?',
     a: 'No. Just open the website and start converting. No account, no download, no installation. Works on any device with a modern browser.' },
-  { q: 'What is a video to image sequence converter?',
-    a: 'A video to image sequence converter extracts individual frames from a video and saves them as separate image files.' },
-  { q: 'Can I extract frames from an MP4 video?',
-    a: 'Yes, you can upload an MP4 video and extract frames as JPG or PNG images.' },
-  { q: 'Which format is better, JPG or PNG?',
-    a: 'JPG is better for smaller file size. PNG is better for higher quality and editing.' },
-  { q: 'Can I use this tool for YouTube videos?',
-    a: 'If you have the video file downloaded legally, you can upload it and extract frames.' },
-  { q: 'Is this tool free?',
-    a: 'Yes, this tool is free to use.' },
-  { q: 'Why should I extract frames from a video?',
-    a: 'You may need frames for thumbnails, editing, animation, AI training datasets, visual analysis, or presentations.' },
-]
+];
 
 const Home: React.FC = () => {
   useEffect(() => {
@@ -212,6 +200,7 @@ const Home: React.FC = () => {
         ogDescription="Convert video to image sequence online for free. Extract frames from MP4, MOV, and WEBM videos as JPG or PNG images directly in your browser — no server upload required."
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
+        keywords="video to image sequence, extract frames from video, video frame extractor, MP4 to JPG sequence, convert video to PNG sequence"
       />
       
       {/* ── HERO SECTION ── */}
@@ -534,7 +523,7 @@ const Home: React.FC = () => {
               icon: '🎯'
             },
             {
-              href: '/mp4-to-jpg',
+              href: '/blog/mp4-to-image-sequence-guide',
               title: 'MP4 to Image Sequence Guide',
               desc: 'Learn how to convert MP4 videos to image sequences quickly and efficiently.',
               icon: '📚'

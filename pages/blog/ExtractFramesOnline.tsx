@@ -39,6 +39,7 @@ const ExtractFramesOnline: React.FC = () => {
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="article"
         articleDate="2026-05-24"
+        keywords="extract frames from video online, free frame extractor, extract frames no install, video to frames guide, browser frame extraction"
       />
       
       <Breadcrumb items={[
