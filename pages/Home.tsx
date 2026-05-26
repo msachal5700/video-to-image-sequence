@@ -547,13 +547,13 @@ const Home: React.FC = () => {
               icon: '📸'
             },
             {
-              href: '/mp4-to-jpg',
+              href: '/blog/mp4-to-image-sequence-guide',
               title: 'Video to JPG Converter',
               desc: 'Convert video files to JPG image sequences for fast downloads and easy sharing.',
               icon: '📷'
             },
           ].map(({ href, title, desc, icon }) => (
-            <Link key={href} to={href} className="bg-gray-900 border border-gray-800 rounded-xl p-5 hover:border-cyan-800 hover:bg-gray-900/80 transition-all group block text-left">
+            <Link key={title} to={href} className="bg-gray-900 border border-gray-800 rounded-xl p-5 hover:border-cyan-800 hover:bg-gray-900/80 transition-all group block text-left">
               <div className="text-3xl mb-3 group-hover:scale-110 transition-transform inline-block">{icon}</div>
               <h3 className="text-white font-semibold mb-2 group-hover:text-cyan-400 transition-colors text-sm md:text-base">{title}</h3>
               <p className="text-gray-500 text-xs md:text-sm leading-relaxed">{desc}</p>
