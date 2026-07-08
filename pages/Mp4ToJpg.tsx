@@ -4,6 +4,8 @@ import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
 import { Link } from 'react-router-dom';
 import AdsterraAd from '../components/AdsterraAd';
+import { useTranslation } from 'react-i18next';
+
 
 const faqs = [
   {
@@ -29,6 +31,10 @@ const faqs = [
 ];
 
 const Mp4ToJpg: React.FC = () => {
+  const { t } = useTranslation();
+  const faqItems = t('mp4ToJpg.faq.items', { returnObjects: true }) as Array<{ q: string; a: string }>;
+  const howToSteps = t('mp4ToJpg.howTo.steps', { returnObjects: true }) as Array<{ title: string; body: string }>;
+
   useEffect(() => {
     const existing = document.getElementById('mp4-to-jpg-schemas');
     if (existing) {
@@ -111,14 +117,14 @@ const Mp4ToJpg: React.FC = () => {
   return (
     <div className="w-full mx-auto pb-16 font-sans">
       <SEOHead
-        title="MP4 to JPG Converter Online Free — Extract JPG Frames from MP4"
-        description="Convert MP4 video to JPG images online for free. Extract every frame as a high-quality JPG locally in your browser. No server upload required."
+        title={t('mp4ToJpg.title')}
+        description={t('mp4ToJpg.description')}
         canonical="https://www.videotoimagesequence.online/mp4-to-jpg"
-        ogTitle="MP4 to JPG Converter — Free, No Upload"
-        ogDescription="Extract JPG frames from MP4, MOV, and WEBM videos locally in your browser. Free forever, no account needed."
+        ogTitle={t('mp4ToJpg.title')}
+        ogDescription={t('mp4ToJpg.description')}
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
-        keywords="mp4 to jpg, mp4 to jpeg converter, extract jpg from mp4, mp4 frame extractor"
+        keywords={t('mp4ToJpg.keywords')}
       />
 
       {/* Breadcrumb */}
@@ -127,12 +133,12 @@ const Mp4ToJpg: React.FC = () => {
       {/* ── HERO SECTION ── */}
       <section className="text-center max-w-4xl mx-auto pt-10 pb-10 px-4">
         <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-tight font-display">
-          MP4 to JPG Converter<br />
-          <span className="text-cyan-400">Online Free — Local Browser Processing</span>
+          {t('mp4ToJpg.h1')}<br />
+          <span className="text-cyan-400">{t('mp4ToJpg.h1Sub')}</span>
         </h1>
 
         <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed hero-description">
-          Convert MP4 video to JPG images online for free. Extract every frame as a high-quality JPG sequence locally in your browser. Since files are processed locally, your video data never leaves your device.
+          {t('mp4ToJpg.hero')}
         </p>
 
         {/* Trust badges */}
@@ -421,10 +427,10 @@ const Mp4ToJpg: React.FC = () => {
       {/* ── FAQ Section ── */}
       <section id="faq" className="max-w-3xl mx-auto py-12 px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-10 font-display">
-          Frequently Asked Questions
+          {t('mp4ToJpg.faq.title')}
         </h2>
         <div className="space-y-3">
-          {faqs.map((faq, i) => (
+          {(Array.isArray(faqItems) ? faqItems : []).map((faq, i) => (
             <details key={i} className="border border-gray-800 bg-gray-900/50 rounded-2xl p-5 cursor-pointer group hover:border-cyan-850 transition-colors">
               <summary className="font-medium text-white text-sm md:text-base list-none flex justify-between items-center group-open:text-cyan-400">
                 {faq.q}

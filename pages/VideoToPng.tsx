@@ -4,6 +4,7 @@ import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
 import AdsterraAd from '../components/AdsterraAd';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const faqs = [
   {
@@ -29,6 +30,7 @@ const faqs = [
 ];
 
 const VideoToPng: React.FC = () => {
+  const { t } = useTranslation();
   useEffect(() => {
     const existing = document.getElementById('video-to-png-schemas');
     if (existing) {
@@ -111,14 +113,14 @@ const VideoToPng: React.FC = () => {
   return (
     <div className="w-full mx-auto pb-16 font-sans">
       <SEOHead
-        title="Video to PNG Converter Online Free — Extract PNG Frames Locally"
-        description="Convert video to PNG images online for free. Extract lossless PNG frames from MP4, MOV, and WEBM videos in your browser. No server upload required."
+        title={t('videoToPng.title')}
+        description={t('videoToPng.description')}
         canonical="https://www.videotoimagesequence.online/video-to-png"
-        ogTitle="Video to PNG Converter — Free, Lossless, No Upload"
-        ogDescription="Extract lossless PNG frames from MP4, MOV, and WEBM videos locally in your browser. Perfect for VFX, game dev, and ML datasets."
+        ogTitle={t('videoToPng.title')}
+        ogDescription={t('videoToPng.description')}
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
-        keywords="video to png, extract png frames, mp4 to png, lossless frame extractor"
+        keywords={t('videoToPng.keywords')}
       />
 
       {/* Breadcrumb */}

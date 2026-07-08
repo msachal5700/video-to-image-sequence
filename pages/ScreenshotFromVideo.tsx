@@ -4,6 +4,7 @@ import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
 import AdsterraAd from '../components/AdsterraAd';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const faqs = [
   {
@@ -29,6 +30,7 @@ const faqs = [
 ];
 
 const ScreenshotFromVideo: React.FC = () => {
+  const { t } = useTranslation();
   useEffect(() => {
     const existing = document.getElementById('screenshot-from-video-schemas');
     if (existing) {

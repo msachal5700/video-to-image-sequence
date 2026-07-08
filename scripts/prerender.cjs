@@ -80,6 +80,25 @@ const routeTextMap = {
   '/404': '404',
 };
 
+/**
+ * Strip third-party ad DOM injected at runtime from the Puppeteer snapshot.
+ * We want clean semantic HTML for Google without removing legitimate content.
+ */
+function cleanHtml(html) {
+  // Remove preferencenail.com tracker script injected by Adsterra Social Bar
+  html = html.replace(/<script[^>]*preferencenail\.com[^>]*><\/script>/gi, '');
+  // Remove Adsterra Social Bar iframe injected at bottom of body
+  html = html.replace(/<iframe[^>]*container-bd398f279d1f8fec04c333ece472ce02[^>]*>[\s\S]*?<\/iframe>/gi, '');
+  // Empty the Adsterra native banner container divs (keep the outer div for layout)
+  html = html.replace(
+    /(<div id="container-999c8cf3f03558a8b1b5b28a2f0a1248">)[\s\S]*?(<\/div>)/g,
+    '$1$2'
+  );
+  // Remove injected Adsterra <style> blocks for ad containers
+  html = html.replace(/<style>#container-999c8cf3f03558a8b1b5b28a2f0a1248[\s\S]*?<\/style>/g, '');
+  return html;
+}
+
 async function runPrerender() {
   server.listen(PORT, async () => {
     console.log(`Temporary server running on http://localhost:${PORT}`);
@@ -151,7 +170,10 @@ async function runPrerender() {
           expectedText
         );
 
-        const html = await page.content();
+        let html = await page.content();
+
+        // Strip third-party ad DOM from snapshot (keeps semantic content clean for Google)
+        html = cleanHtml(html);
 
         // Route validation:
         if (!html.includes('<title>')) {

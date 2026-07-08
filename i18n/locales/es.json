@@ -1,0 +1,114 @@
+{
+  "nav": {
+    "tools": "Herramientas",
+    "blog": "Blog",
+    "howItWorks": "Cómo Funciona",
+    "faq": "Preguntas Frecuentes",
+    "language": "Idioma"
+  },
+  "common": {
+    "freeForever": "Gratis para Siempre",
+    "noUpload": "Sin Subida al Servidor",
+    "localProcessing": "Procesamiento Local en el Navegador",
+    "downloadZip": "Descargar ZIP",
+    "advertisement": "Publicidad",
+    "extractFrames": "Extraer Fotogramas",
+    "convertAnother": "Convertir Otro",
+    "processing": "Extrayendo Fotogramas...",
+    "zipping": "Creando Archivo ZIP...",
+    "complete": "¡Procesamiento Completo!",
+    "failed": "Error en el Procesamiento",
+    "startOver": "Empezar de Nuevo",
+    "downloadAll": "Descargar Todo (ZIP)",
+    "framesExtracted": "Se extrajeron {{count}} fotogramas de tu video.",
+    "processed": "Procesados",
+    "skipAd": "Omitir Anuncio",
+    "skipIn": "Omitir en {{seconds}}s"
+  },
+  "dropzone": {
+    "drop": "Arrastra tu video aquí",
+    "browse": "o haz clic para explorar",
+    "support": "Compatible con MP4, MOV, WEBM · Los archivos grandes dependen de tu dispositivo y navegador"
+  },
+  "controls": {
+    "frameRate": "Velocidad de Fotogramas (FPS)",
+    "format": "Formato de Salida",
+    "quality": "Calidad JPG",
+    "estimatedFrames": "Est. {{count}} fotogramas",
+    "highFrameWarning": "Advertencia: {{count}}+ fotogramas pueden agotar la memoria del navegador. Considera reducir los FPS."
+  },
+  "badges": {
+    "private": "🔒 100% Privado (Local)",
+    "fast": "⚡ Conversión Local Rápida",
+    "zip": "📦 Descarga ZIP",
+    "fps": "🎨 Control FPS Personalizado",
+    "free": "🆓 Gratis para Siempre"
+  },
+  "home": {
+    "title": "Convertidor de Video a Secuencia de Imágenes Online — Extractor de Fotogramas Gratis",
+    "description": "Extractor de fotogramas de video gratuito basado en el navegador. Convierte videos MP4, MOV y WEBM a secuencias JPG o PNG. Sin subida al servidor.",
+    "h1": "Video a Secuencia de Imágenes",
+    "h1Sub": "Convertidor Online",
+    "hero": "Video to Image Sequence Online es una herramienta gratuita basada en el navegador que extrae cada fotograma de videos MP4, MOV y WEBM como imágenes JPG o PNG de alta calidad. Todo el procesamiento ocurre localmente en tu navegador, tus videos nunca se suben a un servidor.",
+    "keywords": "video a secuencia de imágenes, extraer fotogramas de video gratis, MP4 a JPG fotogramas, extractor de fotogramas de video, convertir video a secuencia PNG"
+  },
+  "mp4ToJpg": {
+    "title": "Convertidor MP4 a JPG Online Gratis — Extraer Fotogramas JPG de MP4",
+    "description": "Convierte video MP4 a imágenes JPG online gratis. Extrae cada fotograma como un JPG de alta calidad localmente en tu navegador. Sin subida al servidor.",
+    "h1": "Convertidor MP4 a JPG",
+    "h1Sub": "Online Gratis — Procesamiento Local",
+    "hero": "Convierte video MP4 a imágenes JPG online gratis. Extrae cada fotograma como una secuencia JPG de alta calidad localmente en tu navegador. Como los archivos se procesan localmente, tus datos de video nunca salen de tu dispositivo.",
+    "keywords": "mp4 a jpg, convertidor mp4 a jpeg, extraer jpg de mp4, extractor de fotogramas mp4",
+    "privacy": {
+      "title": "Extracción de Fotogramas 100% Privada",
+      "body": "A diferencia de las herramientas online que suben tus archivos de video a un servidor remoto en la nube, nuestro convertidor MP4 a JPG aprovecha las API Web HTML5 para decodificar videos directamente dentro de tu navegador web. Tus archivos nunca se transmiten a través de la red, manteniendo tu material de video sensible completamente seguro."
+    },
+    "howTo": {
+      "title": "Cómo Convertir MP4 a JPG Online",
+      "steps": [
+        { "title": "Elige tu MP4", "body": "Arrastra y suelta tu archivo MP4 en la zona de carga de arriba." },
+        { "title": "Configura la Velocidad de Fotogramas (FPS)", "body": "Elige tu frecuencia de extracción. Selecciona 30 FPS para capturar 30 fotogramas por segundo, o elige 1 FPS para extraer un fotograma por segundo." },
+        { "title": "Selecciona el Formato", "body": "Asegúrate de que \"JPG\" esté seleccionado como formato de salida." },
+        { "title": "Extrae los Fotogramas", "body": "Haz clic en \"Extraer Fotogramas\" para decodificar la secuencia de video." },
+        { "title": "Guarda la Salida", "body": "Descarga fotogramas individuales desde la vista previa o haz clic en \"Descargar Todo (ZIP)\" para guardar la secuencia completa." }
+      ]
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "items": [
+        {
+          "q": "¿Cómo convierto un video MP4 a imágenes JPG gratis?",
+          "a": "Simplemente arrastra y suelta tu archivo MP4 en la herramienta, selecciona el formato JPG, elige tus FPS y haz clic en Extraer. Todos los fotogramas se procesan localmente en tu navegador y se descargarán como un archivo ZIP."
+        },
+        {
+          "q": "¿Hay un límite de tamaño de archivo para la conversión MP4 a JPG?",
+          "a": "No se requiere subida al servidor. El procesamiento ocurre en tu navegador, por lo que los archivos grandes dependen de la memoria de tu dispositivo, el rendimiento del navegador, la duración del video y el soporte de códec."
+        },
+        {
+          "q": "¿Cuántos fotogramas JPG obtendré de mi MP4?",
+          "a": "Depende de la duración de tu video y la configuración de FPS elegida. Por ejemplo, un video de 10 segundos convertido a 10 FPS extraerá aproximadamente 100 imágenes JPG."
+        },
+        {
+          "q": "¿Puedo convertir MP4 a PNG en lugar de JPG?",
+          "a": "Sí. Usa el selector de formato dentro de la herramienta para cambiar a la salida PNG si necesitas fotogramas de calidad sin pérdida."
+        },
+        {
+          "q": "¿La conversión MP4 a JPG funciona en dispositivos móviles?",
+          "a": "Sí. Nuestra herramienta funciona directamente en los navegadores web móviles modernos como Safari en iOS y Chrome en Android, aunque el rendimiento depende de la capacidad del hardware del dispositivo."
+        }
+      ]
+    }
+  },
+  "footer": {
+    "tagline": "Extractor de fotogramas de video gratuito basado en el navegador. Convierte videos MP4, MOV y WEBM a secuencias de imágenes JPG/PNG — sin subida al servidor, procesado localmente en tu navegador.",
+    "converterTools": "Herramientas de Conversión",
+    "resources": "Recursos",
+    "blog": "Blog y Guías",
+    "about": "Sobre Nosotros",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio",
+    "howItWorks": "Cómo Funciona",
+    "copyright": "© {{year}} Video to Image Sequence Online · Gratis para siempre",
+    "local": "El procesamiento es 100% local · Tus videos nunca salen de tu dispositivo"
+  }
+}

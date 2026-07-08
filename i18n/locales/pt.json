@@ -1,0 +1,114 @@
+{
+  "nav": {
+    "tools": "Ferramentas",
+    "blog": "Blog",
+    "howItWorks": "Como Funciona",
+    "faq": "Perguntas Frequentes",
+    "language": "Idioma"
+  },
+  "common": {
+    "freeForever": "Gratuito para Sempre",
+    "noUpload": "Sem Upload para Servidor",
+    "localProcessing": "Processamento Local no Navegador",
+    "downloadZip": "Baixar ZIP",
+    "advertisement": "Publicidade",
+    "extractFrames": "Extrair Quadros",
+    "convertAnother": "Converter Outro",
+    "processing": "Extraindo Quadros...",
+    "zipping": "Criando Arquivo ZIP...",
+    "complete": "Processamento Concluído!",
+    "failed": "Falha no Processamento",
+    "startOver": "Começar de Novo",
+    "downloadAll": "Baixar Todos (ZIP)",
+    "framesExtracted": "{{count}} quadros extraídos com sucesso do seu vídeo.",
+    "processed": "Processados",
+    "skipAd": "Pular Anúncio",
+    "skipIn": "Pular em {{seconds}}s"
+  },
+  "dropzone": {
+    "drop": "Solte seu vídeo aqui",
+    "browse": "ou clique para procurar",
+    "support": "MP4, MOV, WEBM suportados · Arquivos grandes dependem do seu dispositivo e navegador"
+  },
+  "controls": {
+    "frameRate": "Taxa de Quadros (FPS)",
+    "format": "Formato de Saída",
+    "quality": "Qualidade JPG",
+    "estimatedFrames": "Est. {{count}} quadros",
+    "highFrameWarning": "Aviso: {{count}}+ quadros podem esgotar a memória do navegador. Considere reduzir o FPS."
+  },
+  "badges": {
+    "private": "🔒 100% Privado (Local)",
+    "fast": "⚡ Conversão Local Rápida",
+    "zip": "📦 Download ZIP",
+    "fps": "🎨 Controle FPS Personalizado",
+    "free": "🆓 Gratuito para Sempre"
+  },
+  "home": {
+    "title": "Conversor de Vídeo para Sequência de Imagens Online — Extrator de Quadros Grátis",
+    "description": "Extrator de quadros de vídeo gratuito baseado no navegador. Converta vídeos MP4, MOV e WEBM em sequências JPG ou PNG. Sem upload para servidor.",
+    "h1": "Vídeo para Sequência de Imagens",
+    "h1Sub": "Conversor Online",
+    "hero": "Video to Image Sequence Online é uma ferramenta gratuita baseada no navegador que extrai cada quadro de vídeos MP4, MOV e WEBM como imagens JPG ou PNG de alta qualidade. Todo o processamento ocorre localmente no seu navegador, seus vídeos nunca são enviados para um servidor.",
+    "keywords": "vídeo para sequência de imagens, extrair quadros de vídeo grátis, MP4 para JPG quadros, extrator de quadros de vídeo, converter vídeo em sequência PNG"
+  },
+  "mp4ToJpg": {
+    "title": "Conversor MP4 para JPG Online Grátis — Extrair Quadros JPG do MP4",
+    "description": "Converta vídeo MP4 em imagens JPG online gratuitamente. Extraia cada quadro como um JPG de alta qualidade localmente no seu navegador. Sem upload para servidor.",
+    "h1": "Conversor MP4 para JPG",
+    "h1Sub": "Online Grátis — Processamento Local",
+    "hero": "Converta vídeo MP4 em imagens JPG online gratuitamente. Extraia cada quadro como uma sequência JPG de alta qualidade localmente no seu navegador. Como os arquivos são processados localmente, seus dados de vídeo nunca saem do seu dispositivo.",
+    "keywords": "mp4 para jpg, conversor mp4 jpeg, extrair jpg do mp4, extrator de quadros mp4",
+    "privacy": {
+      "title": "Extração de Quadros 100% Privada",
+      "body": "Ao contrário de ferramentas online que enviam seus arquivos de vídeo para um servidor remoto na nuvem, nosso conversor MP4 para JPG utiliza APIs Web HTML5 para decodificar vídeos diretamente no seu navegador. Seus arquivos nunca são transmitidos pela rede, mantendo suas imagens sensíveis completamente seguras."
+    },
+    "howTo": {
+      "title": "Como Converter MP4 para JPG Online",
+      "steps": [
+        { "title": "Escolha seu MP4", "body": "Arraste e solte seu arquivo MP4 na zona de upload acima." },
+        { "title": "Configure a Taxa de Quadros (FPS)", "body": "Escolha sua frequência de extração. Selecione 30 FPS para capturar 30 quadros por segundo, ou 1 FPS para extrair um quadro por segundo." },
+        { "title": "Selecione o Formato", "body": "Certifique-se de que \"JPG\" esteja selecionado como formato de saída." },
+        { "title": "Extraia os Quadros", "body": "Clique em \"Extrair Quadros\" para decodificar a sequência de vídeo." },
+        { "title": "Salve a Saída", "body": "Baixe quadros individuais da grade de visualização ou clique em \"Baixar Todos (ZIP)\"." }
+      ]
+    },
+    "faq": {
+      "title": "Perguntas Frequentes",
+      "items": [
+        {
+          "q": "Como converter um vídeo MP4 em imagens JPG gratuitamente?",
+          "a": "Simplesmente arraste e solte seu arquivo MP4 na ferramenta, selecione o formato JPG, escolha seu FPS e clique em Extrair. Todos os quadros são processados localmente no seu navegador e baixados como um arquivo ZIP."
+        },
+        {
+          "q": "Há um limite de tamanho de arquivo para a conversão MP4 para JPG?",
+          "a": "Nenhum upload para servidor necessário. O processamento ocorre no seu navegador, então arquivos grandes dependem da memória do seu dispositivo, desempenho do navegador, duração do vídeo e suporte de codec."
+        },
+        {
+          "q": "Quantos quadros JPG obterei do meu MP4?",
+          "a": "Depende da duração do seu vídeo e da configuração de FPS escolhida. Por exemplo, um vídeo de 10 segundos convertido a 10 FPS extrairá aproximadamente 100 imagens JPG."
+        },
+        {
+          "q": "Posso converter MP4 para PNG em vez de JPG?",
+          "a": "Sim. Use o seletor de formato dentro da ferramenta para mudar para a saída PNG se precisar de quadros de qualidade sem perdas."
+        },
+        {
+          "q": "A conversão MP4 para JPG funciona em dispositivos móveis?",
+          "a": "Sim. Nossa ferramenta funciona diretamente nos navegadores web móveis modernos como Safari no iOS e Chrome no Android, embora o desempenho dependa das capacidades de hardware do dispositivo."
+        }
+      ]
+    }
+  },
+  "footer": {
+    "tagline": "Extrator de quadros de vídeo gratuito baseado no navegador. Converta vídeos MP4, MOV e WEBM em sequências de imagens JPG/PNG — sem upload para servidor, processado localmente no seu navegador.",
+    "converterTools": "Ferramentas de Conversão",
+    "resources": "Recursos",
+    "blog": "Blog e Guias",
+    "about": "Sobre Nós",
+    "privacy": "Política de Privacidade",
+    "terms": "Termos de Serviço",
+    "howItWorks": "Como Funciona",
+    "copyright": "© {{year}} Video to Image Sequence Online · Gratuito para sempre",
+    "local": "O processamento é 100% local · Seus vídeos nunca saem do seu dispositivo"
+  }
+}

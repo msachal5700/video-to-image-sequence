@@ -4,6 +4,7 @@ import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
 import AdsterraAd from '../components/AdsterraAd';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const faqs = [
   {
@@ -29,6 +30,7 @@ const faqs = [
 ];
 
 const ExtractFramesFromVideo: React.FC = () => {
+  const { t } = useTranslation();
   useEffect(() => {
     const existing = document.getElementById('extract-frames-from-video-schemas');
     if (existing) {
@@ -111,14 +113,14 @@ const ExtractFramesFromVideo: React.FC = () => {
   return (
     <div className="w-full mx-auto pb-16 font-sans">
       <SEOHead
-        title="Extract Frames from Video Online — Free Video Frame Extractor"
-        description="Extract frames from video online for free. Convert MP4, MOV, and WEBM videos to JPG or PNG sequences in your browser. No server upload required."
+        title={t('extractFrames.title')}
+        description={t('extractFrames.description')}
         canonical="https://www.videotoimagesequence.online/extract-frames-from-video"
-        ogTitle="Extract Frames from Video Online — Free Video Frame Extractor"
-        ogDescription="Extract frames from video online for free. Convert MP4, MOV, and WEBM videos to JPG or PNG sequences in your browser. No server upload required."
+        ogTitle={t('extractFrames.title')}
+        ogDescription={t('extractFrames.description')}
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
-        keywords="extract frames from video, video frame extractor, convert video to images, video to frame sequence"
+        keywords={`${t('extractFrames.keywords')}, video to frame sequence`}
       />
       
 

@@ -1,0 +1,114 @@
+{
+  "nav": {
+    "tools": "Werkzeuge",
+    "blog": "Blog",
+    "howItWorks": "Wie es Funktioniert",
+    "faq": "Häufige Fragen",
+    "language": "Sprache"
+  },
+  "common": {
+    "freeForever": "Für Immer Kostenlos",
+    "noUpload": "Kein Server-Upload",
+    "localProcessing": "Lokale Browser-Verarbeitung",
+    "downloadZip": "ZIP Herunterladen",
+    "advertisement": "Werbung",
+    "extractFrames": "Frames Extrahieren",
+    "convertAnother": "Weiteres Konvertieren",
+    "processing": "Frames werden extrahiert...",
+    "zipping": "ZIP-Archiv wird erstellt...",
+    "complete": "Verarbeitung Abgeschlossen!",
+    "failed": "Verarbeitung Fehlgeschlagen",
+    "startOver": "Neu Beginnen",
+    "downloadAll": "Alle Herunterladen (ZIP)",
+    "framesExtracted": "{{count}} Frames erfolgreich aus Ihrem Video extrahiert.",
+    "processed": "Verarbeitet",
+    "skipAd": "Werbung Überspringen",
+    "skipIn": "Überspringen in {{seconds}}s"
+  },
+  "dropzone": {
+    "drop": "Video hier ablegen",
+    "browse": "oder zum Durchsuchen klicken",
+    "support": "MP4, MOV, WEBM unterstützt · Große Dateien hängen von Ihrem Gerät und Browser ab"
+  },
+  "controls": {
+    "frameRate": "Bildrate (FPS)",
+    "format": "Ausgabeformat",
+    "quality": "JPG-Qualität",
+    "estimatedFrames": "Ca. {{count}} Frames",
+    "highFrameWarning": "Warnung: {{count}}+ Frames können den Browser-Speicher erschöpfen. Reduzieren Sie die FPS."
+  },
+  "badges": {
+    "private": "🔒 100% Privat (Lokal)",
+    "fast": "⚡ Schnelle Lokale Konvertierung",
+    "zip": "📦 ZIP-Download",
+    "fps": "🎨 Benutzerdefinierte FPS-Steuerung",
+    "free": "🆓 Für Immer Kostenlos"
+  },
+  "home": {
+    "title": "Video zu Bildsequenz Konverter Online — Kostenloser Frame-Extraktor",
+    "description": "Kostenloser browserbasierter Video-Frame-Extraktor. Konvertieren Sie MP4-, MOV- und WEBM-Videos in JPG- oder PNG-Sequenzen. Kein Server-Upload erforderlich.",
+    "h1": "Video zu Bildsequenz",
+    "h1Sub": "Online-Konverter",
+    "hero": "Video to Image Sequence Online ist ein kostenloses, browserbasiertes Tool, das jeden Frame aus MP4-, MOV- und WEBM-Videos als hochwertige JPG- oder PNG-Bilder extrahiert. Da die gesamte Verarbeitung lokal in Ihrem Browser erfolgt, werden Ihre Videos nie auf einen Server hochgeladen.",
+    "keywords": "video zu bildsequenz, frames aus video extrahieren kostenlos, MP4 zu JPG frames, video frame extraktor, video in PNG sequenz konvertieren"
+  },
+  "mp4ToJpg": {
+    "title": "MP4 zu JPG Konverter Online Kostenlos — JPG Frames aus MP4 Extrahieren",
+    "description": "Konvertieren Sie MP4-Videos kostenlos in JPG-Bilder online. Extrahieren Sie jeden Frame als hochqualitatives JPG lokal in Ihrem Browser. Kein Server-Upload erforderlich.",
+    "h1": "MP4 zu JPG Konverter",
+    "h1Sub": "Online Kostenlos — Lokale Browserverarbeitung",
+    "hero": "Konvertieren Sie MP4-Videos kostenlos in JPG-Bilder online. Extrahieren Sie jeden Frame als hochwertige JPG-Sequenz lokal in Ihrem Browser. Da Dateien lokal verarbeitet werden, verlassen Ihre Videodaten niemals Ihr Gerät.",
+    "keywords": "mp4 zu jpg, mp4 zu jpeg konverter, jpg aus mp4 extrahieren, mp4 frame extraktor",
+    "privacy": {
+      "title": "100% Private Browserbasierte Frame-Extraktion",
+      "body": "Im Gegensatz zu Online-Tools, die Ihre Videodateien auf einen Remote-Cloud-Server hochladen, nutzt unser MP4-zu-JPG-Konverter HTML5 Web-APIs, um Videos direkt in Ihrem Webbrowser zu dekodieren. Ihre Dateien werden niemals über das Netzwerk übertragen, wodurch Ihr sensibles Material vollständig sicher bleibt."
+    },
+    "howTo": {
+      "title": "Wie man MP4 Online in JPG Konvertiert",
+      "steps": [
+        { "title": "MP4 Auswählen", "body": "Ziehen Sie Ihre MP4-Datei in die Upload-Zone oben." },
+        { "title": "Bildrate (FPS) Konfigurieren", "body": "Wählen Sie Ihre Extraktionshäufigkeit. Wählen Sie 30 FPS für 30 Frames pro Sekunde oder 1 FPS für einen Frame pro Sekunde." },
+        { "title": "Format Auswählen", "body": "Stellen Sie sicher, dass \"JPG\" als Ausgabeformat ausgewählt ist." },
+        { "title": "Frames Extrahieren", "body": "Klicken Sie auf \"Frames Extrahieren\", um die Video-Frame-Sequenz zu dekodieren." },
+        { "title": "Ausgabe Speichern", "body": "Laden Sie einzelne Frames aus dem Vorschauraster herunter oder klicken Sie auf \"Alle Herunterladen (ZIP)\"." }
+      ]
+    },
+    "faq": {
+      "title": "Häufig Gestellte Fragen",
+      "items": [
+        {
+          "q": "Wie konvertiere ich ein MP4-Video kostenlos in JPG-Bilder?",
+          "a": "Ziehen Sie einfach Ihre MP4-Datei in das Tool, wählen Sie das JPG-Format, wählen Sie Ihre FPS und klicken Sie auf Extrahieren. Alle Frames werden lokal in Ihrem Browser verarbeitet und als ZIP-Datei heruntergeladen."
+        },
+        {
+          "q": "Gibt es eine Dateigrößenbeschränkung für die MP4-zu-JPG-Konvertierung?",
+          "a": "Kein Server-Upload erforderlich. Die Verarbeitung erfolgt in Ihrem Browser, sodass große Dateien von Ihrem Gerätespeicher, der Browser-Performance, der Videolänge und der Codec-Unterstützung abhängen."
+        },
+        {
+          "q": "Wie viele JPG-Frames erhalte ich aus meinem MP4?",
+          "a": "Das hängt von Ihrer Videodauer und der gewählten FPS-Einstellung ab. Zum Beispiel wird ein 10-Sekunden-Video bei 10 FPS etwa 100 JPG-Bilder extrahieren."
+        },
+        {
+          "q": "Kann ich MP4 in PNG statt JPG konvertieren?",
+          "a": "Ja. Verwenden Sie den Format-Selektor im Tool, um zur PNG-Ausgabe zu wechseln, wenn Sie verlustfreie Qualitäts-Frames benötigen."
+        },
+        {
+          "q": "Funktioniert die MP4-zu-JPG-Konvertierung auf mobilen Geräten?",
+          "a": "Ja. Unser Tool funktioniert direkt in modernen mobilen Webbrowsern wie Safari auf iOS und Chrome auf Android, obwohl die Leistung von den Hardware-Fähigkeiten des Geräts abhängt."
+        }
+      ]
+    }
+  },
+  "footer": {
+    "tagline": "Kostenloser browserbasierter Video-Frame-Extraktor. Konvertieren Sie MP4-, MOV- und WEBM-Videos in JPG/PNG-Bildsequenzen — kein Server-Upload, lokal in Ihrem Browser verarbeitet.",
+    "converterTools": "Konvertierungswerkzeuge",
+    "resources": "Ressourcen",
+    "blog": "Blog & Leitfäden",
+    "about": "Über Uns",
+    "privacy": "Datenschutzrichtlinie",
+    "terms": "Nutzungsbedingungen",
+    "howItWorks": "Wie es Funktioniert",
+    "copyright": "© {{year}} Video to Image Sequence Online · Für immer kostenlos",
+    "local": "Die Verarbeitung ist 100% lokal · Ihre Videos verlassen niemals Ihr Gerät"
+  }
+}

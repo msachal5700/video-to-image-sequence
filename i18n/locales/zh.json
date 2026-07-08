@@ -1,0 +1,114 @@
+{
+  "nav": {
+    "tools": "工具",
+    "blog": "博客",
+    "howItWorks": "使用方法",
+    "faq": "常见问题",
+    "language": "语言"
+  },
+  "common": {
+    "freeForever": "永久免费",
+    "noUpload": "无需上传服务器",
+    "localProcessing": "本地浏览器处理",
+    "downloadZip": "下载 ZIP",
+    "advertisement": "广告",
+    "extractFrames": "提取帧",
+    "convertAnother": "转换另一个",
+    "processing": "正在提取帧...",
+    "zipping": "正在创建 ZIP 压缩包...",
+    "complete": "处理完成！",
+    "failed": "处理失败",
+    "startOver": "重新开始",
+    "downloadAll": "全部下载 (ZIP)",
+    "framesExtracted": "已成功从视频中提取 {{count}} 帧。",
+    "processed": "已处理",
+    "skipAd": "跳过广告",
+    "skipIn": "{{seconds}} 秒后跳过"
+  },
+  "dropzone": {
+    "drop": "将视频拖放到这里",
+    "browse": "或点击浏览",
+    "support": "支持 MP4、MOV、WEBM · 大文件取决于您的设备和浏览器"
+  },
+  "controls": {
+    "frameRate": "帧率 (FPS)",
+    "format": "输出格式",
+    "quality": "JPG 质量",
+    "estimatedFrames": "预计 {{count}} 帧",
+    "highFrameWarning": "警告：{{count}}+ 帧可能耗尽浏览器内存。请考虑降低 FPS。"
+  },
+  "badges": {
+    "private": "🔒 100% 私密（本地）",
+    "fast": "⚡ 快速本地转换",
+    "zip": "📦 ZIP 下载",
+    "fps": "🎨 自定义 FPS 控制",
+    "free": "🆓 永久免费"
+  },
+  "home": {
+    "title": "视频转图像序列在线转换器 — 免费视频帧提取工具",
+    "description": "免费的基于浏览器的视频帧提取器。将 MP4、MOV 和 WEBM 视频转换为 JPG 或 PNG 序列。无需上传服务器。",
+    "h1": "视频转图像序列",
+    "h1Sub": "在线转换器",
+    "hero": "Video to Image Sequence Online 是一款免费的基于浏览器的工具，可将 MP4、MOV 和 WEBM 视频的每一帧提取为高质量的 JPG 或 PNG 图像。由于所有处理都在您的浏览器中本地进行，您的视频永远不会上传到服务器。",
+    "keywords": "视频转图像序列, 免费在线提取视频帧, MP4转JPG帧, 视频帧提取器, 视频转PNG序列"
+  },
+  "mp4ToJpg": {
+    "title": "MP4 转 JPG 在线免费转换器 — 从 MP4 提取 JPG 帧",
+    "description": "免费在线将 MP4 视频转换为 JPG 图像。在浏览器中本地提取每一帧为高质量 JPG。无需上传服务器。",
+    "h1": "MP4 转 JPG 转换器",
+    "h1Sub": "在线免费 — 本地浏览器处理",
+    "hero": "免费在线将 MP4 视频转换为 JPG 图像。在浏览器中本地将每一帧提取为高质量 JPG 序列。由于文件在本地处理，您的视频数据永远不会离开您的设备。",
+    "keywords": "MP4转JPG, MP4转JPEG转换器, 从MP4提取JPG, MP4帧提取器",
+    "privacy": {
+      "title": "100% 私密的浏览器端帧提取",
+      "body": "与将视频文件上传到远程云服务器的在线工具不同，我们的 MP4 转 JPG 转换器利用 HTML5 Web API 直接在您的网络浏览器中解码视频。您的文件永远不会通过网络传输，让您的敏感或专有素材完全安全。"
+    },
+    "howTo": {
+      "title": "如何在线将 MP4 转换为 JPG",
+      "steps": [
+        { "title": "选择您的 MP4", "body": "将您的 MP4 文件拖放到上方的上传区域。" },
+        { "title": "配置输出帧率 (FPS)", "body": "选择您的提取频率。选择 30 FPS 每秒捕获 30 帧，或选择 1 FPS 每秒提取一帧。" },
+        { "title": "选择格式", "body": "确保选择 \"JPG\" 作为输出格式。" },
+        { "title": "提取帧", "body": "点击 \"提取帧\" 来解码视频帧序列。" },
+        { "title": "保存输出", "body": "从预览网格下载单个帧，或点击 \"全部下载 (ZIP)\" 将整个序列保存为一个 ZIP 文件。" }
+      ]
+    },
+    "faq": {
+      "title": "常见问题",
+      "items": [
+        {
+          "q": "如何免费将 MP4 视频转换为 JPG 图像？",
+          "a": "只需将您的 MP4 文件拖放到工具中，选择 JPG 格式，选择您的 FPS，然后点击提取。所有帧都在您的浏览器中本地处理，并将作为 ZIP 文件下载。无需账户或服务器上传。"
+        },
+        {
+          "q": "MP4 转 JPG 转换有文件大小限制吗？",
+          "a": "无需服务器上传。处理在您的浏览器中进行，因此大文件取决于您的设备内存、浏览器性能、视频长度和编解码器支持。"
+        },
+        {
+          "q": "我的 MP4 会提取多少 JPG 帧？",
+          "a": "这取决于您的视频时长和选择的 FPS 设置。例如，以 10 FPS 转换的 10 秒视频将提取约 100 张 JPG 图像。"
+        },
+        {
+          "q": "我可以将 MP4 转换为 PNG 而不是 JPG 吗？",
+          "a": "可以。如果您需要无损质量帧，请使用工具内的格式选择器切换到 PNG 输出。"
+        },
+        {
+          "q": "MP4 转 JPG 转换在移动设备上有效吗？",
+          "a": "是的。我们的工具直接在现代移动网络浏览器中运行，如 iOS 上的 Safari 和 Android 上的 Chrome，但性能取决于设备的硬件能力。"
+        }
+      ]
+    }
+  },
+  "footer": {
+    "tagline": "免费的基于浏览器的视频帧提取器。将 MP4、MOV 和 WEBM 视频转换为 JPG/PNG 图像序列 — 无需服务器上传，在您的浏览器中本地处理。",
+    "converterTools": "转换工具",
+    "resources": "资源",
+    "blog": "博客与指南",
+    "about": "关于我们",
+    "privacy": "隐私政策",
+    "terms": "服务条款",
+    "howItWorks": "使用方法",
+    "copyright": "© {{year}} Video to Image Sequence Online · 永久免费",
+    "local": "处理是 100% 本地的 · 您的视频永远不会离开您的设备"
+  }
+}
