@@ -4,6 +4,7 @@ import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
 import AdsterraAd from '../components/AdsterraAd';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const faqs = [
   {
@@ -25,6 +26,7 @@ const faqs = [
 ];
 
 const ImagesToVideoPage: React.FC = () => {
+  const { t } = useTranslation();
   useEffect(() => {
     const existing = document.getElementById('images-to-video-schemas');
     if (existing) {
@@ -107,14 +109,14 @@ const ImagesToVideoPage: React.FC = () => {
   return (
     <div className="w-full mx-auto pb-16 font-sans">
       <SEOHead
-        title="Images to Video Converter Online Free — Stitch Images to Video"
-        description="Convert a sequence of JPG or PNG images into a video online for free. No server upload required. Browser-based, private, and local. Supports custom FPS."
+        title={t('imagesToVideo.title')}
+        description={t('imagesToVideo.description')}
         canonical="https://www.videotoimagesequence.online/images-to-video"
-        ogTitle="Images to Video Converter — Free & Private"
-        ogDescription="Turn your image sequence into a video locally in your browser. No server upload, no account, processed on device."
+        ogTitle={t('imagesToVideo.title')}
+        ogDescription={t('imagesToVideo.description')}
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
-        keywords="images to video, image sequence to video, convert images to mp4, stitch images to video"
+        keywords={t('imagesToVideo.keywords')}
       />
       
 
@@ -124,22 +126,20 @@ const ImagesToVideoPage: React.FC = () => {
       {/* ── HERO SECTION ── */}
       <section className="text-center max-w-4xl mx-auto pt-10 pb-10 px-4">
         <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-tight font-display">
-          Convert Images to Video<br />
-          <span className="text-cyan-400">Online Converter — No Server Uploads</span>
+          {t('imagesToVideo.h1')}<br />
+          <span className="text-cyan-400">{t('imagesToVideo.h1Sub')}</span>
         </h1>
 
         <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed hero-description">
-          Convert a sequence of JPG or PNG images into a smooth WebM video online for free. Stitch your frames locally in your browser environment without uploading files to any external servers.
+          {t('imagesToVideo.hero')}
         </p>
 
         {/* Trust badges */}
         <div className="flex flex-wrap justify-center gap-3 text-xs text-gray-400 mb-10">
           {[
-            '🔒 100% Private (Local)',
-            '⚡ Fast Local Stitching',
-            '🎨 JPG, PNG, WebP Input',
-            '🎬 WebM Output',
-            '🆓 Free Forever'
+            t('badges.private'),
+            t('badges.fast'),
+            t('badges.free')
           ].map(badge => (
             <span key={badge} className="bg-gray-900 border border-gray-800 px-3 py-1.5 rounded-full">
               {badge}

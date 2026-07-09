@@ -129,22 +129,20 @@ const VideoToPng: React.FC = () => {
       {/* ── HERO SECTION ── */}
       <section className="text-center max-w-4xl mx-auto pt-10 pb-10 px-4">
         <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-tight font-display">
-          Video to PNG Converter<br />
-          <span className="text-cyan-400">Extract Lossless PNG Frames Online — Free</span>
+          {t('videoToPng.h1')}<br />
+          <span className="text-cyan-400">{t('videoToPng.h1Sub')}</span>
         </h1>
 
         <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed hero-description">
-          Convert video to PNG images online for free. Extract pixel-perfect, lossless PNG sequences from MP4, MOV, or WEBM videos. Keep transparency info intact, all without files leaving your computer.
+          {t('videoToPng.hero')}
         </p>
 
         {/* Trust badges */}
         <div className="flex flex-wrap justify-center gap-3 text-xs text-gray-400 mb-10">
           {[
-            '🎨 Lossless Quality',
-            '🔒 100% Private (Local)',
-            '🌈 Preserves Alpha Channel',
-            '📦 ZIP Download',
-            '🆓 Free'
+            t('badges.private'),
+            t('badges.zip'),
+            t('badges.free')
           ].map(badge => (
             <span key={badge} className="bg-gray-900 border border-gray-800 px-3 py-1.5 rounded-full">
               {badge}
@@ -161,7 +159,7 @@ const VideoToPng: React.FC = () => {
       {/* Main Tool Content */}
       <div className="animate-fade-in min-h-[400px] px-4 max-w-5xl mx-auto text-center">
         <div className="mb-4 inline-block bg-cyan-950/40 border border-cyan-800 text-cyan-400 px-4 py-2 rounded-lg text-sm font-medium">
-          💡 Tip: Select PNG in the format selector below for lossless output
+          {t('common.tipPng')}
         </div>
         <VideoToImages />
       </div>

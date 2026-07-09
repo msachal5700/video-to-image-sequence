@@ -28,14 +28,25 @@
   "dropzone": {
     "drop": "Arrastra tu video aquí",
     "browse": "o haz clic para explorar",
-    "support": "Compatible con MP4, MOV, WEBM · Los archivos grandes dependen de tu dispositivo y navegador"
+    "support": "Compatible con MP4, MOV, WEBM · Los archivos grandes dependen de tu dispositivo y navegador · Carga múltiple para lotes"
   },
   "controls": {
     "frameRate": "Velocidad de Fotogramas (FPS)",
     "format": "Formato de Salida",
     "quality": "Calidad JPG",
     "estimatedFrames": "Est. {{count}} fotogramas",
-    "highFrameWarning": "Advertencia: {{count}}+ fotogramas pueden agotar la memoria del navegador. Considera reducir los FPS."
+    "highFrameWarning": "Advertencia: {{count}}+ fotogramas pueden agotar la memoria del navegador. Considera reducir los FPS.",
+    "configuration": "Configuración",
+    "fpsSuffix": "Fotogramas Por Segundo",
+    "formatJpgDesc": "Tamaño de archivo más pequeño, recomendado para la mayoría de los usos",
+    "formatPngDesc": "Calidad sin pérdidas, mejor para VFX y desarrollo de juegos",
+    "estimatedOutput": "Salida Estimada:",
+    "estimatedImages": "IMÁGENES",
+    "mobileSlowWarning": "{{count}} fotogramas pueden ser lentos en móviles. Considera reducir los FPS.",
+    "readyTitle": "¿Listo para Extraer?",
+    "readyDesc": "Haz clic abajo para procesar este video en tu navegador. Todos los fotogramas se extraerán localmente y se descargarán en un ZIP.",
+    "extractFrames": "Extraer Fotogramas Ahora",
+    "processing": "Procesando..."
   },
   "badges": {
     "private": "🔒 100% Privado (Local)",
@@ -49,8 +60,277 @@
     "description": "Extractor de fotogramas de video gratuito basado en el navegador. Convierte videos MP4, MOV y WEBM a secuencias JPG o PNG. Sin subida al servidor.",
     "h1": "Video a Secuencia de Imágenes",
     "h1Sub": "Convertidor Online",
-    "hero": "Video to Image Sequence Online es una herramienta gratuita basada en el navegador que extrae cada fotograma de videos MP4, MOV y WEBM como imágenes JPG o PNG de alta calidad. Todo el procesamiento ocurre localmente en tu navegador, tus videos nunca se suben a un servidor.",
-    "keywords": "video a secuencia de imágenes, extraer fotogramas de video gratis, MP4 a JPG fotogramas, extractor de fotogramas de video, convertir video a secuencia PNG"
+    "hero": "Video to Image Sequence Online es una herramienta gratuita basada en el navegador que extrae cada fotograma de videos MP4, MOV y WEBM como imágenes JPG o PNG de alta calidad. A diferencia de otras herramientas, no requiere subir archivos al servidor (el procesamiento ocurre localmente en la memoria del navegador, por lo que los archivos grandes dependen de la memoria del dispositivo, el rendimiento del navegador, la duración del video y los códecs compatibles), admite procesamiento por lotes, descarga en ZIP y control de FPS personalizado; todo completamente gratis y 100% privado.",
+    "keywords": "video a secuencia de imágenes, extraer fotogramas de video gratis, MP4 a JPG fotogramas, extractor de fotogramas de video, convertir video a secuencia PNG",
+    "badge": "100% Gratis · Sin Subidas · Procesamiento Local",
+    "badges": {
+      "noUpload": "✅ Sin Subidas al Servidor",
+      "private": "🔒 100% Privado",
+      "fast": "⚡ Procesamiento Local Rápido",
+      "zip": "📦 Descarga ZIP",
+      "batch": "🎬 Procesamiento por Lotes",
+      "fps": "🎨 FPS Personalizado",
+      "free": "🆓 Gratis para Siempre"
+    },
+    "tabs": {
+      "toImages": "Video a Imágenes",
+      "toVideo": "Imágenes a Video"
+    },
+    "howWorksTitle": "Cómo funciona este extractor de fotogramas",
+    "howWorksDesc": "Esta herramienta extrae fotogramas de tu video y los convierte en imágenes descargables. Puedes subir un video, elegir el formato de salida y descargar la secuencia en JPG o PNG.",
+    "simpleProcess": "El proceso es simple:",
+    "steps": [
+      "Carga tu archivo de video.",
+      "Selecciona el formato de imagen.",
+      "Elige cuántos fotogramas extraer.",
+      "Descarga la secuencia extraída."
+    ],
+    "useCases": "Útil para animación, edición de video, conjuntos de datos de IA, miniaturas y análisis de movimiento.",
+    "formatsTitle": "Formatos de Video Soportados",
+    "formatsDesc1": "Formatos recomendados: MP4, MOV y WEBM.",
+    "formatsDesc2": "Otros formatos como AVI o MKV pueden funcionar si tu navegador tiene los códecs correspondientes.",
+    "outputsTitle": "Formatos de Imagen de Salida",
+    "outputsDesc": "Puedes extraer los fotogramas como:",
+    "jpgTitle": "JPG/JPEG",
+    "jpgDesc": "mejor para tamaños de archivo reducidos.",
+    "pngTitle": "PNG",
+    "pngDesc": "mejor para fotogramas sin pérdida de calidad y transparencias.",
+    "outputChoose": "Elige JPG para descargas rápidas, o PNG para máxima calidad.",
+    "whoUsesTitle": "¿Quién puede usar esta herramienta?",
+    "whoUsesDesc": "Esta herramienta es útil para:",
+    "whoUsesList": [
+      "Editores de video y YouTubers.",
+      "Animadores y desarrolladores de videojuegos.",
+      "Desarrolladores de Inteligencia Artificial (IA).",
+      "Diseñadores gráficos.",
+      "Estudiantes y académicos.",
+      "Investigadores científicos."
+    ],
+    "privacyTitle": "Privacidad y Seguridad",
+    "privacyDesc1": "Tu video se procesa enteramente en tu navegador. Tus archivos nunca se suben a ningún servidor.",
+    "privacyDesc2": "No solicitamos registros ni datos personales. 100% de privacidad local.",
+    "privacyWarn": "Tus archivos son privados. Apto para videos sensibles porque ningún dato sale de tu dispositivo.",
+    "howItWorksTitle": "Cómo Funciona",
+    "howItWorksSub": "3 pasos simples — sin registros, sin descargas, sin subidas",
+    "howSteps": [
+      {
+        "title": "Arrastra tu video",
+        "desc": "Arrastra y suelta tu archivo MP4, MOV o WEBM. Los archivos grandes dependen de la memoria de tu dispositivo."
+      },
+      {
+        "title": "Elige la configuración",
+        "desc": "Selecciona la velocidad de fotogramas (FPS) y el formato (JPG o PNG)."
+      },
+      {
+        "title": "Descarga los fotogramas",
+        "desc": "Previsualiza la cuadrícula y descarga la secuencia completa en un archivo ZIP."
+      }
+    ],
+    "whoUsesOnlineTitle": "¿Quién usa Video a Secuencia de Imágenes Online?",
+    "whoUsesOnlineSub": "Usado por creadores, desarrolladores y profesionales en todo el mundo",
+    "whoUsesItems": [
+      {
+        "icon": "🎬",
+        "title": "Editores y YouTubers",
+        "desc": "Extrae fotogramas para miniaturas, portadas o publicaciones en redes sociales."
+      },
+      {
+        "icon": "🎮",
+        "title": "Desarrolladores y Animadores",
+        "desc": "Convierte videos en secuencias de imágenes para motores de videojuegos."
+      },
+      {
+        "icon": "🤖",
+        "title": "Desarrolladores de IA",
+        "desc": "Genera conjuntos de datos para entrenar modelos de visión artificial."
+      },
+      {
+        "icon": "🎨",
+        "title": "Artistas de VFX",
+        "desc": "Extrae secuencias de fotogramas para composición en After Effects o DaVinci."
+      },
+      {
+        "icon": "📸",
+        "title": "Fotógrafos",
+        "desc": "Captura momentos específicos en alta velocidad imposibles de fotografiar."
+      },
+      {
+        "icon": "🎓",
+        "title": "Académicos e Investigadores",
+        "desc": "Extrae fotogramas para análisis científico y presentaciones académicas."
+      }
+    ],
+    "compareTitle": "Comparación con otras herramientas",
+    "compareSub": "Video to Image Sequence Online vs otros convertidores en la nube",
+    "compareHeaders": [
+      "Característica",
+      "www.videotoimagesequence.online ✦",
+      "Convertidores en la Nube",
+      "Otros"
+    ],
+    "compareRows": [
+      [
+        "Límite de tamaño",
+        "✅ Sin límites en el servidor; depende de la RAM",
+        "❌ 200MB",
+        "❌ 100-200MB"
+      ],
+      [
+        "Subida al servidor",
+        "✅ Nunca",
+        "❌ Siempre",
+        "❌ Siempre"
+      ],
+      [
+        "100% Privado",
+        "✅ Sí",
+        "❌ No",
+        "❌ No"
+      ],
+      [
+        "Previsualización",
+        "✅ Cuadrícula completa",
+        "✅ Sí",
+        "⚠️ Limitado"
+      ],
+      [
+        "Descarga individual",
+        "✅ Sí",
+        "✅ Sí",
+        "⚠️ Algunas"
+      ],
+      [
+        "Descarga ZIP",
+        "✅ Sí",
+        "✅ Sí",
+        "⚠️ Algunas"
+      ],
+      [
+        "Control de FPS",
+        "✅ Sí",
+        "✅ Sí",
+        "⚠️ Algunas"
+      ],
+      [
+        "Procesamiento por lotes",
+        "✅ Sí",
+        "❌ No",
+        "❌ No"
+      ],
+      [
+        "Formatos JPG/PNG",
+        "✅ Ambos",
+        "✅ Ambos",
+        "⚠️ Varía"
+      ],
+      [
+        "Aplicación instalable (PWA)",
+        "✅ Sí",
+        "❌ No",
+        "❌ No"
+      ],
+      [
+        "Gratuito",
+        "✅ 100%",
+        "✅ Gratis",
+        "⚠️ Freemium"
+      ],
+      [
+        "Sin cuentas",
+        "✅ Sí",
+        "✅ Sí",
+        "⚠️ Algunas"
+      ]
+    ],
+    "moreToolsTitle": "Más herramientas de video gratuitas",
+    "moreTools": [
+      {
+        "title": "Convertidor MP4 a JPG",
+        "desc": "Extrae fotogramas JPG de videos MP4 en tu navegador."
+      },
+      {
+        "title": "Captura de Pantalla de Video",
+        "desc": "Captura fotogramas a resolución nativa localmente."
+      },
+      {
+        "title": "Video a Fotogramas PNG",
+        "desc": "Extrae fotogramas PNG sin pérdida para VFX y ML."
+      }
+    ],
+    "relatedTitle": "Herramientas y guías relacionadas",
+    "relatedSub": "Explora más herramientas y tutoriales para extraer fotogramas",
+    "relatedItems": [
+      {
+        "title": "Extraer fotogramas de video",
+        "desc": "Herramienta online gratuita para extraer fotogramas como JPG o PNG."
+      },
+      {
+        "title": "Guía de MP4 a secuencia de imágenes",
+        "desc": "Aprende a convertir videos MP4 en secuencias de imágenes fácilmente."
+      },
+      {
+        "title": "Video a secuencia PNG",
+        "desc": "Extrae fotogramas PNG de alta calidad sin pérdida."
+      },
+      {
+        "title": "Secuencia de imágenes a video",
+        "desc": "Combina imágenes en un video WebM con FPS personalizados."
+      },
+      {
+        "title": "Captura de pantalla de video",
+        "desc": "Captura el fotograma perfecto a resolución nativa."
+      },
+      {
+        "title": "Convertidor de video a JPG",
+        "desc": "Convierte videos a secuencias JPG para descargas ligeras."
+      }
+    ],
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "sub": "Todo lo que necesitas saber sobre Video to Image Sequence Online",
+      "items": [
+        {
+          "q": "¿Hay un límite de tamaño?",
+          "a": "No se requiere subir al servidor. El procesamiento ocurre localmente en el navegador, por lo que depende de la RAM de tu dispositivo."
+        },
+        {
+          "q": "¿Qué formatos de video son compatibles?",
+          "a": "MP4, MOV y WEBM: los tres más comunes."
+        },
+        {
+          "q": "¿Debo extraer fotogramas en JPG o PNG?",
+          "a": "JPG se recomienda por el tamaño ligero. Elige PNG si necesitas máxima calidad sin pérdida o transparencias."
+        },
+        {
+          "q": "¿Mis videos están seguros?",
+          "a": "100% seguros. El procesamiento es puramente local; tus archivos nunca salen de tu ordenador."
+        },
+        {
+          "q": "¿Puedo descargar todos los fotogramas a la vez?",
+          "a": "Sí. Haz clic en 'Descargar Todo (ZIP)' para obtener un archivo único."
+        },
+        {
+          "q": "¿Cómo controlo cuántos fotogramas se extraen?",
+          "a": "Configura la velocidad de fotogramas (FPS) en el selector antes de hacer clic en Extraer."
+        },
+        {
+          "q": "¿Puedo procesar varios videos a la vez?",
+          "a": "Sí. Suelta múltiples archivos para habilitar el procesamiento por lotes."
+        },
+        {
+          "q": "¿Puedo descargar fotogramas individuales?",
+          "a": "Sí. Pasa el cursor sobre el fotograma y haz clic en el botón de descarga."
+        },
+        {
+          "q": "¿Cuál es la mejor alternativa gratuita?",
+          "a": "Nuestra herramienta es la mejor alternativa local, sin límites de servidor, 100% gratis y privada."
+        },
+        {
+          "q": "¿Necesito instalar algo?",
+          "a": "No, funciona directamente en cualquier navegador moderno sin registrarse ni instalar extensiones."
+        }
+      ]
+    }
   },
   "mp4ToJpg": {
     "title": "Convertidor MP4 a JPG Online Gratis — Extraer Fotogramas JPG de MP4",
@@ -66,11 +346,26 @@
     "howTo": {
       "title": "Cómo Convertir MP4 a JPG Online",
       "steps": [
-        { "title": "Elige tu MP4", "body": "Arrastra y suelta tu archivo MP4 en la zona de carga de arriba." },
-        { "title": "Configura la Velocidad de Fotogramas (FPS)", "body": "Elige tu frecuencia de extracción. Selecciona 30 FPS para capturar 30 fotogramas por segundo, o elige 1 FPS para extraer un fotograma por segundo." },
-        { "title": "Selecciona el Formato", "body": "Asegúrate de que \"JPG\" esté seleccionado como formato de salida." },
-        { "title": "Extrae los Fotogramas", "body": "Haz clic en \"Extraer Fotogramas\" para decodificar la secuencia de video." },
-        { "title": "Guarda la Salida", "body": "Descarga fotogramas individuales desde la vista previa o haz clic en \"Descargar Todo (ZIP)\" para guardar la secuencia completa." }
+        {
+          "title": "Elige tu MP4",
+          "body": "Arrastra y suelta tu archivo MP4 en la zona de carga de arriba."
+        },
+        {
+          "title": "Configura la Velocidad de Fotogramas (FPS)",
+          "body": "Elige tu frecuencia de extracción. Selecciona 30 FPS para capturar 30 fotogramas por segundo, o elige 1 FPS para extraer un fotograma por segundo."
+        },
+        {
+          "title": "Selecciona el Formato",
+          "body": "Asegúrate de que \"JPG\" esté seleccionado como formato de salida."
+        },
+        {
+          "title": "Extrae los Fotogramas",
+          "body": "Haz clic en \"Extraer Fotogramas\" para decodificar la secuencia de video."
+        },
+        {
+          "title": "Guarda la Salida",
+          "body": "Descarga fotogramas individuales desde la vista previa o haz clic en \"Descargar Todo (ZIP)\" para guardar la secuencia completa."
+        }
       ]
     },
     "faq": {
@@ -98,6 +393,38 @@
         }
       ]
     }
+  },
+  "extractFrames": {
+    "title": "Extraer Fotogramas de Video Online Gratis — Extractor de Fotogramas JPG y PNG",
+    "description": "Extrae fotogramas de video online gratis. Convierte videos MP4, MOV y WEBM a secuencias JPG o PNG en tu navegador. Sin subida al servidor.",
+    "h1": "Extraer Fotogramas de Video",
+    "h1Sub": "Extractor de Fotogramas Online Gratis",
+    "hero": "Extrae cada fotograma de videos MP4, MOV y WEBM como imágenes JPG o PNG gratis. Todo el procesamiento ocurre localmente en tu navegador — tus archivos nunca se suben.",
+    "keywords": "extraer fotogramas de video, extractor de fotogramas, extraer fotogramas online, video a imagenes"
+  },
+  "videoToPng": {
+    "title": "Convertidor de Video a PNG Online Gratis — Extraer Fotogramas PNG al Instante",
+    "description": "Convierte video a imágenes PNG online gratis. Extrae fotogramas PNG sin pérdida de videos MP4, MOV y WEBM en tu navegador. Sin subida al servidor.",
+    "h1": "Extraer Fotogramas PNG sin Pérdida",
+    "h1Sub": "Online — Gratis",
+    "hero": "Convierte video a imágenes PNG online gratis. Extrae secuencias PNG perfectas y sin pérdida de videos MP4, MOV o WEBM. Conserva la información de transparencia, todo sin que los archivos salgan de tu ordenador.",
+    "keywords": "video a png, extraer fotogramas png, mp4 a png, extractor de fotogramas sin pérdida"
+  },
+  "screenshotVideo": {
+    "title": "Captura de Pantalla de Video Online — Captura Cualquier Fotograma Gratis",
+    "description": "Toma una captura de pantalla de cualquier fotograma de video online gratis. Captura el momento exacto que necesitas como JPG o PNG de alta calidad. Sin subida al servidor.",
+    "h1": "Captura de Pantalla de Video",
+    "h1Sub": "Captura Cualquier Fotograma Gratis",
+    "hero": "Toma una captura de pantalla de videos MP4, MOV y WEBM online gratis. Extrae el fotograma exacto que necesitas en resolución nativa completa. Sin subida al servidor, sin marcas de agua, completamente privado.",
+    "keywords": "captura de pantalla de video, capturador de fotogramas de video, extraer imagen de video, captura de fotogramas de video"
+  },
+  "imagesToVideo": {
+    "title": "Imágenes a Video Online — Crear WebM de Secuencias JPG/PNG",
+    "description": "Convierte secuencias de imágenes a video online gratis. Crea videos WebM de fotogramas JPG o PNG en tu navegador. Sin subida al servidor.",
+    "h1": "Imágenes a Video",
+    "h1Sub": "Crear Video desde Secuencias de Imágenes",
+    "hero": "Convierte una secuencia de imágenes JPG o PNG en un video WebM fluido directamente en tu navegador. Sin subida al servidor, sin marcas de agua.",
+    "keywords": "imagenes a video, secuencia de imagenes a video, jpg a video, png a video"
   },
   "footer": {
     "tagline": "Extractor de fotogramas de video gratuito basado en el navegador. Convierte videos MP4, MOV y WEBM a secuencias de imágenes JPG/PNG — sin subida al servidor, procesado localmente en tu navegador.",

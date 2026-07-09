@@ -113,14 +113,14 @@ const ScreenshotFromVideo: React.FC = () => {
   return (
     <div className="w-full mx-auto pb-16 font-sans">
       <SEOHead
-        title="Screenshot from Video Online Free — Capture Video Frames Locally"
-        description="Take a screenshot from MP4, MOV, and WEBM videos online for free. Capture the exact frame you need locally in your browser. No server upload required."
+        title={t('screenshotVideo.title')}
+        description={t('screenshotVideo.description')}
         canonical="https://www.videotoimagesequence.online/screenshot-from-video"
-        ogTitle="Screenshot from Video — Free Online Frame Capture Tool"
-        ogDescription="Capture any frame from your video as a JPG or PNG screenshot. Free, local browser processing, no server upload."
+        ogTitle={t('screenshotVideo.title')}
+        ogDescription={t('screenshotVideo.description')}
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
-        keywords="screenshot from video, video frame grabber, extract still from video, video frame capture"
+        keywords={t('screenshotVideo.keywords')}
       />
       
       {/* Breadcrumb */}
@@ -129,22 +129,20 @@ const ScreenshotFromVideo: React.FC = () => {
       {/* ── HERO SECTION ── */}
       <section className="text-center max-w-4xl mx-auto pt-10 pb-10 px-4">
         <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-tight font-display">
-          Screenshot from Video<br />
-          <span className="text-cyan-400">Capture Video Frames Online — Free & Local</span>
+          {t('screenshotVideo.h1')}<br />
+          <span className="text-cyan-400">{t('screenshotVideo.h1Sub')}</span>
         </h1>
 
         <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed hero-description">
-          Take a screenshot from MP4, MOV, and WEBM videos online for free. Extract the exact frame you need in full native resolution. No server uploads, no watermarks, completely private.
+          {t('screenshotVideo.hero')}
         </p>
 
         {/* Trust badges */}
         <div className="flex flex-wrap justify-center gap-3 text-xs text-gray-400 mb-10">
           {[
-            '🎯 Native Resolution Capture',
-            '🔒 100% Private (Local)',
-            '⚡ Fast Local Processing',
-            '📷 JPG & PNG Output',
-            '🆓 Free Forever'
+            t('badges.private'),
+            t('badges.fast'),
+            t('badges.free')
           ].map(badge => (
             <span key={badge} className="bg-gray-900 border border-gray-800 px-3 py-1.5 rounded-full">
               {badge}

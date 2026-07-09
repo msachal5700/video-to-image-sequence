@@ -2,6 +2,7 @@ import React, { memo } from 'react';
 import { Settings, Download, RefreshCcw, Video } from 'lucide-react';
 import { FrameRate, VideoMetadata, SUPPORTED_FPS, AppState, OutputFormat } from '../types';
 import { formatBytes, formatTime } from '../utils/videoProcessor';
+import { useTranslation } from 'react-i18next';
 
 interface ControlsProps {
   videoMetadata: VideoMetadata;
@@ -24,6 +25,7 @@ const Controls: React.FC<ControlsProps> = ({
   onReset,
   appState,
 }) => {
+  const { t } = useTranslation();
   const estimatedFrames = Math.floor(videoMetadata.duration * selectedFps);
   const isProcessing = appState === AppState.PROCESSING || appState === AppState.ZIPPING;
 
@@ -64,12 +66,12 @@ const Controls: React.FC<ControlsProps> = ({
         <div className="bg-gray-900 border border-gray-800 rounded-3xl p-6 md:p-8">
           <div className="flex items-center gap-2 mb-6 text-gray-300 border-b border-gray-800 pb-4">
             <Settings className="w-5 h-5 text-gray-500" />
-            <h4 className="font-semibold text-white uppercase tracking-wider text-sm">Configuration</h4>
+            <h4 className="font-semibold text-white uppercase tracking-wider text-sm">{t('controls.configuration')}</h4>
           </div>
           
           <div className="space-y-6">
             <div>
-              <label className="block text-xs font-semibold text-gray-400 mb-3 uppercase tracking-wider">Output Frame Rate (FPS)</label>
+              <label className="block text-xs font-semibold text-gray-400 mb-3 uppercase tracking-wider">{t('controls.frameRate')}</label>
               
               <div className="space-y-5">
                 <div className="relative">
@@ -81,7 +83,7 @@ const Controls: React.FC<ControlsProps> = ({
                   >
                     {SUPPORTED_FPS.map((fps) => (
                       <option key={fps} value={fps}>
-                        {fps} Frames Per Second
+                        {fps} {t('controls.fpsSuffix')}
                       </option>
                     ))}
                   </select>
@@ -115,7 +117,7 @@ const Controls: React.FC<ControlsProps> = ({
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-gray-400 mb-3 uppercase tracking-wider">Output Format</label>
+              <label className="block text-xs font-semibold text-gray-400 mb-3 uppercase tracking-wider">{t('controls.outputFormat')}</label>
               <div className="grid grid-cols-2 gap-3">
                 <button
                   type="button"
@@ -143,18 +145,18 @@ const Controls: React.FC<ControlsProps> = ({
                 </button>
               </div>
               <p className="text-gray-500 text-[11px] mt-3 font-medium">
-                {outputFormat === 'jpg' && 'Smaller file size, recommended for most uses'}
-                {outputFormat === 'png' && 'Lossless quality, best for VFX and game dev'}
+                {outputFormat === 'jpg' && t('controls.formatJpgDesc')}
+                {outputFormat === 'png' && t('controls.formatPngDesc')}
               </p>
             </div>
             
             <div className="bg-cyan-950/20 border-l-2 border-cyan-500 rounded-r-xl p-4 flex justify-between items-center">
-               <span className="text-sm font-medium text-gray-300">Estimated Output:</span>
-               <span className="text-xl font-bold text-white font-mono">{estimatedFrames.toLocaleString()} <span className="text-xs font-medium text-cyan-400 tracking-wider">IMAGES</span></span>
+               <span className="text-sm font-medium text-gray-300">{t('controls.estimatedOutput')}</span>
+               <span className="text-xl font-bold text-white font-mono">{estimatedFrames.toLocaleString()} <span className="text-xs font-medium text-cyan-400 tracking-wider">{t('controls.estimatedImages')}</span></span>
             </div>
             {estimatedFrames > 1000 && (
               <p className="text-yellow-400 text-xs mt-2">
-                {estimatedFrames.toLocaleString()} frames may be slow on mobile. Consider lowering FPS.
+                {t('controls.mobileSlowWarning', { count: estimatedFrames.toLocaleString() })}
               </p>
             )}
           </div>
@@ -166,9 +168,9 @@ const Controls: React.FC<ControlsProps> = ({
            <div className="absolute -top-24 -right-24 w-48 h-48 bg-cyan-500/20 rounded-full blur-3xl group-hover:bg-cyan-400/30 transition-colors pointer-events-none" />
 
            <div className="relative z-10 mb-8">
-              <h4 className="font-bold text-white text-xl mb-3 font-display">Ready to Extract?</h4>
+              <h4 className="font-bold text-white text-xl mb-3 font-display">{t('controls.readyTitle')}</h4>
               <p className="text-sm text-cyan-100/70 leading-relaxed">
-                Click below to process this video entirely in your browser. All frames will be extracted locally and combined into a single ZIP file download.
+                {t('controls.readyDesc')}
               </p>
            </div>
 
@@ -182,10 +184,10 @@ const Controls: React.FC<ControlsProps> = ({
               }`}
           >
             {isProcessing ? (
-              <>Processing...</>
+              <>{t('controls.processing')}</>
             ) : (
               <>
-                <span>Extract Frames Now</span>
+                <span>{t('controls.extractFrames')}</span>
                 <Download className="w-5 h-5 hidden sm:block" />
               </>
             )}

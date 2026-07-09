@@ -6,6 +6,7 @@ import InterstitialAd from '../components/InterstitialAd';
 import { AppState, FrameRate, VideoMetadata, ProcessingStats, OutputFormat } from '../types';
 import { extractFramesAndZip, formatTime } from '../utils/videoProcessor';
 import { useToast } from '../components/Toast';
+import { useTranslation } from 'react-i18next';
 
 interface ExtractedFrame {
   url: string;
@@ -14,6 +15,7 @@ interface ExtractedFrame {
 }
 
 const VideoToImages: React.FC = () => {
+  const { t } = useTranslation();
   const [appState, setAppState] = useState<AppState>(AppState.IDLE);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [rawError, setRawError] = useState<string | null>(null);
@@ -249,10 +251,10 @@ const VideoToImages: React.FC = () => {
 
       <div className="text-center space-y-4 max-w-2xl mx-auto mb-8">
         <h2 className="text-3xl sm:text-4xl font-bold text-white font-display">
-          Convert Video to <span className="text-cyan-400">Image Sequence</span>
+          {t('common.convertTitle')}
         </h2>
         <p className="text-gray-400 text-lg">
-          Extract frames from MP4, MOV, and WEBM videos locally. Large files depend on your device memory.
+          {t('common.convertSub')}
         </p>
       </div>
 
@@ -263,18 +265,18 @@ const VideoToImages: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12 mb-4">
                <div className="text-center space-y-2">
                   <div className="w-12 h-12 bg-cyan-950/50 border border-cyan-900 rounded-full flex items-center justify-center mx-auto text-cyan-400 font-bold text-xl">🔒</div>
-                  <h3 className="font-semibold text-white">No Server Uploads</h3>
-                  <p className="text-sm text-gray-500">Processing happens in your browser locally, so large files depend on your device memory.</p>
+                  <h3 className="font-semibold text-white">{t('common.noServerUploads')}</h3>
+                  <p className="text-sm text-gray-500">{t('common.noServerUploadsDesc')}</p>
                </div>
                <div className="text-center space-y-2">
                   <div className="w-12 h-12 bg-cyan-950/50 border border-cyan-900 rounded-full flex items-center justify-center mx-auto text-cyan-400 font-bold text-xl">ZIP</div>
-                  <h3 className="font-semibold text-white">Download ZIP</h3>
-                  <p className="text-sm text-gray-500">Get all images in one archive.</p>
+                  <h3 className="font-semibold text-white">{t('common.downloadZipTitle')}</h3>
+                  <p className="text-sm text-gray-500">{t('common.downloadZipDesc')}</p>
                </div>
                <div className="text-center space-y-2">
                   <div className="w-12 h-12 bg-cyan-950/50 border border-cyan-900 rounded-full flex items-center justify-center mx-auto text-cyan-400 font-bold text-xl">🔒</div>
-                  <h3 className="font-semibold text-white">Secure</h3>
-                  <p className="text-sm text-gray-500">Files never leave your device.</p>
+                  <h3 className="font-semibold text-white">{t('common.secureTitle')}</h3>
+                  <p className="text-sm text-gray-500">{t('common.secureDesc')}</p>
                </div>
             </div>
           </div>
@@ -287,9 +289,9 @@ const VideoToImages: React.FC = () => {
                 {isBatch && (
                   <div className="mb-4 flex items-center justify-between bg-cyan-950/40 border border-cyan-900/50 p-4 rounded-xl">
                     <span className="text-cyan-400 font-semibold flex items-center gap-2">
-                      <Film className="w-5 h-5" /> Batch Queue: {queue.length} videos
+                      <Film className="w-5 h-5" /> {t('common.queue', { count: queue.length })}
                     </span>
-                    <button onClick={handleReset} className="text-gray-400 hover:text-white text-sm">Clear</button>
+                    <button onClick={handleReset} className="text-gray-400 hover:text-white text-sm">{t('common.clear')}</button>
                   </div>
                 )}
                 <Controls
@@ -314,7 +316,7 @@ const VideoToImages: React.FC = () => {
                      <div className="mx-auto w-16 h-16 bg-red-500/10 rounded-full flex items-center justify-center">
                        <AlertTriangle className="w-8 h-8 text-red-500" />
                      </div>
-                     <h3 className="text-xl font-bold text-white font-display">Processing Failed</h3>
+                     <h3 className="text-xl font-bold text-white font-display">{t('common.failed')}</h3>
                      <p className="text-gray-400 text-sm max-w-lg mx-auto">{errorMessage || "We couldn't process this video. The format may be unsupported."}</p>
                      {rawError && (
                        <button
@@ -324,11 +326,11 @@ const VideoToImages: React.FC = () => {
                          }}
                          className="flex items-center gap-1.5 mx-auto px-3 py-1.5 bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white rounded-lg text-xs transition-colors"
                        >
-                         <Copy className="w-3.5 h-3.5" /> Copy Raw Error
+                         <Copy className="w-3.5 h-3.5" /> {t('common.copyRawError')}
                        </button>
                      )}
                      <button onClick={handleReset} className="mt-4 px-6 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-xl transition-colors">
-                       Start Over
+                       {t('common.startOver')}
                      </button>
                    </div>
                 ) : appState !== AppState.COMPLETED ? (
@@ -336,11 +338,11 @@ const VideoToImages: React.FC = () => {
                     
                     {isBatch && (
                       <div className="flex justify-between items-center bg-gray-900 px-4 py-3 rounded-xl border border-gray-800 mb-2">
-                        <span className="text-gray-300 font-medium">Processing video {currentQueueIndex + 1} of {queue.length}</span>
+                        <span className="text-gray-300 font-medium">{t('common.videoQueueProgress', { index: currentQueueIndex + 1, count: queue.length })}</span>
                         <div className="flex items-center gap-3">
                            <span className="text-gray-500 text-sm truncate max-w-[200px]">{queue[currentQueueIndex].name}</span>
                            <button onClick={handleCancelQueue} className="text-xs bg-red-500/20 text-red-400 hover:bg-red-500/30 px-3 py-1.5 rounded-lg transition-colors font-semibold">
-                              Cancel Queue
+                              {t('common.cancelQueue')}
                            </button>
                         </div>
                       </div>
@@ -348,14 +350,14 @@ const VideoToImages: React.FC = () => {
 
                     <h3 className="text-xl sm:text-2xl font-bold text-white font-display flex items-center justify-center gap-3">
                        <Loader2 className="w-6 h-6 text-cyan-400 animate-spin" />
-                       {appState === AppState.ZIPPING ? 'Creating ZIP Archive...' : 'Extracting Frames...'}
+                       {appState === AppState.ZIPPING ? t('common.zipping') : t('common.processing')}
                     </h3>
                     <div className="w-full bg-gray-800 rounded-full h-3 overflow-hidden border border-gray-700">
                        <div className="bg-cyan-400 h-full rounded-full transition-all duration-300 shadow-[0_0_10px_2px_rgba(34,211,238,0.4)]" style={{ width: `${processingStats?.progress || 0}%` }}></div>
                     </div>
                     <div className="flex justify-between items-center text-sm font-mono tracking-wide">
                        <p className="text-gray-400">
-                         Processed <span className="text-white font-semibold">{processingStats?.processedFrames || 0}</span> / {processingStats?.totalFrames || 0}
+                         {t('common.processedFramesText', { processed: processingStats?.processedFrames || 0, total: processingStats?.totalFrames || 0 })}
                        </p>
                        {appState === AppState.PROCESSING && processingStats?.estimatedTimeRemaining !== undefined && (
                          <p className="text-cyan-400 font-semibold bg-cyan-950/40 px-3 py-1 rounded-md border border-cyan-900/50">
@@ -370,12 +372,12 @@ const VideoToImages: React.FC = () => {
                       <div className="bg-cyan-950/80 p-2.5 rounded-full border border-cyan-800 shadow-[0_0_15px_rgba(34,211,238,0.2)]">
                         <CheckCircle2 className="w-8 h-8 text-cyan-400" />
                       </div>
-                      Processing Complete!
+                      {t('common.complete')}
                     </h3>
                     {!isBatch ? (
-                      <p className="text-gray-400 text-lg">Successfully extracted <strong className="text-white">{extractedFrames.length}</strong> frames from your video.</p>
+                      <p className="text-gray-400 text-lg">{t('common.framesExtracted', { count: extractedFrames.length })}</p>
                     ) : (
-                      <p className="text-gray-400 text-lg">Successfully processed <strong className="text-white">{completedZips.length}</strong> videos.</p>
+                      <p className="text-gray-400 text-lg">{t('common.framesExtracted', { count: completedZips.length })}</p>
                     )}
 
                     <div className="flex flex-col sm:flex-row justify-center items-center gap-4 flex-wrap">
@@ -386,12 +388,12 @@ const VideoToImages: React.FC = () => {
                            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-gray-950 rounded-xl font-bold transition-all transform hover:scale-[1.02] shadow-lg shadow-cyan-500/20 text-lg"
                          >
                            <Download className="w-5 h-5" /> 
-                           {isBatch ? 'Download All ZIPs' : 'Download All (ZIP)'}
+                           {isBatch ? t('common.downloadAllZips') : t('common.downloadAll')}
                          </button>
                        )}
 
                        <button onClick={handleReset} className="px-8 py-4 bg-gray-800 hover:bg-gray-700 hover:text-white text-gray-300 rounded-xl font-medium transition-all border border-gray-700 shadow-md">
-                         Convert Another
+                         {t('common.convertAnother')}
                        </button>
                     </div>
                   </div>
@@ -402,10 +404,10 @@ const VideoToImages: React.FC = () => {
                   <div className="mt-8 border-t border-gray-800 pt-8 animate-fade-in">
                     <div className="flex justify-between items-center mb-6 flex-wrap gap-2">
                        <h4 className="text-xl font-bold text-white font-display">
-                         {isBatch ? `Preview: ${queue[currentQueueIndex]?.name}` : "Frame Preview"}
+                         {isBatch ? `Preview: ${queue[currentQueueIndex]?.name}` : t('common.processed')}
                        </h4>
                        <span className="text-sm font-mono text-cyan-400 bg-cyan-950/30 px-3 py-1 rounded-full border border-cyan-900/50">
-                         Showing {Math.min(visibleFrames, extractedFrames.length)} of {Math.min(extractedFrames.length, 200)}
+                         {t('common.showingFrames', { showing: Math.min(visibleFrames, extractedFrames.length), total: Math.min(extractedFrames.length, 200) })}
                        </span>
                      </div>
                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
@@ -441,14 +443,14 @@ const VideoToImages: React.FC = () => {
                     
                     {processingStats && processingStats.totalFrames > 200 && (
                       <p className="text-gray-400 text-sm mt-8 text-center bg-gray-900 border border-gray-800 py-3 rounded-xl shadow-inner max-w-lg mx-auto">
-                        Showing 200 of {processingStats.totalFrames} frames. Download the ZIP to access all frames.
+                        {t('common.showOnly200', { count: processingStats.totalFrames })}
                       </p>
                     )}
                     
                     {visibleFrames < extractedFrames.length && (
                        <div className="mt-10 flex justify-center">
                          <button onClick={handleLoadMore} className="group px-8 py-3.5 bg-gray-900 hover:bg-gray-800 text-cyan-400 rounded-xl text-sm font-bold border border-gray-700 hover:border-cyan-800 transition-all shadow-md flex items-center gap-2">
-                           Load More Frames
+                           {t('common.loadMore')}
                            <span className="group-hover:translate-y-0.5 transition-transform">↓</span>
                          </button>
                        </div>

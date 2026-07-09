@@ -1,11 +1,13 @@
 import React, { useCallback, useState, useRef } from 'react';
 import { UploadCloud, FileVideo, AlertCircle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface DropzoneProps {
   onFileSelect: (file: File) => void;
 }
 
 const Dropzone: React.FC<DropzoneProps> = ({ onFileSelect }) => {
+  const { t } = useTranslation();
   const [isDragging, setIsDragging] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [selectedCount, setSelectedCount] = useState(0);
@@ -41,7 +43,7 @@ const Dropzone: React.FC<DropzoneProps> = ({ onFileSelect }) => {
     const validFiles = Array.from(files).filter(f => f.type.startsWith('video/'));
     
     if (validFiles.length === 0) {
-      setError('Please upload a valid video file.');
+      setError(t('dropzone.invalid', { defaultValue: 'Please upload a valid video file.' }));
       return;
     }
     
@@ -79,7 +81,7 @@ const Dropzone: React.FC<DropzoneProps> = ({ onFileSelect }) => {
 
       {selectedCount > 1 && (
         <div className="absolute top-4 right-4 bg-cyan-900/80 text-cyan-400 text-xs font-bold px-3 py-1.5 rounded-full border border-cyan-800">
-          {selectedCount} videos selected
+          {t('dropzone.selected', { count: selectedCount, defaultValue: `${selectedCount} videos selected` })}
         </div>
       )}
 
@@ -96,12 +98,12 @@ const Dropzone: React.FC<DropzoneProps> = ({ onFileSelect }) => {
           ) : (
             <>
               <p className="text-white font-semibold text-lg mb-2">
-                Drop your video here
+                {t('dropzone.drop')}
               </p>
               <p className="text-gray-500 text-sm mb-1">
-                MP4, MOV, WEBM supported · Large files depend on your device and browser · Drop multiple files for batch
+                {t('dropzone.support')}
               </p>
-              <p className="text-cyan-400 text-xs">or click to browse</p>
+              <p className="text-cyan-400 text-xs">{t('dropzone.browse')}</p>
             </>
           )}
         </div>

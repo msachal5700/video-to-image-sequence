@@ -35,7 +35,18 @@
     "format": "Formato de Saída",
     "quality": "Qualidade JPG",
     "estimatedFrames": "Est. {{count}} quadros",
-    "highFrameWarning": "Aviso: {{count}}+ quadros podem esgotar a memória do navegador. Considere reduzir o FPS."
+    "highFrameWarning": "Aviso: {{count}}+ quadros podem esgotar a memória do navegador. Considere reduzir o FPS.",
+    "configuration": "Configuration",
+    "fpsSuffix": "Frames Per Second",
+    "formatJpgDesc": "Smaller file size, recommended for most uses",
+    "formatPngDesc": "Lossless quality, best for VFX and game dev",
+    "estimatedOutput": "Estimated Output:",
+    "estimatedImages": "IMAGES",
+    "mobileSlowWarning": "{{count}} frames may be slow on mobile. Consider lowering FPS.",
+    "readyTitle": "Ready to Extract?",
+    "readyDesc": "Click below to process this video entirely in your browser. All frames will be extracted locally and combined into a single ZIP file download.",
+    "extractFrames": "Extract Frames Now",
+    "processing": "Processing..."
   },
   "badges": {
     "private": "🔒 100% Privado (Local)",
@@ -50,7 +61,277 @@
     "h1": "Vídeo para Sequência de Imagens",
     "h1Sub": "Conversor Online",
     "hero": "Video to Image Sequence Online é uma ferramenta gratuita baseada no navegador que extrai cada quadro de vídeos MP4, MOV e WEBM como imagens JPG ou PNG de alta qualidade. Todo o processamento ocorre localmente no seu navegador, seus vídeos nunca são enviados para um servidor.",
-    "keywords": "vídeo para sequência de imagens, extrair quadros de vídeo grátis, MP4 para JPG quadros, extrator de quadros de vídeo, converter vídeo em sequência PNG"
+    "keywords": "vídeo para sequência de imagens, extrair quadros de vídeo grátis, MP4 para JPG quadros, extrator de quadros de vídeo, converter vídeo em sequência PNG",
+    "badge": "100% Grátis · Sem Upload · Processamento Local",
+    "badges": {
+      "noUpload": "✅ No Server Upload Required",
+      "private": "🔒 100% Private",
+      "fast": "⚡ Fast local processing · No upload",
+      "zip": "📦 ZIP Download",
+      "batch": "🎬 Batch Processing",
+      "fps": "🎨 Custom FPS",
+      "free": "🆓 Free Forever"
+    },
+    "tabs": {
+      "toImages": "Vídeo para Imagens",
+      "toVideo": "Imagens para Vídeo"
+    },
+    "howWorksTitle": "How This Video to Image Sequence Tool Works",
+    "howWorksDesc": "This tool extracts individual frames from your video and converts them into downloadable image files. You can upload a video, choose the output format, and download frames as JPG or PNG images.",
+    "simpleProcess": "The process is simple:",
+    "steps": [
+      "Upload your video file.",
+      "Select the image format.",
+      "Choose how many frames you want to extract.",
+      "Download the extracted image sequence."
+    ],
+    "useCases": "This is useful for animation, video editing, AI dataset creation, thumbnails, motion analysis, and frame-by-frame review.",
+    "formatsTitle": "Supported Video Formats",
+    "formatsDesc1": "Best supported formats: MP4, MOV, and WEBM.",
+    "formatsDesc2": "Other formats such as AVI or MKV may work only when your browser supports the video codec.",
+    "outputsTitle": "Supported Image Output Formats",
+    "outputsDesc": "You can extract frames as:",
+    "jpgTitle": "JPG/JPEG",
+    "jpgDesc": "best for smaller file size and general use.",
+    "pngTitle": "PNG",
+    "pngDesc": "best for high-quality frames, transparent graphics, design work, and editing.",
+    "outputChoose": "Choose JPG if you want faster downloads. Choose PNG if image quality matters more.",
+    "whoUsesTitle": "Who Can Use This Tool?",
+    "whoUsesDesc": "This tool is useful for:",
+    "whoUsesList": [
+      "Video editors who need frame-by-frame screenshots.",
+      "Animators who need image sequences from video clips.",
+      "AI developers who need video frames for datasets.",
+      "YouTubers who want thumbnails from videos.",
+      "Designers who want still images from motion footage.",
+      "Students who need visual frames for projects.",
+      "Researchers who analyze motion or visual changes in videos."
+    ],
+    "privacyTitle": "Privacy and File Safety",
+    "privacyDesc1": "Your video is processed entirely inside your browser. Because we use client-side JavaScript APIs, your files are never uploaded to any server or stored on the cloud. They stay 100% local on your computer.",
+    "privacyDesc2": "We do not ask for signups, accounts, or personal information. You get maximum privacy and fast local processing speed since no time is wasted uploading or downloading large video files.",
+    "privacyWarn": "Your files are completely private. This tool is safe to use for sensitive, private, or confidential videos because zero data leaves your local device.",
+    "howItWorksTitle": "How It Works",
+    "howItWorksSub": "3 simple steps — no signup, no install, no upload",
+    "howSteps": [
+      {
+        "title": "Drop Your Video",
+        "desc": "Drag and drop your MP4, MOV, or WEBM file. Drop multiple files for batch processing. Large files depend on your device memory and browser."
+      },
+      {
+        "title": "Choose Settings",
+        "desc": "Select your frame rate (FPS) and output format (JPG or PNG). Customize exactly how many frames to extract."
+      },
+      {
+        "title": "Download Frames",
+        "desc": "Browse the frame grid, download individual frames, or get all frames as a ZIP archive."
+      }
+    ],
+    "whoUsesOnlineTitle": "Who Uses Video to Image Sequence Online?",
+    "whoUsesOnlineSub": "Used by creators, developers, and professionals worldwide",
+    "whoUsesItems": [
+      {
+        "icon": "🎬",
+        "title": "Video Editors & YouTubers",
+        "desc": "Extract the perfect still frame for video thumbnails, title cards, or social media posts from any clip in seconds."
+      },
+      {
+        "icon": "🎮",
+        "title": "Game Developers & Animators",
+        "desc": "Convert sprite sheet videos or animation previews into individual PNG frames for Unity, Godot, or Blender."
+      },
+      {
+        "icon": "🤖",
+        "title": "AI & ML Developers",
+        "desc": "Generate large labeled image datasets from video footage for training computer vision and machine learning models."
+      },
+      {
+        "icon": "🎨",
+        "title": "VFX & Motion Artists",
+        "desc": "Import extracted frame sequences into After Effects, DaVinci Resolve, or Nuke for frame-by-frame compositing."
+      },
+      {
+        "icon": "📸",
+        "title": "Photographers",
+        "desc": "Capture split-second moments from slow-motion or high-speed video that would be impossible to photograph directly."
+      },
+      {
+        "icon": "🎓",
+        "title": "Educators & Researchers",
+        "desc": "Extract frames for academic analysis, presentation slides, medical imaging review, or research documentation."
+      }
+    ],
+    "compareTitle": "How We Compare to Other Tools",
+    "compareSub": "Video to Image Sequence Online vs other online converters",
+    "compareHeaders": [
+      "Feature",
+      "www.videotoimagesequence.online ✦",
+      "Cloud Converters",
+      "Others"
+    ],
+    "compareRows": [
+      [
+        "File size handling",
+        "✅ No server upload required; limited by browser/device RAM",
+        "❌ 200MB",
+        "❌ 100-200MB"
+      ],
+      [
+        "Server upload required",
+        "✅ Never",
+        "❌ Always",
+        "❌ Always"
+      ],
+      [
+        "100% Private",
+        "✅ Yes",
+        "❌ No",
+        "❌ No"
+      ],
+      [
+        "Individual frame preview",
+        "✅ Full grid",
+        "✅ Yes",
+        "⚠️ Limited"
+      ],
+      [
+        "Per-frame download",
+        "✅ Yes",
+        "✅ Yes",
+        "⚠️ Some"
+      ],
+      [
+        "ZIP download",
+        "✅ Yes",
+        "✅ Yes",
+        "⚠️ Some"
+      ],
+      [
+        "Custom FPS control",
+        "✅ Yes",
+        "✅ Yes",
+        "⚠️ Some"
+      ],
+      [
+        "Batch processing",
+        "✅ Yes",
+        "❌ No",
+        "❌ No"
+      ],
+      [
+        "JPG + PNG output",
+        "✅ Both",
+        "✅ Both",
+        "⚠️ Varies"
+      ],
+      [
+        "PWA / Installable",
+        "✅ Yes",
+        "❌ No",
+        "❌ No"
+      ],
+      [
+        "Free forever",
+        "✅ 100%",
+        "✅ Free",
+        "⚠️ Freemium"
+      ],
+      [
+        "No account needed",
+        "✅ None",
+        "✅ None",
+        "⚠️ Some"
+      ]
+    ],
+    "moreToolsTitle": "More Free Video Tools",
+    "moreTools": [
+      {
+        "title": "MP4 to JPG Converter",
+        "desc": "Extract JPG frames from MP4 video in your browser."
+      },
+      {
+        "title": "Screenshot from Video",
+        "desc": "Capture video frames in full-resolution locally."
+      },
+      {
+        "title": "Video to PNG Frames",
+        "desc": "Extract lossless PNG frames for VFX, game dev, and ML datasets."
+      }
+    ],
+    "relatedTitle": "Related Video Frame Tools and Guides",
+    "relatedSub": "Explore more tools and guides for video frame extraction",
+    "relatedItems": [
+      {
+        "title": "Extract Frames from Video",
+        "desc": "Free online tool to extract individual frames from MP4, MOV, and WEBM videos as JPG or PNG images."
+      },
+      {
+        "title": "MP4 to Image Sequence Guide",
+        "desc": "Learn how to convert MP4 videos to image sequences quickly and efficiently."
+      },
+      {
+        "title": "Video to PNG Sequence",
+        "desc": "Extract lossless PNG frames perfect for high-quality design work and VFX compositing."
+      },
+      {
+        "title": "Image Sequence to Video",
+        "desc": "Combine extracted image sequences back into a video file with custom frame rates."
+      },
+      {
+        "title": "Screenshot from Video",
+        "desc": "Capture the perfect frame from your video as a high-resolution screenshot."
+      },
+      {
+        "title": "Video to JPG Converter",
+        "desc": "Convert video files to JPG image sequences for fast downloads and easy sharing."
+      }
+    ],
+    "faq": {
+      "title": "Perguntas Frequentes",
+      "sub": "Tudo o que você precisa saber sobre o Video to Image Sequence Online",
+      "items": [
+        {
+          "q": "Is there a file size limit?",
+          "a": "No server upload required. Processing happens in your browser, so large files depend on your device memory, browser performance, video length, and codec support."
+        },
+        {
+          "q": "What video formats are supported?",
+          "a": "MP4, MOV, and WEBM — the three most common formats used by phones, cameras, and screen recorders."
+        },
+        {
+          "q": "Should I extract frames as JPG or PNG?",
+          "a": "JPG is recommended for most uses — smaller file sizes, faster downloads, great quality. Choose PNG if you need lossless frames for VFX compositing, game development, or machine learning datasets where pixel-perfect accuracy matters."
+        },
+        {
+          "q": "Are my videos kept private?",
+          "a": "100% private. Your video never leaves your device. Everything runs locally in your browser using JavaScript. Nothing is sent to any server."
+        },
+        {
+          "q": "Can I download all frames at once?",
+          "a": "Yes. After extraction, click \"Download All as ZIP\" to get every frame packed into a single ZIP file with one click."
+        },
+        {
+          "q": "How do I control how many frames are extracted?",
+          "a": "Use the FPS selector before extracting. Choose every frame for maximum quality, or pick 1, 5, 10, 24, or 30 FPS depending on your needs."
+        },
+        {
+          "q": "Can I extract frames from multiple videos at once?",
+          "a": "Yes. Just drop multiple video files at once and our batch mode will process them automatically one by one."
+        },
+        {
+          "q": "Can I download individual frames?",
+          "a": "Yes. Every extracted frame appears in a visual grid. Hover over any frame and click the download button to save that specific frame."
+        },
+        {
+          "q": "What is the best free alternative for extracting video frames?",
+          "a": "Video to Image Sequence Online is the best free alternative — it requires no server upload (processing happens locally in your browser, so large files depend on your device memory, browser performance, video length, and codec support), batch processing, ZIP download, individual frame downloads, and custom FPS control. All completely free."
+        },
+        {
+          "q": "Do I need to create an account or install anything?",
+          "a": "No. Just open the website and start converting. No account, no download, no installation. Works on any device with a modern browser."
+        }
+      ]
+    }
   },
   "mp4ToJpg": {
     "title": "Conversor MP4 para JPG Online Grátis — Extrair Quadros JPG do MP4",
@@ -66,11 +347,26 @@
     "howTo": {
       "title": "Como Converter MP4 para JPG Online",
       "steps": [
-        { "title": "Escolha seu MP4", "body": "Arraste e solte seu arquivo MP4 na zona de upload acima." },
-        { "title": "Configure a Taxa de Quadros (FPS)", "body": "Escolha sua frequência de extração. Selecione 30 FPS para capturar 30 quadros por segundo, ou 1 FPS para extrair um quadro por segundo." },
-        { "title": "Selecione o Formato", "body": "Certifique-se de que \"JPG\" esteja selecionado como formato de saída." },
-        { "title": "Extraia os Quadros", "body": "Clique em \"Extrair Quadros\" para decodificar a sequência de vídeo." },
-        { "title": "Salve a Saída", "body": "Baixe quadros individuais da grade de visualização ou clique em \"Baixar Todos (ZIP)\"." }
+        {
+          "title": "Escolha seu MP4",
+          "body": "Arraste e solte seu arquivo MP4 na zona de upload acima."
+        },
+        {
+          "title": "Configure a Taxa de Quadros (FPS)",
+          "body": "Escolha sua frequência de extração. Selecione 30 FPS para capturar 30 quadros por segundo, ou 1 FPS para extrair um quadro por segundo."
+        },
+        {
+          "title": "Selecione o Formato",
+          "body": "Certifique-se de que \"JPG\" esteja selecionado como formato de saída."
+        },
+        {
+          "title": "Extraia os Quadros",
+          "body": "Clique em \"Extrair Quadros\" para decodificar a sequência de vídeo."
+        },
+        {
+          "title": "Salve a Saída",
+          "body": "Baixe quadros individuais da grade de visualização ou clique em \"Baixar Todos (ZIP)\"."
+        }
       ]
     },
     "faq": {
@@ -98,6 +394,38 @@
         }
       ]
     }
+  },
+  "extractFrames": {
+    "title": "Extract Frames from Video Online Free — JPG & PNG Frame Extractor",
+    "description": "Extract frames from video online for free. Convert MP4, MOV, and WEBM videos to JPG or PNG sequences in your browser. No server upload required.",
+    "h1": "Extract Frames from Video",
+    "h1Sub": "Free Online Frame Extractor",
+    "hero": "Extract every frame from MP4, MOV, and WEBM videos as JPG or PNG images for free. All processing happens locally in your browser — your files are never uploaded.",
+    "keywords": "extract frames from video, video frame extractor, extract frames online, video to images"
+  },
+  "videoToPng": {
+    "title": "Video to PNG Converter Online Free — Extract PNG Frames Instantly",
+    "description": "Convert video to PNG images online for free. Extract lossless PNG frames from MP4, MOV, and WEBM videos in your browser. No server upload required.",
+    "h1": "Extract Lossless PNG Frames",
+    "h1Sub": "Online — Free",
+    "hero": "Convert video to PNG images online for free. Extract pixel-perfect, lossless PNG sequences from MP4, MOV, or WEBM videos. Keep transparency info intact, all without files leaving your computer.",
+    "keywords": "video to png, extract png frames, mp4 to png, lossless frame extractor"
+  },
+  "screenshotVideo": {
+    "title": "Screenshot from Video Online — Grab Any Frame for Free",
+    "description": "Take a screenshot from any video frame online for free. Capture the exact moment you need as a high-quality JPG or PNG. No server upload required.",
+    "h1": "Screenshot from Video",
+    "h1Sub": "Grab Any Frame Free",
+    "hero": "Take a screenshot from MP4, MOV, and WEBM videos online for free. Extract the exact frame you need in full native resolution. No server uploads, no watermarks, completely private.",
+    "keywords": "screenshot from video, video frame grabber, extract still from video, video frame capture"
+  },
+  "imagesToVideo": {
+    "title": "Images to Video Online — Create WebM from JPG/PNG Sequences",
+    "description": "Convert image sequences to video online for free. Create WebM video from JPG or PNG frames in your browser. No server upload required.",
+    "h1": "Images to Video",
+    "h1Sub": "Create Video from Image Sequences",
+    "hero": "Convert a sequence of JPG or PNG images into a smooth WebM video directly in your browser. No server upload, no watermarks.",
+    "keywords": "images to video, image sequence to video, jpg to video, png to video"
   },
   "footer": {
     "tagline": "Extrator de quadros de vídeo gratuito baseado no navegador. Converta vídeos MP4, MOV e WEBM em sequências de imagens JPG/PNG — sem upload para servidor, processado localmente no seu navegador.",

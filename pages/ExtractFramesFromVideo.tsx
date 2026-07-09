@@ -130,21 +130,19 @@ const ExtractFramesFromVideo: React.FC = () => {
       {/* ── HERO SECTION ── */}
       <section className="text-center max-w-4xl mx-auto pt-10 pb-10 px-4">
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight tracking-tight font-display">
-          Extract Frames from Video<br />
-          <span className="text-cyan-400">Online — Free Video Frame Extractor</span>
+          {t('extractFrames.h1')}<br />
+          <span className="text-cyan-400">{t('extractFrames.h1Sub')}</span>
         </h1>
 
         <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
-          Extract frames from video online for free. Drag and drop MP4, MOV, or WEBM videos to save still images as JPG or PNG sequences. Runs completely in your local browser for maximum privacy.
+          {t('extractFrames.hero')}
         </p>
 
         <div className="flex flex-wrap justify-center gap-3 text-xs text-gray-400 mb-10">
           {[
-            '🔒 100% Private (Local)',
-            '⚡ Local Browser Extraction',
-            '📦 ZIP Archive Download',
-            '🎨 JPG & PNG Formats',
-            '🆓 Free'
+            t('badges.private'),
+            t('badges.fast'),
+            t('badges.free')
           ].map(badge => (
             <span key={badge} className="bg-gray-900 border border-gray-800 px-3 py-1.5 rounded-full">
               {badge}
