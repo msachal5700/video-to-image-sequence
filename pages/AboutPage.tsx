@@ -13,9 +13,21 @@ const AboutPage: React.FC = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.name && formData.email && formData.message) {
+      try {
+        fetch('https://formsubmit.co/ajax/sachalmahar5700@gmail.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+            _subject: `New Feedback from ${formData.name} (VideoToImageSequence)`
+          })
+        }).catch(() => {});
+      } catch (err) {}
       setFormSubmitted(true);
     }
   };
@@ -28,9 +40,10 @@ const AboutPage: React.FC = () => {
     jobTitle: 'Founder & Senior Software Engineer',
     description: 'Computer Science graduate specializing in AI, AR, Web Development, 3D Graphics, and SEO automation.',
     url: 'https://github.com/msachal5700',
+    image: 'https://www.videotoimagesequence.online/muhammad-sachal.jpg',
     sameAs: [
       'https://github.com/msachal5700',
-      'https://www.linkedin.com/in/muhammadsachal'
+      'https://www.linkedin.com/in/sachalspeaks/'
     ],
     alumniOf: {
       '@type': 'EducationalOrganization',
@@ -50,7 +63,7 @@ const AboutPage: React.FC = () => {
     },
     contactPoint: {
       '@type': 'ContactPoint',
-      email: 'support@videotoimagesequence.online',
+      email: 'sachalmahar5700@gmail.com',
       contactType: 'technical support'
     }
   };
@@ -178,13 +191,17 @@ const AboutPage: React.FC = () => {
             
             {/* Avatar / Profile Graphic */}
             <div className="flex-shrink-0 text-center">
-              <div className="relative w-36 h-36 mx-auto rounded-3xl bg-gradient-to-tr from-cyan-500 to-blue-600 p-1 shadow-xl shadow-cyan-500/10">
-                <div className="w-full h-full rounded-[22px] bg-gray-950 flex items-center justify-center text-4xl font-bold font-display text-white">
-                  MS
-                </div>
+              <div className="relative w-36 h-36 md:w-44 md:h-44 mx-auto rounded-3xl bg-gradient-to-tr from-cyan-400 via-blue-500 to-cyan-300 p-1 shadow-2xl shadow-cyan-500/20 group">
+                <img
+                  src="/muhammad-sachal.jpg"
+                  alt="Muhammad Sachal — Founder & Senior Software Engineer"
+                  className="w-full h-full rounded-[22px] object-cover shadow-inner group-hover:scale-[1.02] transition-transform duration-300"
+                  width={176}
+                  height={176}
+                />
               </div>
               <div className="mt-4">
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-mono bg-cyan-950 text-cyan-400 border border-cyan-800">
+                <span className="inline-block px-3.5 py-1 rounded-full text-xs font-mono font-bold bg-cyan-950 text-cyan-400 border border-cyan-800 shadow-sm">
                   Lead Engineer & Creator
                 </span>
               </div>
@@ -215,15 +232,15 @@ const AboutPage: React.FC = () => {
                   href="https://github.com/msachal5700"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 rounded-xl bg-gray-950 hover:bg-gray-800 text-gray-300 hover:text-white border border-gray-800 transition flex items-center gap-2"
+                  className="px-4 py-2.5 rounded-xl bg-gray-950 hover:bg-gray-800 text-gray-300 hover:text-white border border-gray-800 transition flex items-center gap-2"
                 >
                   <span>🐙 GitHub Profile</span>
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/muhammadsachal"
+                  href="https://www.linkedin.com/in/sachalspeaks/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 rounded-xl bg-gray-950 hover:bg-gray-800 text-gray-300 hover:text-white border border-gray-800 transition flex items-center gap-2"
+                  className="px-4 py-2.5 rounded-xl bg-gray-950 hover:bg-gray-800 text-cyan-400 hover:text-cyan-300 border border-gray-800 transition flex items-center gap-2 font-bold"
                 >
                   <span>💼 LinkedIn Profile</span>
                 </a>
@@ -408,11 +425,11 @@ const AboutPage: React.FC = () => {
             {/* Contact Info Cards */}
             <div className="space-y-4">
               <div className="p-5 rounded-2xl bg-gray-900/70 border border-gray-800">
-                <div className="text-xs font-mono text-cyan-400 uppercase mb-1">Official Support Email</div>
-                <a href="mailto:support@videotoimagesequence.online" className="text-white font-bold font-mono text-base hover:text-cyan-300 transition">
-                  support@videotoimagesequence.online
+                <div className="text-xs font-mono text-cyan-400 uppercase mb-1">Direct Feedback & Support Email</div>
+                <a href="mailto:sachalmahar5700@gmail.com" className="text-white font-bold font-mono text-base hover:text-cyan-300 transition">
+                  sachalmahar5700@gmail.com
                 </a>
-                <p className="text-xs text-gray-500 mt-1">Expected response time: 24–48 hours.</p>
+                <p className="text-xs text-gray-500 mt-1 font-sans">Send feature feedback, inquiries, or bug reports directly.</p>
               </div>
 
               <div className="p-5 rounded-2xl bg-gray-900/70 border border-gray-800">
@@ -420,15 +437,15 @@ const AboutPage: React.FC = () => {
                 <a href="https://github.com/msachal5700" target="_blank" rel="noopener noreferrer" className="text-white font-bold font-mono text-base hover:text-cyan-300 transition">
                   github.com/msachal5700
                 </a>
-                <p className="text-xs text-gray-500 mt-1">Inspect source code and open pull requests.</p>
+                <p className="text-xs text-gray-500 mt-1 font-sans">Inspect source code and open technical issues.</p>
               </div>
 
               <div className="p-5 rounded-2xl bg-gray-900/70 border border-gray-800">
                 <div className="text-xs font-mono text-cyan-400 uppercase mb-1">LinkedIn Profile</div>
-                <a href="https://www.linkedin.com/in/muhammadsachal" target="_blank" rel="noopener noreferrer" className="text-white font-bold font-mono text-base hover:text-cyan-300 transition">
-                  linkedin.com/in/muhammadsachal
+                <a href="https://www.linkedin.com/in/sachalspeaks/" target="_blank" rel="noopener noreferrer" className="text-white font-bold font-mono text-base hover:text-cyan-300 transition">
+                  linkedin.com/in/sachalspeaks/
                 </a>
-                <p className="text-xs text-gray-500 mt-1">Connect with the founder for professional inquiries.</p>
+                <p className="text-xs text-gray-500 mt-1 font-sans">Connect with Muhammad Sachal for collaboration.</p>
               </div>
             </div>
 
