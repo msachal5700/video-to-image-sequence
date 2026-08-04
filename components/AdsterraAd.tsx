@@ -24,15 +24,8 @@ const AdsterraAd = ({ className = '', label = '' }: AdsterraAdProps) => {
   }, []);
 
   return (
-    <div className={`w-full flex flex-col items-center my-8 ${className}`}>
-      {label && <p className="text-[10px] text-gray-700 mb-1 uppercase tracking-wider">{label}</p>}
-      <div ref={ref} className="w-full flex flex-col items-center justify-center min-h-[90px]">
-        {import.meta.env.DEV && (
-          <div className="text-center text-xs text-gray-500">
-            📢 Ad Placeholder (development mode)
-          </div>
-        )}
-      </div>
+    <div className={`w-full flex flex-col items-center ${className}`}>
+      <div ref={ref} className="w-full flex flex-col items-center justify-center" />
     </div>
   );
 };

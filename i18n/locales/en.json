@@ -23,7 +23,23 @@
     "framesExtracted": "Successfully extracted {{count}} frames from your video.",
     "processed": "Processed",
     "skipAd": "Skip Ad",
-    "skipIn": "Skip in {{seconds}}s"
+    "skipIn": "Skip in {{seconds}}s",
+    "convertTitle": "Convert Video to Image Sequence",
+    "convertSub": "Extract every frame as high-resolution PNG or JPG images",
+    "noServerUploads": "100% Private & Browser-Based",
+    "noServerUploadsDesc": "Your video files never leave your computer. All frame extraction happens locally in your WebAssembly browser pipeline.",
+    "downloadZipTitle": "Instant ZIP Download",
+    "downloadZipDesc": "All extracted frame images are archived into a single compressed ZIP file for fast, one-click downloading.",
+    "secureTitle": "No Limits & Zero Cost",
+    "secureDesc": "Free forever with no file size caps, watermarks, or user account registration required.",
+    "clear": "Clear Selection",
+    "copyRawError": "Copy Error Details",
+    "cancelQueue": "Cancel Queue",
+    "downloadAllZips": "Download All ZIPs",
+    "loadMore": "Load More Frames",
+    "showingFrames": "Showing {{showing}} of {{total}} frames",
+    "showOnly200": "Displaying first 200 of {{count}} extracted frames. All frames are saved in your ZIP file.",
+    "tipPng": "Pro Tip: PNG format preserves lossless color depth and alpha transparency, making it ideal for video editing and VFX workflows."
   },
   "dropzone": {
     "drop": "Drop your video here",
@@ -31,6 +47,7 @@
     "support": "MP4, MOV, WEBM supported · Large files depend on your device and browser · Drop multiple files for batch"
   },
   "controls": {
+    "outputFormat": "Output Image Format",
     "frameRate": "Output Frame Rate (FPS)",
     "format": "Output Format",
     "quality": "JPG Quality",

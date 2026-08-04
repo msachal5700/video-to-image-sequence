@@ -24,9 +24,8 @@ const AdUnit = ({ className = '', label = '' }: AdUnitProps) => {
   }, []);
 
   return (
-    <div className={`w-full flex flex-col items-center my-6 ${className}`}>
-      {label && <p className="text-[10px] text-gray-700 mb-1 uppercase tracking-wider">{label}</p>}
-      <div ref={ref} className="w-full flex flex-col items-center justify-center min-h-[90px]" />
+    <div className={`w-full flex flex-col items-center ${className}`}>
+      <div ref={ref} className="w-full flex flex-col items-center justify-center min-h-[50px]" />
     </div>
   );
 };

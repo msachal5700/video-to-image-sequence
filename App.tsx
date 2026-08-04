@@ -18,6 +18,7 @@ import VideoToPngGuide from './pages/blog/VideoToPngGuide';
 import ExtractFramesFromVideo from './pages/ExtractFramesFromVideo';
 import AiSocialMediaFramePicker from './pages/AiSocialMediaFramePicker';
 import AiBestFrameFromVideo from './pages/blog/AiBestFrameFromVideo';
+import ImagesToVideoGuide from './pages/blog/ImagesToVideoGuide';
 
 
 
@@ -83,6 +84,7 @@ const App: React.FC = () => {
                 <Route path="/blog/video-to-png-frames-free" element={<Navigate to="/blog/video-to-png-frames-guide" replace />} />
                 <Route path="/blog/video-to-png-frames-guide" element={<VideoToPngGuide />} />
                 <Route path="/blog/ai-best-frame-from-video" element={<AiBestFrameFromVideo />} />
+                <Route path="/blog/how-to-convert-images-to-video-guide" element={<ImagesToVideoGuide />} />
 
                 <Route path="/privacy" element={<PrivacyPolicy />} />
                 <Route path="/terms" element={<TermsOfService />} />

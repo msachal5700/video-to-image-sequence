@@ -59,6 +59,7 @@ const routes = [
   '/blog/video-to-png-frames-guide',
   '/ai-social-media-frame-picker',
   '/blog/ai-best-frame-from-video',
+  '/blog/how-to-convert-images-to-video-guide',
   '/about',
 
   '/privacy',
@@ -79,6 +80,7 @@ const routeTextMap = {
   '/blog/video-to-png-frames-guide': 'Video to PNG',
   '/ai-social-media-frame-picker': 'AI Social Media Frame Picker',
   '/blog/ai-best-frame-from-video': 'Best Frame',
+  '/blog/how-to-convert-images-to-video-guide': 'Convert Images',
   '/about': 'About',
 
   '/privacy': 'Privacy',

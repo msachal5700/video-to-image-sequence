@@ -29,6 +29,12 @@ const posts = [
     date: 'January 15, 2025',
     description: 'A technical look at how computer vision scores frames on sharpness, motion blur, exposure, composition and face detection to find the best thumbnail for YouTube, Instagram, TikTok and LinkedIn.',
   },
+  {
+    slug: 'how-to-convert-images-to-video-guide',
+    title: 'How to Convert Image Sequences into Video Online (Technical Guide)',
+    date: 'January 20, 2025',
+    description: 'Learn how to stitch PNG and JPG image sequences into WebM and MP4 videos using browser-based canvas encoding.',
+  },
 ];
 
 

@@ -73,15 +73,31 @@ export const AboutUs: React.FC = () => (
       ogDescription="Learn about Video to Image Sequence Online — a free, private, browser-based tool for extracting frames from videos locally in your browser."
       keywords="about video to image sequence online, free video frame extractor details, private browser processing"
     />
-    <LegalLayout title="About Us">
-      <p>Video to Image Sequence Online was built to solve a simple problem: extracting high-quality frames from videos shouldn't require paying for heavy desktop software or uploading 5GB files to slow, limit-restricted servers.</p>
+    <LegalLayout title="About Video to Image Sequence Online">
+      <p>Video to Image Sequence Online was built to solve a fundamental problem in modern digital media workflows: extracting high-precision image frames from video files should not require downloading heavy desktop software, paying expensive subscriptions, or uploading sensitive multi-gigabyte video files to cloud servers.</p>
       
-      <h2>Our Mission</h2>
-      <p>To provide fast, secure, and completely private multimedia tools that leverage the power of the modern browser to democratize video editing workflows.</p>
+      <h2>Our Mission & Purpose</h2>
+      <p>Our mission is to provide fast, reliable, zero-trust media processing utilities accessible directly inside any web browser. By bringing WebAssembly, Web Workers, and modern Canvas rendering pipelines directly to the client side, we eliminate server latency, eliminate file size caps, and guarantee absolute privacy for content creators, video editors, researchers, and developers worldwide.</p>
 
-      <h2>Technology</h2>
-      <p>We utilize cutting-edge web technologies including the Canvas API, MediaElement, and Web Workers to deliver native-app processing speeds directly in the browser.</p>
+      <h2>Our Core Technology</h2>
+      <p>Unlike traditional online converters that upload your video files to remote cloud servers, our platform processes <strong>100% of your video locally on your own machine</strong>. We leverage native browser capabilities including:</p>
+      <ul>
+        <li><strong>Web Workers & HTML5 Video Decoding:</strong> Offloading heavy frame extraction routines off the main UI thread.</li>
+        <li><strong>Canvas 2D Rendering Engine:</strong> Preserving pixel-perfect color depth and alpha transparency for PNG exports.</li>
+        <li><strong>Client-side Computer Vision:</strong> Scoring keyframe sharpness, motion blur, and exposure balance directly in JavaScript.</li>
+      </ul>
+
+      <h2>Editorial & Technical Support</h2>
+      <p>Video to Image Sequence Online is maintained by an independent engineering team dedicated to web performance, computer vision, and privacy-first web software.</p>
       
+      <p>If you have feature requests, bug reports, or media inquiries, you can reach our team directly:</p>
+      <div className="my-6 p-6 rounded-2xl bg-gray-950 border border-gray-800 text-center">
+        <p className="text-xs text-gray-400 uppercase tracking-wider mb-2 font-mono">Official Support Contact</p>
+        <a href="mailto:support@videotoimagesequence.online" className="text-cyan-400 font-bold font-mono text-lg hover:underline">
+          support@videotoimagesequence.online
+        </a>
+        <p className="text-xs text-gray-500 mt-2">We typically respond to technical inquiries within 24–48 business hours.</p>
+      </div>
     </LegalLayout>
   </>
 );
