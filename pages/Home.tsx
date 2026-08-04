@@ -204,11 +204,15 @@ const Home: React.FC = () => {
       
       {/* ── HERO SECTION ── */}
       <section className="text-center max-w-4xl mx-auto pt-16 pb-10 px-4">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 bg-cyan-950/50 border border-cyan-800 text-cyan-400 text-xs font-medium px-3 py-1.5 rounded-full mb-6">
-          <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse" />
-          {t('home.badge')}
-        </div>
+        {/* Announcement Pill */}
+        <Link
+          to="/ai-social-media-frame-picker"
+          className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-950/80 to-gray-900 border border-cyan-800/80 text-cyan-300 text-xs font-semibold px-4 py-1.5 rounded-full mb-6 hover:border-cyan-400 transition-all shadow-lg shadow-cyan-950/50 group"
+        >
+          <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" />
+          <span>✨ NEW: AI Social Media Frame Picker — Auto-Score & Pick Best Thumbnail</span>
+          <span className="text-cyan-400 group-hover:translate-x-0.5 transition-transform">→</span>
+        </Link>
 
         {/* H1 — SEO + AI optimized */}
         <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-tight font-display">
