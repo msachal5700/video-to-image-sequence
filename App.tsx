@@ -16,6 +16,10 @@ import ScreenshotFromVideo from './pages/ScreenshotFromVideo';
 import VideoToPng from './pages/VideoToPng';
 import VideoToPngGuide from './pages/blog/VideoToPngGuide';
 import ExtractFramesFromVideo from './pages/ExtractFramesFromVideo';
+import AiSocialMediaFramePicker from './pages/AiSocialMediaFramePicker';
+import AiBestFrameFromVideo from './pages/blog/AiBestFrameFromVideo';
+
+
 
 // Component to handle hash-based scrolling
 const ScrollToHash: React.FC = () => {
@@ -67,6 +71,8 @@ const App: React.FC = () => {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/extract-frames-from-video" element={<ExtractFramesFromVideo />} />
+                <Route path="/ai-social-media-frame-picker" element={<AiSocialMediaFramePicker />} />
+
                 <Route path="/images-to-video" element={<ImagesToVideoPage />} />
                 <Route path="/mp4-to-jpg" element={<Mp4ToJpg />} />
                 <Route path="/screenshot-from-video" element={<ScreenshotFromVideo />} />
@@ -76,6 +82,8 @@ const App: React.FC = () => {
                 <Route path="/blog/mp4-to-image-sequence-guide" element={<Mp4ToImageSequence />} />
                 <Route path="/blog/video-to-png-frames-free" element={<Navigate to="/blog/video-to-png-frames-guide" replace />} />
                 <Route path="/blog/video-to-png-frames-guide" element={<VideoToPngGuide />} />
+                <Route path="/blog/ai-best-frame-from-video" element={<AiBestFrameFromVideo />} />
+
                 <Route path="/privacy" element={<PrivacyPolicy />} />
                 <Route path="/terms" element={<TermsOfService />} />
                 <Route path="/about" element={<AboutUs />} />

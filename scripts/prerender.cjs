@@ -57,7 +57,10 @@ const routes = [
   '/blog/extract-frames-from-video-online',
   '/blog/mp4-to-image-sequence-guide',
   '/blog/video-to-png-frames-guide',
+  '/ai-social-media-frame-picker',
+  '/blog/ai-best-frame-from-video',
   '/about',
+
   '/privacy',
   '/terms',
   '/404',
@@ -74,7 +77,10 @@ const routeTextMap = {
   '/blog/extract-frames-from-video-online': 'Extract Frames from Video',
   '/blog/mp4-to-image-sequence-guide': 'MP4 to Image Sequence',
   '/blog/video-to-png-frames-guide': 'Video to PNG',
+  '/ai-social-media-frame-picker': 'AI Social Media Frame Picker',
+  '/blog/ai-best-frame-from-video': 'Best Frame',
   '/about': 'About',
+
   '/privacy': 'Privacy',
   '/terms': 'Terms',
   '/404': '404',

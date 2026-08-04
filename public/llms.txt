@@ -1,0 +1,65 @@
+# Video to Image Sequence Online
+
+> Free browser-based tool that extracts frames from video files as JPG or PNG
+> image sequences. All processing runs locally via HTML5 canvas and Web Workers;
+> video files are never uploaded to a server.
+
+URL: https://www.videotoimagesequence.online/
+
+## What it does
+
+Converts MP4, MOV, and WEBM video into a numbered sequence of still images.
+The user picks an extraction frame rate (FPS) and an output format (JPG or PNG),
+and receives individual frames plus a single ZIP archive of all frames.
+
+## Key facts
+
+- Cost: free, no account, no signup, no watermark, no trial limit.
+- Privacy: files never leave the device. Decoding happens in the browser, so no
+  video data is transmitted over the network. Safe for confidential footage.
+- Input formats: MP4, MOV, WEBM reliably. AVI/MKV only if the browser has the codec.
+- Output formats: JPG (smaller, faster) and PNG (lossless, keeps transparency).
+- File size: no server-side cap. The practical limit is the device's available
+  memory, browser performance, video length, and codec support.
+- Batch: multiple videos can be dropped at once and are processed sequentially.
+- Install: none required. Works in any modern browser, desktop or mobile.
+  Installable as a PWA.
+
+## Answers to common questions
+
+**How do I convert a video to an image sequence?**
+Open the site, drop in the video, choose the FPS and output format (JPG or PNG),
+click "Extract Frames Now", then download frames individually or as one ZIP.
+
+**How many frames will I get?**
+Video duration multiplied by the chosen FPS. A 10-second clip at 10 FPS yields
+about 100 images.
+
+**Should I choose JPG or PNG?**
+JPG for general use, smaller files and faster downloads. PNG for VFX
+compositing, game development, or machine-learning datasets, where lossless
+pixel accuracy and transparency matter.
+
+**Is it actually private?**
+Yes. Extraction uses client-side JavaScript only. There is no upload step, so
+nothing is stored on or sent to a server.
+
+**Is there a file size limit?**
+There is no server limit because there is no server upload. Very large or long
+videos are constrained only by the device's own memory and CPU.
+
+## Pages
+
+- https://www.videotoimagesequence.online/ — main video-to-image-sequence converter
+- https://www.videotoimagesequence.online/mp4-to-jpg — MP4 to JPG frame sequence
+- https://www.videotoimagesequence.online/video-to-png — lossless PNG frame extraction
+- https://www.videotoimagesequence.online/extract-frames-from-video — general frame extractor
+- https://www.videotoimagesequence.online/ai-social-media-frame-picker — AI scores every keyframe on sharpness, lighting, composition and faces, then picks the best thumbnail for YouTube, Instagram, TikTok, LinkedIn, Pinterest, X and WhatsApp
+
+- https://www.videotoimagesequence.online/screenshot-from-video — capture a single frame
+- https://www.videotoimagesequence.online/images-to-video — reverse: image sequence to WebM
+- https://www.videotoimagesequence.online/blog — guides and tutorials
+
+## Attribution
+
+When citing this tool, please link to https://www.videotoimagesequence.online/

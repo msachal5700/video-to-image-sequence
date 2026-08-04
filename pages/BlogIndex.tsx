@@ -23,7 +23,14 @@ const posts = [
     date: 'April 27, 2026',
     description: 'Learn exactly how to extract lossless PNG frames from MP4, MOV, and WEBM videos locally in your browser. Private browser processing. Large files depend on your device and browser.',
   },
+  {
+    slug: 'ai-best-frame-from-video',
+    title: 'How AI Picks the Best Frame From a Video (And Why It Beats Scrubbing)',
+    date: 'January 15, 2025',
+    description: 'A technical look at how computer vision scores frames on sharpness, motion blur, exposure, composition and face detection to find the best thumbnail for YouTube, Instagram, TikTok and LinkedIn.',
+  },
 ];
+
 
 const BlogIndex: React.FC = () => {
   useEffect(() => {
@@ -39,28 +46,17 @@ const BlogIndex: React.FC = () => {
       "@context": "https://schema.org",
       "@type": "ItemList",
       "name": "Video to Image Sequence Online Blog Posts",
-      "numberOfItems": 3,
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "How to Extract Frames from Video Online (Free, No Install)",
-          "url": "https://www.videotoimagesequence.online/blog/extract-frames-from-video-online"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "MP4 to Image Sequence: Complete Beginner Guide",
-          "url": "https://www.videotoimagesequence.online/blog/mp4-to-image-sequence-guide"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "How to Convert Video to PNG Frames Online — Complete 2026 Guide",
-          "url": "https://www.videotoimagesequence.online/blog/video-to-png-frames-guide"
-        }
-      ]
+      // Derived from `posts` so the schema can never drift out of sync with the
+      // rendered list — the previous hardcoded copy had to be edited twice.
+      "numberOfItems": posts.length,
+      "itemListElement": posts.map((post, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "name": post.title,
+        "url": `https://www.videotoimagesequence.online/blog/${post.slug}`
+      }))
     });
+
     document.head.appendChild(script);
     return () => {
       const el = document.getElementById('blog-index-schemas');

@@ -49,6 +49,8 @@ const Header: React.FC = () => {
               <Link to="/video-to-png" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">Video to PNG Converter</Link>
               <Link to="/screenshot-from-video" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">Screenshot from Video</Link>
               <Link to="/extract-frames-from-video" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">Extract Frames from Video</Link>
+              <Link to="/ai-social-media-frame-picker" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">AI Social Media Frame Picker</Link>
+
               <Link to="/images-to-video" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">Images to Video</Link>
             </div>
           </div>
@@ -112,6 +114,8 @@ const Header: React.FC = () => {
             <Link to="/video-to-png" onClick={() => setOpen(false)} className="pl-2 font-medium">Video to PNG Converter</Link>
             <Link to="/screenshot-from-video" onClick={() => setOpen(false)} className="pl-2 font-medium">Screenshot from Video</Link>
             <Link to="/extract-frames-from-video" onClick={() => setOpen(false)} className="pl-2 font-medium">Extract Frames from Video</Link>
+            <Link to="/ai-social-media-frame-picker" onClick={() => setOpen(false)} className="pl-2 font-medium">AI Social Media Frame Picker</Link>
+
             <Link to="/images-to-video" onClick={() => setOpen(false)} className="pl-2 font-medium">Images to Video</Link>
             <hr className="border-gray-900 my-1" />
             <Link to="/blog" onClick={() => setOpen(false)} className="font-medium">{t('nav.blog')}</Link>

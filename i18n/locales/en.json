@@ -56,8 +56,9 @@
     "free": "🆓 Free Forever"
   },
   "home": {
-    "title": "Video to Image Sequence Converter Online – Extract Frames from Video",
-    "description": "Convert video to image sequence online for free. Extract frames from MP4, MOV, and WEBM videos as JPG or PNG images directly in your browser — no server upload required.",
+    "title": "Video to Image Converter — Extract Frames from Video Free",
+    "description": "Convert video to images free — extract every frame from MP4, MOV or WEBM as JPG or PNG in seconds. No upload, no signup, no watermark. Runs entirely in your browser.",
+
     "h1": "Video to Image Sequence",
     "h1Sub": "Online Converter",
     "hero": "Video to Image Sequence Online is a free, browser-based tool that extracts every frame from MP4, MOV, and WEBM videos as high-quality JPG or PNG images. Unlike other tools, it requires no file upload, requires no server upload (processing happens locally in your browser, so large files depend on your device memory, browser performance, video length, and codec support), supports batch processing, ZIP download, and custom FPS control — all completely free and 100% private.",
@@ -334,8 +335,9 @@
     }
   },
   "mp4ToJpg": {
-    "title": "MP4 to JPG Converter Online Free — Extract JPG Frames from MP4",
-    "description": "Convert MP4 video to JPG images online for free. Extract every frame as a high-quality JPG locally in your browser. No server upload required.",
+    "title": "MP4 to Frames — Convert MP4 to JPG Image Sequence Free",
+    "description": "Turn any MP4 into a numbered JPG image sequence free. Extract all frames at your chosen FPS and download as one ZIP. No upload, no signup, no watermark.",
+
     "h1": "MP4 to JPG Converter",
     "h1Sub": "Online Free — Local Browser Processing",
     "hero": "Convert MP4 video to JPG images online for free. Extract every frame as a high-quality JPG sequence locally in your browser. Since files are processed locally, your video data never leaves your device.",

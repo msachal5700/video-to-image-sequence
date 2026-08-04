@@ -35,39 +35,40 @@ const setMeta = (selector: string, attr: string, value: string) => {
   el.setAttribute(attr, value);
 };
 
-/** Inject/update hreflang <link> tags for all supported languages */
+/**
+ * Maintain hreflang and the <html> lang/dir attributes.
+ *
+ * This site translates in the client and serves every language from a single
+ * URL. There are no per-language URLs, so there is nothing to point language
+ * alternates *at*. Previously this emitted one `alternate` tag per supported
+ * language with all eight hrefs identical, plus two more were hardcoded in
+ * index.html and copied into every prerendered route — 20 tags per page, all
+ * claiming the same URL. Google treats self-contradictory sets like that as
+ * invalid and discards them, so they were pure crawl-budget waste.
+ *
+ * The only honest signal here is a self-referencing `x-default`: this URL is
+ * the fallback for every locale. If per-language URLs are ever introduced
+ * (e.g. /es/, /de/), restore the per-language loop and point each tag at its
+ * real translated URL.
+ */
 const updateHreflangTags = (canonicalUrl: string, currentLang: string) => {
-  const BASE = 'https://www.videotoimagesequence.online';
-  // Remove the origin from the canonical to get the path
-  const path = canonicalUrl.replace(BASE, '');
-
-  // Remove existing hreflang links we injected previously
+  // Drop anything a previous render injected, so language switches don't stack.
   document.querySelectorAll('link[data-i18n-hreflang]').forEach(el => el.remove());
 
-  // Add one hreflang per language
-  SUPPORTED_LANGUAGES.forEach(lang => {
-    const link = document.createElement('link');
-    link.rel = 'alternate';
-    link.hreflang = lang.code;
-    // All languages use the same URL (client-side i18n) — canonical stays English
-    link.href = `${BASE}${path}`;
-    link.setAttribute('data-i18n-hreflang', lang.code);
-    document.head.appendChild(link);
-  });
-
-  // x-default
   const xDefaultLink = document.createElement('link');
   xDefaultLink.rel = 'alternate';
   xDefaultLink.hreflang = 'x-default';
-  xDefaultLink.href = `${BASE}${path}`;
+  xDefaultLink.href = canonicalUrl;
   xDefaultLink.setAttribute('data-i18n-hreflang', 'x-default');
   document.head.appendChild(xDefaultLink);
 
-  // Update html lang attribute
+  // Keep <html lang>/<html dir> honest — this genuinely helps screen readers
+  // and tells Google which language the visible text is actually in.
   document.documentElement.lang = currentLang;
   const langObj = SUPPORTED_LANGUAGES.find(l => l.code === currentLang);
   if (langObj) document.documentElement.dir = langObj.dir;
 };
+
 
 const SEOHead: React.FC<SEOHeadProps> = ({
   title,

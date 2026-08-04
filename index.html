@@ -22,8 +22,13 @@
     <meta name="robots" content="index, follow">
     
     <!-- Hreflang for international SEO -->
-    <link rel="alternate" hreflang="en" href="https://www.videotoimagesequence.online/" />
-    <link rel="alternate" hreflang="x-default" href="https://www.videotoimagesequence.online/" />
+    <!--
+      No static hreflang here. The prerender step copies this <head> into every
+      route, so a hardcoded href pointing at the homepage would claim that every
+      page is the language alternate of "/". SEOHead injects the correct
+      per-route x-default tag at runtime instead.
+    -->
+
     <meta name="geo.region" content="US" />
     <meta name="language" content="English" />
 

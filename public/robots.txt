@@ -6,5 +6,44 @@ Disallow: /generate-og.html
 Disallow: /dist/
 Disallow: /migrated_prompt_history/
 
+# AI / LLM crawlers — explicitly allowed.
+# These power ChatGPT, Claude, Perplexity, Gemini and AI Overviews. Being
+# citable there is now a real traffic source, and several of these bots do not
+# assume permission from the wildcard rule above.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
 # Sitemap location
 Sitemap: https://www.videotoimagesequence.online/sitemap.xml
+
+
