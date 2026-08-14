@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import Breadcrumb from '../../components/Breadcrumb';
-import AdsterraAd from '../../components/AdsterraAd';
+import GoogleAdUnit from '../../components/GoogleAdUnit';
 
 const Mp4ToImageSequence: React.FC = () => {
   useEffect(() => {
@@ -91,7 +91,7 @@ const Mp4ToImageSequence: React.FC = () => {
 
         {/* Adsterra Ad — Mid Article */}
         <div className="my-10">
-          <AdsterraAd label="Advertisement" />
+          <GoogleAdUnit />
         </div>
 
         <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">Step-by-Step Instructions</h2>
@@ -157,7 +157,7 @@ const Mp4ToImageSequence: React.FC = () => {
       </div>
       {/* Adsterra Ad — End of Article */}
       <div className="my-10">
-        <AdsterraAd label="Advertisement" />
+        <GoogleAdUnit />
       </div>
     </article>
   );

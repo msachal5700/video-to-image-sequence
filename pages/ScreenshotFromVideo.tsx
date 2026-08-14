@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import VideoToImages from './VideoToImages';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
-import AdsterraAd from '../components/AdsterraAd';
+import GoogleAdUnit from '../components/GoogleAdUnit';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
@@ -194,7 +194,7 @@ const ScreenshotFromVideo: React.FC = () => {
 
       {/* Adsterra Ad — Post How-To */}
       <div className="max-w-5xl mx-auto px-4">
-        <AdsterraAd label="Advertisement" />
+        <GoogleAdUnit />
       </div>
 
       {/* ── HOW IS THIS DIFFERENT ── */}

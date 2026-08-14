@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import VideoToImages from './VideoToImages';
-import AdsterraAd from '../components/AdsterraAd';
+import GoogleAdUnit from '../components/GoogleAdUnit';
 import SEOHead from '../components/SEOHead';
 import { useTranslation } from 'react-i18next';
 
@@ -268,7 +268,7 @@ const Home: React.FC = () => {
 
       {/* Adsterra Ad Block */}
       <div className="max-w-5xl mx-auto">
-        <AdsterraAd />
+        <GoogleAdUnit />
       </div>
 
       {/* ── HOW THIS TOOL WORKS ── */}
@@ -491,7 +491,7 @@ const Home: React.FC = () => {
 
       {/* Adsterra Ad — Post FAQ */}
       <div className="max-w-5xl mx-auto">
-        <AdsterraAd label="Advertisement" />
+        <GoogleAdUnit />
       </div>
     </div>
   );

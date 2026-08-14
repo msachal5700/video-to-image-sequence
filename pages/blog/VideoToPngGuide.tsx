@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import Breadcrumb from '../../components/Breadcrumb';
-import AdsterraAd from '../../components/AdsterraAd';
+import GoogleAdUnit from '../../components/GoogleAdUnit';
 
 export default function VideoToPngGuide() {
   useEffect(() => {
@@ -337,7 +337,7 @@ export default function VideoToPngGuide() {
 
         {/* Adsterra Ad — Mid Article */}
         <div className="my-10">
-          <AdsterraAd label="Advertisement" />
+          <GoogleAdUnit />
         </div>
 
         {/* Section 5 - File size guide */}
@@ -589,7 +589,7 @@ export default function VideoToPngGuide() {
       </div>
       {/* Adsterra Ad — End of Article */}
       <div className="my-10">
-        <AdsterraAd label="Advertisement" />
+        <GoogleAdUnit />
       </div>
     </article>
   );
