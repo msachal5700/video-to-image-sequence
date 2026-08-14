@@ -26,13 +26,13 @@ const posts = [
   {
     slug: 'ai-best-frame-from-video',
     title: 'How AI Picks the Best Frame From a Video (And Why It Beats Scrubbing)',
-    date: 'January 15, 2025',
+    date: 'August 4, 2026',
     description: 'A technical look at how computer vision scores frames on sharpness, motion blur, exposure, composition and face detection to find the best thumbnail for YouTube, Instagram, TikTok and LinkedIn.',
   },
   {
     slug: 'how-to-convert-images-to-video-guide',
     title: 'How to Convert Image Sequences into Video Online (Technical Guide)',
-    date: 'January 20, 2025',
+    date: 'August 1, 2026',
     description: 'Learn how to stitch PNG and JPG image sequences into WebM and MP4 videos using browser-based canvas encoding.',
   },
   {

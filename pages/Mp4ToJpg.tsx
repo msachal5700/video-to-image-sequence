@@ -157,11 +157,6 @@ const Mp4ToJpg: React.FC = () => {
         </div>
       </section>
 
-      {/* Adsterra Ad — Pre-Tool */}
-      <div className="max-w-5xl mx-auto px-4">
-        <AdsterraAd label="Advertisement" />
-      </div>
-
       {/* Main Tool Content */}
       <div className="animate-fade-in min-h-[400px] px-4">
         <VideoToImages />

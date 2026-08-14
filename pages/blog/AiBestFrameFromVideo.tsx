@@ -14,7 +14,7 @@ import Breadcrumb from '../../components/Breadcrumb';
 
 const SITE = 'https://www.videotoimagesequence.online';
 const CANONICAL = `${SITE}/blog/ai-best-frame-from-video`;
-const PUBLISHED = '2025-01-15';
+const PUBLISHED = '2026-08-04';
 
 /** FAQ content, shared between the rendered list and the FAQPage schema. */
 const FAQS: ReadonlyArray<{ question: string; answer: string }> = [
@@ -59,7 +59,12 @@ const AiBestFrameFromVideo = () => {
           'A technical explanation of how computer vision scores video frames on sharpness, motion blur, exposure, composition and faces to find the best thumbnail for YouTube, Instagram, TikTok and LinkedIn.',
         datePublished: PUBLISHED,
         dateModified: PUBLISHED,
-        author: { '@type': 'Organization', name: 'Video to Image Sequence' },
+        author: {
+          '@type': 'Person',
+          name: 'Muhammad Sachal',
+          jobTitle: 'Founder & Senior Software Engineer',
+          url: 'https://www.linkedin.com/in/sachalspeaks/'
+        },
         publisher: {
           '@type': 'Organization',
           name: 'Video to Image Sequence',

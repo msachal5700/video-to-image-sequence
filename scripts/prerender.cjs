@@ -164,7 +164,7 @@ async function runPrerender() {
         console.log(`Prerendering: ${route}`);
         const url = `http://localhost:${PORT}${route}`;
 
-        await page.goto(url, { waitUntil: 'networkidle0', timeout: 60000 });
+        await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
         
         const expectedText = routeTextMap[route];
         
