@@ -35,6 +35,12 @@ const posts = [
     date: 'January 20, 2025',
     description: 'Learn how to stitch PNG and JPG image sequences into WebM and MP4 videos using browser-based canvas encoding.',
   },
+  {
+    slug: 'ezgif-alternative-video-to-image-sequence',
+    title: 'Why VideoToImageSequence is the Best Private Ezgif Alternative (2026)',
+    date: 'August 14, 2026',
+    description: 'A detailed benchmark comparing Ezgif vs VideoToImageSequence for video frame extraction. No 100MB file limits, zero server uploads, and 100% browser-native privacy.',
+  },
 ];
 
 

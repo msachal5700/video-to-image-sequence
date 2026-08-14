@@ -19,6 +19,9 @@ import ExtractFramesFromVideo from './pages/ExtractFramesFromVideo';
 import AiSocialMediaFramePicker from './pages/AiSocialMediaFramePicker';
 import AiBestFrameFromVideo from './pages/blog/AiBestFrameFromVideo';
 import ImagesToVideoGuide from './pages/blog/ImagesToVideoGuide';
+import EzgifAlternative from './pages/blog/EzgifAlternative';
+import ContactPage from './pages/ContactPage';
+import CookieConsent from './components/CookieConsent';
 
 
 
@@ -85,18 +88,22 @@ const App: React.FC = () => {
                 <Route path="/blog/video-to-png-frames-guide" element={<VideoToPngGuide />} />
                 <Route path="/blog/ai-best-frame-from-video" element={<AiBestFrameFromVideo />} />
                 <Route path="/blog/how-to-convert-images-to-video-guide" element={<ImagesToVideoGuide />} />
+                <Route path="/blog/ezgif-alternative-video-to-image-sequence" element={<EzgifAlternative />} />
 
                 <Route path="/privacy" element={<PrivacyPolicy />} />
                 <Route path="/terms" element={<TermsOfService />} />
                 <Route path="/about" element={<AboutUs />} />
+                <Route path="/contact" element={<ContactPage />} />
                 <Route path="/privacy-policy" element={<Navigate to="/privacy" replace />} />
                 <Route path="/terms-of-service" element={<Navigate to="/terms" replace />} />
                 <Route path="/about-us" element={<Navigate to="/about" replace />} />
+                <Route path="/contact-us" element={<Navigate to="/contact" replace />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
 
             <Footer />
+            <CookieConsent />
           </div>
         </BrowserRouter>
       </ToastProvider>

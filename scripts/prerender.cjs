@@ -60,7 +60,9 @@ const routes = [
   '/ai-social-media-frame-picker',
   '/blog/ai-best-frame-from-video',
   '/blog/how-to-convert-images-to-video-guide',
+  '/blog/ezgif-alternative-video-to-image-sequence',
   '/about',
+  '/contact',
 
   '/privacy',
   '/terms',
@@ -81,7 +83,9 @@ const routeTextMap = {
   '/ai-social-media-frame-picker': 'AI Social Media Frame Picker',
   '/blog/ai-best-frame-from-video': 'Best Frame',
   '/blog/how-to-convert-images-to-video-guide': 'Convert Images',
+  '/blog/ezgif-alternative-video-to-image-sequence': 'Ezgif Alternative',
   '/about': 'About',
+  '/contact': 'Contact',
 
   '/privacy': 'Privacy',
   '/terms': 'Terms',

@@ -37,6 +37,7 @@ const Footer = () => {
             <ul className="space-y-2 text-sm">
               <li><Link to="/blog" className="text-gray-600 hover:text-cyan-400 transition">{t('footer.blog')}</Link></li>
               <li><Link to="/about" className="text-gray-600 hover:text-cyan-400 transition">{t('footer.about')}</Link></li>
+              <li><Link to="/contact" className="text-gray-400 font-medium hover:text-cyan-400 transition">Contact Us</Link></li>
               <li><Link to="/privacy" className="text-gray-600 hover:text-cyan-400 transition">{t('footer.privacy')}</Link></li>
               <li><Link to="/terms" className="text-gray-600 hover:text-cyan-400 transition">{t('footer.terms')}</Link></li>
               <li><Link to="/#how-it-works" className="text-gray-600 hover:text-cyan-400 transition">{t('footer.howItWorks')}</Link></li>
@@ -45,8 +46,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-700">
-          <p>{t('footer.copyright', { year })}</p>
+        <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+          <p>{t('footer.copyright', { year })} · Operated by <a href="https://www.linkedin.com/in/sachalspeaks/" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">Muhammad Sachal (SachalSpeaks)</a></p>
           <p>{t('footer.local')}</p>
         </div>
       </div>
