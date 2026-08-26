@@ -52,7 +52,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="text-center mt-6 pb-4">
+      <div className="text-center mt-6 pb-4 flex flex-col sm:flex-row items-center justify-center gap-4">
         <a
           href="https://www.toolpilot.ai"
           target="_blank"
@@ -65,6 +65,18 @@ const Footer = () => {
             className="h-6 opacity-50 hover:opacity-80 transition"
           />
           Featured on Toolpilot
+        </a>
+        <a
+          href="https://google.com/preferences/source?q=www.videotoimagesequence.online"
+          target="_blank"
+          rel="noopener"
+        >
+          <img
+            src="https://mypreferredsources.com/badges/en-dark.png"
+            alt="Add as a preferred source"
+            height="40"
+            style={{ display: 'block', height: '40px', width: 'auto', border: 0 }}
+          />
         </a>
       </div>
     </footer>
