@@ -47,7 +47,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
-          <p>{t('footer.copyright', { year })} · Operated by <a href="https://www.linkedin.com/in/sachalspeaks/" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">Muhammad Sachal (SachalSpeaks)</a></p>
+          <p>{t('footer.copyright', { year })}</p>
           <p>{t('footer.local')}</p>
         </div>
       </div>
