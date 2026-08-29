@@ -41,6 +41,18 @@ const posts = [
     date: 'August 14, 2026',
     description: 'A detailed benchmark comparing Ezgif vs VideoToImageSequence for video frame extraction. No 100MB file limits, zero server uploads, and 100% browser-native privacy.',
   },
+  {
+    slug: 'video-frame-extractor-use-cases',
+    title: '7 Real-World Use Cases for Video Frame Extraction',
+    date: 'August 29, 2026',
+    description: 'Sports analysis, AI/ML training datasets, e-commerce product photography, stop-motion animation, social media content, video QA, and game development — see how professionals use frame extraction every day.',
+  },
+  {
+    slug: 'best-fps-settings-for-video-frame-extraction',
+    title: 'Best FPS Settings for Video Frame Extraction (Complete Guide)',
+    date: 'August 29, 2026',
+    description: 'A complete guide to choosing the right FPS when extracting video frames. Covers 1, 5, 10, 24, and 30 FPS with use cases, file size estimates, and format recommendations.',
+  },
 ];
 
 

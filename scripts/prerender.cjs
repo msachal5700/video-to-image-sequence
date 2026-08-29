@@ -61,6 +61,8 @@ const routes = [
   '/blog/ai-best-frame-from-video',
   '/blog/how-to-convert-images-to-video-guide',
   '/blog/ezgif-alternative-video-to-image-sequence',
+  '/blog/video-frame-extractor-use-cases',
+  '/blog/best-fps-settings-for-video-frame-extraction',
   '/about',
   '/contact',
 
@@ -84,6 +86,8 @@ const routeTextMap = {
   '/blog/ai-best-frame-from-video': 'Best Frame',
   '/blog/how-to-convert-images-to-video-guide': 'Convert Images',
   '/blog/ezgif-alternative-video-to-image-sequence': 'Ezgif Alternative',
+  '/blog/video-frame-extractor-use-cases': 'Use Cases',
+  '/blog/best-fps-settings-for-video-frame-extraction': 'FPS Settings',
   '/about': 'About',
   '/contact': 'Contact',
 

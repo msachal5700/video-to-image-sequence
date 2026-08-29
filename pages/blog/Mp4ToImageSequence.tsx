@@ -144,10 +144,96 @@ const Mp4ToImageSequence: React.FC = () => {
           While desktop applications provide great command line flexibility, they require software setup and configuration. A browser-based solution provides the easiest path for fast, secure frame extraction on any device.
         </p>
 
+        <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">Browser Tool vs Desktop Apps — Comparison</h2>
+        <p>
+          There are several ways to convert MP4 to image sequences. Here's how the main options compare:
+        </p>
+        <div className="overflow-x-auto rounded-2xl border border-gray-800 my-4">
+          <table className="w-full text-sm text-left">
+            <thead className="bg-gray-900 text-white uppercase text-xs font-mono">
+              <tr>
+                <th className="px-4 py-3">Method</th>
+                <th className="px-4 py-3">Cost</th>
+                <th className="px-4 py-3">Setup Required</th>
+                <th className="px-4 py-3">Privacy</th>
+                <th className="px-4 py-3">File Size Limit</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-800 text-gray-300">
+              <tr className="hover:bg-gray-900/50">
+                <td className="px-4 py-3 font-bold text-cyan-400">This tool (browser)</td>
+                <td className="px-4 py-3">Free</td>
+                <td className="px-4 py-3">None</td>
+                <td className="px-4 py-3 text-green-400">100% local</td>
+                <td className="px-4 py-3">Device RAM</td>
+              </tr>
+              <tr className="hover:bg-gray-900/50">
+                <td className="px-4 py-3 font-bold text-white">FFmpeg (CLI)</td>
+                <td className="px-4 py-3">Free</td>
+                <td className="px-4 py-3">Install required</td>
+                <td className="px-4 py-3 text-green-400">Local</td>
+                <td className="px-4 py-3">None</td>
+              </tr>
+              <tr className="hover:bg-gray-900/50">
+                <td className="px-4 py-3 font-bold text-white">Adobe Premiere</td>
+                <td className="px-4 py-3">$55/mo</td>
+                <td className="px-4 py-3">Install + subscription</td>
+                <td className="px-4 py-3 text-green-400">Local</td>
+                <td className="px-4 py-3">None</td>
+              </tr>
+              <tr className="hover:bg-gray-900/50">
+                <td className="px-4 py-3 font-bold text-white">Most cloud tools</td>
+                <td className="px-4 py-3">Free / Paid</td>
+                <td className="px-4 py-3">None</td>
+                <td className="px-4 py-3 text-red-400">Uploads to server</td>
+                <td className="px-4 py-3">100–200MB</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          For most users, the browser-based approach offers the best combination of accessibility and privacy. FFmpeg is the better choice for automation scripts or very long files that exceed browser memory limits.
+        </p>
+
+        <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">Specific Use Case Workflows</h2>
+        <p>Here's how the extraction workflow differs depending on your goal:</p>
+        <div className="space-y-5">
+          <div className="bg-gray-900 border border-gray-800 rounded-xl p-5">
+            <h3 className="font-bold text-white mb-2">YouTube Thumbnail Selection</h3>
+            <p className="text-gray-400 text-sm">Set FPS to 1–2. This extracts one frame per second, giving you a manageable set of images to browse for the best expression, lighting, and composition without generating hundreds of files.</p>
+          </div>
+          <div className="bg-gray-900 border border-gray-800 rounded-xl p-5">
+            <h3 className="font-bold text-white mb-2">AI / Machine Learning Dataset</h3>
+            <p className="text-gray-400 text-sm">Set FPS to 5–10 and choose PNG output. Higher density captures more scene variation per video. PNG preserves pixel values accurately for models that perform color-based detection or edge analysis.</p>
+          </div>
+          <div className="bg-gray-900 border border-gray-800 rounded-xl p-5">
+            <h3 className="font-bold text-white mb-2">Animation Rotoscoping Reference</h3>
+            <p className="text-gray-400 text-sm">Set FPS to match the video's native framerate (24 or 30 FPS). Extract as PNG. Open each frame as a layer in Procreate, Clip Studio Paint, or Photoshop and draw over it for precise motion reference.</p>
+          </div>
+          <div className="bg-gray-900 border border-gray-800 rounded-xl p-5">
+            <h3 className="font-bold text-white mb-2">Sports Biomechanics Analysis</h3>
+            <p className="text-gray-400 text-sm">Set FPS to 30 or 60 (match the camera's recording rate). For slow-motion footage shot at 120fps or 240fps, even extracting at 30fps gives you significant temporal resolution for analyzing body mechanics frame by frame.</p>
+          </div>
+        </div>
+
+        <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">Frequently Asked Questions</h2>
+        <div className="space-y-5">
+          {[
+            { q: 'Does my MP4 file get sent to a server?', a: 'No. All processing happens locally in your browser. The video is decoded using your device\'s hardware and never leaves your computer.' },
+            { q: 'What\'s the difference between JPG and PNG output?', a: 'JPG uses lossy compression — files are smaller but some detail is discarded. PNG is lossless — every pixel is preserved exactly. Use JPG for previews and thumbnails, PNG for VFX, ML data, and animation.' },
+            { q: 'Can I extract frames from a MOV or WEBM file?', a: 'Yes. The tool supports MP4, MOV, and WEBM. H.264 encoded files work on all platforms. HEVC and AV1 support depends on your browser.' },
+            { q: 'Why does extraction slow down for long videos?', a: 'Because everything runs in your browser, the time taken scales with the number of frames. A 10-minute video at 30 FPS produces 18,000 frames — that\'s a lot of data to decode and store in memory. We recommend keeping extractions under 2 minutes at high FPS.' },
+          ].map(({ q, a }) => (
+            <div key={q} className="border border-gray-800 rounded-xl p-5 bg-gray-900/50">
+              <h3 className="font-bold text-white mb-2">{q}</h3>
+              <p className="text-gray-400 text-base">{a}</p>
+            </div>
+          ))}
+        </div>
+
         <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">Conclusion</h2>
         <p>
-          Converting an MP4 into an image sequence doesn't have to be a complicated, technical chore. 
-          By utilizing modern browser APIs, you can process high-quality frames securely and entirely locally in device memory.
+          Converting an MP4 into an image sequence is straightforward with the right tool. For quick, private, no-install extraction on any device, a browser-based approach handles the vast majority of use cases — from simple thumbnail grabs to full-framerate VFX pipelines. For high-volume automation or very long clips, FFmpeg remains the best desktop option.
         </p>
         <p className="mt-12 text-center">
           <Link to="/" className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-2xl text-gray-950 bg-cyan-400 hover:bg-cyan-300 transition-all transform hover:-translate-y-1 shadow-lg shadow-cyan-500/20">

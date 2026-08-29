@@ -20,6 +20,8 @@ import AiSocialMediaFramePicker from './pages/AiSocialMediaFramePicker';
 import AiBestFrameFromVideo from './pages/blog/AiBestFrameFromVideo';
 import ImagesToVideoGuide from './pages/blog/ImagesToVideoGuide';
 import EzgifAlternative from './pages/blog/EzgifAlternative';
+import VideoFrameExtractorUseCases from './pages/blog/VideoFrameExtractorUseCases';
+import BestFpsForVideoExtraction from './pages/blog/BestFpsForVideoExtraction';
 import ContactPage from './pages/ContactPage';
 import CookieConsent from './components/CookieConsent';
 
@@ -89,6 +91,8 @@ const App: React.FC = () => {
                 <Route path="/blog/ai-best-frame-from-video" element={<AiBestFrameFromVideo />} />
                 <Route path="/blog/how-to-convert-images-to-video-guide" element={<ImagesToVideoGuide />} />
                 <Route path="/blog/ezgif-alternative-video-to-image-sequence" element={<EzgifAlternative />} />
+                <Route path="/blog/video-frame-extractor-use-cases" element={<VideoFrameExtractorUseCases />} />
+                <Route path="/blog/best-fps-settings-for-video-frame-extraction" element={<BestFpsForVideoExtraction />} />
 
                 <Route path="/privacy" element={<PrivacyPolicy />} />
                 <Route path="/terms" element={<TermsOfService />} />

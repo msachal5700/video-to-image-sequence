@@ -160,10 +160,79 @@ const ExtractFramesOnline: React.FC = () => {
           While FFmpeg is extremely powerful, it requires local installation and command-line knowledge, making a browser-based tool the best option for quick, secure, on-the-go extraction.
         </p>
 
+        <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">JPG vs PNG — Which Format Should You Choose?</h2>
+        <p>
+          When extracting frames, you'll choose between JPG and PNG output. Both are widely supported, but they behave very differently:
+        </p>
+        <div className="overflow-x-auto rounded-2xl border border-gray-800 my-4">
+          <table className="w-full text-sm text-left">
+            <thead className="bg-gray-900 text-white uppercase text-xs font-mono">
+              <tr>
+                <th className="px-4 py-3">Format</th>
+                <th className="px-4 py-3">Compression</th>
+                <th className="px-4 py-3">File Size</th>
+                <th className="px-4 py-3">Best For</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-800 text-gray-300">
+              <tr className="hover:bg-gray-900/50">
+                <td className="px-4 py-3 font-bold text-cyan-400">JPG</td>
+                <td className="px-4 py-3">Lossy</td>
+                <td className="px-4 py-3">~150–300KB per 1080p frame</td>
+                <td className="px-4 py-3">Thumbnails, social media, previews</td>
+              </tr>
+              <tr className="hover:bg-gray-900/50">
+                <td className="px-4 py-3 font-bold text-cyan-400">PNG</td>
+                <td className="px-4 py-3">Lossless</td>
+                <td className="px-4 py-3">~1–2MB per 1080p frame</td>
+                <td className="px-4 py-3">VFX, AI training data, animation</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          JPG compression works by discarding fine color detail that most viewers won't notice. For everyday use — grabbing a screenshot, picking a thumbnail, building a preview strip — JPG is perfectly fine and keeps file sizes small. A ZIP of 100 JPG frames at 1080p is typically 15–30MB.
+        </p>
+        <p>
+          PNG is lossless, meaning every pixel is preserved exactly as it appeared in the video. This matters when frames will be processed further — composited in After Effects, fed into an ML model, or drawn over frame by frame in animation software. Any tool that will perform math on the pixel values (color grading, chroma key, edge detection) benefits from lossless PNG input. The tradeoff is file size: 100 PNG frames at 1080p can easily be 150MB or more.
+        </p>
+
+        <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">Privacy: Why No-Upload Matters</h2>
+        <p>
+          Most people don't think about privacy when extracting a few frames from a holiday video. But for professionals working with proprietary content — raw footage before public release, medical recordings, legal evidence, client work under NDA, or personal family videos — the upload model used by most online tools is a genuine risk.
+        </p>
+        <p>
+          When you upload a file to a cloud server, you have no way to verify:
+        </p>
+        <ul className="list-disc pl-6 space-y-2 text-gray-400">
+          <li>How long the file is stored on their servers</li>
+          <li>Whether their staff can access it</li>
+          <li>Whether the service shares or sells processed files</li>
+          <li>What jurisdiction the servers are in</li>
+        </ul>
+        <p>
+          Our tool never touches a server. When you open a video file in the browser, the browser's File API reads it directly from your disk into memory. All frame decoding and image conversion happens inside your browser's sandboxed environment. The resulting images are also assembled into a ZIP file locally — again, nothing leaves your device. Your video stays on your computer throughout the entire process.
+        </p>
+
+        <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">Frequently Asked Questions</h2>
+        <div className="space-y-5">
+          {[
+            { q: 'What video formats does the tool support?', a: 'MP4, MOV, and WEBM are fully supported. H.264 encoded files work on all browsers. HEVC (H.265) is supported on Safari and Windows. AV1 works on Chrome, Firefox, and Edge.' },
+            { q: 'Is there a file size limit?', a: 'There is no artificial file size limit. The practical limit is your device\'s available RAM, since the video is decoded locally in memory. Most modern devices handle files up to 2–4GB comfortably.' },
+            { q: 'Can I download individual frames instead of the full ZIP?', a: 'Yes. Each extracted frame appears in the grid with a download button. You can save any single frame individually without downloading the whole ZIP.' },
+            { q: 'Why did my browser tab crash during extraction?', a: 'This is a memory issue. High-resolution video at high FPS generates large amounts of image data. Try using a lower FPS setting (5 or 10 instead of 30), switching to JPG instead of PNG, or pre-trimming your video to a shorter segment before extracting.' },
+            { q: 'Does this work on mobile?', a: 'Yes, the tool works on modern mobile browsers. However, mobile devices have significantly less RAM than desktops, so we recommend keeping mobile extractions to short clips at lower FPS settings (1–5 FPS).' },
+          ].map(({ q, a }) => (
+            <div key={q} className="border border-gray-800 rounded-xl p-5 bg-gray-900/50">
+              <h3 className="font-bold text-white mb-2">{q}</h3>
+              <p className="text-gray-400 text-base">{a}</p>
+            </div>
+          ))}
+        </div>
+
         <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">Conclusion</h2>
         <p>
-          Extracting frames from a video doesn't require expensive software or complicated setups.
-          With a browser-based tool like ours, you can do it for free in seconds — with processing done locally in device memory and complete privacy.
+          Extracting frames from a video doesn't require expensive software or complicated setups. With a browser-based tool, you get immediate, private, free frame extraction that handles everything from a quick thumbnail grab to a full 30 FPS image sequence for professional use.
         </p>
         <p className="mt-12 text-center">
           <Link to="/" className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-2xl text-gray-950 bg-cyan-400 hover:bg-cyan-300 transition-all transform hover:-translate-y-1 shadow-lg shadow-cyan-500/20">
