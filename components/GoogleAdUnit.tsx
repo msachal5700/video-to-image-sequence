@@ -27,11 +27,15 @@ const GoogleAdUnit: React.FC<GoogleAdUnitProps> = ({
   }, []);
 
   return (
-    <div className={`w-full flex flex-col items-center my-6 ${className}`}>
+    // min-height reserves space before the ad loads, preventing layout shift (CLS)
+    <div
+      className={`w-full flex flex-col items-center my-6 ${className}`}
+      style={{ minHeight: '100px' }}
+    >
       <ins
         ref={ref}
         className="adsbygoogle"
-        style={{ display: 'block' }}
+        style={{ display: 'block', width: '100%' }}
         data-ad-client="ca-pub-3034542374165383"
         data-ad-slot={slot}
         data-ad-format="auto"

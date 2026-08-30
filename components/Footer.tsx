@@ -62,6 +62,8 @@ const Footer = () => {
           <img
             src="https://www.toolpilot.ai/cdn/shop/files/f-w_690x151_crop_center.png?v=1695883028"
             alt="Featured on Toolpilot"
+            width="138"
+            height="30"
             className="h-6 opacity-50 hover:opacity-80 transition"
           />
           Featured on Toolpilot
@@ -73,7 +75,8 @@ const Footer = () => {
         >
           <img
             src="https://mypreferredsources.com/badges/en-dark.png"
-            alt="Add as a preferred source"
+            alt="Add as a preferred source on Google"
+            width="160"
             height="40"
             style={{ display: 'block', height: '40px', width: 'auto', border: 0 }}
           />
