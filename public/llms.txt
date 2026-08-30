@@ -1,26 +1,35 @@
 # Video to Image Sequence Online
-> Free, 100% private, browser-based video frame extraction and image sequence conversion suite.
 
-## Core Capabilities
-- Extract high-resolution PNG & JPG frames from MP4, MOV, and WEBM videos.
-- 100% client-side processing using WebAssembly, Web Workers, and HTML5 Canvas API.
-- Zero server uploads — video files never leave the user's computer.
-- In-browser AI Social Media Frame Picker automatically scores video keyframes on sharpness, motion blur, exposure, composition, and face/eye detection.
-- Convert PNG/JPG image sequences back into WebM video files.
+> Free, 100% private, browser-based video frame extraction and image sequence conversion suite. No server uploads — all processing happens locally in the user's browser.
 
-## Primary Tools & Pages
-- Homepage: https://www.videotoimagesequence.online/
-- AI Social Media Frame Picker: https://www.videotoimagesequence.online/ai-social-media-frame-picker
-- Extract Frames from Video: https://www.videotoimagesequence.online/extract-frames-from-video
-- MP4 to JPG Converter: https://www.videotoimagesequence.online/mp4-to-jpg
-- Video to PNG Converter: https://www.videotoimagesequence.online/video-to-png
-- Screenshot from Video: https://www.videotoimagesequence.online/screenshot-from-video
-- Images to Video: https://www.videotoimagesequence.online/images-to-video
-- Contact Support: https://www.videotoimagesequence.online/contact
-- About & Founder Info: https://www.videotoimagesequence.online/about
+## Tools
 
-## Maintainer & Engineering
-- Operated by: Muhammad Sachal (SachalSpeaks)
-- Email: sachalmahar5700@gmail.com
-- GitHub: https://github.com/msachal5700
-- LinkedIn: https://www.linkedin.com/in/sachalspeaks/
+- [Homepage — Video to Image Sequence](https://www.videotoimagesequence.online/)
+- [Extract Frames from Video](https://www.videotoimagesequence.online/extract-frames-from-video)
+- [MP4 to JPG Converter](https://www.videotoimagesequence.online/mp4-to-jpg)
+- [Video to PNG Converter](https://www.videotoimagesequence.online/video-to-png)
+- [Screenshot from Video](https://www.videotoimagesequence.online/screenshot-from-video)
+- [Images to Video Converter](https://www.videotoimagesequence.online/images-to-video)
+- [AI Social Media Frame Picker](https://www.videotoimagesequence.online/ai-social-media-frame-picker)
+
+## Guides & Blog
+
+- [How to Extract Frames from Video Online](https://www.videotoimagesequence.online/blog/extract-frames-from-video-online)
+- [MP4 to Image Sequence — Complete Guide](https://www.videotoimagesequence.online/blog/mp4-to-image-sequence-guide)
+- [Video to PNG Frames Guide](https://www.videotoimagesequence.online/blog/video-to-png-frames-guide)
+- [Best FPS Settings for Frame Extraction](https://www.videotoimagesequence.online/blog/best-fps-settings-for-video-frame-extraction)
+- [7 Real-World Use Cases for Frame Extraction](https://www.videotoimagesequence.online/blog/video-frame-extractor-use-cases)
+- [How to Convert Images to Video](https://www.videotoimagesequence.online/blog/how-to-convert-images-to-video-guide)
+- [AI Best Frame from Video](https://www.videotoimagesequence.online/blog/ai-best-frame-from-video)
+- [Ezgif Alternative — Private Frame Extraction](https://www.videotoimagesequence.online/blog/ezgif-alternative-video-to-image-sequence)
+
+## Site Info
+
+- [About & Founder](https://www.videotoimagesequence.online/about)
+- [Contact Support](https://www.videotoimagesequence.online/contact)
+- [Privacy Policy](https://www.videotoimagesequence.online/privacy)
+- [Terms of Service](https://www.videotoimagesequence.online/terms)
+
+## Optional
+
+- [Sitemap](https://www.videotoimagesequence.online/sitemap.xml)
