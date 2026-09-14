@@ -18,8 +18,10 @@ export default function VideoToPngGuide() {
         "datePublished": "2026-05-24",
         "dateModified": "2026-05-24",
         "author": {
-          "@type": "Organization",
-          "name": "Video to Image Sequence Online"
+          "@type": "Person",
+          "name": "Muhammad Sachal",
+          "url": "https://www.linkedin.com/in/sachalspeaks/",
+          "image": "https://www.videotoimagesequence.online/muhammad-sachal.jpg"
         },
         "publisher": {
           "@type": "Organization",

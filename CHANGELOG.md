@@ -6,6 +6,87 @@ Format: newest entries at the top. Each entry lists the files changed, the reaso
 
 ---
 
+## 2026-09-12 — Homepage Reposition: "Free Video Frame Extractor" Primary, Topical Coverage Over Privacy Repetition
+
+**Audit finding:** Homepage tried to rank for too many concepts; "Video to Image Sequence" not the best primary keyword; privacy/no-upload repeated 6+ times wasting topical real estate.
+
+**Changes:**
+- **H1 unchanged** (already "Free Video Frame Extractor — Extract Frames from Video")
+- **Hero copy rewritten** — leads with extractor intent, mentions exact timestamp, WebP, AI datasets, Blender, 1–60 FPS
+- **Badges replaced** — 7 feature badges (Exact Timestamp, WebP+JPG+PNG, Custom FPS 1–60, ZIP, Batch, AI Dataset Ready, Private) instead of 7 privacy/speed badges
+- **How It Works → Extraction Modes** — 3 cards: Exact Timestamp, Custom FPS, Every Frame (was generic 3-step)
+- **Who Uses → Workflows** — 6 workflow cards (AI Dataset, Blender/VFX, Game Dev, YouTube Thumbnails, Lecture, Animation) instead of 6 audience cards
+- **Privacy section compressed** — 3 concise paragraphs (was 3 verbose + warning), mentions WebCodecs/Canvas APIs
+- **Output formats expanded** — Added WebP with comparison guidance (JPG for size, PNG for lossless/alpha, WebP for web)
+- **Comparison table redesigned** — vs Cloud Converters + FFmpeg/CLI, 10 capability rows (was 13 generic rows)
+- **Related tools restructured** — "Specialized Frame Extractors" + "Format-Specific Converters & Guides" with deep links
+- **FAQ completely rewritten** — 13 genuinely useful questions per audit (How many FPS?, FPS vs interval, lossless?, JPG/PNG/WebP, RAM, codecs, 4K, Blender, CV datasets) — removed self-promotional "best alternative" FAQ
+- **Schema markup updated** — WebApplication alternateName, FAQPage, HowTo reflect new content
+
+**Files modified:**
+| File | Change |
+| --- | --- |
+| `i18n/locales/en.json` | Complete `home` namespace rewrite (hero, badges, howWorks, formats, outputs, whoUses, privacy, howItWorks, whoUsesOnline, compare, moreTools, relatedItems, faq) |
+| `pages/Home.tsx` | Badge keys updated, outputs section adds WebP |
+
+**Verified:** `npm run build` passes, all 21 routes prerender.
+
+**To revert:** `git checkout HEAD -- i18n/locales/en.json pages/Home.tsx`
+
+---
+
+## 2026-09-12 — SEO Architecture Expansion: WebP Support + Exact Timestamp Extractor + New Landing Pages
+
+Major SEO-driven expansion implementing Phase 1 of the topical cluster strategy from the SEO audit.
+
+**New routes added:**
+- `/video-to-webp` — WebP format converter landing page
+- `/extract-frame-at-timestamp` — Dedicated exact timestamp frame extractor with video player UI
+
+**WebP format support (full pipeline):**
+- `types.ts` — Added `'webp'` to `OutputFormat` type
+- `workers/frameExtractor.worker.ts` — WebP mime type, extension, and STORE compression
+- `workers/frameExtractor.legacy.ts` — WebP support for fallback renderer
+- `components/Controls.tsx` — WebP button in format selector with description
+- `pages/VideoToWebp.tsx` — New SEO landing page with FAQ, how-to, schema markup
+
+**Exact timestamp extractor (new UI):**
+- `pages/ExtractFrameAtTimestamp.tsx` — Video player with timeline, timestamp input (HH:MM:SS.mmm), frame-by-frame step buttons, format selector (JPG/PNG/WebP), capture button, preview grid
+
+**Navigation & discovery:**
+- `components/Header.tsx` — Added both new tools to desktop dropdown and mobile menu
+- `App.tsx` — Registered new routes with proper components
+- `scripts/prerender.cjs` — Added routes + validation text for both new pages
+- `public/sitemap.xml` — Added URLs with priorities (0.8 for WebP, 0.9 for exact timestamp)
+- `public/llms.txt` — Listed both tools for AI crawler citation
+- `i18n/locales/en.json` — Added `videoToWebp` translation namespace
+
+**Files created:**
+| File | Purpose |
+| --- | --- |
+| `pages/VideoToWebp.tsx` | WebP converter SEO landing page |
+| `pages/ExtractFrameAtTimestamp.tsx` | Exact timestamp extractor with video player |
+
+**Files modified:**
+| File | Change |
+| --- | --- |
+| `types.ts` | Added `'webp'` to OutputFormat |
+| `workers/frameExtractor.worker.ts` | WebP encoding support |
+| `workers/frameExtractor.legacy.ts` | WebP fallback support |
+| `components/Controls.tsx` | WebP format button |
+| `components/Header.tsx` | Navigation links for new tools |
+| `App.tsx` | New route registrations |
+| `scripts/prerender.cjs` | Prerender routes + validation |
+| `public/sitemap.xml` | Sitemap entries |
+| `public/llms.txt` | AI crawler citations |
+| `i18n/locales/en.json` | English translations |
+
+**Verified:** `npm run build` passes, all 21 routes prerender and clear validation gates.
+
+**To revert:** Delete `pages/VideoToWebp.tsx`, `pages/ExtractFrameAtTimestamp.tsx`; remove WebP from `types.ts`, both workers, `Controls.tsx`, `Header.tsx`, `App.tsx`, `prerender.cjs`, `sitemap.xml`, `llms.txt`, `en.json`.
+
+---
+
 ## 2026-08-04 — New feature: AI Social Media Frame Picker
 
 Additive feature. No existing route, component or util was modified in a way that

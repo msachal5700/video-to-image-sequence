@@ -12,7 +12,7 @@
     "localProcessing": "Processamento Local no Navegador",
     "downloadZip": "Baixar ZIP",
     "advertisement": "Publicidade",
-    "extractFrames": "Extrair Quadros",
+    "extractFrames": "Extrair Quadros Agora",
     "convertAnother": "Converter Outro",
     "processing": "Extraindo Quadros...",
     "zipping": "Criando Arquivo ZIP...",
@@ -23,30 +23,47 @@
     "framesExtracted": "{{count}} quadros extraídos com sucesso do seu vídeo.",
     "processed": "Processados",
     "skipAd": "Pular Anúncio",
-    "skipIn": "Pular em {{seconds}}s"
+    "skipIn": "Pular em {{seconds}}s",
+    "convertTitle": "Converter Vídeo para Sequência de Imagens",
+    "convertSub": "Extraia cada quadro como imagens PNG ou JPG de alta resolução",
+    "noServerUploads": "100% Privado e Baseado no Navegador",
+    "noServerUploadsDesc": "Seus arquivos de vídeo nunca saem do seu computador. Toda a extração de quadros acontece localmente no seu navegador via WebAssembly.",
+    "downloadZipTitle": "Download Instantâneo em ZIP",
+    "downloadZipDesc": "Todas as imagens de quadros extraídas são compactadas em um único arquivo ZIP para download rápido com um clique.",
+    "secureTitle": "Sem Limites e Zero Custo",
+    "secureDesc": "Gratuito para sempre, sem limite de tamanho de arquivo, marcas d'água ou necessidade de criar conta.",
+    "clear": "Limpar Seleção",
+    "copyRawError": "Copiar Detalhes do Erro",
+    "cancelQueue": "Cancelar Fila",
+    "downloadAllZips": "Baixar Todos os ZIPs",
+    "loadMore": "Carregar Mais Quadros",
+    "showingFrames": "Mostrando {{showing}} de {{total}} quadros",
+    "showOnly200": "Exibindo os primeiros 200 dos {{count}} quadros extraídos. Todos os quadros estão salvos no seu arquivo ZIP.",
+    "tipPng": "Dica Profissional: O formato PNG preserva profundidade de cor sem perdas e transparência alfa, sendo ideal para edição de vídeo e fluxos de trabalho de VFX."
   },
   "dropzone": {
     "drop": "Solte seu vídeo aqui",
     "browse": "ou clique para procurar",
-    "support": "MP4, MOV, WEBM suportados · Arquivos grandes dependem do seu dispositivo e navegador"
+    "support": "MP4, MOV, WEBM suportados · Arquivos grandes dependem do seu dispositivo e navegador · Solte vários arquivos para processamento em lote"
   },
   "controls": {
-    "frameRate": "Taxa de Quadros (FPS)",
+    "outputFormat": "Formato de Imagem de Saída",
+    "frameRate": "Taxa de Quadros de Saída (FPS)",
     "format": "Formato de Saída",
     "quality": "Qualidade JPG",
     "estimatedFrames": "Est. {{count}} quadros",
     "highFrameWarning": "Aviso: {{count}}+ quadros podem esgotar a memória do navegador. Considere reduzir o FPS.",
-    "configuration": "Configuration",
-    "fpsSuffix": "Frames Per Second",
-    "formatJpgDesc": "Smaller file size, recommended for most uses",
-    "formatPngDesc": "Lossless quality, best for VFX and game dev",
-    "estimatedOutput": "Estimated Output:",
-    "estimatedImages": "IMAGES",
-    "mobileSlowWarning": "{{count}} frames may be slow on mobile. Consider lowering FPS.",
-    "readyTitle": "Ready to Extract?",
-    "readyDesc": "Click below to process this video entirely in your browser. All frames will be extracted locally and combined into a single ZIP file download.",
-    "extractFrames": "Extract Frames Now",
-    "processing": "Processing..."
+    "configuration": "Configuração",
+    "fpsSuffix": "Quadros Por Segundo",
+    "formatJpgDesc": "Tamanho de arquivo menor, recomendado para a maioria dos usos",
+    "formatPngDesc": "Qualidade sem perdas, ideal para VFX e desenvolvimento de jogos",
+    "estimatedOutput": "Saída Estimada:",
+    "estimatedImages": "IMAGENS",
+    "mobileSlowWarning": "{{count}} quadros podem ser lentos em dispositivos móveis. Considere reduzir o FPS.",
+    "readyTitle": "Pronto para Extrair?",
+    "readyDesc": "Clique abaixo para processar este vídeo inteiramente no seu navegador. Todos os quadros serão extraídos localmente e combinados em um único arquivo ZIP para download.",
+    "extractFrames": "Extrair Quadros Agora",
+    "processing": "Processando..."
   },
   "badges": {
     "private": "🔒 100% Privado (Local)",
@@ -56,293 +73,289 @@
     "free": "🆓 Gratuito para Sempre"
   },
   "home": {
-    "title": "Conversor de Vídeo para Sequência de Imagens Online — Extrator de Quadros Grátis",
-    "description": "Extrator de quadros de vídeo gratuito baseado no navegador. Converta vídeos MP4, MOV e WEBM em sequências JPG ou PNG. Sem upload para servidor.",
-    "h1": "Vídeo para Sequência de Imagens",
-    "h1Sub": "Conversor Online",
-    "hero": "Video to Image Sequence Online é uma ferramenta gratuita baseada no navegador que extrai cada quadro de vídeos MP4, MOV e WEBM como imagens JPG ou PNG de alta qualidade. Todo o processamento ocorre localmente no seu navegador, seus vídeos nunca são enviados para um servidor.",
-    "keywords": "vídeo para sequência de imagens, extrair quadros de vídeo grátis, MP4 para JPG quadros, extrator de quadros de vídeo, converter vídeo em sequência PNG",
-    "badge": "100% Grátis · Sem Upload · Processamento Local",
+    "title": "Extrator de Quadros de Vídeo Grátis — Extraia Quadros de Vídeo Online",
+    "description": "Extrator de quadros de vídeo gratuito baseado no navegador. Extraia quadros de vídeos MP4, MOV e WEBM como JPG, PNG ou WebP com precisão de milissegundos. Sem upload para servidor — 100% privado, processamento em lote, download em ZIP, FPS personalizado.",
+
+    "h1": "Extrator de Quadros de Vídeo Grátis",
+    "h1Sub": "Extraia Quadros de Vídeo",
+    "hero": "Extraia cada quadro de vídeos MP4, MOV e WEBM como imagens JPG, PNG ou WebP de alta qualidade. Escolha timestamps exatos, FPS personalizado (1–60) ou extraia em lote milhares de quadros para conjuntos de dados de IA. Todo o processamento é feito localmente no seu navegador — sem upload, sem conta, sem limites.",
+    "keywords": "extrator de quadros de vídeo, extrair quadros de vídeo, extrator de quadros de vídeo grátis, vídeo para sequência de imagens, capturador de quadros de vídeo, extrair quadros online, vídeo para sequência jpg, vídeo para sequência png, vídeo para webp, extração de timestamp exato",
+    "badge": "Grátis · Sem Upload · Processamento Local no Navegador",
     "badges": {
-      "noUpload": "✅ No Server Upload Required",
-      "private": "🔒 100% Private",
-      "fast": "⚡ Fast local processing · No upload",
-      "zip": "📦 ZIP Download",
-      "batch": "🎬 Batch Processing",
-      "fps": "🎨 Custom FPS",
-      "free": "🆓 Free Forever"
+      "exactTimestamp": "🎯 Timestamp Exato (ms)",
+      "webp": "🌐 WebP + JPG + PNG",
+      "fps": "🎨 FPS Personalizado 1–60",
+      "zip": "📦 Download ZIP",
+      "batch": "🎬 Processamento em Lote",
+      "ai": "🤖 Pronto para Dados de IA",
+      "private": "🔒 100% Privado"
     },
     "tabs": {
       "toImages": "Vídeo para Imagens",
       "toVideo": "Imagens para Vídeo"
     },
-    "howWorksTitle": "How This Video to Image Sequence Tool Works",
-    "howWorksDesc": "This tool extracts individual frames from your video and converts them into downloadable image files. You can upload a video, choose the output format, and download frames as JPG or PNG images.",
-    "simpleProcess": "The process is simple:",
+    "howWorksTitle": "Como Este Extrator de Quadros Funciona",
+    "howWorksDesc": "Faça upload de um vídeo, escolha o modo de extração — timestamp exato, FPS personalizado ou todos os quadros — selecione o formato de saída (JPG, PNG, WebP) e baixe os quadros instantaneamente. O processamento acontece inteiramente no seu navegador.",
+    "simpleProcess": "Três passos:",
     "steps": [
-      "Upload your video file.",
-      "Select the image format.",
-      "Choose how many frames you want to extract.",
-      "Download the extracted image sequence."
+      "Carregue seu vídeo (MP4, MOV, WEBM).",
+      "Escolha o modo: tempo exato, FPS ou todos os quadros.",
+      "Escolha JPG, PNG ou WebP e baixe."
     ],
-    "useCases": "This is useful for animation, video editing, AI dataset creation, thumbnails, motion analysis, and frame-by-frame review.",
-    "formatsTitle": "Supported Video Formats",
-    "formatsDesc1": "Best supported formats: MP4, MOV, and WEBM.",
-    "formatsDesc2": "Other formats such as AVI or MKV may work only when your browser supports the video codec.",
-    "outputsTitle": "Supported Image Output Formats",
-    "outputsDesc": "You can extract frames as:",
+    "useCases": "Ideal para conjuntos de dados de treinamento de IA, fluxos de trabalho Blender/VFX, miniaturas do YouTube, referência de animação e análise quadro a quadro.",
+    "formatsTitle": "Formatos de Vídeo Suportados",
+    "formatsDesc1": "Melhor suporte: MP4, MOV e WEBM (H.264, H.265, VP8, VP9, AV1 quando o navegador suporta).",
+    "formatsDesc2": "AVI, MKV, FLV, M4V, OGV, 3GP podem funcionar se o seu navegador tiver o codec. Para melhores resultados, use MP4 H.264.",
+    "outputsTitle": "Formatos de Imagem de Saída Suportados",
+    "outputsDesc": "Extraia quadros em três formatos:",
     "jpgTitle": "JPG/JPEG",
-    "jpgDesc": "best for smaller file size and general use.",
+    "jpgDesc": "Arquivos menores, compatibilidade universal. Ideal para miniaturas, redes sociais e compartilhamento rápido.",
     "pngTitle": "PNG",
-    "pngDesc": "best for high-quality frames, transparent graphics, design work, and editing.",
-    "outputChoose": "Choose JPG if you want faster downloads. Choose PNG if image quality matters more.",
-    "whoUsesTitle": "Who Can Use This Tool?",
-    "whoUsesDesc": "This tool is useful for:",
+    "pngDesc": "Sem perdas, preserva transparência. Ideal para VFX, desenvolvimento de jogos, composição e conjuntos de dados de ML.",
+    "webpTitle": "WebP",
+    "webpDesc": "Formato moderno — 25–35% menor que JPG, suporta transparência. Ideal para entrega web.",
+    "outputChoose": "JPG para tamanho, PNG para sem perdas/alfa, WebP para desempenho web moderno.",
+    "whoUsesTitle": "Quem Usa Este Extrator de Quadros?",
+    "whoUsesDesc": "Feito para fluxos de trabalho que precisam de controle no nível de quadro:",
     "whoUsesList": [
-      "Video editors who need frame-by-frame screenshots.",
-      "Animators who need image sequences from video clips.",
-      "AI developers who need video frames for datasets.",
-      "YouTubers who want thumbnails from videos.",
-      "Designers who want still images from motion footage.",
-      "Students who need visual frames for projects.",
-      "Researchers who analyze motion or visual changes in videos."
+      "Engenheiros de IA/ML construindo conjuntos de dados de treinamento de visão computacional",
+      "Artistas de VFX e compositores (Blender, Nuke, After Effects, DaVinci)",
+      "Desenvolvedores de jogos criando sprite sheets e atlas de texturas",
+      "YouTubers e criadores escolhendo quadros perfeitos para miniaturas",
+      "Animadores fazendo rotoscoping ou estudando referência de movimento",
+      "Pesquisadores analisando movimento, imagens médicas e gravações de aulas"
     ],
-    "privacyTitle": "Privacy and File Safety",
-    "privacyDesc1": "Your video is processed entirely inside your browser. Because we use client-side JavaScript APIs, your files are never uploaded to any server or stored on the cloud. They stay 100% local on your computer.",
-    "privacyDesc2": "We do not ask for signups, accounts, or personal information. You get maximum privacy and fast local processing speed since no time is wasted uploading or downloading large video files.",
-    "privacyWarn": "Your files are completely private. This tool is safe to use for sensitive, private, or confidential videos because zero data leaves your local device.",
-    "howItWorksTitle": "How It Works",
-    "howItWorksSub": "3 simple steps — no signup, no install, no upload",
+    "privacyTitle": "Processamento Local = Privacidade Total",
+    "privacyDesc1": "Seu vídeo nunca sai do seu dispositivo. Sem upload para servidor, sem processamento na nuvem, sem contas. Os quadros são decodificados e codificados inteiramente no seu navegador usando APIs WebCodecs/Canvas.",
+    "privacyDesc2": "Isso também significa que não há limite de tamanho de arquivo imposto por nós — apenas a RAM do seu dispositivo e as restrições do navegador se aplicam. Feche outras abas para extrações grandes em 4K.",
+    "privacyWarn": "Seguro para imagens confidenciais, proprietárias ou sensíveis. Nenhum dado sai do seu computador.",
+    "howItWorksTitle": "Modos de Extração",
+    "howItWorksSub": "Três maneiras de obter os quadros que você precisa",
     "howSteps": [
       {
-        "title": "Drop Your Video",
-        "desc": "Drag and drop your MP4, MOV, or WEBM file. Drop multiple files for batch processing. Large files depend on your device memory and browser."
+        "title": "Timestamp Exato",
+        "desc": "Digite HH:MM:SS.mmm ou navegue quadro a quadro para capturar um quadro preciso. Perfeito para miniaturas e momentos-chave."
       },
       {
-        "title": "Choose Settings",
-        "desc": "Select your frame rate (FPS) and output format (JPG or PNG). Customize exactly how many frames to extract."
+        "title": "FPS Personalizado",
+        "desc": "Extraia a 1, 5, 10, 12, 15, 24, 25, 30 ou 60 FPS. Amostre vídeos longos ou obtenha cada quadro para sequências suaves."
       },
       {
-        "title": "Download Frames",
-        "desc": "Browse the frame grid, download individual frames, or get all frames as a ZIP archive."
+        "title": "Todos os Quadros",
+        "desc": "Decodificação completa na taxa de quadros nativa do vídeo. Máximo de quadros para conjuntos de dados de IA, placas de VFX ou sequências de imagens completas."
       }
     ],
-    "whoUsesOnlineTitle": "Who Uses Video to Image Sequence Online?",
-    "whoUsesOnlineSub": "Used by creators, developers, and professionals worldwide",
+    "whoUsesOnlineTitle": "Fluxos de Trabalho Impulsionados por Extração de Quadros",
+    "whoUsesOnlineSub": "Casos de uso reais — não apenas públicos",
     "whoUsesItems": [
       {
-        "icon": "🎬",
-        "title": "Video Editors & YouTubers",
-        "desc": "Extract the perfect still frame for video thumbnails, title cards, or social media posts from any clip in seconds."
-      },
-      {
-        "icon": "🎮",
-        "title": "Game Developers & Animators",
-        "desc": "Convert sprite sheet videos or animation previews into individual PNG frames for Unity, Godot, or Blender."
-      },
-      {
         "icon": "🤖",
-        "title": "AI & ML Developers",
-        "desc": "Generate large labeled image datasets from video footage for training computer vision and machine learning models."
+        "title": "Criação de Conjuntos de Dados de IA",
+        "desc": "Extraia milhares de quadros em FPS controlado para YOLO, classificação e segmentação. Download em ZIP pronto para pipelines de rotulação."
       },
       {
         "icon": "🎨",
-        "title": "VFX & Motion Artists",
-        "desc": "Import extracted frame sequences into After Effects, DaVinci Resolve, or Nuke for frame-by-frame compositing."
+        "title": "Pipelines Blender e VFX",
+        "desc": "Exporte sequências PNG com alfa para composição, rastreamento de câmera e rotoscoping. Importe diretamente no Blender, Nuke ou After Effects."
       },
       {
-        "icon": "📸",
-        "title": "Photographers",
-        "desc": "Capture split-second moments from slow-motion or high-speed video that would be impossible to photograph directly."
+        "icon": "🎮",
+        "title": "Desenvolvimento de Jogos e Sprites",
+        "desc": "Converta vídeos de sprite sheets em quadros individuais. PNG/WebP com transparência para Unity, Godot e atlas de texturas do Unreal."
       },
       {
-        "icon": "🎓",
-        "title": "Educators & Researchers",
-        "desc": "Extract frames for academic analysis, presentation slides, medical imaging review, or research documentation."
+        "icon": "📺",
+        "title": "Miniaturas do YouTube",
+        "desc": "Navegue até o momento exato de pico, capture em resolução 4K completa. PNG para edição, WebP para upload rápido."
+      },
+      {
+        "icon": "📚",
+        "title": "Aulas e Pesquisa",
+        "desc": "Extraia slides de gravações de aulas a 1 FPS. Crie índices de imagens pesquisáveis para revisão acadêmica."
+      },
+      {
+        "icon": "🎞️",
+        "title": "Referência de Animação",
+        "desc": "Análise quadro a quadro de movimento para rotoscoping, estudo de ritmo e bibliotecas de poses. 60 FPS para análise suave."
       }
     ],
-    "compareTitle": "How We Compare to Other Tools",
-    "compareSub": "Video to Image Sequence Online vs other online converters",
+    "compareTitle": "vs. Conversores na Nuvem e Ferramentas de Desktop",
+    "compareSub": "Por que a extração baseada em navegador ganha em privacidade e controle",
     "compareHeaders": [
-      "Feature",
-      "www.videotoimagesequence.online ✦",
-      "Cloud Converters",
-      "Others"
+      "Recurso",
+      "Esta Ferramenta (Navegador)",
+      "Conversores na Nuvem",
+      "FFmpeg / CLI"
     ],
     "compareRows": [
       [
-        "File size handling",
-        "✅ No server upload required; limited by browser/device RAM",
-        "❌ 200MB",
-        "❌ 100-200MB"
+        "Privacidade",
+        "✅ 100% local — sem upload",
+        "❌ Upload necessário",
+        "✅ Local"
       ],
       [
-        "Server upload required",
-        "✅ Never",
-        "❌ Always",
-        "❌ Always"
+        "Timestamp exato (ms)",
+        "✅ Navegador visual + entrada",
+        "⚠️ Raro / Somente API",
+        "✅ Sintaxe complexa"
       ],
       [
-        "100% Private",
-        "✅ Yes",
-        "❌ No",
-        "❌ No"
+        "Passo a passo quadro a quadro",
+        "✅ Botões na interface",
+        "❌ Não",
+        "✅ Busca manual"
       ],
       [
-        "Individual frame preview",
-        "✅ Full grid",
-        "✅ Yes",
-        "⚠️ Limited"
+        "Saída em WebP",
+        "✅ JPG + PNG + WebP",
+        "⚠️ Somente JPG/PNG",
+        "✅ Manual"
       ],
       [
-        "Per-frame download",
-        "✅ Yes",
-        "✅ Yes",
-        "⚠️ Some"
+        "Lote com múltiplos vídeos",
+        "✅ Fila + ZIP individual",
+        "❌ Um de cada vez",
+        "✅ Scriptável"
       ],
       [
-        "ZIP download",
-        "✅ Yes",
-        "✅ Yes",
-        "⚠️ Some"
+        "Amostragem FPS para datasets de IA",
+        "✅ Predefinições de 1–60 FPS",
+        "❌ Opções fixas",
+        "✅ Cálculo manual"
       ],
       [
-        "Custom FPS control",
-        "✅ Yes",
-        "✅ Yes",
-        "⚠️ Some"
+        "Limite de tamanho de arquivo",
+        "✅ Apenas RAM do dispositivo",
+        "❌ 100–500 MB",
+        "✅ Nenhum"
       ],
       [
-        "Batch processing",
-        "✅ Yes",
-        "❌ No",
-        "❌ No"
+        "Instalação / configuração",
+        "✅ Zero — abra o navegador",
+        "✅ Zero",
+        "❌ Instalar + configurar"
       ],
       [
-        "JPG + PNG output",
-        "✅ Both",
-        "✅ Both",
-        "⚠️ Varies"
-      ],
-      [
-        "PWA / Installable",
-        "✅ Yes",
-        "❌ No",
-        "❌ No"
-      ],
-      [
-        "Free forever",
-        "✅ 100%",
-        "✅ Free",
-        "⚠️ Freemium"
-      ],
-      [
-        "No account needed",
-        "✅ None",
-        "✅ None",
-        "⚠️ Some"
+        "Custo",
+        "✅ Gratuito para sempre",
+        "⚠️ Planos freemium",
+        "✅ Gratuito (código aberto)"
       ]
     ],
-    "moreToolsTitle": "More Free Video Tools",
+    "moreToolsTitle": "Extratores de Quadros Especializados",
     "moreTools": [
       {
-        "title": "MP4 to JPG Converter",
-        "desc": "Extract JPG frames from MP4 video in your browser."
+        "title": "Extrator de Timestamp Exato",
+        "desc": "Capture um quadro preciso no HH:MM:SS.mmm com controles de passo de quadro. Ideal para miniaturas e quadros-chave."
       },
       {
-        "title": "Screenshot from Video",
-        "desc": "Capture video frames in full-resolution locally."
+        "title": "Captura de Tela de Vídeo",
+        "desc": "Extraia quadros em lote como uma grade visual. Navegue, visualize e baixe quadros individuais."
       },
       {
-        "title": "Video to PNG Frames",
-        "desc": "Extract lossless PNG frames for VFX, game dev, and ML datasets."
+        "title": "Seletor de Quadros com IA para Redes Sociais",
+        "desc": "Pontue quadros automaticamente para 10 plataformas (YouTube, Instagram, TikTok, LinkedIn…). Escolha o melhor instantaneamente."
       }
     ],
-    "relatedTitle": "Related Video Frame Tools and Guides",
-    "relatedSub": "Explore more tools and guides for video frame extraction",
+    "relatedTitle": "Conversores e Guias por Formato",
+    "relatedSub": "Ferramentas específicas para seu formato de saída e fluxo de trabalho",
     "relatedItems": [
       {
-        "title": "Extract Frames from Video",
-        "desc": "Free online tool to extract individual frames from MP4, MOV, and WEBM videos as JPG or PNG images."
+        "title": "Conversor MP4 para JPG",
+        "desc": "Sequências JPG rápidas a partir de MP4. Arquivos menores, compatibilidade universal."
       },
       {
-        "title": "MP4 to Image Sequence Guide",
-        "desc": "Learn how to convert MP4 videos to image sequences quickly and efficiently."
+        "title": "Conversor de Vídeo para PNG",
+        "desc": "Quadros PNG sem perdas com alfa. Ideais para VFX, desenvolvimento de jogos e conjuntos de dados de ML."
       },
       {
-        "title": "Video to PNG Sequence",
-        "desc": "Extract lossless PNG frames perfect for high-quality design work and VFX compositing."
+        "title": "Conversor de Vídeo para WebP",
+        "desc": "Quadros WebP modernos — 25–35% menores que JPG, suporta transparência."
       },
       {
-        "title": "Image Sequence to Video",
-        "desc": "Combine extracted image sequences back into a video file with custom frame rates."
+        "title": "Guia MP4 para Sequência de Imagens",
+        "desc": "Guia completo: configurações de FPS, escolha de formato, importação no Blender, preparação de conjuntos de dados de IA."
       },
       {
-        "title": "Screenshot from Video",
-        "desc": "Capture the perfect frame from your video as a high-resolution screenshot."
+        "title": "Guia de Extração de Quadro Exato",
+        "desc": "Como capturar quadros com precisão de milissegundos para miniaturas e análise."
       },
       {
-        "title": "Video to JPG Converter",
-        "desc": "Convert video files to JPG image sequences for fast downloads and easy sharing."
+        "title": "Conversor de Imagens para Vídeo",
+        "desc": "Fluxo de trabalho inverso: combine sequências JPG/PNG/WebP em um vídeo WebM."
       }
     ],
     "faq": {
       "title": "Perguntas Frequentes",
-      "sub": "Tudo o que você precisa saber sobre o Video to Image Sequence Online",
+      "sub": "Tudo sobre extração de quadros de vídeo no seu navegador",
       "items": [
         {
-          "q": "Is there a file size limit?",
-          "a": "No server upload required. Processing happens in your browser, so large files depend on your device memory, browser performance, video length, and codec support."
+          "q": "Como extraio quadros de um vídeo?",
+          "a": "Faça upload do seu vídeo, escolha o modo de extração (timestamp exato, FPS personalizado ou todos os quadros), selecione o formato de saída (JPG, PNG, WebP) e clique em Extrair. Os quadros aparecem em uma grade — baixe individualmente ou como ZIP."
         },
         {
-          "q": "What video formats are supported?",
-          "a": "MP4, MOV, and WEBM — the three most common formats used by phones, cameras, and screen recorders."
+          "q": "Quantos quadros devo extrair por segundo?",
+          "a": "Depende do seu objetivo: 1 FPS para captura de slides, 5–10 FPS para amostragem de movimento, 24–30 FPS para sequências suaves/VFX, 60 FPS para análise de alta velocidade. Para conjuntos de dados de IA, 1–5 FPS é o padrão."
         },
         {
-          "q": "Should I extract frames as JPG or PNG?",
-          "a": "JPG is recommended for most uses — smaller file sizes, faster downloads, great quality. Choose PNG if you need lossless frames for VFX compositing, game development, or machine learning datasets where pixel-perfect accuracy matters."
+          "q": "Qual é a diferença entre FPS e intervalo de quadro?",
+          "a": "FPS = quadros extraídos por segundo de vídeo. Intervalo = a cada N-ésimo quadro (por exemplo, intervalo 30 = 1 quadro a cada 30 quadros). Esta ferramenta usa FPS para controle intuitivo."
         },
         {
-          "q": "Are my videos kept private?",
-          "a": "100% private. Your video never leaves your device. Everything runs locally in your browser using JavaScript. Nothing is sent to any server."
+          "q": "Posso extrair todos os quadros de um vídeo?",
+          "a": "Sim. Selecione a predefinição de FPS mais alta (60) ou use o modo 'todos os quadros' na página do extrator. Um vídeo de 10 segundos a 30 FPS gera cerca de 300 quadros. Saídas grandes são baixadas como ZIP."
         },
         {
-          "q": "Can I download all frames at once?",
-          "a": "Yes. After extraction, click \"Download All as ZIP\" to get every frame packed into a single ZIP file with one click."
+          "q": "Posso extrair um quadro em um timestamp exato?",
+          "a": "Sim. Use o Extrator de Timestamp Exato: digite HH:MM:SS.mmm (por exemplo, 00:01:23.450) ou navegue quadro a quadro com os botões Anterior/Próximo. Capture na resolução nativa completa."
         },
         {
-          "q": "How do I control how many frames are extracted?",
-          "a": "Use the FPS selector before extracting. Choose every frame for maximum quality, or pick 1, 5, 10, 24, or 30 FPS depending on your needs."
+          "q": "A extração de quadros de vídeo é sem perdas?",
+          "a": "PNG e WebP (modo sem perdas) são sem perdas. JPG tem perdas, mas alta qualidade (92%). Para VFX/ML, use PNG. Para web/miniaturas, WebP equilibra qualidade e tamanho."
         },
         {
-          "q": "Can I extract frames from multiple videos at once?",
-          "a": "Yes. Just drop multiple video files at once and our batch mode will process them automatically one by one."
+          "q": "JPG vs PNG vs WebP para quadros de vídeo extraídos?",
+          "a": "JPG: menor, universal. PNG: sem perdas, canal alfa. WebP: 25–35% menor que JPG, suporta alfa, suporte moderno de navegador. Escolha WebP para entrega web."
         },
         {
-          "q": "Can I download individual frames?",
-          "a": "Yes. Every extracted frame appears in a visual grid. Hover over any frame and click the download button to save that specific frame."
+          "q": "Quanta RAM é necessária para extração baseada em navegador?",
+          "a": "1080p a 24–30 FPS: 4–8 GB. 4K ou FPS alto: 8–16 GB. Se a aba travar, reduza o FPS, feche abas ou divida o vídeo em clipes mais curtos."
         },
         {
-          "q": "What is the best free alternative for extracting video frames?",
-          "a": "Video to Image Sequence Online is the best free alternative — it requires no server upload (processing happens locally in your browser, so large files depend on your device memory, browser performance, video length, and codec support), batch processing, ZIP download, individual frame downloads, and custom FPS control. All completely free."
+          "q": "Por que um vídeo falha ao decodificar?",
+          "a": "Codec não suportado (por exemplo, ProRes, AV1 sem decodificação por hardware). Reencode para MP4 H.264 com HandBrake (gratuito) para melhor compatibilidade."
         },
         {
-          "q": "Do I need to create an account or install anything?",
-          "a": "No. Just open the website and start converting. No account, no download, no installation. Works on any device with a modern browser."
+          "q": "Quais codecs de vídeo são suportados?",
+          "a": "MP4 (H.264, H.265), MOV (H.264, ProRes*), WEBM (VP8, VP9, AV1*). *Depende do suporte de hardware do navegador. Safari/iOS tem suporte limitado a H.265/AV1."
+        },
+        {
+          "q": "Posso extrair quadros de um vídeo em 4K?",
+          "a": "Sim, mas quadros em 4K consomem 4× mais memória que 1080p. Use FPS baixo (1–5) e certifique-se de ter 16 GB+ de RAM. Os quadros são reduzidos para no máximo 1920 px na visualização; os downloads têm resolução completa."
+        },
+        {
+          "q": "Como crio uma sequência de imagens para o Blender?",
+          "a": "Extraia como PNG (sem perdas, alfa), com padrão de nome frame_000001.png. No Blender: Adicionar → Sequência de Imagens, selecione a pasta. Defina a taxa de quadros para corresponder ao FPS de extração."
+        },
+        {
+          "q": "Como extraio quadros para um conjunto de dados de visão computacional?",
+          "a": "Use 1–5 FPS para classificação/detecção, mais para rastreamento. Exporte PNG para rótulos pixel-perfeitos. O download em ZIP funciona com ferramentas de rotulação (CVAT, LabelImg, Roboflow)."
         }
       ]
     }
   },
   "mp4ToJpg": {
-    "title": "Conversor MP4 para JPG Online Grátis — Extrair Quadros JPG do MP4",
-    "description": "Converta vídeo MP4 em imagens JPG online gratuitamente. Extraia cada quadro como um JPG de alta qualidade localmente no seu navegador. Sem upload para servidor.",
+    "title": "MP4 para Quadros — Converta MP4 para Sequência de Imagens JPG Grátis",
+    "description": "Converta qualquer MP4 em uma sequência de imagens JPG numerada. Extraia todos os quadros na sua taxa de FPS escolhida e baixe como um único ZIP. Sem upload, sem cadastro, sem marca d'água.",
+
     "h1": "Conversor MP4 para JPG",
-    "h1Sub": "Online Grátis — Processamento Local",
+    "h1Sub": "Online Grátis — Processamento Local no Navegador",
     "hero": "Converta vídeo MP4 em imagens JPG online gratuitamente. Extraia cada quadro como uma sequência JPG de alta qualidade localmente no seu navegador. Como os arquivos são processados localmente, seus dados de vídeo nunca saem do seu dispositivo.",
-    "keywords": "mp4 para jpg, conversor mp4 jpeg, extrair jpg do mp4, extrator de quadros mp4",
+    "keywords": "mp4 para jpg, conversor mp4 para jpeg, extrair jpg do mp4, extrator de quadros mp4",
     "privacy": {
-      "title": "Extração de Quadros 100% Privada",
-      "body": "Ao contrário de ferramentas online que enviam seus arquivos de vídeo para um servidor remoto na nuvem, nosso conversor MP4 para JPG utiliza APIs Web HTML5 para decodificar vídeos diretamente no seu navegador. Seus arquivos nunca são transmitidos pela rede, mantendo suas imagens sensíveis completamente seguras."
+      "title": "Extração de Quadros 100% Privada e Baseada no Navegador",
+      "body": "Ao contrário de ferramentas online que enviam seus arquivos de vídeo para um servidor remoto na nuvem, nosso conversor MP4 para JPG utiliza APIs Web HTML5 para decodificar vídeos diretamente no seu navegador. Seu vídeo é processado localmente e as imagens são salvas no ambiente do navegador. Seus arquivos nunca são transmitidos pela rede, mantendo suas imagens sensíveis ou proprietárias completamente seguras."
     },
     "howTo": {
       "title": "Como Converter MP4 para JPG Online",
@@ -352,8 +365,8 @@
           "body": "Arraste e solte seu arquivo MP4 na zona de upload acima."
         },
         {
-          "title": "Configure a Taxa de Quadros (FPS)",
-          "body": "Escolha sua frequência de extração. Selecione 30 FPS para capturar 30 quadros por segundo, ou 1 FPS para extrair um quadro por segundo."
+          "title": "Configure a Taxa de Quadros de Saída (FPS)",
+          "body": "Escolha sua frequência de extração. Selecione 30 FPS para capturar 30 quadros por segundo de vídeo, ou escolha 1 FPS para extrair um quadro por segundo."
         },
         {
           "title": "Selecione o Formato",
@@ -361,11 +374,11 @@
         },
         {
           "title": "Extraia os Quadros",
-          "body": "Clique em \"Extrair Quadros\" para decodificar a sequência de vídeo."
+          "body": "Clique em \"Extrair Quadros Agora\" para decodificar a sequência de quadros do vídeo."
         },
         {
           "title": "Salve a Saída",
-          "body": "Baixe quadros individuais da grade de visualização ou clique em \"Baixar Todos (ZIP)\"."
+          "body": "Baixe quadros individuais da grade de visualização ou clique em \"Baixar Todos (ZIP)\" para salvar toda a sequência em um único arquivo ZIP."
         }
       ]
     },
@@ -373,12 +386,12 @@
       "title": "Perguntas Frequentes",
       "items": [
         {
-          "q": "Como converter um vídeo MP4 em imagens JPG gratuitamente?",
-          "a": "Simplesmente arraste e solte seu arquivo MP4 na ferramenta, selecione o formato JPG, escolha seu FPS e clique em Extrair. Todos os quadros são processados localmente no seu navegador e baixados como um arquivo ZIP."
+          "q": "Como converto um vídeo MP4 em imagens JPG gratuitamente?",
+          "a": "Simplesmente arraste e solte seu arquivo MP4 na ferramenta, selecione o formato JPG, escolha seu FPS e clique em Extrair. Todos os quadros são processados localmente no seu navegador e baixados como um arquivo ZIP. Não é necessária conta nem upload para servidor."
         },
         {
           "q": "Há um limite de tamanho de arquivo para a conversão MP4 para JPG?",
-          "a": "Nenhum upload para servidor necessário. O processamento ocorre no seu navegador, então arquivos grandes dependem da memória do seu dispositivo, desempenho do navegador, duração do vídeo e suporte de codec."
+          "a": "Nenhum upload para servidor necessário. O processamento acontece no seu navegador, então arquivos grandes dependem da memória do seu dispositivo, desempenho do navegador, duração do vídeo e suporte de codec."
         },
         {
           "q": "Quantos quadros JPG obterei do meu MP4?",
@@ -386,7 +399,7 @@
         },
         {
           "q": "Posso converter MP4 para PNG em vez de JPG?",
-          "a": "Sim. Use o seletor de formato dentro da ferramenta para mudar para a saída PNG se precisar de quadros de qualidade sem perdas."
+          "a": "Sim. Use o seletor de formato dentro da ferramenta para mudar para saída PNG se precisar de quadros de qualidade sem perdas."
         },
         {
           "q": "A conversão MP4 para JPG funciona em dispositivos móveis?",
@@ -396,36 +409,44 @@
     }
   },
   "extractFrames": {
-    "title": "Extract Frames from Video Online Free — JPG & PNG Frame Extractor",
-    "description": "Extract frames from video online for free. Convert MP4, MOV, and WEBM videos to JPG or PNG sequences in your browser. No server upload required.",
-    "h1": "Extract Frames from Video",
-    "h1Sub": "Free Online Frame Extractor",
-    "hero": "Extract every frame from MP4, MOV, and WEBM videos as JPG or PNG images for free. All processing happens locally in your browser — your files are never uploaded.",
-    "keywords": "extract frames from video, video frame extractor, extract frames online, video to images"
+    "title": "Extraia Quadros de Vídeo Online Grátis — Extrator de Quadros JPG e PNG",
+    "description": "Extraia quadros de vídeo online gratuitamente. Converta vídeos MP4, MOV e WEBM em sequências JPG ou PNG no seu navegador. Nenhum upload para servidor necessário.",
+    "h1": "Extrair Quadros de Vídeo",
+    "h1Sub": "Extrator de Quadros Online Grátis",
+    "hero": "Extraia cada quadro de vídeos MP4, MOV e WEBM como imagens JPG ou PNG gratuitamente. Todo o processamento acontece localmente no seu navegador — seus arquivos nunca são enviados.",
+    "keywords": "extrair quadros de vídeo, extrator de quadros de vídeo, extrair quadros online, vídeo para imagens"
   },
   "videoToPng": {
-    "title": "Video to PNG Converter Online Free — Extract PNG Frames Instantly",
-    "description": "Convert video to PNG images online for free. Extract lossless PNG frames from MP4, MOV, and WEBM videos in your browser. No server upload required.",
-    "h1": "Extract Lossless PNG Frames",
-    "h1Sub": "Online — Free",
-    "hero": "Convert video to PNG images online for free. Extract pixel-perfect, lossless PNG sequences from MP4, MOV, or WEBM videos. Keep transparency info intact, all without files leaving your computer.",
-    "keywords": "video to png, extract png frames, mp4 to png, lossless frame extractor"
+    "title": "Conversor de Vídeo para PNG Online Grátis — Extraia Quadros PNG Instantaneamente",
+    "description": "Converta vídeo em imagens PNG online gratuitamente. Extraia quadros PNG sem perdas de vídeos MP4, MOV e WEBM no seu navegador. Nenhum upload para servidor necessário.",
+    "h1": "Extraia Quadros PNG Sem Perdas",
+    "h1Sub": "Online — Grátis",
+    "hero": "Converta vídeo em imagens PNG online gratuitamente. Extraia sequências PNG perfeitas e sem perdas de vídeos MP4, MOV ou WEBM. Preserve informações de transparência intactas, tudo sem que os arquivos saiam do seu computador.",
+    "keywords": "vídeo para png, extrair quadros png, mp4 para png, extrator de quadros sem perdas"
   },
   "screenshotVideo": {
-    "title": "Screenshot from Video Online — Grab Any Frame for Free",
-    "description": "Take a screenshot from any video frame online for free. Capture the exact moment you need as a high-quality JPG or PNG. No server upload required.",
-    "h1": "Screenshot from Video",
-    "h1Sub": "Grab Any Frame Free",
-    "hero": "Take a screenshot from MP4, MOV, and WEBM videos online for free. Extract the exact frame you need in full native resolution. No server uploads, no watermarks, completely private.",
-    "keywords": "screenshot from video, video frame grabber, extract still from video, video frame capture"
+    "title": "Captura de Tela de Vídeo Online — Capture Qualquer Quadro Grátis",
+    "description": "Tire uma captura de tela de qualquer quadro de vídeo online gratuitamente. Capture o momento exato que você precisa como JPG ou PNG de alta qualidade. Nenhum upload para servidor necessário.",
+    "h1": "Captura de Tela de Vídeo",
+    "h1Sub": "Capture Qualquer Quadro Grátis",
+    "hero": "Tire capturas de tela de vídeos MP4, MOV e WEBM online gratuitamente. Extraia o quadro exato que você precisa na resolução nativa completa. Sem uploads para servidor, sem marcas d'água, totalmente privado.",
+    "keywords": "captura de tela de vídeo, capturador de quadros de vídeo, extrair imagem parada de vídeo, captura de quadro de vídeo"
+  },
+  "videoToWebp": {
+    "title": "Conversor de Vídeo para WebP Online Grátis — Extraia Quadros WebP Instantaneamente",
+    "description": "Converta vídeo em imagens WebP online gratuitamente. Extraia quadros WebP de alta qualidade com transparência de vídeos MP4, MOV e WEBM no seu navegador. Nenhum upload para servidor necessário.",
+    "h1": "Conversor de Vídeo para WebP",
+    "h1Sub": "Extraia Quadros WebP Grátis",
+    "hero": "Converta vídeo em imagens WebP online gratuitamente. Extraia quadros WebP modernos e eficientes com suporte a transparência de vídeos MP4, MOV ou WEBM. Menores que JPG/PNG, tudo sem que os arquivos saiam do seu computador.",
+    "keywords": "vídeo para webp, extrair quadros webp, mp4 para webp, extrator de quadros webp, conversor de vídeo para webp"
   },
   "imagesToVideo": {
-    "title": "Images to Video Online — Create WebM from JPG/PNG Sequences",
-    "description": "Convert image sequences to video online for free. Create WebM video from JPG or PNG frames in your browser. No server upload required.",
-    "h1": "Images to Video",
-    "h1Sub": "Create Video from Image Sequences",
-    "hero": "Convert a sequence of JPG or PNG images into a smooth WebM video directly in your browser. No server upload, no watermarks.",
-    "keywords": "images to video, image sequence to video, jpg to video, png to video"
+    "title": "Imagens para Vídeo Online — Crie WebM a partir de Sequências JPG/PNG",
+    "description": "Converta sequências de imagens em vídeo online gratuitamente. Crie vídeos WebP a partir de quadros JPG ou PNG no seu navegador. Nenhum upload para servidor necessário.",
+    "h1": "Imagens para Vídeo",
+    "h1Sub": "Crie Vídeo a partir de Sequências de Imagens",
+    "hero": "Converta uma sequência de imagens JPG ou PNG em um vídeo WebM suave diretamente no seu navegador. Sem upload para servidor, sem marcas d'água.",
+    "keywords": "imagens para vídeo, sequência de imagens para vídeo, jpg para vídeo, png para vídeo"
   },
   "footer": {
     "tagline": "Extrator de quadros de vídeo gratuito baseado no navegador. Converta vídeos MP4, MOV e WEBM em sequências de imagens JPG/PNG — sem upload para servidor, processado localmente no seu navegador.",

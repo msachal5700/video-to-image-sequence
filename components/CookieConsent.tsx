@@ -16,6 +16,8 @@ const CookieConsent: React.FC = () => {
   const handleAccept = (type: 'all' | 'essential') => {
     localStorage.setItem('cookie_consent_accepted', type);
     setVisible(false);
+    // Notify ad components that consent may have changed
+    window.dispatchEvent(new Event('cookieConsentChange'));
   };
 
   if (!visible) return null;

@@ -18,7 +18,7 @@ const ExtractFramesOnline: React.FC = () => {
       "keywords": ["extract frames from video", "video to image sequence", "online frame extractor", "MP4 to JPG"],
       "datePublished": "2026-05-24",
       "dateModified": "2026-05-24",
-      "author": { "@type": "Organization", "name": "Video to Image Sequence Online" },
+      "author": { "@type": "Person", "name": "Muhammad Sachal", "url": "https://www.linkedin.com/in/sachalspeaks/", "image": "https://www.videotoimagesequence.online/muhammad-sachal.jpg" },
       "publisher": { "@type": "Organization", "name": "Video to Image Sequence Online", "logo": { "@type": "ImageObject", "url": "https://www.videotoimagesequence.online/og-image.png" } },
       "image": "https://www.videotoimagesequence.online/og-image.png"
     });

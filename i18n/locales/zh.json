@@ -12,7 +12,7 @@
     "localProcessing": "本地浏览器处理",
     "downloadZip": "下载 ZIP",
     "advertisement": "广告",
-    "extractFrames": "提取帧",
+    "extractFrames": "立即提取帧",
     "convertAnother": "转换另一个",
     "processing": "正在提取帧...",
     "zipping": "正在创建 ZIP 压缩包...",
@@ -23,30 +23,47 @@
     "framesExtracted": "已成功从视频中提取 {{count}} 帧。",
     "processed": "已处理",
     "skipAd": "跳过广告",
-    "skipIn": "{{seconds}} 秒后跳过"
+    "skipIn": "{{seconds}} 秒后跳过",
+    "convertTitle": "将视频转换为图像序列",
+    "convertSub": "将每一帧提取为高分辨率 PNG 或 JPG 图像",
+    "noServerUploads": "100% 私密 · 基于浏览器",
+    "noServerUploadsDesc": "您的视频文件永远不会离开您的电脑。所有帧提取都在本地的 WebAssembly 浏览器流水线中完成。",
+    "downloadZipTitle": "即时 ZIP 下载",
+    "downloadZipDesc": "所有提取的帧图像都会归档为一个压缩的 ZIP 文件，支持一键快速下载。",
+    "secureTitle": "无限制 · 零成本",
+    "secureDesc": "永久免费，无文件大小限制、无水印、无需注册账户。",
+    "clear": "清除选择",
+    "copyRawError": "复制错误详情",
+    "cancelQueue": "取消队列",
+    "downloadAllZips": "下载全部 ZIP",
+    "loadMore": "加载更多帧",
+    "showingFrames": "正在显示 {{showing}} / {{total}} 帧",
+    "showOnly200": "正在显示前 200 帧（共 {{count}} 帧）。所有帧均已保存在 ZIP 文件中。",
+    "tipPng": "提示：PNG 格式保留无损色彩深度和 Alpha 透明通道，非常适合视频编辑和视觉特效工作流程。"
   },
   "dropzone": {
     "drop": "将视频拖放到这里",
     "browse": "或点击浏览",
-    "support": "支持 MP4、MOV、WEBM · 大文件取决于您的设备和浏览器"
+    "support": "支持 MP4、MOV、WEBM · 大文件取决于您的设备和浏览器 · 支持拖放多个文件进行批量处理"
   },
   "controls": {
-    "frameRate": "帧率 (FPS)",
+    "outputFormat": "输出图像格式",
+    "frameRate": "输出帧率 (FPS)",
     "format": "输出格式",
     "quality": "JPG 质量",
     "estimatedFrames": "预计 {{count}} 帧",
     "highFrameWarning": "警告：{{count}}+ 帧可能耗尽浏览器内存。请考虑降低 FPS。",
-    "configuration": "Configuration",
-    "fpsSuffix": "Frames Per Second",
-    "formatJpgDesc": "Smaller file size, recommended for most uses",
-    "formatPngDesc": "Lossless quality, best for VFX and game dev",
-    "estimatedOutput": "Estimated Output:",
-    "estimatedImages": "IMAGES",
-    "mobileSlowWarning": "{{count}} frames may be slow on mobile. Consider lowering FPS.",
-    "readyTitle": "Ready to Extract?",
-    "readyDesc": "Click below to process this video entirely in your browser. All frames will be extracted locally and combined into a single ZIP file download.",
-    "extractFrames": "Extract Frames Now",
-    "processing": "Processing..."
+    "configuration": "配置",
+    "fpsSuffix": "帧每秒",
+    "formatJpgDesc": "文件更小，适用于大多数场景",
+    "formatPngDesc": "无损质量，最适合视觉特效和游戏开发",
+    "estimatedOutput": "预计输出：",
+    "estimatedImages": "张图像",
+    "mobileSlowWarning": "{{count}} 帧在移动设备上可能较慢。请考虑降低 FPS。",
+    "readyTitle": "准备提取？",
+    "readyDesc": "点击下方按钮，完全在浏览器中处理此视频。所有帧将在本地提取并合并为一个 ZIP 文件下载。",
+    "extractFrames": "立即提取帧",
+    "processing": "处理中..."
   },
   "badges": {
     "private": "🔒 100% 私密（本地）",
@@ -56,293 +73,287 @@
     "free": "🆓 永久免费"
   },
   "home": {
-    "title": "视频转图像序列在线转换器 — 免费视频帧提取工具",
-    "description": "免费的基于浏览器的视频帧提取器。将 MP4、MOV 和 WEBM 视频转换为 JPG 或 PNG 序列。无需上传服务器。",
-    "h1": "视频转图像序列",
-    "h1Sub": "在线转换器",
-    "hero": "Video to Image Sequence Online 是一款免费的基于浏览器的工具，可将 MP4、MOV 和 WEBM 视频的每一帧提取为高质量的 JPG 或 PNG 图像。由于所有处理都在您的浏览器中本地进行，您的视频永远不会上传到服务器。",
-    "keywords": "视频转图像序列, 免费在线提取视频帧, MP4转JPG帧, 视频帧提取器, 视频转PNG序列",
-    "badge": "100% 免费 · 无需上传 · 本地处理",
+    "title": "免费视频帧提取器 — 在线从视频中提取帧",
+    "description": "免费的基于浏览器的视频帧提取器。将 MP4、MOV、WEBM 视频提取为 JPG、PNG 或 WebP 帧，支持毫秒级精度。无需上传服务器 — 100% 私密、批量处理、ZIP 下载、自定义 FPS。",
+    "h1": "免费视频帧提取器",
+    "h1Sub": "从视频中提取帧",
+    "hero": "将 MP4、MOV 和 WEBM 视频的每一帧提取为高质量的 JPG、PNG 或 WebP 图像。可选择精确时间戳、自定义 FPS（1–60）或批量提取数千帧用于 AI 数据集。所有处理都在浏览器中本地运行 — 无需上传、无需账户、无任何限制。",
+    "keywords": "视频帧提取器, 从视频中提取帧, 免费视频帧提取器, 视频转图像序列, 视频帧抓取器, 在线提取帧, 视频转JPG序列, 视频转PNG序列, 视频转WebP, 精确时间戳提取",
+    "badge": "免费 · 无需上传 · 本地浏览器处理",
     "badges": {
-      "noUpload": "✅ No Server Upload Required",
-      "private": "🔒 100% Private",
-      "fast": "⚡ Fast local processing · No upload",
-      "zip": "📦 ZIP Download",
-      "batch": "🎬 Batch Processing",
-      "fps": "🎨 Custom FPS",
-      "free": "🆓 Free Forever"
+      "exactTimestamp": "🎯 精确时间戳（毫秒）",
+      "webp": "🌐 WebP + JPG + PNG",
+      "fps": "🎨 自定义 FPS 1–60",
+      "zip": "📦 ZIP 下载",
+      "batch": "🎬 批量处理",
+      "ai": "🤖 AI 数据集就绪",
+      "private": "🔒 100% 私密"
     },
     "tabs": {
       "toImages": "视频转图片",
       "toVideo": "图片转视频"
     },
-    "howWorksTitle": "How This Video to Image Sequence Tool Works",
-    "howWorksDesc": "This tool extracts individual frames from your video and converts them into downloadable image files. You can upload a video, choose the output format, and download frames as JPG or PNG images.",
-    "simpleProcess": "The process is simple:",
+    "howWorksTitle": "本视频帧提取器的工作原理",
+    "howWorksDesc": "上传视频，选择提取模式 — 精确时间戳、自定义 FPS 或提取全部帧 — 选择输出格式（JPG、PNG、WebP），即可立即下载帧。处理完全在浏览器中进行。",
+    "simpleProcess": "三步即可完成：",
     "steps": [
-      "Upload your video file.",
-      "Select the image format.",
-      "Choose how many frames you want to extract.",
-      "Download the extracted image sequence."
+      "加载您的视频（MP4、MOV、WEBM）。",
+      "选择提取模式：精确时间、FPS 或全部帧。",
+      "选择 JPG、PNG 或 WebP 并下载。"
     ],
-    "useCases": "This is useful for animation, video editing, AI dataset creation, thumbnails, motion analysis, and frame-by-frame review.",
-    "formatsTitle": "Supported Video Formats",
-    "formatsDesc1": "Best supported formats: MP4, MOV, and WEBM.",
-    "formatsDesc2": "Other formats such as AVI or MKV may work only when your browser supports the video codec.",
-    "outputsTitle": "Supported Image Output Formats",
-    "outputsDesc": "You can extract frames as:",
+    "useCases": "非常适合 AI 训练数据集、Blender/VFX 流水线、YouTube 缩略图、动画参考和逐帧分析。",
+    "formatsTitle": "支持的视频格式",
+    "formatsDesc1": "最佳支持：MP4、MOV 和 WEBM（H.264、H.265、VP8、VP9、AV1，取决于浏览器支持）。",
+    "formatsDesc2": "AVI、MKV、FLV、M4V、OGV、3GP 在浏览器支持相应编解码器时可能可用。为获得最佳效果，请使用 MP4 H.264。",
+    "outputsTitle": "支持的图像输出格式",
+    "outputsDesc": "支持三种格式的帧提取：",
     "jpgTitle": "JPG/JPEG",
-    "jpgDesc": "best for smaller file size and general use.",
+    "jpgDesc": "文件最小，兼容性最好。最适合缩略图、社交媒体、快速分享。",
     "pngTitle": "PNG",
-    "pngDesc": "best for high-quality frames, transparent graphics, design work, and editing.",
-    "outputChoose": "Choose JPG if you want faster downloads. Choose PNG if image quality matters more.",
-    "whoUsesTitle": "Who Can Use This Tool?",
-    "whoUsesDesc": "This tool is useful for:",
+    "pngDesc": "无损格式，保留透明度。最适合视觉特效、游戏开发、合成、机器学习数据集。",
+    "webpTitle": "WebP",
+    "webpDesc": "现代格式 — 比 JPG 小 25–35%，支持透明度。最适合网页展示。",
+    "outputChoose": "追求文件大小选 JPG，追求无损/透明通道选 PNG，追求现代网页性能选 WebP。",
+    "whoUsesTitle": "谁在使用此帧提取器？",
+    "whoUsesDesc": "专为需要帧级控制的工作流程而构建：",
     "whoUsesList": [
-      "Video editors who need frame-by-frame screenshots.",
-      "Animators who need image sequences from video clips.",
-      "AI developers who need video frames for datasets.",
-      "YouTubers who want thumbnails from videos.",
-      "Designers who want still images from motion footage.",
-      "Students who need visual frames for projects.",
-      "Researchers who analyze motion or visual changes in videos."
+      "构建计算机视觉训练数据集的 AI/ML 工程师",
+      "视觉特效艺术家与合成师（Blender、Nuke、After Effects、DaVinci）",
+      "创建精灵表和纹理图集的游戏开发者",
+      "挑选完美缩略图帧的 YouTubers 和创作者",
+      "转描或研究动作参考的动画师",
+      "分析运动、医学影像、课程录制的研究人员"
     ],
-    "privacyTitle": "Privacy and File Safety",
-    "privacyDesc1": "Your video is processed entirely inside your browser. Because we use client-side JavaScript APIs, your files are never uploaded to any server or stored on the cloud. They stay 100% local on your computer.",
-    "privacyDesc2": "We do not ask for signups, accounts, or personal information. You get maximum privacy and fast local processing speed since no time is wasted uploading or downloading large video files.",
-    "privacyWarn": "Your files are completely private. This tool is safe to use for sensitive, private, or confidential videos because zero data leaves your local device.",
-    "howItWorksTitle": "How It Works",
-    "howItWorksSub": "3 simple steps — no signup, no install, no upload",
+    "privacyTitle": "本地处理 = 完全隐私",
+    "privacyDesc1": "您的视频永远不会离开您的设备。无需上传服务器、无需云端处理、无需账户。帧通过 WebCodecs/Canvas API 在浏览器中完全解码和编码。",
+    "privacyDesc2": "这也意味着我们没有文件大小限制 — 仅受您的设备内存和浏览器限制。处理大型 4K 素材时请关闭其他标签页。",
+    "privacyWarn": "适用于机密、专有或敏感素材。零数据离开您的设备。",
+    "howItWorksTitle": "提取模式",
+    "howItWorksSub": "三种方式获取您需要的帧",
     "howSteps": [
       {
-        "title": "Drop Your Video",
-        "desc": "Drag and drop your MP4, MOV, or WEBM file. Drop multiple files for batch processing. Large files depend on your device memory and browser."
+        "title": "精确时间戳",
+        "desc": "输入 HH:MM:SS.mmm 或逐帧拖动以捕获精确的单帧。最适合缩略图和关键时刻。"
       },
       {
-        "title": "Choose Settings",
-        "desc": "Select your frame rate (FPS) and output format (JPG or PNG). Customize exactly how many frames to extract."
+        "title": "自定义 FPS",
+        "desc": "支持 1、5、10、12、15、24、25、30 或 60 FPS 提取。采样长视频或获取每一帧以生成平滑序列。"
       },
       {
-        "title": "Download Frames",
-        "desc": "Browse the frame grid, download individual frames, or get all frames as a ZIP archive."
+        "title": "全部帧",
+        "desc": "以视频原始 FPS 进行完整解码。获取最大帧数，适用于 AI 数据集、VFX 素材或完整图像序列。"
       }
     ],
-    "whoUsesOnlineTitle": "Who Uses Video to Image Sequence Online?",
-    "whoUsesOnlineSub": "Used by creators, developers, and professionals worldwide",
+    "whoUsesOnlineTitle": "帧提取赋能的工作流程",
+    "whoUsesOnlineSub": "真实应用场景 — 不仅仅是目标用户",
     "whoUsesItems": [
       {
-        "icon": "🎬",
-        "title": "Video Editors & YouTubers",
-        "desc": "Extract the perfect still frame for video thumbnails, title cards, or social media posts from any clip in seconds."
-      },
-      {
-        "icon": "🎮",
-        "title": "Game Developers & Animators",
-        "desc": "Convert sprite sheet videos or animation previews into individual PNG frames for Unity, Godot, or Blender."
-      },
-      {
         "icon": "🤖",
-        "title": "AI & ML Developers",
-        "desc": "Generate large labeled image datasets from video footage for training computer vision and machine learning models."
+        "title": "AI 数据集创建",
+        "desc": "以受控 FPS 提取数千帧用于 YOLO、分类、分割训练。ZIP 下载可直接用于标注流水线。"
       },
       {
         "icon": "🎨",
-        "title": "VFX & Motion Artists",
-        "desc": "Import extracted frame sequences into After Effects, DaVinci Resolve, or Nuke for frame-by-frame compositing."
+        "title": "Blender 与 VFX 流水线",
+        "desc": "导出带 Alpha 通道的 PNG 序列用于合成、摄像机跟踪、转描。可直接导入 Blender、Nuke、After Effects。"
       },
       {
-        "icon": "📸",
-        "title": "Photographers",
-        "desc": "Capture split-second moments from slow-motion or high-speed video that would be impossible to photograph directly."
+        "icon": "🎮",
+        "title": "游戏开发与精灵图",
+        "desc": "将精灵表视频转换为单独帧。PNG/WebP 支持透明度，适用于 Unity、Godot、Unreal 纹理图集。"
       },
       {
-        "icon": "🎓",
-        "title": "Educators & Researchers",
-        "desc": "Extract frames for academic analysis, presentation slides, medical imaging review, or research documentation."
+        "icon": "📺",
+        "title": "YouTube 缩略图",
+        "desc": "精确定位到最佳瞬间，以全 4K 分辨率捕获。PNG 用于编辑，WebP 用于快速上传。"
+      },
+      {
+        "icon": "📚",
+        "title": "课程与研究",
+        "desc": "以 1 FPS 从课程录像中提取幻灯片。构建可搜索的图像索引用于学术复习。"
+      },
+      {
+        "icon": "🎞️",
+        "title": "动画参考",
+        "desc": "逐帧分解动作用于转描、时间研究、姿态库。60 FPS 实现流畅分析。"
       }
     ],
-    "compareTitle": "How We Compare to Other Tools",
-    "compareSub": "Video to Image Sequence Online vs other online converters",
+    "compareTitle": "与云端转换器和桌面工具对比",
+    "compareSub": "基于浏览器的提取在隐私和控制方面的优势",
     "compareHeaders": [
-      "Feature",
-      "www.videotoimagesequence.online ✦",
-      "Cloud Converters",
-      "Others"
+      "功能",
+      "本工具（浏览器）",
+      "云端转换器",
+      "FFmpeg / 命令行"
     ],
     "compareRows": [
       [
-        "File size handling",
-        "✅ No server upload required; limited by browser/device RAM",
-        "❌ 200MB",
-        "❌ 100-200MB"
+        "隐私",
+        "✅ 100% 本地 — 无需上传",
+        "❌ 需要上传",
+        "✅ 本地"
       ],
       [
-        "Server upload required",
-        "✅ Never",
-        "❌ Always",
-        "❌ Always"
+        "精确时间戳（毫秒）",
+        "✅ 可视化拖动 + 输入框",
+        "⚠️ 极少 / 仅限 API",
+        "✅ 复杂语法"
       ],
       [
-        "100% Private",
-        "✅ Yes",
-        "❌ No",
-        "❌ No"
+        "逐帧步进",
+        "✅ UI 按钮",
+        "❌ 不支持",
+        "✅ 手动定位"
       ],
       [
-        "Individual frame preview",
-        "✅ Full grid",
-        "✅ Yes",
-        "⚠️ Limited"
+        "WebP 输出",
+        "✅ JPG + PNG + WebP",
+        "⚠️ 仅 JPG/PNG",
+        "✅ 手动配置"
       ],
       [
-        "Per-frame download",
-        "✅ Yes",
-        "✅ Yes",
-        "⚠️ Some"
+        "批量多视频",
+        "✅ 队列 + 逐个 ZIP",
+        "❌ 一次一个",
+        "✅ 可编写脚本"
       ],
       [
-        "ZIP download",
-        "✅ Yes",
-        "✅ Yes",
-        "⚠️ Some"
+        "AI 数据集 FPS 采样",
+        "✅ 1–60 FPS 预设",
+        "❌ 固定选项",
+        "✅ 手动计算"
       ],
       [
-        "Custom FPS control",
-        "✅ Yes",
-        "✅ Yes",
-        "⚠️ Some"
+        "文件大小限制",
+        "✅ 仅受设备内存限制",
+        "❌ 100–500 MB",
+        "✅ 无限制"
       ],
       [
-        "Batch processing",
-        "✅ Yes",
-        "❌ No",
-        "❌ No"
+        "安装 / 设置",
+        "✅ 零安装 — 打开浏览器即可",
+        "✅ 零安装",
+        "❌ 需安装 + 配置"
       ],
       [
-        "JPG + PNG output",
-        "✅ Both",
-        "✅ Both",
-        "⚠️ Varies"
-      ],
-      [
-        "PWA / Installable",
-        "✅ Yes",
-        "❌ No",
-        "❌ No"
-      ],
-      [
-        "Free forever",
-        "✅ 100%",
-        "✅ Free",
-        "⚠️ Freemium"
-      ],
-      [
-        "No account needed",
-        "✅ None",
-        "✅ None",
-        "⚠️ Some"
+        "费用",
+        "✅ 永久免费",
+        "⚠️ 免费增值模式",
+        "✅ 免费（开源）"
       ]
     ],
-    "moreToolsTitle": "More Free Video Tools",
+    "moreToolsTitle": "专业帧提取工具",
     "moreTools": [
       {
-        "title": "MP4 to JPG Converter",
-        "desc": "Extract JPG frames from MP4 video in your browser."
+        "title": "精确时间戳提取器",
+        "desc": "以 HH:MM:SS.mmm 捕获精确单帧，支持逐帧控制。最适合缩略图和关键帧。"
       },
       {
-        "title": "Screenshot from Video",
-        "desc": "Capture video frames in full-resolution locally."
+        "title": "视频截图工具",
+        "desc": "以可视化网格批量提取帧。浏览、预览并下载单个帧。"
       },
       {
-        "title": "Video to PNG Frames",
-        "desc": "Extract lossless PNG frames for VFX, game dev, and ML datasets."
+        "title": "AI 社交媒体帧选择器",
+        "desc": "为 10 个平台自动评分帧（YouTube、Instagram、TikTok、LinkedIn…）。即刻选出最佳帧。"
       }
     ],
-    "relatedTitle": "Related Video Frame Tools and Guides",
-    "relatedSub": "Explore more tools and guides for video frame extraction",
+    "relatedTitle": "格式专用转换器与指南",
+    "relatedSub": "针对您的输出格式和工作流程的专用工具",
     "relatedItems": [
       {
-        "title": "Extract Frames from Video",
-        "desc": "Free online tool to extract individual frames from MP4, MOV, and WEBM videos as JPG or PNG images."
+        "title": "MP4 转 JPG 转换器",
+        "desc": "从 MP4 快速提取 JPG 序列。文件最小，兼容性最好。"
       },
       {
-        "title": "MP4 to Image Sequence Guide",
-        "desc": "Learn how to convert MP4 videos to image sequences quickly and efficiently."
+        "title": "视频转 PNG 转换器",
+        "desc": "无损 PNG 帧带 Alpha 通道。最适合视觉特效、游戏开发、机器学习数据集。"
       },
       {
-        "title": "Video to PNG Sequence",
-        "desc": "Extract lossless PNG frames perfect for high-quality design work and VFX compositing."
+        "title": "视频转 WebP 转换器",
+        "desc": "现代 WebP 帧 — 比 JPG 小 25–35%，支持透明度。"
       },
       {
-        "title": "Image Sequence to Video",
-        "desc": "Combine extracted image sequences back into a video file with custom frame rates."
+        "title": "MP4 转图像序列指南",
+        "desc": "完整指南：FPS 设置、格式选择、Blender 导入、AI 数据集准备。"
       },
       {
-        "title": "Screenshot from Video",
-        "desc": "Capture the perfect frame from your video as a high-resolution screenshot."
+        "title": "精确帧提取指南",
+        "desc": "如何捕获毫秒级精确帧用于缩略图和分析。"
       },
       {
-        "title": "Video to JPG Converter",
-        "desc": "Convert video files to JPG image sequences for fast downloads and easy sharing."
+        "title": "图片转视频转换器",
+        "desc": "反向工作流程：将 JPG/PNG/WebP 序列重新合成为 WebM 视频。"
       }
     ],
     "faq": {
       "title": "常见问题",
-      "sub": "关于视频转图像序列在线转换器的所有常见问题",
+      "sub": "关于在浏览器中从视频提取帧的所有问题",
       "items": [
         {
-          "q": "Is there a file size limit?",
-          "a": "No server upload required. Processing happens in your browser, so large files depend on your device memory, browser performance, video length, and codec support."
+          "q": "如何从视频中提取帧？",
+          "a": "上传视频，选择提取模式（精确时间戳、自定义 FPS 或全部帧），选择输出格式（JPG、PNG、WebP），然后点击提取。帧会以网格形式展示 — 可单独下载或打包为 ZIP 下载。"
         },
         {
-          "q": "What video formats are supported?",
-          "a": "MP4, MOV, and WEBM — the three most common formats used by phones, cameras, and screen recorders."
+          "q": "每秒应该提取多少帧？",
+          "a": "取决于您的目标：1 FPS 用于幻灯片捕获，5–10 FPS 用于运动采样，24–30 FPS 用于平滑序列/VFX，60 FPS 用于高速分析。AI 数据集通常使用 1–5 FPS。"
         },
         {
-          "q": "Should I extract frames as JPG or PNG?",
-          "a": "JPG is recommended for most uses — smaller file sizes, faster downloads, great quality. Choose PNG if you need lossless frames for VFX compositing, game development, or machine learning datasets where pixel-perfect accuracy matters."
+          "q": "FPS 和帧间隔有什么区别？",
+          "a": "FPS = 每秒提取的帧数。间隔 = 每隔 N 帧提取一帧（例如间隔 30 = 每 30 帧提取 1 帧）。本工具使用 FPS 以实现直观控制。"
         },
         {
-          "q": "Are my videos kept private?",
-          "a": "100% private. Your video never leaves your device. Everything runs locally in your browser using JavaScript. Nothing is sent to any server."
+          "q": "能否提取视频中的每一帧？",
+           "a": "可以。选择最高 FPS 预设（60）或使用提取器页面上的「全部帧」模式。10 秒 30 FPS 的视频可产生约 300 帧。大量输出将以 ZIP 方式下载。"
         },
         {
-          "q": "Can I download all frames at once?",
-          "a": "Yes. After extraction, click \"Download All as ZIP\" to get every frame packed into a single ZIP file with one click."
+          "q": "能否提取精确时间戳的帧？",
+          "a": "可以。使用精确时间戳提取器：输入 HH:MM:SS.mmm（如 00:01:23.450），或使用上一帧/下一帧按钮逐帧拖动。以完整原始分辨率捕获。"
         },
         {
-          "q": "How do I control how many frames are extracted?",
-          "a": "Use the FPS selector before extracting. Choose every frame for maximum quality, or pick 1, 5, 10, 24, or 30 FPS depending on your needs."
+          "q": "视频帧提取是无损的吗？",
+          "a": "PNG 和 WebP（无损模式）是无损的。JPG 是有损的但质量很高（92%）。对于 VFX/机器学习，使用 PNG。对于网页/缩略图，WebP 在质量和大小之间取得平衡。"
         },
         {
-          "q": "Can I extract frames from multiple videos at once?",
-          "a": "Yes. Just drop multiple video files at once and our batch mode will process them automatically one by one."
+          "q": "提取视频帧应选 JPG、PNG 还是 WebP？",
+          "a": "JPG：最小，兼容性最好。PNG：无损，带 Alpha 通道。WebP：比 JPG 小 25–35%，支持 Alpha 通道，现代浏览器支持。网页展示推荐 WebP。"
         },
         {
-          "q": "Can I download individual frames?",
-          "a": "Yes. Every extracted frame appears in a visual grid. Hover over any frame and click the download button to save that specific frame."
+          "q": "基于浏览器的提取需要多少内存？",
+          "a": "1080p 24–30 FPS：4–8 GB。4K 或高 FPS：8–16 GB。如果标签页崩溃，请降低 FPS、关闭其他标签页或将视频分成较短的片段。"
         },
         {
-          "q": "What is the best free alternative for extracting video frames?",
-          "a": "Video to Image Sequence Online is the best free alternative — it requires no server upload (processing happens locally in your browser, so large files depend on your device memory, browser performance, video length, and codec support), batch processing, ZIP download, individual frame downloads, and custom FPS control. All completely free."
+          "q": "视频解码失败怎么办？",
+          "a": "可能是不支持的编解码器（如 ProRes、无硬件解码的 AV1）。使用 HandBrake（免费）重新编码为 MP4 H.264 以获得最佳兼容性。"
         },
         {
-          "q": "Do I need to create an account or install anything?",
-          "a": "No. Just open the website and start converting. No account, no download, no installation. Works on any device with a modern browser."
+          "q": "支持哪些视频编解码器？",
+          "a": "MP4（H.264、H.265）、MOV（H.264、ProRes*）、WEBM（VP8、VP9、AV1*）。*取决于浏览器硬件支持。Safari/iOS 对 H.265/AV1 的支持有限。"
+        },
+        {
+          "q": "能否从 4K 视频中提取帧？",
+          "a": "可以，但 4K 帧占用的内存是 1080p 的 4 倍。请使用较低的 FPS（1–5）并确保 16 GB 以上内存。预览时帧会缩小到 1920px；下载为全分辨率。"
+        },
+        {
+          "q": "如何为 Blender 创建图像序列？",
+          "a": "提取为 PNG（无损、带 Alpha），命名模式为 frame_000001.png。在 Blender 中：添加 → 图像序列，选择文件夹。将帧率设置为与提取 FPS 匹配。"
+        },
+        {
+          "q": "如何为计算机视觉数据集提取帧？",
+          "a": "分类/检测使用 1–5 FPS，跟踪使用更高 FPS。导出 PNG 以获得像素级精确的标注。ZIP 下载可与标注工具（CVAT、LabelImg、Roboflow）配合使用。"
         }
       ]
     }
   },
   "mp4ToJpg": {
-    "title": "MP4 转 JPG 在线免费转换器 — 从 MP4 提取 JPG 帧",
-    "description": "免费在线将 MP4 视频转换为 JPG 图像。在浏览器中本地提取每一帧为高质量 JPG。无需上传服务器。",
+    "title": "MP4 转帧 — 免费将 MP4 转换为 JPG 图像序列",
+    "description": "免费将任意 MP4 转换为带编号的 JPG 图像序列。按选定 FPS 提取所有帧并下载为一个 ZIP。无需上传、无需注册、无水印。",
     "h1": "MP4 转 JPG 转换器",
     "h1Sub": "在线免费 — 本地浏览器处理",
     "hero": "免费在线将 MP4 视频转换为 JPG 图像。在浏览器中本地将每一帧提取为高质量 JPG 序列。由于文件在本地处理，您的视频数据永远不会离开您的设备。",
     "keywords": "MP4转JPG, MP4转JPEG转换器, 从MP4提取JPG, MP4帧提取器",
     "privacy": {
       "title": "100% 私密的浏览器端帧提取",
-      "body": "与将视频文件上传到远程云服务器的在线工具不同，我们的 MP4 转 JPG 转换器利用 HTML5 Web API 直接在您的网络浏览器中解码视频。您的文件永远不会通过网络传输，让您的敏感或专有素材完全安全。"
+      "body": "与将视频文件上传到远程云服务器的在线工具不同，我们的 MP4 转 JPG 转换器利用 HTML5 Web API 直接在您的网络浏览器中解码视频。您的视频在本地解析，图像保存在浏览器环境中。您的文件永远不会通过网络传输，让您的敏感或专有素材完全安全。"
     },
     "howTo": {
       "title": "如何在线将 MP4 转换为 JPG",
@@ -352,7 +363,7 @@
           "body": "将您的 MP4 文件拖放到上方的上传区域。"
         },
         {
-          "title": "配置输出帧率 (FPS)",
+          "title": "配置输出帧率（FPS）",
           "body": "选择您的提取频率。选择 30 FPS 每秒捕获 30 帧，或选择 1 FPS 每秒提取一帧。"
         },
         {
@@ -361,7 +372,7 @@
         },
         {
           "title": "提取帧",
-          "body": "点击 \"提取帧\" 来解码视频帧序列。"
+          "body": "点击 \"立即提取帧\" 来解码视频帧序列。"
         },
         {
           "title": "保存输出",
@@ -396,36 +407,44 @@
     }
   },
   "extractFrames": {
-    "title": "Extract Frames from Video Online Free — JPG & PNG Frame Extractor",
-    "description": "Extract frames from video online for free. Convert MP4, MOV, and WEBM videos to JPG or PNG sequences in your browser. No server upload required.",
-    "h1": "Extract Frames from Video",
-    "h1Sub": "Free Online Frame Extractor",
-    "hero": "Extract every frame from MP4, MOV, and WEBM videos as JPG or PNG images for free. All processing happens locally in your browser — your files are never uploaded.",
-    "keywords": "extract frames from video, video frame extractor, extract frames online, video to images"
+    "title": "在线免费从视频中提取帧 — JPG 与 PNG 帧提取器",
+    "description": "免费在线从视频中提取帧。在浏览器中将 MP4、MOV、WEBM 视频转换为 JPG 或 PNG 序列。无需上传服务器。",
+    "h1": "从视频中提取帧",
+    "h1Sub": "免费在线帧提取器",
+    "hero": "免费将 MP4、MOV 和 WEBM 视频的每一帧提取为 JPG 或 PNG 图像。所有处理都在浏览器中本地进行 — 您的文件永远不会被上传。",
+    "keywords": "从视频中提取帧, 视频帧提取器, 在线提取帧, 视频转图像"
   },
   "videoToPng": {
-    "title": "Video to PNG Converter Online Free — Extract PNG Frames Instantly",
-    "description": "Convert video to PNG images online for free. Extract lossless PNG frames from MP4, MOV, and WEBM videos in your browser. No server upload required.",
-    "h1": "Extract Lossless PNG Frames",
-    "h1Sub": "Online — Free",
-    "hero": "Convert video to PNG images online for free. Extract pixel-perfect, lossless PNG sequences from MP4, MOV, or WEBM videos. Keep transparency info intact, all without files leaving your computer.",
-    "keywords": "video to png, extract png frames, mp4 to png, lossless frame extractor"
+    "title": "在线免费视频转 PNG 转换器 — 即时提取 PNG 帧",
+    "description": "免费在线将视频转换为 PNG 图像。在浏览器中从 MP4、MOV、WEBM 视频中提取无损 PNG 帧。无需上传服务器。",
+    "h1": "提取无损 PNG 帧",
+    "h1Sub": "在线 — 免费",
+    "hero": "免费在线将视频转换为 PNG 图像。从 MP4、MOV 或 WEBM 视频中提取像素完美、无损的 PNG 序列。完整保留透明度信息，文件永远不会离开您的电脑。",
+    "keywords": "视频转PNG, 提取PNG帧, MP4转PNG, 无损帧提取器"
   },
   "screenshotVideo": {
-    "title": "Screenshot from Video Online — Grab Any Frame for Free",
-    "description": "Take a screenshot from any video frame online for free. Capture the exact moment you need as a high-quality JPG or PNG. No server upload required.",
-    "h1": "Screenshot from Video",
-    "h1Sub": "Grab Any Frame Free",
-    "hero": "Take a screenshot from MP4, MOV, and WEBM videos online for free. Extract the exact frame you need in full native resolution. No server uploads, no watermarks, completely private.",
-    "keywords": "screenshot from video, video frame grabber, extract still from video, video frame capture"
+    "title": "在线视频截图 — 免费抓取任意帧",
+    "description": "免费在线从任意视频帧截图。以高质量 JPG 或 PNG 捕获您需要的精确瞬间。无需上传服务器。",
+    "h1": "视频截图",
+    "h1Sub": "免费抓取任意帧",
+    "hero": "免费在线从 MP4、MOV、WEBM 视频中截图。以完整原始分辨率提取您需要的精确帧。无需上传服务器、无水印、完全私密。",
+    "keywords": "视频截图, 视频帧抓取器, 从视频中提取静帧, 视频帧捕获"
+  },
+  "videoToWebp": {
+    "title": "在线免费视频转 WebP 转换器 — 即时提取 WebP 帧",
+    "description": "免费在线将视频转换为 WebP 图像。在浏览器中从 MP4、MOV、WEBM 视频中提取带透明度的高质量 WebP 帧。无需上传服务器。",
+    "h1": "视频转 WebP 转换器",
+    "h1Sub": "免费提取 WebP 帧",
+    "hero": "免费在线将视频转换为 WebP 图像。从 MP4、MOV 或 WEBM 视频中提取现代、高效的 WebP 帧，支持透明度。比 JPG/PNG 更小，文件永远不会离开您的电脑。",
+    "keywords": "视频转WebP, 提取WebP帧, MP4转WebP, WebP帧提取器, 视频转WebP转换器"
   },
   "imagesToVideo": {
-    "title": "Images to Video Online — Create WebM from JPG/PNG Sequences",
-    "description": "Convert image sequences to video online for free. Create WebM video from JPG or PNG frames in your browser. No server upload required.",
-    "h1": "Images to Video",
-    "h1Sub": "Create Video from Image Sequences",
-    "hero": "Convert a sequence of JPG or PNG images into a smooth WebM video directly in your browser. No server upload, no watermarks.",
-    "keywords": "images to video, image sequence to video, jpg to video, png to video"
+    "title": "在线图片转视频 — 从 JPG/PNG 序列创建 WebM",
+    "description": "免费在线将图像序列转换为视频。在浏览器中从 JPG 或 PNG 帧创建 WebM 视频。无需上传服务器。",
+    "h1": "图片转视频",
+    "h1Sub": "从图像序列创建视频",
+    "hero": "在浏览器中直接将 JPG 或 PNG 图像序列转换为流畅的 WebM 视频。无需上传服务器、无水印。",
+    "keywords": "图片转视频, 图像序列转视频, JPG转视频, PNG转视频"
   },
   "footer": {
     "tagline": "免费的基于浏览器的视频帧提取器。将 MP4、MOV 和 WEBM 视频转换为 JPG/PNG 图像序列 — 无需服务器上传，在您的浏览器中本地处理。",

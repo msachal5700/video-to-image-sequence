@@ -27,4 +27,4 @@ export type FrameRate = 1 | 5 | 10 | 12 | 15 | 24 | 25 | 30 | 60;
 
 export const SUPPORTED_FPS: FrameRate[] = [1, 5, 10, 12, 15, 24, 25, 30, 60];
 
-export type OutputFormat = 'jpg' | 'png';
+export type OutputFormat = 'jpg' | 'png' | 'webp';

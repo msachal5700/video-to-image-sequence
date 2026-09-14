@@ -12,20 +12,32 @@ const faqs = [
     a: 'Load your video above, choose your output format (JPG or PNG), choose your FPS settings, and click Extract. Your extracted frames will display in a grid and can be downloaded as a ZIP.'
   },
   {
-    q: 'Can I extract frames from an MP4 video?',
-    a: 'Yes. MP4 is highly recommended because it uses standard codecs that are natively decoded by your browser for optimal performance.'
+    q: 'How do I extract a frame at an exact timestamp from a video?',
+    a: 'Use our precise timestamp control panel. Play your video, pause at the exact moment you need, and click the "Capture Frame" button to extract that specific frame. The system supports millisecond-level precision for exact frame capture.'
+  },
+  {
+    q: 'Can I extract frames from a video for AI dataset training?',
+    a: 'Yes! Our tool is perfect for AI datasets. Extract hundreds or thousands of frames from MP4, MOV, or WEBM videos locally in your browser with custom FPS controls. Download all frames as a ZIP file for training machine learning models. Processing happens entirely in your browser, keeping your data private.'
+  },
+  {
+    q: 'What video formats support exact frame extraction with the highest quality?',
+    a: 'MP4, MOV, and WEBM formats are best supported with native browser codec decoding for optimal extraction quality. Other formats like AVI or MKV may work if your browser supports their specific codecs.'
+  },
+  {
+    q: 'How much system memory do I need for browser-based frame extraction?',
+    a: 'For smooth 1080p video extraction at standard FPS (24-30), you’ll need at least 4-8GB of RAM. For 4K video or higher FPS extraction, 8-16GB of RAM is recommended. If you encounter memory issues, try extracting at lower FPS rates or close other browser tabs.'
   },
   {
     q: 'What is a video frame extractor?',
-    a: 'A video frame extractor decodes video files and saves individual frame buffers as separate, downloadable image files.'
+    a: 'A video frame extractor decodes video files and saves individual frame buffers as separate, downloadable image files. It processes video streams locally in your browser using WebAssembly and Canvas APIs, keeping your data private while providing flexible frame rate control.'
   },
   {
     q: 'Is there a file size limit for frame extraction?',
-    a: 'No server upload required. Processing happens in your browser, so large files depend on your device memory, browser performance, video length, and codec support.'
+    a: 'No server upload required. Processing happens in your browser, so large files depend on your device memory, browser performance, video length, and codec support. Browser memory limits typically range from 1GB to 4GB for video processing.'
   },
   {
     q: 'Should I export frames as JPG or PNG?',
-    a: 'Use JPG for smaller file sizes and fast downloads. Use PNG if you require lossless quality or need to preserve transparency (alpha channel).'
+    a: 'Use JPG for smaller file sizes and fast downloads. Use PNG if you require lossless quality or need to preserve transparency (alpha channel) for compositing work in video editing or VFX pipelines.'
   }
 ];
 
@@ -44,13 +56,23 @@ const ExtractFramesFromVideo: React.FC = () => {
     const webAppSchema = {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Extract Frames from Video",
+      "name": "Free Video Frame Extractor — Extract Frames from Video",
       "url": "https://www.videotoimagesequence.online/extract-frames-from-video",
       "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Extract frames from video online for free. Convert MP4, MOV, and WEBM videos to JPG or PNG sequences in your browser. No server upload required.",
+      "description": "Free browser-based video frame extractor — extract every frame from MP4, MOV, and WEBM videos as JPG or PNG images. Perfect for AI datasets, exact timestamp extraction, and professional frame-by-frame workflows. 100% private, no server upload required.",
       "applicationCategory": "MultimediaApplication",
-      "operatingSystem": "All",
-      "browserRequirements": "Requires HTML5 and Javascript support",
+      "applicationSubCategory": "Video Frame Extractor",
+      "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
+      "browserRequirements": "Requires HTML5, WebAssembly and Javascript support",
+      "featureList": [
+        "Extract frames at exact timestamps with millisecond precision",
+        "Perfect for AI/ML image datasets and computer vision training",
+        "Export JPG or PNG with customizable FPS control",
+        "Process videos entirely in your browser (100% private)",
+        "Batch processing of multiple video files",
+        "ZIP download of extracted frames",
+        "Supports MP4, MOV, and WEBM with fallback codec support"
+      ],
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -74,29 +96,34 @@ const ExtractFramesFromVideo: React.FC = () => {
     const howToSchema = {
       "@context": "https://schema.org",
       "@type": "HowTo",
-      "name": "How to Extract Frames from Video Online",
-      "description": "Step-by-step instructions to extract individual frame images from video files.",
-      "totalTime": "PT1M",
+      "name": "How to Extract Video Frames at Exact Timestamps",
+      "description": "Step-by-step instructions for extracting individual video frames, perfect for AI datasets, precise frame capture, and professional workflows. Process videos entirely in your browser with millisecond precision.",
+      "totalTime": "PT2M",
       "step": [
         {
           "@type": "HowToStep",
-          "name": "Open the Frame Extractor",
-          "text": "Access the browser-based tool and load your MP4, MOV, or WEBM file."
+          "name": "Open the Video Frame Extractor",
+          "text": "Access the browser-based tool and load your MP4, MOV, or WEBM video file."
         },
         {
           "@type": "HowToStep",
-          "name": "Configure Extraction Rate",
-          "text": "Select the target frame rate (FPS) to dictate how frequently frames are sliced."
+          "name": "Configure Exact Frame Capture",
+          "text": "Use the video timeline player to jump to the exact timestamp (HH:MM:SS.mmm) where you want to capture a frame."
         },
         {
           "@type": "HowToStep",
-          "name": "Generate the Frame Sequence",
-          "text": "Process the video locally in device memory to decode frame images."
+          "name": "Capture Specific Frame",
+          "text": "Click 'Capture Frame' to extract the exact frame at that timestamp as JPG or PNG format."
         },
         {
           "@type": "HowToStep",
-          "name": "Download Output Zip",
-          "text": "Download all extracted frames packaged inside a clean ZIP archive."
+          "name": "Batch Extract for AI Datasets",
+          "text": "For AI/ML projects, use custom FPS (Frames Per Second) settings to extract multiple frames efficiently. Perfect for computer vision training datasets."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Download Extracted Frames",
+          "text": "Download individual captured frames or get all extracted frames as a ZIP archive for your project."
         }
       ]
     };

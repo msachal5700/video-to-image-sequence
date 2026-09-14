@@ -23,7 +23,23 @@
     "framesExtracted": "Se extrajeron {{count}} fotogramas de tu video.",
     "processed": "Procesados",
     "skipAd": "Omitir Anuncio",
-    "skipIn": "Omitir en {{seconds}}s"
+    "skipIn": "Omitir en {{seconds}}s",
+    "convertTitle": "Convertir Video a Secuencia de Imágenes",
+    "convertSub": "Extrae cada fotograma como imágenes PNG o JPG de alta resolución",
+    "noServerUploads": "100% Privado y Basado en el Navegador",
+    "noServerUploadsDesc": "Tus archivos de video nunca salen de tu computadora. Toda la extracción de fotogramas ocurre localmente en tu canal de procesamiento WebAssembly en el navegador.",
+    "downloadZipTitle": "Descarga ZIP Instantánea",
+    "downloadZipDesc": "Todas las imágenes de fotogramas extraídas se archivan en un solo archivo ZIP comprimido para una descarga rápida con un solo clic.",
+    "secureTitle": "Sin Límites y Costo Cero",
+    "secureDesc": "Gratis para siempre sin límites de tamaño de archivo, marcas de agua o registro de cuenta de usuario.",
+    "clear": "Limpiar Selección",
+    "copyRawError": "Copiar Detalles del Error",
+    "cancelQueue": "Cancelar Cola",
+    "downloadAllZips": "Descargar Todos los ZIPs",
+    "loadMore": "Cargar Más Fotogramas",
+    "showingFrames": "Mostrando {{showing}} de {{total}} fotogramas",
+    "showOnly200": "Mostrando los primeros 200 de {{count}} fotogramas extraídos. Todos los fotogramas se guardan en tu archivo ZIP.",
+    "tipPng": "Consejo profesional: El formato PNG conserva la profundidad de color sin pérdida y la transparencia alfa, lo que lo hace ideal para flujos de trabajo de edición de video y VFX."
   },
   "dropzone": {
     "drop": "Arrastra tu video aquí",
@@ -31,6 +47,7 @@
     "support": "Compatible con MP4, MOV, WEBM · Los archivos grandes dependen de tu dispositivo y navegador · Carga múltiple para lotes"
   },
   "controls": {
+    "outputFormat": "Formato de Imagen de Salida",
     "frameRate": "Velocidad de Fotogramas (FPS)",
     "format": "Formato de Salida",
     "quality": "Calidad JPG",
@@ -44,7 +61,7 @@
     "estimatedImages": "IMÁGENES",
     "mobileSlowWarning": "{{count}} fotogramas pueden ser lentos en móviles. Considera reducir los FPS.",
     "readyTitle": "¿Listo para Extraer?",
-    "readyDesc": "Haz clic abajo para procesar este video en tu navegador. Todos los fotogramas se extraerán localmente y se descargarán en un ZIP.",
+    "readyDesc": "Haz clic abajo para procesar este video en tu navegador. Todos los fotogramas se extraerán localmente y se combinarán en un archivo ZIP para descargar.",
     "extractFrames": "Extraer Fotogramas Ahora",
     "processing": "Procesando..."
   },
@@ -56,292 +73,290 @@
     "free": "🆓 Gratis para Siempre"
   },
   "home": {
-    "title": "Convertidor de Video a Secuencia de Imágenes Online — Extractor de Fotogramas Gratis",
-    "description": "Extractor de fotogramas de video gratuito basado en el navegador. Convierte videos MP4, MOV y WEBM a secuencias JPG o PNG. Sin subida al servidor.",
-    "h1": "Video a Secuencia de Imágenes",
-    "h1Sub": "Convertidor Online",
-    "hero": "Video to Image Sequence Online es una herramienta gratuita basada en el navegador que extrae cada fotograma de videos MP4, MOV y WEBM como imágenes JPG o PNG de alta calidad. A diferencia de otras herramientas, no requiere subir archivos al servidor (el procesamiento ocurre localmente en la memoria del navegador, por lo que los archivos grandes dependen de la memoria del dispositivo, el rendimiento del navegador, la duración del video y los códecs compatibles), admite procesamiento por lotes, descarga en ZIP y control de FPS personalizado; todo completamente gratis y 100% privado.",
-    "keywords": "video a secuencia de imágenes, extraer fotogramas de video gratis, MP4 a JPG fotogramas, extractor de fotogramas de video, convertir video a secuencia PNG",
-    "badge": "100% Gratis · Sin Subidas · Procesamiento Local",
+    "title": "Extractor de Fotogramas de Video Gratis — Extraer Fotogramas de Video Online",
+    "description": "Extractor de fotogramas de video gratuito basado en el navegador. Extrae fotogramas de MP4, MOV, WEBM como JPG, PNG o WebP con precisión de milisegundos. Sin subida al servidor — 100% privado, procesamiento por lotes, descarga ZIP, FPS personalizado.",
+    "h1": "Extractor de Fotogramas de Video Gratis",
+    "h1Sub": "Extraer Fotogramas de Video",
+    "hero": "Extrae cada fotograma de videos MP4, MOV y WEBM como imágenes JPG, PNG o WebP de alta calidad. Elige marcas de tiempo exactas, FPS personalizados (1–60) o extrae miles de fotogramas por lotes para conjuntos de datos de IA. Todo el procesamiento se ejecuta localmente en tu navegador — sin subida, sin cuenta, sin límites.",
+    "keywords": "extractor de fotogramas de video, extraer fotogramas de video, extractor de video gratis, video a secuencia de imágenes, capturador de fotogramas de video, extraer fotogramas online, video a secuencia JPG, video a secuencia PNG, video a WebP, extracción de marca de tiempo exacta",
+    "badge": "Gratis · Sin Subida · Procesamiento Local en el Navegador",
     "badges": {
+      "exactTimestamp": "🎯 Marca de Tiempo Exacta (ms)",
+      "webp": "🌐 WebP + JPG + PNG",
       "noUpload": "✅ Sin Subidas al Servidor",
       "private": "🔒 100% Privado",
       "fast": "⚡ Procesamiento Local Rápido",
+      "fps": "🎨 FPS Personalizado 1–60",
       "zip": "📦 Descarga ZIP",
       "batch": "🎬 Procesamiento por Lotes",
-      "fps": "🎨 FPS Personalizado",
+      "ai": "🤖 Listo para Conjuntos de Datos de IA",
       "free": "🆓 Gratis para Siempre"
     },
     "tabs": {
       "toImages": "Video a Imágenes",
       "toVideo": "Imágenes a Video"
     },
-    "howWorksTitle": "Cómo funciona este extractor de fotogramas",
-    "howWorksDesc": "Esta herramienta extrae fotogramas de tu video y los convierte en imágenes descargables. Puedes subir un video, elegir el formato de salida y descargar la secuencia en JPG o PNG.",
-    "simpleProcess": "El proceso es simple:",
+    "howWorksTitle": "Cómo Funciona Este Extractor de Fotogramas de Video",
+    "howWorksDesc": "Sube un video, elige tu modo de extracción — marca de tiempo exacta, FPS personalizado o cada fotograma — selecciona el formato de salida (JPG, PNG, WebP) y descarga los fotogramas al instante. El procesamiento ocurre completamente en tu navegador.",
+    "simpleProcess": "Tres pasos:",
     "steps": [
-      "Carga tu archivo de video.",
-      "Selecciona el formato de imagen.",
-      "Elige cuántos fotogramas extraer.",
-      "Descarga la secuencia extraída."
+      "Carga tu video (MP4, MOV, WEBM).",
+      "Elige el modo de extracción: tiempo exacto, FPS o todos los fotogramas.",
+      "Elige JPG, PNG o WebP y descarga."
     ],
-    "useCases": "Útil para animación, edición de video, conjuntos de datos de IA, miniaturas y análisis de movimiento.",
+    "useCases": "Ideal para conjuntos de datos de entrenamiento de IA, flujos de trabajo de Blender/VFX, miniaturas de YouTube, referencia de animación y análisis fotograma a fotograma.",
     "formatsTitle": "Formatos de Video Soportados",
-    "formatsDesc1": "Formatos recomendados: MP4, MOV y WEBM.",
-    "formatsDesc2": "Otros formatos como AVI o MKV pueden funcionar si tu navegador tiene los códecs correspondientes.",
-    "outputsTitle": "Formatos de Imagen de Salida",
-    "outputsDesc": "Puedes extraer los fotogramas como:",
+    "formatsDesc1": "Mejor compatibilidad: MP4, MOV y WEBM (H.264, H.265, VP8, VP9, AV1 cuando el navegador lo admite).",
+    "formatsDesc2": "AVI, MKV, FLV, M4V, OGV, 3GP pueden funcionar si tu navegador tiene el códec. Para mejores resultados, usa MP4 H.264.",
+    "outputsTitle": "Formatos de Imagen de Salida Soportados",
+    "outputsDesc": "Extrae fotogramas en tres formatos:",
     "jpgTitle": "JPG/JPEG",
-    "jpgDesc": "mejor para tamaños de archivo reducidos.",
+    "jpgDesc": "Archivos más pequeños, compatibilidad universal. Mejor para miniaturas, redes sociales, uso compartido rápido.",
     "pngTitle": "PNG",
-    "pngDesc": "mejor para fotogramas sin pérdida de calidad y transparencias.",
-    "outputChoose": "Elige JPG para descargas rápidas, o PNG para máxima calidad.",
-    "whoUsesTitle": "¿Quién puede usar esta herramienta?",
-    "whoUsesDesc": "Esta herramienta es útil para:",
+    "pngDesc": "Sin pérdidas, conserva transparencia. Mejor para VFX, desarrollo de juegos, composición, conjuntos de datos de ML.",
+    "webpTitle": "WebP",
+    "webpDesc": "Formato moderno — 25–35% más pequeño que JPG, admite transparencia. Mejor para distribución web.",
+    "outputChoose": "JPG para tamaño, PNG para sin pérdidas/alfa, WebP para rendimiento web moderno.",
+    "whoUsesTitle": "¿Quién Usa Este Extractor de Fotogramas?",
+    "whoUsesDesc": "Diseñado para flujos de trabajo que necesitan control a nivel de fotograma:",
     "whoUsesList": [
-      "Editores de video y YouTubers.",
-      "Animadores y desarrolladores de videojuegos.",
-      "Desarrolladores de Inteligencia Artificial (IA).",
-      "Diseñadores gráficos.",
-      "Estudiantes y académicos.",
-      "Investigadores científicos."
+      "Ingenieros de IA/ML construyendo conjuntos de datos de entrenamiento de visión por computadora",
+      "Artistas de VFX y compositores (Blender, Nuke, After Effects, DaVinci)",
+      "Desarrolladores de juegos creando hojas de sprites y atlas de texturas",
+      "YouTubers y creadores seleccionando fotogramas de miniatura perfectos",
+      "Animadores rotoscopiando o estudiando referencia de movimiento",
+      "Investigadores analizando movimiento, imagen médica, captura de clases"
     ],
-    "privacyTitle": "Privacidad y Seguridad",
-    "privacyDesc1": "Tu video se procesa enteramente en tu navegador. Tus archivos nunca se suben a ningún servidor.",
-    "privacyDesc2": "No solicitamos registros ni datos personales. 100% de privacidad local.",
-    "privacyWarn": "Tus archivos son privados. Apto para videos sensibles porque ningún dato sale de tu dispositivo.",
-    "howItWorksTitle": "Cómo Funciona",
-    "howItWorksSub": "3 pasos simples — sin registros, sin descargas, sin subidas",
+    "privacyTitle": "Procesamiento Local = Privacidad Total",
+    "privacyDesc1": "Tu video nunca sale de tu dispositivo. Sin subida al servidor, sin procesamiento en la nube, sin cuentas. Los fotogramas se decodifican y codifican completamente en tu navegador usando las APIs WebCodecs/Canvas.",
+    "privacyDesc2": "Esto también significa que no hay límites de tamaño de archivo de nuestra parte — solo se aplican la RAM de tu dispositivo y las restricciones del navegador. Cierra otras pestañas para extracciones grandes de 4K.",
+    "privacyWarn": "Seguro para material confidencial, proprietario o sensible. Ningún dato sale de tu máquina.",
+    "howItWorksTitle": "Modos de Extracción",
+    "howItWorksSub": "Tres formas de obtener los fotogramas que necesitas",
     "howSteps": [
       {
-        "title": "Arrastra tu video",
-        "desc": "Arrastra y suelta tu archivo MP4, MOV o WEBM. Los archivos grandes dependen de la memoria de tu dispositivo."
+        "title": "Marca de Tiempo Exacta",
+        "desc": "Ingresa HH:MM:SS.mmm o navega fotograma a fotograma para capturar un fotograma preciso. Perfecto para miniaturas y momentos clave."
       },
       {
-        "title": "Elige la configuración",
-        "desc": "Selecciona la velocidad de fotogramas (FPS) y el formato (JPG o PNG)."
+        "title": "FPS Personalizado",
+        "desc": "Extrae a 1, 5, 10, 12, 15, 24, 25, 30 o 60 FPS. Muestrea videos largos o obtén cada fotograma para secuencias fluidas."
       },
       {
-        "title": "Descarga los fotogramas",
-        "desc": "Previsualiza la cuadrícula y descarga la secuencia completa en un archivo ZIP."
+        "title": "Cada Fotograma",
+        "desc": "Decodificación completa a la velocidad de fotogramas nativa del video. Máximo de fotogramas para conjuntos de datos de IA, planos de VFX o secuencias de imágenes completas."
       }
     ],
-    "whoUsesOnlineTitle": "¿Quién usa Video a Secuencia de Imágenes Online?",
-    "whoUsesOnlineSub": "Usado por creadores, desarrolladores y profesionales en todo el mundo",
+    "whoUsesOnlineTitle": "Flujos de Trabajo Impulsados por Extracción de Fotogramas",
+    "whoUsesOnlineSub": "Casos de uso reales — no solo audiencias",
     "whoUsesItems": [
       {
-        "icon": "🎬",
-        "title": "Editores y YouTubers",
-        "desc": "Extrae fotogramas para miniaturas, portadas o publicaciones en redes sociales."
-      },
-      {
-        "icon": "🎮",
-        "title": "Desarrolladores y Animadores",
-        "desc": "Convierte videos en secuencias de imágenes para motores de videojuegos."
-      },
-      {
         "icon": "🤖",
-        "title": "Desarrolladores de IA",
-        "desc": "Genera conjuntos de datos para entrenar modelos de visión artificial."
+        "title": "Creación de Conjuntos de Datos de IA",
+        "desc": "Extrae miles de fotogramas a FPS controlados para YOLO, clasificación, entrenamiento de segmentación. Descarga ZIP lista para flujos de trabajo de etiquetado."
       },
       {
         "icon": "🎨",
-        "title": "Artistas de VFX",
-        "desc": "Extrae secuencias de fotogramas para composición en After Effects o DaVinci."
+        "title": "Flujos de Trabajo de Blender y VFX",
+        "desc": "Exporta secuencias PNG con alfa para composición, seguimiento de cámara, rotoscopía. Arrastra directamente a Blender, Nuke, After Effects."
       },
       {
-        "icon": "📸",
-        "title": "Fotógrafos",
-        "desc": "Captura momentos específicos en alta velocidad imposibles de fotografiar."
+        "icon": "🎮",
+        "title": "Desarrollo de Juegos y Sprites",
+        "desc": "Convierte videos de hojas de sprites en fotogramas individuales. PNG/WebP con transparencia para atlas de texturas de Unity, Godot, Unreal."
       },
       {
-        "icon": "🎓",
-        "title": "Académicos e Investigadores",
-        "desc": "Extrae fotogramas para análisis científico y presentaciones académicas."
+        "icon": "📺",
+        "title": "Miniaturas de YouTube",
+        "desc": "Navega hasta el momento pico exacto, captura a resolución 4K completa. PNG para edición, WebP para carga rápida."
+      },
+      {
+        "icon": "📚",
+        "title": "Clases e Investigación",
+        "desc": "Extrae diapositivas de grabaciones de clases a 1 FPS. Construye índices de imagen buscables para revisión académica."
+      },
+      {
+        "icon": "🎞️",
+        "title": "Referencia de Animación",
+        "desc": "Desglose fotograma a fotograma del movimiento para rotoscopía, estudio de tiempos, bibliocas de poses. 60 FPS para análisis fluido."
       }
     ],
-    "compareTitle": "Comparación con otras herramientas",
-    "compareSub": "Video to Image Sequence Online vs otros convertidores en la nube",
+    "compareTitle": "vs. Convertidores en la Nube y Herramientas de Escritorio",
+    "compareSub": "Por qué la extracción basada en navegador gana en privacidad y control",
     "compareHeaders": [
-      "Característica",
-      "www.videotoimagesequence.online ✦",
+      "Capacidad",
+      "Esta Herramienta (Navegador)",
       "Convertidores en la Nube",
-      "Otros"
+      "FFmpeg / CLI"
     ],
     "compareRows": [
       [
-        "Límite de tamaño",
-        "✅ Sin límites en el servidor; depende de la RAM",
-        "❌ 200MB",
-        "❌ 100-200MB"
+        "Privacidad",
+        "✅ 100% local — sin subida",
+        "❌ Subida requerida",
+        "✅ Local"
       ],
       [
-        "Subida al servidor",
-        "✅ Nunca",
-        "❌ Siempre",
-        "❌ Siempre"
+        "Marca de tiempo exacta (ms)",
+        "✅ Navegador visual + entrada",
+        "⚠️ Raro / Solo API",
+        "✅ Sintaxis compleja"
       ],
       [
-        "100% Privado",
-        "✅ Sí",
+        "Paso fotograma a fotograma",
+        "✅ Botones de interfaz",
         "❌ No",
-        "❌ No"
+        "✅ Búsqueda manual"
       ],
       [
-        "Previsualización",
-        "✅ Cuadrícula completa",
-        "✅ Sí",
-        "⚠️ Limitado"
+        "Salida WebP",
+        "✅ JPG + PNG + WebP",
+        "⚠️ Solo JPG/PNG",
+        "✅ Manual"
       ],
       [
-        "Descarga individual",
-        "✅ Sí",
-        "✅ Sí",
-        "⚠️ Algunas"
+        "Lote multi-video",
+        "✅ Cola + ZIP individual",
+        "❌ Uno a la vez",
+        "✅ Scriptable"
       ],
       [
-        "Descarga ZIP",
-        "✅ Sí",
-        "✅ Sí",
-        "⚠️ Algunas"
+        "Muestreo de FPS para IA",
+        "✅ Preajustes de 1–60 FPS",
+        "❌ Opciones fijas",
+        "✅ Cálculo manual"
       ],
       [
-        "Control de FPS",
-        "✅ Sí",
-        "✅ Sí",
-        "⚠️ Algunas"
+        "Límite de tamaño de archivo",
+        "✅ Solo RAM del dispositivo",
+        "❌ 100–500 MB",
+        "✅ Ninguno"
       ],
       [
-        "Procesamiento por lotes",
-        "✅ Sí",
-        "❌ No",
-        "❌ No"
+        "Instalación / configuración",
+        "✅ Cero — abre el navegador",
+        "✅ Cero",
+        "❌ Instalación + configuración"
       ],
       [
-        "Formatos JPG/PNG",
-        "✅ Ambos",
-        "✅ Ambos",
-        "⚠️ Varía"
-      ],
-      [
-        "Aplicación instalable (PWA)",
-        "✅ Sí",
-        "❌ No",
-        "❌ No"
-      ],
-      [
-        "Gratuito",
-        "✅ 100%",
-        "✅ Gratis",
-        "⚠️ Freemium"
-      ],
-      [
-        "Sin cuentas",
-        "✅ Sí",
-        "✅ Sí",
-        "⚠️ Algunas"
+        "Costo",
+        "✅ Gratis para siempre",
+        "⚠️ Niveles freemium",
+        "✅ Gratis (código abierto)"
       ]
     ],
-    "moreToolsTitle": "Más herramientas de video gratuitas",
+    "moreToolsTitle": "Extractores de Fotogramas Especializados",
     "moreTools": [
       {
-        "title": "Convertidor MP4 a JPG",
-        "desc": "Extrae fotogramas JPG de videos MP4 en tu navegador."
+        "title": "Extractor de Marca de Tiempo Exacta",
+        "desc": "Captura un fotograma preciso en HH:MM:SS.mmm con controles de paso de fotograma. Mejor para miniaturas y fotogramas clave."
       },
       {
         "title": "Captura de Pantalla de Video",
-        "desc": "Captura fotogramas a resolución nativa localmente."
+        "desc": "Extrae fotogramas por lotes como una cuadrícula visual. Navega, previsualiza y descarga fotogramas individuales."
       },
       {
-        "title": "Video a Fotogramas PNG",
-        "desc": "Extrae fotogramas PNG sin pérdida para VFX y ML."
+        "title": "Selector de Fotogramas de IA para Redes Sociales",
+        "desc": "Puntuación automática de fotogramas para 10 plataformas (YouTube, Instagram, TikTok, LinkedIn…). Elige el mejor al instante."
       }
     ],
-    "relatedTitle": "Herramientas y guías relacionadas",
-    "relatedSub": "Explora más herramientas y tutoriales para extraer fotogramas",
+    "relatedTitle": "Convertidores y Guías Específicos por Formato",
+    "relatedSub": "Herramientas específicas para tu formato de salida y flujo de trabajo",
     "relatedItems": [
       {
-        "title": "Extraer fotogramas de video",
-        "desc": "Herramienta online gratuita para extraer fotogramas como JPG o PNG."
+        "title": "Convertidor MP4 a JPG",
+        "desc": "Secuencias JPG rápidas desde MP4. Archivos más pequeños, compatibilidad universal."
       },
       {
-        "title": "Guía de MP4 a secuencia de imágenes",
-        "desc": "Aprende a convertir videos MP4 en secuencias de imágenes fácilmente."
+        "title": "Convertidor de Video a PNG",
+        "desc": "Fotogramas PNG sin pérdidas con alfa. Mejor para VFX, desarrollo de juegos, conjuntos de datos de ML."
       },
       {
-        "title": "Video a secuencia PNG",
-        "desc": "Extrae fotogramas PNG de alta calidad sin pérdida."
+        "title": "Convertidor de Video a WebP",
+        "desc": "Fotogramas WebP modernos — 25–35% más pequeños que JPG, admite transparencia."
       },
       {
-        "title": "Secuencia de imágenes a video",
-        "desc": "Combina imágenes en un video WebM con FPS personalizados."
+        "title": "Guía de MP4 a Secuencia de Imágenes",
+        "desc": "Guía completa: configuración de FPS, elección de formato, importación en Blender, preparación de conjuntos de datos de IA."
       },
       {
-        "title": "Captura de pantalla de video",
-        "desc": "Captura el fotograma perfecto a resolución nativa."
+        "title": "Guía de Extracción de Fotogramas Exactos",
+        "desc": "Cómo capturar fotogramas con precisión de milisegundos para miniaturas y análisis."
       },
       {
-        "title": "Convertidor de video a JPG",
-        "desc": "Convierte videos a secuencias JPG para descargas ligeras."
+        "title": "Convertidor de Imágenes a Video",
+        "desc": "Flujo de trabajo inverso: une secuencias JPG/PNG/WebP en un video WebM."
       }
     ],
     "faq": {
       "title": "Preguntas Frecuentes",
-      "sub": "Todo lo que necesitas saber sobre Video to Image Sequence Online",
+      "sub": "Todo sobre la extracción de fotogramas de video en tu navegador",
       "items": [
         {
-          "q": "¿Hay un límite de tamaño?",
-          "a": "No se requiere subir al servidor. El procesamiento ocurre localmente en el navegador, por lo que depende de la RAM de tu dispositivo."
+          "q": "¿Cómo extraigo fotogramas de un video?",
+          "a": "Sube tu video, elige el modo de extracción (marca de tiempo exacta, FPS personalizado o cada fotograma), selecciona el formato de salida (JPG, PNG, WebP) y haz clic en Extraer. Los fotogramas aparecen en una cuadrícula — descárgalos individualmente o como ZIP."
         },
         {
-          "q": "¿Qué formatos de video son compatibles?",
-          "a": "MP4, MOV y WEBM: los tres más comunes."
+          "q": "¿Cuántos fotogramas debo extraer por segundo?",
+          "a": "Depende de tu objetivo: 1 FPS para captura de diapositivas, 5–10 FPS para muestreo de movimiento, 24–30 FPS para secuencias fluidas/VFX, 60 FPS para análisis de alta velocidad. Para conjuntos de datos de IA, 1–5 FPS es habitual."
         },
         {
-          "q": "¿Debo extraer fotogramas en JPG o PNG?",
-          "a": "JPG se recomienda por el tamaño ligero. Elige PNG si necesitas máxima calidad sin pérdida o transparencias."
+          "q": "¿Cuál es la diferencia entre FPS e intervalo de fotogramas?",
+          "a": "FPS = fotogramas extraídos por segundo de video. Intervalo = cada N-ésimo fotograma (por ejemplo, intervalo 30 = 1 fotograma cada 30 fotogramas). Esta herramienta usa FPS para un control intuitivo."
         },
         {
-          "q": "¿Mis videos están seguros?",
-          "a": "100% seguros. El procesamiento es puramente local; tus archivos nunca salen de tu ordenador."
+          "q": "¿Puedo extraer cada fotograma de un video?",
+          "a": "Sí. Selecciona el preajuste de FPS más alto (60) o usa el modo 'cada fotograma' en la página del extractor. Un video de 10 segundos a 30 FPS produce ~300 fotogramas. Las salidas grandes se descargan como ZIP."
         },
         {
-          "q": "¿Puedo descargar todos los fotogramas a la vez?",
-          "a": "Sí. Haz clic en 'Descargar Todo (ZIP)' para obtener un archivo único."
+          "q": "¿Puedo extraer un fotograma en una marca de tiempo exacta?",
+          "a": "Sí. Usa el Extractor de Marca de Tiempo Exacta: ingresa HH:MM:SS.mmm (por ejemplo, 00:01:23.450) o navega fotograma a fotograma con los botones Anterior/Siguiente. Captura a resolución nativa completa."
         },
         {
-          "q": "¿Cómo controlo cuántos fotogramas se extraen?",
-          "a": "Configura la velocidad de fotogramas (FPS) en el selector antes de hacer clic en Extraer."
+          "q": "¿La extracción de fotogramas de video es sin pérdidas?",
+          "a": "PNG y WebP (modo sin pérdidas) son sin pérdidas. JPG es con pérdidas pero de alta calidad (92%). Para VFX/ML, usa PNG. Para web/miniaturas, WebP equilibra calidad y tamaño."
         },
         {
-          "q": "¿Puedo procesar varios videos a la vez?",
-          "a": "Sí. Suelta múltiples archivos para habilitar el procesamiento por lotes."
+          "q": "¿JPG vs PNG vs WebP para fotogramas de video extraídos?",
+          "a": "JPG: más pequeño, universal. PNG: sin pérdidas, canal alfa. WebP: 25–35% más pequeño que JPG, admite alfa, soporte de navegador moderno. Elige WebP para distribución web."
         },
         {
-          "q": "¿Puedo descargar fotogramas individuales?",
-          "a": "Sí. Pasa el cursor sobre el fotograma y haz clic en el botón de descarga."
+          "q": "¿Cuánta RAM se necesita para la extracción basada en navegador?",
+          "a": "1080p a 24–30 FPS: 4–8 GB. 4K o FPS altos: 8–16 GB. Si la pestaña se cierra, reduce los FPS, cierra pestañas o divide el video en clips más cortos."
         },
         {
-          "q": "¿Cuál es la mejor alternativa gratuita?",
-          "a": "Nuestra herramienta es la mejor alternativa local, sin límites de servidor, 100% gratis y privada."
+          "q": "¿Por qué un video falla al decodificarse?",
+          "a": "Códec no compatible (por ejemplo, ProRes, AV1 sin decodificación por hardware). Recodifica a MP4 H.264 con HandBrake (gratis) para mejor compatibilidad."
         },
         {
-          "q": "¿Necesito instalar algo?",
-          "a": "No, funciona directamente en cualquier navegador moderno sin registrarse ni instalar extensiones."
+          "q": "¿Qué códecs de video son compatibles?",
+          "a": "MP4 (H.264, H.265), MOV (H.264, ProRes*), WEBM (VP8, VP9, AV1*). *Depende del soporte de hardware del navegador. Safari/iOS tiene soporte limitado de H.265/AV1."
+        },
+        {
+          "q": "¿Puedo extraer fotogramas de un video 4K?",
+          "a": "Sí, pero los fotogramas 4K consumen 4× la memoria de 1080p. Usa FPS bajos (1–5) y asegúrate de tener 16 GB+ de RAM. Los fotogramas se reducen a 1920 px máximo durante la vista previa; las descargas son a resolución completa."
+        },
+        {
+          "q": "¿Cómo creo una secuencia de imágenes para Blender?",
+          "a": "Extrae como PNG (sin pérdidas, alfa), nombra el patrón frame_000001.png. En Blender: Añadir → Secuencia de Imágenes, selecciona la carpeta. Establece la velocidad de fotogramas para que coincida con los FPS de extracción."
+        },
+        {
+          "q": "¿Cómo extraigo fotogramas para un conjunto de datos de visión por computadora?",
+          "a": "Usa 1–5 FPS para clasificación/detección, más para seguimiento. Exporta PNG para etiquetas de píxeles perfectos. La descarga ZIP funciona con herramientas de etiquetado (CVAT, LabelImg, Roboflow)."
         }
       ]
     }
   },
   "mp4ToJpg": {
-    "title": "Convertidor MP4 a JPG Online Gratis — Extraer Fotogramas JPG de MP4",
-    "description": "Convierte video MP4 a imágenes JPG online gratis. Extrae cada fotograma como un JPG de alta calidad localmente en tu navegador. Sin subida al servidor.",
+    "title": "MP4 a Fotogramas — Convertir MP4 a Secuencia de Imágenes JPG Gratis",
+    "description": "Convierte cualquier MP4 en una secuencia de imágenes JPG numerada gratis. Extrae todos los fotogramas a tu FPS elegido y descarga en un solo ZIP. Sin subida, sin registro, sin marca de agua.",
     "h1": "Convertidor MP4 a JPG",
-    "h1Sub": "Online Gratis — Procesamiento Local",
+    "h1Sub": "Online Gratis — Procesamiento Local en el Navegador",
     "hero": "Convierte video MP4 a imágenes JPG online gratis. Extrae cada fotograma como una secuencia JPG de alta calidad localmente en tu navegador. Como los archivos se procesan localmente, tus datos de video nunca salen de tu dispositivo.",
     "keywords": "mp4 a jpg, convertidor mp4 a jpeg, extraer jpg de mp4, extractor de fotogramas mp4",
     "privacy": {
-      "title": "Extracción de Fotogramas 100% Privada",
-      "body": "A diferencia de las herramientas online que suben tus archivos de video a un servidor remoto en la nube, nuestro convertidor MP4 a JPG aprovecha las API Web HTML5 para decodificar videos directamente dentro de tu navegador web. Tus archivos nunca se transmiten a través de la red, manteniendo tu material de video sensible completamente seguro."
+      "title": "Extracción de Fotogramas 100% Privada Basada en el Navegador",
+      "body": "A diferencia de las herramientas online que suben tus archivos de video a un servidor remoto en la nube, nuestro convertidor MP4 a JPG aprovecha las APIs Web HTML5 para decodificar videos directamente dentro de tu navegador web. Tu video se analiza localmente y las imágenes se guardan en tu entorno del navegador. Tus archivos nunca se transmiten a través de la red, manteniendo tu material sensible o proprietario completamente seguro."
     },
     "howTo": {
       "title": "Cómo Convertir MP4 a JPG Online",
@@ -351,8 +366,8 @@
           "body": "Arrastra y suelta tu archivo MP4 en la zona de carga de arriba."
         },
         {
-          "title": "Configura la Velocidad de Fotogramas (FPS)",
-          "body": "Elige tu frecuencia de extracción. Selecciona 30 FPS para capturar 30 fotogramas por segundo, o elige 1 FPS para extraer un fotograma por segundo."
+          "title": "Configura la Velocidad de Fotogramas de Salida (FPS)",
+          "body": "Elige tu frecuencia de extracción. Selecciona 30 FPS para capturar 30 fotogramas por segundo de video, o elige 1 FPS para extraer un fotograma por segundo."
         },
         {
           "title": "Selecciona el Formato",
@@ -360,11 +375,11 @@
         },
         {
           "title": "Extrae los Fotogramas",
-          "body": "Haz clic en \"Extraer Fotogramas\" para decodificar la secuencia de video."
+          "body": "Haz clic en \"Extraer Fotogramas Ahora\" para decodificar la secuencia de fotogramas del video."
         },
         {
           "title": "Guarda la Salida",
-          "body": "Descarga fotogramas individuales desde la vista previa o haz clic en \"Descargar Todo (ZIP)\" para guardar la secuencia completa."
+          "body": "Descarga fotogramas individuales desde la cuadrícula de vista previa o haz clic en \"Descargar Todo (ZIP)\" para guardar la secuencia completa en un solo archivo ZIP."
         }
       ]
     },
@@ -373,7 +388,7 @@
       "items": [
         {
           "q": "¿Cómo convierto un video MP4 a imágenes JPG gratis?",
-          "a": "Simplemente arrastra y suelta tu archivo MP4 en la herramienta, selecciona el formato JPG, elige tus FPS y haz clic en Extraer. Todos los fotogramas se procesan localmente en tu navegador y se descargarán como un archivo ZIP."
+          "a": "Simplemente arrastra y suelta tu archivo MP4 en la herramienta, selecciona el formato JPG, elige tus FPS y haz clic en Extraer. Todos los fotogramas se procesan localmente en tu navegador y se descargarán como un archivo ZIP. No se necesita cuenta ni subida al servidor."
         },
         {
           "q": "¿Hay un límite de tamaño de archivo para la conversión MP4 a JPG?",
@@ -381,7 +396,7 @@
         },
         {
           "q": "¿Cuántos fotogramas JPG obtendré de mi MP4?",
-          "a": "Depende de la duración de tu video y la configuración de FPS elegida. Por ejemplo, un video de 10 segundos convertido a 10 FPS extraerá aproximadamente 100 imágenes JPG."
+          "a": "Depende de la duración de tu video y la configuración de FPS (Fotogramas Por Segundo) elegida. Por ejemplo, un video de 10 segundos convertido a 10 FPS extraerá aproximadamente 100 imágenes JPG."
         },
         {
           "q": "¿Puedo convertir MP4 a PNG en lugar de JPG?",
@@ -396,35 +411,43 @@
   },
   "extractFrames": {
     "title": "Extraer Fotogramas de Video Online Gratis — Extractor de Fotogramas JPG y PNG",
-    "description": "Extrae fotogramas de video online gratis. Convierte videos MP4, MOV y WEBM a secuencias JPG o PNG en tu navegador. Sin subida al servidor.",
+    "description": "Extrae fotogramas de video online gratis. Convierte videos MP4, MOV y WEBM a secuencias JPG o PNG en tu navegador. No se requiere subida al servidor.",
     "h1": "Extraer Fotogramas de Video",
     "h1Sub": "Extractor de Fotogramas Online Gratis",
     "hero": "Extrae cada fotograma de videos MP4, MOV y WEBM como imágenes JPG o PNG gratis. Todo el procesamiento ocurre localmente en tu navegador — tus archivos nunca se suben.",
-    "keywords": "extraer fotogramas de video, extractor de fotogramas, extraer fotogramas online, video a imagenes"
+    "keywords": "extraer fotogramas de video, extractor de fotogramas de video, extraer fotogramas online, video a imágenes"
   },
   "videoToPng": {
     "title": "Convertidor de Video a PNG Online Gratis — Extraer Fotogramas PNG al Instante",
-    "description": "Convierte video a imágenes PNG online gratis. Extrae fotogramas PNG sin pérdida de videos MP4, MOV y WEBM en tu navegador. Sin subida al servidor.",
+    "description": "Convierte video a imágenes PNG online gratis. Extrae fotogramas PNG sin pérdidas de videos MP4, MOV y WEBM en tu navegador. No se requiere subida al servidor.",
     "h1": "Extraer Fotogramas PNG sin Pérdida",
     "h1Sub": "Online — Gratis",
-    "hero": "Convierte video a imágenes PNG online gratis. Extrae secuencias PNG perfectas y sin pérdida de videos MP4, MOV o WEBM. Conserva la información de transparencia, todo sin que los archivos salgan de tu ordenador.",
-    "keywords": "video a png, extraer fotogramas png, mp4 a png, extractor de fotogramas sin pérdida"
+    "hero": "Convierte video a imágenes PNG online gratis. Extrae secuencias PNG perfectas y sin pérdidas de videos MP4, MOV o WEBM. Conserva la información de transparencia, todo sin que los archivos salgan de tu computadora.",
+    "keywords": "video a png, extraer fotogramas png, mp4 a png, extractor de fotogramas sin pérdidas"
   },
   "screenshotVideo": {
     "title": "Captura de Pantalla de Video Online — Captura Cualquier Fotograma Gratis",
-    "description": "Toma una captura de pantalla de cualquier fotograma de video online gratis. Captura el momento exacto que necesitas como JPG o PNG de alta calidad. Sin subida al servidor.",
+    "description": "Toma una captura de pantalla de cualquier fotograma de video online gratis. Captura el momento exacto que necesitas como JPG o PNG de alta calidad. No se requiere subida al servidor.",
     "h1": "Captura de Pantalla de Video",
     "h1Sub": "Captura Cualquier Fotograma Gratis",
-    "hero": "Toma una captura de pantalla de videos MP4, MOV y WEBM online gratis. Extrae el fotograma exacto que necesitas en resolución nativa completa. Sin subida al servidor, sin marcas de agua, completamente privado.",
+    "hero": "Toma una captura de pantalla de videos MP4, MOV y WEBM online gratis. Extrae el fotograma exacto que necesitas en resolución nativa completa. Sin subidas al servidor, sin marcas de agua, completamente privado.",
     "keywords": "captura de pantalla de video, capturador de fotogramas de video, extraer imagen de video, captura de fotogramas de video"
+  },
+  "videoToWebp": {
+    "title": "Convertidor de Video a WebP Online Gratis — Extraer Fotogramas WebP al Instante",
+    "description": "Convierte video a imágenes WebP online gratis. Extrae fotogramas WebP de alta calidad con transparencia de videos MP4, MOV y WEBM en tu navegador. No se requiere subida al servidor.",
+    "h1": "Convertidor de Video a WebP",
+    "h1Sub": "Extraer Fotogramas WebP Gratis",
+    "hero": "Convierte video a imágenes WebP online gratis. Extrae fotogramas WebP modernos y eficientes con soporte de transparencia de videos MP4, MOV o WebM. Más pequeños que JPG/PNG, todo sin que los archivos salgan de tu computadora.",
+    "keywords": "video a webp, extraer fotogramas webp, mp4 a webp, extractor de fotogramas webp, convertidor de video a webp"
   },
   "imagesToVideo": {
     "title": "Imágenes a Video Online — Crear WebM de Secuencias JPG/PNG",
-    "description": "Convierte secuencias de imágenes a video online gratis. Crea videos WebM de fotogramas JPG o PNG en tu navegador. Sin subida al servidor.",
+    "description": "Convierte secuencias de imágenes a video online gratis. Crea video WebM a partir de fotogramas JPG o PNG en tu navegador. No se requiere subida al servidor.",
     "h1": "Imágenes a Video",
     "h1Sub": "Crear Video desde Secuencias de Imágenes",
     "hero": "Convierte una secuencia de imágenes JPG o PNG en un video WebM fluido directamente en tu navegador. Sin subida al servidor, sin marcas de agua.",
-    "keywords": "imagenes a video, secuencia de imagenes a video, jpg a video, png a video"
+    "keywords": "imágenes a video, secuencia de imágenes a video, jpg a video, png a video"
   },
   "footer": {
     "tagline": "Extractor de fotogramas de video gratuito basado en el navegador. Convierte videos MP4, MOV y WEBM a secuencias de imágenes JPG/PNG — sin subida al servidor, procesado localmente en tu navegador.",

@@ -11,19 +11,46 @@ interface GoogleAdUnitProps {
   slot?: string;
 }
 
+const getConsent = (): 'all' | 'essential' | null => {
+  try {
+    const consent = localStorage.getItem('cookie_consent_accepted');
+    if (consent === 'all' || consent === 'essential') return consent;
+  } catch (_) {}
+  return null;
+};
+
 const GoogleAdUnit: React.FC<GoogleAdUnitProps> = ({
   className = '',
   slot = '9170158407',
 }) => {
   const ref = useRef<HTMLModElement>(null);
   const pushed = useRef(false);
+  const pending = useRef(false);
 
-  useEffect(() => {
-    if (pushed.current) return;
+  const loadAds = () => {
+    if (pushed.current || pending.current) return;
+    // Only load ads when user has accepted all cookies (including advertising)
+    if (getConsent() !== 'all') return;
+    pending.current = true;
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
       pushed.current = true;
-    } catch (_) {}
+    } catch (_) {
+      pending.current = false;
+    }
+  };
+
+  useEffect(() => {
+    // Check consent on mount
+    loadAds();
+
+    // Listen for consent changes (e.g., user accepts all after initial load)
+    const handler = () => loadAds();
+    window.addEventListener('cookieConsentChange', handler);
+
+    return () => {
+      window.removeEventListener('cookieConsentChange', handler);
+    };
   }, []);
 
   return (

@@ -18,7 +18,7 @@ const Mp4ToImageSequence: React.FC = () => {
       "keywords": ["MP4 to image sequence", "MP4 to JPG", "video frame extraction", "convert MP4 to images"],
       "datePublished": "2026-05-24",
       "dateModified": "2026-05-24",
-      "author": { "@type": "Organization", "name": "Video to Image Sequence Online" },
+      "author": { "@type": "Person", "name": "Muhammad Sachal", "url": "https://www.linkedin.com/in/sachalspeaks/", "image": "https://www.videotoimagesequence.online/muhammad-sachal.jpg" },
       "publisher": { "@type": "Organization", "name": "Video to Image Sequence Online", "logo": { "@type": "ImageObject", "url": "https://www.videotoimagesequence.online/og-image.png" } },
       "image": "https://www.videotoimagesequence.online/og-image.png"
     });

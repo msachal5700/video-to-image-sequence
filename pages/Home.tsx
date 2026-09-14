@@ -228,13 +228,13 @@ const Home: React.FC = () => {
         {/* Trust badges */}
         <div className="flex flex-wrap justify-center gap-3 text-xs text-gray-400 mb-10">
           {[
-            t('home.badges.noUpload'),
-            t('home.badges.private'),
-            t('home.badges.fast'),
+            t('home.badges.exactTimestamp'),
+            t('home.badges.webp'),
+            t('home.badges.fps'),
             t('home.badges.zip'),
             t('home.badges.batch'),
-            t('home.badges.fps'),
-            t('home.badges.free')
+            t('home.badges.ai'),
+            t('home.badges.private')
           ].map(badge => (
             <span key={badge} className="bg-gray-900 border border-gray-800 px-3 py-1.5 rounded-full">
               {badge}
@@ -319,6 +319,10 @@ const Home: React.FC = () => {
           <div>
             <p className="text-white font-semibold mb-1">{t('home.pngTitle')}</p>
             <p className="text-gray-400">{t('home.pngDesc')}</p>
+          </div>
+          <div>
+            <p className="text-white font-semibold mb-1">{t('home.webpTitle')}</p>
+            <p className="text-gray-400">{t('home.webpDesc')}</p>
           </div>
         </div>
         <p className="text-gray-400 leading-relaxed">
@@ -405,7 +409,7 @@ const Home: React.FC = () => {
           {t('home.compareSub')}
         </p>
         <div className="overflow-x-auto rounded-2xl border border-gray-800">
-          <table className="w-full text-sm">
+          <table className="w-full text-sm" style={{minWidth: '700px'}}>
             <thead>
               <tr className="bg-gray-900 border-b border-gray-800">
                 {compareHeaders.map((header, idx) => (
@@ -416,10 +420,10 @@ const Home: React.FC = () => {
             <tbody className="divide-y divide-gray-800/50">
               {compareRows.map(([feature, ours, cloud, others]) => (
                 <tr key={feature} className="hover:bg-gray-900/50 transition-colors">
-                  <td className="px-5 py-3 text-gray-300 font-medium">{feature}</td>
-                  <td className="px-5 py-3 text-center bg-cyan-950/10 text-cyan-400 font-medium">{ours}</td>
-                  <td className="px-5 py-3 text-center text-gray-400">{cloud}</td>
-                  <td className="px-5 py-3 text-center text-gray-500">{others}</td>
+                  <td className="px-5 py-3 text-gray-300 font-medium whitespace-nowrap">{feature}</td>
+                  <td className="px-5 py-3 text-left bg-cyan-950/10 text-cyan-400 font-medium whitespace-nowrap">{ours}</td>
+                  <td className="px-5 py-3 text-left text-gray-400 whitespace-nowrap">{cloud}</td>
+                  <td className="px-5 py-3 text-left text-gray-500 whitespace-nowrap">{others}</td>
                 </tr>
               ))}
             </tbody>

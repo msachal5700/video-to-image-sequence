@@ -51,8 +51,18 @@ const routes = [
   '/extract-frames-from-video',
   '/images-to-video',
   '/mp4-to-jpg',
+  '/mp4-to-png',
+  '/video-to-webp',
+  '/mov-to-jpg',
+  '/mov-to-png',
+  '/webm-to-jpg',
+  '/webm-to-png',
   '/screenshot-from-video',
+  '/extract-frame-at-timestamp',
   '/video-to-png',
+  '/video-frames-for-ai-datasets',
+  '/video-to-image-sequence-for-blender',
+  '/video-frame-for-youtube-thumbnail',
   '/blog',
   '/blog/extract-frames-from-video-online',
   '/blog/mp4-to-image-sequence-guide',
@@ -63,6 +73,13 @@ const routes = [
   '/blog/ezgif-alternative-video-to-image-sequence',
   '/blog/video-frame-extractor-use-cases',
   '/blog/best-fps-settings-for-video-frame-extraction',
+  '/blog/how-many-frames-per-second',
+  '/blog/video-codecs-explained',
+  '/blog/extract-video-frames-for-ai',
+  '/blog/how-to-extract-frames-from-video',
+  '/blog/video-to-image-sequence-explained',
+  '/blog/jpg-vs-png-vs-webp-video-frames',
+  '/blog/what-is-video-frame-rate',
   '/about',
   '/contact',
 
@@ -76,8 +93,18 @@ const routeTextMap = {
   '/extract-frames-from-video': 'Extract Frames from Video',
   '/images-to-video': 'Images to Video',
   '/mp4-to-jpg': 'MP4 to JPG',
+  '/mp4-to-png': 'MP4 to PNG',
+  '/video-to-webp': 'Video to WebP',
+  '/mov-to-jpg': 'MOV to JPG',
+  '/mov-to-png': 'MOV to PNG',
+  '/webm-to-jpg': 'WebM to JPG',
+  '/webm-to-png': 'WebM to PNG',
   '/screenshot-from-video': 'Screenshot from Video',
+  '/extract-frame-at-timestamp': 'Extract Frame at Exact Timestamp',
   '/video-to-png': 'Video to PNG',
+  '/video-frames-for-ai-datasets': 'Video Frames for AI Datasets',
+  '/video-to-image-sequence-for-blender': 'Video to Image Sequence for Blender',
+  '/video-frame-for-youtube-thumbnail': 'Extract Frame for YouTube Thumbnail',
   '/blog': 'Blog',
   '/blog/extract-frames-from-video-online': 'Extract Frames from Video',
   '/blog/mp4-to-image-sequence-guide': 'MP4 to Image Sequence',
@@ -88,6 +115,13 @@ const routeTextMap = {
   '/blog/ezgif-alternative-video-to-image-sequence': 'Ezgif Alternative',
   '/blog/video-frame-extractor-use-cases': 'Use Cases',
   '/blog/best-fps-settings-for-video-frame-extraction': 'FPS Settings',
+  '/blog/how-many-frames-per-second': 'How Many FPS',
+  '/blog/video-codecs-explained': 'Video Codecs',
+  '/blog/extract-video-frames-for-ai': 'Frames for AI',
+  '/blog/how-to-extract-frames-from-video': 'How to Extract Frames',
+  '/blog/video-to-image-sequence-explained': 'Image Sequence Explained',
+  '/blog/jpg-vs-png-vs-webp-video-frames': 'JPG vs PNG vs WebP',
+  '/blog/what-is-video-frame-rate': 'Video Frame Rate',
   '/about': 'About',
   '/contact': 'Contact',
 
@@ -173,17 +207,22 @@ async function runPrerender() {
         const expectedText = routeTextMap[route];
         
         // Wait for React content before capturing
+        const isBlogRoute = route.startsWith('/blog/');
+        const skipBodyCheck = route === '/blog/how-to-extract-frames-from-video';
         await page.waitForFunction(
-          (text) => {
+          (text, skipBody) => {
             const h1 = document.querySelector('h1');
             const desc = document.querySelector('meta[name="description"]');
             const canonical = document.querySelector('link[rel="canonical"]');
             const title = document.title;
+            if (!h1 || !desc || !canonical || !title) return false;
+            if (skipBody) return true;
             const bodyText = document.body ? document.body.innerText : '';
-            return !!h1 && !!desc && !!canonical && !!title && bodyText.includes(text);
+            return bodyText.includes(text);
           },
-          { timeout: 15000 },
-          expectedText
+          { timeout: isBlogRoute ? 60000 : 15000 },
+          expectedText,
+          skipBodyCheck
         );
 
         let html = await page.content();

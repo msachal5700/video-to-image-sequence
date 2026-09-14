@@ -12,7 +12,7 @@
     "localProcessing": "ब्राउज़र में स्थानीय प्रसंस्करण",
     "downloadZip": "ZIP डाउनलोड करें",
     "advertisement": "विज्ञापन",
-    "extractFrames": "फ्रेम निकालें",
+    "extractFrames": "अभी फ्रेम निकालें",
     "convertAnother": "दूसरा कनवर्ट करें",
     "processing": "फ्रेम निकाले जा रहे हैं...",
     "zipping": "ZIP संग्रह बनाया जा रहा है...",
@@ -23,30 +23,47 @@
     "framesExtracted": "आपके वीडियो से {{count}} फ्रेम सफलतापूर्वक निकाले गए।",
     "processed": "प्रसंस्कृत",
     "skipAd": "विज्ञापन छोड़ें",
-    "skipIn": "{{seconds}} सेकंड में छोड़ें"
+    "skipIn": "{{seconds}} सेकंड में छोड़ें",
+    "convertTitle": "वीडियो को इमेज सीक्वेंस में बदलें",
+    "convertSub": "हर फ्रेम को उच्च रिज़ॉल्यूशन PNG या JPG इमेज के रूप में निकालें",
+    "noServerUploads": "100% निजी और ब्राउज़र-आधारित",
+    "noServerUploadsDesc": "आपकी वीडियो फ़ाइलें कभी आपके कंप्यूटर से बाहर नहीं जातीं। सभी फ्रेम एक्सट्रैक्शन आपके WebAssembly ब्राउज़र पाइपलाइन में स्थानीय रूप से होता है।",
+    "downloadZipTitle": "तत्काल ZIP डाउनलोड",
+    "downloadZipDesc": "सभी निकाले गए फ्रेम इमेज एक संपीड़ित ZIP फ़ाइल में संग्रहित होते हैं, जिसे एक क्लिक में तेज़ी से डाउनलोड किया जा सकता है।",
+    "secureTitle": "कोई सीमा नहीं और शून्य लागत",
+    "secureDesc": "बिना किसी फ़ाइल आकार सीमा, वॉटरमार्क, या उपयोगकर्ता खाता पंजीकरण के हमेशा के लिए मुफ़्त।",
+    "clear": "चयन साफ़ करें",
+    "copyRawError": "त्रुटि विवरण कॉपी करें",
+    "cancelQueue": "कतार रद्द करें",
+    "downloadAllZips": "सभी ZIP डाउनलोड करें",
+    "loadMore": "और फ्रेम लोड करें",
+    "showingFrames": "{{total}} में से {{showing}} फ्रेम दिखा रहे हैं",
+    "showOnly200": "निकाले गए {{count}} में से पहले 200 फ्रेम दिखा रहे हैं। सभी फ्रेम आपकी ZIP फ़ाइल में सहेजे गए हैं।",
+    "tipPng": "प्रो टिप: PNG प्रारूप लॉसलेस कलर डेप्थ और अल्फा पारदर्शिता संरक्षित करता है, जो इसे वीडियो संपादन और VFX वर्कफ़्लो के लिए आदर्श बनाता है।"
   },
   "dropzone": {
     "drop": "अपना वीडियो यहाँ खींचें",
     "browse": "या ब्राउज़ करने के लिए क्लिक करें",
-    "support": "MP4, MOV, WEBM समर्थित · बड़ी फ़ाइलें आपके डिवाइस और ब्राउज़र पर निर्भर करती हैं"
+    "support": "MP4, MOV, WEBM समर्थित · बड़ी फ़ाइलें आपके डिवाइस और ब्राउज़र पर निर्भर करती हैं · बैच के लिए कई फ़ाइलें छोड़ें"
   },
   "controls": {
+    "outputFormat": "आउटपुट इमेज प्रारूप",
     "frameRate": "फ्रेम दर (FPS)",
     "format": "आउटपुट प्रारूप",
     "quality": "JPG गुणवत्ता",
     "estimatedFrames": "अनुमानित {{count}} फ्रेम",
     "highFrameWarning": "चेतावनी: {{count}}+ फ्रेम ब्राउज़र मेमोरी समाप्त कर सकते हैं। FPS कम करने पर विचार करें।",
-    "configuration": "Configuration",
-    "fpsSuffix": "Frames Per Second",
-    "formatJpgDesc": "Smaller file size, recommended for most uses",
-    "formatPngDesc": "Lossless quality, best for VFX and game dev",
-    "estimatedOutput": "Estimated Output:",
-    "estimatedImages": "IMAGES",
-    "mobileSlowWarning": "{{count}} frames may be slow on mobile. Consider lowering FPS.",
-    "readyTitle": "Ready to Extract?",
-    "readyDesc": "Click below to process this video entirely in your browser. All frames will be extracted locally and combined into a single ZIP file download.",
-    "extractFrames": "Extract Frames Now",
-    "processing": "Processing..."
+    "configuration": "कॉन्फ़िगरेशन",
+    "fpsSuffix": "फ्रेम प्रति सेकंड",
+    "formatJpgDesc": "छोटा फ़ाइल आकार, अधिकांश उपयोग के लिए अनुशंसित",
+    "formatPngDesc": "लॉसलेस गुणवत्ता, VFX और गेम डेवलपमेंट के लिए सर्वोत्तम",
+    "estimatedOutput": "अनुमानित आउटपुट:",
+    "estimatedImages": "इमेज",
+    "mobileSlowWarning": "{{count}} फ्रेम मोबाइल पर धीमे हो सकते हैं। FPS कम करने पर विचार करें।",
+    "readyTitle": "निकालने के लिए तैयार?",
+    "readyDesc": "इस वीडियो को पूरी तरह से अपने ब्राउज़र में प्रसंस्कृत करने के लिए नीचे क्लिक करें। सभी फ्रेम स्थानीय रूप से निकाले जाएंगे और एक एकल ZIP फ़ाइल डाउनलोड में संयोजित होंगे।",
+    "extractFrames": "अभी फ्रेम निकालें",
+    "processing": "प्रसंस्करण हो रहा है..."
   },
   "badges": {
     "private": "🔒 100% निजी (स्थानीय)",
@@ -56,279 +73,273 @@
     "free": "🆓 हमेशा के लिए मुफ़्त"
   },
   "home": {
-    "title": "वीडियो से इमेज सीक्वेंस ऑनलाइन कनवर्टर — मुफ़्त फ्रेम एक्सट्रैक्टर",
-    "description": "मुफ़्त ब्राउज़र-आधारित वीडियो फ्रेम एक्सट्रैक्टर। MP4, MOV और WEBM वीडियो को JPG या PNG सीक्वेंस में बदलें। सर्वर अपलोड की जरूरत नहीं।",
-    "h1": "वीडियो से इमेज सीक्वेंस",
-    "h1Sub": "ऑनलाइन कनवर्टर",
-    "hero": "Video to Image Sequence Online एक मुफ़्त, ब्राउज़र-आधारित टूल है जो MP4, MOV और WEBM वीडियो के हर फ्रेम को उच्च गुणवत्ता वाली JPG या PNG इमेज के रूप में निकालता है। सारा प्रसंस्करण आपके ब्राउज़र में स्थानीय रूप से होता है, आपके वीडियो कभी सर्वर पर अपलोड नहीं होते।",
-    "keywords": "वीडियो से इमेज सीक्वेंस, ऑनलाइन वीडियो फ्रेम निकालें मुफ़्त, MP4 से JPG फ्रेम, वीडियो फ्रेम एक्सट्रैक्टर",
-    "badge": "100% मुफ़्त · कोई अपलोड नहीं · स्थानीय प्रसंस्करण",
+    "title": "मुफ़्त वीडियो फ्रेम एक्सट्रैक्टर — वीडियो से ऑनलाइन फ्रेम निकालें",
+    "description": "मुफ़्त ब्राउज़र-आधारित वीडियो फ्रेम एक्सट्रैक्टर। MP4, MOV, WEBM से JPG, PNG या WebP में मिलीसेकंड सटीकता के साथ फ्रेम निकालें। सर्वर अपलोड नहीं — 100% निजी, बैच प्रसंस्करण, ZIP डाउनलोड, कस्टम FPS।",
+    "h1": "मुफ़्त वीडियो फ्रेम एक्सट्रैक्टर",
+    "h1Sub": "वीडियो से फ्रेम निकालें",
+    "hero": "MP4, MOV और WEBM वीडियो के हर फ्रेम को उच्च गुणवत्ता JPG, PNG या WebP इमेज के रूप में निकालें। सटीक टाइमस्टैम्प, कस्टम FPS (1–60), या AI डेटासेट के लिए हज़ारों फ्रेम बैच एक्सट्रैक्ट करें। सभी प्रसंस्करण आपके ब्राउज़र में स्थानीय रूप से चलता है — कोई अपलोड नहीं, कोई खाता नहीं, कोई सीमा नहीं।",
+    "keywords": "वीडियो फ्रेम एक्सट्रैक्टर, वीडियो से फ्रेम निकालें, मुफ़्त वीडियो फ्रेम एक्सट्रैक्टर, वीडियो से इमेज सीक्वेंस, वीडियो फ्रेम ग्रैबर, ऑनलाइन फ्रेम निकालें, वीडियो से JPG सीक्वेंस, वीडियो से PNG सीक्वेंस, वीडियो से WebP, सटीक टाइमस्टैम्प एक्सट्रैक्शन",
+    "badge": "मुफ़्त · कोई अपलोड नहीं · स्थानीय ब्राउज़र प्रसंस्करण",
     "badges": {
-      "noUpload": "✅ No Server Upload Required",
-      "private": "🔒 100% Private",
-      "fast": "⚡ Fast local processing · No upload",
-      "zip": "📦 ZIP Download",
-      "batch": "🎬 Batch Processing",
-      "fps": "🎨 Custom FPS",
-      "free": "🆓 Free Forever"
+      "exactTimestamp": "🎯 सटीक टाइमस्टैम्प (ms)",
+      "webp": "🌐 WebP + JPG + PNG",
+      "fps": "🎨 कस्टम FPS 1–60",
+      "zip": "📦 ZIP डाउनलोड",
+      "batch": "🎬 बैच प्रसंस्करण",
+      "ai": "🤖 AI डेटासेट रेडी",
+      "private": "🔒 100% निजी"
     },
     "tabs": {
-      "toImages": "वीडियो से छवियां",
-      "toVideo": "छवियों से वीडियो"
+      "toImages": "वीडियो से इमेज",
+      "toVideo": "इमेज से वीडियो"
     },
-    "howWorksTitle": "How This Video to Image Sequence Tool Works",
-    "howWorksDesc": "This tool extracts individual frames from your video and converts them into downloadable image files. You can upload a video, choose the output format, and download frames as JPG or PNG images.",
-    "simpleProcess": "The process is simple:",
+    "howWorksTitle": "यह वीडियो फ्रेम एक्सट्रैक्टर कैसे काम करता है",
+    "howWorksDesc": "एक वीडियो अपलोड करें, एक्सट्रैक्शन मोड चुनें — सटीक टाइमस्टैम्प, कस्टम FPS, या हर फ्रेम — आउटपुट प्रारूप चुनें (JPG, PNG, WebP), और फ्रेम तुरंत डाउनलोड करें। प्रसंस्करण पूरी तरह से आपके ब्राउज़र में होता है।",
+    "simpleProcess": "तीन चरण:",
     "steps": [
-      "Upload your video file.",
-      "Select the image format.",
-      "Choose how many frames you want to extract.",
-      "Download the extracted image sequence."
+      "अपना वीडियो लोड करें (MP4, MOV, WEBM)।",
+      "एक्सट्रैक्शन मोड चुनें: सटीक समय, FPS, या सभी फ्रेम।",
+      "JPG, PNG या WebP चुनें और डाउनलोड करें।"
     ],
-    "useCases": "This is useful for animation, video editing, AI dataset creation, thumbnails, motion analysis, and frame-by-frame review.",
-    "formatsTitle": "Supported Video Formats",
-    "formatsDesc1": "Best supported formats: MP4, MOV, and WEBM.",
-    "formatsDesc2": "Other formats such as AVI or MKV may work only when your browser supports the video codec.",
-    "outputsTitle": "Supported Image Output Formats",
-    "outputsDesc": "You can extract frames as:",
+    "useCases": "AI ट्रेनिंग डेटासेट, Blender/VFX पाइपलाइन, YouTube थंबनेल, एनिमेशन रेफरेंस और फ्रेम-दर-फ्रेम विश्लेषण के लिए आदर्श।",
+    "formatsTitle": "समर्थित वीडियो प्रारूप",
+    "formatsDesc1": "सर्वोत्तम समर्थन: MP4, MOV और WEBM (H.264, H.265, VP8, VP9, AV1 जहाँ ब्राउज़र समर्थन करता है)।",
+    "formatsDesc2": "AVI, MKV, FLV, M4V, OGV, 3GP तभी काम कर सकते हैं जब आपका ब्राउज़र कोडेक सपोर्ट करता हो। सर्वोत्तम परिणामों के लिए MP4 H.264 का उपयोग करें।",
+    "outputsTitle": "समर्थित इमेज आउटपुट प्रारूप",
+    "outputsDesc": "तीन प्रारूपों में फ्रेम निकालें:",
     "jpgTitle": "JPG/JPEG",
-    "jpgDesc": "best for smaller file size and general use.",
+    "jpgDesc": "सबसे छोटी फ़ाइलें, सार्वभौमिक संगतता। थंबनेल, सोशल मीडिया, त्वरित शेयरिंग के लिए सर्वोत्तम।",
     "pngTitle": "PNG",
-    "pngDesc": "best for high-quality frames, transparent graphics, design work, and editing.",
-    "outputChoose": "Choose JPG if you want faster downloads. Choose PNG if image quality matters more.",
-    "whoUsesTitle": "Who Can Use This Tool?",
-    "whoUsesDesc": "This tool is useful for:",
+    "pngDesc": "लॉसलेस, पारदर्शिता संरक्षित। VFX, गेम डेवलपमेंट, कम्पोज़िटिंग, ML डेटासेट के लिए सर्वोत्तम।",
+    "webpTitle": "WebP",
+    "webpDesc": "आधुनिक प्रारूप — JPG से 25–35% छोटा, पारदर्शिता समर्थित। वेब डिलीवरी के लिए सर्वोत्तम।",
+    "outputChoose": "आकार के लिए JPG, लॉसलेस/अल्फा के लिए PNG, आधुनिक वेब प्रदर्शन के लिए WebP।",
+    "whoUsesTitle": "यह फ्रेम एक्सट्रैक्टर कौन उपयोग करता है?",
+    "whoUsesDesc": "फ्रेम-स्तरीय नियंत्रण वाले वर्कफ़्लो के लिए बनाया गया:",
     "whoUsesList": [
-      "Video editors who need frame-by-frame screenshots.",
-      "Animators who need image sequences from video clips.",
-      "AI developers who need video frames for datasets.",
-      "YouTubers who want thumbnails from videos.",
-      "Designers who want still images from motion footage.",
-      "Students who need visual frames for projects.",
-      "Researchers who analyze motion or visual changes in videos."
+      "AI/ML इंजीनियर जो कंप्यूटर विज़न ट्रेनिंग डेटासेट बनाते हैं",
+      "VFX कलाकार और कम्पोज़िटर (Blender, Nuke, After Effects, DaVinci)",
+      "गेम डेवलपर जो स्प्राइट शीट और टेक्सचर एटलस बनाते हैं",
+      "YouTubers और क्रिएटर्स जो परफेक्ट थंबनेल फ्रेम चुनते हैं",
+      "एनिमेटर जो रोटोस्कोपिंग या मोशन रेफरेंस का अध्ययन करते हैं",
+      "शोधकर्ता जो गति, मेडिकल इमेजिंग, लेक्चर कैप्चर का विश्लेषण करते हैं"
     ],
-    "privacyTitle": "Privacy and File Safety",
-    "privacyDesc1": "Your video is processed entirely inside your browser. Because we use client-side JavaScript APIs, your files are never uploaded to any server or stored on the cloud. They stay 100% local on your computer.",
-    "privacyDesc2": "We do not ask for signups, accounts, or personal information. You get maximum privacy and fast local processing speed since no time is wasted uploading or downloading large video files.",
-    "privacyWarn": "Your files are completely private. This tool is safe to use for sensitive, private, or confidential videos because zero data leaves your local device.",
-    "howItWorksTitle": "How It Works",
-    "howItWorksSub": "3 simple steps — no signup, no install, no upload",
+    "privacyTitle": "स्थानीय प्रसंस्करण = पूर्ण गोपनीयता",
+    "privacyDesc1": "आपका वीडियो कभी आपके डिवाइस से बाहर नहीं जाता। कोई सर्वर अपलोड नहीं, कोई क्लाउड प्रसंस्करण नहीं, कोई खाता नहीं। फ्रेम पूरी तरह से आपके ब्राउज़र में WebCodecs/Canvas API का उपयोग करके डीकोड और एन्कोड किए जाते हैं।",
+    "privacyDesc2": "इसका मतलब है कि हमारी ओर से कोई फ़ाइल आकार सीमा नहीं — केवल आपकी डिवाइस RAM और ब्राउज़र सीमाएँ लागू होती हैं। बड़े 4K एक्सट्रैक्शन के लिए अन्य टैब बंद करें।",
+    "privacyWarn": "गोप्य, स्वामित्व वाले, या संवेदनशील फुटेज के लिए सुरक्षित। आपकी मशीन से शून्य डेटा बाहर जाता है।",
+    "howItWorksTitle": "एक्सट्रैक्शन मोड",
+    "howItWorksSub": "फ्रेम प्राप्त करने के तीन तरीके",
     "howSteps": [
       {
-        "title": "Drop Your Video",
-        "desc": "Drag and drop your MP4, MOV, or WEBM file. Drop multiple files for batch processing. Large files depend on your device memory and browser."
+        "title": "सटीक टाइमस्टैम्प",
+        "desc": "HH:MM:SS.mmm दर्ज करें या एक सटीक फ्रेम कैप्चर करने के लिए फ्रेम-दर-फ्रेम स्क्रब करें। थंबनेल और प्रमुख क्षणों के लिए आदर्श।"
       },
       {
-        "title": "Choose Settings",
-        "desc": "Select your frame rate (FPS) and output format (JPG or PNG). Customize exactly how many frames to extract."
+        "title": "कस्टम FPS",
+        "desc": "1, 5, 10, 12, 15, 24, 25, 30, या 60 FPS पर निकालें। लंबे वीडियो कैप्चर करें या स्मूथ सीक्वेंस के लिए हर फ्रेम प्राप्त करें।"
       },
       {
-        "title": "Download Frames",
-        "desc": "Browse the frame grid, download individual frames, or get all frames as a ZIP archive."
+        "title": "हर फ्रेम",
+        "desc": "नेटिव वीडियो FPS पर पूर्ण डीकोड। AI डेटासेट, VFX प्लेट, या पूर्ण इमेज सीक्वेंस के लिए अधिकतम फ्रेम।"
       }
     ],
-    "whoUsesOnlineTitle": "Who Uses Video to Image Sequence Online?",
-    "whoUsesOnlineSub": "Used by creators, developers, and professionals worldwide",
+    "whoUsesOnlineTitle": "फ्रेम एक्सट्रैक्शन से संचालित वर्कफ़्लो",
+    "whoUsesOnlineSub": "वास्तविक उपयोग के मामले — केवल दर्शक नहीं",
     "whoUsesItems": [
       {
-        "icon": "🎬",
-        "title": "Video Editors & YouTubers",
-        "desc": "Extract the perfect still frame for video thumbnails, title cards, or social media posts from any clip in seconds."
-      },
-      {
-        "icon": "🎮",
-        "title": "Game Developers & Animators",
-        "desc": "Convert sprite sheet videos or animation previews into individual PNG frames for Unity, Godot, or Blender."
-      },
-      {
         "icon": "🤖",
-        "title": "AI & ML Developers",
-        "desc": "Generate large labeled image datasets from video footage for training computer vision and machine learning models."
+        "title": "AI डेटासेट निर्माण",
+        "desc": "YOLO, क्लासिफिकेशन, सेगमेंटेशन ट्रेनिंग के लिए नियंत्रित FPS पर हज़ारों फ्रेम निकालें। ZIP डाउनलोड लेबलिंग पाइपलाइन के लिए तैयार।"
       },
       {
         "icon": "🎨",
-        "title": "VFX & Motion Artists",
-        "desc": "Import extracted frame sequences into After Effects, DaVinci Resolve, or Nuke for frame-by-frame compositing."
+        "title": "Blender और VFX पाइपलाइन",
+        "desc": "कम्पोज़िटिंग, कैमरा ट्रैकिंग, रोटोस्कोपिंग के लिए अल्फा वाली PNG सीक्वेंस एक्सपोर्ट करें। सीधे Blender, Nuke, After Effects में ड्रॉप करें।"
       },
       {
-        "icon": "📸",
-        "title": "Photographers",
-        "desc": "Capture split-second moments from slow-motion or high-speed video that would be impossible to photograph directly."
+        "icon": "🎮",
+        "title": "गेम डेव और स्प्राइट्स",
+        "desc": "स्प्राइट शीट वीडियो को व्यक्तिगत फ्रेम में बदलें। Unity, Godot, Unreal टेक्सचर एटलस के लिए पारदर्शिता वाली PNG/WebP।"
       },
       {
-        "icon": "🎓",
-        "title": "Educators & Researchers",
-        "desc": "Extract frames for academic analysis, presentation slides, medical imaging review, or research documentation."
+        "icon": "📺",
+        "title": "YouTube थंबनेल",
+        "desc": "सटीक पीक मोमेंट तक स्क्रब करें, पूर्ण 4K रिज़ॉल्यूशन में कैप्चर करें। संपादन के लिए PNG, तेज़ अपलोड के लिए WebP।"
+      },
+      {
+        "icon": "📚",
+        "title": "लेक्चर और शोध",
+        "desc": "लेक्चर रिकॉर्डिंग से 1 FPS पर स्लाइड निकालें। शैक्षणिक समीक्षा के लिए खोज योग्य इमेज इंडेक्स बनाएं।"
+      },
+      {
+        "icon": "🎞️",
+        "title": "एनिमेशन रेफरेंस",
+        "desc": "रोटोस्कोपिंग, टाइमिंग स्टडी, पोज़ लाइब्रेरी के लिए गति का फ्रेम-दर-फ्रेम विश्लेषण। स्मूथ विश्लेषण के लिए 60 FPS।"
       }
     ],
-    "compareTitle": "How We Compare to Other Tools",
-    "compareSub": "Video to Image Sequence Online vs other online converters",
+    "compareTitle": "क्लाउड कनवर्टर और डेस्कटॉप टूल की तुलना में",
+    "compareSub": "गोपनीयता और नियंत्रण के लिए ब्राउज़र-आधारित एक्सट्रैक्शन क्यों जीतता है",
     "compareHeaders": [
-      "Feature",
-      "www.videotoimagesequence.online ✦",
-      "Cloud Converters",
-      "Others"
+      "क्षमता",
+      "यह टूल (ब्राउज़र)",
+      "क्लाउड कनवर्टर",
+      "FFmpeg / CLI"
     ],
     "compareRows": [
       [
-        "File size handling",
-        "✅ No server upload required; limited by browser/device RAM",
-        "❌ 200MB",
-        "❌ 100-200MB"
+        "गोपनीयता",
+        "✅ 100% स्थानीय — कोई अपलोड नहीं",
+        "❌ अपलोड आवश्यक",
+        "✅ स्थानीय"
       ],
       [
-        "Server upload required",
-        "✅ Never",
-        "❌ Always",
-        "❌ Always"
+        "सटीक टाइमस्टैम्प (ms)",
+        "✅ विज़ुअल स्क्रैबर + इनपुट",
+        "⚠️ दुर्लभ / केवल API",
+        "✅ जटिल सिंटैक्स"
       ],
       [
-        "100% Private",
-        "✅ Yes",
-        "❌ No",
-        "❌ No"
+        "फ्रेम-दर-फ्रेम स्टेप",
+        "✅ UI बटन",
+        "❌ नहीं",
+        "✅ मैनुअल सीक"
       ],
       [
-        "Individual frame preview",
-        "✅ Full grid",
-        "✅ Yes",
-        "⚠️ Limited"
+        "WebP आउटपुट",
+        "✅ JPG + PNG + WebP",
+        "⚠️ केवल JPG/PNG",
+        "✅ मैनुअल"
       ],
       [
-        "Per-frame download",
-        "✅ Yes",
-        "✅ Yes",
-        "⚠️ Some"
+        "बैच मल्टी-वीडियो",
+        "✅ कतार + प्रत्येक के लिए ZIP",
+        "❌ एक समय में एक",
+        "✅ स्क्रिप्टेबल"
       ],
       [
-        "ZIP download",
-        "✅ Yes",
-        "✅ Yes",
-        "⚠️ Some"
+        "AI डेटासेट FPS सैम्पलिंग",
+        "✅ 1–60 FPS प्रीसेट",
+        "❌ निश्चित विकल्प",
+        "✅ मैनुअल गणना"
       ],
       [
-        "Custom FPS control",
-        "✅ Yes",
-        "✅ Yes",
-        "⚠️ Some"
+        "फ़ाइल आकार सीमा",
+        "✅ केवल डिवाइस RAM",
+        "❌ 100–500 MB",
+        "✅ कोई नहीं"
       ],
       [
-        "Batch processing",
-        "✅ Yes",
-        "❌ No",
-        "❌ No"
+        "इंस्टॉल / सेटअप",
+        "✅ शून्य — ब्राउज़र खोलें",
+        "✅ शून्य",
+        "❌ इंस्टॉल + कॉन्फ़िग"
       ],
       [
-        "JPG + PNG output",
-        "✅ Both",
-        "✅ Both",
-        "⚠️ Varies"
-      ],
-      [
-        "PWA / Installable",
-        "✅ Yes",
-        "❌ No",
-        "❌ No"
-      ],
-      [
-        "Free forever",
-        "✅ 100%",
-        "✅ Free",
-        "⚠️ Freemium"
-      ],
-      [
-        "No account needed",
-        "✅ None",
-        "✅ None",
-        "⚠️ Some"
+        "लागत",
+        "✅ हमेशा मुफ़्त",
+        "⚠️ फ्रीमियम टियर",
+        "✅ मुफ़्त (OSS)"
       ]
     ],
-    "moreToolsTitle": "More Free Video Tools",
+    "moreToolsTitle": "विशेष फ्रेम एक्सट्रैक्टर",
     "moreTools": [
       {
-        "title": "MP4 to JPG Converter",
-        "desc": "Extract JPG frames from MP4 video in your browser."
+        "title": "सटीक टाइमस्टैम्प एक्सट्रैक्टर",
+        "desc": "HH:MM:SS.mmm पर एक सटीक फ्रेम कैप्चर करें। थंबनेल और कीफ्रेम के लिए सर्वोत्तम।"
       },
       {
-        "title": "Screenshot from Video",
-        "desc": "Capture video frames in full-resolution locally."
+        "title": "वीडियो से स्क्रीनशॉट",
+        "desc": "विज़ुअल ग्रिड के रूप में फ्रेम बैच निकालें। ब्राउज़ करें, प्रीव्यू करें, और व्यक्तिगत फ्रेम डाउनलोड करें।"
       },
       {
-        "title": "Video to PNG Frames",
-        "desc": "Extract lossless PNG frames for VFX, game dev, and ML datasets."
+        "title": "AI सोशल मीडिया फ्रेम पिकर",
+        "desc": "10 प्लेटफ़ॉर्म (YouTube, Instagram, TikTok, LinkedIn…) के लिए फ्रेम ऑटो-स्कोर करें। सबसे अच्छा तुरंत चुनें।"
       }
     ],
-    "relatedTitle": "Related Video Frame Tools and Guides",
-    "relatedSub": "Explore more tools and guides for video frame extraction",
+    "relatedTitle": "प्रारूप-विशिष्ट कनवर्टर और गाइड",
+    "relatedSub": "आपके आउटपुट प्रारूप और वर्कफ़्लो के लिए लक्षित टूल",
     "relatedItems": [
       {
-        "title": "Extract Frames from Video",
-        "desc": "Free online tool to extract individual frames from MP4, MOV, and WEBM videos as JPG or PNG images."
+        "title": "MP4 से JPG कनवर्टर",
+        "desc": "MP4 से तेज़ JPG सीक्वेंस। सबसे छोटी फ़ाइलें, सार्वभौमिक संगतता।"
       },
       {
-        "title": "MP4 to Image Sequence Guide",
-        "desc": "Learn how to convert MP4 videos to image sequences quickly and efficiently."
+        "title": "वीडियो से PNG कनवर्टर",
+        "desc": "VFX, गेम डेव, ML डेटासेट के लिए लॉसलेस अल्फा वाली PNG फ्रेम।"
       },
       {
-        "title": "Video to PNG Sequence",
-        "desc": "Extract lossless PNG frames perfect for high-quality design work and VFX compositing."
+        "title": "वीडियो से WebP कनवर्टर",
+        "desc": "आधुनिक WebP फ्रेम — JPG से 25–35% छोटा, पारदर्शिता समर्थित।"
       },
       {
-        "title": "Image Sequence to Video",
-        "desc": "Combine extracted image sequences back into a video file with custom frame rates."
+        "title": "MP4 से इमेज सीक्वेंस गाइड",
+        "desc": "पूरी गाइड: FPS सेटिंग्स, प्रारूप विकल्प, Blender इम्पोर्ट, AI डेटासेट तैयारी।"
       },
       {
-        "title": "Screenshot from Video",
-        "desc": "Capture the perfect frame from your video as a high-resolution screenshot."
+        "title": "सटीक फ्रेम एक्सट्रैक्शन गाइड",
+        "desc": "थंबनेल और विश्लेषण के लिए मिलीसेकंड-सटीक फ्रेम कैप्चर कैसे करें।"
       },
       {
-        "title": "Video to JPG Converter",
-        "desc": "Convert video files to JPG image sequences for fast downloads and easy sharing."
+        "title": "इमेज से वीडियो कनवर्टर",
+        "desc": "रिवर्स वर्कफ़्लो: JPG/PNG/WebP सीक्वेंस को वापस WebM वीडियो में जोड़ें।"
       }
     ],
     "faq": {
       "title": "अक्सर पूछे जाने वाले प्रश्न",
-      "sub": "वीडियो से इमेज सीक्वेंस ऑनलाइन कनवर्टर के बारे में सब कुछ",
+      "sub": "अपने ब्राउज़र में वीडियो से फ्रेम निकालने के बारे में सब कुछ",
       "items": [
         {
-          "q": "Is there a file size limit?",
-          "a": "No server upload required. Processing happens in your browser, so large files depend on your device memory, browser performance, video length, and codec support."
+          "q": "मैं वीडियो से फ्रेम कैसे निकालूं?",
+          "a": "अपना वीडियो अपलोड करें, एक्सट्रैक्शन मोड चुनें (सटीक टाइमस्टैम्प, कस्टम FPS, या हर फ्रेम), आउटपुट प्रारूप चुनें (JPG, PNG, WebP), और एक्सट्रैक्ट क्लिक करें। फ्रेम ग्रिड में दिखाई देते हैं — व्यक्तिगत रूप से या ZIP में डाउनलोड करें।"
         },
         {
-          "q": "What video formats are supported?",
-          "a": "MP4, MOV, and WEBM — the three most common formats used by phones, cameras, and screen recorders."
+          "q": "मुझे प्रति सेकंड कितने फ्रेम निकालने चाहिए?",
+          "a": "आपके लक्ष्य पर निर्भर करता है: स्लाइड कैप्चर के लिए 1 FPS, मोशन सैम्पलिंग के लिए 5–10 FPS, स्मूथ सीक्वेंस/VFX के लिए 24–30 FPS, हाई-स्पीड विश्लेषण के लिए 60 FPS। AI डेटासेट के लिए 1–5 FPS सामान्य है।"
         },
         {
-          "q": "Should I extract frames as JPG or PNG?",
-          "a": "JPG is recommended for most uses — smaller file sizes, faster downloads, great quality. Choose PNG if you need lossless frames for VFX compositing, game development, or machine learning datasets where pixel-perfect accuracy matters."
+          "q": "FPS और फ्रेम इंटरवल में क्या अंतर है?",
+          "a": "FPS = वीडियो के प्रति सेकंड निकाले गए फ्रेम। इंटरवल = हर N-वाँ फ्रेम (जैसे, इंटरवल 30 = हर 30 फ्रेम में 1 फ्रेम)। यह टूल सहज नियंत्रण के लिए FPS का उपयोग करता है।"
         },
         {
-          "q": "Are my videos kept private?",
-          "a": "100% private. Your video never leaves your device. Everything runs locally in your browser using JavaScript. Nothing is sent to any server."
+          "q": "क्या मैं वीडियो का हर फ्रेम निकाल सकता हूं?",
+          "a": "हां। सर्वोच्च FPS प्रीसेट (60) चुनें या एक्सट्रैक्टर पेज पर 'हर फ्रेम' मोड का उपयोग करें। 10-सेकंड का 30 FPS वीडियो लगभग 300 फ्रेम देगा। बड़े आउटपुट ZIP में डाउनलोड होते हैं।"
         },
         {
-          "q": "Can I download all frames at once?",
-          "a": "Yes. After extraction, click \"Download All as ZIP\" to get every frame packed into a single ZIP file with one click."
+          "q": "क्या मैं सटीक टाइमस्टैम्प पर फ्रेम निकाल सकता हूं?",
+          "a": "हां। सटीक टाइमस्टैम्प एक्सट्रैक्टर का उपयोग करें: HH:MM:SS.mmm दर्ज करें (जैसे, 00:01:23.450), या पिछला/अगला बटन से फ्रेम-दर-फ्रेम स्क्रब करें। पूर्ण नेटिव रिज़ॉल्यूशन में कैप्चर करें।"
         },
         {
-          "q": "How do I control how many frames are extracted?",
-          "a": "Use the FPS selector before extracting. Choose every frame for maximum quality, or pick 1, 5, 10, 24, or 30 FPS depending on your needs."
+          "q": "क्या वीडियो फ्रेम एक्सट्रैक्शन लॉसलेस है?",
+          "a": "PNG और WebP (लॉसलेस मोड) लॉसलेस हैं। JPG लॉसी है लेकिन उच्च गुणवत्ता (92%) है। VFX/ML के लिए PNG का उपयोग करें। वेब/थंबनेल के लिए WebP गुणवत्ता और आकार का संतुलन देता है।"
         },
         {
-          "q": "Can I extract frames from multiple videos at once?",
-          "a": "Yes. Just drop multiple video files at once and our batch mode will process them automatically one by one."
+          "q": "निकाले गए वीडियो फ्रेम के लिए JPG बनाम PNG बनाम WebP?",
+          "a": "JPG: सबसे छोटा, सार्वभौमिक। PNG: लॉसलेस, अल्फा चैनल। WebP: JPG से 25–35% छोटा, अल्फा समर्थित, आधुनिक ब्राउज़र सपोर्ट। वेब डिलीवरी के लिए WebP चुनें।"
         },
         {
-          "q": "Can I download individual frames?",
-          "a": "Yes. Every extracted frame appears in a visual grid. Hover over any frame and click the download button to save that specific frame."
+          "q": "ब्राउज़र-आधारित एक्सट्रैक्शन के लिए कितनी RAM आवश्यक है?",
+          "a": "24–30 FPS पर 1080p: 4–8 GB। 4K या उच्च FPS: 8–16 GB। यदि टैब क्रैश हो, तो FPS कम करें, टैब बंद करें, या वीडियो को छोटे क्लिप में विभाजित करें।"
         },
         {
-          "q": "What is the best free alternative for extracting video frames?",
-          "a": "Video to Image Sequence Online is the best free alternative — it requires no server upload (processing happens locally in your browser, so large files depend on your device memory, browser performance, video length, and codec support), batch processing, ZIP download, individual frame downloads, and custom FPS control. All completely free."
+          "q": "वीडियो डीकोड क्यों विफल होता है?",
+          "a": "असमर्थित कोडेक (जैसे, ProRes, हार्डवेयर डीकोड के बिना AV1)। सर्वोत्तम संगतता के लिए HandBrake (मुफ़्त) से MP4 H.264 में री-एन्कोड करें।"
         },
         {
-          "q": "Do I need to create an account or install anything?",
-          "a": "No. Just open the website and start converting. No account, no download, no installation. Works on any device with a modern browser."
+          "q": "कौन से वीडियो कोडेक समर्थित हैं?",
+          "a": "MP4 (H.264, H.265), MOV (H.264, ProRes*), WEBM (VP8, VP9, AV1*)। *ब्राउज़र हार्डवेयर सपोर्ट पर निर्भर। Safari/iOS में सीमित H.265/AV1 सपोर्ट है।"
+        },
+        {
+          "q": "क्या मैं 4K वीडियो से फ्रेम निकाल सकता हूं?",
+          "a": "हां, लेकिन 4K फ्रेम 1080p की तुलना में 4× मेमोरी लेते हैं। कम FPS (1–5) का उपयोग करें और 16 GB+ RAM सुनिश्चित करें। प्रीव्यू में फ्रेम 1920 px तक डाउनस्केल होते हैं; डाउनलोड पूर्ण रिज़ॉल्यूशन के होते हैं।"
+        },
+        {
+          "q": "मैं Blender के लिए इमेज सीक्वेंस कैसे बनाऊं?",
+          "a": "PNG में निकालें (लॉसलेस, अल्फा), नाम पैटर्न frame_000001.png। Blender में: Add → Image Sequence, फ़ोल्डर चुनें। फ्रेम दर को एक्सट्रैक्शन FPS से मिलाएं।"
+        },
+        {
+          "q": "मैं कंप्यूटर विज़न डेटासेट के लिए फ्रेम कैसे निकालूं?",
+          "a": "क्लासिफिकेशन/डिटेक्शन के लिए 1–5 FPS, ट्रैकिंग के लिए उच्च का उपयोग करें। पिक्सेल-परफेक्ट लेबल के लिए PNG एक्सपोर्ट करें। ZIP डाउनलोड लेबलिंग टूल (CVAT, LabelImg, Roboflow) के साथ काम करता है।"
         }
       ]
     }
@@ -361,7 +372,7 @@
         },
         {
           "title": "फ्रेम निकालें",
-          "body": "वीडियो फ्रेम सीक्वेंस डीकोड करने के लिए \"फ्रेम निकालें\" पर क्लिक करें।"
+          "body": "वीडियो फ्रेम सीक्वेंस डीकोड करने के लिए \"अभी फ्रेम निकालें\" पर क्लिक करें।"
         },
         {
           "title": "आउटपुट सेव करें",
@@ -396,36 +407,44 @@
     }
   },
   "extractFrames": {
-    "title": "Extract Frames from Video Online Free — JPG & PNG Frame Extractor",
-    "description": "Extract frames from video online for free. Convert MP4, MOV, and WEBM videos to JPG or PNG sequences in your browser. No server upload required.",
-    "h1": "Extract Frames from Video",
-    "h1Sub": "Free Online Frame Extractor",
-    "hero": "Extract every frame from MP4, MOV, and WEBM videos as JPG or PNG images for free. All processing happens locally in your browser — your files are never uploaded.",
-    "keywords": "extract frames from video, video frame extractor, extract frames online, video to images"
+    "title": "वीडियो से ऑनलाइन मुफ़्त फ्रेम निकालें — JPG और PNG फ्रेम एक्सट्रैक्टर",
+    "description": "वीडियो से ऑनलाइन मुफ़्त में फ्रेम निकालें। MP4, MOV और WEBM वीडियो को अपने ब्राउज़र में JPG या PNG सीक्वेंस में बदलें। सर्वर अपलोड की जरूरत नहीं।",
+    "h1": "वीडियो से फ्रेम निकालें",
+    "h1Sub": "मुफ़्त ऑनलाइन फ्रेम एक्सट्रैक्टर",
+    "hero": "MP4, MOV और WEBM वीडियो के हर फ्रेम को मुफ़्त में JPG या PNG इमेज के रूप में निकालें। सभी प्रसंस्करण आपके ब्राउज़र में स्थानीय रूप से होता है — आपकी फ़ाइलें कभी अपलोड नहीं होतीं।",
+    "keywords": "वीडियो से फ्रेम निकालें, वीडियो फ्रेम एक्सट्रैक्टर, ऑनलाइन फ्रेम निकालें, वीडियो से इमेज"
   },
   "videoToPng": {
-    "title": "Video to PNG Converter Online Free — Extract PNG Frames Instantly",
-    "description": "Convert video to PNG images online for free. Extract lossless PNG frames from MP4, MOV, and WEBM videos in your browser. No server upload required.",
-    "h1": "Extract Lossless PNG Frames",
-    "h1Sub": "Online — Free",
-    "hero": "Convert video to PNG images online for free. Extract pixel-perfect, lossless PNG sequences from MP4, MOV, or WEBM videos. Keep transparency info intact, all without files leaving your computer.",
-    "keywords": "video to png, extract png frames, mp4 to png, lossless frame extractor"
+    "title": "वीडियो से PNG कनवर्टर ऑनलाइन मुफ़्त — तुरंत PNG फ्रेम निकालें",
+    "description": "वीडियो को ऑनलाइन मुफ़्त में PNG इमेज में बदलें। MP4, MOV और WEBM वीडियो से लॉसलेस PNG फ्रेम अपने ब्राउज़र में निकालें। सर्वर अपलोड की जरूरत नहीं।",
+    "h1": "लॉसलेस PNG फ्रेम निकालें",
+    "h1Sub": "ऑनलाइन — मुफ़्त",
+    "hero": "वीडियो को ऑनलाइन मुफ़्त में PNG इमेज में बदलें। MP4, MOV या WEBM वीडियो से पिक्सेल-परफेक्ट, लॉसलेस PNG सीक्वेंस निकालें। पारदर्शिता जानकारी सुरक्षित रखें, बिना फ़ाइलों के आपके कंप्यूटर से बाहर जाए।",
+    "keywords": "वीडियो से PNG, PNG फ्रेम निकालें, MP4 से PNG, लॉसलेस फ्रेम एक्सट्रैक्टर"
   },
   "screenshotVideo": {
-    "title": "Screenshot from Video Online — Grab Any Frame for Free",
-    "description": "Take a screenshot from any video frame online for free. Capture the exact moment you need as a high-quality JPG or PNG. No server upload required.",
-    "h1": "Screenshot from Video",
-    "h1Sub": "Grab Any Frame Free",
-    "hero": "Take a screenshot from MP4, MOV, and WEBM videos online for free. Extract the exact frame you need in full native resolution. No server uploads, no watermarks, completely private.",
-    "keywords": "screenshot from video, video frame grabber, extract still from video, video frame capture"
+    "title": "वीडियो से ऑनलाइन स्क्रीनशॉट — कोई भी फ्रेम मुफ़्त में पकड़ें",
+    "description": "किसी भी वीडियो फ्रेम से ऑनलाइन मुफ़्त में स्क्रीनशॉट लें। जिस सटीक क्षण की आपको ज़रूरत है उसे उच्च गुणवत्ता JPG या PNG में कैप्चर करें। सर्वर अपलोड की जरूरत नहीं।",
+    "h1": "वीडियो से स्क्रीनशॉट",
+    "h1Sub": "कोई भी फ्रेम मुफ़्त में पकड़ें",
+    "hero": "MP4, MOV और WEBM वीडियो से ऑनलाइन मुफ़्त में स्क्रीनशॉट लें। जिस सटीक फ्रेम की आपको ज़रूरत है उसे पूर्ण नेटिव रिज़ॉल्यूशन में निकालें। कोई सर्वर अपलोड नहीं, कोई वॉटरमार्क नहीं, पूरी तरह निजी।",
+    "keywords": "वीडियो से स्क्रीनशॉट, वीडियो फ्रेम ग्रैबर, वीडियो से स्टिल निकालें, वीडियो फ्रेम कैप्चर"
+  },
+  "videoToWebp": {
+    "title": "वीडियो से WebP कनवर्टर ऑनलाइन मुफ़्त — तुरंत WebP फ्रेम निकालें",
+    "description": "वीडियो को ऑनलाइन मुफ़्त में WebP इमेज में बदलें। MP4, MOV और WEBM वीडियो से पारदर्शिता वाले उच्च गुणवत्ता WebP फ्रेम अपने ब्राउज़र में निकालें। सर्वर अपलोड की जरूरत नहीं।",
+    "h1": "वीडियो से WebP कनवर्टर",
+    "h1Sub": "WebP फ्रेम मुफ़्त में निकालें",
+    "hero": "वीडियो को ऑनलाइन मुफ़्त में WebP इमेज में बदलें। MP4, MOV या WEBM वीडियो से आधुनिक, कुशल WebP फ्रेम पारदर्शिता समर्थन के साथ निकालें। JPG/PNG से छोटे, बिना फ़ाइलों के आपके कंप्यूटर से बाहर जाए।",
+    "keywords": "वीडियो से WebP, WebP फ्रेम निकालें, MP4 से WebP, WebP फ्रेम एक्सट्रैक्टर, वीडियो से WebP कनवर्टर"
   },
   "imagesToVideo": {
-    "title": "Images to Video Online — Create WebM from JPG/PNG Sequences",
-    "description": "Convert image sequences to video online for free. Create WebM video from JPG or PNG frames in your browser. No server upload required.",
-    "h1": "Images to Video",
-    "h1Sub": "Create Video from Image Sequences",
-    "hero": "Convert a sequence of JPG or PNG images into a smooth WebM video directly in your browser. No server upload, no watermarks.",
-    "keywords": "images to video, image sequence to video, jpg to video, png to video"
+    "title": "इमेज से वीडियो ऑनलाइन — JPG/PNG सीक्वेंस से WebM बनाएं",
+    "description": "इमेज सीक्वेंस को ऑनलाइन मुफ़्त में वीडियो में बदलें। अपने ब्राउज़र में JPG या PNG फ्रेम से WebM वीडियो बनाएं। सर्वर अपलोड की जरूरत नहीं।",
+    "h1": "इमेज से वीडियो",
+    "h1Sub": "इमेज सीक्वेंस से वीडियो बनाएं",
+    "hero": "JPG या PNG इमेज की सीक्वेंस को सीधे अपने ब्राउज़र में स्मूथ WebM वीडियो में बदलें। कोई सर्वर अपलोड नहीं, कोई वॉटरमार्क नहीं।",
+    "keywords": "इमेज से वीडियो, इमेज सीक्वेंस से वीडियो, JPG से वीडियो, PNG से वीडियो"
   },
   "footer": {
     "tagline": "मुफ़्त ब्राउज़र-आधारित वीडियो फ्रेम एक्सट्रैक्टर। MP4, MOV और WEBM वीडियो को JPG/PNG इमेज सीक्वेंस में बदलें — सर्वर अपलोड नहीं, आपके ब्राउज़र में स्थानीय प्रसंस्करण।",

@@ -46,8 +46,15 @@ const Header: React.FC = () => {
             <div className="absolute top-full left-0 mt-1 bg-gray-950 border border-gray-800 rounded-xl p-2 min-w-[240px] hidden group-hover:block shadow-2xl z-50 flex flex-col">
               <Link to="/" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">Video to Image Sequence</Link>
               <Link to="/mp4-to-jpg" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">MP4 to JPG Converter</Link>
+              <Link to="/mp4-to-png" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">MP4 to PNG Converter</Link>
+              <Link to="/video-to-webp" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">Video to WebP Converter</Link>
+              <Link to="/mov-to-jpg" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">MOV to JPG Converter</Link>
+              <Link to="/mov-to-png" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">MOV to PNG Converter</Link>
+              <Link to="/webm-to-jpg" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">WebM to JPG Converter</Link>
+              <Link to="/webm-to-png" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">WebM to PNG Converter</Link>
               <Link to="/video-to-png" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">Video to PNG Converter</Link>
               <Link to="/screenshot-from-video" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">Screenshot from Video</Link>
+              <Link to="/extract-frame-at-timestamp" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">Exact Timestamp Extractor</Link>
               <Link to="/extract-frames-from-video" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">Extract Frames from Video</Link>
               <Link to="/ai-social-media-frame-picker" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors flex items-center justify-between font-medium">
                 <span>AI Social Media Frame Picker</span>
@@ -57,7 +64,33 @@ const Header: React.FC = () => {
               <Link to="/images-to-video" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">Images to Video</Link>
             </div>
           </div>
-          <Link to="/blog" className="hover:text-white transition font-medium">{t('nav.blog')}</Link>
+          <div className="relative group">
+            <button className="hover:text-white transition flex items-center gap-1 py-1 font-medium">
+              {t('nav.blog')} <span className="text-[10px] text-gray-600">▼</span>
+            </button>
+            <div className="absolute top-full left-0 mt-1 bg-gray-950 border border-gray-800 rounded-xl p-2 min-w-[280px] hidden group-hover:block shadow-2xl z-50 flex flex-col">
+              <Link to="/blog" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">All Articles</Link>
+              <hr className="border-gray-900 my-1" />
+              <span className="text-xs text-gray-600 uppercase font-semibold tracking-wider px-3 py-1">Guides</span>
+              <Link to="/blog/how-to-extract-frames-from-video" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium text-sm">How to Extract Frames from Video</Link>
+              <Link to="/blog/how-many-frames-per-second" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium text-sm">How Many FPS to Extract?</Link>
+              <Link to="/blog/video-codecs-explained" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium text-sm">Video Codecs Explained</Link>
+              <Link to="/blog/extract-video-frames-for-ai" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium text-sm">Extract Frames for AI Datasets</Link>
+              <Link to="/blog/video-to-image-sequence-explained" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium text-sm">Video to Image Sequence Explained</Link>
+              <Link to="/blog/jpg-vs-png-vs-webp-video-frames" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium text-sm">JPG vs PNG vs WebP for Frames</Link>
+              <Link to="/blog/what-is-video-frame-rate" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium text-sm">What Is Video Frame Rate?</Link>
+              <hr className="border-gray-900 my-1" />
+              <span className="text-xs text-gray-600 uppercase font-semibold tracking-wider px-3 py-1">Tool Guides</span>
+              <Link to="/blog/extract-frames-from-video-online" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium text-sm">Extract Frames Online</Link>
+              <Link to="/blog/mp4-to-image-sequence-guide" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium text-sm">MP4 to Image Sequence</Link>
+              <Link to="/blog/video-to-png-frames-guide" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium text-sm">Video to PNG Frames</Link>
+              <Link to="/blog/ai-best-frame-from-video" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium text-sm">AI Best Frame from Video</Link>
+              <Link to="/blog/how-to-convert-images-to-video-guide" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium text-sm">Images to Video Guide</Link>
+              <Link to="/blog/ezgif-alternative-video-to-image-sequence" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium text-sm">Ezgif Alternative</Link>
+              <Link to="/blog/video-frame-extractor-use-cases" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium text-sm">Use Cases</Link>
+              <Link to="/blog/best-fps-settings-for-video-frame-extraction" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium text-sm">Best FPS Settings</Link>
+            </div>
+          </div>
           <Link to="/contact" className="hover:text-white transition font-medium">Contact</Link>
           <Link to="/#how-it-works" className="hover:text-white transition font-medium">{t('nav.howItWorks')}</Link>
           <Link to="/#faq" className="hover:text-white transition font-medium">{t('nav.faq')}</Link>
@@ -115,8 +148,15 @@ const Header: React.FC = () => {
             <span className="text-xs text-gray-600 uppercase font-semibold tracking-wider">Converter Tools</span>
             <Link to="/" onClick={() => setOpen(false)} className="pl-2 font-medium">Video to Image Sequence</Link>
             <Link to="/mp4-to-jpg" onClick={() => setOpen(false)} className="pl-2 font-medium">MP4 to JPG Converter</Link>
+            <Link to="/mp4-to-png" onClick={() => setOpen(false)} className="pl-2 font-medium">MP4 to PNG Converter</Link>
+            <Link to="/video-to-webp" onClick={() => setOpen(false)} className="pl-2 font-medium">Video to WebP Converter</Link>
+            <Link to="/mov-to-jpg" onClick={() => setOpen(false)} className="pl-2 font-medium">MOV to JPG Converter</Link>
+            <Link to="/mov-to-png" onClick={() => setOpen(false)} className="pl-2 font-medium">MOV to PNG Converter</Link>
+            <Link to="/webm-to-jpg" onClick={() => setOpen(false)} className="pl-2 font-medium">WebM to JPG Converter</Link>
+            <Link to="/webm-to-png" onClick={() => setOpen(false)} className="pl-2 font-medium">WebM to PNG Converter</Link>
             <Link to="/video-to-png" onClick={() => setOpen(false)} className="pl-2 font-medium">Video to PNG Converter</Link>
             <Link to="/screenshot-from-video" onClick={() => setOpen(false)} className="pl-2 font-medium">Screenshot from Video</Link>
+            <Link to="/extract-frame-at-timestamp" onClick={() => setOpen(false)} className="pl-2 font-medium">Exact Timestamp Extractor</Link>
             <Link to="/extract-frames-from-video" onClick={() => setOpen(false)} className="pl-2 font-medium">Extract Frames from Video</Link>
             <Link to="/ai-social-media-frame-picker" onClick={() => setOpen(false)} className="pl-2 font-medium flex items-center justify-between">
               <span>AI Social Media Frame Picker</span>
@@ -125,7 +165,25 @@ const Header: React.FC = () => {
 
             <Link to="/images-to-video" onClick={() => setOpen(false)} className="pl-2 font-medium">Images to Video</Link>
             <hr className="border-gray-900 my-1" />
-            <Link to="/blog" onClick={() => setOpen(false)} className="font-medium">{t('nav.blog')}</Link>
+            <div className="pl-2">
+              <span className="text-xs text-gray-600 uppercase font-semibold tracking-wider block pb-1">{t('nav.blog')}</span>
+              <Link to="/blog" onClick={() => setOpen(false)} className="pl-4 font-medium text-sm">All Articles</Link>
+              <Link to="/blog/how-to-extract-frames-from-video" onClick={() => setOpen(false)} className="pl-4 font-medium text-sm">How to Extract Frames</Link>
+              <Link to="/blog/how-many-frames-per-second" onClick={() => setOpen(false)} className="pl-4 font-medium text-sm">How Many FPS?</Link>
+              <Link to="/blog/video-codecs-explained" onClick={() => setOpen(false)} className="pl-4 font-medium text-sm">Video Codecs Explained</Link>
+              <Link to="/blog/extract-video-frames-for-ai" onClick={() => setOpen(false)} className="pl-4 font-medium text-sm">Frames for AI Datasets</Link>
+              <Link to="/blog/video-to-image-sequence-explained" onClick={() => setOpen(false)} className="pl-4 font-medium text-sm">Image Sequence Explained</Link>
+              <Link to="/blog/jpg-vs-png-vs-webp-video-frames" onClick={() => setOpen(false)} className="pl-4 font-medium text-sm">JPG vs PNG vs WebP</Link>
+              <Link to="/blog/what-is-video-frame-rate" onClick={() => setOpen(false)} className="pl-4 font-medium text-sm">What Is Frame Rate?</Link>
+              <Link to="/blog/extract-frames-from-video-online" onClick={() => setOpen(false)} className="pl-4 font-medium text-sm">Extract Frames Online</Link>
+              <Link to="/blog/mp4-to-image-sequence-guide" onClick={() => setOpen(false)} className="pl-4 font-medium text-sm">MP4 to Image Sequence</Link>
+              <Link to="/blog/video-to-png-frames-guide" onClick={() => setOpen(false)} className="pl-4 font-medium text-sm">Video to PNG Guide</Link>
+              <Link to="/blog/ai-best-frame-from-video" onClick={() => setOpen(false)} className="pl-4 font-medium text-sm">AI Best Frame</Link>
+              <Link to="/blog/how-to-convert-images-to-video-guide" onClick={() => setOpen(false)} className="pl-4 font-medium text-sm">Images to Video Guide</Link>
+              <Link to="/blog/ezgif-alternative-video-to-image-sequence" onClick={() => setOpen(false)} className="pl-4 font-medium text-sm">Ezgif Alternative</Link>
+              <Link to="/blog/video-frame-extractor-use-cases" onClick={() => setOpen(false)} className="pl-4 font-medium text-sm">Use Cases</Link>
+              <Link to="/blog/best-fps-settings-for-video-frame-extraction" onClick={() => setOpen(false)} className="pl-4 font-medium text-sm">Best FPS Settings</Link>
+            </div>
             <Link to="/#how-it-works" onClick={() => setOpen(false)} className="font-medium">{t('nav.howItWorks')}</Link>
             <Link to="/#faq" onClick={() => setOpen(false)} className="font-medium">{t('nav.faq')}</Link>
             <hr className="border-gray-900 my-1" />
