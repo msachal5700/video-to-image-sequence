@@ -62,7 +62,7 @@ const GoogleAdUnit: React.FC<GoogleAdUnitProps> = ({
       <ins
         ref={ref}
         className="adsbygoogle"
-        style={{ display: 'block', width: '100%' }}
+        style={{ display: 'block', width: '100%', backgroundColor: 'transparent' }}
         data-ad-client="ca-pub-3034542374165383"
         data-ad-slot={slot}
         data-ad-format="auto"
