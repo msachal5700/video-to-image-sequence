@@ -66,11 +66,11 @@
     "processing": "Processing..."
   },
   "badges": {
-    "private": "🔒 100% Private (Local)",
-    "fast": "⚡ Fast Local Conversion",
-    "zip": "📦 ZIP Download",
-    "fps": "🎨 Custom FPS Control",
-    "free": "🆓 Free Forever"
+    "private": "\uD83D� 100% Private (Local)",
+    "fast": "\u26A1️ Fast Local Conversion",
+    "zip": "\uD83D� ZIP Download",
+    "fps": "\uD83C� Custom FPS Control",
+    "free": "\uD83C� Free Forever"
   },
   "home": {
     "title": "Free Video Frame Extractor — Extract Frames from Video Online",
@@ -82,13 +82,13 @@
     "keywords": "video frame extractor, extract frames from video, free video frame extractor, video to image sequence, video frame grabber, extract frames online, video to jpg sequence, video to png sequence, video to webp, exact timestamp extraction",
     "badge": "Free · No Upload · Local Browser Processing",
     "badges": {
-      "exactTimestamp": "🎯 Exact Timestamp (ms)",
-      "webp": "🌐 WebP + JPG + PNG",
-      "fps": "🎨 Custom FPS 1–60",
-      "zip": "📦 ZIP Download",
-      "batch": "🎬 Batch Processing",
-      "ai": "🤖 AI Dataset Ready",
-      "private": "🔒 100% Private"
+      "exactTimestamp": "\uD83C� Exact Timestamp (ms)",
+      "webp": "\uD83C� WebP + JPG + PNG",
+      "fps": "\uD83C� Custom FPS 1–60",
+      "zip": "\uD83D� ZIP Download",
+      "batch": "\uD83C� Batch Processing",
+      "ai": "\uD83E� AI Dataset Ready",
+      "private": "\uD83D� 100% Private"
     },
     "tabs": {
       "toImages": "Video to Images",
@@ -149,32 +149,32 @@
     "whoUsesOnlineSub": "Real use cases — not just audiences",
     "whoUsesItems": [
       {
-        "icon": "🤖",
+        "icon": "\uD83E�",
         "title": "AI Dataset Creation",
         "desc": "Extract thousands of frames at controlled FPS for YOLO, classification, segmentation training. ZIP download ready for labeling pipelines."
       },
       {
-        "icon": "🎨",
+        "icon": "\uD83C�",
         "title": "Blender & VFX Pipelines",
         "desc": "Export PNG sequences with alpha for compositing, camera tracking, rotoscoping. Drop directly into Blender, Nuke, After Effects."
       },
       {
-        "icon": "🎮",
+        "icon": "\uD83C�",
         "title": "Game Dev & Sprites",
         "desc": "Turn sprite sheet videos into individual frames. PNG/WebP with transparency for Unity, Godot, Unreal texture atlases."
       },
       {
-        "icon": "📺",
+        "icon": "\uD83D�",
         "title": "YouTube Thumbnails",
         "desc": "Scrub to the exact peak moment, capture at full 4K resolution. PNG for editing, WebP for fast upload."
       },
       {
-        "icon": "📚",
+        "icon": "\uD83D�",
         "title": "Lecture & Research",
         "desc": "Extract slides from lecture recordings at 1 FPS. Build searchable image indexes for academic review."
       },
       {
-        "icon": "🎞️",
+        "icon": "\uD83C�️",
         "title": "Animation Reference",
         "desc": "Frame-by-frame breakdown of motion for rotoscoping, timing study, pose libraries. 60 FPS for smooth analysis."
       }
@@ -190,58 +190,169 @@
     "compareRows": [
       [
         "Privacy",
-        "✅ 100% local — no upload",
-        "❌ Upload required",
-        "✅ Local"
+        "\u2705 100% local — no upload",
+        "\u274C Upload required",
+        "\u2705 Local"
       ],
       [
         "Exact timestamp (ms)",
-        "✅ Visual scrubber + input",
-        "⚠️ Rare / API only",
-        "✅ Complex syntax"
+        "\u2705 Visual scrubber + input",
+        "\u26A0️ Rare / API only",
+        "\u2705 Complex syntax"
       ],
       [
         "Frame-by-frame step",
-        "✅ UI buttons",
-        "❌ No",
-        "✅ Manual seek"
+        "\u2705 UI buttons",
+        "\u274C No",
+        "\u2705 Manual seek"
       ],
       [
         "WebP output",
-        "✅ JPG + PNG + WebP",
-        "⚠️ JPG/PNG only",
-        "✅ Manual"
+        "\u2705 JPG + PNG + WebP",
+        "\u26A0️ JPG/PNG only",
+        "\u2705 Manual"
       ],
       [
         "Batch multi-video",
-        "✅ Queue + ZIP each",
-        "❌ One at a time",
-        "✅ Scriptable"
+        "\u2705 Queue + ZIP each",
+        "\u274C One at a time",
+        "\u2705 Scriptable"
       ],
       [
         "AI dataset FPS sampling",
-        "✅ 1–60 FPS presets",
-        "❌ Fixed options",
-        "✅ Manual math"
+        "\u2705 1–60 FPS presets",
+        "\u274C Fixed options",
+        "\u2705 Manual math"
       ],
       [
         "File size limit",
-        "✅ Device RAM only",
-        "❌ 100–500 MB",
-        "✅ None"
+        "\u2705 Device RAM only",
+        "\u274C 100–500 MB",
+        "\u2705 None"
       ],
       [
         "Install / setup",
-        "✅ Zero — open browser",
-        "✅ Zero",
-        "❌ Install + config"
+        "\u2705 Zero — open browser",
+        "\u2705 Zero",
+        "\u274C Install + config"
       ],
       [
         "Cost",
-        "✅ Free forever",
-        "⚠️ Freemium tiers",
-        "✅ Free (OSS)"
+        "\u2705 Free forever",
+        "\u26A0️ Freemium tiers",
+        "\u2705 Free (OSS)"
       ]
+    ],
+    "whyChooseTitle": "Why Choose This Video Frame Extractor?",
+    "whyChooseSub": "Built for professionals who need reliable, private, and fast frame extraction without compromise.",
+    "whyChooseItems": [
+      {
+        "icon": "\uD83D�",
+        "title": "True Privacy — Zero Server Upload",
+        "desc": "Your video files never leave your device. Unlike cloud converters that upload to remote servers, this tool uses WebCodecs and Canvas APIs to decode and extract frames entirely within your browser tab. No network requests for video data. Safe for confidential footage, proprietary content, medical imaging, or personal videos."
+      },
+      {
+        "icon": "\u26A1️",
+        "title": "Hardware-Accelerated Local Processing",
+        "desc": "Leverages your GPU via WebCodecs VideoDecoder for hardware-accelerated decoding. Falls back to Canvas-based extraction for maximum browser compatibility. Processing speed depends only on your hardware — not server queue times or bandwidth limits."
+      },
+      {
+        "icon": "\uD83C�",
+        "title": "Frame-Perfect Precision",
+        "desc": "Extract at exact millisecond timestamps (HH:MM:SS.mmm), custom FPS rates (1–60), or every single frame. Visual frame-by-frame scrubber lets you preview and select the perfect frame before extraction. No guessing, no rounding errors."
+      },
+      {
+        "icon": "\uD83D�",
+        "title": "Batch Processing & ZIP Download",
+        "desc": "Process multiple videos in a single session. Each video creates its own numbered frame sequence and ZIP archive. No manual file management — download everything organized and ready for your workflow."
+      },
+      {
+        "icon": "\uD83C�",
+        "title": "Completely Free — No Limits",
+        "desc": "No file size caps (only your device RAM), no watermarks, no account required, no trial periods, no feature gates. Free forever for personal and commercial use. Built by developers, for developers."
+      },
+      {
+        "icon": "\uD83D�️",
+        "title": "Developer-Friendly Output",
+        "desc": "Frames named with zero-padded sequential numbering (frame_000001.png) for perfect pipeline integration. Compatible with Blender, FFmpeg, Python/OpenCV, Unity, Unreal, Nuke, After Effects, and all major ML labeling tools (CVAT, LabelImg, Roboflow)."
+      }
+    ],
+    "techSpecsTitle": "Technical Specifications",
+    "techSpecsSub": "Detailed capabilities for developers and technical workflows.",
+    "techSpecsHeaders": ["Specification", "Details"],
+    "techSpecsRows": [
+      ["Input Formats", "MP4 (H.264, H.265*), MOV (H.264, ProRes*), WEBM (VP8, VP9, AV1*) — *Browser/hardware dependent"],
+      ["Output Formats", "JPG (quality 10–100), PNG (lossless), WebP (quality 10–100, alpha support)"],
+      ["Frame Rate Control", "Presets: 1, 5, 10, 12, 15, 24, 25, 30, 60 FPS + Custom slider (1–60) + Exact timestamp extraction"],
+      ["Max Resolution", "Native video resolution (preview capped at 1920px width; downloads are full resolution)"],
+      ["Batch Processing", "Multiple videos queued, each with independent settings, separate ZIP outputs"],
+      ["Frame Naming", "Zero-padded: frame_000001.png, frame_000002.png... (6 digits default)"],
+      ["Color Space", "sRGB output; HDR content tone-mapped to SDR"],
+      ["Memory Requirements", "~1080p@30FPS: 4–8 GB RAM; 4K: 16 GB+ recommended"],
+      ["Browser Support", "Chrome 94+, Firefox 93+, Safari 14+, Edge 94+ (WebCodecs API)"],
+      ["Offline Capable", "Yes — works after first load (service worker caches app shell)"]
+    ],
+    "gettingStartedTitle": "Complete Getting Started Guide",
+    "gettingStartedSub": "Step-by-step walkthrough for your first frame extraction.",
+    "gettingStartedSteps": [
+      {
+        "title": "Step 1: Prepare Your Video",
+        "content": "Ensure your video is in a supported format (MP4 H.264 is most compatible). For best results, use H.264 encoded MP4 files. If you have HEVC/H.265, ProRes, or AV1 files, transcode them first using HandBrake (free) to MP4 H.264 for guaranteed browser compatibility."
+      },
+      {
+        "title": "Step 2: Load the Video",
+        "content": "Drag and drop your video file onto the upload zone, or click \"Choose File\" to browse. The tool loads the video entirely in your browser memory — no upload progress bar, no server connection. Large files (2+ GB) may take a few seconds to decode the first frame."
+      },
+      {
+        "title": "Step 3: Choose Extraction Mode",
+        "content": "Select your preferred extraction method: (a) Exact Timestamp — enter HH:MM:SS.mmm or use frame-step buttons for single-frame precision; (b) Custom FPS — choose from presets (1, 5, 10, 12, 15, 24, 25, 30, 60) or use the slider for any value 1–60; (c) Every Frame — extracts at native video frame rate for complete sequences."
+      },
+      {
+        "title": "Step 4: Select Output Format & Quality",
+        "content": "Choose JPG (smallest files, universal compatibility), PNG (lossless, alpha transparency for VFX/ML), or WebP (25–35% smaller than JPG, supports transparency, modern browsers). Adjust quality slider for JPG/WebP (10–100)."
+      },
+      {
+        "title": "Step 5: Extract & Preview",
+        "content": "Click \"Extract Frames\" to begin. Progress bar shows real-time frame count. The preview grid displays thumbnails of extracted frames. You can click any thumbnail to view full-resolution, or use \"Load More\" for large extractions."
+      },
+      {
+        "title": "Step 6: Download Results",
+        "content": "Download individual frames by clicking them, or use \"Download All (ZIP)\" for the complete sequence. Frames are named sequentially (frame_000001.png) for easy import into Blender, FFmpeg, Python, or labeling tools."
+      }
+    ],
+    "workflowsTitle": "Common Workflows & Recommended Settings",
+    "workflowsSub": "Quick-reference settings for popular use cases.",
+    "workflowsItems": [
+      {
+        "title": "AI/ML Training Datasets",
+        "settings": "Format: PNG  |  FPS: 1–5 (classification), 2–3 (detection), 3–5 (segmentation)  |  Use \"Video Frames for AI Datasets\" tool for auto train/val/test splits",
+        "desc": "Lower FPS maximizes temporal diversity while minimizing labeling effort. PNG ensures pixel-perfect labels for segmentation."
+      },
+      {
+        "title": "YouTube & Social Media Thumbnails",
+        "settings": "Format: WebP or PNG  |  Mode: Exact Timestamp  |  Use \"Exact Timestamp Extractor\" for millisecond precision",
+        "desc": "Scrub to the exact peak moment. PNG for Photoshop editing, WebP for direct upload. 4K source = 4K thumbnail."
+      },
+      {
+        "title": "Blender / VFX / Compositing",
+        "settings": "Format: PNG (with alpha if available)  |  FPS: Match project (24, 25, 30)  |  Naming: frame_000001.png",
+        "desc": "Lossless PNG preserves color depth for compositing. Alpha channel support for green-screen footage. Drop sequence directly into Blender/Nuke/AE."
+      },
+      {
+        "title": "Game Dev Sprite Sheets",
+        "settings": "Format: PNG or WebP  |  FPS: Native video FPS  |  Use \"Video to Image Sequence\" tool",
+        "desc": "Preserve original timing for engine import. WebP with transparency for Unity/Godot/Unreal texture atlases. Batch multiple animations."
+      },
+      {
+        "title": "Lecture / Slide Capture",
+        "settings": "Format: JPG  |  FPS: 1  |  Use \"Extract Frames from Video\" tool",
+        "desc": "One frame per second creates searchable slide deck. JPG minimizes storage. Works with OCR pipelines for text extraction."
+      },
+      {
+        "title": "Animation Reference / Rotoscoping",
+        "settings": "Format: PNG  |  FPS: 12, 15, or 24  |  Use 60 FPS for smooth motion analysis",
+        "desc": "12 FPS = classic 2s animation timing. 24 FPS = film standard. PNG for color accuracy in reference studies."
+      }
     ],
     "moreToolsTitle": "Specialized Frame Extractors",
     "moreTools": [
@@ -343,6 +454,17 @@
           "a": "Use 1–5 FPS for classification/detection, higher for tracking. Export PNG for pixel-perfect labels. ZIP download works with labeling tools (CVAT, LabelImg, Roboflow)."
         }
       ]
+    },
+    "contactTitle": "Contact & Support",
+    "contactSub": "Get help with video frame extraction",
+    "contactForm": {
+      "name": "Your Name",
+      "email": "Email Address",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send Message",
+      "success": "Message sent successfully! We'll respond within 24 hours.",
+      "error": "Failed to send message. Please try again."
     }
   },
   "mp4ToJpg": {

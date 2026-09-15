@@ -17,6 +17,10 @@ const Home: React.FC = () => {
   const compareRows = (t('home.compareRows', { returnObjects: true }) || []) as string[][];
   const moreToolsData = (t('home.moreTools', { returnObjects: true }) || []) as Array<{ title: string; desc: string }>;
   const relatedData = (t('home.relatedItems', { returnObjects: true }) || []) as Array<{ title: string; desc: string }>;
+  const whyChooseItems = (t('home.whyChooseItems', { returnObjects: true }) || []) as Array<{ icon: string; title: string; desc: string }>;
+  const techSpecsRows = (t('home.techSpecsRows', { returnObjects: true }) || []) as string[][];
+  const gettingStartedSteps = (t('home.gettingStartedSteps', { returnObjects: true }) || []) as Array<{ title: string; content: string }>;
+  const workflowsItems = (t('home.workflowsItems', { returnObjects: true }) || []) as Array<{ title: string; settings: string; desc: string }>;
 
   useEffect(() => {
     const existing = document.getElementById('home-schemas');
@@ -360,7 +364,95 @@ const Home: React.FC = () => {
           <strong className="text-white">{t('home.privacyWarn')}</strong>
         </p>
       </section>
-      
+
+      {/* ── WHY CHOOSE THIS VIDEO FRAME EXTRACTOR ── */}
+      <section id="why-choose" className="max-w-4xl mx-auto py-16 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-3 font-display">
+          {t('home.whyChooseTitle')}
+        </h2>
+        <p className="text-gray-500 text-center text-sm mb-12">
+          {t('home.whyChooseSub')}
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {whyChooseItems.map((item, idx) => (
+            <div key={idx} className="bg-gray-900 border border-gray-800 rounded-2xl p-6 hover:border-cyan-800 hover:bg-gray-900/80 transition-all group">
+              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform inline-block">{item.icon}</div>
+              <h3 className="text-white font-semibold text-lg mb-2">{item.title}</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── TECHNICAL SPECIFICATIONS ── */}
+      <section id="technical-specs" className="max-w-4xl mx-auto py-16 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-3 font-display">
+          {t('home.techSpecsTitle')}
+        </h2>
+        <p className="text-gray-500 text-center text-sm mb-10">
+          {t('home.techSpecsSub')}
+        </p>
+        <div className="overflow-x-auto rounded-2xl border border-gray-800">
+          <table className="w-full text-sm" style={{minWidth: '600px'}}>
+            <thead>
+              <tr className="bg-gray-900 border-b border-gray-800">
+                {t('home.techSpecsHeaders', { returnObjects: true }).map((header, idx) => (
+                  <th key={idx} className="px-5 py-4 text-left text-gray-400 font-medium whitespace-nowrap">{header}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-800/50">
+              {techSpecsRows.map((row, idx) => (
+                <tr key={idx} className="hover:bg-gray-900/50">
+                  <td className="px-5 py-3 text-gray-300 font-medium whitespace-nowrap">{row[0]}</td>
+                  <td className="px-5 py-3 text-gray-400">{row[1]}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* ── GETTING STARTED GUIDE ── */}
+      <section id="getting-started" className="max-w-4xl mx-auto py-16 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-3 font-display">
+          {t('home.gettingStartedTitle')}
+        </h2>
+        <p className="text-gray-500 text-center text-sm mb-10">
+          {t('home.gettingStartedSub')}
+        </p>
+        <ol className="space-y-6 max-w-3xl mx-auto">
+          {gettingStartedSteps.map((step, idx) => (
+            <li key={idx} className="flex gap-4">
+              <span className="flex-shrink-0 w-8 h-8 bg-cyan-950 text-cyan-400 rounded-full flex items-center justify-center font-bold font-mono text-lg">{idx + 1}</span>
+              <div>
+                <h3 className="text-white font-semibold mb-1">{step.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{step.content}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      {/* ── COMMON WORKFLOWS ── */}
+      <section id="workflows" className="max-w-4xl mx-auto py-16 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-3 font-display">
+          {t('home.workflowsTitle')}
+        </h2>
+        <p className="text-gray-500 text-center text-sm mb-10">
+          {t('home.workflowsSub')}
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {workflowsItems.map((wf, idx) => (
+            <div key={idx} className="bg-gray-900 border border-gray-800 rounded-2xl p-6 hover:border-cyan-800 hover:bg-gray-900/80 transition-all">
+              <h3 className="text-white font-semibold text-lg mb-2">{wf.title}</h3>
+              <p className="text-cyan-400 text-sm font-mono mb-2">{wf.settings}</p>
+              <p className="text-gray-400 text-sm leading-relaxed">{wf.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ── HOW IT WORKS ── */}
       <section id="how-it-works" className="max-w-4xl mx-auto py-16 px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-3 font-display">
