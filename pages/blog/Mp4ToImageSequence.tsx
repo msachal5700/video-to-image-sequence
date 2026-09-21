@@ -17,7 +17,7 @@ const Mp4ToImageSequence: React.FC = () => {
       "mainEntityOfPage": "https://www.videotoimagesequence.online/blog/mp4-to-image-sequence-guide",
       "keywords": ["MP4 to image sequence", "MP4 to JPG", "video frame extraction", "convert MP4 to images"],
       "datePublished": "2026-05-24",
-      "dateModified": "2026-05-24",
+      "dateModified": "2026-09-21",
       "author": { "@type": "Person", "name": "Muhammad Sachal", "url": "https://www.linkedin.com/in/sachalspeaks/", "image": "https://www.videotoimagesequence.online/muhammad-sachal.jpg" },
       "publisher": { "@type": "Organization", "name": "Video to Image Sequence Online", "logo": { "@type": "ImageObject", "url": "https://www.videotoimagesequence.online/og-image.png" } },
       "image": "https://www.videotoimagesequence.online/og-image.png"
@@ -38,7 +38,7 @@ const Mp4ToImageSequence: React.FC = () => {
         ogDescription="Learn how to extract every frame from an MP4 video as JPG or PNG images, free in your browser."
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="article"
-        articleDate="2026-05-24"
+        articleDate="2026-09-21"
         keywords="mp4 to image sequence, convert mp4 to images, mp4 frame extraction guide, mp4 sequence, extract frames from mp4"
       />
       
@@ -49,7 +49,7 @@ const Mp4ToImageSequence: React.FC = () => {
 
       <div className="mb-10 text-center mt-6">
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 font-display">MP4 to Image Sequence: Complete Beginner Guide</h1>
-        <p className="text-cyan-400 font-mono text-sm tracking-wider uppercase">May 24, 2026 • 8 min read</p>
+        <p className="text-cyan-400 font-mono text-sm tracking-wider uppercase">May 24, 2026 • Updated September 21, 2026 • 8 min read</p>
       </div>
 
       <div className="text-gray-300 space-y-6 leading-relaxed text-lg lg:text-xl">
