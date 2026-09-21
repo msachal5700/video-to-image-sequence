@@ -64,7 +64,9 @@ export const extractFramesLegacy = async ({
       canvas.height = targetHeight;
       
       const duration = video.duration;
-      let totalFrames = Math.floor(duration * fps);
+      // Never report zero total frames (e.g. a long interval on a very short
+      // clip) — the first frame at t=0 is always captured, so floor at 1.
+      let totalFrames = Math.max(1, Math.floor(duration * fps));
       const timeInterval = 1 / fps;
       
       // Support maxFrames safety cap
