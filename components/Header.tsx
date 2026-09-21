@@ -57,6 +57,13 @@ const Header: React.FC = () => {
               <Link to="/screenshot-from-video" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">Screenshot from Video</Link>
               <Link to="/extract-frame-at-timestamp" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">Exact Timestamp Extractor</Link>
               <Link to="/extract-frames-from-video" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">Extract Frames from Video</Link>
+              <hr className="border-gray-900 my-1" />
+              <span className="text-xs text-gray-600 uppercase font-semibold tracking-wider px-3 py-1">Every N Seconds</span>
+              <Link to="/extract-frame-every-1-second" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium text-sm">Frame Every 1 Second</Link>
+              <Link to="/extract-frame-every-5-seconds" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium text-sm">Frame Every 5 Seconds</Link>
+              <Link to="/extract-frame-every-10-seconds" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium text-sm">Frame Every 10 Seconds</Link>
+              <Link to="/extract-frame-every-30-seconds" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium text-sm">Frame Every 30 Seconds</Link>
+              <hr className="border-gray-900 my-1" />
               <Link to="/ai-social-media-frame-picker" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors flex items-center justify-between font-medium">
                 <span>AI Social Media Frame Picker</span>
                 <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold">NEW</span>
@@ -160,6 +167,11 @@ const Header: React.FC = () => {
             <Link to="/screenshot-from-video" onClick={() => setOpen(false)} className="pl-2 font-medium">Screenshot from Video</Link>
             <Link to="/extract-frame-at-timestamp" onClick={() => setOpen(false)} className="pl-2 font-medium">Exact Timestamp Extractor</Link>
             <Link to="/extract-frames-from-video" onClick={() => setOpen(false)} className="pl-2 font-medium">Extract Frames from Video</Link>
+            <span className="text-xs text-gray-600 uppercase font-semibold tracking-wider pl-2 pt-1">Every N Seconds</span>
+            <Link to="/extract-frame-every-1-second" onClick={() => setOpen(false)} className="pl-4 font-medium text-sm">Frame Every 1 Second</Link>
+            <Link to="/extract-frame-every-5-seconds" onClick={() => setOpen(false)} className="pl-4 font-medium text-sm">Frame Every 5 Seconds</Link>
+            <Link to="/extract-frame-every-10-seconds" onClick={() => setOpen(false)} className="pl-4 font-medium text-sm">Frame Every 10 Seconds</Link>
+            <Link to="/extract-frame-every-30-seconds" onClick={() => setOpen(false)} className="pl-4 font-medium text-sm">Frame Every 30 Seconds</Link>
             <Link to="/ai-social-media-frame-picker" onClick={() => setOpen(false)} className="pl-2 font-medium flex items-center justify-between">
               <span>AI Social Media Frame Picker</span>
               <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold mr-2">NEW</span>
