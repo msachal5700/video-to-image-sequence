@@ -123,7 +123,7 @@ const BlogIndex: React.FC = () => {
         ))}
       </div>
 
-      {/* Adsterra Ad — Blog Index */}
+      {/* Google AdSense ad — Blog Index */}
       <div className="max-w-5xl mx-auto px-4 mt-8">
         <GoogleAdUnit />
       </div>
