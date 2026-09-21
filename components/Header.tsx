@@ -53,6 +53,7 @@ const Header: React.FC = () => {
               <Link to="/webm-to-jpg" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">WebM to JPG Converter</Link>
               <Link to="/webm-to-png" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">WebM to PNG Converter</Link>
               <Link to="/video-to-png" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">Video to PNG Converter</Link>
+              <Link to="/video-to-gif" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">Video to GIF Converter</Link>
               <Link to="/screenshot-from-video" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">Screenshot from Video</Link>
               <Link to="/extract-frame-at-timestamp" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">Exact Timestamp Extractor</Link>
               <Link to="/extract-frames-from-video" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">Extract Frames from Video</Link>
@@ -155,6 +156,7 @@ const Header: React.FC = () => {
             <Link to="/webm-to-jpg" onClick={() => setOpen(false)} className="pl-2 font-medium">WebM to JPG Converter</Link>
             <Link to="/webm-to-png" onClick={() => setOpen(false)} className="pl-2 font-medium">WebM to PNG Converter</Link>
             <Link to="/video-to-png" onClick={() => setOpen(false)} className="pl-2 font-medium">Video to PNG Converter</Link>
+            <Link to="/video-to-gif" onClick={() => setOpen(false)} className="pl-2 font-medium">Video to GIF Converter</Link>
             <Link to="/screenshot-from-video" onClick={() => setOpen(false)} className="pl-2 font-medium">Screenshot from Video</Link>
             <Link to="/extract-frame-at-timestamp" onClick={() => setOpen(false)} className="pl-2 font-medium">Exact Timestamp Extractor</Link>
             <Link to="/extract-frames-from-video" onClick={() => setOpen(false)} className="pl-2 font-medium">Extract Frames from Video</Link>
