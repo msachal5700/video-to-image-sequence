@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 declare global {
   interface Window {
@@ -26,6 +26,9 @@ const GoogleAdUnit: React.FC<GoogleAdUnitProps> = ({
   const ref = useRef<HTMLModElement>(null);
   const pushed = useRef(false);
   const pending = useRef(false);
+  // When AdSense reports no fill, hide the slot entirely so a blank
+  // white box never shows against the dark theme.
+  const [unfilled, setUnfilled] = useState(false);
 
   const loadAds = () => {
     if (pushed.current || pending.current) return;
@@ -48,10 +51,29 @@ const GoogleAdUnit: React.FC<GoogleAdUnitProps> = ({
     const handler = () => loadAds();
     window.addEventListener('cookieConsentChange', handler);
 
+    // Watch for AdSense's fill status: hide the slot when no ad is
+    // served, so an empty white iframe never appears on the dark theme.
+    const ins = ref.current;
+    let observer: MutationObserver | null = null;
+    if (ins) {
+      const checkFill = () => {
+        if (ins.getAttribute('data-ad-status') === 'unfilled') {
+          setUnfilled(true);
+        }
+      };
+      checkFill();
+      observer = new MutationObserver(checkFill);
+      observer.observe(ins, { attributes: true, attributeFilter: ['data-ad-status'] });
+    }
+
     return () => {
       window.removeEventListener('cookieConsentChange', handler);
+      observer?.disconnect();
     };
   }, []);
+
+  // No ad served: render nothing instead of a blank white box.
+  if (unfilled) return null;
 
   return (
     // min-height reserves space before the ad loads, preventing layout shift (CLS)
