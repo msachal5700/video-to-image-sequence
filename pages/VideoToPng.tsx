@@ -195,7 +195,7 @@ const VideoToPng: React.FC = () => {
         </div>
       </section>
 
-      {/* Adsterra Ad — Post How-To */}
+      {/* Google AdSense ad — Post How-To */}
       <div className="max-w-5xl mx-auto px-4">
         <GoogleAdUnit />
       </div>
