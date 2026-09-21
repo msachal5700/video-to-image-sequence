@@ -89,7 +89,7 @@ const Mp4ToImageSequence: React.FC = () => {
           Our browser-based pipeline decodes the MP4 container structure locally, utilizing hardware acceleration via standard browser APIs. By drawing decoded frames directly onto Canvas buffers, the tool bypasses the need to transmit data to external servers, protecting your security and eliminating network delays.
         </p>
 
-        {/* Adsterra Ad — Mid Article */}
+        {/* Google AdSense ad — Mid Article */}
         <div className="my-10">
           <GoogleAdUnit />
         </div>
@@ -241,7 +241,7 @@ const Mp4ToImageSequence: React.FC = () => {
           </Link>
         </p>
       </div>
-      {/* Adsterra Ad — End of Article */}
+      {/* Google AdSense ad — End of Article */}
       <div className="my-10">
         <GoogleAdUnit />
       </div>
