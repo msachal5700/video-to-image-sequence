@@ -3,7 +3,7 @@ import { Loader2, CheckCircle2, Download, AlertTriangle, Eye, X, Film, Copy } fr
 import Dropzone from '../components/Dropzone';
 import Controls from '../components/Controls';
 import InterstitialAd from '../components/InterstitialAd';
-import { AppState, FrameRate, VideoMetadata, ProcessingStats, OutputFormat } from '../types';
+import { AppState, FrameRate, VideoMetadata, ProcessingStats, OutputFormat, CadenceMode, clampIntervalSeconds } from '../types';
 import { extractFramesAndZip, formatTime } from '../utils/videoProcessor';
 import { useToast } from '../components/Toast';
 import { useTranslation } from 'react-i18next';
@@ -14,12 +14,17 @@ interface ExtractedFrame {
   index: number;
 }
 
-const VideoToImages: React.FC = () => {
+interface VideoToImagesProps {
+  /** When set, the extractor starts in "every N seconds" mode with this cadence preselected. */
+  initialIntervalSeconds?: number;
+}
+
+const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds }) => {
   const { t } = useTranslation();
   const [appState, setAppState] = useState<AppState>(AppState.IDLE);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [rawError, setRawError] = useState<string | null>(null);
-  
+
   // Batch queue state
   const [queue, setQueue] = useState<File[]>([]);
   const [currentQueueIndex, setCurrentQueueIndex] = useState(0);
@@ -29,6 +34,8 @@ const VideoToImages: React.FC = () => {
 
   const [videoMetadata, setVideoMetadata] = useState<VideoMetadata | null>(null);
   const [selectedFps, setSelectedFps] = useState<FrameRate>(30);
+  const [cadenceMode, setCadenceMode] = useState<CadenceMode>(initialIntervalSeconds != null ? 'interval' : 'fps');
+  const [intervalSeconds, setIntervalSeconds] = useState<number>(() => clampIntervalSeconds(initialIntervalSeconds ?? 5));
   const [outputFormat, setOutputFormat] = useState<OutputFormat>('jpg');
   const [processingStats, setProcessingStats] = useState<ProcessingStats | null>(null);
   const [showInterstitial, setShowInterstitial] = useState(false);
@@ -123,6 +130,16 @@ const VideoToImages: React.FC = () => {
 
     setAppState(AppState.PROCESSING);
 
+    // "Every N seconds" reuses the same extraction pipeline — only the frame
+    // cadence changes, expressed to the engine as a fractional FPS of 1/N.
+    // The lower bound guarantees at least one frame even for very short clips.
+    const effectiveFps = cadenceMode === 'interval'
+      ? Math.max(1 / intervalSeconds, videoMetadata ? 1 / Math.max(videoMetadata.duration, 0.001) : 0)
+      : selectedFps;
+    const zipSuffix = cadenceMode === 'interval'
+      ? `every_${intervalSeconds}s`
+      : `${selectedFps}fps`;
+
     for (let i = currentQueueIndex; i < queue.length; i++) {
         if (cancelRef.current) break;
 
@@ -147,7 +164,7 @@ const VideoToImages: React.FC = () => {
         try {
           const zipBlob = await extractFramesAndZip({
             file: queue[i],
-            fps: selectedFps,
+            fps: effectiveFps,
             format: outputFormat,
             maxFrames: 5000,
             onProgress: (stats) => {
@@ -161,7 +178,7 @@ const VideoToImages: React.FC = () => {
           });
 
           const url = URL.createObjectURL(zipBlob);
-          currentZips.push({ url, name: `frames_${queue[i].name}_${selectedFps}fps_${outputFormat}.zip` });
+          currentZips.push({ url, name: `frames_${queue[i].name}_${zipSuffix}_${outputFormat}.zip` });
           setCompletedZips([...currentZips]);
         } catch (error) {
           console.error('Processing failed for', queue[i].name, error);
@@ -189,7 +206,7 @@ const VideoToImages: React.FC = () => {
           showToast('Frames extracted successfully! Your ZIP is ready to download.', 'success');
         }
     }
-  }, [queue, currentQueueIndex, selectedFps, outputFormat, completedZips, handleFrame, cleanupFrameUrls, showToast]);
+  }, [queue, currentQueueIndex, selectedFps, cadenceMode, intervalSeconds, videoMetadata, outputFormat, completedZips, handleFrame, cleanupFrameUrls, showToast]);
 
   const handleCancelQueue = () => {
     cancelRef.current = true;
@@ -298,6 +315,10 @@ const VideoToImages: React.FC = () => {
                   videoMetadata={videoMetadata}
                   selectedFps={selectedFps}
                   onFpsChange={setSelectedFps}
+                  cadenceMode={cadenceMode}
+                  onCadenceModeChange={setCadenceMode}
+                  intervalSeconds={intervalSeconds}
+                  onIntervalSecondsChange={(s) => setIntervalSeconds(clampIntervalSeconds(s))}
                   outputFormat={outputFormat}
                   onFormatChange={setOutputFormat}
                   onProcess={initiateProcess}
