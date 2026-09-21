@@ -100,12 +100,17 @@ html.light .bg-gray-800 { background-color: #e5e7eb; }
 html.light .bg-gray-700 { background-color: #d1d5db; }
 html.light .bg-gray-600 { background-color: #9ca3af; }
 
-/* Fix Google AdSense white box in light theme */
+/* Fix Google AdSense white box: keep the slot and its injected iframe
+   transparent so blank slots blend into the dark/light theme.
+   Slots that come back unfilled are hidden entirely (see GoogleAdUnit). */
 html.light .adsbygoogle,
 .adsbygoogle {
   background-color: transparent !important;
 }
 html.light ins.adsbygoogle {
+  background-color: transparent !important;
+}
+.adsbygoogle iframe {
   background-color: transparent !important;
 }
 
