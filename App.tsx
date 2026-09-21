@@ -15,6 +15,7 @@ import Mp4ToJpg from './pages/Mp4ToJpg';
 import Mp4ToPng from './pages/Mp4ToPng';
 import ScreenshotFromVideo from './pages/ScreenshotFromVideo';
 import VideoToPng from './pages/VideoToPng';
+import VideoToGif from './pages/VideoToGif';
 import VideoToWebp from './pages/VideoToWebp';
 import MovToJpg from './pages/MovToJpg';
 import MovToPng from './pages/MovToPng';
@@ -116,6 +117,7 @@ const App: React.FC = () => {
                 <Route path="/webm-to-png" element={<WebmToPng />} />
                 <Route path="/screenshot-from-video" element={<ScreenshotFromVideo />} />
                 <Route path="/video-to-png" element={<VideoToPng />} />
+                <Route path="/video-to-gif" element={<VideoToGif />} />
                 <Route path="/blog" element={<BlogIndex />} />
                 <Route path="/blog/extract-frames-from-video-online" element={<ExtractFramesOnline />} />
                 <Route path="/blog/mp4-to-image-sequence-guide" element={<Mp4ToImageSequence />} />
