@@ -396,7 +396,7 @@ const Home: React.FC = () => {
           <table className="w-full text-sm" style={{minWidth: '600px'}}>
             <thead>
               <tr className="bg-gray-900 border-b border-gray-800">
-                {t('home.techSpecsHeaders', { returnObjects: true }).map((header, idx) => (
+                {(t('home.techSpecsHeaders', { returnObjects: true }) as string[]).map((header, idx) => (
                   <th key={idx} className="px-5 py-4 text-left text-gray-400 font-medium whitespace-nowrap">{header}</th>
                 ))}
               </tr>
