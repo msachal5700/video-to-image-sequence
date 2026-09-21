@@ -11,6 +11,7 @@
     0.8  /extract-frames-from-video  —   2,201 impressions, 34 clicks
     0.8  /video-to-png               —   2,117 impressions, 37 clicks
     0.7  /images-to-video            —       0 impressions (was 417; under review)
+    0.7  /extract-frame-every-{1,5,10,30}-seconds — new 2026-09-21, unproven
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
@@ -48,6 +49,30 @@
     <lastmod>2026-09-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.videotoimagesequence.online/extract-frame-every-1-second</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.videotoimagesequence.online/extract-frame-every-5-seconds</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.videotoimagesequence.online/extract-frame-every-10-seconds</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.videotoimagesequence.online/extract-frame-every-30-seconds</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.videotoimagesequence.online/mp4-to-png</loc>
