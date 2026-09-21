@@ -2,11 +2,22 @@
 <html lang="en">
   <head>
 
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-889T8GYP8M"></script>
+    <!-- Google Consent Mode v2: storage denied until the visitor chooses.
+         Synced with the cookie-consent banner (see CookieConsent.tsx). -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied'
+  });
+</script>
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-889T8GYP8M"></script>
+<script>
   gtag('js', new Date());
 
   gtag('config', 'G-889T8GYP8M');
