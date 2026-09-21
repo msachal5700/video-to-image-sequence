@@ -13,32 +13,131 @@ interface ExtractFrameEveryNSecondsProps {
 const slugFor = (s: number): string =>
   s === 1 ? 'extract-frame-every-1-second' : `extract-frame-every-${s}-seconds`;
 
-/** Cadence-specific talking points so each landing page reads uniquely. */
-const cadenceDetail = (s: number): { perMinute: number; useCase: string; example: string } => {
+/** Cadence-specific content so each landing page reads uniquely
+ *  (avoids near-duplicate "doorway" pages for search & ad review). */
+interface CadenceContent {
+  perMinute: number;
+  useCase: string;
+  example: string;
+  whyIntro: string;
+  whyBullets: Array<{ title: string; text: string }>;
+  formatsNote: string;
+  noticeText: string;
+  howToTip: string;
+  faqFormats: string;
+  faqCustom: string;
+  faqPrivacy: string;
+}
+
+const cadenceDetail = (s: number): CadenceContent => {
   switch (s) {
     case 1:
       return {
         perMinute: 60,
         useCase: 'dense, near-frame-by-frame sampling — great for slow-motion analysis, sports form checks, and building compact AI training sets without the bloat of full-FPS extraction',
         example: 'a 60-second clip gives you about 60 evenly spaced stills',
+        whyIntro:
+          'A one-second cadence is the densest interval sampling this tool offers — close to frame-by-frame review without the storage bloat of full-FPS extraction. It is the right choice when motion matters but you still want a predictable, evenly spaced set of stills instead of thousands of near-identical frames.',
+        whyBullets: [
+          { title: 'Catch every beat of fast action', text: 'Sports swings, dance moves, machinery cycles: at 60 frames per minute you will not miss the moment a sparse interval would skip entirely.' },
+          { title: 'Review technique like a coach', text: 'Athletes and trainers flip through one-second stills to check form, timing, and positioning without scrubbing a video timeline back and forth.' },
+          { title: 'Build compact AI training sets', text: 'Dense, evenly spaced samples give computer-vision models consistent temporal coverage with far fewer images than 30 or 60 FPS extraction.' },
+          { title: 'Inspect processes visually', text: 'Manufacturing steps, lab procedures, and repair walkthroughs become an annotatable flipbook you can share or archive.' },
+          { title: 'Predictable, portable output', text: 'A 60-second clip yields about 60 stills — large enough to be useful, small enough to download and share instantly.' },
+        ],
+        formatsNote:
+          'Phone-shot MP4 and MOV files are the most common source for one-second sampling — sports clips, action footage, and process recordings usually arrive in these formats. WEBM from screen recording works identically; your browser decodes everything locally before sampling.',
+        noticeText:
+          'One-second sampling of long videos adds up: an hour of footage yields roughly 3,600 frames. For very long recordings prefer JPG or WebP to keep the ZIP manageable (PNG is best for short clips). Your browser does all the work, so available device memory is the practical limit.',
+        howToTip:
+          'Tip: for sports analysis, sample every second first to find the interesting moments, then use the exact-timestamp extractor to pull full-resolution frames of the key instants.',
+        faqFormats:
+          'MP4, MOV, and WEBM work best — exactly the formats phones and action cameras produce for sports and process footage. Other formats like AVI or MKV may work if your browser can decode them, since all sampling happens with your browser\u2019s built-in video decoder.',
+        faqCustom:
+          'Yes — this page presets the extractor to 1 second, but you can switch to the 5, 10, or 30-second presets or type any custom interval from 1 to 3600 seconds. Toggle between \u201cEvery N Seconds\u201d and \u201cBy FPS\u201d modes at any time before extracting.',
+        faqPrivacy:
+          'No. Your video never leaves your device — frames are pulled entirely in your browser with local decoding, so even sensitive sports or workplace footage stays 100% private.',
       };
     case 5:
       return {
         perMinute: 12,
         useCase: 'thumbnail hunting, storyboard creation, and quick visual summaries — you see every important moment without scrolling through hundreds of near-identical frames',
         example: 'a 60-second clip gives you about 12 evenly spaced stills',
+        whyIntro:
+          'Five seconds is the storyteller\u2019s interval: sparse enough to turn minutes of footage into a quick visual summary, dense enough that no important moment slips through. It is the most popular cadence for thumbnail hunting, storyboards, and meeting recaps.',
+        whyBullets: [
+          { title: 'Hunt thumbnails in seconds', text: 'Twelve frames per minute is plenty to spot expressive faces, peak action, and clean compositions worth turning into YouTube thumbnails.' },
+          { title: 'Storyboard any video', text: 'Turn a rough cut, vlog, or ad into a panel-by-panel storyboard for review, client approval, or shot planning.' },
+          { title: 'Summarize meetings and calls', text: 'Skim a one-hour call visually instead of rewatching it — drop to a longer interval later if you want an even tighter summary.' },
+          { title: 'Build neat contact sheets', text: 'Evenly spaced frames lay out cleanly into contact sheets for archives, portfolios, and documentation.' },
+          { title: 'Skip the near-duplicates', text: 'Unlike FPS extraction you will not get hundreds of almost-identical frames — each still is five seconds apart, so each one shows something new.' },
+        ],
+        formatsNote:
+          'MP4 from screen recordings and video calls is the most common source for five-second sampling — think recorded meetings, webinars, and gameplay captures. MOV from iPhones and WEBM from browsers all decode locally with the same result.',
+        noticeText:
+          'At 12 frames per minute, even a two-hour webinar produces under 1,500 stills — comfortable for most devices. JPG keeps the ZIP small for sharing; choose PNG when you plan to crop thumbnails out of the frames.',
+        howToTip:
+          'Tip: extracting thumbnails? Sample every 5 seconds first, pick your favorites, then re-extract those moments at exact timestamps for maximum resolution.',
+        faqFormats:
+          'MP4, MOV, and WEBM — the formats used by screen recorders, video-call apps, and phones. Anything your browser can decode (sometimes AVI or MKV too) works, because sampling happens locally with your browser\u2019s own decoder.',
+        faqCustom:
+          'Yes — this page presets 5 seconds, but 1, 10, and 30-second presets plus any custom value from 1 to 3600 seconds are one click away. You can also switch to \u201cBy FPS\u201d mode before extracting.',
+        faqPrivacy:
+          'No — everything runs in your browser. Meeting recordings and personal vlogs are never uploaded anywhere, so your footage stays completely private.',
       };
     case 10:
       return {
         perMinute: 6,
         useCase: 'timelapse previews, contact sheets, and lecture or webinar summarization — one glance tells you what happened across minutes of footage',
         example: 'a 60-second clip gives you about 6 evenly spaced stills',
+        whyIntro:
+          'Ten seconds is the summarizer\u2019s interval. Six frames per minute is enough to follow the arc of a lecture, webinar, or travel video at a glance — distilling long recordings into a visual table of contents you can scan in seconds.',
+        whyBullets: [
+          { title: 'Preview timelapses fast', text: 'Check whether a day-long timelapse captured what you wanted before committing to a full extraction — six frames per minute tells the story.' },
+          { title: 'Recap lectures and webinars', text: 'Slides, whiteboards, and speaker moments surface as a visual outline of the whole session.' },
+          { title: 'Scan travel footage', text: 'A day of travel clips collapses into a handful of frames per minute — enough to find the shots worth keeping.' },
+          { title: 'Document step-by-step processes', text: 'Cooking videos, tutorials, and DIY builds become stills you can print, annotate, or embed in written guides.' },
+          { title: 'Featherweight output', text: 'An hour of video becomes roughly 360 images — a ZIP that downloads in seconds and sips storage.' },
+        ],
+        formatsNote:
+          'Lecture captures and webinar replays are usually MP4 — perfect for ten-second sampling. Travel vlogs shot on phones arrive as MP4 or MOV, and WEBM screen recordings behave identically; your browser decodes them all locally.',
+        noticeText:
+          'Ten-second intervals are gentle on resources: multi-hour recordings still produce only a few hundred frames. This is the safest cadence for very long videos on modest devices — output stays small in any format.',
+        howToTip:
+          'Tip: summarizing a course? Sample every 10 seconds, then arrange the stills in a document as visual chapter markers with your own notes.',
+        faqFormats:
+          'MP4, MOV, and WEBM cover virtually all lecture captures, webinar replays, and vlog footage. If your browser can decode it (occasionally AVI or MKV), interval sampling works the same — everything stays local.',
+        faqCustom:
+          'Yes — this page presets 10 seconds, with 1, 5, and 30-second presets plus any custom interval from 1 to 3600 seconds available. Switch between \u201cEvery N Seconds\u201d and \u201cBy FPS\u201d modes freely before extracting.',
+        faqPrivacy:
+          'No. Lecture videos, courses, and personal footage are sampled entirely on your device — nothing is uploaded, so your content stays 100% private.',
       };
     default:
       return {
         perMinute: 2,
         useCase: 'long recordings, surveillance-style sampling, and progress documentation — distill hours of footage into a handful of representative frames',
         example: 'a 60-second clip gives you about 2 evenly spaced stills',
+        whyIntro:
+          'Thirty seconds is the archivist\u2019s interval: two frames per minute, designed for very long recordings where you want the gist, not the detail. Surveillance-style review, construction progress, and day-long lectures all compress into a handful of representative stills.',
+        whyBullets: [
+          { title: 'Distill hours into handfuls', text: 'A full day of site footage becomes a visual log you can review over coffee — two frames per minute, zero scrubbing.' },
+          { title: 'Track long-term progress', text: 'Construction, renovations, and experiments become a clean before/during/after sequence from a single continuous recording.' },
+          { title: 'Review without watching', text: 'Security-style footage, dashcam archives, and long monitoring sessions: scan days of video as stills instead of fast-forwarding.' },
+          { title: 'Archive lectures cheaply', text: 'Semester-long course recordings shrink to tiny, skimmable frame sets instead of terabytes of video.' },
+          { title: 'Smallest output of any cadence', text: 'Even a 10-hour recording yields only about 1,200 frames — the lightest ZIP this tool can produce.' },
+        ],
+        formatsNote:
+          'Long recordings are almost always MP4 (H.264) — from IP cameras, dashcams, and lecture-capture systems. That is ideal: MP4 seeks quickly, so thirty-second sampling flies even on multi-hour files. MOV and WEBM work too.',
+        noticeText:
+          'Thirty-second sampling is the most resource-friendly mode here — output stays tiny even for very long videos. If your source file is enormous (many GB), give the browser a moment to index it; extraction itself stays fast because so few frames are captured.',
+        howToTip:
+          'Tip: documenting progress? Record continuously and sample every 30 seconds — you get a ready-made visual timeline with no editing required.',
+        faqFormats:
+          'MP4 is king for thirty-second sampling — it is what IP cameras, dashcams, and lecture-capture systems record. MOV and WEBM work as well; anything your browser decodes (sometimes AVI/MKV) can be sampled locally.',
+        faqCustom:
+          'Yes — this page presets 30 seconds, but 1, 5, and 10-second presets plus any custom interval from 1 to 3600 seconds are available. Toggle between \u201cEvery N Seconds\u201d and \u201cBy FPS\u201d modes before extracting.',
+        faqPrivacy:
+          'No — sampling happens 100% in your browser. Monitoring-style footage and private recordings never leave your device.',
       };
   }
 };
@@ -68,15 +167,15 @@ const ExtractFrameEveryNSeconds: React.FC<ExtractFrameEveryNSecondsProps> = ({ s
     },
     {
       q: 'Which video formats work with interval frame extraction?',
-      a: 'MP4, MOV, and WEBM work best. Other formats like AVI or MKV may work if your browser can decode them, since all processing happens with your browser’s built-in video decoder.'
+      a: detail.faqFormats
     },
     {
       q: 'Can I change the interval or set a custom number of seconds?',
-      a: 'Yes. The extractor offers presets for every 1, 5, 10, and 30 seconds, plus a custom field where you can type any interval from 1 to 3600 seconds. Switch between “Every N Seconds” and “By FPS” modes at any time before extracting.'
+      a: detail.faqCustom
     },
     {
       q: 'Is my video uploaded to a server?',
-      a: 'No. Your video never leaves your device. Frames are extracted entirely in your browser using local decoding, so your footage stays 100% private.'
+      a: detail.faqPrivacy
     }
   ];
 
@@ -184,14 +283,12 @@ const ExtractFrameEveryNSeconds: React.FC<ExtractFrameEveryNSecondsProps> = ({ s
         <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">Why Extract One Frame Every {seconds} Second{plural}?</h2>
         <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-4">
           <p className="text-gray-400 leading-relaxed">
-            Fixed-interval extraction gives you predictable, evenly spaced stills instead of thousands of near-duplicate frames. A {seconds}-second cadence is ideal for {detail.useCase}:
+            {detail.whyIntro}
           </p>
           <ul className="space-y-3 text-gray-300 list-disc pl-6">
-            <li><strong className="text-white">Predictable output</strong> — {detail.example}; you always know exactly how many images you will get.</li>
-            <li><strong className="text-white">Tiny, manageable sets</strong> — minutes of footage collapse into a handful of representative frames instead of a bloated ZIP.</li>
-            <li><strong className="text-white">Perfect for scanning</strong> — scrub years of footage, lectures, or gameplay visually in seconds.</li>
-            <li><strong className="text-white">AI-ready sampling</strong> — evenly spaced frames make clean, unbiased training samples for computer-vision datasets.</li>
-            <li><strong className="text-white">Private by design here</strong> — unlike server-side converters, your video never leaves your device.</li>
+            {detail.whyBullets.map(b => (
+              <li key={b.title}><strong className="text-white">{b.title}</strong> — {b.text}</li>
+            ))}
           </ul>
         </div>
       </section>
@@ -218,6 +315,9 @@ const ExtractFrameEveryNSeconds: React.FC<ExtractFrameEveryNSecondsProps> = ({ s
               </li>
             ))}
           </ol>
+          <p className="mt-6 text-sm text-cyan-300/90 bg-cyan-950/30 border border-cyan-900/50 rounded-xl px-4 py-3">
+            {detail.howToTip}
+          </p>
         </div>
       </section>
 
@@ -226,7 +326,7 @@ const ExtractFrameEveryNSeconds: React.FC<ExtractFrameEveryNSecondsProps> = ({ s
       <section className="max-w-4xl mx-auto py-12 px-4">
         <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">Supported Video Formats</h2>
         <p className="text-gray-400 leading-relaxed mb-6">
-          Best supported: MP4, MOV, and WEBM. Other formats such as AVI or MKV may work only when your browser supports the video codec.
+          {detail.formatsNote}
         </p>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
           {['MP4', 'MOV', 'WEBM'].map(format => (
@@ -248,7 +348,7 @@ const ExtractFrameEveryNSeconds: React.FC<ExtractFrameEveryNSecondsProps> = ({ s
         <div className="bg-cyan-950/20 border-l-4 border-cyan-500 rounded-r-2xl p-6">
           <h2 className="text-lg font-bold text-white mb-2">⚠️ Browser Processing Notice</h2>
           <p className="text-gray-400 text-sm leading-relaxed">
-            No server upload required. Processing happens in your browser, so large files depend on your device memory, browser performance, video length, and codec support. Interval extraction keeps output small by design — even hour-long videos produce only a few hundred frames at most.
+            {detail.noticeText}
           </p>
         </div>
       </section>
