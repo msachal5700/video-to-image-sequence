@@ -30,6 +30,11 @@
       "source": "/about-us",
       "destination": "/about",
       "permanent": true
+    },
+    {
+      "source": "/video-frame-extractor",
+      "destination": "/extract-frames-from-video",
+      "permanent": true
     }
   ],
   "cleanUrls": true,
