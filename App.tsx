@@ -24,6 +24,7 @@ import WebmToPng from './pages/WebmToPng';
 import VideoToPngGuide from './pages/blog/VideoToPngGuide';
 import ExtractFrameAtTimestamp from './pages/ExtractFrameAtTimestamp';
 import ExtractFramesFromVideo from './pages/ExtractFramesFromVideo';
+import ExtractFrameEveryNSeconds from './pages/ExtractFrameEveryNSeconds';
 import AiSocialMediaFramePicker from './pages/AiSocialMediaFramePicker';
 import AiBestFrameFromVideo from './pages/blog/AiBestFrameFromVideo';
 import ImagesToVideoGuide from './pages/blog/ImagesToVideoGuide';
@@ -105,6 +106,10 @@ const App: React.FC = () => {
                 <Route path="/video-frame-extractor" element={<ExtractFramesFromVideo />} />
                 <Route path="/extract-frames-from-video" element={<ExtractFramesFromVideo />} />
                 <Route path="/extract-frame-at-timestamp" element={<ExtractFrameAtTimestamp />} />
+                <Route path="/extract-frame-every-1-second" element={<ExtractFrameEveryNSeconds seconds={1} />} />
+                <Route path="/extract-frame-every-5-seconds" element={<ExtractFrameEveryNSeconds seconds={5} />} />
+                <Route path="/extract-frame-every-10-seconds" element={<ExtractFrameEveryNSeconds seconds={10} />} />
+                <Route path="/extract-frame-every-30-seconds" element={<ExtractFrameEveryNSeconds seconds={30} />} />
                 <Route path="/ai-social-media-frame-picker" element={<AiSocialMediaFramePicker />} />
 
                 <Route path="/images-to-video" element={<ImagesToVideoPage />} />
