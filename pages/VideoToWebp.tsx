@@ -227,6 +227,10 @@ const VideoToWebp: React.FC = () => {
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Screenshot from Video</h3>
             <p className="text-gray-500 text-xs">Grab exact full-resolution frames.</p>
           </Link>
+          <Link to="/video-to-gif" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video to GIF</h3>
+            <p className="text-gray-500 text-xs">Turn video clips into animated GIFs free.</p>
+          </Link>
         </div>
       </section>
 
