@@ -337,7 +337,7 @@ export default function VideoToPngGuide() {
           </div>
         </section>
 
-        {/* Adsterra Ad — Mid Article */}
+        {/* Google AdSense ad — Mid Article */}
         <div className="my-10">
           <GoogleAdUnit />
         </div>
@@ -589,7 +589,7 @@ export default function VideoToPngGuide() {
           </div>
         </section>
       </div>
-      {/* Adsterra Ad — End of Article */}
+      {/* Google AdSense ad — End of Article */}
       <div className="my-10">
         <GoogleAdUnit />
       </div>
