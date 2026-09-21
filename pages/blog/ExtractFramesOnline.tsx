@@ -110,7 +110,7 @@ const ExtractFramesOnline: React.FC = () => {
           <li className="flex items-start gap-3"><span className="text-cyan-400 mt-1">✓</span> <span><strong className="text-white">Free forever</strong> — no accounts, registration, watermarks, or subscription fees</span></li>
         </ul>
 
-        {/* Adsterra Ad — Mid Article */}
+        {/* Google AdSense ad — Mid Article */}
         <div className="my-10">
           <GoogleAdUnit />
         </div>
@@ -240,7 +240,7 @@ const ExtractFramesOnline: React.FC = () => {
           </Link>
         </p>
       </div>
-      {/* Adsterra Ad — End of Article */}
+      {/* Google AdSense ad — End of Article */}
       <div className="my-10">
         <GoogleAdUnit />
       </div>
