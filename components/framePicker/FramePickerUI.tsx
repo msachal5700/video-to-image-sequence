@@ -163,7 +163,7 @@ export const StepIndicator = memo(({ stage }: StepIndicatorProps) => {
   const activeIndex = stageToStepIndex(stage);
 
   return (
-    <nav aria-label="Progress">
+    <nav aria-label="Progress" className="light-safe">
       <ol className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
         {STEPS.map((step, index) => {
           const isComplete = index < activeIndex;

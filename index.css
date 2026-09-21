@@ -84,56 +84,118 @@ html.light header .text-cyan-400 {
 }
 
 /* Buttons */
-html.light button {
-  color: #4b5563;
-}
-
 html.light button:hover {
   background-color: rgba(243, 244, 246, 0.5);
   color: #111827;
 }
 
-/* All Background Colors */
-html.light .bg-gray-950 { background-color: #ffffff; }
-html.light .bg-gray-900 { background-color: #f9fafb; }
-html.light .bg-gray-800 { background-color: #e5e7eb; }
-html.light .bg-gray-700 { background-color: #d1d5db; }
-html.light .bg-gray-600 { background-color: #9ca3af; }
-
-/* Fix Google AdSense white box: keep the slot and its injected iframe
-   transparent so blank slots blend into the dark/light theme.
-   Slots that come back unfilled are hidden entirely (see GoogleAdUnit). */
-html.light .adsbygoogle,
-.adsbygoogle {
-  background-color: transparent !important;
+/* Light Mode — comprehensive color overrides (generated).
+ * Every dark-first color utility used in the codebase gets a light equivalent,
+ * including opacity (/50) and state (hover:, group-open:) variants.
+ * Tokens that are already light-safe (light-first components) are excluded.
+ * .light-safe shields subtrees whose light styling must not be remapped. */
+html.light .bg-blue-950\/30 { background-color: rgb(239 246 255 / 30%); }
+html.light .bg-cyan-900 { background-color: rgb(207 250 254); }
+html.light .bg-cyan-900\/80 { background-color: rgb(207 250 254 / 80%); }
+html.light .bg-cyan-950 { background-color: rgb(236 254 255); }
+html.light .bg-cyan-950\/10 { background-color: rgb(236 254 255 / 10%); }
+html.light .bg-cyan-950\/20 { background-color: rgb(236 254 255 / 20%); }
+html.light .bg-cyan-950\/30 { background-color: rgb(236 254 255 / 30%); }
+html.light .bg-cyan-950\/40 { background-color: rgb(236 254 255 / 40%); }
+html.light .bg-cyan-950\/50 { background-color: rgb(236 254 255 / 50%); }
+html.light .bg-cyan-950\/60 { background-color: rgb(236 254 255 / 60%); }
+html.light .bg-cyan-950\/80 { background-color: rgb(236 254 255 / 80%); }
+html.light .bg-gray-800 { background-color: rgb(229 231 235); }
+html.light .bg-gray-800\/50 { background-color: rgb(229 231 235 / 50%); }
+html.light .bg-gray-800\/60 { background-color: rgb(229 231 235 / 60%); }
+html.light .bg-gray-800\/80 { background-color: rgb(229 231 235 / 80%); }
+html.light .bg-gray-800\/90 { background-color: rgb(229 231 235 / 90%); }
+html.light .bg-gray-900 { background-color: rgb(249 250 251); }
+html.light .bg-gray-900\/40 { background-color: rgb(249 250 251 / 40%); }
+html.light .bg-gray-900\/50 { background-color: rgb(249 250 251 / 50%); }
+html.light .bg-gray-900\/60 { background-color: rgb(249 250 251 / 60%); }
+html.light .bg-gray-900\/70 { background-color: rgb(249 250 251 / 70%); }
+html.light .bg-gray-900\/80 { background-color: rgb(249 250 251 / 80%); }
+html.light .bg-gray-950 { background-color: rgb(255 255 255); }
+html.light .bg-gray-950\/50 { background-color: rgb(255 255 255 / 50%); }
+html.light .bg-gray-950\/60 { background-color: rgb(255 255 255 / 60%); }
+html.light .bg-gray-950\/80 { background-color: rgb(255 255 255 / 80%); }
+html.light .bg-gray-950\/90 { background-color: rgb(255 255 255 / 90%); }
+html.light .bg-gray-950\/95 { background-color: rgb(255 255 255 / 95%); }
+html.light .bg-green-950\/30 { background-color: rgb(240 253 244 / 30%); }
+html.light .bg-red-950 { background-color: rgb(254 242 242); }
+html.light .bg-red-950\/30 { background-color: rgb(254 242 242 / 30%); }
+html.light .bg-red-950\/80 { background-color: rgb(254 242 242 / 80%); }
+html.light .bg-yellow-950 { background-color: rgb(254 252 232); }
+html.light .bg-yellow-950\/30 { background-color: rgb(254 252 232 / 30%); }
+html.light .hover\:bg-gray-700:hover { background-color: rgb(209 213 219); }
+html.light .hover\:bg-gray-800:hover { background-color: rgb(229 231 235); }
+html.light .hover\:bg-gray-800\/50:hover { background-color: rgb(229 231 235 / 50%); }
+html.light .hover\:bg-gray-800\/80:hover { background-color: rgb(229 231 235 / 80%); }
+html.light .hover\:bg-gray-900:hover { background-color: rgb(249 250 251); }
+html.light .hover\:bg-gray-900\/50:hover { background-color: rgb(249 250 251 / 50%); }
+html.light .hover\:bg-gray-900\/60:hover { background-color: rgb(249 250 251 / 60%); }
+html.light .hover\:bg-gray-900\/80:hover { background-color: rgb(249 250 251 / 80%); }
+@media (min-width: 640px) {
+  html.light .sm\:bg-gray-950\/60 { background-color: rgb(255 255 255 / 60%); }
 }
-html.light ins.adsbygoogle {
-  background-color: transparent !important;
-}
-.adsbygoogle iframe {
-  background-color: transparent !important;
-}
+html.light .text-blue-400 { color: rgb(37 99 235); }
+html.light .text-cyan-300 { color: rgb(14 116 144); }
+html.light .text-cyan-300\/90 { color: rgb(14 116 144 / 90%); }
+html.light .text-cyan-400 { color: rgb(14 116 144); }
+html.light .text-cyan-500 { color: rgb(8 145 178); }
+html.light .text-emerald-500 { color: rgb(5 150 105); }
+html.light .text-gray-100 { color: rgb(17 24 39); }
+html.light .text-gray-200 { color: rgb(55 65 81); }
+html.light .text-gray-300 { color: rgb(55 65 81); }
+html.light .text-gray-400 { color: rgb(75 85 99); }
+html.light .text-green-400 { color: rgb(22 163 74); }
+html.light .text-green-500 { color: rgb(22 163 74); }
+html.light .text-red-400 { color: rgb(220 38 38); }
+html.light .text-red-400\/90 { color: rgb(220 38 38 / 90%); }
+html.light .text-red-500 { color: rgb(220 38 38); }
+html.light .text-white { color: rgb(17 24 39); }
+html.light .text-yellow-400 { color: rgb(202 138 4); }
+html.light .text-yellow-500 { color: rgb(202 138 4); }
+html.light .group:hover .group-hover\:text-cyan-400 { color: rgb(14 116 144); }
+html.light .group:open .group-open\:text-cyan-400 { color: rgb(14 116 144); }
+html.light .hover\:text-cyan-300:hover { color: rgb(14 116 144); }
+html.light .hover\:text-cyan-400:hover { color: rgb(14 116 144); }
+html.light .hover\:text-gray-400:hover { color: rgb(75 85 99); }
+html.light .hover\:text-red-300:hover { color: rgb(220 38 38); }
+html.light .hover\:text-white:hover { color: rgb(17 24 39); }
+html.light .marker\:text-cyan-500::marker { color: rgb(8 145 178); }
+html.light .border-blue-800 { border-color: rgb(191 219 254); }
+html.light .border-cyan-800 { border-color: rgb(165 243 252); }
+html.light .border-cyan-800\/40 { border-color: rgb(165 243 252 / 40%); }
+html.light .border-cyan-800\/50 { border-color: rgb(165 243 252 / 50%); }
+html.light .border-cyan-800\/60 { border-color: rgb(165 243 252 / 60%); }
+html.light .border-cyan-800\/80 { border-color: rgb(165 243 252 / 80%); }
+html.light .border-cyan-900 { border-color: rgb(207 250 254); }
+html.light .border-cyan-900\/40 { border-color: rgb(207 250 254 / 40%); }
+html.light .border-cyan-900\/50 { border-color: rgb(207 250 254 / 50%); }
+html.light .border-cyan-900\/80 { border-color: rgb(207 250 254 / 80%); }
+html.light .border-gray-700 { border-color: rgb(209 213 219); }
+html.light .border-gray-800 { border-color: rgb(229 231 235); }
+html.light .border-gray-800\/80 { border-color: rgb(229 231 235 / 80%); }
+html.light .border-green-800 { border-color: rgb(187 247 208); }
+html.light .border-red-800 { border-color: rgb(254 202 202); }
+html.light .border-red-800\/60 { border-color: rgb(254 202 202 / 60%); }
+html.light .border-white\/70 { border-color: rgb(229 231 235 / 70%); }
+html.light .border-yellow-800 { border-color: rgb(254 240 138); }
+html.light .border-yellow-800\/40 { border-color: rgb(254 240 138 / 40%); }
+html.light .hover\:border-cyan-800:hover { border-color: rgb(165 243 252); }
+html.light .hover\:border-cyan-800\/60:hover { border-color: rgb(165 243 252 / 60%); }
+html.light .hover\:border-gray-700:hover { border-color: rgb(209 213 219); }
+html.light .divide-gray-800 > :not([hidden]) ~ :not([hidden]) { border-color: rgb(229 231 235); }
+html.light .divide-gray-800\/50 > :not([hidden]) ~ :not([hidden]) { border-color: rgb(229 231 235 / 50%); }
+html.light .from-cyan-950\/60 { --tw-gradient-from: rgb(236 254 255 / 60%) var(--tw-gradient-from-position); --tw-gradient-to: rgb(236 254 255 / 0) var(--tw-gradient-to-position); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+html.light .from-cyan-950\/80 { --tw-gradient-from: rgb(236 254 255 / 80%) var(--tw-gradient-from-position); --tw-gradient-to: rgb(236 254 255 / 0) var(--tw-gradient-to-position); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+html.light .to-cyan-950\/60 { --tw-gradient-to: rgb(236 254 255 / 60%) var(--tw-gradient-to-position); }
 
-/* All Text Colors */
-html.light .text-white { color: #111827; }
-html.light .text-gray-100 { color: #111827; }
-html.light .text-gray-400 { color: #4b5563; }
-html.light .text-gray-500 { color: #6b7280; }
-html.light .text-gray-300 { color: #374151; }
+/* Shield: keep explicit light styling inside .light-safe subtrees. */
+html.light .light-safe .text-white { color: rgb(255 255 255); }
 
-/* All Border Colors */
-html.light .border-gray-800 { border-color: #e5e7eb; }
-html.light .border-gray-700 { border-color: #d1d5db; }
-html.light .border-gray-600 { border-color: #9ca3af; }
-
-/* Cyan Colors */
-html.light .bg-cyan-950 { background-color: #ecf9fd; }
-html.light .border-cyan-800 { border-color: #b0e0e6; }
-html.light .text-cyan-400 { color: #0e7490; }
-html.light .text-cyan-500 { color: #0891b2; }
-
-/* Badges & Pills */
-html.light .bg-cyan-950\/50 { background-color: rgba(236, 249, 253, 0.5); }
 
 /* Section Titles & Headings */
 html.light h1,

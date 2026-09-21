@@ -76,7 +76,7 @@ const VideoDropzoneComponent = ({ onFile, disabled = false }: VideoDropzoneProps
       onDragLeave={handleDragLeave}
       onDragOver={handleDragOver}
       onDrop={handleDrop}
-      className={`relative overflow-hidden rounded-2xl border-2 border-dashed transition-colors ${
+      className={`light-safe relative overflow-hidden rounded-2xl border-2 border-dashed transition-colors ${
         isDragging
           ? 'border-cyan-500 bg-cyan-50 dark:bg-cyan-500/10'
           : 'border-gray-300 bg-gray-50/50 dark:border-gray-700 dark:bg-gray-800/50'

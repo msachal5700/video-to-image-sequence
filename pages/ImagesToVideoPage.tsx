@@ -266,7 +266,7 @@ const ImagesToVideoPage: React.FC = () => {
           </div>
           <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
             <h3 className="text-white font-semibold mb-2">Video Fails to Play</h3>
-            <p className="text-gray-405 text-sm leading-relaxed">
+            <p className="text-gray-400 text-sm leading-relaxed">
               The output format is WebM. If your media player does not support WebM natively, you can open it directly in Google Chrome or Mozilla Firefox to view the video, or import it into modern video editing software.
             </p>
           </div>
@@ -305,7 +305,7 @@ const ImagesToVideoPage: React.FC = () => {
         </h2>
         <div className="space-y-3">
           {faqs.map((faq, i) => (
-            <details key={i} className="border border-gray-800 bg-gray-900/50 rounded-2xl p-5 cursor-pointer group hover:border-cyan-850 transition-colors">
+            <details key={i} className="border border-gray-800 bg-gray-900/50 rounded-2xl p-5 cursor-pointer group hover:border-cyan-800 transition-colors">
               <summary className="font-medium text-white text-sm md:text-base list-none flex justify-between items-center group-open:text-cyan-400">
                 {faq.q}
                 <span className="text-cyan-400 transition-transform group-open:rotate-180">

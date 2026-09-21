@@ -132,7 +132,7 @@ const FrameGalleryComponent = ({
   }
 
   return (
-    <section aria-label="All scored frames">
+    <section aria-label="All scored frames" className="light-safe">
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {frames.map(frame => (
           <FrameTile

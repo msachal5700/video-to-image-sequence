@@ -276,7 +276,7 @@ const ExtractFramesFromVideo: React.FC = () => {
           </div>
           <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
             <h3 className="text-white font-semibold mb-2">ZIP File Generation Fails</h3>
-            <p className="text-gray-405 text-sm leading-relaxed">
+            <p className="text-gray-400 text-sm leading-relaxed">
               If you extract thousands of frames, compiling them into a ZIP archive can exceed browser memory bounds. Reduce your FPS selector to create a smaller, more manageable sequence.
             </p>
           </div>

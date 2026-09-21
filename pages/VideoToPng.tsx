@@ -326,7 +326,7 @@ const VideoToPng: React.FC = () => {
         </h2>
         <div className="space-y-3">
           {faqs.map((faq, i) => (
-            <details key={i} className="border border-gray-800 bg-gray-900/50 rounded-2xl p-5 cursor-pointer group hover:border-cyan-850 transition-colors">
+            <details key={i} className="border border-gray-800 bg-gray-900/50 rounded-2xl p-5 cursor-pointer group hover:border-cyan-800 transition-colors">
               <summary className="font-medium text-white text-sm md:text-base list-none flex justify-between items-center group-open:text-cyan-400">
                 {faq.q}
                 <span className="text-cyan-400 transition-transform group-open:rotate-180">

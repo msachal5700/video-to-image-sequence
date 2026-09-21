@@ -56,7 +56,7 @@ export const FramePickerWorkspace = () => {
   const showResults = stage === 'done' && frames.length > 0;
 
   return (
-    <div className="space-y-6">
+    <div className="light-safe space-y-6">
       <StepIndicator stage={stage} />
 
       {error && (

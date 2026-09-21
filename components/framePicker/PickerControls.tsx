@@ -83,7 +83,7 @@ const PickerControlsComponent = ({
   return (
     <section
       aria-label="Frame filters and download options"
-      className="rounded-2xl border border-gray-200 bg-white/70 p-4 backdrop-blur-md dark:border-gray-700 dark:bg-gray-900/60 sm:p-5"
+      className="light-safe rounded-2xl border border-gray-200 bg-white/70 p-4 backdrop-blur-md dark:border-gray-700 dark:bg-gray-900/60 sm:p-5"
     >
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div>

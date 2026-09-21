@@ -36,7 +36,7 @@ const CategoryCardComponent = ({
   const { profile, frame, categoryScore, reasons } = pick;
 
   return (
-    <article className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white/80 backdrop-blur-sm transition-shadow hover:shadow-lg dark:border-gray-700 dark:bg-gray-900/70">
+    <article className="light-safe group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white/80 backdrop-blur-sm transition-shadow hover:shadow-lg dark:border-gray-700 dark:bg-gray-900/70">
       <header className="flex items-center justify-between gap-2 border-b border-gray-100 px-4 py-3 dark:border-gray-800">
         <h3 className="flex items-center gap-2 font-display text-sm font-semibold text-gray-900 dark:text-white">
           <span aria-hidden="true">{profile.icon}</span>
