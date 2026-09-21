@@ -58,7 +58,7 @@ const HowToExtractFramesFromVideo: React.FC = () => {
         <div className="bg-cyan-950/20 border border-cyan-800 rounded-2xl p-6 my-8">
           <h3 className="text-cyan-400 font-semibold mb-4">⚡ Quickest: Online Tool (This Site)</h3>
           <ol className="list-decimal pl-6 space-y-3 text-gray-300">
-            <li><strong>Open</strong> <a href="/video-frame-extractor" className="text-cyan-400 hover:underline font-semibold">Video Frame Extractor</a></li>
+            <li><strong>Open</strong> <a href="/extract-frames-from-video" className="text-cyan-400 hover:underline font-semibold">Video Frame Extractor</a></li>
             <li><strong>Drop</strong> your video (MP4, MOV, WebM — up to 2 GB)</li>
             <li><strong>Choose</strong> FPS (1–60) and format (JPG/WebP/PNG)</li>
             <li><strong>Click</strong> Extract → Download ZIP</li>
@@ -72,7 +72,7 @@ const HowToExtractFramesFromVideo: React.FC = () => {
         <div className="space-y-4 mt-4">
           <div className="bg-gray-900 border border-gray-800 rounded-xl p-4">
             <h4 className="text-white font-semibold mb-2 flex items-center gap-2"><span className="bg-cyan-900 text-cyan-400 px-2 py-0.5 rounded font-mono">1</span> Open the Extractor</h4>
-            <p className="text-gray-400">Go to <a href="/video-frame-extractor" className="text-cyan-400 hover:underline">videotoimagesequence.online/video-frame-extractor</a>. Works in Chrome, Firefox, Edge, Safari.</p>
+            <p className="text-gray-400">Go to <a href="/extract-frames-from-video" className="text-cyan-400 hover:underline">videotoimagesequence.online/extract-frames-from-video</a>. Works in Chrome, Firefox, Edge, Safari.</p>
           </div>
           <div className="bg-gray-900 border border-gray-800 rounded-xl p-4">
             <h4 className="text-white font-semibold mb-2 flex items-center gap-2"><span className="bg-cyan-900 text-cyan-400 px-2 py-0.5 rounded font-mono">2</span> Load Your Video</h4>
@@ -119,7 +119,7 @@ const HowToExtractFramesFromVideo: React.FC = () => {
           </div>
           <div className="bg-gray-900 border border-gray-800 rounded-xl p-4">
             <h4 className="text-cyan-400 font-semibold mb-2">🎞 Image Sequence Export</h4>
-            <p className="text-gray-400">For VFX/Blender/After Effects: <a href="/video-to-image-sequence" className="text-cyan-400 hover:underline">Video to Image Sequence</a> tool exports numbered sequences with padding (frame_0001, frame_0002...).</p>
+            <p className="text-gray-400">For VFX/Blender/After Effects: <a href="/" className="text-cyan-400 hover:underline">Video to Image Sequence</a> tool exports numbered sequences with padding (frame_0001, frame_0002...).</p>
           </div>
           <div className="bg-gray-900 border border-gray-800 rounded-xl p-4">
             <h4 className="text-cyan-400 font-semibold mb-2">🤖 AI Dataset Export</h4>
@@ -307,9 +307,9 @@ extract_frames_moviepy('video.mp4', 'frames/', fps=5, format='jpg')`}</code></pr
         <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">Quick Reference Card</h2>
         <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-4 font-mono text-sm">
           <div className="grid gap-3 md:grid-cols-2">
-            <div className="bg-gray-800 p-3 rounded"><strong>Online:</strong> <a href="/video-frame-extractor" className="text-cyan-400 hover:underline">/video-frame-extractor</a></div>
+            <div className="bg-gray-800 p-3 rounded"><strong>Online:</strong> <a href="/extract-frames-from-video" className="text-cyan-400 hover:underline">/video-frame-extractor</a></div>
             <div className="bg-gray-800 p-3 rounded"><strong>Timestamps:</strong> <a href="/exact-timestamp-extractor" className="text-cyan-400 hover:underline">/exact-timestamp-extractor</a></div>
-            <div className="bg-gray-800 p-3 rounded"><strong>Sequences:</strong> <a href="/video-to-image-sequence" className="text-cyan-400 hover:underline">/video-to-image-sequence</a></div>
+            <div className="bg-gray-800 p-3 rounded"><strong>Sequences:</strong> <a href="/" className="text-cyan-400 hover:underline">/video-to-image-sequence</a></div>
             <div className="bg-gray-800 p-3 rounded"><strong>AI Datasets:</strong> <a href="/video-frames-for-ai-datasets" className="text-cyan-400 hover:underline">/video-frames-for-ai-datasets</a></div>
             <div className="bg-gray-800 p-3 rounded"><strong>Format Guide:</strong> <a href="/blog/jpg-vs-png-vs-webp-video-frames" className="text-cyan-400 hover:underline">/blog/jpg-vs-png-vs-webp-video-frames</a></div>
             <div className="bg-gray-800 p-3 rounded"><strong>FPS Guide:</strong> <a href="/blog/how-many-frames-per-second" className="text-cyan-400 hover:underline">/blog/how-many-frames-per-second</a></div>
@@ -319,7 +319,7 @@ extract_frames_moviepy('video.mp4', 'frames/', fps=5, format='jpg')`}</code></pr
         </div>
 
         <p className="mt-12 text-center">
-          <Link to="/video-frame-extractor" className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-2xl text-gray-950 bg-cyan-400 hover:bg-cyan-300 transition-all transform hover:-translate-y-1 shadow-lg shadow-cyan-500/20">
+          <Link to="/extract-frames-from-video" className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-2xl text-gray-950 bg-cyan-400 hover:bg-cyan-300 transition-all transform hover:-translate-y-1 shadow-lg shadow-cyan-500/20">
             Start Extracting Free →
           </Link>
         </p>
