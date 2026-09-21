@@ -69,7 +69,7 @@ async function processVideo(payload: any) {
        return;
     }
     
-    totalFrames = Math.floor((videoTrack.movie_duration / videoTrack.movie_timescale) * fps);
+    totalFrames = Math.max(1, Math.floor((videoTrack.movie_duration / videoTrack.movie_timescale) * fps));
 
     // Scale down to prevent memory exception on mobile
     const MAX_DIM = 1920;
