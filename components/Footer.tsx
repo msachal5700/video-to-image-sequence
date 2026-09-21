@@ -26,6 +26,7 @@ const Footer = () => {
               <li><Link to="/" className="text-gray-600 hover:text-cyan-400 transition">Video to Image Sequence</Link></li>
               <li><Link to="/mp4-to-jpg" className="text-gray-600 hover:text-cyan-400 transition">MP4 to JPG Converter</Link></li>
               <li><Link to="/video-to-png" className="text-gray-600 hover:text-cyan-400 transition">Video to PNG Converter</Link></li>
+              <li><Link to="/video-to-gif" className="text-gray-600 hover:text-cyan-400 transition">Video to GIF Converter</Link></li>
               <li><Link to="/screenshot-from-video" className="text-gray-600 hover:text-cyan-400 transition">Screenshot from Video</Link></li>
               <li><Link to="/extract-frames-from-video" className="text-gray-600 hover:text-cyan-400 transition">Extract Frames from Video</Link></li>
               <li><Link to="/images-to-video" className="text-gray-600 hover:text-cyan-400 transition">Images to Video</Link></li>
