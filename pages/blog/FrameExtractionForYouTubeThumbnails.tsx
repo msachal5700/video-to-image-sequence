@@ -68,7 +68,7 @@ const FrameExtractionForYouTubeThumbnails: React.FC = () => {
           The frame rate you extract at directly determines how many candidate frames you have to choose from. A 60-second video at 30fps gives you 1,800 frames to analyze — but far fewer distinct visual moments. Here's what to consider:
         </p>
         <ul className="list-disc list-inside space-y-3 text-gray-300">
-          <li><strong>1 FPS</strong>: Best for long videos (>5 min). Gives you 60 candidates from a minute of footage. Great for finding the single most representative moment.</li>
+          <li><strong>1 FPS</strong>: Best for long videos (&gt;5 min). Gives you 60 candidates from a minute of footage. Great for finding the single most representative moment.</li>
           <li><strong>5 FPS</strong>: Good balance between candidate count and analysis speed. About 30 frames per minute — enough to find strong options without exhaustive review.</li>
           <li><strong>10-24 FPS</strong>: Ideal for fast-paced content (sports, gameplay, music videos). More candidates increase the chance of finding a peak-expression or high-action moment.</li>
         </ul>
