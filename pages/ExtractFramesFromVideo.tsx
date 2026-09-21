@@ -283,6 +283,34 @@ const ExtractFramesFromVideo: React.FC = () => {
         </div>
       </section>
 
+      {/* ── EXTRACT BY TIME INTERVAL (INTERNAL LINKING) ── */}
+      <section className="max-w-4xl mx-auto py-12 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">
+          Extract a Frame Every N Seconds
+        </h2>
+        <p className="text-gray-400 leading-relaxed mb-6">
+          Prefer evenly spaced stills over a fixed frame rate? These presets capture one frame at a fixed time interval — perfect for timelapses, contact sheets, and thumbnail hunting.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          <Link to="/extract-frame-every-1-second" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Every 1 Second</h3>
+            <p className="text-gray-500 text-xs">Dense sampling — about 60 stills per minute of video.</p>
+          </Link>
+          <Link to="/extract-frame-every-5-seconds" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Every 5 Seconds</h3>
+            <p className="text-gray-500 text-xs">Thumbnail hunting and storyboards — about 12 stills per minute.</p>
+          </Link>
+          <Link to="/extract-frame-every-10-seconds" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Every 10 Seconds</h3>
+            <p className="text-gray-500 text-xs">Timelapse previews and summaries — about 6 stills per minute.</p>
+          </Link>
+          <Link to="/extract-frame-every-30-seconds" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Every 30 Seconds</h3>
+            <p className="text-gray-500 text-xs">Long recordings distilled to a few representative frames.</p>
+          </Link>
+        </div>
+      </section>
+
       {/* ── RELATED TOOLS (INTERNAL LINKING) ── */}
       <section className="max-w-4xl mx-auto py-12 px-4">
         <h2 className="text-2xl md:text-3xl font-bold mb-6 font-display">
