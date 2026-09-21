@@ -203,7 +203,7 @@ const HowManyFramesPerSecond: React.FC = () => {
         <p className="text-gray-400">Plus a slider for any value 1–60. The tool shows estimated frame count and warns if you're approaching memory limits.</p>
 
         <p className="mt-12 text-center">
-          <Link to="/video-frame-extractor" className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-2xl text-gray-950 bg-cyan-400 hover:bg-cyan-300 transition-all transform hover:-translate-y-1 shadow-lg shadow-cyan-500/20">
+          <Link to="/extract-frames-from-video" className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-2xl text-gray-950 bg-cyan-400 hover:bg-cyan-300 transition-all transform hover:-translate-y-1 shadow-lg shadow-cyan-500/20">
             Try the FPS Selector Free →
           </Link>
         </p>
