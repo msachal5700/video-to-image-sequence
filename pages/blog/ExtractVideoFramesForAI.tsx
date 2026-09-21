@@ -23,7 +23,7 @@ const ExtractVideoFramesForAI: React.FC = () => {
       "image": "https://www.videotoimagesequence.online/og-image.png"
     });
     document.head.appendChild(script);
-    return () => document.head.removeChild(script);
+    return () => { document.head.removeChild(script); };
   }, []);
 
   return (
