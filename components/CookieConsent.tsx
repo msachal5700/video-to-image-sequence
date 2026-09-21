@@ -1,6 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
+/** Sync Google Consent Mode v2 with the visitor's cookie choice. */
+const syncGtagConsent = (granted: boolean) => {
+  try {
+    window.gtag?.('consent', 'update', {
+      ad_storage: granted ? 'granted' : 'denied',
+      ad_user_data: granted ? 'granted' : 'denied',
+      ad_personalization: granted ? 'granted' : 'denied',
+      analytics_storage: granted ? 'granted' : 'denied',
+    });
+  } catch (_) {
+    // gtag not loaded (e.g. blocked) — nothing to sync
+  }
+};
+
 const CookieConsent: React.FC = () => {
   const [visible, setVisible] = useState(false);
 
@@ -11,11 +31,15 @@ const CookieConsent: React.FC = () => {
       const timer = setTimeout(() => setVisible(true), 1200);
       return () => clearTimeout(timer);
     }
+    // Returning visitor: apply their stored choice to Google Consent Mode
+    if (consent === 'all') syncGtagConsent(true);
   }, []);
 
   const handleAccept = (type: 'all' | 'essential') => {
     localStorage.setItem('cookie_consent_accepted', type);
     setVisible(false);
+    // Sync Google Consent Mode v2 (grants only when "Accept All")
+    syncGtagConsent(type === 'all');
     // Notify ad components that consent may have changed
     window.dispatchEvent(new Event('cookieConsentChange'));
   };
