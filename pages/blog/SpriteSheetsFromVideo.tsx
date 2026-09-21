@@ -133,7 +133,7 @@ const SpriteSheetsFromVideo: React.FC = () => {
         <ul className="list-disc list-inside space-y-3 text-gray-300">
           <li><strong>Unity</strong>: Import the PNG as a Sprite (2D and UI). Use the Sprite Editor to slice the sheet into individual sprites based on your frame dimensions. Set the Sprite Mode to Single or Multiple depending on your needs.</li>
           <li><strong>Godot</strong>: Drag the sprite sheet PNG into your project. Use the SpriteFrames resource to define individual frames by their rectangle coordinates within the sheet.</li>
-          <li><strong>Phaser 3</strong>: Load the sprite sheet as a texture with `this.load.spritesheet('key', 'path/to/sheet.png', { frameWidth: X, frameHeight: Y })`. Reference individual frames by their index or name.</li>
+          <li><strong>Phaser 3</strong>: Load the sprite sheet as a texture with `this.load.spritesheet('key', 'path/to/sheet.png', {'{'} frameWidth: X, frameHeight: Y {'}'})`. Reference individual frames by their index or name.</li>
           <li><strong>HTML5 Canvas</strong>: Draw individual frames using `context.drawImage(spriteSheet, frameX, frameY, frameWidth, frameHeight, destX, destY, destWidth, destHeight)`.</li>
         </ul>
 
