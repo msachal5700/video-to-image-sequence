@@ -103,7 +103,6 @@ const App: React.FC = () => {
             <main id="__next" className="flex-grow">
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/video-frame-extractor" element={<ExtractFramesFromVideo />} />
                 <Route path="/extract-frames-from-video" element={<ExtractFramesFromVideo />} />
                 <Route path="/extract-frame-at-timestamp" element={<ExtractFrameAtTimestamp />} />
                 <Route path="/extract-frame-every-1-second" element={<ExtractFrameEveryNSeconds seconds={1} />} />
