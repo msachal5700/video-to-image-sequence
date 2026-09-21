@@ -562,6 +562,14 @@
     "hero": "Convert video to WebP images online for free. Extract modern, efficient WebP frames with transparency support from MP4, MOV, or WEBM videos. Smaller than JPG/PNG, all without files leaving your computer.",
     "keywords": "video to webp, extract webp frames, mp4 to webp, webp frame extractor, video to webp converter"
   },
+  "videoToGif": {
+    "title": "Video to GIF Converter — Free Online GIF Maker",
+    "description": "Convert video to GIF free in your browser. Turn MP4, MOV, WEBM clips into high-quality animated GIFs online. No upload, no watermark, 100% private.",
+    "h1": "Video to GIF Converter",
+    "h1Sub": "Free Online GIF Maker",
+    "hero": "Turn any video clip into a high-quality animated GIF — free, in your browser, with no upload and no watermark. Choose your frame rate, size, and loop settings, then download instantly.",
+    "keywords": "video to gif, convert video to gif, mp4 to gif, gif maker online, make gif from video, video to gif converter"
+  },
   "imagesToVideo": {
     "title": "Images to Video Online — Create WebM from JPG/PNG Sequences",
     "description": "Convert image sequences to video online for free. Create WebM video from JPG or PNG frames in your browser. No server upload required.",
