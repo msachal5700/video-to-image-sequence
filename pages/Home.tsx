@@ -270,7 +270,7 @@ const Home: React.FC = () => {
         <VideoToImages />
       </div>
 
-      {/* Adsterra Ad Block */}
+      {/* Google AdSense ad Block */}
       <div className="max-w-5xl mx-auto">
         <GoogleAdUnit />
       </div>
@@ -585,7 +585,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Adsterra Ad — Post FAQ */}
+      {/* Google AdSense ad — Post FAQ */}
       <div className="max-w-5xl mx-auto">
         <GoogleAdUnit />
       </div>
