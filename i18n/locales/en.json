@@ -63,7 +63,15 @@
     "readyTitle": "Ready to Extract?",
     "readyDesc": "Click below to process this video entirely in your browser. All frames will be extracted locally and combined into a single ZIP file download.",
     "extractFrames": "Extract Frames Now",
-    "processing": "Processing..."
+    "processing": "Processing...",
+    "extractionCadence": "Extraction Cadence",
+    "byFps": "By FPS",
+    "everyNSeconds": "Every N Seconds",
+    "intervalLabel": "Time Interval",
+    "everySeconds": "Every {{count}}s",
+    "customInterval": "Custom",
+    "secondsUnit": "seconds ({{min}}–{{max}})",
+    "intervalDesc": "Captures one frame at each interval — e.g. every 5 seconds — instead of a fixed number of frames per second. Ideal for timelapses, thumbnails, contact sheets, and evenly spaced AI training samples."
   },
   "badges": {
     "private": "\uD83D� 100% Private (Local)",
@@ -569,6 +577,14 @@
     "h1Sub": "Free Online GIF Maker",
     "hero": "Turn any video clip into a high-quality animated GIF — free, in your browser, with no upload and no watermark. Choose your frame rate, size, and loop settings, then download instantly.",
     "keywords": "video to gif, convert video to gif, mp4 to gif, gif maker online, make gif from video, video to gif converter"
+  },
+  "extractEveryN": {
+    "title": "Extract a Frame Every {{n}} Second{{plural}} — Free Online Video Tool",
+    "description": "Extract one frame every {{n}} second{{plural}} from MP4, MOV or WEBM video, free in your browser. Perfect for timelapses, thumbnails & AI datasets. No upload, no watermark.",
+    "h1": "Extract a Frame Every {{n}} Second{{plural}}",
+    "h1Sub": "Free Online — No Upload",
+    "hero": "Pull one still image every {{n}} second{{plural}} from any video — right in your browser, with the interval already selected for you. Ideal for timelapses, contact sheets, thumbnail hunting, and evenly spaced AI training samples. No upload, no watermark, 100% private.",
+    "keywords": "extract frame every {{n}} seconds, video frame every {{n}} seconds, one frame per {{n}} seconds, extract video stills every {{n}} seconds"
   },
   "imagesToVideo": {
     "title": "Images to Video Online — Create WebM from JPG/PNG Sequences",
