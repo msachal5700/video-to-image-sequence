@@ -14,6 +14,7 @@
 - [WebM to JPG Converter](https://www.videotoimagesequence.online/webm-to-jpg)
 - [WebM to PNG Converter](https://www.videotoimagesequence.online/webm-to-png)
 - [Video to PNG Converter](https://www.videotoimagesequence.online/video-to-png)
+- [Freeform Image Crop Tool](https://www.videotoimagesequence.online/image-crop)
 - [Screenshot from Video](https://www.videotoimagesequence.online/screenshot-from-video)
 - [Exact Frame Timestamp Extractor](https://www.videotoimagesequence.online/extract-frame-at-timestamp)
 - [Images to Video Converter](https://www.videotoimagesequence.online/images-to-video)
@@ -42,6 +43,7 @@
 - [Video to Image Sequence Explained](https://www.videotoimagesequence.online/blog/video-to-image-sequence-explained)
 - [JPG vs PNG vs WebP for Video Frames](https://www.videotoimagesequence.online/blog/jpg-vs-png-vs-webp-video-frames)
 - [What Is Video Frame Rate?](https://www.videotoimagesequence.online/blog/what-is-video-frame-rate)
+- [Freeform Image Crop Guide](https://www.videotoimagesequence.online/blog/free-image-crop-tool-guide)
 
 ## Site Info
 
