@@ -70,6 +70,10 @@ const Header: React.FC = () => {
               </Link>
 
               <Link to="/images-to-video" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">Images to Video</Link>
+              <Link to="/image-crop" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors flex items-center justify-between font-medium">
+                <span>Freeform Image Crop</span>
+                <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold">NEW</span>
+              </Link>
             </div>
           </div>
           <div className="relative group">
@@ -97,6 +101,7 @@ const Header: React.FC = () => {
               <Link to="/blog/ezgif-alternative-video-to-image-sequence" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium text-sm">Ezgif Alternative</Link>
               <Link to="/blog/video-frame-extractor-use-cases" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium text-sm">Use Cases</Link>
               <Link to="/blog/best-fps-settings-for-video-frame-extraction" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium text-sm">Best FPS Settings</Link>
+              <Link to="/blog/free-image-crop-tool-guide" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium text-sm">Free Image Crop Tool Guide</Link>
             </div>
           </div>
           <Link to="/contact" className="hover:text-white transition font-medium">Contact</Link>
@@ -178,6 +183,10 @@ const Header: React.FC = () => {
             </Link>
 
             <Link to="/images-to-video" onClick={() => setOpen(false)} className="pl-2 font-medium">Images to Video</Link>
+            <Link to="/image-crop" onClick={() => setOpen(false)} className="pl-2 font-medium flex items-center justify-between">
+              <span>Freeform Image Crop</span>
+              <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold mr-2">NEW</span>
+            </Link>
             <hr className="border-gray-900 my-1" />
             <div className="pl-2">
               <span className="text-xs text-gray-600 uppercase font-semibold tracking-wider block pb-1">{t('nav.blog')}</span>
@@ -197,6 +206,7 @@ const Header: React.FC = () => {
               <Link to="/blog/ezgif-alternative-video-to-image-sequence" onClick={() => setOpen(false)} className="pl-4 font-medium text-sm">Ezgif Alternative</Link>
               <Link to="/blog/video-frame-extractor-use-cases" onClick={() => setOpen(false)} className="pl-4 font-medium text-sm">Use Cases</Link>
               <Link to="/blog/best-fps-settings-for-video-frame-extraction" onClick={() => setOpen(false)} className="pl-4 font-medium text-sm">Best FPS Settings</Link>
+              <Link to="/blog/free-image-crop-tool-guide" onClick={() => setOpen(false)} className="pl-4 font-medium text-sm">Free Image Crop Tool Guide</Link>
             </div>
             <Link to="/#how-it-works" onClick={() => setOpen(false)} className="font-medium">{t('nav.howItWorks')}</Link>
             <Link to="/#faq" onClick={() => setOpen(false)} className="font-medium">{t('nav.faq')}</Link>
