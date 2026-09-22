@@ -125,6 +125,29 @@ const FreeImageCropToolGuide: React.FC = () => {
           ))}
         </ol>
 
+        <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">Step-by-Step Tutorial: See It in Action</h2>
+        <p>
+          A visual walkthrough of a real freeform crop on our <Link to="/image-crop" className="text-cyan-400 hover:text-cyan-300 underline">free image crop tool</Link>, using the built-in sample image:
+        </p>
+        <div className="space-y-8 my-8">
+          <figure className="bg-gray-900/50 border border-gray-800 rounded-2xl overflow-hidden">
+            <img src="/images/blog/free-image-crop-tool/step-1-loaded.png" alt="Freeform image crop tool with a sample image loaded, ready to trace a crop shape" loading="lazy" className="w-full" />
+            <figcaption className="px-6 py-4 text-gray-300 text-base">Step 1 — Open the tool and load your image, or try the built-in sample image to test it instantly.</figcaption>
+          </figure>
+          <figure className="bg-gray-900/50 border border-gray-800 rounded-2xl overflow-hidden">
+            <img src="/images/blog/free-image-crop-tool/step-2-drawing.png" alt="Placing points to draw a freeform polygon crop shape on an image" loading="lazy" className="w-full" />
+            <figcaption className="px-6 py-4 text-gray-300 text-base">Step 2 — Click anywhere on the image to place points and trace your shape. Drag a point to position it precisely.</figcaption>
+          </figure>
+          <figure className="bg-gray-900/50 border border-gray-800 rounded-2xl overflow-hidden">
+            <img src="/images/blog/free-image-crop-tool/step-3-closed.png" alt="Closed freeform polygon crop selection with draggable nodes" loading="lazy" className="w-full" />
+            <figcaption className="px-6 py-4 text-gray-300 text-base">Step 3 — Close the shape with the Close shape button or by pressing Enter, then drag any node to refine the boundary.</figcaption>
+          </figure>
+          <figure className="bg-gray-900/50 border border-gray-800 rounded-2xl overflow-hidden">
+            <img src="/images/blog/free-image-crop-tool/step-4-result.png" alt="Freeform cropped image result with transparent background, ready to download as PNG" loading="lazy" className="w-full" />
+            <figcaption className="px-6 py-4 text-gray-300 text-base">Step 4 — Hit Apply Crop and download your exact cutout: transparent PNG/WebP, or JPG.</figcaption>
+          </figure>
+        </div>
+
         <div className="my-10">
           <GoogleAdUnit />
         </div>
