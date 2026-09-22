@@ -190,7 +190,8 @@ const Home: React.FC = () => {
     '/video-to-png',
     '/images-to-video',
     '/screenshot-from-video',
-    '/blog/mp4-to-image-sequence-guide'
+    '/blog/mp4-to-image-sequence-guide',
+    '/image-crop'
   ];
 
   return (
@@ -553,7 +554,7 @@ const Home: React.FC = () => {
           {relatedData.map(({ title, desc }, idx) => (
             <Link key={idx} to={relatedLinks[idx] || '/'} className="bg-gray-900 border border-gray-800 rounded-xl p-5 hover:border-cyan-800 hover:bg-gray-900/80 transition-all group block text-left">
               <div className="text-3xl mb-3 group-hover:scale-110 transition-transform inline-block">
-                {idx === 0 ? '🎯' : idx === 1 ? '📚' : idx === 2 ? '🎨' : idx === 3 ? '🎬' : idx === 4 ? '📸' : '📷'}
+                {idx === 0 ? '🎯' : idx === 1 ? '📚' : idx === 2 ? '🎨' : idx === 3 ? '🎬' : idx === 4 ? '📸' : idx === 5 ? '📷' : '✂️'}
               </div>
               <h3 className="text-white font-semibold mb-2 group-hover:text-cyan-400 transition-colors text-sm md:text-base">{title}</h3>
               <p className="text-gray-500 text-xs md:text-sm leading-relaxed">{desc}</p>
