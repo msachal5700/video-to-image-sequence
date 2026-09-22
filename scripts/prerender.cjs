@@ -65,6 +65,7 @@ const routes = [
   '/extract-frame-every-30-seconds',
   '/video-to-png',
   '/video-to-gif',
+  '/image-crop',
   '/video-frames-for-ai-datasets',
   '/video-to-image-sequence-for-blender',
   '/video-frame-for-youtube-thumbnail',
@@ -85,6 +86,7 @@ const routes = [
   '/blog/video-to-image-sequence-explained',
   '/blog/jpg-vs-png-vs-webp-video-frames',
   '/blog/what-is-video-frame-rate',
+  '/blog/free-image-crop-tool-guide',
   '/about',
   '/contact',
 
@@ -112,6 +114,7 @@ const routeTextMap = {
   '/extract-frame-every-30-seconds': 'Extract a Frame Every 30 Seconds',
   '/video-to-png': 'Video to PNG',
   '/video-to-gif': 'Video to GIF',
+  '/image-crop': 'Freeform Image Crop',
   '/video-frames-for-ai-datasets': 'Video Frames for AI Datasets',
   '/video-to-image-sequence-for-blender': 'Video to Image Sequence for Blender',
   '/video-frame-for-youtube-thumbnail': 'Extract Frame for YouTube Thumbnail',
@@ -132,6 +135,7 @@ const routeTextMap = {
   '/blog/video-to-image-sequence-explained': 'Image Sequence Explained',
   '/blog/jpg-vs-png-vs-webp-video-frames': 'JPG vs PNG vs WebP',
   '/blog/what-is-video-frame-rate': 'Video Frame Rate',
+  '/blog/free-image-crop-tool-guide': 'Freeform Image Crop',
   '/about': 'About',
   '/contact': 'Contact',
 
