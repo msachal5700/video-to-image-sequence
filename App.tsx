@@ -16,6 +16,7 @@ import Mp4ToPng from './pages/Mp4ToPng';
 import ScreenshotFromVideo from './pages/ScreenshotFromVideo';
 import VideoToPng from './pages/VideoToPng';
 import VideoToGif from './pages/VideoToGif';
+import ImageCrop from './pages/ImageCrop';
 import VideoToWebp from './pages/VideoToWebp';
 import MovToJpg from './pages/MovToJpg';
 import MovToPng from './pages/MovToPng';
@@ -42,6 +43,7 @@ import HowToExtractFramesFromVideo from './pages/blog/HowToExtractFramesFromVide
 import VideoToImageSequenceExplained from './pages/blog/VideoToImageSequenceExplained';
 import JpgVsPngVsWebp from './pages/blog/JpgVsPngVsWebp';
 import WhatIsVideoFrameRate from './pages/blog/WhatIsVideoFrameRate';
+import FreeImageCropToolGuide from './pages/blog/FreeImageCropToolGuide';
 import CookieConsent from './components/CookieConsent';
 
 
@@ -122,6 +124,7 @@ const App: React.FC = () => {
                 <Route path="/screenshot-from-video" element={<ScreenshotFromVideo />} />
                 <Route path="/video-to-png" element={<VideoToPng />} />
                 <Route path="/video-to-gif" element={<VideoToGif />} />
+                <Route path="/image-crop" element={<ImageCrop />} />
                 <Route path="/blog" element={<BlogIndex />} />
                 <Route path="/blog/extract-frames-from-video-online" element={<ExtractFramesOnline />} />
                 <Route path="/blog/mp4-to-image-sequence-guide" element={<Mp4ToImageSequence />} />
@@ -139,6 +142,7 @@ const App: React.FC = () => {
                 <Route path="/blog/video-to-image-sequence-explained" element={<VideoToImageSequenceExplained />} />
                 <Route path="/blog/jpg-vs-png-vs-webp-video-frames" element={<JpgVsPngVsWebp />} />
                 <Route path="/blog/what-is-video-frame-rate" element={<WhatIsVideoFrameRate />} />
+                <Route path="/blog/free-image-crop-tool-guide" element={<FreeImageCropToolGuide />} />
 
                 <Route path="/video-frames-for-ai-datasets" element={<VideoFramesForAiDatasets />} />
                 <Route path="/video-to-image-sequence-for-blender" element={<VideoToImageSequenceForBlender />} />
