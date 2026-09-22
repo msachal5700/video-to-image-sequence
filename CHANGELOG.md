@@ -6,6 +6,31 @@ Format: newest entries at the top. Each entry lists the files changed, the reaso
 
 ---
 
+## 2026-09-22 — New Tool: Freeform Image Crop (`/image-crop`) + Guide Blog Post
+
+**What:** New free client-side tool page `/image-crop` — a true freeform polygon image cropper (no rectangular box). Click to place points anywhere, drag to trace; draggable circular nodes; drag an edge to insert a point; double-click a node to delete it; drag inside the closed shape to move the whole selection; close via first node / Enter / "Close shape"; Esc clears; 90° rotate L/R with polygon staying aligned; zoom 50–400%; full undo/redo; sample-image button; export of the exact masked shape as transparent PNG/WebP or white-background JPG at original resolution.
+
+**SEO:** keyword-targeted title/meta/H1 ("Freeform Image Crop Tool — Crop Any Shape Online Free"), semantic H2s, features/how-to/format sections, FAQ, WebApplication + FAQPage + HowTo JSON-LD, OG tags, canonical, unique H1 (no duplicate-H1 risk — no shared H1 fallback on the page).
+
+**Files added:** `pages/ImageCrop.tsx`, `pages/blog/FreeImageCropToolGuide.tsx`
+**Files modified:**
+| File | Change |
+| --- | --- |
+| `App.tsx` | Import + routes for `/image-crop` and `/blog/free-image-crop-tool-guide` |
+| `i18n/locales/en.json` | New `imageCrop` namespace (title/description/h1/hero/keywords); appended "Freeform Image Crop" to `home.relatedItems` |
+| `pages/Home.tsx` | `relatedLinks` += `/image-crop`; 7th card emoji `✂️` |
+| `components/Footer.tsx` | Site-wide "Freeform Image Crop" link in converter tools list |
+| `pages/BlogIndex.tsx` | New post entry `free-image-crop-tool-guide` |
+| `public/sitemap.xml` | Added `/image-crop` (0.9/weekly) and `/blog/free-image-crop-tool-guide` (0.8/monthly), both lastmod 2026-09-22; refreshed `/` and `/blog` lastmods; no duplicates |
+| `scripts/prerender.cjs` | Added both routes + `routeTextMap` expected-text entries |
+| `public/llms.txt` | Listed the tool and the guide |
+
+**Verified:** `npx tsc --noEmit` 0 errors; `/image-crop` + blog route return 200 live with expected title/H1; sitemap contains both URLs exactly once.
+
+**To revert:** delete the two new files and revert the modified files listed above.
+
+---
+
 ## 2026-09-12 — Homepage Reposition: "Free Video Frame Extractor" Primary, Topical Coverage Over Privacy Repetition
 
 **Audit finding:** Homepage tried to rank for too many concepts; "Video to Image Sequence" not the best primary keyword; privacy/no-upload repeated 6+ times wasting topical real estate.
