@@ -75,7 +75,7 @@
   },
   "badges": {
     "private": "🔒 100% Private (Local)",
-    "fast": "\u26A1️ Fast Local Conversion",
+    "fast": "⚡️ Fast Local Conversion",
     "zip": "📦 ZIP Download",
     "fps": "🎨 Custom FPS Control",
     "free": "🆓 Free Forever"
@@ -83,7 +83,6 @@
   "home": {
     "title": "Video to Image Sequence — Free Video Frame Extractor Online",
     "description": "Convert video to image sequence free in your browser. Extract frames from MP4, MOV, WEBM as JPG, PNG, or WebP with millisecond precision. No upload — 100% private, ZIP download.",
-
     "h1": "Free Video Frame Extractor",
     "h1Sub": "Extract Frames from Video",
     "hero": "Extract every frame from MP4, MOV, and WEBM videos as high-quality JPG, PNG, or WebP images. Choose exact timestamps, custom FPS (1–60), or batch extract thousands of frames for AI datasets. All processing runs locally in your browser — no upload, no account, no limits.",
@@ -198,57 +197,57 @@
     "compareRows": [
       [
         "Privacy",
-        "\u2705 100% local — no upload",
-        "\u274C Upload required",
-        "\u2705 Local"
+        "✅ 100% local — no upload",
+        "❌ Upload required",
+        "✅ Local"
       ],
       [
         "Exact timestamp (ms)",
-        "\u2705 Visual scrubber + input",
-        "\u26A0️ Rare / API only",
-        "\u2705 Complex syntax"
+        "✅ Visual scrubber + input",
+        "⚠️ Rare / API only",
+        "✅ Complex syntax"
       ],
       [
         "Frame-by-frame step",
-        "\u2705 UI buttons",
-        "\u274C No",
-        "\u2705 Manual seek"
+        "✅ UI buttons",
+        "❌ No",
+        "✅ Manual seek"
       ],
       [
         "WebP output",
-        "\u2705 JPG + PNG + WebP",
-        "\u26A0️ JPG/PNG only",
-        "\u2705 Manual"
+        "✅ JPG + PNG + WebP",
+        "⚠️ JPG/PNG only",
+        "✅ Manual"
       ],
       [
         "Batch multi-video",
-        "\u2705 Queue + ZIP each",
-        "\u274C One at a time",
-        "\u2705 Scriptable"
+        "✅ Queue + ZIP each",
+        "❌ One at a time",
+        "✅ Scriptable"
       ],
       [
         "AI dataset FPS sampling",
-        "\u2705 1–60 FPS presets",
-        "\u274C Fixed options",
-        "\u2705 Manual math"
+        "✅ 1–60 FPS presets",
+        "❌ Fixed options",
+        "✅ Manual math"
       ],
       [
         "File size limit",
-        "\u2705 Device RAM only",
-        "\u274C 100–500 MB",
-        "\u2705 None"
+        "✅ Device RAM only",
+        "❌ 100–500 MB",
+        "✅ None"
       ],
       [
         "Install / setup",
-        "\u2705 Zero — open browser",
-        "\u2705 Zero",
-        "\u274C Install + config"
+        "✅ Zero — open browser",
+        "✅ Zero",
+        "❌ Install + config"
       ],
       [
         "Cost",
-        "\u2705 Free forever",
-        "\u26A0️ Freemium tiers",
-        "\u2705 Free (OSS)"
+        "✅ Free forever",
+        "⚠️ Freemium tiers",
+        "✅ Free (OSS)"
       ]
     ],
     "whyChooseTitle": "Why Choose This Video Frame Extractor?",
@@ -260,7 +259,7 @@
         "desc": "Your video files never leave your device. Unlike cloud converters that upload to remote servers, this tool uses WebCodecs and Canvas APIs to decode and extract frames entirely within your browser tab. No network requests for video data. Safe for confidential footage, proprietary content, medical imaging, or personal videos."
       },
       {
-        "icon": "\u26A1️",
+        "icon": "⚡️",
         "title": "Hardware-Accelerated Local Processing",
         "desc": "Leverages your GPU via WebCodecs VideoDecoder for hardware-accelerated decoding. Falls back to Canvas-based extraction for maximum browser compatibility. Processing speed depends only on your hardware — not server queue times or bandwidth limits."
       },
@@ -287,18 +286,51 @@
     ],
     "techSpecsTitle": "Technical Specifications",
     "techSpecsSub": "Detailed capabilities for developers and technical workflows.",
-    "techSpecsHeaders": ["Specification", "Details"],
+    "techSpecsHeaders": [
+      "Specification",
+      "Details"
+    ],
     "techSpecsRows": [
-      ["Input Formats", "MP4 (H.264, H.265*), MOV (H.264, ProRes*), WEBM (VP8, VP9, AV1*) — *Browser/hardware dependent"],
-      ["Output Formats", "JPG (quality 10–100), PNG (lossless), WebP (quality 10–100, alpha support)"],
-      ["Frame Rate Control", "Presets: 1, 5, 10, 12, 15, 24, 25, 30, 60 FPS + Custom slider (1–60) + Exact timestamp extraction"],
-      ["Max Resolution", "Native video resolution (preview capped at 1920px width; downloads are full resolution)"],
-      ["Batch Processing", "Multiple videos queued, each with independent settings, separate ZIP outputs"],
-      ["Frame Naming", "Zero-padded: frame_000001.png, frame_000002.png... (6 digits default)"],
-      ["Color Space", "sRGB output; HDR content tone-mapped to SDR"],
-      ["Memory Requirements", "~1080p@30FPS: 4–8 GB RAM; 4K: 16 GB+ recommended"],
-      ["Browser Support", "Chrome 94+, Firefox 93+, Safari 14+, Edge 94+ (WebCodecs API)"],
-      ["Offline Capable", "Yes — works after first load (service worker caches app shell)"]
+      [
+        "Input Formats",
+        "MP4 (H.264, H.265*), MOV (H.264, ProRes*), WEBM (VP8, VP9, AV1*) — *Browser/hardware dependent"
+      ],
+      [
+        "Output Formats",
+        "JPG (quality 10–100), PNG (lossless), WebP (quality 10–100, alpha support)"
+      ],
+      [
+        "Frame Rate Control",
+        "Presets: 1, 5, 10, 12, 15, 24, 25, 30, 60 FPS + Custom slider (1–60) + Exact timestamp extraction"
+      ],
+      [
+        "Max Resolution",
+        "Native video resolution (preview capped at 1920px width; downloads are full resolution)"
+      ],
+      [
+        "Batch Processing",
+        "Multiple videos queued, each with independent settings, separate ZIP outputs"
+      ],
+      [
+        "Frame Naming",
+        "Zero-padded: frame_000001.png, frame_000002.png... (6 digits default)"
+      ],
+      [
+        "Color Space",
+        "sRGB output; HDR content tone-mapped to SDR"
+      ],
+      [
+        "Memory Requirements",
+        "~1080p@30FPS: 4–8 GB RAM; 4K: 16 GB+ recommended"
+      ],
+      [
+        "Browser Support",
+        "Chrome 94+, Firefox 93+, Safari 14+, Edge 94+ (WebCodecs API)"
+      ],
+      [
+        "Offline Capable",
+        "Yes — works after first load (service worker caches app shell)"
+      ]
     ],
     "gettingStartedTitle": "Complete Getting Started Guide",
     "gettingStartedSub": "Step-by-step walkthrough for your first frame extraction.",
@@ -403,6 +435,10 @@
       {
         "title": "Images to Video Converter",
         "desc": "Reverse workflow: stitch JPG/PNG/WebP sequences back into WebM video."
+      },
+      {
+        "title": "Freeform Image Crop",
+        "desc": "Crop images into any custom shape with draggable points — free, private, with transparent PNG export."
       }
     ],
     "faq": {
@@ -478,7 +514,6 @@
   "mp4ToJpg": {
     "title": "MP4 to Frames — Convert MP4 to JPG Image Sequence Free",
     "description": "Turn any MP4 into a numbered JPG image sequence free. Extract all frames at your chosen FPS and download as one ZIP. No upload, no signup, no watermark.",
-
     "h1": "MP4 to JPG Converter",
     "h1Sub": "Online Free — Local Browser Processing",
     "hero": "Convert MP4 video to JPG images online for free. Extract every frame as a high-quality JPG sequence locally in your browser. Since files are processed locally, your video data never leaves your device.",
@@ -577,6 +612,14 @@
     "h1Sub": "Free Online GIF Maker",
     "hero": "Turn any video clip into a high-quality animated GIF — free, in your browser, with no upload and no watermark. Choose your frame rate, size, and loop settings, then download instantly.",
     "keywords": "video to gif, convert video to gif, mp4 to gif, gif maker online, make gif from video, video to gif converter"
+  },
+  "imageCrop": {
+    "title": "Freeform Image Crop Tool — Crop Any Shape Online Free",
+    "description": "Free freeform image cropper: draw any shape with editable points, rotate, zoom, and export transparent PNG/WebP or JPG. 100% private, no signup, no watermark.",
+    "h1": "Freeform Image Crop Tool",
+    "h1Sub": "Cut Any Shape — Free Online",
+    "hero": "Draw any crop shape you want — not just rectangles. Click to place points, drag nodes to refine, and export your cutout as a transparent PNG or WebP, free in your browser.",
+    "keywords": "free image crop tool, crop image online free, freeform image crop, custom shape crop, crop image any shape, transparent png crop, image cropper no signup"
   },
   "extractEveryN": {
     "title": "Extract a Frame Every {{n}} Second{{plural}} — Free Online Video Tool",
