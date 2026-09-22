@@ -53,6 +53,12 @@ const posts = [
     date: 'August 29, 2026',
     description: 'A complete guide to choosing the right FPS when extracting video frames. Covers 1, 5, 10, 24, and 30 FPS with use cases, file size estimates, and format recommendations.',
   },
+  {
+    slug: 'free-image-crop-tool-guide',
+    title: 'Freeform Image Crop: How to Crop an Image Into Any Shape Online (Free)',
+    date: 'September 22, 2026',
+    description: 'What freeform cropping is, when it beats a box crop, and how to cut any shape from an image with editable points — free, private, no signup. Transparent PNG export.',
+  },
 ];
 
 
