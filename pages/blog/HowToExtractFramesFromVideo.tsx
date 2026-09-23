@@ -135,7 +135,7 @@ const HowToExtractFramesFromVideo: React.FC = () => {
         <p className="mb-4">Best for: batch processing, CI/CD pipelines, servers, large videos, automation.</p>
 
         <h3 className="text-xl font-semibold text-white mt-8 mb-4">Basic Extraction</h3>
-        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400"><code># Extract all frames (matches video FPS)
+        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400 overflow-x-auto max-w-full"><code># Extract all frames (matches video FPS)
 ffmpeg -i input.mp4 frames/frame_%06d.jpg
 
 # Extract at specific FPS (e.g., 5 FPS)
@@ -145,7 +145,7 @@ ffmpeg -i input.mp4 -vf fps=5 frames/frame_%06d.jpg
 ffmpeg -i input.mp4 -vf fps=5 -q:v 2 frames/frame_%06d.jpg</code></pre>
 
         <h3 className="text-xl font-semibold text-white mt-8 mb-4">Format Options</h3>
-        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400"><code># JPG (default)
+        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400 overflow-x-auto max-w-full"><code># JPG (default)
 ffmpeg -i input.mp4 -vf fps=5 -q:v 2 frames/frame_%06d.jpg
 
 # PNG (lossless)
@@ -158,14 +158,14 @@ ffmpeg -i input.mp4 -vf fps=5 -c:v libwebp -quality 90 frames/frame_%06d.webp
 ffmpeg -i input.mp4 -vf fps=5 frames/frame_%06d.bmp</code></pre>
 
         <h3 className="text-xl font-semibold text-white mt-8 mb-4">Time Range Extraction</h3>
-        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400"><code># Start at 1:30, extract 30 seconds at 10 FPS
+        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400 overflow-x-auto max-w-full"><code># Start at 1:30, extract 30 seconds at 10 FPS
 ffmpeg -ss 00:01:30 -t 30 -i input.mp4 -vf fps=10 frames/frame_%06d.jpg
 
 # Extract single frame at exact timestamp
 ffmpeg -ss 00:02:15.500 -i input.mp4 -vframes 1 frame_exact.jpg</code></pre>
 
         <h3 className="text-xl font-semibold text-white mt-8 mb-4">Batch Process Multiple Videos</h3>
-        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400"><code>{`# Windows (PowerShell)
+        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400 overflow-x-auto max-w-full"><code>{`# Windows (PowerShell)
 Get-ChildItem *.mp4 | ForEach-Object {'{'}
   $name = $_.BaseName
   ffmpeg -i $_.Name -vf fps=5 "$name/frame_%06d.jpg"
@@ -186,7 +186,7 @@ done`}</code></pre>
         <p className="mb-4">Best for: ML pipelines, data loading, custom preprocessing, integration with training code.</p>
 
         <h3 className="text-xl font-semibold text-white mt-8 mb-4">OpenCV (Fast, No Dependencies Beyond opencv-python)</h3>
-        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400"><code>{`import cv2
+        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400 overflow-x-auto max-w-full"><code>{`import cv2
 import os
 
 def extract_frames_opencv(video_path, output_dir, fps=5, format='jpg', quality=90):
@@ -218,7 +218,7 @@ def extract_frames_opencv(video_path, output_dir, fps=5, format='jpg', quality=9
 extract_frames_opencv('video.mp4', 'frames/', fps=5, format='jpg', quality=90)`}</code></pre>
 
         <h3 className="text-xl font-semibold text-white mt-8 mb-4">MoviePy (Higher Level, Handles More Codecs)</h3>
-        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400"><code>{`from moviepy.editor import VideoFileClip
+        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400 overflow-x-auto max-w-full"><code>{`from moviepy.editor import VideoFileClip
 import os
 
 def extract_frames_moviepy(video_path, output_dir, fps=5, format='jpg'):
