@@ -143,7 +143,7 @@ const VideoCodecsExplained: React.FC = () => {
         <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">Transcoding for Extraction — Quick Commands</h2>
 
         <h3 className="text-xl font-semibold text-white mt-8 mb-4">FFmpeg — Universal Transcoder</h3>
-        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400"><code># ProRes MOV → H.264 MP4 (high quality, fast)
+        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400 overflow-x-auto max-w-full"><code># ProRes MOV → H.264 MP4 (high quality, fast)
 ffmpeg -i input.mov -c:v libx264 -crf 18 -preset fast -pix_fmt yuv420p output.mp4
 
 # ProRes 4444 (with alpha) → WebM VP9 with alpha
@@ -211,7 +211,7 @@ ffmpeg -i input.* -c:v libx264 -crf 18 -preset fast -pix_fmt yuv420p -movflags +
         <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">How to Check Your Video's Codec</h2>
 
         <h3 className="text-xl font-semibold text-white mt-8 mb-4">FFprobe (CLI)</h3>
-        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400"><code>ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,codec_long_name,profile,pix_fmt,width,height,r_frame_rate -of csv=p=0 input.mp4</code></pre>
+        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400 overflow-x-auto max-w-full"><code>ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,codec_long_name,profile,pix_fmt,width,height,r_frame_rate -of csv=p=0 input.mp4</code></pre>
 
         <h3 className="text-xl font-semibold text-white mt-8 mb-4">MediaInfo (GUI)</h3>
         <p className="mt-2">Free, cross-platform. Drag file → shows codec, profile, bitrate, frame rate, color space.</p>
