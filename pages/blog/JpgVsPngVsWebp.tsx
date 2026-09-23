@@ -235,7 +235,7 @@ const JpgVsPngVsWebp: React.FC = () => {
         <p>Need to switch formats after extraction? Our tool lets you re-extract with a different format instantly. For batch conversion of existing frames:</p>
 
         <h3 className="text-xl font-semibold text-white mt-8 mb-4">ImageMagick (CLI, Universal)</h3>
-        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400"><code># JPG → WebP (lossless)
+        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400 overflow-x-auto max-w-full"><code># JPG → WebP (lossless)
 magick mogrify -format webp -define webp:lossless=true *.jpg
 
 # PNG → WebP (lossless, keep alpha)
@@ -245,7 +245,7 @@ magick mogrify -format webp -define webp:lossless=true *.png
 magick mogrify -format png -set filename:f "frame_%06d" *.png</code></pre>
 
         <h3 className="text-xl font-semibold text-white mt-8 mb-4">Python (PIL/Pillow)</h3>
-        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400"><code>from PIL import Image
+        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400 overflow-x-auto max-w-full"><code>from PIL import Image
 import glob, os
 
 for f in glob.glob("frames/*.png"):
