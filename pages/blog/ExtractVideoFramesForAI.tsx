@@ -122,7 +122,7 @@ const ExtractVideoFramesForAI: React.FC = () => {
         <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">Step 3: Dataset Structure — Compatible with Your Labeler</h2>
 
         <h3 className="text-xl font-semibold text-white mt-8 mb-4">Option A: Flat Folder per Class (Classification)</h3>
-        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400"><code>dataset/
+        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400 overflow-x-auto max-w-full"><code>dataset/
 ├── train/
 │   ├── cat/
 │   │   ├── frame_0001.jpg
@@ -140,7 +140,7 @@ const ExtractVideoFramesForAI: React.FC = () => {
         <p className="text-gray-400">Works with: PyTorch ImageFolder, TensorFlow image_dataset_from_directory, fastai, most classification tutorials.</p>
 
         <h3 className="text-xl font-semibold text-white mt-8 mb-4">Option B: YOLO Format (Detection/Segmentation)</h3>
-        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400"><code>dataset/
+        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400 overflow-x-auto max-w-full"><code>dataset/
 ├── images/
 │   ├── train/
 │   │   ├── video1_frame_0001.jpg
@@ -162,7 +162,7 @@ const ExtractVideoFramesForAI: React.FC = () => {
         <p className="text-gray-400">Works with: YOLOv5/v8/v10, Ultralytics, Detectron2 (with converter), Roboflow export.</p>
 
         <h3 className="text-xl font-semibold text-white mt-8 mb-4">Option C: COCO JSON (Detection/Segmentation/Keypoints)</h3>
-        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400"><code>{`dataset/
+        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400 overflow-x-auto max-w-full"><code>{`dataset/
 ├── images/
 │   ├── train/
 │   └── val/
@@ -257,7 +257,7 @@ const ExtractVideoFramesForAI: React.FC = () => {
         </ol>
 
         <h3 className="text-xl font-semibold text-white mt-8 mb-4">Python Script: Auto-Split Train/Val/Test</h3>
-        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400"><code>{`import os, random, shutil
+        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400 overflow-x-auto max-w-full"><code>{`import os, random, shutil
 from pathlib import Path
 
 def split_dataset(src_dir, dst_dir, train=0.7, val=0.2, test=0.1, seed=42):
@@ -277,7 +277,7 @@ def split_dataset(src_dir, dst_dir, train=0.7, val=0.2, test=0.1, seed=42):
     print(f'Done. Check {dst_dir}')`}</code></pre>
 
         <h3 className="text-xl font-semibold text-white mt-8 mb-4">FFmpeg: Direct Video → Frames (Headless/CI)</h3>
-        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400"><code># Extract 2 FPS, JPG quality 90, zero-padded names
+        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400 overflow-x-auto max-w-full"><code># Extract 2 FPS, JPG quality 90, zero-padded names
 ffmpeg -i input.mp4 -vf fps=2 -q:v 2 frames/frame_%06d.jpg
 
 # Extract specific time range
