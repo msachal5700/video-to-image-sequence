@@ -128,20 +128,20 @@ const VideoToImageSequenceExplained: React.FC = () => {
         <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">Pipeline Integration Examples</h2>
 
         <h3 className="text-xl font-semibold text-white mt-8 mb-4">Blender (VFX/Animation)</h3>
-        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400"><code>{`# Blender Python API
+        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400 overflow-x-auto max-w-full"><code>{`# Blender Python API
 import bpy
 bpy.ops.image.open(directory="/path/to/frames/", files=[{"name":"frame_000001.png"}])
 # Blender auto-detects sequence from first frame`}</code></pre>
 
         <h3 className="text-xl font-semibold text-white mt-8 mb-4">Python / OpenCV (ML/Analysis)</h3>
-        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400"><code>import cv2, glob
+        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400 overflow-x-auto max-w-full"><code>import cv2, glob
 frames = sorted(glob.glob("frames/frame_*.png"))
 for f in frames:
     img = cv2.imread(f)
     # process...</code></pre>
 
         <h3 className="text-xl font-semibold text-white mt-8 mb-4">FFmpeg (Re-encode to Video)</h3>
-        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400"><code># Image sequence → MP4 (H.264, CRF 18)
+        <pre className="bg-gray-900 border border-gray-800 rounded-xl p-4 my-4 font-mono text-sm text-cyan-400 overflow-x-auto max-w-full"><code># Image sequence → MP4 (H.264, CRF 18)
 ffmpeg -framerate 30 -i frame_%06d.png -c:v libx264 -crf 18 -pix_fmt yuv420p output.mp4</code></pre>
 
         <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">Memory & Performance</h2>
