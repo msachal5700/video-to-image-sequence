@@ -45,6 +45,7 @@ import JpgVsPngVsWebp from './pages/blog/JpgVsPngVsWebp';
 import WhatIsVideoFrameRate from './pages/blog/WhatIsVideoFrameRate';
 import FreeImageCropToolGuide from './pages/blog/FreeImageCropToolGuide';
 import CookieConsent from './components/CookieConsent';
+import ClarityConsent from './components/ClarityConsent';
 
 
 
@@ -162,6 +163,7 @@ const App: React.FC = () => {
 
             <Footer />
             <CookieConsent />
+            <ClarityConsent />
           </div>
         </BrowserRouter>
       </ToastProvider>

@@ -72,8 +72,11 @@ export const PrivacyPolicy: React.FC = () => (
         <li>
           <strong>Aggregate usage analytics.</strong> We use Google Analytics 4 to understand how the site is used — for example which
           pages are visited, approximate country and device category, and how visitors arrive. Google Analytics sets cookies
-          (such as <code>_ga</code>) to distinguish returning sessions. IP addresses are truncated by Google before storage. We do not
-          send file names, video content, or any personal identifiers to Google Analytics.
+          (such as <code>_ga</code>) to distinguish returning sessions. IP addresses are truncated by Google before storage. We also
+          use Microsoft Clarity to understand how visitors interact with the site through session recordings and heatmaps (for
+          example which buttons are clicked and how far pages are scrolled). Clarity sets cookies to distinguish sessions; recordings
+          mask text inputs by default. We do not send file names, video content, or any personal identifiers to Google Analytics or
+          Microsoft Clarity. Both tools load only after you choose "Accept All" in our consent notice.
         </li>
         <li>
           <strong>Contact form submissions.</strong> If you choose to write to us through the <Link to="/contact" className="text-cyan-400 hover:underline">contact page</Link>,
@@ -126,6 +129,7 @@ export const PrivacyPolicy: React.FC = () => (
           <tbody className="divide-y divide-gray-800">
             <tr><td className="px-4 py-2 text-white">Essential</td><td className="px-4 py-2">This site (local storage)</td><td className="px-4 py-2">Theme, language, consent choice</td><td className="px-4 py-2">Until cleared</td></tr>
             <tr><td className="px-4 py-2 text-white">Analytics</td><td className="px-4 py-2">Google Analytics</td><td className="px-4 py-2">Aggregate traffic measurement</td><td className="px-4 py-2">Up to 2 years</td></tr>
+            <tr><td className="px-4 py-2 text-white">Analytics</td><td className="px-4 py-2">Microsoft Clarity</td><td className="px-4 py-2">Session recordings, heatmaps, interaction measurement</td><td className="px-4 py-2">Up to 1 year</td></tr>
             <tr><td className="px-4 py-2 text-white">Advertising</td><td className="px-4 py-2">Google AdSense / DoubleClick</td><td className="px-4 py-2">Ad delivery, frequency capping, measurement, personalisation (with consent)</td><td className="px-4 py-2">Up to 13 months</td></tr>
           </tbody>
         </table>
@@ -166,7 +170,7 @@ export const PrivacyPolicy: React.FC = () => (
       <p>
         Video and image data are never retained because they never reach us. Analytics data is retained by Google Analytics for 14
         months under our configured retention setting. Contact form messages are kept only for as long as needed to answer them. The
-        site is served exclusively over HTTPS with HSTS enabled, and third-party scripts are limited to Google Analytics, Google
+        site is served exclusively over HTTPS with HSTS enabled, and third-party scripts are limited to Google Analytics, Microsoft Clarity, Google
         AdSense, and Google Fonts.
       </p>
 
