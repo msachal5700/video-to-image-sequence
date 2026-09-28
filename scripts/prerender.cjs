@@ -160,6 +160,12 @@ function cleanHtml(html) {
   );
   // Remove injected Adsterra <style> blocks for ad containers
   html = html.replace(/<style>#container-999c8cf3f03558a8b1b5b28a2f0a1248[\s\S]*?<\/style>/g, '');
+  // Remove the scroll lock baked in by the consent gate: the prerender runs
+  // with no stored consent, so the gate is visible and its lock effect leaves
+  // style="overflow: hidden;" on <html> and <body> before the snapshot is
+  // taken. Left in place, every visitor (fresh or returning) would load an
+  // unscrollable page, and the gate's own unlock could not clear it.
+  html = html.replace(/<(html|body)([^>]*?)\sstyle="overflow:\s*hidden;?"/gi, '<$1$2');
   return html;
 }
 

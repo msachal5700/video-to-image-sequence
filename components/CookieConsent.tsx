@@ -55,18 +55,21 @@ const CookieConsent: React.FC = () => {
   }, []);
 
   // Lock background scrolling while the consent gate is up.
-  // The cleanup (and dismiss()) always releases it.
+  // The cleanup releases the lock unconditionally (it does NOT restore a
+  // captured previous value): the prerendered HTML can carry a stale
+  // inline overflow:hidden on <html>/<body> (the prerender snapshot is taken
+  // with the gate visible), and restoring that captured value would re-apply
+  // the stale lock and leave the page permanently unscrollable. Nothing else
+  // in the app sets inline overflow on <html>/<body>, so clearing is safe.
   useEffect(() => {
     if (!visible) return;
     const html = document.documentElement;
     const body = document.body;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
     html.style.overflow = 'hidden';
     body.style.overflow = 'hidden';
     return () => {
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
+      html.style.overflow = '';
+      body.style.overflow = '';
     };
   }, [visible]);
 
