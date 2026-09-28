@@ -11,6 +11,16 @@ const loadClarity = (): void => {
   if (typeof window === 'undefined' || typeof document === 'undefined') return;
   const w = window as unknown as Record<string, unknown>;
   if (w.clarity || document.querySelector('script[src*="clarity.ms/tag"]')) return;
+  // Official Clarity queue stub: the tag script calls window.clarity(...) during
+  // boot and crashes without it, so the recorder never starts.
+  if (!w.clarity) {
+    const stub = function (this: unknown, ...args: unknown[]): void {
+      const q = (stub as unknown as { q?: unknown[][] }).q || [];
+      q.push(args);
+      (stub as unknown as { q?: unknown[][] }).q = q;
+    };
+    w.clarity = stub;
+  }
   const s = document.createElement('script');
   s.type = 'text/javascript';
   s.async = true;
