@@ -139,3 +139,5 @@ const CookieConsent: React.FC = () => {
 };
 
 export default CookieConsent;
+
+// consent-gate-test-marker: temporary, removed with test branch
