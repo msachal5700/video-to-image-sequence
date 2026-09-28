@@ -27,13 +27,23 @@ const CookieConsent: React.FC = () => {
   useEffect(() => {
     const consent = localStorage.getItem('cookie_consent_accepted');
     if (!consent) {
-      // Delay display slightly for smooth page load
-      const timer = setTimeout(() => setVisible(true), 1200);
-      return () => clearTimeout(timer);
+      // Fresh visitor: show the full-screen gate immediately
+      setVisible(true);
+    } else if (consent === 'all') {
+      // Returning visitor: apply their stored choice to Google Consent Mode
+      syncGtagConsent(true);
     }
-    // Returning visitor: apply their stored choice to Google Consent Mode
-    if (consent === 'all') syncGtagConsent(true);
   }, []);
+
+  // Lock page scrolling while the consent gate is up
+  useEffect(() => {
+    if (!visible) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [visible]);
 
   const handleAccept = (type: 'all' | 'essential') => {
     localStorage.setItem('cookie_consent_accepted', type);
@@ -47,10 +57,15 @@ const CookieConsent: React.FC = () => {
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-4 left-4 right-4 md:left-8 md:right-auto md:max-w-lg z-[120] animate-fade-in font-sans">
-      <div className="p-5 rounded-3xl bg-gray-950/95 border border-cyan-800/80 shadow-2xl backdrop-blur-md text-xs text-gray-300 space-y-3">
+    <div
+      className="fixed inset-0 z-[200] flex items-center justify-center bg-gray-950/90 backdrop-blur-sm p-4 font-sans"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Cookie and privacy consent"
+    >
+      <div className="w-full max-w-lg p-6 rounded-3xl bg-gray-950 border border-cyan-800/80 shadow-2xl text-sm text-gray-300 space-y-4 animate-fade-in">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 font-bold font-display text-white text-sm">
+          <div className="flex items-center gap-2 font-bold font-display text-white text-base">
             <span>🍪 Cookie & Privacy Consent</span>
           </div>
           <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-cyan-950 text-cyan-400 border border-cyan-800">
@@ -59,22 +74,22 @@ const CookieConsent: React.FC = () => {
         </div>
 
         <p className="leading-relaxed text-gray-400">
-          We use local storage for essential converter settings and privacy-respecting cookies for traffic analytics and ad delivery. Your uploaded videos never leave your browser. Learn more in our{' '}
+          Before you continue, please choose how we may use cookies. We use local storage for essential converter settings and privacy-respecting cookies for traffic analytics and ad delivery. Your uploaded videos never leave your browser. Learn more in our{' '}
           <Link to="/privacy" className="text-cyan-400 underline hover:text-cyan-300">
             Privacy Policy
           </Link>.
         </p>
 
-        <div className="pt-1 flex items-center justify-end gap-2 font-mono font-bold text-xs">
+        <div className="pt-1 flex flex-col sm:flex-row items-stretch gap-2 font-mono font-bold text-sm">
           <button
             onClick={() => handleAccept('essential')}
-            className="px-3.5 py-2 rounded-xl bg-gray-900 hover:bg-gray-800 text-gray-300 border border-gray-800 transition"
+            className="flex-1 px-4 py-3 rounded-xl bg-gray-900 hover:bg-gray-800 text-gray-300 border border-gray-800 transition"
           >
             Essential Only
           </button>
           <button
             onClick={() => handleAccept('all')}
-            className="px-4 py-2 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-gray-950 transition shadow-md shadow-cyan-500/20"
+            className="flex-1 px-4 py-3 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-gray-950 transition shadow-md shadow-cyan-500/20"
           >
             Accept All
           </button>
