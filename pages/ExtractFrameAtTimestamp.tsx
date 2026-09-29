@@ -28,6 +28,18 @@ const faqs = [
     a: 'No server upload required. Processing happens in your browser, so large files depend on your device memory, browser performance, and video codec support.'
   },
   {
+    q: 'What timestamp formats can I enter?',
+    a: 'Standard formats like 42 (seconds), 1:02 (minutes:seconds), 1:02:03 (hours:minutes:seconds), and millisecond precision like 1:02:03.500 all work. If your video is shorter than the timestamp you enter, the extractor can\u2019t seek past the end — check the duration shown on the page first.'
+  },
+  {
+    q: 'How accurate is the extracted frame, really?',
+    a: 'Expect accuracy within about one to two frames on typical H.264/H.265 files in modern browsers. Exact single-frame accuracy isn\u2019t guaranteed because browsers seek to the nearest decodable position rather than an exact frame index. For thumbnails, slides, and reference images this is more than close enough; for frame-exact archival work, use a desktop tool.'
+  },
+  {
+    q: 'Does it work with variable-frame-rate phone footage?',
+    a: 'Yes. Phone recordings often use variable frame rate (VFR), where timestamps don\u2019t map evenly to frame numbers. Timestamp-based extraction actually handles VFR better than frame-number-based tools, because it targets a point in time rather than a frame count.'
+  },
+  {
     q: 'Does it work for MP4, MOV, and WEBM videos?',
     a: 'Yes. It supports the three most common video formats used by screen recorders, cameras, and mobile devices.'
   }
@@ -368,6 +380,51 @@ const ExtractFrameAtTimestamp: React.FC = () => {
                 <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section className="max-w-4xl mx-auto py-12 px-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 font-display">Timestamp vs FPS Extraction: Which One Do You Need?</h2>
+          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 md:p-8 space-y-4 text-gray-400 leading-relaxed">
+            <p>
+              Timestamp extraction grabs one frame at a moment you name — say, 1:23.450. FPS or every-N-seconds extraction sweeps a whole video and pulls frames on a schedule. Use timestamp extraction when you know what you want: a thumbnail pose, a title card, the exact moment a chart appears. Use rate-based extraction when you're searching: scanning a 20-minute tutorial for every code snippet, pulling candidate thumbnails from a vlog, or building a training dataset from game footage.
+            </p>
+            <p>
+              The tradeoff is effort versus coverage. A single timestamp gives you one frame and zero clutter. A sweep of a 10-minute video at 1 frame per second gives you 600 frames to sort through — thorough, but slow to review and download. The practical rule: if you can name the second, timestamp it; if you can only name the segment, extract one frame every 5–10 seconds across that range, find your moment, then come back and grab the exact timestamp.
+            </p>
+          </div>
+        </section>
+
+        <section className="max-w-4xl mx-auto py-12 px-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 font-display">Practical Examples</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+              <h3 className="text-white font-semibold text-lg mb-2">Thumbnail at 0:42</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">You're editing a product review and the host hits a perfect surprised expression at 0:42. Enter 0:42, extract that single frame as a PNG, and you have a full-resolution thumbnail without scrubbing a timeline. PNG keeps text and edges crisp if you're layering titles over it.</p>
+            </div>
+            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+              <h3 className="text-white font-semibold text-lg mb-2">Title cards from recordings</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">Webinar recordings usually flash a title card for 3–5 seconds at segment starts. Watch once at double speed, note each card's timestamp (e.g., 4:17, 12:40, 31:05), then extract all three — clean slide images for a course page without re-recording the screen.</p>
+            </div>
+            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+              <h3 className="text-white font-semibold text-lg mb-2">The reaction shot</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">A speaker raises an eyebrow at 1:02:03.500 in a keynote — the perfect slide reaction image. Pull that exact moment as a JPG in seconds. Because the file never leaves your browser, this works for unreleased footage you couldn't upload to a server-side tool.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="max-w-4xl mx-auto py-12 px-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 font-display">Precision Tips</h2>
+          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 md:p-8 space-y-4 text-gray-400 leading-relaxed">
+            <p>
+              <strong className="text-white">Browser seeking is approximate.</strong> The <span className="font-mono text-sm">video</span> element's seek operation jumps to the nearest position the decoder can reach quickly — often a keyframe — then decodes forward to your timestamp. On most desktop browsers this lands within one or two frames of what you asked for, but it's not sample-accurate the way a desktop editor is.
+            </p>
+            <p>
+              <strong className="text-white">Keyframes vs interpolated frames.</strong> Compressed video stores full images (keyframes) every few seconds and reconstructs the frames between them from motion data. If your timestamp lands on an interpolated frame, the extracted image can look slightly softer. For the sharpest result, nudge your timestamp a few frames in either direction and extract again — one of those will usually sit on or near a keyframe.
+            </p>
+            <p>
+              <strong className="text-white">Nudging technique.</strong> Extract at your timestamp, then try timestamp + 0.083 and timestamp − 0.083 (about two frames at 24 fps). Compare the three and keep the sharpest. Three quick extractions beat one long guessing session in an editor.
+            </p>
           </div>
         </section>
 

@@ -22,6 +22,18 @@ const faqs = [
   {
     q: 'Can I use PNG images with transparency?',
     a: 'Yes. You can upload PNG files with alpha transparency. They will be composited onto a black background in the output video file.'
+  },
+  {
+    q: 'What resolution will the output video be if my images are different sizes?',
+    a: 'The output typically locks to the dimensions of the first image, with the others adapted to fit — which is exactly why mixed sizes cause letterboxing or distortion. Standardize your images to one resolution beforehand (e.g. 1920×1080) for a clean result.'
+  },
+  {
+    q: 'Can each image have a different duration, or must they all be the same?',
+    a: 'The images-to-video tool applies one uniform duration to every image in the batch — variable per-image timing is not supported. If you need an image to linger longer, duplicate that file in the sequence (e.g. include it three times at 1s each for a 3-second hold).'
+  },
+  {
+    q: 'Can I add background music or narration to the video?',
+    a: 'No — the tool produces a silent video from images only. Add audio afterward with a free editor like CapCut, DaVinci Resolve, or even your phone\u2019s built-in editor; export the silent video first, then layer music or voiceover on top.'
   }
 ];
 
@@ -231,6 +243,21 @@ const ImagesToVideoPage: React.FC = () => {
         </div>
       </section>
 
+      {/* ── TIMING GUIDE ── */}
+      <section className="max-w-4xl mx-auto py-12 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">
+          Choosing Seconds Per Image
+        </h2>
+        <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-4 text-gray-400 leading-relaxed">
+          <p>
+            The single biggest decision is duration per image, because it sets both pacing and total runtime: total seconds = image count × seconds per image. For a snappy recap, use 0.5s per image — 60 photos becomes a tight 30-second montage that works for product teasers or event highlights. A readable slideshow needs 3–4s per image so viewers can actually absorb each frame; 20 photos at 4s yields an 80-second video, a comfortable length for a listing or presentation insert.
+          </p>
+          <p>
+            Educational sequences and tutorials sit in between at 1–2s. If your images carry heavy on-image text, lean toward 4–5s; viewers need roughly 2–3 seconds to read a line of text plus time to register the visual.
+          </p>
+        </div>
+      </section>
+
       {/* ── BEST USE CASES ── */}
       <section className="max-w-4xl mx-auto py-12 px-4">
         <h2 className="text-2xl md:text-3xl font-bold mb-6 font-display">
@@ -238,16 +265,16 @@ const ImagesToVideoPage: React.FC = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6">
-            <h3 className="text-white font-semibold text-lg mb-2">Stop-Motion & Timelapses</h3>
-            <p className="text-gray-400 text-sm leading-relaxed">Combine individual photo captures or timed camera frames into a smooth, playable animation clip.</p>
+            <h3 className="text-white font-semibold text-lg mb-2">Property Slideshows</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">A real-estate agent converts 18 property photos into a 60-second video at 3.3s per image for a listing page that accepts video but not galleries — it autoplays where a ZIP of photos cannot.</p>
           </div>
           <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6">
-            <h3 className="text-white font-semibold text-lg mb-2">VFX Previewing</h3>
-            <p className="text-gray-400 text-sm leading-relaxed">Stitch rendered 3D render output layers into a preview video file to check visual timing and masking flow.</p>
+            <h3 className="text-white font-semibold text-lg mb-2">Timelapse Assembly</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">Pull one frame every 30 seconds from a 2-hour workshop recording (240 frames), stitch at 0.5s per image, and the whole session compresses into a 2-minute timelapse.</p>
           </div>
           <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6">
-            <h3 className="text-white font-semibold text-lg mb-2">Slideshow Presentations</h3>
-            <p className="text-gray-400 text-sm leading-relaxed">Stitch static slide images at a low framerate (e.g. 1 FPS) to create a simple video presentation sequence.</p>
+            <h3 className="text-white font-semibold text-lg mb-2">Stop-Motion Previews</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">Animators assemble drawn frames at 0.08–0.12s per image (roughly 8–12 FPS) to preview motion timing before committing to a full render.</p>
           </div>
         </div>
       </section>
@@ -268,6 +295,33 @@ const ImagesToVideoPage: React.FC = () => {
             <h3 className="text-white font-semibold mb-2">Video Fails to Play</h3>
             <p className="text-gray-400 text-sm leading-relaxed">
               The output format is WebM. If your media player does not support WebM natively, you can open it directly in Google Chrome or Mozilla Firefox to view the video, or import it into modern video editing software.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PRACTICAL TIPS ── */}
+      <section className="max-w-4xl mx-auto py-12 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 font-display">
+          Practical Tips for Clean Results
+        </h2>
+        <div className="space-y-4">
+          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
+            <h3 className="text-white font-semibold mb-2">Keep dimensions consistent</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              If you mix a 4000×3000 photo with a 1080×1080 square, the tool must resolve the mismatch — typically by letterboxing, cropping, or stretching one of them, which degrades the result either way. Resize your set to one shared resolution before uploading; a free batch resizer beats fixing a jittery video.
+            </p>
+          </div>
+          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
+            <h3 className="text-white font-semibold mb-2">Order files correctly</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Browsers sort uploads by filename, not by capture time. Name files with zero-padded sequence numbers (frame-001, frame-002, … frame-010) — without padding, "frame-10" sorts before "frame-2" and your timelapse scrambles. Verify the order in the tool's preview before generating.
+            </p>
+          </div>
+          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
+            <h3 className="text-white font-semibold mb-2">Choose your source format deliberately</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              PNG preserves clean edges for text overlays and UI captures but creates larger files that slow browser processing; JPG is smaller and fine for photographs. Avoid converting JPG to PNG before uploading — it inflates size without adding quality.
             </p>
           </div>
         </div>

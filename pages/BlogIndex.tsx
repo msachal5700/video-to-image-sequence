@@ -37,9 +37,9 @@ const posts = [
   },
   {
     slug: 'ezgif-alternative-video-to-image-sequence',
-    title: 'Why VideoToImageSequence is the Best Private Ezgif Alternative (2026)',
+    title: 'Ezgif vs VideoToImageSequence: An Honest Comparison (2026)',
     date: 'August 14, 2026',
-    description: 'A detailed benchmark comparing Ezgif vs VideoToImageSequence for video frame extraction. No 100MB file limits, zero server uploads, and 100% browser-native privacy.',
+    description: 'A fair comparison of Ezgif and VideoToImageSequence for video frame extraction: server-side vs browser-side processing, where each tool wins, and how to choose.',
   },
   {
     slug: 'video-frame-extractor-use-cases',
@@ -58,6 +58,18 @@ const posts = [
     title: 'Freeform Image Crop: How to Crop an Image Into Any Shape Online (Free)',
     date: 'September 22, 2026',
     description: 'What freeform cropping is, when it beats a box crop, and how to cut any shape from an image with editable points — free, private, no signup. Transparent PNG export.',
+  },
+  {
+    slug: 'video-to-stop-motion-frames',
+    title: 'Turn Video Clips into Stop-Motion Reference Frames (Free Guide)',
+    date: 'September 29, 2026',
+    description: 'Plan stop-motion shots with live-action reference: shoot a clip, extract frames every 0.5s, mark the beats, and preview timing — free, private, in your browser.',
+  },
+  {
+    slug: 'product-video-to-product-photos-ecommerce',
+    title: 'Product Videos to Product Photos: Extracting Stills for E-commerce Listings',
+    date: 'September 29, 2026',
+    description: 'Turn product video into listing photos: the five shots every listing needs, 4K resolution math for Amazon zoom, and a full video-to-listing workflow.',
   },
 ];
 

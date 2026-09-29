@@ -109,7 +109,7 @@ export const PrivacyPolicy: React.FC = () => (
           <ExtLink href="https://policies.google.com/technologies/partner-sites">How Google uses information from sites that use its services</ExtLink>.
         </li>
         <li>
-          Visitors in the European Economic Area, the United Kingdom, and Switzerland are shown a consent notice before advertising
+          All visitors are shown a consent notice before advertising
           cookies are set. Until you accept, Google Consent Mode keeps ad storage and personalisation denied and only non-personalised
           ads may be served.
         </li>

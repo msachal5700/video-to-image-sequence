@@ -87,6 +87,8 @@ const routes = [
   '/blog/jpg-vs-png-vs-webp-video-frames',
   '/blog/what-is-video-frame-rate',
   '/blog/free-image-crop-tool-guide',
+  '/blog/video-to-stop-motion-frames',
+  '/blog/product-video-to-product-photos-ecommerce',
   '/about',
   '/contact',
 
@@ -125,7 +127,7 @@ const routeTextMap = {
   '/ai-social-media-frame-picker': 'AI Social Media Frame Picker',
   '/blog/ai-best-frame-from-video': 'Best Frame',
   '/blog/how-to-convert-images-to-video-guide': 'Convert Images',
-  '/blog/ezgif-alternative-video-to-image-sequence': 'Ezgif Alternative',
+  '/blog/ezgif-alternative-video-to-image-sequence': 'Ezgif vs VideoToImageSequence',
   '/blog/video-frame-extractor-use-cases': 'Use Cases',
   '/blog/best-fps-settings-for-video-frame-extraction': 'FPS Settings',
   '/blog/how-many-frames-per-second': 'How Many FPS',
@@ -136,6 +138,8 @@ const routeTextMap = {
   '/blog/jpg-vs-png-vs-webp-video-frames': 'JPG vs PNG vs WebP',
   '/blog/what-is-video-frame-rate': 'Video Frame Rate',
   '/blog/free-image-crop-tool-guide': 'Freeform Image Crop',
+  '/blog/video-to-stop-motion-frames': 'Stop-Motion Reference Frames',
+  '/blog/product-video-to-product-photos-ecommerce': 'Product Photos from Video',
   '/about': 'About',
   '/contact': 'Contact',
 

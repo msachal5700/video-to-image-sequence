@@ -44,6 +44,8 @@ import VideoToImageSequenceExplained from './pages/blog/VideoToImageSequenceExpl
 import JpgVsPngVsWebp from './pages/blog/JpgVsPngVsWebp';
 import WhatIsVideoFrameRate from './pages/blog/WhatIsVideoFrameRate';
 import FreeImageCropToolGuide from './pages/blog/FreeImageCropToolGuide';
+import VideoToStopMotionFrames from './pages/blog/VideoToStopMotionFrames';
+import EcommerceProductStills from './pages/blog/EcommerceProductStills';
 import CookieConsent from './components/CookieConsent';
 import ClarityConsent from './components/ClarityConsent';
 
@@ -144,6 +146,8 @@ const App: React.FC = () => {
                 <Route path="/blog/jpg-vs-png-vs-webp-video-frames" element={<JpgVsPngVsWebp />} />
                 <Route path="/blog/what-is-video-frame-rate" element={<WhatIsVideoFrameRate />} />
                 <Route path="/blog/free-image-crop-tool-guide" element={<FreeImageCropToolGuide />} />
+                <Route path="/blog/video-to-stop-motion-frames" element={<VideoToStopMotionFrames />} />
+                <Route path="/blog/product-video-to-product-photos-ecommerce" element={<EcommerceProductStills />} />
 
                 <Route path="/video-frames-for-ai-datasets" element={<VideoFramesForAiDatasets />} />
                 <Route path="/video-to-image-sequence-for-blender" element={<VideoToImageSequenceForBlender />} />

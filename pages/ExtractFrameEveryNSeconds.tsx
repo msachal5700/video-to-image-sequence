@@ -27,6 +27,9 @@ interface CadenceContent {
   faqFormats: string;
   faqCustom: string;
   faqPrivacy: string;
+  spotlightTitle: string;
+  spotlightParas: string[];
+  extraFaqs: Array<{ q: string; a: string }>;
 }
 
 const cadenceDetail = (s: number): CadenceContent => {
@@ -57,6 +60,22 @@ const cadenceDetail = (s: number): CadenceContent => {
           'Yes — this page presets the extractor to 1 second, but you can switch to the 5, 10, or 30-second presets or type any custom interval from 1 to 3600 seconds. Toggle between \u201cEvery N Seconds\u201d and \u201cBy FPS\u201d modes at any time before extracting.',
         faqPrivacy:
           'No. Your video never leaves your device — frames are pulled entirely in your browser with local decoding, so even sensitive sports or workplace footage stays 100% private.',
+        spotlightTitle: 'Why Extract a Frame Every Second',
+        spotlightParas: [
+          'At 1-second intervals the extractor pulls 60 frames per minute — 3,600 from a single hour. A 10-minute clip yields 600 frames; a 3-minute clip yields 180. The densest preset on the site, for short, action-heavy footage where near-continuous coverage matters.',
+          'The classic use case is technique analysis. A tennis coach films a serve and captures every second to compare racket angle and foot placement. A tutorial maker records a 4-minute walkthrough, pulls 240 frames, and finds the instant a menu opens for the hero image. Same logic for golf swings, dance phrases, and UI animations under QA review.',
+          'The tradeoff is volume. Six hundred full-resolution frames total 60–180 MB as PNGs (less as JPGs), so take the ZIP. Past 20 minutes (1,200+ frames), downscale: 720p JPG frames run 30–60 KB each, plenty for pose analysis. Decoding happens on your machine, so connection speed never matters.',
+        ],
+        extraFaqs: [
+          {
+            q: 'Will extracting 600 frames crash my browser?',
+            a: 'Unlikely on a modern laptop — frames are written sequentially, not held in memory. On Chromebooks or phones under 4 GB of RAM, keep the clip under 10 minutes and close heavy tabs first.',
+          },
+          {
+            q: 'One second is too coarse for fast motion — can I get every frame?',
+            a: 'Not with this preset. A full swing breakdown needs the source’s native 30–60 fps — that’s the main frame extractor’s job. This page sits between full extraction and sparse sampling: every beat of a 3-minute demo without 5,400 files.',
+          },
+        ],
       };
     case 5:
       return {
@@ -84,6 +103,22 @@ const cadenceDetail = (s: number): CadenceContent => {
           'Yes — this page presets 5 seconds, but 1, 10, and 30-second presets plus any custom value from 1 to 3600 seconds are one click away. You can also switch to \u201cBy FPS\u201d mode before extracting.',
         faqPrivacy:
           'No — everything runs in your browser. Meeting recordings and personal vlogs are never uploaded anywhere, so your footage stays completely private.',
+        spotlightTitle: 'Why Extract a Frame Every 5 Seconds',
+        spotlightParas: [
+          'A 5-second interval produces 12 frames per minute — 120 from a 10-minute video, 720 from a full hour. The sweet spot for content that changes in chunks, not continuously: slide decks, webinars, screen demos, narrated walkthroughs.',
+          'A 45-minute product webinar has slides up 30–60 seconds, so this cadence catches every slide plus annotations as they appear. You get 540 frames and can reconstruct the entire talk without rewatching it. Same math for a 20-minute coding screencast (240 frames) or a 90-minute course module (1,080 frames, still fine as a ZIP).',
+          'Storage stays comfortable: a hundred frames at 720p JPG run about 5–10 MB. Download individually when you need a handful; take the ZIP for the full set. The count only gets unwieldy past 2 hours (1,440+ frames) — beyond that, the 10-second page fits better. Decoding happens in your browser, so a shaky connection can’t interrupt it.',
+        ],
+        extraFaqs: [
+          {
+            q: 'Slides sometimes change between captures — will I miss some?',
+            a: 'Possible: if a speaker advances two slides inside one 5-second window, only the second is captured. In practice webinar slides stay up 30+ seconds, so misses are rare. For fast decks, use the 1-second preset instead.',
+          },
+          {
+            q: 'Many frames look near-identical — how do I thin the set?',
+            a: 'The extractor keeps every frame; it doesn’t merge duplicates. After download, sort by file size: blank or near-duplicate frames compress much smaller, so the tiniest files are usually safe to delete. On a 45-minute webinar this trims about a third.',
+          },
+        ],
       };
     case 10:
       return {
@@ -111,6 +146,22 @@ const cadenceDetail = (s: number): CadenceContent => {
           'Yes — this page presets 10 seconds, with 1, 5, and 30-second presets plus any custom interval from 1 to 3600 seconds available. Switch between \u201cEvery N Seconds\u201d and \u201cBy FPS\u201d modes freely before extracting.',
         faqPrivacy:
           'No. Lecture videos, courses, and personal footage are sampled entirely on your device — nothing is uploaded, so your content stays 100% private.',
+        spotlightTitle: 'Why Extract a Frame Every 10 Seconds',
+        spotlightParas: [
+          'Ten-second intervals yield 6 frames per minute — 60 from a 10-minute video, 360 from a full hour. The cadence for long, low-action recordings where you’re scanning for what happened: lectures, meetings, surveillance footage.',
+          'The counts turn hours into skimmable sets. A 90-minute lecture becomes 540 frames — enough to find the whiteboard moment without scrubbing a timeline. A 4-hour security recording compresses to 1,440 frames, flippable at ten per second to review the whole afternoon in under three minutes. A 60-minute meeting becomes 360 frames — cheap to store, easy to attach to notes.',
+          'Storage is almost a non-issue: 1,440 frames at 720p JPG land around 50–100 MB, one ZIP alongside the original. Individual downloads are practical again, since you usually need just a few — the whiteboard frame, the “who joined at 2:15” frame. Everything processes locally, which matters for confidential meetings and private camera feeds.',
+        ],
+        extraFaqs: [
+          {
+            q: 'Is 10 seconds too sparse to find a specific moment?',
+            a: 'It catches every scene and slide, but not a 5-second gesture or a fleeting error. The intended workflow is two-pass: use the 10-second sequence to find the rough region — say, frames 200–220 — then re-run that segment at 1-second cadence for precision.',
+          },
+          {
+            q: 'Why not just scrub the video player at 2x speed?',
+            a: 'Scrubbing is serial — one timeline position at a time. A frame sequence is parallel: thumbnails let your eyes scan dozens of moments at once. Reviewers find target moments faster in a grid of 360 frames than by dragging a playhead through 60 minutes.',
+          },
+        ],
       };
     default:
       return {
@@ -138,6 +189,22 @@ const cadenceDetail = (s: number): CadenceContent => {
           'Yes — this page presets 30 seconds, but 1, 5, and 10-second presets plus any custom interval from 1 to 3600 seconds are available. Toggle between \u201cEvery N Seconds\u201d and \u201cBy FPS\u201d modes before extracting.',
         faqPrivacy:
           'No — sampling happens 100% in your browser. Monitoring-style footage and private recordings never leave your device.',
+        spotlightTitle: 'Why Extract a Frame Every 30 Seconds',
+        spotlightParas: [
+          'At 30-second intervals the extractor captures 2 frames per minute — 120 from an hour of video, 20 from a 10-minute clip. The lightest preset on the site, for timelapse-style summaries of very long recordings where even the 10-second page would drown you in images.',
+          'An 8-hour workday recording becomes 960 frames versus 2,880 at 10 seconds — a set you can actually browse. A 6-hour construction-site video becomes 720 frames, enough for a “day in 60 seconds” highlight at 12 fps. A 2-hour keynote becomes 240 frames — reviewable over coffee, no major segment missing.',
+          'Storage is trivial: 240 frames at 720p JPG weigh 8–15 MB and download in seconds — no ZIP, no deduplication, and nothing ever uploads. The tradeoff is coverage, not size: a 30-second gap can swallow a joke, a demo step, or a goal. When a frame looks interesting, re-extract that segment at 5 or 10 seconds to see what the gap hid.',
+        ],
+        extraFaqs: [
+          {
+            q: 'Will I miss important moments at 30-second gaps?',
+            a: 'Anything shorter than the gap can slip through — a 10-second demo beat, a quick slide flash, a single play. This preset assumes long, low-density sources where “important” means segment-level change: a new speaker, a scene change, a work phase. For faster beats, move up to the 10-second page.',
+          },
+          {
+            q: 'Can I turn the frames into a timelapse video?',
+            a: 'Yes — that’s one of the best uses. Import the sequence into any editor at 12–24 fps: 240 frames from a 2-hour keynote becomes a crisp 10–20 second timelapse. Keep the numeric filename order intact on import, or the frames shuffle.',
+          },
+        ],
       };
   }
 };
@@ -176,7 +243,8 @@ const ExtractFrameEveryNSeconds: React.FC<ExtractFrameEveryNSecondsProps> = ({ s
     {
       q: 'Is my video uploaded to a server?',
       a: detail.faqPrivacy
-    }
+    },
+    ...detail.extraFaqs
   ];
 
   useEffect(() => {
@@ -290,6 +358,15 @@ const ExtractFrameEveryNSeconds: React.FC<ExtractFrameEveryNSecondsProps> = ({ s
               <li key={b.title}><strong className="text-white">{b.title}</strong> — {b.text}</li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section className="max-w-4xl mx-auto py-12 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">{detail.spotlightTitle}</h2>
+        <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 md:p-8 space-y-4 text-gray-400 leading-relaxed">
+          {detail.spotlightParas.map((para, i) => (
+            <p key={i}>{para}</p>
+          ))}
         </div>
       </section>
 
