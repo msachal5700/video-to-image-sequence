@@ -216,6 +216,9 @@ const AboutPage: React.FC = () => {
                 <p className="text-sm font-mono text-cyan-400 mt-1">
                   Computer Science Graduate & Full-Stack Developer
                 </p>
+                <p className="text-xs font-mono text-gray-500 mt-1">
+                  📍 Based in Pakistan
+                </p>
               </div>
 
               <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
