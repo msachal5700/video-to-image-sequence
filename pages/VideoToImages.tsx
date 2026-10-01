@@ -43,6 +43,10 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
 
   const [extractedFrames, setExtractedFrames] = useState<ExtractedFrame[]>([]);
   const [visibleFrames, setVisibleFrames] = useState(30);
+  // Tracks whether the user already clicked the download button for this
+  // completed job — shows confirmation feedback so they don't keep re-clicking
+  // (Clarity showed repeated download clicks = friction).
+  const [downloadStarted, setDownloadStarted] = useState(false);
   
   const frameUrlsRef = useRef<string[]>([]);
   const { showToast } = useToast();
@@ -227,6 +231,7 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
     setPreviewImage(null);
     setErrorMessage(null);
     setRawError(null);
+    setDownloadStarted(false);
     
     cleanupFrameUrls();
     setExtractedFrames([]);
@@ -258,6 +263,9 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
             await new Promise(r => setTimeout(r, 500));
          }
       }
+      // Confirm visibly so users don't keep re-clicking the button.
+      setDownloadStarted(true);
+      showToast('Download started — check your downloads folder', 'success');
   };
 
   const isBatch = queue.length > 1;
@@ -406,10 +414,17 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
                        {completedZips.length > 0 && (
                          <button 
                            onClick={handleDownloadAllZips} 
-                           className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-gray-950 rounded-xl font-bold transition-all transform hover:scale-[1.02] shadow-lg shadow-cyan-500/20 text-lg"
+                           className={`inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold transition-all transform hover:scale-[1.02] shadow-lg text-lg ${
+                             downloadStarted
+                               ? 'bg-green-500 text-gray-950 shadow-green-500/20'
+                               : 'bg-cyan-500 hover:bg-cyan-400 text-gray-950 shadow-cyan-500/20'
+                           }`}
                          >
-                           <Download className="w-5 h-5" /> 
-                           {isBatch ? t('common.downloadAllZips') : t('common.downloadAll')}
+                           {downloadStarted ? (
+                             <><CheckCircle2 className="w-5 h-5" /> Download started — check your downloads</>
+                           ) : (
+                             <><Download className="w-5 h-5" /> {isBatch ? t('common.downloadAllZips') : t('common.downloadAll')}</>
+                           )}
                          </button>
                        )}
 

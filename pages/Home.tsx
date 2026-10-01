@@ -254,12 +254,14 @@ const Home: React.FC = () => {
       {/* Tool Switcher Tabs */}
       <div className="flex justify-center mb-10 px-4">
         <div className="bg-gray-900 p-1.5 rounded-xl border border-gray-800 flex flex-col sm:flex-row gap-2 sm:gap-0">
-          <Link
-            to="/"
-            className="flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 bg-cyan-500 text-gray-950 shadow-lg shadow-cyan-500/20"
+          {/* Active tab is the current page: render as a non-link so clicks
+              don't dead-end (Clarity showed dead taps on this tab) */}
+          <span
+            aria-current="page"
+            className="flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold bg-cyan-500 text-gray-950 shadow-lg shadow-cyan-500/20 cursor-default"
           >
             {t('home.tabs.toImages')}
-          </Link>
+          </span>
           <Link
             to="/images-to-video"
             className="flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 text-gray-400 hover:text-white hover:bg-gray-800/80"
