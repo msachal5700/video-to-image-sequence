@@ -1,22 +1,41 @@
 import React, { useState, memo, useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, Sun, Moon, Globe, ChevronDown } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 import { useTranslation } from 'react-i18next';
 import { SUPPORTED_LANGUAGES } from '../i18n/index';
+import { localizedPath, splitLangPrefix, isLocalizedPath } from '../utils/localizedRoutes';
 
 const Header: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const { t, i18n } = useTranslation();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const currentLang = SUPPORTED_LANGUAGES.find(l => l.code === i18n.language)
     || SUPPORTED_LANGUAGES[0];
 
   const switchLanguage = useCallback((code: string) => {
-    i18n.changeLanguage(code);
-    localStorage.setItem('i18nLang', code);
+    const { path } = splitLangPrefix(location.pathname);
+    if (isLocalizedPath(path)) {
+      // Localized page: navigate to the real translated URL (SEO-friendly,
+      // prerendered, hreflang-linked) instead of swapping text in place.
+      navigate(localizedPath(path, code));
+    }
+    // Always sync i18next immediately — including when switching back to
+    // English — so text, og:locale and <html lang> follow the choice at once.
+    // (The usePageLang URL sync in each localized page is the backstop for
+    // navigations that don't go through this switcher, e.g. the logo link.)
+    if (i18n.language !== code) {
+      i18n.changeLanguage(code);
+    }
+    try {
+      localStorage.setItem('i18nLang', code);
+    } catch {
+      /* ignore */
+    }
     // Update html lang + dir attributes for RTL support
     const lang = SUPPORTED_LANGUAGES.find(l => l.code === code);
     if (lang) {
@@ -25,7 +44,7 @@ const Header: React.FC = () => {
     }
     setLangOpen(false);
     setOpen(false);
-  }, [i18n]);
+  }, [i18n, location.pathname, navigate]);
 
   return (
     <header className="sticky top-0 z-50 bg-gray-950/90 backdrop-blur border-b border-gray-800 font-display">
@@ -43,7 +62,7 @@ const Header: React.FC = () => {
             <button className="hover:text-white transition flex items-center gap-1 py-1 font-medium">
               {t('nav.tools')} <span className="text-[10px] text-gray-600">▼</span>
             </button>
-            <div className="absolute top-full left-0 mt-1 bg-gray-950 border border-gray-800 rounded-xl p-2 min-w-[240px] hidden group-hover:block shadow-2xl z-50 flex flex-col max-h-[70vh] overflow-y-auto">
+            <div className="absolute top-full left-0 mt-1 bg-gray-950 border border-gray-800 rounded-xl p-2 min-w-[240px] hidden group-hover:block shadow-2xl z-50 flex flex-col">
               <Link to="/" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">Video to Image Sequence</Link>
               <Link to="/mp4-to-jpg" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">MP4 to JPG Converter</Link>
               <Link to="/mp4-to-png" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">MP4 to PNG Converter</Link>
@@ -80,7 +99,7 @@ const Header: React.FC = () => {
             <button className="hover:text-white transition flex items-center gap-1 py-1 font-medium">
               {t('nav.blog')} <span className="text-[10px] text-gray-600">▼</span>
             </button>
-            <div className="absolute top-full left-0 mt-1 bg-gray-950 border border-gray-800 rounded-xl p-2 min-w-[280px] hidden group-hover:block shadow-2xl z-50 flex flex-col max-h-[70vh] overflow-y-auto">
+            <div className="absolute top-full left-0 mt-1 bg-gray-950 border border-gray-800 rounded-xl p-2 min-w-[280px] hidden group-hover:block shadow-2xl z-50 flex flex-col">
               <Link to="/blog" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">All Articles</Link>
               <hr className="border-gray-900 my-1" />
               <span className="text-xs text-gray-600 uppercase font-semibold tracking-wider px-3 py-1">Guides</span>

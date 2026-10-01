@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import VideoToImages from './VideoToImages';
 import SEOHead from '../components/SEOHead';
+import { localizedUrl } from '../utils/localizedRoutes';
 import Breadcrumb from '../components/Breadcrumb';
 import { Link } from 'react-router-dom';
 import GoogleAdUnit from '../components/GoogleAdUnit';
 import { useTranslation } from 'react-i18next';
+import { usePageLang } from '../hooks/usePageLang';
 
 
 const faqs = [
@@ -32,6 +34,7 @@ const faqs = [
 
 const Mp4ToJpg: React.FC = () => {
   const { t } = useTranslation();
+  const pageLang = usePageLang();
   const faqItems = t('mp4ToJpg.faq.items', { returnObjects: true }) as Array<{ q: string; a: string }>;
   const howToSteps = t('mp4ToJpg.howTo.steps', { returnObjects: true }) as Array<{ title: string; body: string }>;
 
@@ -119,7 +122,7 @@ const Mp4ToJpg: React.FC = () => {
       <SEOHead
         title={t('mp4ToJpg.title')}
         description={t('mp4ToJpg.description')}
-        canonical="https://www.videotoimagesequence.online/mp4-to-jpg"
+        canonical={localizedUrl('/mp4-to-jpg', pageLang)}
         ogTitle={t('mp4ToJpg.title')}
         ogDescription={t('mp4ToJpg.description')}
         ogImage="https://www.videotoimagesequence.online/og-image.png"

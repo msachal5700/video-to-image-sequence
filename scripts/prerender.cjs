@@ -91,10 +91,32 @@ const routes = [
   '/blog/product-video-to-product-photos-ecommerce',
   '/about',
   '/contact',
+  '/media-partner',
+  '/changelog',
+  '/video-to-frames',
+  '/video-to-jpg',
+  '/video-frame-extractor',
 
   '/privacy',
   '/terms',
   '/404',
+];
+
+/**
+ * Programmatic i18n: localized URL prefixes for every fully-translated page.
+ * 7 pages × 7 non-English languages = 49 extra prerendered URLs
+ * (e.g. /es/mp4-to-jpg), each validated against its translated H1 so a
+ * half-rendered or English-fallback snapshot fails the build loudly.
+ */
+const NON_EN_LANGS = ['es', 'fr', 'de', 'pt', 'zh', 'ar', 'hi'];
+const LOCALIZED_PAGES = [
+  { path: '/', key: 'home' },
+  { path: '/mp4-to-jpg', key: 'mp4ToJpg' },
+  { path: '/extract-frames-from-video', key: 'extractFrames' },
+  { path: '/video-to-png', key: 'videoToPng' },
+  { path: '/screenshot-from-video', key: 'screenshotVideo' },
+  { path: '/video-to-webp', key: 'videoToWebp' },
+  { path: '/images-to-video', key: 'imagesToVideo' },
 ];
 
 const routeTextMap = {
@@ -142,11 +164,37 @@ const routeTextMap = {
   '/blog/product-video-to-product-photos-ecommerce': 'Product Photos from Video',
   '/about': 'About',
   '/contact': 'Contact',
+  '/media-partner': 'Media Partners',
+  '/changelog': 'Changelog',
+  '/video-to-frames': 'Video to Frames Converter',
+  '/video-to-jpg': 'Video to JPG Converter',
+  '/video-frame-extractor': 'Video Frame Extractor',
 
   '/privacy': 'Privacy',
   '/terms': 'Terms',
   '/404': '404',
 };
+
+// Expand routes + expected-text map with the localized URLs. Expected text
+// comes straight from the locale files (translated H1), so the prerender
+// waits for the real translated render — not an English fallback.
+const _localeCache = {};
+function _localeH1(lang, key) {
+  if (!_localeCache[lang]) {
+    _localeCache[lang] = JSON.parse(
+      fs.readFileSync(path.join(__dirname, '../i18n/locales', lang + '.json'), 'utf8')
+    );
+  }
+  const page = _localeCache[lang][key] || {};
+  return page.h1 || page.title || '';
+}
+for (const lang of NON_EN_LANGS) {
+  for (const { path: p, key } of LOCALIZED_PAGES) {
+    const route = p === '/' ? `/${lang}` : `/${lang}${p}`;
+    routes.push(route);
+    routeTextMap[route] = _localeH1(lang, key);
+  }
+}
 
 /**
  * Strip third-party ad DOM injected at runtime from the Puppeteer snapshot.
@@ -205,15 +253,34 @@ async function runPrerender() {
           defaultViewport: { width: 1280, height: 800 },
         };
       } else {
-        // Serverless Vercel environment (Linux) - use @sparticuz/chromium-min
-        const executablePath = await chromium.executablePath(
-          'https://github.com/Sparticuz/chromium/releases/download/v148.0.0/chromium-v148.0.0-pack.x64.tar'
-        );
+        // Serverless Vercel environment (Linux) - use @sparticuz/chromium-min.
+        // Local override: set PRERENDER_CHROME_PATH to skip the /tmp download
+        // (useful when /tmp is a small tmpfs). PRERENDER_CHROME_LIB_PATH
+        // optionally prepends to LD_LIBRARY_PATH for bundled libs.
+        let executablePath;
+        let headless = chromium.headless;
+        let args = chromium.args;
+        if (process.env.PRERENDER_CHROME_PATH) {
+          executablePath = process.env.PRERENDER_CHROME_PATH;
+          if (process.env.PRERENDER_CHROME_LIB_PATH) {
+            process.env.LD_LIBRARY_PATH = process.env.PRERENDER_CHROME_LIB_PATH +
+              (process.env.LD_LIBRARY_PATH ? ':' + process.env.LD_LIBRARY_PATH : '');
+          }
+          // The sparticuz arg list embeds a quoted --headless='shell' that a
+          // stock Chromium build chokes on; drop it and let puppeteer drive
+          // headless mode itself.
+          args = args.filter((a) => !a.startsWith('--headless'));
+          headless = true;
+        } else {
+          executablePath = await chromium.executablePath(
+            'https://github.com/Sparticuz/chromium/releases/download/v148.0.0/chromium-v148.0.0-pack.x64.tar'
+          );
+        }
         launchOptions = {
-          args: chromium.args,
+          args,
           defaultViewport: chromium.defaultViewport || { width: 1280, height: 800 },
           executablePath,
-          headless: chromium.headless,
+          headless,
         };
       }
 

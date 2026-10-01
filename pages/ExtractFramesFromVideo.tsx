@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import VideoToImages from './VideoToImages';
 import SEOHead from '../components/SEOHead';
+import { localizedUrl } from '../utils/localizedRoutes';
 import Breadcrumb from '../components/Breadcrumb';
 import GoogleAdUnit from '../components/GoogleAdUnit';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { usePageLang } from '../hooks/usePageLang';
 
 const faqs = [
   {
@@ -43,6 +45,7 @@ const faqs = [
 
 const ExtractFramesFromVideo: React.FC = () => {
   const { t } = useTranslation();
+  const pageLang = usePageLang();
   useEffect(() => {
     const existing = document.getElementById('extract-frames-from-video-schemas');
     if (existing) {
@@ -142,7 +145,7 @@ const ExtractFramesFromVideo: React.FC = () => {
       <SEOHead
         title={t('extractFrames.title')}
         description={t('extractFrames.description')}
-        canonical="https://www.videotoimagesequence.online/extract-frames-from-video"
+        canonical={localizedUrl('/extract-frames-from-video', pageLang)}
         ogTitle={t('extractFrames.title')}
         ogDescription={t('extractFrames.description')}
         ogImage="https://www.videotoimagesequence.online/og-image.png"

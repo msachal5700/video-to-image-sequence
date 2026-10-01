@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import VideoToImages from './VideoToImages';
 import SEOHead from '../components/SEOHead';
+import { localizedUrl } from '../utils/localizedRoutes';
 import Breadcrumb from '../components/Breadcrumb';
 import GoogleAdUnit from '../components/GoogleAdUnit';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { usePageLang } from '../hooks/usePageLang';
 
 const faqs = [
   {
@@ -31,6 +33,7 @@ const faqs = [
 
 const VideoToPng: React.FC = () => {
   const { t } = useTranslation();
+  const pageLang = usePageLang();
   useEffect(() => {
     const existing = document.getElementById('video-to-png-schemas');
     if (existing) {
@@ -115,7 +118,7 @@ const VideoToPng: React.FC = () => {
       <SEOHead
         title={t('videoToPng.title')}
         description={t('videoToPng.description')}
-        canonical="https://www.videotoimagesequence.online/video-to-png"
+        canonical={localizedUrl('/video-to-png', pageLang)}
         ogTitle={t('videoToPng.title')}
         ogDescription={t('videoToPng.description')}
         ogImage="https://www.videotoimagesequence.online/og-image.png"

@@ -33,6 +33,11 @@ import EzgifAlternative from './pages/blog/EzgifAlternative';
 import VideoFrameExtractorUseCases from './pages/blog/VideoFrameExtractorUseCases';
 import BestFpsForVideoExtraction from './pages/blog/BestFpsForVideoExtraction';
 import ContactPage from './pages/ContactPage';
+import MediaPartner from './pages/MediaPartner';
+import Changelog from './pages/Changelog';
+import VideoToFrames from './pages/VideoToFrames';
+import VideoToJpg from './pages/VideoToJpg';
+import VideoFrameExtractor from './pages/VideoFrameExtractor';
 import VideoFramesForAiDatasets from './pages/VideoFramesForAiDatasets';
 import VideoToImageSequenceForBlender from './pages/VideoToImageSequenceForBlender';
 import VideoFrameForYoutubeThumbnail from './pages/VideoFrameForYoutubeThumbnail';
@@ -48,6 +53,7 @@ import VideoToStopMotionFrames from './pages/blog/VideoToStopMotionFrames';
 import EcommerceProductStills from './pages/blog/EcommerceProductStills';
 import CookieConsent from './components/CookieConsent';
 import ClarityConsent from './components/ClarityConsent';
+import LocalizedRoutes from './components/LocalizedRoutes';
 
 
 
@@ -157,10 +163,18 @@ const App: React.FC = () => {
                 <Route path="/terms" element={<TermsOfService />} />
                 <Route path="/about" element={<AboutUs />} />
                 <Route path="/contact" element={<ContactPage />} />
+                <Route path="/media-partner" element={<MediaPartner />} />
+                <Route path="/changelog" element={<Changelog />} />
+                <Route path="/video-to-frames" element={<VideoToFrames />} />
+                <Route path="/video-to-jpg" element={<VideoToJpg />} />
+                <Route path="/video-frame-extractor" element={<VideoFrameExtractor />} />
                 <Route path="/privacy-policy" element={<Navigate to="/privacy" replace />} />
                 <Route path="/terms-of-service" element={<Navigate to="/terms" replace />} />
                 <Route path="/about-us" element={<Navigate to="/about" replace />} />
                 <Route path="/contact-us" element={<Navigate to="/contact" replace />} />
+                {/* Localized URLs: /es/mp4-to-jpg, /de/ … — real prerendered pages with hreflang.
+                    Static routes above outrank this dynamic segment, so /blog/* etc. are unaffected. */}
+                <Route path="/:lang/*" element={<LocalizedRoutes />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>

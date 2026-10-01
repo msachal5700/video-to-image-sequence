@@ -613,6 +613,30 @@
     "hero": "Turn any video clip into a high-quality animated GIF — free, in your browser, with no upload and no watermark. Choose your frame rate, size, and loop settings, then download instantly.",
     "keywords": "video to gif, convert video to gif, mp4 to gif, gif maker online, make gif from video, video to gif converter"
   },
+  "videoToFrames": {
+    "title": "Video to Frames — Free Online Video Frame Extractor",
+    "description": "Convert video to frames online for free. Turn MP4, MOV, and WEBM videos into numbered JPG or PNG image sequences in your browser. No upload, no watermark, 100% private.",
+    "h1": "Video to Frames Converter",
+    "h1Sub": "Free Online Frame Extractor",
+    "hero": "Turn any video into a numbered sequence of still frames — free, in your browser, with no upload and no watermark. Perfect for animation, AI datasets, thumbnails, and contact sheets.",
+    "keywords": "video to frames, video to frames converter, video to frames online free, convert video to frames, video frames converter online"
+  },
+  "videoToJpg": {
+    "title": "Video to JPG — Convert Video to JPG Images Online Free",
+    "description": "Convert video to JPG images online for free. Extract full-resolution JPG stills from MP4, MOV, and WEBM videos in your browser. No upload, no watermark.",
+    "h1": "Video to JPG Converter",
+    "h1Sub": "Free Online — Full Resolution",
+    "hero": "Extract full-resolution JPG still images from any video — free in your browser, with no upload and no watermark. Ideal for thumbnails, datasets, and documentation.",
+    "keywords": "video to jpg, convert video to jpg, video to jpg converter, video to jpg online free, extract jpg from video"
+  },
+  "videoFrameExtractor": {
+    "title": "Video Frame Extractor — Extract Video Frames Online Free",
+    "description": "Free online video frame extractor. Pull still frames from MP4, MOV, and WEBM videos as JPG or PNG images in your browser. No install, no upload, no watermark.",
+    "h1": "Video Frame Extractor",
+    "h1Sub": "Free Online — No Install",
+    "hero": "Extract still frames from any video without installing software — free in your browser, with no upload and no watermark. Compare online, ffmpeg, and VLC methods.",
+    "keywords": "video frame extractor, video frame extractor online free, extract video frames online, frame extractor tool, video frame grabber online"
+  },
   "imageCrop": {
     "title": "Freeform Image Crop Tool — Crop Any Shape Online Free",
     "description": "Free freeform image cropper: draw any shape with editable points, rotate, zoom, and export transparent PNG/WebP or JPG. 100% private, no signup, no watermark.",

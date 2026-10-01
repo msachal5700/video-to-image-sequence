@@ -3,10 +3,13 @@ import { Link } from 'react-router-dom';
 import VideoToImages from './VideoToImages';
 import GoogleAdUnit from '../components/GoogleAdUnit';
 import SEOHead from '../components/SEOHead';
+import { localizedUrl } from '../utils/localizedRoutes';
 import { useTranslation } from 'react-i18next';
+import { usePageLang } from '../hooks/usePageLang';
 
 const Home: React.FC = () => {
   const { t } = useTranslation();
+  const pageLang = usePageLang();
 
   const faqItems = (t('home.faq.items', { returnObjects: true }) || []) as Array<{ q: string; a: string }>;
   const steps = (t('home.steps', { returnObjects: true }) || []) as string[];
@@ -199,7 +202,7 @@ const Home: React.FC = () => {
       <SEOHead
         title={t('home.title')}
         description={t('home.description')}
-        canonical="https://www.videotoimagesequence.online/"
+        canonical={localizedUrl('/', pageLang)}
         ogTitle={t('home.title')}
         ogDescription={t('home.description')}
         ogImage="https://www.videotoimagesequence.online/og-image.png"

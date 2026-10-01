@@ -1,6 +1,12 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { SUPPORTED_LANGUAGES } from '../i18n/index';
+import {
+  SITE_ORIGIN,
+  hreflangAlternates,
+  splitLangPrefix,
+  isLocalizedPath,
+} from '../utils/localizedRoutes';
 
 interface SEOHeadProps {
   title: string;
@@ -38,29 +44,40 @@ const setMeta = (selector: string, attr: string, value: string) => {
 /**
  * Maintain hreflang and the <html> lang/dir attributes.
  *
- * This site translates in the client and serves every language from a single
- * URL. There are no per-language URLs, so there is nothing to point language
- * alternates *at*. Previously this emitted one `alternate` tag per supported
- * language with all eight hrefs identical, plus two more were hardcoded in
- * index.html and copied into every prerendered route — 20 tags per page, all
- * claiming the same URL. Google treats self-contradictory sets like that as
- * invalid and discards them, so they were pure crawl-budget waste.
+ * Pages with real localized URLs (e.g. /es/mp4-to-jpg) get the full
+ * alternate set — one tag per supported language plus x-default pointing
+ * at the English root URL. The set is derived from the canonical, so every
+ * language version declares the identical, complete set (a requirement for
+ * Google to honor hreflang).
  *
- * The only honest signal here is a self-referencing `x-default`: this URL is
- * the fallback for every locale. If per-language URLs are ever introduced
- * (e.g. /es/, /de/), restore the per-language loop and point each tag at its
- * real translated URL.
+ * Pages without localized URLs keep the honest fallback: a single
+ * self-referencing x-default. Emitting per-language tags that all point at
+ * the same URL would be a self-contradictory set that Google discards.
  */
 const updateHreflangTags = (canonicalUrl: string, currentLang: string) => {
   // Drop anything a previous render injected, so language switches don't stack.
   document.querySelectorAll('link[data-i18n-hreflang]').forEach(el => el.remove());
 
-  const xDefaultLink = document.createElement('link');
-  xDefaultLink.rel = 'alternate';
-  xDefaultLink.hreflang = 'x-default';
-  xDefaultLink.href = canonicalUrl;
-  xDefaultLink.setAttribute('data-i18n-hreflang', 'x-default');
-  document.head.appendChild(xDefaultLink);
+  const addTag = (hreflang: string, href: string) => {
+    const link = document.createElement('link');
+    link.rel = 'alternate';
+    link.hreflang = hreflang;
+    link.href = href;
+    link.setAttribute('data-i18n-hreflang', hreflang);
+    document.head.appendChild(link);
+  };
+
+  // Resolve the canonical to its language-neutral page path.
+  let path = '/';
+  if (canonicalUrl.startsWith(SITE_ORIGIN)) {
+    path = splitLangPrefix(canonicalUrl.slice(SITE_ORIGIN.length) || '/').path;
+  }
+  const alternates = hreflangAlternates(path);
+  if (alternates) {
+    alternates.forEach(({ hreflang, href }) => addTag(hreflang, href));
+  } else {
+    addTag('x-default', canonicalUrl);
+  }
 
   // Keep <html lang>/<html dir> honest — this genuinely helps screen readers
   // and tells Google which language the visible text is actually in.
@@ -84,7 +101,17 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   keywords
 }) => {
   const { i18n } = useTranslation();
-  const currentLang = i18n.language || 'en';
+  // The canonical is the language source of truth on localized pages: it is
+  // built from the URL (via usePageLang), so og:locale, <html lang>/dir and
+  // hreflang stay correct even before i18next finishes syncing. On
+  // non-localized pages the client's chosen language keeps ruling.
+  const currentLang = (() => {
+    if (canonical.startsWith(SITE_ORIGIN)) {
+      const { lang, path } = splitLangPrefix(canonical.slice(SITE_ORIGIN.length) || '/');
+      if (isLocalizedPath(path)) return lang;
+    }
+    return i18n.language || 'en';
+  })();
 
   useEffect(() => {
     // Set title

@@ -44,6 +44,8 @@ const Footer = () => {
               <li><Link to="/blog" className="text-gray-600 hover:text-cyan-400 transition">{t('footer.blog')}</Link></li>
               <li><Link to="/about" className="text-gray-600 hover:text-cyan-400 transition">{t('footer.about')}</Link></li>
               <li><Link to="/contact" className="text-gray-400 font-medium hover:text-cyan-400 transition">Contact Us</Link></li>
+              <li><Link to="/media-partner" className="text-gray-600 hover:text-cyan-400 transition">Media Partners</Link></li>
+              <li><Link to="/changelog" className="text-gray-600 hover:text-cyan-400 transition">Changelog</Link></li>
               <li><Link to="/privacy" className="text-gray-600 hover:text-cyan-400 transition">{t('footer.privacy')}</Link></li>
               <li><Link to="/terms" className="text-gray-600 hover:text-cyan-400 transition">{t('footer.terms')}</Link></li>
               <li><Link to="/#how-it-works" className="text-gray-600 hover:text-cyan-400 transition">{t('footer.howItWorks')}</Link></li>

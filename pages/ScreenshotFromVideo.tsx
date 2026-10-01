@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import VideoToImages from './VideoToImages';
 import SEOHead from '../components/SEOHead';
+import { localizedUrl } from '../utils/localizedRoutes';
 import Breadcrumb from '../components/Breadcrumb';
 import GoogleAdUnit from '../components/GoogleAdUnit';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { usePageLang } from '../hooks/usePageLang';
 
 const faqs = [
   {
@@ -31,6 +33,7 @@ const faqs = [
 
 const ScreenshotFromVideo: React.FC = () => {
   const { t } = useTranslation();
+  const pageLang = usePageLang();
   useEffect(() => {
     const existing = document.getElementById('screenshot-from-video-schemas');
     if (existing) {
@@ -115,7 +118,7 @@ const ScreenshotFromVideo: React.FC = () => {
       <SEOHead
         title={t('screenshotVideo.title')}
         description={t('screenshotVideo.description')}
-        canonical="https://www.videotoimagesequence.online/screenshot-from-video"
+        canonical={localizedUrl('/screenshot-from-video', pageLang)}
         ogTitle={t('screenshotVideo.title')}
         ogDescription={t('screenshotVideo.description')}
         ogImage="https://www.videotoimagesequence.online/og-image.png"

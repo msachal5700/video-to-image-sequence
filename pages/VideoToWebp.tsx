@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import VideoToImages from './VideoToImages';
 import SEOHead from '../components/SEOHead';
+import { localizedUrl } from '../utils/localizedRoutes';
 import Breadcrumb from '../components/Breadcrumb';
 import GoogleAdUnit from '../components/GoogleAdUnit';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { usePageLang } from '../hooks/usePageLang';
 
 const faqs = [
   {
@@ -35,6 +37,7 @@ const faqs = [
 
 const VideoToWebp: React.FC = () => {
   const { t } = useTranslation();
+  const pageLang = usePageLang();
   useEffect(() => {
     const existing = document.getElementById('video-to-webp-schemas');
     if (existing) existing.remove();
@@ -102,7 +105,7 @@ const VideoToWebp: React.FC = () => {
       <SEOHead
         title={t('videoToWebp.title')}
         description={t('videoToWebp.description')}
-        canonical="https://www.videotoimagesequence.online/video-to-webp"
+        canonical={localizedUrl('/video-to-webp', pageLang)}
         ogTitle={t('videoToWebp.title')}
         ogDescription={t('videoToWebp.description')}
         ogImage="https://www.videotoimagesequence.online/og-image.png"
