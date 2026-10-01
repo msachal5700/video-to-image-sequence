@@ -6,6 +6,7 @@ import InterstitialAd from '../components/InterstitialAd';
 import { AppState, FrameRate, VideoMetadata, ProcessingStats, OutputFormat, CadenceMode, clampIntervalSeconds } from '../types';
 import { extractFramesAndZip, formatTime } from '../utils/videoProcessor';
 import { useToast } from '../components/Toast';
+import { openFeedbackWidget } from '../components/FeedbackWidget';
 import { useTranslation } from 'react-i18next';
 
 interface ExtractedFrame {
@@ -432,6 +433,14 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
                          {t('common.convertAnother')}
                        </button>
                     </div>
+
+                    {/* Feedback nudge at the moment of success */}
+                    <button
+                      onClick={openFeedbackWidget}
+                      className="mt-5 text-sm text-gray-500 hover:text-cyan-400 underline underline-offset-4 transition-colors"
+                    >
+                      {t('feedback.reportLink')}
+                    </button>
                   </div>
                 )}
 

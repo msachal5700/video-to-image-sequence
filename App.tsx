@@ -52,6 +52,7 @@ import FreeImageCropToolGuide from './pages/blog/FreeImageCropToolGuide';
 import VideoToStopMotionFrames from './pages/blog/VideoToStopMotionFrames';
 import EcommerceProductStills from './pages/blog/EcommerceProductStills';
 import CookieConsent from './components/CookieConsent';
+import FeedbackWidget from './components/FeedbackWidget';
 import ClarityConsent from './components/ClarityConsent';
 import LocalizedRoutes from './components/LocalizedRoutes';
 
@@ -182,6 +183,7 @@ const App: React.FC = () => {
             <Footer />
             <CookieConsent />
             <ClarityConsent />
+            <FeedbackWidget />
           </div>
         </BrowserRouter>
       </ToastProvider>

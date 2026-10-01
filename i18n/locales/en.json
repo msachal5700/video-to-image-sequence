@@ -6,6 +6,22 @@
     "faq": "FAQ",
     "language": "Language"
   },
+  "feedback": {
+    "button": "Feedback",
+    "title": "Suggest a feature or report a problem",
+    "subtitle": "Tell us what's missing or broken — we read every message.",
+    "feature": "Feature idea",
+    "bug": "Problem report",
+    "placeholderFeature": "What should the site do? e.g. pick frames by timestamp range…",
+    "placeholderBug": "What went wrong? e.g. ZIP download never starts on my phone…",
+    "emailPlaceholder": "Your email (optional, for a reply)",
+    "send": "Send feedback",
+    "sending": "Sending…",
+    "thanks": "Thanks! Your feedback is on its way.",
+    "close": "Close",
+    "error": "Couldn't send it just now — email us directly instead.",
+    "reportLink": "Something not working? Report a problem"
+  },
   "common": {
     "freeForever": "Free Forever",
     "noUpload": "No Server Upload",
