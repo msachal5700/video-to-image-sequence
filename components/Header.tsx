@@ -62,6 +62,7 @@ const Header: React.FC = () => {
             <button className="hover:text-white transition flex items-center gap-1 py-1 font-medium">
               {t('nav.tools')} <span className="text-[10px] text-gray-600">▼</span>
             </button>
+            {/* Tools dropdown — scrollable: capped at 80vh so all ~21 links stay reachable on short viewports */}
             <div className="absolute top-full left-0 mt-1 bg-gray-950 border border-gray-800 rounded-xl p-2 min-w-[240px] max-h-[80vh] overflow-y-auto hidden group-hover:block shadow-2xl z-50 flex flex-col">
               <Link to="/" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">Video to Image Sequence</Link>
               <Link to="/mp4-to-jpg" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">MP4 to JPG Converter</Link>
