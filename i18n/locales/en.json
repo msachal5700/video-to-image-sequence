@@ -512,6 +512,18 @@
         {
           "q": "How do I extract frames for a computer vision dataset?",
           "a": "Use 1–5 FPS for classification/detection, higher for tracking. Export PNG for pixel-perfect labels. ZIP download works with labeling tools (CVAT, LabelImg, Roboflow)."
+        },
+        {
+          "q": "How do I convert a video to stills?",
+          "a": "Open the converter, select your video file, choose JPG or PNG as the output format, set how many stills you want per second (or extract every frame), and click Extract. Your video stills appear in a grid — download them individually or all at once as a ZIP. Everything runs in your browser; your video is never uploaded."
+        },
+        {
+          "q": "What is the best format for video stills: JPG or PNG?",
+          "a": "Use JPG for video stills when you want small file sizes — ideal for storyboards, thumbnails, and sharing. Use PNG when you need pixel-perfect quality, such as VFX plates or archival stills. The converter exports both, plus WebP, at your video's native resolution."
+        },
+        {
+          "q": "Can I convert video to still images without uploading my video?",
+          "a": "Yes. This tool converts video to stills entirely in your browser using local processing — your video never leaves your device. There is no upload, no server queue, no signup, and no watermark on the stills."
         }
       ]
     },
