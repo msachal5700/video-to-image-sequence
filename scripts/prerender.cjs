@@ -94,6 +94,7 @@ const routes = [
   '/media-partner',
   '/changelog',
   '/video-to-frames',
+  '/video-contact-sheet',
   '/video-to-jpg',
   '/video-frame-extractor',
 
@@ -167,6 +168,7 @@ const routeTextMap = {
   '/media-partner': 'Media Partners',
   '/changelog': 'Changelog',
   '/video-to-frames': 'Video to Frames Converter',
+  '/video-contact-sheet': 'Video Contact Sheet Maker',
   '/video-to-jpg': 'Video to JPG Converter',
   '/video-frame-extractor': 'Video Frame Extractor',
 

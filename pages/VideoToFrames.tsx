@@ -248,7 +248,7 @@ const VideoToFrames: React.FC = () => {
           <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
             <h3 className="text-white font-semibold mb-2">Contact Sheets &amp; Storyboards</h3>
             <p className="text-gray-400 text-sm leading-relaxed">
-              One frame per second gives you a visual index of an entire clip — perfect for reviewing footage, pitching a storyboard, or finding the exact moment worth keeping.
+              One frame per second gives you a visual index of an entire clip — perfect for reviewing footage, pitching a storyboard, or finding the exact moment worth keeping. Try the dedicated <Link to="/video-contact-sheet" className="text-cyan-400 hover:underline">video contact sheet maker</Link> for a printable grid.
             </p>
           </div>
           <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">

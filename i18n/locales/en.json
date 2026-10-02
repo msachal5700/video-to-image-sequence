@@ -700,5 +700,13 @@
     "howItWorks": "How It Works",
     "copyright": "© {{year}} Video to Image Sequence Online · Free forever",
     "local": "Processing is 100% local · Your videos never leave your device"
+  },
+  "videoContactSheet": {
+    "title": "Video Contact Sheet Maker — Free Online Grid Generator",
+    "description": "Make a video contact sheet online for free. Turn MP4, MOV, or WEBM videos into a printable grid of timestamped thumbnails in your browser. No upload, 100% private.",
+    "h1": "Video Contact Sheet Maker",
+    "h1Sub": "Free Online Grid Generator",
+    "hero": "Turn any video into a single printable image — 9 to 36 evenly-spaced, timestamped thumbnails arranged in a grid. Free, in your browser, with no upload and no watermark.",
+    "keywords": "video contact sheet, video contact sheet maker, video contact sheet generator, video contact sheet online, video thumbnail grid, make contact sheet from video"
   }
 }

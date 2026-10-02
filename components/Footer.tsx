@@ -29,6 +29,7 @@ const Footer = () => {
               <li><Link to="/video-to-gif" className="text-gray-600 hover:text-cyan-400 transition">Video to GIF Converter</Link></li>
               <li><Link to="/screenshot-from-video" className="text-gray-600 hover:text-cyan-400 transition">Screenshot from Video</Link></li>
               <li><Link to="/extract-frames-from-video" className="text-gray-600 hover:text-cyan-400 transition">Extract Frames from Video</Link></li>
+              <li><Link to="/video-contact-sheet" className="text-gray-600 hover:text-cyan-400 transition">Video Contact Sheet</Link></li>
               <li><Link to="/extract-frame-every-1-second" className="text-gray-600 hover:text-cyan-400 transition">Frame Every 1 Second</Link></li>
               <li><Link to="/extract-frame-every-5-seconds" className="text-gray-600 hover:text-cyan-400 transition">Frame Every 5 Seconds</Link></li>
               <li><Link to="/extract-frame-every-10-seconds" className="text-gray-600 hover:text-cyan-400 transition">Frame Every 10 Seconds</Link></li>

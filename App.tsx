@@ -36,6 +36,7 @@ import ContactPage from './pages/ContactPage';
 import MediaPartner from './pages/MediaPartner';
 import Changelog from './pages/Changelog';
 import VideoToFrames from './pages/VideoToFrames';
+import VideoContactSheet from './pages/VideoContactSheet';
 import VideoToJpg from './pages/VideoToJpg';
 import VideoFrameExtractor from './pages/VideoFrameExtractor';
 import VideoFramesForAiDatasets from './pages/VideoFramesForAiDatasets';
@@ -167,6 +168,7 @@ const App: React.FC = () => {
                 <Route path="/media-partner" element={<MediaPartner />} />
                 <Route path="/changelog" element={<Changelog />} />
                 <Route path="/video-to-frames" element={<VideoToFrames />} />
+                <Route path="/video-contact-sheet" element={<VideoContactSheet />} />
                 <Route path="/video-to-jpg" element={<VideoToJpg />} />
                 <Route path="/video-frame-extractor" element={<VideoFrameExtractor />} />
                 <Route path="/privacy-policy" element={<Navigate to="/privacy" replace />} />
