@@ -1,5 +1,5 @@
 import React, { memo, useState, useEffect } from 'react';
-import { Settings, Download, RefreshCcw, Video } from 'lucide-react';
+import { Settings, Download, RefreshCcw, Video, Loader2 } from 'lucide-react';
 import {
   FrameRate, VideoMetadata, SUPPORTED_FPS, AppState, OutputFormat,
   CadenceMode, INTERVAL_PRESETS, MIN_INTERVAL_SECONDS, MAX_INTERVAL_SECONDS,
@@ -167,8 +167,8 @@ const Controls: React.FC<ControlsProps> = ({
                       onFpsChange(SUPPORTED_FPS[fpsIndex] as FrameRate);
                     }}
                     disabled={isProcessing}
-                    className="w-full h-1.5 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-cyan-400 disabled:opacity-50 disabled:cursor-not-allowed"
-                    title={`Selected FPS: ${selectedFps}`}
+                    className="w-full h-1.5 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-cyan-400 disabled:opacity-30 disabled:cursor-not-allowed"
+                    title={isProcessing ? t('controls.lockedDuringProcessing', { defaultValue: 'Settings are locked while extracting' }) : `Selected FPS: ${selectedFps}`}
                   />
                   <div className="flex justify-between text-xs text-gray-500 mt-3 font-mono">
                     <span>{SUPPORTED_FPS[0]}</span>
@@ -305,7 +305,10 @@ const Controls: React.FC<ControlsProps> = ({
               }`}
           >
             {isProcessing ? (
-              <>{t('controls.processing')}</>
+              <>
+                <Loader2 className="w-5 h-5 animate-spin" />
+                <span>{t('controls.processing')}</span>
+              </>
             ) : (
               <>
                 <span>{t('controls.extractFrames')}</span>
