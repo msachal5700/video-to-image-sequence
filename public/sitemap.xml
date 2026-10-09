@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  /privacy and /terms are deliberately excluded: both serve
+  NOTE (2026-10-09): the exclusion note below is STALE. /privacy and /terms
+  currently serve index,follow (verified live) and ARE listed in this sitemap
+  (added 2026-09-29). Kept for history only — do not re-exclude.
+  /privacy and /terms were deliberately excluded: both serve
   <meta name="robots" content="noindex, nofollow">. Submitting a noindex URL in
   a sitemap is a contradictory signal and was contributing to the
   "Excluded by noindex tag" reports in Search Console.

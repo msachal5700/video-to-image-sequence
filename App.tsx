@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import { ToastProvider } from './components/Toast';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Header from './components/Header';
@@ -186,6 +187,7 @@ const App: React.FC = () => {
             <CookieConsent />
             <ClarityConsent />
             <FeedbackWidget />
+            <Analytics />
           </div>
         </BrowserRouter>
       </ToastProvider>

@@ -455,6 +455,18 @@
       {
         "title": "Freeform Image Crop",
         "desc": "Crop images into any custom shape with draggable points — free, private, with transparent PNG export."
+      },
+      {
+        "title": "Video to Frames Converter",
+        "desc": "Extract every frame or Nth frame as JPG, PNG, or WebP — built for ML datasets and animation."
+      },
+      {
+        "title": "Video to JPG Frames",
+        "desc": "Pull high-quality JPG stills from any video. Fast, private, no signup."
+      },
+      {
+        "title": "Video Frame Extractor",
+        "desc": "Precision frame extraction with FPS control, timestamps, and batch ZIP download."
       }
     ],
     "faq": {
