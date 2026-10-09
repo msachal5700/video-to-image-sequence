@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useRef } from 'react';
+import React, { useCallback, useState, useId } from 'react';
 import { UploadCloud, FileVideo, AlertCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
@@ -11,7 +11,10 @@ const Dropzone: React.FC<DropzoneProps> = ({ onFileSelect }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [selectedCount, setSelectedCount] = useState(0);
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  // Unique id so the <label> activates the input natively — no programmatic
+  // .click() on a display:none input, which browsers may silently ignore
+  // (Clarity showed first-click dead clicks on this zone).
+  const inputId = useId();
 
   const handleDragOver = useCallback((e: React.DragEvent) => {
     e.preventDefault();
@@ -37,6 +40,9 @@ const Dropzone: React.FC<DropzoneProps> = ({ onFileSelect }) => {
     if (e.target.files && e.target.files.length > 0) {
       validateAndPassFiles(e.target.files);
     }
+    // Reset so the same file can be chosen again (e.g. after "Convert Another"
+    // the input still holds the previous selection and onChange would not fire).
+    e.target.value = '';
   }, []);
 
   const validateAndPassFiles = (files: FileList) => {
@@ -51,12 +57,6 @@ const Dropzone: React.FC<DropzoneProps> = ({ onFileSelect }) => {
     validFiles.forEach(file => onFileSelect(file));
   };
 
-  const handleZoneClick = () => {
-    if (fileInputRef.current) {
-      fileInputRef.current.click();
-    }
-  };
-
   return (
     <div
       className={`border-2 border-dashed rounded-3xl p-12 text-center cursor-pointer transition-all duration-300 font-sans my-4 relative
@@ -68,16 +68,16 @@ const Dropzone: React.FC<DropzoneProps> = ({ onFileSelect }) => {
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
-      onClick={handleZoneClick}
     >
       <input
-        ref={fileInputRef}
+        id={inputId}
         type="file"
         multiple
         accept="video/mp4,video/quicktime,video/webm"
-        className="hidden"
+        className="sr-only"
         onChange={handleFileInput}
       />
+      <label htmlFor={inputId} className="block cursor-pointer">
 
       {selectedCount > 1 && (
         <div className="absolute top-4 right-4 bg-cyan-900/80 text-cyan-400 text-xs font-bold px-3 py-1.5 rounded-full border border-cyan-800">
@@ -108,6 +108,7 @@ const Dropzone: React.FC<DropzoneProps> = ({ onFileSelect }) => {
           )}
         </div>
       </div>
+      </label>
     </div>
   );
 };
