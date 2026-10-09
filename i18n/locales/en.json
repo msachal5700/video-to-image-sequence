@@ -467,6 +467,10 @@
       {
         "title": "Video Frame Extractor",
         "desc": "Precision frame extraction with FPS control, timestamps, and batch ZIP download."
+      },
+      {
+        "title": "Video to Photo",
+        "desc": "Save any video frame as a full-quality photo — iPhone, Android, or desktop."
       }
     ],
     "faq": {
@@ -720,5 +724,13 @@
     "h1Sub": "Free Online Grid Generator",
     "hero": "Turn any video into a single printable image — 9 to 36 evenly-spaced, timestamped thumbnails arranged in a grid. Free, in your browser, with no upload and no watermark.",
     "keywords": "video contact sheet, video contact sheet maker, video contact sheet generator, video contact sheet online, video thumbnail grid, make contact sheet from video"
+  },
+  "videoToPhoto": {
+    "title": "Video to Photo Converter — Save Any Frame as a Photo",
+    "description": "Convert video to photo free — save any frame as a JPG or PNG photo in your browser. No upload, no signup, full quality. Works on iPhone, Android & desktop.",
+    "h1": "Video to Photo Converter",
+    "h1Sub": "Save Any Frame as a Photo",
+    "hero": "Your videos are full of photos you never took. Drop in any MP4, MOV, or WEBM, pick the perfect moment, and save it as a full-quality JPG or PNG — right in your browser, on any device. Nothing is uploaded, ever.",
+    "keywords": "video to photo, convert video to photo, save video frame as photo, video to picture, extract photo from video, video frame to photo"
   }
 }

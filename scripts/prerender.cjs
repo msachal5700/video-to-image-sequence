@@ -97,6 +97,7 @@ const routes = [
   '/video-contact-sheet',
   '/video-to-jpg',
   '/video-frame-extractor',
+  '/video-to-photo',
 
   '/privacy',
   '/terms',
@@ -171,6 +172,7 @@ const routeTextMap = {
   '/video-contact-sheet': 'Video Contact Sheet Maker',
   '/video-to-jpg': 'Video to JPG Converter',
   '/video-frame-extractor': 'Video Frame Extractor',
+  '/video-to-photo': 'Video to Photo Converter',
 
   '/privacy': 'Privacy',
   '/terms': 'Terms',

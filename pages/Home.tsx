@@ -197,9 +197,10 @@ const Home: React.FC = () => {
     '/image-crop',
     '/video-to-frames',
     '/video-to-jpg',
-    '/video-frame-extractor'
+    '/video-frame-extractor',
+    '/video-to-photo'
   ];
-  const relatedEmojis = ['🎯', '🖼️', '🎨', '📚', '🎬', '🔄', '✂️', '🎞️', '📷', '⚙️'];
+  const relatedEmojis = ['🎯', '🖼️', '🎨', '📚', '🎬', '🔄', '✂️', '🎞️', '📷', '⚙️', '📸'];
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
