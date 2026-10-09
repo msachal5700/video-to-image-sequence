@@ -104,11 +104,14 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   // The canonical is the language source of truth on localized pages: it is
   // built from the URL (via usePageLang), so og:locale, <html lang>/dir and
   // hreflang stay correct even before i18next finishes syncing. On
-  // non-localized pages the client's chosen language keeps ruling.
+  // non-localized (English-only) pages the content language is always 'en',
+  // regardless of the visitor's stored UI language — this keeps <html lang>
+  // and og:locale honest on English-canonical URLs.
   const currentLang = (() => {
     if (canonical.startsWith(SITE_ORIGIN)) {
       const { lang, path } = splitLangPrefix(canonical.slice(SITE_ORIGIN.length) || '/');
       if (isLocalizedPath(path)) return lang;
+      return 'en';
     }
     return i18n.language || 'en';
   })();
