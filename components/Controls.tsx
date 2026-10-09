@@ -1,5 +1,5 @@
 import React, { memo, useState, useEffect } from 'react';
-import { Settings, Download, RefreshCcw, Video, Loader2 } from 'lucide-react';
+import { Settings, Download, RefreshCcw, Video } from 'lucide-react';
 import {
   FrameRate, VideoMetadata, SUPPORTED_FPS, AppState, OutputFormat,
   CadenceMode, INTERVAL_PRESETS, MIN_INTERVAL_SECONDS, MAX_INTERVAL_SECONDS,
@@ -35,13 +35,11 @@ const Controls: React.FC<ControlsProps> = ({
   onFormatChange,
   onProcess,
   onReset,
-  appState,
 }) => {
   const { t } = useTranslation();
   const estimatedFrames = cadenceMode === 'interval'
     ? Math.max(1, Math.floor(videoMetadata.duration / intervalSeconds))
     : Math.floor(videoMetadata.duration * selectedFps);
-  const isProcessing = appState === AppState.PROCESSING || appState === AppState.ZIPPING;
 
   // Local text state for the custom interval input so typing stays smooth;
   // it re-syncs whenever a preset button changes the value from outside.
@@ -79,7 +77,6 @@ const Controls: React.FC<ControlsProps> = ({
         </div>
         <button
           onClick={onReset}
-          disabled={isProcessing}
           className="text-gray-500 hover:text-white hover:bg-gray-800 p-2.5 rounded-xl transition-all disabled:opacity-50 border border-transparent hover:border-gray-700"
           title="Remove Video"
         >
@@ -107,7 +104,6 @@ const Controls: React.FC<ControlsProps> = ({
                   role="tab"
                   aria-selected={cadenceMode === 'fps'}
                   onClick={() => onCadenceModeChange('fps')}
-                  disabled={isProcessing}
                   className={`py-2.5 px-4 rounded-xl font-bold text-sm transition-all disabled:opacity-50 border ${
                     cadenceMode === 'fps'
                       ? 'bg-cyan-500 text-gray-950 border-cyan-500'
@@ -121,7 +117,6 @@ const Controls: React.FC<ControlsProps> = ({
                   role="tab"
                   aria-selected={cadenceMode === 'interval'}
                   onClick={() => onCadenceModeChange('interval')}
-                  disabled={isProcessing}
                   className={`py-2.5 px-4 rounded-xl font-bold text-sm transition-all disabled:opacity-50 border ${
                     cadenceMode === 'interval'
                       ? 'bg-cyan-500 text-gray-950 border-cyan-500'
@@ -141,7 +136,6 @@ const Controls: React.FC<ControlsProps> = ({
                   <select
                     value={selectedFps}
                     onChange={(e) => onFpsChange(Number(e.target.value) as FrameRate)}
-                    disabled={isProcessing}
                     className="w-full bg-gray-950 border border-gray-800 text-white font-medium rounded-xl py-3.5 px-4 appearance-none focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {SUPPORTED_FPS.map((fps) => (
@@ -166,9 +160,8 @@ const Controls: React.FC<ControlsProps> = ({
                       const fpsIndex = Number(e.target.value);
                       onFpsChange(SUPPORTED_FPS[fpsIndex] as FrameRate);
                     }}
-                    disabled={isProcessing}
-                    className="w-full h-1.5 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-cyan-400 disabled:opacity-30 disabled:cursor-not-allowed"
-                    title={isProcessing ? t('controls.lockedDuringProcessing', { defaultValue: 'Settings are locked while extracting' }) : `Selected FPS: ${selectedFps}`}
+                    className="w-full h-1.5 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-cyan-400"
+                    title={`Selected FPS: ${selectedFps}`}
                   />
                   <div className="flex justify-between text-xs text-gray-500 mt-3 font-mono">
                     <span>{SUPPORTED_FPS[0]}</span>
@@ -187,7 +180,6 @@ const Controls: React.FC<ControlsProps> = ({
                     key={s}
                     type="button"
                     onClick={() => onIntervalSecondsChange(s)}
-                    disabled={isProcessing}
                     aria-pressed={intervalSeconds === s}
                     className={`px-4 py-2.5 rounded-xl text-sm font-bold border transition-all disabled:opacity-50 ${
                       intervalSeconds === s
@@ -212,7 +204,6 @@ const Controls: React.FC<ControlsProps> = ({
                   onChange={(e) => setCustomInput(e.target.value)}
                   onBlur={applyCustomInterval}
                   onKeyDown={(e) => { if (e.key === 'Enter') (e.target as HTMLInputElement).blur(); }}
-                  disabled={isProcessing}
                   className="w-24 bg-gray-950 border border-gray-800 text-white font-mono font-bold rounded-xl py-2.5 px-3 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all disabled:opacity-50"
                 />
                 <span className="text-xs text-gray-500">{t('controls.secondsUnit', { min: MIN_INTERVAL_SECONDS, max: MAX_INTERVAL_SECONDS })}</span>
@@ -230,7 +221,6 @@ const Controls: React.FC<ControlsProps> = ({
                 <button
                   type="button"
                   onClick={() => onFormatChange('jpg')}
-                  disabled={isProcessing}
                   className={`py-3 px-4 rounded-xl font-bold transition-all disabled:opacity-50 border ${
                     outputFormat === 'jpg'
                       ? 'bg-cyan-950/40 border-cyan-500 text-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.2)]'
@@ -242,7 +232,6 @@ const Controls: React.FC<ControlsProps> = ({
                 <button
                   type="button"
                   onClick={() => onFormatChange('png')}
-                  disabled={isProcessing}
                   className={`py-3 px-4 rounded-xl font-bold transition-all disabled:opacity-50 border ${
                     outputFormat === 'png'
                       ? 'bg-cyan-950/40 border-cyan-500 text-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.2)]'
@@ -254,7 +243,6 @@ const Controls: React.FC<ControlsProps> = ({
                 <button
                   type="button"
                   onClick={() => onFormatChange('webp')}
-                  disabled={isProcessing}
                   className={`py-3 px-4 rounded-xl font-bold transition-all disabled:opacity-50 border ${
                     outputFormat === 'webp'
                       ? 'bg-cyan-950/40 border-cyan-500 text-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.2)]'
@@ -297,24 +285,10 @@ const Controls: React.FC<ControlsProps> = ({
 
            <button
             onClick={onProcess}
-            disabled={isProcessing}
-            className={`relative z-10 w-full py-4.5 px-6 rounded-2xl font-bold text-lg shadow-lg transition-all duration-300 flex items-center justify-center gap-3
-              ${isProcessing 
-                ? 'bg-gray-800 text-gray-500 cursor-not-allowed border border-gray-700' 
-                : 'bg-cyan-500 hover:bg-cyan-400 text-gray-950 hover:shadow-cyan-500/30 hover:-translate-y-0.5 active:translate-y-0'
-              }`}
+            className="relative z-10 w-full py-4.5 px-6 rounded-2xl font-bold text-lg shadow-lg transition-all duration-300 flex items-center justify-center gap-3 bg-cyan-500 hover:bg-cyan-400 text-gray-950 hover:shadow-cyan-500/30 hover:-translate-y-0.5 active:translate-y-0"
           >
-            {isProcessing ? (
-              <>
-                <Loader2 className="w-5 h-5 animate-spin" />
-                <span>{t('controls.processing')}</span>
-              </>
-            ) : (
-              <>
-                <span>{t('controls.extractFrames')}</span>
-                <Download className="w-5 h-5 hidden sm:block" />
-              </>
-            )}
+            <span>{t('controls.extractFrames')}</span>
+            <Download className="w-5 h-5 hidden sm:block" />
           </button>
         </div>
       </div>
