@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import { ToastProvider } from './components/Toast';
 import { ThemeProvider } from './contexts/ThemeContext';
+import { useLocaleSync } from './hooks/usePageLang';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -59,6 +61,14 @@ import LocalizedRoutes from './components/LocalizedRoutes';
 
 
 
+// Keeps <html lang>, text direction and i18next in sync with the URL on
+// every route change — including English-only pages, where it resets any
+// language leaked from an earlier localized visit (see useLocaleSync).
+const LocaleSync: React.FC = () => {
+  useLocaleSync();
+  return null;
+};
+
 // Component to handle hash-based scrolling
 const ScrollToHash: React.FC = () => {
   const location = useLocation();
@@ -102,6 +112,7 @@ const App: React.FC = () => {
       <ToastProvider>
         <BrowserRouter>
           <ScrollToHash />
+          <LocaleSync />
           {/* Skip link for keyboard navigation — focusable when tabbed, jumps to main content */}
           <a
             href="#__next"
@@ -186,6 +197,7 @@ const App: React.FC = () => {
             <CookieConsent />
             <ClarityConsent />
             <FeedbackWidget />
+            <Analytics />
           </div>
         </BrowserRouter>
       </ToastProvider>

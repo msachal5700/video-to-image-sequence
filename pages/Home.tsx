@@ -186,16 +186,20 @@ const Home: React.FC = () => {
     };
   }, [faqItems]);
 
-  const moreToolsLinks = ['/mp4-to-jpg', '/screenshot-from-video', '/video-to-png'];
+  const moreToolsLinks = ['/extract-frame-at-timestamp', '/screenshot-from-video', '/ai-social-media-frame-picker'];
   const relatedLinks = [
-    '/extract-frames-from-video',
-    '/blog/mp4-to-image-sequence-guide',
+    '/mp4-to-jpg',
     '/video-to-png',
-    '/images-to-video',
-    '/screenshot-from-video',
+    '/video-to-webp',
     '/blog/mp4-to-image-sequence-guide',
-    '/image-crop'
+    '/extract-frames-from-video',
+    '/images-to-video',
+    '/image-crop',
+    '/video-to-frames',
+    '/video-to-jpg',
+    '/video-frame-extractor'
   ];
+  const relatedEmojis = ['🎯', '🖼️', '🎨', '📚', '🎬', '🔄', '✂️', '🎞️', '📷', '⚙️'];
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
@@ -559,7 +563,7 @@ const Home: React.FC = () => {
           {relatedData.map(({ title, desc }, idx) => (
             <Link key={idx} to={relatedLinks[idx] || '/'} className="bg-gray-900 border border-gray-800 rounded-xl p-5 hover:border-cyan-800 hover:bg-gray-900/80 transition-all group block text-left">
               <div className="text-3xl mb-3 group-hover:scale-110 transition-transform inline-block">
-                {idx === 0 ? '🎯' : idx === 1 ? '📚' : idx === 2 ? '🎨' : idx === 3 ? '🎬' : idx === 4 ? '📸' : idx === 5 ? '📷' : '✂️'}
+                {relatedEmojis[idx] || '🔗'}
               </div>
               <h3 className="text-white font-semibold mb-2 group-hover:text-cyan-400 transition-colors text-sm md:text-base">{title}</h3>
               <p className="text-gray-500 text-xs md:text-sm leading-relaxed">{desc}</p>
