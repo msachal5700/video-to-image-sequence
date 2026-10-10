@@ -159,6 +159,17 @@ const ScreenshotFromVideo: React.FC = () => {
         <VideoToImages />
       </div>
 
+      {/* ── INTENT DISAMBIGUATION CROSS-LINK ── */}
+      <section className="max-w-4xl mx-auto px-4 mt-2">
+        <p className="text-center text-sm text-gray-500">
+          Want to save a video moment as a proper photo instead? Try our{' '}
+          <Link to="/video-to-photo" className="text-cyan-400 hover:underline">
+            video-to-photo converter
+          </Link>
+          .
+        </p>
+      </section>
+
       {/* ── BROWSER SECURITY & PRIVACY ── */}
       <section className="max-w-4xl mx-auto py-12 px-4 mt-8">
         <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">
