@@ -30,6 +30,32 @@ const readConsent = (): string | null => {
   }
 };
 
+/**
+ * Best-effort EEA/UK/CH detection via the browser's IANA timezone.
+ * Europe/* covers the EU-27, the UK, Norway, Switzerland, Iceland and a few
+ * non-EEA European states (over-inclusive is the safe direction: stricter
+ * consent UX where not strictly required is always compliant). The Atlantic
+ * entries cover Portugal/Spain's island regions; Arctic/Longyearbyen covers
+ * Svalbard (Norway). Fail-safe: when the timezone is unavailable, assume
+ * EEA/UK/CH and show the blocking gate.
+ */
+const EXTRA_EEA_ZONES = [
+  'Atlantic/Azores',
+  'Atlantic/Canary',
+  'Atlantic/Madeira',
+  'Arctic/Longyearbyen',
+];
+
+const isEeaUkCh = (): boolean => {
+  try {
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    if (!tz) return true;
+    return tz.startsWith('Europe/') || EXTRA_EEA_ZONES.includes(tz);
+  } catch {
+    return true;
+  }
+};
+
 /** Release any scroll lock the gate may have applied. Safe to call anytime. */
 const unlockScroll = (): void => {
   try {
@@ -42,11 +68,15 @@ const unlockScroll = (): void => {
 
 const CookieConsent: React.FC = () => {
   const [visible, setVisible] = useState(false);
+  // Blocking full-screen gate is required only where the EU User Consent
+  // Policy applies (EEA/UK/CH). Everywhere else we show a dismissible
+  // bottom banner so the site stays fully usable before a choice is made.
+  const [blocking] = useState<boolean>(() => isEeaUkCh());
 
   useEffect(() => {
     const consent = readConsent();
     if (!consent) {
-      // Fresh visitor: show the full-screen gate immediately
+      // Fresh visitor: show the consent UI immediately
       setVisible(true);
     } else if (consent === 'all') {
       // Returning visitor: apply their stored choice to Google Consent Mode
@@ -54,7 +84,7 @@ const CookieConsent: React.FC = () => {
     }
   }, []);
 
-  // Lock background scrolling while the consent gate is up.
+  // Lock background scrolling while the BLOCKING consent gate is up.
   // The cleanup releases the lock unconditionally (it does NOT restore a
   // captured previous value): the prerendered HTML can carry a stale
   // inline overflow:hidden on <html>/<body> (the prerender snapshot is taken
@@ -62,7 +92,7 @@ const CookieConsent: React.FC = () => {
   // the stale lock and leave the page permanently unscrollable. Nothing else
   // in the app sets inline overflow on <html>/<body>, so clearing is safe.
   useEffect(() => {
-    if (!visible) return;
+    if (!visible || !blocking) return;
     const html = document.documentElement;
     const body = document.body;
     html.style.overflow = 'hidden';
@@ -71,7 +101,7 @@ const CookieConsent: React.FC = () => {
       html.style.overflow = '';
       body.style.overflow = '';
     };
-  }, [visible]);
+  }, [visible, blocking]);
 
   // Safety net: never leave the page unscrollable if this component unmounts.
   useEffect(() => {
@@ -79,7 +109,7 @@ const CookieConsent: React.FC = () => {
   }, []);
 
   const handleAccept = (type: 'all' | 'essential') => {
-    // Hide the gate and release the scroll lock FIRST, before anything
+    // Hide the UI and release the scroll lock FIRST, before anything
     // that could throw (e.g. blocked storage), so the visitor is never stuck.
     unlockScroll();
     setVisible(false);
@@ -96,6 +126,53 @@ const CookieConsent: React.FC = () => {
 
   if (!visible) return null;
 
+  // Non-blocking banner for visitors outside the EEA/UK/CH: the site stays
+  // fully usable; dismissing (X) is treated as "Essential Only".
+  if (!blocking) {
+    return (
+      <div
+        className="fixed bottom-0 inset-x-0 z-[200] p-3 sm:p-4 font-sans"
+        role="dialog"
+        aria-label="Cookie and privacy consent"
+      >
+        <div className="mx-auto max-w-3xl p-4 rounded-2xl bg-gray-950/95 border border-cyan-800/80 shadow-2xl text-sm text-gray-300 backdrop-blur-sm animate-fade-in">
+          <div className="flex items-start gap-3">
+            <p className="flex-1 leading-relaxed text-gray-400">
+              <span className="font-bold text-white">🍪 We use cookies</span> for essential site
+              settings, traffic analytics and ad delivery. Your uploaded videos never leave your
+              browser. See our{' '}
+              <Link to="/privacy" className="text-cyan-400 underline hover:text-cyan-300">
+                Privacy Policy
+              </Link>.
+            </p>
+            <button
+              onClick={() => handleAccept('essential')}
+              aria-label="Dismiss cookie notice"
+              className="shrink-0 w-8 h-8 rounded-lg bg-gray-900 hover:bg-gray-800 text-gray-400 border border-gray-800 transition text-base leading-none"
+            >
+              ×
+            </button>
+          </div>
+          <div className="mt-3 flex flex-col sm:flex-row items-stretch gap-2 font-mono font-bold text-sm">
+            <button
+              onClick={() => handleAccept('essential')}
+              className="flex-1 px-4 py-2.5 rounded-xl bg-gray-900 hover:bg-gray-800 text-gray-300 border border-gray-800 transition"
+            >
+              Essential Only
+            </button>
+            <button
+              onClick={() => handleAccept('all')}
+              className="flex-1 px-4 py-2.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-gray-950 transition shadow-md shadow-cyan-500/20"
+            >
+              Accept All
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Blocking full-screen gate for EEA/UK/CH visitors (EU User Consent Policy).
   return (
     <div
       className="fixed inset-0 z-[200] overflow-y-auto bg-gray-950/90 backdrop-blur-sm p-4 font-sans"
