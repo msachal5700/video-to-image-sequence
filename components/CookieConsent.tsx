@@ -48,7 +48,8 @@ const EXTRA_EEA_ZONES = [
 
 const isEeaUkCh = (): boolean => {
   try {
-    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    if (!tz) return true;
     return tz.startsWith('Europe/') || EXTRA_EEA_ZONES.includes(tz);
   } catch {
     return true;
