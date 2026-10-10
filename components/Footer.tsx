@@ -90,6 +90,20 @@ const Footer = () => {
             style={{ display: 'block', height: '40px', width: 'auto', border: 0 }}
           />
         </a>
+        <a
+          href="https://smartees.tech/t/videotoimagesequence"
+          target="_blank"
+          rel="noopener"
+        >
+          <img
+            src="https://smartees.tech/badge/smartees-listed-dark.svg"
+            alt="Featured on Smartees"
+            width="184"
+            height="44"
+            loading="lazy"
+            style={{ display: 'block', height: '40px', width: 'auto', border: 0 }}
+          />
+        </a>
       </div>
     </footer>
   );
