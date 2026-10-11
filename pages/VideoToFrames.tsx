@@ -56,10 +56,10 @@ const VideoToFrames: React.FC = () => {
     const webAppSchema = {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Video to Frames — Free Online Video Frame Extractor",
+      "name": "Video to Frames — Free Online Converter, No Signup Needed",
       "url": "https://www.videotoimagesequence.online/video-to-frames",
       "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Convert video to frames online for free. Turn MP4, MOV, and WEBM videos into numbered JPG or PNG image sequences in your browser. No upload, no watermark, 100% private.",
+      "description": "Extract frames from video free in your browser — no upload, no signup, no watermark. Set the frame rate, download JPG/PNG stills or the full sequence as ZIP.",
       "applicationCategory": "MultimediaApplication",
       "applicationSubCategory": "Video to Frames Converter",
       "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
@@ -326,6 +326,10 @@ const VideoToFrames: React.FC = () => {
           <Link to="/video-to-jpg" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video to JPG</h3>
             <p className="text-gray-500 text-xs">Convert any video into JPG still images.</p>
+          </Link>
+          <Link to="/video-to-png" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video to PNG</h3>
+            <p className="text-gray-500 text-xs">Lossless PNG frames with transparency support.</p>
           </Link>
           <Link to="/video-frame-extractor" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video Frame Extractor</h3>
