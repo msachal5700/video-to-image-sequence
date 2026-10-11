@@ -28,6 +28,22 @@ const faqs = [
   {
     q: 'How large will the extracted PNG frames be?',
     a: 'PNG images are much larger than JPGs. A 1080p PNG frame is typically between 500KB and 2MB, meaning a sequence of hundreds of frames will generate a large ZIP file.'
+  },
+  {
+    q: 'Does converting a video to PNG lose any quality?',
+    a: 'No. PNG uses lossless compression, so each extracted frame is a pixel-perfect copy of the decoded video frame. Any softness or artifacts you see come from the source video itself (for example, heavy streaming compression) — the PNG faithfully preserves whatever detail is there without adding new degradation.'
+  },
+  {
+    q: 'Can I extract transparent PNG frames from any video?',
+    a: 'Only if the source video actually contains an alpha channel. Codecs like ProRes 4444, QuickTime Animation, and WebM with VP9 alpha can carry transparency, and this tool preserves it in the exported PNGs. Standard MP4 or H.264 recordings contain no alpha data, so transparency cannot be recovered from them — it cannot be invented where none exists.'
+  },
+  {
+    q: 'PNG vs WebP — which should I choose for video frames?',
+    a: 'Choose PNG when you need universal compatibility: it opens correctly in every editor, browser, and game engine with zero surprises. Choose lossless WebP when file size matters most and your pipeline supports it — WebP typically produces noticeably smaller files for equivalent quality. If you only need small preview images, JPG is smaller still.'
+  },
+  {
+    q: 'How can I make my extracted PNG files smaller?',
+    a: 'Run the PNGs through an optimizer after extraction — tools like TinyPNG, pngquant, or oxipng recompress PNG data without visible quality loss. You can also extract at a lower FPS when you only need keyframes, or switch to JPG/WebP output if you do not need transparency or pixel-perfect fidelity.'
   }
 ];
 
@@ -241,6 +257,87 @@ const VideoToPng: React.FC = () => {
             </tbody>
           </table>
         </div>
+        <p className="text-gray-400 text-sm leading-relaxed mt-6 max-w-3xl mx-auto text-center">
+          If smaller files matter more than pixel perfection — for thumbnails, previews, or quick sharing — our{' '}
+          <Link to="/video-to-jpg" className="text-cyan-400 underline hover:text-cyan-300">
+            Video to JPG converter
+          </Link>{' '}
+          extracts the same frames at a fraction of the size. Choose PNG when every pixel counts.
+        </p>
+      </section>
+
+      {/* ── PNG TRANSPARENCY & ALPHA ── */}
+      <section className="max-w-4xl mx-auto py-12 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">
+          PNG Transparency: Preserving Alpha Channels from Video
+        </h2>
+        <p className="text-gray-400 leading-relaxed mb-4">
+          Transparency is PNG's killer feature for video work — and the one thing JPG can never do. A PNG frame can store an <strong className="text-white">alpha channel</strong>: per-pixel opacity data that lets parts of the image be fully or partially see-through. That is what makes PNG the standard for overlays, lower-thirds, animated sprites, and VFX plates.
+        </p>
+        <p className="text-gray-400 leading-relaxed mb-4">
+          Whether you actually get transparency depends entirely on your source footage. Codecs that carry alpha include <strong className="text-white">ProRes 4444</strong>, <strong className="text-white">QuickTime Animation</strong>, and <strong className="text-white">WebM with VP9 alpha</strong> — common in motion-graphics renders and game captures. When this tool detects alpha data in such files, it is preserved untouched in every exported PNG.
+        </p>
+        <p className="text-gray-400 leading-relaxed">
+          Standard recordings — phone footage, screen captures saved as MP4, H.264 exports — contain no alpha channel at all. No converter can recover transparency from them, because there is nothing to recover. If you need cut-out subjects from regular footage, that is a rotoscoping or background-removal job, not a format conversion.
+        </p>
+      </section>
+
+      {/* ── FILE SIZE EXPECTATIONS ── */}
+      <section className="max-w-4xl mx-auto py-12 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">
+          What File Sizes to Expect
+        </h2>
+        <p className="text-gray-400 leading-relaxed mb-6">
+          Lossless means larger files — there is no way around that trade-off. Typical per-frame sizes look like this; actual results depend heavily on image complexity (flat motion graphics compress far smaller than noisy camera footage):
+        </p>
+        <div className="overflow-x-auto rounded-2xl border border-gray-800 mb-6">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="bg-gray-900 border-b border-gray-800">
+                <th className="px-5 py-4 text-left text-gray-400 font-medium whitespace-nowrap">Frame resolution</th>
+                <th className="px-5 py-4 text-center text-gray-400 font-medium whitespace-nowrap">Typical PNG size per frame</th>
+                <th className="px-5 py-4 text-center text-gray-400 font-medium whitespace-nowrap">100 frames ≈</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-800/50">
+              <tr className="hover:bg-gray-900/50 transition-colors">
+                <td className="px-5 py-3 text-gray-300 font-medium whitespace-nowrap">1280 × 720 (720p)</td>
+                <td className="px-5 py-3 text-center text-gray-400">~200–600 KB</td>
+                <td className="px-5 py-3 text-center text-gray-400">~20–60 MB</td>
+              </tr>
+              <tr className="hover:bg-gray-900/50 transition-colors">
+                <td className="px-5 py-3 text-gray-300 font-medium whitespace-nowrap">1920 × 1080 (1080p)</td>
+                <td className="px-5 py-3 text-center text-gray-400">~500 KB–2 MB</td>
+                <td className="px-5 py-3 text-center text-gray-400">~50–200 MB</td>
+              </tr>
+              <tr className="hover:bg-gray-900/50 transition-colors">
+                <td className="px-5 py-3 text-gray-300 font-medium whitespace-nowrap">3840 × 2160 (4K)</td>
+                <td className="px-5 py-3 text-center text-gray-400">~2–8 MB</td>
+                <td className="px-5 py-3 text-center text-gray-400">~200–800 MB</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p className="text-gray-400 leading-relaxed">
+          Plan accordingly: extract at the FPS you actually need, and split very long videos into segments. Your browser holds decoded frames in memory, so a 4K video at full frame rate can exhaust RAM quickly — the ZIP download at the end is the easy part.
+        </p>
+      </section>
+
+      {/* ── SHRINKING PNGS ── */}
+      <section className="max-w-4xl mx-auto py-12 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">
+          Reducing PNG File Size After Extraction
+        </h2>
+        <p className="text-gray-400 leading-relaxed mb-4">
+          If your PNG sequence is too heavy to store or share, you do not have to re-extract. Dedicated PNG optimizers recompress the files without visible quality loss: <strong className="text-white">TinyPNG</strong> (web-based, simplest), <strong className="text-white">pngquant</strong> (excellent for photographic frames), and <strong className="text-white">oxipng</strong> (fully lossless, for when not a single pixel may change).
+        </p>
+        <p className="text-gray-400 leading-relaxed">
+          Also reconsider the extraction itself: dropping from 30 FPS to 5 FPS cuts output by 6× when you only need representative keyframes, and switching to{' '}
+          <Link to="/video-to-jpg" className="text-cyan-400 underline hover:text-cyan-300">
+            JPG output
+          </Link>{' '}
+          is the right call whenever transparency and pixel-perfect fidelity are not required.
+        </p>
       </section>
 
       {/* ── LIMITATIONS & MEMORY WARNING ── */}
@@ -302,7 +399,15 @@ const VideoToPng: React.FC = () => {
         <h2 className="text-2xl md:text-3xl font-bold mb-6 font-display">
           More Free Online Frame Extractors
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <Link to="/video-to-jpg" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video to JPG</h3>
+            <p className="text-gray-500 text-xs">Same frames, much smaller files — when PNG is overkill.</p>
+          </Link>
+          <Link to="/video-to-frames" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video to Frames</h3>
+            <p className="text-gray-500 text-xs">FPS-controlled frame extraction in any format.</p>
+          </Link>
           <Link to="/mp4-to-jpg" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">MP4 to JPG</h3>
             <p className="text-gray-500 text-xs">Convert MP4 videos into high-quality JPGs.</p>
