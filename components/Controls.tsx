@@ -297,7 +297,7 @@ const Controls: React.FC<ControlsProps> = ({
               </>
               ) : cadenceMode === 'manual' ? (
               <>
-<label className="block text-xs font-semibold text-gray-400 mb-3 uppercase tracking-wider">{t('controls.manualTitle')}</label>
+              <label className="block text-xs font-semibold text-gray-400 mb-3 uppercase tracking-wider">{t('controls.manualTitle')}</label>
               <div className="space-y-3">
                 {MANUAL_FIELDS.map((field) => (
                   <div
@@ -380,7 +380,6 @@ const Controls: React.FC<ControlsProps> = ({
                 and gradual pans may be grouped into fewer scenes. Detection runs
                 entirely in your browser.
               </p>
-              </>
               </>
               )}
             </div>
