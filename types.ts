@@ -113,4 +113,3 @@ export const clampIntervalSeconds = (value: number): number => {
 /** Effective FPS for the extraction pipeline when running in interval mode. */
 export const intervalToFps = (intervalSeconds: number): number =>
   1 / clampIntervalSeconds(intervalSeconds);
-
