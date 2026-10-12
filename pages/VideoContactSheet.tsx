@@ -307,6 +307,10 @@ const VideoContactSheet: React.FC = () => {
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video to Sprite Sheet</h3>
             <p className="text-gray-500 text-xs">Game-ready sprite grids with JSON frame data.</p>
           </Link>
+          <Link to="/video-metadata-inspector" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video Metadata Inspector</h3>
+            <p className="text-gray-500 text-xs">Check a video's codec, container, FPS, and bitrate without uploading.</p>
+          </Link>
         </div>
       </section>
 
