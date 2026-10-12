@@ -347,6 +347,10 @@ const VideoToFrames: React.FC = () => {
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Cloudinary Comparison</h3>
             <p className="text-gray-500 text-xs">Honest look at Cloudinary's tool vs 100% local extraction.</p>
           </Link>
+          <Link to="/video-to-sprite-sheet" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video to Sprite Sheet</h3>
+            <p className="text-gray-500 text-xs">Turn video into game-ready sprite sheets with JSON data.</p>
+          </Link>
         </div>
       </section>
 

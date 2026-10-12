@@ -744,5 +744,13 @@
     "h1Sub": "Save Any Video’s Thumbnail in HD",
     "hero": "YouTube has no “download thumbnail” button — this is the next best thing. Paste any video link, preview every thumbnail resolution from 1280×720 HD down, and save the image free. No signup, no watermark, nothing uploaded.",
     "keywords": "youtube thumbnail downloader, download youtube thumbnail, yt thumbnail grabber, get thumbnail from youtube video, youtube thumbnail saver"
+  },
+  "videoToSpriteSheet": {
+    "title": "Video to Sprite Sheet Maker — Free for Game Developers",
+    "description": "Turn any video into a game-ready sprite sheet free — PNG grid plus JSON frame data for Unity & Godot. No upload, no signup, 100% in your browser.",
+    "h1": "Video to Sprite Sheet Maker",
+    "h1Sub": "Turn Video into Game-Ready Sprite Sheets",
+    "hero": "Film it once, animate it forever. Drop in any video clip and get a game-ready sprite sheet: one PNG grid plus JSON frame data that Unity and Godot understand. Free, no signup, nothing uploaded \u2014 your footage never leaves your browser.",
+    "keywords": "video to sprite sheet, sprite sheet maker, video to sprite animation, make sprite sheet from video, sprite sheet generator, video to game sprite"
   }
 }

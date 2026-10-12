@@ -303,6 +303,10 @@ const VideoContactSheet: React.FC = () => {
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Images to Video</h3>
             <p className="text-gray-500 text-xs">Stitch image sequences back into a video.</p>
           </Link>
+          <Link to="/video-to-sprite-sheet" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video to Sprite Sheet</h3>
+            <p className="text-gray-500 text-xs">Game-ready sprite grids with JSON frame data.</p>
+          </Link>
         </div>
       </section>
 
