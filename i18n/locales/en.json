@@ -623,7 +623,7 @@
   },
   "extractFrames": {
     "title": "Extract Frames from Video Online Free — JPG & PNG Frame Extractor",
-    "description": "Extract frames from video online for free. Convert MP4, MOV, and WEBM videos to JPG or PNG sequences in your browser. No server upload required.",
+    "description": "Extract frames from video free in your browser — JPG/PNG sequences, exact timestamps, or smart scene-change stills. MP4, MOV, WEBM. No upload required.",
     "h1": "Extract Frames from Video",
     "h1Sub": "Free Online Frame Extractor",
     "hero": "Extract every frame from MP4, MOV, and WEBM videos as JPG or PNG images for free. All processing happens locally in your browser — your files are never uploaded.",
@@ -744,29 +744,5 @@
     "h1Sub": "Save Any Video’s Thumbnail in HD",
     "hero": "YouTube has no “download thumbnail” button — this is the next best thing. Paste any video link, preview every thumbnail resolution from 1280×720 HD down, and save the image free. No signup, no watermark, nothing uploaded.",
     "keywords": "youtube thumbnail downloader, download youtube thumbnail, yt thumbnail grabber, get thumbnail from youtube video, youtube thumbnail saver"
-  },
-  "videoToSpriteSheet": {
-    "title": "Video to Sprite Sheet Maker — Free for Game Developers",
-    "description": "Turn any video into a game-ready sprite sheet free — PNG grid plus JSON frame data for Unity & Godot. No upload, no signup, 100% in your browser.",
-    "h1": "Video to Sprite Sheet Maker",
-    "h1Sub": "Turn Video into Game-Ready Sprite Sheets",
-    "hero": "Film it once, animate it forever. Drop in any video clip and get a game-ready sprite sheet: one PNG grid plus JSON frame data that Unity and Godot understand. Free, no signup, nothing uploaded — your footage never leaves your browser.",
-    "keywords": "video to sprite sheet, sprite sheet maker, video to sprite animation, make sprite sheet from video, sprite sheet generator, video to game sprite"
-  },
-  "videoNotesExtractor": {
-    "title": "Video Notes Extractor \u2014 Turn Lectures into Study Notes",
-    "description": "Turn lecture videos into study notes free \u2014 extract key frames, pick the ones you need, download as ZIP or PDF. No upload, no signup.",
-    "h1": "Video Notes Extractor",
-    "h1Sub": "Turn Lecture Videos into Study Notes",
-    "hero": "Stop screenshotting lectures one by one. Extract frames from any class recording, tick the key slides and diagrams in a visual gallery, and download them as a ZIP or a timestamped PDF \u2014 free, private, no signup.",
-    "keywords": "extract images from lecture video, lecture video to pdf, video to study notes, video lecture notes extractor, save frames from online class"
-  },
-  "gifToFrames": {
-    "title": "GIF to Frames \u2014 Free Online Extractor, No Signup",
-    "description": "Extract frames from any GIF or animated WebP free in your browser \u2014 download as JPG, PNG, or WebP images, or grab them all as a ZIP. No upload, no signup.",
-    "h1": "GIF to Frames",
-    "h1Sub": "Extract Every Frame in Your Browser",
-    "hero": "A GIF is a flipbook pretending to be a picture. Drop one in and pull it apart: every frame decoded locally with its timing and transparency intact, downloadable as JPG, PNG, or WebP \u2014 or all at once as a ZIP. Free, no signup, nothing uploaded.",
-    "keywords": "gif to frames, extract frames from gif, gif to image sequence, webp to frames, animated webp to frames, gif frame extractor"
   }
 }

@@ -3,7 +3,7 @@ import { Settings, Download, RefreshCcw, Video } from 'lucide-react';
 import {
   FrameRate, VideoMetadata, SUPPORTED_FPS, AppState, OutputFormat,
   CadenceMode, INTERVAL_PRESETS, MIN_INTERVAL_SECONDS, MAX_INTERVAL_SECONDS,
-  clampIntervalSeconds,
+  clampIntervalSeconds, MIN_SCENE_SENSITIVITY, MAX_SCENE_SENSITIVITY,
 } from '../types';
 import { formatBytes, formatTime } from '../utils/videoProcessor';
 import { useTranslation } from 'react-i18next';
@@ -16,6 +16,10 @@ interface ControlsProps {
   onCadenceModeChange: (mode: CadenceMode) => void;
   intervalSeconds: number;
   onIntervalSecondsChange: (seconds: number) => void;
+  sceneSensitivity: number;
+  onSceneSensitivityChange: (sensitivity: number) => void;
+  /** Live scene count during scene-mode detection; null before/after. */
+  detectedScenes: number | null;
   outputFormat: OutputFormat;
   onFormatChange: (f: OutputFormat) => void;
   onProcess: () => void;
@@ -31,15 +35,27 @@ const Controls: React.FC<ControlsProps> = ({
   onCadenceModeChange,
   intervalSeconds,
   onIntervalSecondsChange,
+  sceneSensitivity,
+  onSceneSensitivityChange,
+  detectedScenes,
   outputFormat,
   onFormatChange,
   onProcess,
   onReset,
 }) => {
   const { t } = useTranslation();
-  const estimatedFrames = cadenceMode === 'interval'
-    ? Math.max(1, Math.floor(videoMetadata.duration / intervalSeconds))
-    : Math.floor(videoMetadata.duration * selectedFps);
+  const estimatedFrames = cadenceMode === 'scene'
+    ? (detectedScenes ?? 0)
+    : cadenceMode === 'interval'
+      ? Math.max(1, Math.floor(videoMetadata.duration / intervalSeconds))
+      : Math.floor(videoMetadata.duration * selectedFps);
+  // In scene mode the count is unknown until detection runs; show "Auto".
+  const estimatedLabel = cadenceMode === 'scene' && detectedScenes == null
+    ? 'Auto'
+    : estimatedFrames.toLocaleString();
+
+  const sensitivityName =
+    sceneSensitivity < 34 ? 'Low' : sceneSensitivity < 67 ? 'Medium' : 'High';
 
   // Local text state for the custom interval input so typing stays smooth;
   // it re-syncs whenever a preset button changes the value from outside.
@@ -98,39 +114,34 @@ const Controls: React.FC<ControlsProps> = ({
               <label className="block text-xs font-semibold text-gray-400 mb-3 uppercase tracking-wider">{t('controls.extractionCadence')}</label>
 
               {/* Cadence mode toggle */}
-              <div className="grid grid-cols-2 gap-2 mb-4" role="tablist" aria-label={t('controls.extractionCadence')}>
-                <button
-                  type="button"
-                  role="tab"
-                  aria-selected={cadenceMode === 'fps'}
-                  onClick={() => onCadenceModeChange('fps')}
-                  className={`py-2.5 px-4 rounded-xl font-bold text-sm transition-all disabled:opacity-50 border ${
-                    cadenceMode === 'fps'
-                      ? 'bg-cyan-500 text-gray-950 border-cyan-500'
-                      : 'bg-gray-950 border-gray-800 text-gray-400 hover:border-gray-700'
-                  }`}
-                >
-                  {t('controls.byFps')}
-                </button>
-                <button
-                  type="button"
-                  role="tab"
-                  aria-selected={cadenceMode === 'interval'}
-                  onClick={() => onCadenceModeChange('interval')}
-                  className={`py-2.5 px-4 rounded-xl font-bold text-sm transition-all disabled:opacity-50 border ${
-                    cadenceMode === 'interval'
-                      ? 'bg-cyan-500 text-gray-950 border-cyan-500'
-                      : 'bg-gray-950 border-gray-800 text-gray-400 hover:border-gray-700'
-                  }`}
-                >
-                  {t('controls.everyNSeconds')}
-                </button>
+              <div className="grid grid-cols-3 gap-2 mb-4" role="tablist" aria-label={t('controls.extractionCadence')}>
+                {(
+                  [
+                    { mode: 'fps' as CadenceMode, label: t('controls.byFps') },
+                    { mode: 'interval' as CadenceMode, label: t('controls.everyNSeconds') },
+                    { mode: 'scene' as CadenceMode, label: 'Smart scenes' },
+                  ]
+                ).map(({ mode, label }) => (
+                  <button
+                    key={mode}
+                    type="button"
+                    role="tab"
+                    aria-selected={cadenceMode === mode}
+                    onClick={() => onCadenceModeChange(mode)}
+                    className={`py-2.5 px-2 rounded-xl font-bold text-xs sm:text-sm transition-all disabled:opacity-50 border ${
+                      cadenceMode === mode
+                        ? 'bg-cyan-500 text-gray-950 border-cyan-500'
+                        : 'bg-gray-950 border-gray-800 text-gray-400 hover:border-gray-700'
+                    }`}
+                  >
+                    {label}
+                  </button>
+                ))}
               </div>
 
               {cadenceMode === 'fps' ? (
               <>
               <label className="block text-xs font-semibold text-gray-400 mb-3 uppercase tracking-wider">{t('controls.frameRate')}</label>
-
               <div className="space-y-5">
                 <div className="relative">
                   <select
@@ -171,7 +182,7 @@ const Controls: React.FC<ControlsProps> = ({
                 </div>
               </div>
               </>
-              ) : (
+              ) : cadenceMode === 'interval' ? (
               <>
               <label className="block text-xs font-semibold text-gray-400 mb-3 uppercase tracking-wider">{t('controls.intervalLabel')}</label>
               <div className="flex flex-wrap gap-2">
@@ -210,6 +221,40 @@ const Controls: React.FC<ControlsProps> = ({
               </div>
               <p className="text-gray-500 text-[11px] mt-3 font-medium">
                 {t('controls.intervalDesc')}
+              </p>
+              </>
+              ) : (
+              <>
+              <label htmlFor="scene-sensitivity" className="block text-xs font-semibold text-gray-400 mb-3 uppercase tracking-wider">
+                Scene sensitivity — <span className="text-cyan-400">{sensitivityName}</span>
+              </label>
+              <input
+                id="scene-sensitivity"
+                type="range"
+                min={MIN_SCENE_SENSITIVITY}
+                max={MAX_SCENE_SENSITIVITY}
+                step="1"
+                value={sceneSensitivity}
+                onChange={(e) => onSceneSensitivityChange(Number(e.target.value))}
+                className="w-full h-1.5 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-cyan-400"
+                title={`Scene sensitivity: ${sceneSensitivity}`}
+              />
+              <div className="flex justify-between text-xs text-gray-500 mt-3 font-mono">
+                <span>Low</span>
+                <span>Medium</span>
+                <span>High</span>
+              </div>
+              {detectedScenes != null && (
+                <p className="text-cyan-400 text-xs mt-3 font-semibold">
+                  {detectedScenes} {detectedScenes === 1 ? 'scene' : 'scenes'} detected
+                </p>
+              )}
+              <p className="text-gray-500 text-[11px] mt-3 font-medium leading-relaxed">
+                Samples your video ~2× per second and keeps one frame each time the
+                picture changes significantly — ideal for lectures, tutorials, and
+                screen recordings. Works best on videos with clear cuts; slow fades
+                and gradual pans may be grouped into fewer scenes. Detection runs
+                entirely in your browser.
               </p>
               </>
               )}
@@ -261,9 +306,9 @@ const Controls: React.FC<ControlsProps> = ({
             
             <div className="bg-cyan-950/20 border-l-2 border-cyan-500 rounded-r-xl p-4 flex justify-between items-center">
                <span className="text-sm font-medium text-gray-300">{t('controls.estimatedOutput')}</span>
-               <span className="text-xl font-bold text-white font-mono">{estimatedFrames.toLocaleString()} <span className="text-xs font-medium text-cyan-400 tracking-wider">{t('controls.estimatedImages')}</span></span>
+               <span className="text-xl font-bold text-white font-mono">{estimatedLabel} <span className="text-xs font-medium text-cyan-400 tracking-wider">{t('controls.estimatedImages')}</span></span>
             </div>
-            {estimatedFrames > 1000 && (
+            {cadenceMode !== 'scene' && estimatedFrames > 1000 && (
               <p className="text-yellow-400 text-xs mt-2">
                 {t('controls.mobileSlowWarning', { count: estimatedFrames.toLocaleString() })}
               </p>
