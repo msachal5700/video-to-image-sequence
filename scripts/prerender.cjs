@@ -103,6 +103,7 @@ const routes = [
   '/gif-to-frames',
   '/video-notes-extractor',
   '/video-to-sprite-sheet',
+  '/video-color-palette',
 
   '/privacy',
   '/terms',
@@ -183,6 +184,7 @@ const routeTextMap = {
   '/gif-to-frames': 'GIF to Frames',
   '/video-notes-extractor': 'Video Notes Extractor',
   '/video-to-sprite-sheet': 'Video to Sprite Sheet',
+  '/video-color-palette': 'Video Color Palette Extractor',
 
   '/privacy': 'Privacy',
   '/terms': 'Terms',

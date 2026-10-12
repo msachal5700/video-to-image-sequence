@@ -359,6 +359,10 @@ const VideoToFrames: React.FC = () => {
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video to Sprite Sheet</h3>
             <p className="text-gray-500 text-xs">Turn video into game-ready sprite sheets with JSON data.</p>
           </Link>
+          <Link to="/video-color-palette" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video Color Palette</h3>
+            <p className="text-gray-500 text-xs">Extract dominant HEX/RGB colors from any video.</p>
+          </Link>
         </div>
       </section>
 
