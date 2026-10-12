@@ -540,6 +540,10 @@ const VideoToGif: React.FC = () => {
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Images to Video</h3>
             <p className="text-gray-500 text-xs">Turn image sequences back into video.</p>
           </Link>
+          <Link to="/gif-to-frames" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">GIF to Frames</h3>
+            <p className="text-gray-500 text-xs">Pull any GIF apart into downloadable still frames.</p>
+          </Link>
         </div>
       </section>
 
