@@ -794,5 +794,13 @@
     "h1Sub": "Turn Any Frame into a Click-Worthy Thumbnail",
     "hero": "Your video already contains the perfect thumbnail \u2014 you just haven\u2019t grabbed it yet. Upload any clip, scrub to the exact frame, add bold text and arrows, and export a crisp 1280\u00d7720 thumbnail. Free, no signup, nothing uploaded.",
     "keywords": "video thumbnail maker, make thumbnail from video, youtube thumbnail from video frame, create thumbnail from video, video frame thumbnail maker"
+  },
+  "videoMetadataInspector": {
+    "title": "Video Metadata Inspector — Check Codec, FPS & Info Free",
+    "description": "Read video metadata free in your browser — container, codec, resolution, FPS, bitrate, and creation date revealed without uploading. No signup, fully private.",
+    "h1": "Video Metadata Inspector",
+    "h1Sub": "Read Every Detail of Your Video File",
+    "hero": "Drop in any video and read its hidden dossier: container, codecs, resolution, frame rate, bitrate, and creation date — parsed from the file header on your device. Free, no signup, nothing uploaded.",
+    "keywords": "video metadata viewer, check video codec online, mp4 metadata inspector, video file info, read video metadata, video bitrate checker"
   }
 }
