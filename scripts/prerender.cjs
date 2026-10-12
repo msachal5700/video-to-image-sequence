@@ -17,7 +17,6 @@ fs.copyFileSync(ORIGINAL_INDEX, TEMP_INDEX);
 console.log('Created temporary index.temp.html for pre-rendering...');
 
 const server = http.createServer((req, res) => {
-  console.error('REQ', req.url);
   let filePath = path.join(DIST_DIR, decodeURIComponent(req.url));
   if (!path.extname(filePath)) {
     filePath = TEMP_INDEX;
@@ -104,8 +103,7 @@ const routes = [
   '/gif-to-frames',
   '/video-notes-extractor',
   '/video-to-sprite-sheet',
-  '/video-color-palette',
-  '/video-thumbnail-maker',
+  '/video-metadata-inspector',
 
   '/privacy',
   '/terms',
@@ -186,8 +184,7 @@ const routeTextMap = {
   '/gif-to-frames': 'GIF to Frames',
   '/video-notes-extractor': 'Video Notes Extractor',
   '/video-to-sprite-sheet': 'Video to Sprite Sheet',
-  '/video-color-palette': 'Video Color Palette Extractor',
-  '/video-thumbnail-maker': 'Video Thumbnail Maker',
+  '/video-metadata-inspector': 'Video Metadata Inspector',
 
   '/privacy': 'Privacy',
   '/terms': 'Terms',

@@ -23,7 +23,6 @@
     "reportLink": "Something not working? Report a problem"
   },
   "common": {
-    "processedFramesText": "Processed {{processed}} of {{total}} frames",
     "freeForever": "Free Forever",
     "noUpload": "No Server Upload",
     "localProcessing": "Local Browser Processing",
@@ -64,15 +63,6 @@
     "support": "MP4, MOV, WEBM supported · Large files depend on your device and browser · Drop multiple files for batch"
   },
   "controls": {
-    "manualTab": "Manual",
-    "manualTitle": "Custom interval",
-    "manualDesc": "Type your own extraction interval. Each option converts to an effective frame rate.",
-    "manualFpsLabel": "Frames per second",
-    "manualSecondsLabel": "Every N seconds",
-    "manualMinutesLabel": "Every N minutes",
-    "manualInvalid": "Please enter a positive number.",
-    "manualEstimate": "\u2248 {{count}} frames from this {{duration}} video",
-    "manualOutOfRange": "Enter a value between {{min}} and {{max}}.",
     "outputFormat": "Output Image Format",
     "frameRate": "Output Frame Rate (FPS)",
     "format": "Output Format",
@@ -747,14 +737,6 @@
     "hero": "Your videos are full of photos you never took. Drop in any MP4, MOV, or WEBM, pick the perfect moment, and save it as a full-quality JPG or PNG — right in your browser, on any device. Nothing is uploaded, ever.",
     "keywords": "video to photo, convert video to photo, save video frame as photo, video to picture, extract photo from video, video frame to photo"
   },
-  "videoColorPalette": {
-    "title": "Extract Color Palette from Video \u2014 Free, No Signup",
-    "description": "Extract a color palette from any video free in your browser. Get dominant HEX/RGB swatches from MP4, MOV, or WEBM \u2014 no upload, no signup, no watermark.",
-    "h1": "Video Color Palette Extractor",
-    "h1Sub": "Dominant Colors from Any Video",
-    "hero": "Turn any video into a designer-ready color palette. Sample frames across the footage, extract the dominant HEX and RGB colors, and copy them straight into Figma, CSS, or your brand kit \u2014 free, in your browser, nothing uploaded ever.",
-    "keywords": "extract color palette from video, video color palette generator, video to color palette, dominant colors from video, video color scheme extractor, get hex colors from video"
-  },
   "youtubeThumbnailDownloader": {
     "title": "YouTube Thumbnail Downloader — Free HD, No Signup",
     "description": "Download any YouTube thumbnail in HD free — paste the video URL, preview every resolution, save the image. No signup, no watermark, works on any device.",
@@ -779,6 +761,15 @@
     "hero": "Stop screenshotting lectures one by one. Extract frames from any class recording, tick the key slides and diagrams in a visual gallery, and download them as a ZIP or a timestamped PDF \u2014 free, private, no signup.",
     "keywords": "extract images from lecture video, lecture video to pdf, video to study notes, video lecture notes extractor, save frames from online class"
   },
+  "videoNotesExtractor": {
+    "title": "Video Notes Extractor \u2014 Turn Lectures into Study Notes",
+    "description": "Turn lecture videos into study notes free \u2014 extract key frames, pick the ones you need, download as ZIP or PDF. No upload, no signup.",
+    "h1": "Video Notes Extractor",
+    "h1Sub": "Turn Lecture Videos into Study Notes",
+    "hero": "Stop screenshotting lectures one by one. Extract frames from any class recording, tick the key slides and diagrams in a visual gallery, and download them as a ZIP or a timestamped PDF \u2014 free, private, no signup.",
+    "keywords": "extract images from lecture video, lecture video to pdf, video to study notes, video lecture notes extractor, save frames from online class"
+  }
+,
   "gifToFrames": {
     "title": "GIF to Frames \u2014 Free Online Extractor, No Signup",
     "description": "Extract frames from any GIF or animated WebP free in your browser \u2014 download as JPG, PNG, or WebP images, or grab them all as a ZIP. No upload, no signup.",
@@ -787,12 +778,12 @@
     "hero": "A GIF is a flipbook pretending to be a picture. Drop one in and pull it apart: every frame decoded locally with its timing and transparency intact, downloadable as JPG, PNG, or WebP \u2014 or all at once as a ZIP. Free, no signup, nothing uploaded.",
     "keywords": "gif to frames, extract frames from gif, gif to image sequence, webp to frames, animated webp to frames, gif frame extractor"
   },
-  "videoThumbnailMaker": {
-    "title": "Video Thumbnail Maker \u2014 Free, No Signup Needed",
-    "description": "Make a YouTube thumbnail from any video frame \u2014 pick the perfect moment, add text and arrows, export 1280\u00d7720. Free in your browser, no signup, no watermark.",
-    "h1": "Video Thumbnail Maker",
-    "h1Sub": "Turn Any Frame into a Click-Worthy Thumbnail",
-    "hero": "Your video already contains the perfect thumbnail \u2014 you just haven\u2019t grabbed it yet. Upload any clip, scrub to the exact frame, add bold text and arrows, and export a crisp 1280\u00d7720 thumbnail. Free, no signup, nothing uploaded.",
-    "keywords": "video thumbnail maker, make thumbnail from video, youtube thumbnail from video frame, create thumbnail from video, video frame thumbnail maker"
+  "videoMetadataInspector": {
+    "title": "Video Metadata Inspector — Check Codec, FPS & Info Free",
+    "description": "Read video metadata free in your browser — container, codec, resolution, FPS, bitrate, and creation date revealed without uploading. No signup, fully private.",
+    "h1": "Video Metadata Inspector",
+    "h1Sub": "Read Every Detail of Your Video File",
+    "hero": "Drop in any video and read its hidden dossier: container, codecs, resolution, frame rate, bitrate, and creation date — parsed from the file header on your device. Free, no signup, nothing uploaded.",
+    "keywords": "video metadata viewer, check video codec online, mp4 metadata inspector, video file info, read video metadata, video bitrate checker"
   }
 }
