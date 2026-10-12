@@ -23,6 +23,7 @@
     "reportLink": "Something not working? Report a problem"
   },
   "common": {
+    "processedFramesText": "Processed {{processed}} of {{total}} frames",
     "freeForever": "Free Forever",
     "noUpload": "No Server Upload",
     "localProcessing": "Local Browser Processing",
@@ -63,6 +64,15 @@
     "support": "MP4, MOV, WEBM supported · Large files depend on your device and browser · Drop multiple files for batch"
   },
   "controls": {
+    "manualTab": "Manual",
+    "manualTitle": "Custom interval",
+    "manualDesc": "Type your own extraction interval. Each option converts to an effective frame rate.",
+    "manualFpsLabel": "Frames per second",
+    "manualSecondsLabel": "Every N seconds",
+    "manualMinutesLabel": "Every N minutes",
+    "manualInvalid": "Please enter a positive number.",
+    "manualEstimate": "\u2248 {{count}} frames from this {{duration}} video",
+    "manualOutOfRange": "Enter a value between {{min}} and {{max}}.",
     "outputFormat": "Output Image Format",
     "frameRate": "Output Frame Rate (FPS)",
     "format": "Output Format",

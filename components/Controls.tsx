@@ -3,7 +3,9 @@ import { Settings, Download, RefreshCcw, Video } from 'lucide-react';
 import {
   FrameRate, VideoMetadata, SUPPORTED_FPS, AppState, OutputFormat,
   CadenceMode, INTERVAL_PRESETS, MIN_INTERVAL_SECONDS, MAX_INTERVAL_SECONDS,
-  clampIntervalSeconds,
+  clampIntervalSeconds, ManualUnit, MIN_MANUAL_FPS, MAX_MANUAL_FPS,
+  MIN_MANUAL_SECONDS, MAX_MANUAL_SECONDS, MIN_MANUAL_MINUTES, MAX_MANUAL_MINUTES,
+  clampManualFps, clampManualSeconds, clampManualMinutes, manualToFps,
 } from '../types';
 import { formatBytes, formatTime } from '../utils/videoProcessor';
 import { useTranslation } from 'react-i18next';
@@ -16,6 +18,10 @@ interface ControlsProps {
   onCadenceModeChange: (mode: CadenceMode) => void;
   intervalSeconds: number;
   onIntervalSecondsChange: (seconds: number) => void;
+  manualUnit: ManualUnit;
+  onManualUnitChange: (unit: ManualUnit) => void;
+  manualValue: number;
+  onManualValueChange: (value: number) => void;
   outputFormat: OutputFormat;
   onFormatChange: (f: OutputFormat) => void;
   onProcess: () => void;
@@ -31,15 +37,22 @@ const Controls: React.FC<ControlsProps> = ({
   onCadenceModeChange,
   intervalSeconds,
   onIntervalSecondsChange,
+  manualUnit,
+  onManualUnitChange,
+  manualValue,
+  onManualValueChange,
   outputFormat,
   onFormatChange,
   onProcess,
   onReset,
 }) => {
   const { t } = useTranslation();
+  const manualFps = manualToFps(manualUnit, manualValue);
   const estimatedFrames = cadenceMode === 'interval'
     ? Math.max(1, Math.floor(videoMetadata.duration / intervalSeconds))
-    : Math.floor(videoMetadata.duration * selectedFps);
+    : cadenceMode === 'manual'
+      ? Math.max(1, Math.floor(videoMetadata.duration * manualFps))
+      : Math.floor(videoMetadata.duration * selectedFps);
 
   // Local text state for the custom interval input so typing stays smooth;
   // it re-syncs whenever a preset button changes the value from outside.
@@ -52,6 +65,33 @@ const Controls: React.FC<ControlsProps> = ({
     const clamped = clampIntervalSeconds(Number(customInput));
     onIntervalSecondsChange(clamped);
     setCustomInput(String(clamped));
+  };
+
+  // Manual/custom cadence: three numeric inputs (FPS, seconds, minutes).
+  // Local text state per field keeps typing smooth; editing a field selects it.
+  const [manualInputs, setManualInputs] = useState({ fps: '2', seconds: '5', minutes: '1' });
+  const [manualError, setManualError] = useState<string | null>(null);
+
+  const MANUAL_FIELDS: { unit: ManualUnit; label: string; min: number; max: number; clamp: (v: number) => number }[] = [
+    { unit: 'fps', label: t('controls.manualFpsLabel'), min: MIN_MANUAL_FPS, max: MAX_MANUAL_FPS, clamp: clampManualFps },
+    { unit: 'seconds', label: t('controls.manualSecondsLabel'), min: MIN_MANUAL_SECONDS, max: MAX_MANUAL_SECONDS, clamp: clampManualSeconds },
+    { unit: 'minutes', label: t('controls.manualMinutesLabel'), min: MIN_MANUAL_MINUTES, max: MAX_MANUAL_MINUTES, clamp: clampManualMinutes },
+  ];
+
+  const applyManualField = (unit: ManualUnit) => {
+    const field = MANUAL_FIELDS.find(f => f.unit === unit)!;
+    const raw = Number(manualInputs[unit]);
+    if (!Number.isFinite(raw) || raw <= 0) {
+      setManualError(t('controls.manualInvalid'));
+      return;
+    }
+    if (raw < field.min || raw > field.max) {
+      setManualError(t('controls.manualOutOfRange', { min: field.min, max: field.max }));
+      return;
+    }
+    setManualError(null);
+    onManualUnitChange(unit);
+    onManualValueChange(raw);
   };
 
   return (
@@ -98,7 +138,7 @@ const Controls: React.FC<ControlsProps> = ({
               <label className="block text-xs font-semibold text-gray-400 mb-3 uppercase tracking-wider">{t('controls.extractionCadence')}</label>
 
               {/* Cadence mode toggle */}
-              <div className="grid grid-cols-2 gap-2 mb-4" role="tablist" aria-label={t('controls.extractionCadence')}>
+              <div className="grid grid-cols-3 gap-2 mb-4" role="tablist" aria-label={t('controls.extractionCadence')}>
                 <button
                   type="button"
                   role="tab"
@@ -124,6 +164,19 @@ const Controls: React.FC<ControlsProps> = ({
                   }`}
                 >
                   {t('controls.everyNSeconds')}
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={cadenceMode === 'manual'}
+                  onClick={() => onCadenceModeChange('manual')}
+                  className={`py-2.5 px-4 rounded-xl font-bold text-sm transition-all disabled:opacity-50 border ${
+                    cadenceMode === 'manual'
+                      ? 'bg-cyan-500 text-gray-950 border-cyan-500'
+                      : 'bg-gray-950 border-gray-800 text-gray-400 hover:border-gray-700'
+                  }`}
+                >
+                  {t('controls.manualTab')}
                 </button>
               </div>
 
@@ -171,7 +224,7 @@ const Controls: React.FC<ControlsProps> = ({
                 </div>
               </div>
               </>
-              ) : (
+              ) : cadenceMode === 'interval' ? (
               <>
               <label className="block text-xs font-semibold text-gray-400 mb-3 uppercase tracking-wider">{t('controls.intervalLabel')}</label>
               <div className="flex flex-wrap gap-2">
@@ -210,6 +263,58 @@ const Controls: React.FC<ControlsProps> = ({
               </div>
               <p className="text-gray-500 text-[11px] mt-3 font-medium">
                 {t('controls.intervalDesc')}
+              </p>
+              </>
+              ) : (
+              <>
+              <label className="block text-xs font-semibold text-gray-400 mb-3 uppercase tracking-wider">{t('controls.manualTitle')}</label>
+              <div className="space-y-3">
+                {MANUAL_FIELDS.map((field) => (
+                  <div
+                    key={field.unit}
+                    onClick={() => applyManualField(field.unit)}
+                    className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition-all ${
+                      manualUnit === field.unit
+                        ? 'bg-cyan-950/20 border-cyan-500/60'
+                        : 'bg-gray-950 border-gray-800 hover:border-gray-700'
+                    }`}
+                  >
+                    <span
+                      className={`w-4 h-4 rounded-full border-2 flex-shrink-0 flex items-center justify-center ${
+                        manualUnit === field.unit ? 'border-cyan-400' : 'border-gray-600'
+                      }`}
+                      aria-hidden="true"
+                    >
+                      {manualUnit === field.unit && <span className="w-2 h-2 rounded-full bg-cyan-400" />}
+                    </span>
+                    <span className="text-xs font-semibold text-gray-300 flex-1">{field.label}</span>
+                    <input
+                      type="number"
+                      min={field.min}
+                      max={field.max}
+                      step="any"
+                      value={manualInputs[field.unit]}
+                      onChange={(e) => {
+                        setManualInputs(prev => ({ ...prev, [field.unit]: e.target.value }));
+                      }}
+                      onBlur={() => applyManualField(field.unit)}
+                      onKeyDown={(e) => { if (e.key === 'Enter') (e.target as HTMLInputElement).blur(); }}
+                      onClick={(e) => e.stopPropagation()}
+                      className="w-24 bg-gray-950 border border-gray-800 text-white font-mono font-bold rounded-xl py-2.5 px-3 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
+                      aria-label={field.label}
+                    />
+                    <span className="text-[10px] text-gray-500 font-mono w-16 shrink-0">{field.min}–{field.max}</span>
+                  </div>
+                ))}
+              </div>
+              {manualError && (
+                <p className="text-red-400 text-xs mt-2 font-medium" role="alert">{manualError}</p>
+              )}
+              <p className="text-gray-500 text-[11px] mt-3 font-medium">
+                {t('controls.manualDesc')}
+              </p>
+              <p className="text-cyan-400 text-xs mt-2 font-mono font-bold">
+                {t('controls.manualEstimate', { count: estimatedFrames.toLocaleString(), duration: formatTime(videoMetadata.duration) })}
               </p>
               </>
               )}

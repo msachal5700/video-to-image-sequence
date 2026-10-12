@@ -3,7 +3,7 @@ import { Loader2, CheckCircle2, Download, AlertTriangle, Eye, X, Film, Copy } fr
 import Dropzone from '../components/Dropzone';
 import Controls from '../components/Controls';
 import InterstitialAd from '../components/InterstitialAd';
-import { AppState, FrameRate, VideoMetadata, ProcessingStats, OutputFormat, CadenceMode, clampIntervalSeconds } from '../types';
+import { AppState, FrameRate, VideoMetadata, ProcessingStats, OutputFormat, CadenceMode, ManualUnit, clampIntervalSeconds, manualToFps } from '../types';
 import { extractFramesAndZip, formatTime } from '../utils/videoProcessor';
 import { useToast } from '../components/Toast';
 import { openFeedbackWidget } from '../components/FeedbackWidget';
@@ -37,6 +37,8 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
   const [selectedFps, setSelectedFps] = useState<FrameRate>(30);
   const [cadenceMode, setCadenceMode] = useState<CadenceMode>(initialIntervalSeconds != null ? 'interval' : 'fps');
   const [intervalSeconds, setIntervalSeconds] = useState<number>(() => clampIntervalSeconds(initialIntervalSeconds ?? 5));
+  const [manualUnit, setManualUnit] = useState<ManualUnit>('fps');
+  const [manualValue, setManualValue] = useState<number>(2);
   const [outputFormat, setOutputFormat] = useState<OutputFormat>('jpg');
   const [processingStats, setProcessingStats] = useState<ProcessingStats | null>(null);
   const [showInterstitial, setShowInterstitial] = useState(false);
@@ -137,13 +139,19 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
 
     // "Every N seconds" reuses the same extraction pipeline — only the frame
     // cadence changes, expressed to the engine as a fractional FPS of 1/N.
-    // The lower bound guarantees at least one frame even for very short clips.
+    // Manual mode likewise converts the custom unit (fps/seconds/minutes)
+    // into an effective FPS. The lower bound guarantees at least one frame
+    // even for very short clips.
     const effectiveFps = cadenceMode === 'interval'
       ? Math.max(1 / intervalSeconds, videoMetadata ? 1 / Math.max(videoMetadata.duration, 0.001) : 0)
-      : selectedFps;
+      : cadenceMode === 'manual'
+        ? Math.max(manualToFps(manualUnit, manualValue), videoMetadata ? 1 / Math.max(videoMetadata.duration, 0.001) : 0)
+        : selectedFps;
     const zipSuffix = cadenceMode === 'interval'
       ? `every_${intervalSeconds}s`
-      : `${selectedFps}fps`;
+      : cadenceMode === 'manual'
+        ? `manual_${manualValue}${manualUnit}`
+        : `${selectedFps}fps`;
 
     for (let i = currentQueueIndex; i < queue.length; i++) {
         if (cancelRef.current) break;
@@ -211,7 +219,7 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
           showToast('Frames extracted successfully! Your ZIP is ready to download.', 'success');
         }
     }
-  }, [queue, currentQueueIndex, selectedFps, cadenceMode, intervalSeconds, videoMetadata, outputFormat, completedZips, handleFrame, cleanupFrameUrls, showToast]);
+  }, [queue, currentQueueIndex, selectedFps, cadenceMode, intervalSeconds, manualUnit, manualValue, videoMetadata, outputFormat, completedZips, handleFrame, cleanupFrameUrls, showToast]);
 
   const handleCancelQueue = () => {
     cancelRef.current = true;
@@ -233,6 +241,8 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
     setErrorMessage(null);
     setRawError(null);
     setDownloadStarted(false);
+    setManualUnit('fps');
+    setManualValue(2);
     
     cleanupFrameUrls();
     setExtractedFrames([]);
@@ -328,6 +338,10 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
                   onCadenceModeChange={setCadenceMode}
                   intervalSeconds={intervalSeconds}
                   onIntervalSecondsChange={(s) => setIntervalSeconds(clampIntervalSeconds(s))}
+                  manualUnit={manualUnit}
+                  onManualUnitChange={setManualUnit}
+                  manualValue={manualValue}
+                  onManualValueChange={setManualValue}
                   outputFormat={outputFormat}
                   onFormatChange={setOutputFormat}
                   onProcess={initiateProcess}

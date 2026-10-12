@@ -38,6 +38,18 @@ const faqs = [
     a: 'No server upload required. Processing happens in your browser, so large files depend on your device memory, browser performance, video length, and codec support. Browser memory limits typically range from 1GB to 4GB for video processing.'
   },
   {
+    q: 'Can I extract frames at a custom interval, like every 2.5 seconds?',
+    a: 'Yes. Use the Manual tab in the extraction settings to type any interval — every N seconds (decimals allowed, e.g. 2.5s), every N minutes, or an exact manual FPS like 0.5. The tool shows a live estimate of how many frames your video will produce before you extract.'
+  },
+  {
+    q: 'What is manual FPS extraction and when should I use it?',
+    a: 'Manual FPS lets you set an exact frame rate instead of a preset — anything from 0.1 to 60 frames per second. Use a low manual FPS (e.g. 0.5 or 1) for long recordings, timelapses, and lectures where presets are too dense; use higher values for slow-motion analysis or dense AI training datasets. Extraction still runs 100% in your browser with the same ZIP download.'
+  },
+  {
+    q: 'Is there a limit on how many frames I can extract with a custom interval?',
+    a: 'Extraction is capped at 5,000 frames per run to protect browser memory. If your manual setting would exceed that — e.g. a high FPS on a long video — use a lower FPS or a wider interval, or split the video into shorter clips.'
+  },
+  {
     q: 'Should I export frames as JPG or PNG?',
     a: 'Use JPG for smaller file sizes and fast downloads. Use PNG if you require lossless quality or need to preserve transparency (alpha channel) for compositing work in video editing or VFX pipelines.'
   }
