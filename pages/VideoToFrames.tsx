@@ -323,6 +323,10 @@ const VideoToFrames: React.FC = () => {
           More Free Frame Tools
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          <Link to="/video-notes-extractor" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video Notes Extractor</h3>
+            <p className="text-gray-500 text-xs">Turn lecture videos into study notes — pick frames, download ZIP or PDF.</p>
+          </Link>
           <Link to="/video-to-jpg" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video to JPG</h3>
             <p className="text-gray-500 text-xs">Convert any video into JPG still images.</p>
@@ -346,6 +350,14 @@ const VideoToFrames: React.FC = () => {
           <Link to="/blog/cloudinary-video-to-image-sequence-alternative" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Cloudinary Comparison</h3>
             <p className="text-gray-500 text-xs">Honest look at Cloudinary's tool vs 100% local extraction.</p>
+          </Link>
+          <Link to="/gif-to-frames" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">GIF to Frames</h3>
+            <p className="text-gray-500 text-xs">Extract still frames from animated GIFs and WebP.</p>
+          </Link>
+          <Link to="/video-to-sprite-sheet" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video to Sprite Sheet</h3>
+            <p className="text-gray-500 text-xs">Turn video into game-ready sprite sheets with JSON data.</p>
           </Link>
         </div>
       </section>

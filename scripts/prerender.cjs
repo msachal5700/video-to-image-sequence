@@ -100,6 +100,9 @@ const routes = [
   '/video-frame-extractor',
   '/video-to-photo',
   '/youtube-thumbnail-downloader',
+  '/gif-to-frames',
+  '/video-to-sprite-sheet',
+  '/video-notes-extractor',
 
   '/privacy',
   '/terms',
@@ -177,6 +180,9 @@ const routeTextMap = {
   '/video-frame-extractor': 'Video Frame Extractor',
   '/video-to-photo': 'Video to Photo Converter',
   '/youtube-thumbnail-downloader': 'YouTube Thumbnail Downloader',
+  '/gif-to-frames': 'GIF to Frames',
+  '/video-to-sprite-sheet': 'Video to Sprite Sheet',
+  '/video-notes-extractor': 'Video Notes Extractor',
 
   '/privacy': 'Privacy',
   '/terms': 'Terms',
