@@ -342,6 +342,10 @@ const YoutubeThumbnailDownloader: React.FC = () => {
       <section className="max-w-4xl mx-auto px-4 mt-2">
         <p className="text-center text-sm text-gray-500">
           Want to <em>make</em> a thumbnail from your own video instead? Try our{' '}
+          <Link to="/video-thumbnail-maker" className="text-cyan-400 hover:underline">
+            video thumbnail maker
+          </Link>{' '}
+          — pick any frame, add text and arrows, export at 1280×720. Or use the{' '}
           <Link to="/video-frame-for-youtube-thumbnail" className="text-cyan-400 hover:underline">
             frame extractor for YouTube thumbnails
           </Link>

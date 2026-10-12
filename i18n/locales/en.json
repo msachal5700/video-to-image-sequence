@@ -795,5 +795,13 @@
     "h1Sub": "Extract Every Frame in Your Browser",
     "hero": "A GIF is a flipbook pretending to be a picture. Drop one in and pull it apart: every frame decoded locally with its timing and transparency intact, downloadable as JPG, PNG, or WebP \u2014 or all at once as a ZIP. Free, no signup, nothing uploaded.",
     "keywords": "gif to frames, extract frames from gif, gif to image sequence, webp to frames, animated webp to frames, gif frame extractor"
+  },
+  "videoThumbnailMaker": {
+    "title": "Video Thumbnail Maker \u2014 Free, No Signup Needed",
+    "description": "Make a YouTube thumbnail from any video frame \u2014 pick the perfect moment, add text and arrows, export 1280\u00d7720. Free in your browser, no signup, no watermark.",
+    "h1": "Video Thumbnail Maker",
+    "h1Sub": "Turn Any Frame into a Click-Worthy Thumbnail",
+    "hero": "Your video already contains the perfect thumbnail \u2014 you just haven\u2019t grabbed it yet. Upload any clip, scrub to the exact frame, add bold text and arrows, and export a crisp 1280\u00d7720 thumbnail. Free, no signup, nothing uploaded.",
+    "keywords": "video thumbnail maker, make thumbnail from video, youtube thumbnail from video frame, create thumbnail from video, video frame thumbnail maker"
   }
 }
