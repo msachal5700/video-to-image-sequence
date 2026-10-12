@@ -22,7 +22,8 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-i18next": "^17.0.8",
-    "react-router-dom": "^6.30.3"
+    "react-router-dom": "^6.30.3",
+    "jspdf": "^4.2.1"
   },
   "devDependencies": {
     "@sparticuz/chromium-min": "^148.0.0",

@@ -295,6 +295,10 @@ const ExtractFramesFromVideo: React.FC = () => {
           Prefer evenly spaced stills over a fixed frame rate? These presets capture one frame at a fixed time interval — perfect for timelapses, contact sheets, and thumbnail hunting.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          <Link to="/video-notes-extractor" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video Notes Extractor</h3>
+            <p className="text-gray-500 text-xs">Turn lecture videos into study notes — pick frames, download ZIP or PDF.</p>
+          </Link>
           <Link to="/extract-frame-every-1-second" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Every 1 Second</h3>
             <p className="text-gray-500 text-xs">Dense sampling — about 60 stills per minute of video.</p>
