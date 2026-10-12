@@ -23,6 +23,7 @@
     "reportLink": "Something not working? Report a problem"
   },
   "common": {
+    "processedFramesText": "Processed {{processed}} of {{total}} frames",
     "freeForever": "Free Forever",
     "noUpload": "No Server Upload",
     "localProcessing": "Local Browser Processing",
@@ -70,8 +71,8 @@
     "manualSecondsLabel": "Every N seconds",
     "manualMinutesLabel": "Every N minutes",
     "manualInvalid": "Please enter a positive number.",
-    "manualEstimate": "\u2248 {count} frames from this {duration} video",
-    "manualOutOfRange": "Enter a value between {min} and {max}.",
+    "manualEstimate": "\u2248 {{count}} frames from this {{duration}} video",
+    "manualOutOfRange": "Enter a value between {{min}} and {{max}}.",
     "outputFormat": "Output Image Format",
     "frameRate": "Output Frame Rate (FPS)",
     "format": "Output Format",
