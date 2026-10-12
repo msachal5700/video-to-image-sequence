@@ -228,6 +228,18 @@ const Header: React.FC = () => {
               <span>YouTube Thumbnail Downloader</span>
               <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold mr-2">NEW</span>
             </Link>
+              <Link to="/gif-to-frames" onClick={() => setOpen(false)} className="pl-2 font-medium flex items-center justify-between">
+              <span>GIF to Frames</span>
+              <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold mr-2">NEW</span>
+            </Link>
+              <Link to="/video-to-sprite-sheet" onClick={() => setOpen(false)} className="pl-2 font-medium flex items-center justify-between">
+              <span>Video to Sprite Sheet</span>
+              <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold mr-2">NEW</span>
+            </Link>
+              <Link to="/video-notes-extractor" onClick={() => setOpen(false)} className="pl-2 font-medium flex items-center justify-between">
+              <span>Video Notes Extractor</span>
+              <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold mr-2">NEW</span>
+            </Link>
             <Link to="/video-thumbnail-maker" onClick={() => setOpen(false)} className="pl-2 font-medium flex items-center justify-between">
               <span>Video Thumbnail Maker</span>
               <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold mr-2">NEW</span>
