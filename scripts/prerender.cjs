@@ -102,6 +102,7 @@ const routes = [
   '/youtube-thumbnail-downloader',
   '/gif-to-frames',
   '/video-notes-extractor',
+  '/video-to-sprite-sheet',
 
   '/privacy',
   '/terms',
@@ -181,6 +182,7 @@ const routeTextMap = {
   '/youtube-thumbnail-downloader': 'YouTube Thumbnail Downloader',
   '/gif-to-frames': 'GIF to Frames',
   '/video-notes-extractor': 'Video Notes Extractor',
+  '/video-to-sprite-sheet': 'Video to Sprite Sheet',
 
   '/privacy': 'Privacy',
   '/terms': 'Terms',

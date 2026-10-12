@@ -45,6 +45,7 @@ import VideoToPhoto from './pages/VideoToPhoto';
 import YoutubeThumbnailDownloader from './pages/YoutubeThumbnailDownloader';
 import GifToFrames from './pages/GifToFrames';
 import VideoNotesExtractor from './pages/VideoNotesExtractor';
+import VideoToSpriteSheet from './pages/VideoToSpriteSheet';
 import VideoFramesForAiDatasets from './pages/VideoFramesForAiDatasets';
 import VideoToImageSequenceForBlender from './pages/VideoToImageSequenceForBlender';
 import VideoFrameForYoutubeThumbnail from './pages/VideoFrameForYoutubeThumbnail';
@@ -192,6 +193,7 @@ const App: React.FC = () => {
                 <Route path="/youtube-thumbnail-downloader" element={<YoutubeThumbnailDownloader />} />
                 <Route path="/gif-to-frames" element={<GifToFrames />} />
                 <Route path="/video-notes-extractor" element={<VideoNotesExtractor />} />
+                <Route path="/video-to-sprite-sheet" element={<VideoToSpriteSheet />} />
                 <Route path="/privacy-policy" element={<Navigate to="/privacy" replace />} />
                 <Route path="/terms-of-service" element={<Navigate to="/terms" replace />} />
                 <Route path="/about-us" element={<Navigate to="/about" replace />} />
