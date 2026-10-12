@@ -325,6 +325,43 @@ const VideoNotesExtractorTool: React.FC = () => {
                   <p className="text-gray-500 text-xs mt-2">
                     ≈ {videoMeta ? Math.min(MAX_FRAMES, Math.max(1, Math.floor(videoMeta.duration / intervalSec) + 1)) : 0} frames from this video (max {MAX_FRAMES})
                   </p>
+                  <div className="mt-3 grid grid-cols-2 gap-3">
+                    <div>
+                      <label htmlFor="notes-custom-sec" className="block text-xs font-semibold text-gray-400 mb-1.5">Custom seconds</label>
+                      <input
+                        id="notes-custom-sec"
+                        type="number"
+                        min="0.1"
+                        max="3600"
+                        step="any"
+                        placeholder="e.g. 7.5"
+                        onBlur={(e) => {
+                          const v = Number(e.target.value);
+                          if (Number.isFinite(v) && v >= 0.1 && v <= 3600) setIntervalSec(v);
+                        }}
+                        onKeyDown={(e) => { if (e.key === 'Enter') (e.target as HTMLInputElement).blur(); }}
+                        className="w-full bg-gray-950 border border-gray-700 text-white font-mono text-sm rounded-lg py-2 px-3 focus:outline-none focus:border-cyan-500"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="notes-custom-min" className="block text-xs font-semibold text-gray-400 mb-1.5">Custom minutes</label>
+                      <input
+                        id="notes-custom-min"
+                        type="number"
+                        min="0.1"
+                        max="600"
+                        step="any"
+                        placeholder="e.g. 1.5"
+                        onBlur={(e) => {
+                          const v = Number(e.target.value);
+                          if (Number.isFinite(v) && v >= 0.1 && v <= 600) setIntervalSec(v * 60);
+                        }}
+                        onKeyDown={(e) => { if (e.key === 'Enter') (e.target as HTMLInputElement).blur(); }}
+                        className="w-full bg-gray-950 border border-gray-700 text-white font-mono text-sm rounded-lg py-2 px-3 focus:outline-none focus:border-cyan-500"
+                      />
+                    </div>
+                  </div>
+                  <p className="text-gray-600 text-[11px] mt-1.5">Type your own interval — decimals allowed.</p>
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-gray-300 mb-2">Image format</label>
