@@ -38,9 +38,11 @@ const Footer = () => {
               <li><Link to="/image-crop" className="text-gray-600 hover:text-cyan-400 transition">Freeform Image Crop</Link></li>
               <li><Link to="/youtube-thumbnail-downloader" className="text-gray-600 hover:text-cyan-400 transition">YouTube Thumbnail Downloader</Link></li>
               <li><Link to="/gif-to-frames" className="text-gray-600 hover:text-cyan-400 transition">GIF to Frames</Link></li>
+              <li><Link to="/gif-to-mp4" className="text-gray-600 hover:text-cyan-400 transition">GIF to MP4 Converter</Link></li>
               <li><Link to="/video-to-sprite-sheet" className="text-gray-600 hover:text-cyan-400 transition">Video to Sprite Sheet</Link></li>
               <li><Link to="/video-notes-extractor" className="text-gray-600 hover:text-cyan-400 transition">Video Notes Extractor</Link></li>
-              <li><Link to="/video-metadata-inspector" className="text-gray-600 hover:text-cyan-400 transition">Video Metadata Inspector</Link></li>
+              <li><Link to="/video-color-palette" className="text-gray-600 hover:text-cyan-400 transition">Video Color Palette Extractor</Link></li>
+              <li><Link to="/video-thumbnail-maker" className="text-gray-600 hover:text-cyan-400 transition">Video Thumbnail Maker</Link></li>
             </ul>
           </div>
 
