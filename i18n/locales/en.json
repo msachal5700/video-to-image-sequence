@@ -811,4 +811,13 @@
     "hero": "Drop in any video and read its hidden dossier: container, codecs, resolution, frame rate, bitrate, and creation date — parsed from the file header on your device. Free, no signup, nothing uploaded.",
     "keywords": "video metadata viewer, check video codec online, mp4 metadata inspector, video file info, read video metadata, video bitrate checker"
   }
+,
+  "stopMotionCapture": {
+    "title": "Free Stop Motion Maker \u2014 Onion Skin Animation Studio Online",
+    "description": "Make stop motion animation free online \u2014 webcam capture with onion skin ghosting, frame-by-frame preview, and GIF/WebM export. No signup, no app needed.",
+    "h1": "Stop Motion Maker with Onion Skin",
+    "h1Sub": "Animate Frame by Frame in Your Browser",
+    "hero": "Clay, LEGO, paper cut-outs \u2014 whatever you can pose, you can animate. Capture frame by frame with your webcam, line up every move with the onion-skin ghost of your last shot, preview at any speed, and export a GIF or WebM. Free, no signup, nothing uploaded.",
+    "keywords": "stop motion maker, free stop motion app, onion skin animation tool, stop motion webcam capture, claymation maker online, lego stop motion app"
+  }
 }

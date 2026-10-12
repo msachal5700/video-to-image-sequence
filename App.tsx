@@ -47,6 +47,7 @@ import GifToFrames from './pages/GifToFrames';
 import GifToMp4 from './pages/GifToMp4';
 import VideoNotesExtractor from './pages/VideoNotesExtractor';
 import VideoToSpriteSheet from './pages/VideoToSpriteSheet';
+import StopMotionCapture from './pages/StopMotionCapture';
 import VideoColorPalette from './pages/VideoColorPalette';
 import VideoThumbnailMaker from './pages/VideoThumbnailMaker';
 import VideoMetadataInspector from './pages/VideoMetadataInspector';
@@ -199,6 +200,7 @@ const App: React.FC = () => {
                 <Route path="/gif-to-mp4" element={<GifToMp4 />} />
                 <Route path="/video-notes-extractor" element={<VideoNotesExtractor />} />
                 <Route path="/video-to-sprite-sheet" element={<VideoToSpriteSheet />} />
+                <Route path="/stop-motion-capture" element={<StopMotionCapture />} />
                 <Route path="/video-color-palette" element={<VideoColorPalette />} />
                 <Route path="/video-thumbnail-maker" element={<VideoThumbnailMaker />} />
                 <Route path="/video-metadata-inspector" element={<VideoMetadataInspector />} />
