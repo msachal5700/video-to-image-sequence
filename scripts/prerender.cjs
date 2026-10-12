@@ -17,6 +17,7 @@ fs.copyFileSync(ORIGINAL_INDEX, TEMP_INDEX);
 console.log('Created temporary index.temp.html for pre-rendering...');
 
 const server = http.createServer((req, res) => {
+  console.error('REQ', req.url);
   let filePath = path.join(DIST_DIR, decodeURIComponent(req.url));
   if (!path.extname(filePath)) {
     filePath = TEMP_INDEX;
@@ -41,7 +42,7 @@ const server = http.createServer((req, res) => {
     const contentType = mimeTypes[ext] || 'application/octet-stream';
     res.writeHead(200, { 'Content-Type': contentType });
     const stream = fs.createReadStream(filePath);
-    stream.on('error', () => { res.writeHead(500); res.end('Server Error'); });
+    stream.on('error', (e) => { console.error('STREAM ERROR for', filePath, e.message); try { res.writeHead(500); res.end('Server Error'); } catch(_){} });
     stream.pipe(res);
   });
 });
@@ -100,7 +101,7 @@ const routes = [
   '/video-frame-extractor',
   '/video-to-photo',
   '/youtube-thumbnail-downloader',
-  '/gif-to-frames',
+  '/video-thumbnail-maker',
 
   '/privacy',
   '/terms',
@@ -178,7 +179,7 @@ const routeTextMap = {
   '/video-frame-extractor': 'Video Frame Extractor',
   '/video-to-photo': 'Video to Photo Converter',
   '/youtube-thumbnail-downloader': 'YouTube Thumbnail Downloader',
-  '/gif-to-frames': 'GIF to Frames',
+  '/video-thumbnail-maker': 'Video Thumbnail Maker',
 
   '/privacy': 'Privacy',
   '/terms': 'Terms',

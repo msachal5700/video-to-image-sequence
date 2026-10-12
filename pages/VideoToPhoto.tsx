@@ -422,6 +422,10 @@ const VideoToPhoto: React.FC = () => {
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video Contact Sheet</h3>
             <p className="text-gray-500 text-xs">Lay out your best stills in a printable grid.</p>
           </Link>
+          <Link to="/video-thumbnail-maker" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video Thumbnail Maker</h3>
+            <p className="text-gray-500 text-xs">Turn your best photo into a 1280×720 thumbnail.</p>
+          </Link>
         </div>
       </section>
 
