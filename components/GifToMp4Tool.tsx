@@ -73,7 +73,7 @@ async function decodeGifFrames(arrayBuffer: ArrayBuffer): Promise<{ width: numbe
         canvas[di + 2] = patch[si + 2]; canvas[di + 3] = patch[si + 3];
       }
     }
-    out.push({ data: new ImageData(new Uint8ClampedArray(canvas), w, h), delayMs: Math.max(20, f.delay * 10) });
+    out.push({ data: new ImageData(new Uint8ClampedArray(canvas), w, h), delayMs: Math.max(20, f.delay) }); // f.delay is already ms
     if (out.length >= MAX_FRAMES) break;
     prevDisposal = f.disposalType;
     prevDims = f.dims;
