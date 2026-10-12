@@ -787,6 +787,14 @@
     "hero": "A GIF is a flipbook pretending to be a picture. Drop one in and pull it apart: every frame decoded locally with its timing and transparency intact, downloadable as JPG, PNG, or WebP \u2014 or all at once as a ZIP. Free, no signup, nothing uploaded.",
     "keywords": "gif to frames, extract frames from gif, gif to image sequence, webp to frames, animated webp to frames, gif frame extractor"
   },
+  "gifToMp4": {
+    "title": "GIF to MP4 \u2014 Convert Animated GIFs Online Free, No Signup",
+    "description": "Convert GIF to MP4 free in your browser \u2014 smaller files, smoother playback, no watermark. Animated GIF and WebP to video in seconds, 100% private, no signup.",
+    "h1": "GIF to MP4",
+    "h1Sub": "Convert Animated GIFs to Video",
+    "hero": "GIFs are heavy and capped at 256 colors. Drop one in and get back a real MP4: H.264 video that plays everywhere, looks smoother, and is often 5\u201310\u00d7 smaller. Everything happens in your browser \u2014 no upload, no signup, no watermark.",
+    "keywords": "gif to mp4, convert gif to mp4, gif to video, animated gif to mp4, webp to mp4, gif to mp4 converter free"
+  },
   "videoThumbnailMaker": {
     "title": "Video Thumbnail Maker \u2014 Free, No Signup Needed",
     "description": "Make a YouTube thumbnail from any video frame \u2014 pick the perfect moment, add text and arrows, export 1280\u00d7720. Free in your browser, no signup, no watermark.",

@@ -44,6 +44,7 @@ import VideoFrameExtractor from './pages/VideoFrameExtractor';
 import VideoToPhoto from './pages/VideoToPhoto';
 import YoutubeThumbnailDownloader from './pages/YoutubeThumbnailDownloader';
 import GifToFrames from './pages/GifToFrames';
+import GifToMp4 from './pages/GifToMp4';
 import VideoNotesExtractor from './pages/VideoNotesExtractor';
 import VideoToSpriteSheet from './pages/VideoToSpriteSheet';
 import VideoColorPalette from './pages/VideoColorPalette';
@@ -195,6 +196,7 @@ const App: React.FC = () => {
                 <Route path="/video-to-photo" element={<VideoToPhoto />} />
                 <Route path="/youtube-thumbnail-downloader" element={<YoutubeThumbnailDownloader />} />
                 <Route path="/gif-to-frames" element={<GifToFrames />} />
+                <Route path="/gif-to-mp4" element={<GifToMp4 />} />
                 <Route path="/video-notes-extractor" element={<VideoNotesExtractor />} />
                 <Route path="/video-to-sprite-sheet" element={<VideoToSpriteSheet />} />
                 <Route path="/video-color-palette" element={<VideoColorPalette />} />
