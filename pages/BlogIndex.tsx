@@ -71,6 +71,12 @@ const posts = [
     date: 'September 29, 2026',
     description: 'Turn product video into listing photos: the five shots every listing needs, 4K resolution math for Amazon zoom, and a full video-to-listing workflow.',
   },
+  {
+    slug: 'cloudinary-video-to-image-sequence-alternative',
+    title: 'Cloudinary vs VideoToImageSequence: An Honest Comparison (2026)',
+    date: 'October 12, 2026',
+    description: 'Cloudinary launched a free video-to-image-sequence tool. An honest comparison of their 100MB upload flow vs a 100% local browser extractor — where each wins and how to choose.',
+  },
 ];
 
 
