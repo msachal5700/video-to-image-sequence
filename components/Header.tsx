@@ -97,6 +97,10 @@ const Header: React.FC = () => {
                 <span>Video Notes Extractor</span>
                 <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold">NEW</span>
               </Link>
+              <Link to="/video-color-palette" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors flex items-center justify-between font-medium">
+                <span>Video Color Palette</span>
+                <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold">NEW</span>
+              </Link>
               <hr className="border-gray-900 my-1" />
               <span className="text-xs text-gray-600 uppercase font-semibold tracking-wider px-3 py-1">Every N Seconds</span>
               <Link to="/extract-frame-every-1-second" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium text-sm">Frame Every 1 Second</Link>
@@ -230,6 +234,10 @@ const Header: React.FC = () => {
             </Link>
             <Link to="/video-notes-extractor" onClick={() => setOpen(false)} className="pl-2 font-medium flex items-center justify-between">
               <span>Video Notes Extractor</span>
+              <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold mr-2">NEW</span>
+            </Link>
+            <Link to="/video-color-palette" onClick={() => setOpen(false)} className="pl-2 font-medium flex items-center justify-between">
+              <span>Video Color Palette</span>
               <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold mr-2">NEW</span>
             </Link>
             <span className="text-xs text-gray-600 uppercase font-semibold tracking-wider pl-2 pt-1">Every N Seconds</span>

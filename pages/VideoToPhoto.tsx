@@ -422,6 +422,10 @@ const VideoToPhoto: React.FC = () => {
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video Contact Sheet</h3>
             <p className="text-gray-500 text-xs">Lay out your best stills in a printable grid.</p>
           </Link>
+          <Link to="/video-color-palette" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video Color Palette</h3>
+            <p className="text-gray-500 text-xs">Turn your most colorful moment into a HEX palette.</p>
+          </Link>
         </div>
       </section>
 
