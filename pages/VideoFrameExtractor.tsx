@@ -333,6 +333,10 @@ const VideoFrameExtractor: React.FC = () => {
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Screenshot from Video</h3>
             <p className="text-gray-500 text-xs">Grab one perfect frame, full resolution.</p>
           </Link>
+          <Link to="/blog/cloudinary-video-to-image-sequence-alternative" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Cloudinary Comparison</h3>
+            <p className="text-gray-500 text-xs">Upload-based vs 100% local frame extraction, compared.</p>
+          </Link>
         </div>
       </section>
 

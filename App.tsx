@@ -55,6 +55,7 @@ import WhatIsVideoFrameRate from './pages/blog/WhatIsVideoFrameRate';
 import FreeImageCropToolGuide from './pages/blog/FreeImageCropToolGuide';
 import VideoToStopMotionFrames from './pages/blog/VideoToStopMotionFrames';
 import EcommerceProductStills from './pages/blog/EcommerceProductStills';
+import CloudinaryAlternative from './pages/blog/CloudinaryAlternative';
 import CookieConsent from './components/CookieConsent';
 import FeedbackWidget from './components/FeedbackWidget';
 import ClarityConsent from './components/ClarityConsent';
@@ -168,6 +169,7 @@ const App: React.FC = () => {
                 <Route path="/blog/free-image-crop-tool-guide" element={<FreeImageCropToolGuide />} />
                 <Route path="/blog/video-to-stop-motion-frames" element={<VideoToStopMotionFrames />} />
                 <Route path="/blog/product-video-to-product-photos-ecommerce" element={<EcommerceProductStills />} />
+                <Route path="/blog/cloudinary-video-to-image-sequence-alternative" element={<CloudinaryAlternative />} />
 
                 <Route path="/video-frames-for-ai-datasets" element={<VideoFramesForAiDatasets />} />
                 <Route path="/video-to-image-sequence-for-blender" element={<VideoToImageSequenceForBlender />} />
