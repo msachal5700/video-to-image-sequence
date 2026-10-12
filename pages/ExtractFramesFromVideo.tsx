@@ -52,6 +52,22 @@ const faqs = [
   {
     q: 'Should I export frames as JPG or PNG?',
     a: 'Use JPG for smaller file sizes and fast downloads. Use PNG if you require lossless quality or need to preserve transparency (alpha channel) for compositing work in video editing or VFX pipelines.'
+  },
+  {
+    q: 'What is smart scene detection?',
+    a: 'Smart scene detection is an extraction mode that keeps one frame per scene change instead of frames at fixed intervals. The tool samples your video about twice per second and saves a frame whenever the picture changes significantly — perfect for lectures, tutorials, and screen recordings where most of the footage is static.'
+  },
+  {
+    q: 'How does scene-change detection work in the browser?',
+    a: 'Each sampled frame is downscaled and compared against the last saved frame using pixel-difference analysis. When the difference passes your sensitivity setting, a new scene is registered. To avoid blurry transition frames, the tool compares the frame at the cut with one a moment later and keeps the sharper of the two. Everything runs locally in your browser — no uploads.'
+  },
+  {
+    q: 'What does the scene sensitivity slider do?',
+    a: 'Sensitivity controls how big a visual change must be to count as a new scene. High sensitivity catches subtle changes like slide transitions; low sensitivity only keeps hard cuts. If you get too many similar frames, lower the sensitivity; if scenes are being merged, raise it.'
+  },
+  {
+    q: 'Will scene detection work on any video?',
+    a: 'It works best on videos with clear visual cuts — presentations, tutorials, vlogs, and screen recordings. Slow fades, dissolves, and gradual camera pans may be grouped into fewer scenes because the picture changes gradually. For evenly spaced stills regardless of content, use the "every N seconds" mode instead.'
   }
 ];
 
@@ -296,6 +312,37 @@ const ExtractFramesFromVideo: React.FC = () => {
             </p>
           </div>
         </div>
+      </section>
+
+      {/* ── SMART SCENE DETECTION ── */}
+      <section className="max-w-4xl mx-auto py-12 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">
+          Smart Scene Detection — One Frame Per Scene Change
+        </h2>
+        <p className="text-gray-400 leading-relaxed mb-4">
+          Fixed intervals waste frames on static footage: a 10-minute lecture sampled every 5 seconds
+          produces 120 near-identical slides. Switch the extractor above to the{' '}
+          <strong className="text-white">Smart scenes</strong> tab and it will instead keep exactly
+          one frame per scene change — a new still only when the picture actually changes.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Detects cuts automatically</h3>
+            <p className="text-gray-500 text-xs leading-relaxed">Samples ~2× per second and registers a scene whenever the frame differs significantly from the last kept one.</p>
+          </div>
+          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Adjustable sensitivity</h3>
+            <p className="text-gray-500 text-xs leading-relaxed">Slide from Low to High: catch subtle slide transitions or keep only hard cuts. The detected scene count updates live.</p>
+          </div>
+          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Skips blurry transitions</h3>
+            <p className="text-gray-500 text-xs leading-relaxed">Each cut is compared against a frame a moment later, and the sharper of the two is kept — no smeared dissolve frames.</p>
+          </div>
+        </div>
+        <p className="text-gray-500 text-sm leading-relaxed mt-4">
+          Ideal for lecture notes, tutorial documentation, and QA bug reproductions. For evenly spaced
+          stills regardless of content, the every-N-seconds presets below remain available.
+        </p>
       </section>
 
       {/* ── EXTRACT BY TIME INTERVAL (INTERNAL LINKING) ── */}

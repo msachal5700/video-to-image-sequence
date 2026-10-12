@@ -3,8 +3,9 @@ import { Loader2, CheckCircle2, Download, AlertTriangle, Eye, X, Film, Copy } fr
 import Dropzone from '../components/Dropzone';
 import Controls from '../components/Controls';
 import InterstitialAd from '../components/InterstitialAd';
-import { AppState, FrameRate, VideoMetadata, ProcessingStats, OutputFormat, CadenceMode, ManualUnit, clampIntervalSeconds, manualToFps } from '../types';
+import { AppState, FrameRate, VideoMetadata, ProcessingStats, OutputFormat, CadenceMode, ManualUnit, clampIntervalSeconds, manualToFps, DEFAULT_SCENE_SENSITIVITY, clampSceneSensitivity } from '../types';
 import { extractFramesAndZip, formatTime } from '../utils/videoProcessor';
+import { extractSceneFramesAndZip } from '../services/sceneExtractor';
 import { useToast } from '../components/Toast';
 import { openFeedbackWidget } from '../components/FeedbackWidget';
 import { useTranslation } from 'react-i18next';
@@ -39,6 +40,9 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
   const [intervalSeconds, setIntervalSeconds] = useState<number>(() => clampIntervalSeconds(initialIntervalSeconds ?? 5));
   const [manualUnit, setManualUnit] = useState<ManualUnit>('fps');
   const [manualValue, setManualValue] = useState<number>(2);
+  const [sceneSensitivity, setSceneSensitivity] = useState<number>(DEFAULT_SCENE_SENSITIVITY);
+  // Live count of scenes detected during the scene-mode detection phase.
+  const [detectedScenes, setDetectedScenes] = useState<number | null>(null);
   const [outputFormat, setOutputFormat] = useState<OutputFormat>('jpg');
   const [processingStats, setProcessingStats] = useState<ProcessingStats | null>(null);
   const [showInterstitial, setShowInterstitial] = useState(false);
@@ -140,17 +144,23 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
     // "Every N seconds" reuses the same extraction pipeline — only the frame
     // cadence changes, expressed to the engine as a fractional FPS of 1/N.
     // Manual mode likewise converts the custom unit (fps/seconds/minutes)
-    // into an effective FPS. The lower bound guarantees at least one frame
-    // even for very short clips.
-    const effectiveFps = cadenceMode === 'interval'
-      ? Math.max(1 / intervalSeconds, videoMetadata ? 1 / Math.max(videoMetadata.duration, 0.001) : 0)
-      : cadenceMode === 'manual'
-        ? Math.max(manualToFps(manualUnit, manualValue), videoMetadata ? 1 / Math.max(videoMetadata.duration, 0.001) : 0)
-        : selectedFps;
-    const zipSuffix = cadenceMode === 'interval'
-      ? `every_${intervalSeconds}s`
-      : cadenceMode === 'manual'
-        ? `manual_${manualValue}${manualUnit}`
+    // into an effective FPS. "Smart scenes" uses a dedicated two-phase pipeline:
+    // detect scene cuts first, then export exactly one frame per scene.
+    // The lower bound guarantees at least one frame even for very short clips.
+    const isSceneMode = cadenceMode === 'scene';
+    const effectiveFps = isSceneMode
+      ? 0
+      : cadenceMode === 'interval'
+        ? Math.max(1 / intervalSeconds, videoMetadata ? 1 / Math.max(videoMetadata.duration, 0.001) : 0)
+        : cadenceMode === 'manual'
+          ? Math.max(manualToFps(manualUnit, manualValue), videoMetadata ? 1 / Math.max(videoMetadata.duration, 0.001) : 0)
+          : selectedFps;
+    const zipSuffix = isSceneMode
+      ? 'smart_scenes'
+      : cadenceMode === 'interval'
+        ? `every_${intervalSeconds}s`
+        : cadenceMode === 'manual'
+          ? `manual_${manualValue}${manualUnit}`
         : `${selectedFps}fps`;
 
     for (let i = currentQueueIndex; i < queue.length; i++) {
@@ -166,6 +176,7 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
         setPreviewImage(null);
         setErrorMessage(null);
         setRawError(null);
+        setDetectedScenes(null);
         setProcessingStats({
           totalFrames: 0,
           processedFrames: 0,
@@ -175,20 +186,35 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
         });
 
         try {
-          const zipBlob = await extractFramesAndZip({
-            file: queue[i],
-            fps: effectiveFps,
-            format: outputFormat,
-            maxFrames: 5000,
-            onProgress: (stats) => {
-              setProcessingStats(stats);
-              if (stats.progress === 100) {
-                 setAppState(AppState.ZIPPING);
-              }
-            },
-            onFrame: handleFrame,
-            workerRef: activeWorkerRef
-          });
+          const zipBlob = isSceneMode
+            ? await extractSceneFramesAndZip({
+                file: queue[i],
+                sensitivity: sceneSensitivity,
+                format: outputFormat,
+                onProgress: (stats) => {
+                  setProcessingStats(stats);
+                  if (stats.progress === 100) {
+                    setAppState(AppState.ZIPPING);
+                  }
+                },
+                onFrame: handleFrame,
+                onSceneCount: setDetectedScenes,
+                shouldCancel: () => cancelRef.current,
+              })
+            : await extractFramesAndZip({
+                file: queue[i],
+                fps: effectiveFps,
+                format: outputFormat,
+                maxFrames: 5000,
+                onProgress: (stats) => {
+                  setProcessingStats(stats);
+                  if (stats.progress === 100) {
+                    setAppState(AppState.ZIPPING);
+                  }
+                },
+                onFrame: handleFrame,
+                workerRef: activeWorkerRef
+              });
 
           const url = URL.createObjectURL(zipBlob);
           currentZips.push({ url, name: `frames_${queue[i].name}_${zipSuffix}_${outputFormat}.zip` });
@@ -219,7 +245,7 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
           showToast('Frames extracted successfully! Your ZIP is ready to download.', 'success');
         }
     }
-  }, [queue, currentQueueIndex, selectedFps, cadenceMode, intervalSeconds, manualUnit, manualValue, videoMetadata, outputFormat, completedZips, handleFrame, cleanupFrameUrls, showToast]);
+  }, [queue, currentQueueIndex, selectedFps, cadenceMode, intervalSeconds, manualUnit, manualValue, sceneSensitivity, videoMetadata, outputFormat, completedZips, handleFrame, cleanupFrameUrls, showToast]);
 
   const handleCancelQueue = () => {
     cancelRef.current = true;
@@ -243,6 +269,7 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
     setDownloadStarted(false);
     setManualUnit('fps');
     setManualValue(2);
+    setDetectedScenes(null);
     
     cleanupFrameUrls();
     setExtractedFrames([]);
@@ -342,6 +369,9 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
                   onManualUnitChange={setManualUnit}
                   manualValue={manualValue}
                   onManualValueChange={setManualValue}
+                  sceneSensitivity={sceneSensitivity}
+                  onSceneSensitivityChange={(s) => setSceneSensitivity(clampSceneSensitivity(s))}
+                  detectedScenes={detectedScenes}
                   outputFormat={outputFormat}
                   onFormatChange={setOutputFormat}
                   onProcess={initiateProcess}
