@@ -48,6 +48,7 @@ import VideoNotesExtractor from './pages/VideoNotesExtractor';
 import VideoToSpriteSheet from './pages/VideoToSpriteSheet';
 import StopMotionCapture from './pages/StopMotionCapture';
 import VideoColorPalette from './pages/VideoColorPalette';
+import VideoThumbnailMaker from './pages/VideoThumbnailMaker';
 import VideoFramesForAiDatasets from './pages/VideoFramesForAiDatasets';
 import VideoToImageSequenceForBlender from './pages/VideoToImageSequenceForBlender';
 import VideoFrameForYoutubeThumbnail from './pages/VideoFrameForYoutubeThumbnail';
@@ -198,6 +199,7 @@ const App: React.FC = () => {
                 <Route path="/video-to-sprite-sheet" element={<VideoToSpriteSheet />} />
                 <Route path="/stop-motion-capture" element={<StopMotionCapture />} />
                 <Route path="/video-color-palette" element={<VideoColorPalette />} />
+                <Route path="/video-thumbnail-maker" element={<VideoThumbnailMaker />} />
                 <Route path="/privacy-policy" element={<Navigate to="/privacy" replace />} />
                 <Route path="/terms-of-service" element={<Navigate to="/terms" replace />} />
                 <Route path="/about-us" element={<Navigate to="/about" replace />} />
