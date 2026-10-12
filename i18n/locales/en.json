@@ -744,5 +744,13 @@
     "h1Sub": "Save Any Video’s Thumbnail in HD",
     "hero": "YouTube has no “download thumbnail” button — this is the next best thing. Paste any video link, preview every thumbnail resolution from 1280×720 HD down, and save the image free. No signup, no watermark, nothing uploaded.",
     "keywords": "youtube thumbnail downloader, download youtube thumbnail, yt thumbnail grabber, get thumbnail from youtube video, youtube thumbnail saver"
+  },
+  "videoNotesExtractor": {
+    "title": "Video Notes Extractor \u2014 Turn Lectures into Study Notes",
+    "description": "Turn lecture videos into study notes free \u2014 extract key frames, pick the ones you need, download as ZIP or PDF. No upload, no signup.",
+    "h1": "Video Notes Extractor",
+    "h1Sub": "Turn Lecture Videos into Study Notes",
+    "hero": "Stop screenshotting lectures one by one. Extract frames from any class recording, tick the key slides and diagrams in a visual gallery, and download them as a ZIP or a timestamped PDF \u2014 free, private, no signup.",
+    "keywords": "extract images from lecture video, lecture video to pdf, video to study notes, video lecture notes extractor, save frames from online class"
   }
 }

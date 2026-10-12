@@ -41,7 +41,7 @@ const server = http.createServer((req, res) => {
     const contentType = mimeTypes[ext] || 'application/octet-stream';
     res.writeHead(200, { 'Content-Type': contentType });
     const stream = fs.createReadStream(filePath);
-    stream.on('error', () => { res.writeHead(500); res.end('Server Error'); });
+    stream.on('error', () => { if (!res.headersSent) res.writeHead(500); res.end('Server Error'); });
     stream.pipe(res);
   });
 });
@@ -100,6 +100,7 @@ const routes = [
   '/video-frame-extractor',
   '/video-to-photo',
   '/youtube-thumbnail-downloader',
+  '/video-notes-extractor',
 
   '/privacy',
   '/terms',
@@ -177,6 +178,7 @@ const routeTextMap = {
   '/video-frame-extractor': 'Video Frame Extractor',
   '/video-to-photo': 'Video to Photo Converter',
   '/youtube-thumbnail-downloader': 'YouTube Thumbnail Downloader',
+  '/video-notes-extractor': 'Video Notes Extractor',
 
   '/privacy': 'Privacy',
   '/terms': 'Terms',

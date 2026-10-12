@@ -270,6 +270,10 @@ const ScreenshotFromVideo: React.FC = () => {
           More Free Online Frame Extractors
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          <Link to="/video-notes-extractor" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video Notes Extractor</h3>
+            <p className="text-gray-500 text-xs">Turn lecture videos into study notes — pick frames, download ZIP or PDF.</p>
+          </Link>
           <Link to="/mp4-to-jpg" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">MP4 to JPG</h3>
             <p className="text-gray-500 text-xs">Convert MP4 videos into high-quality JPGs.</p>
