@@ -40,8 +40,8 @@ const Footer = () => {
               <li><Link to="/gif-to-frames" className="text-gray-600 hover:text-cyan-400 transition">GIF to Frames</Link></li>
               <li><Link to="/video-to-sprite-sheet" className="text-gray-600 hover:text-cyan-400 transition">Video to Sprite Sheet</Link></li>
               <li><Link to="/video-notes-extractor" className="text-gray-600 hover:text-cyan-400 transition">Video Notes Extractor</Link></li>
+              <li><Link to="/stop-motion-capture" className="text-gray-600 hover:text-cyan-400 transition">Stop Motion Capture</Link></li>
               <li><Link to="/video-color-palette" className="text-gray-600 hover:text-cyan-400 transition">Video Color Palette Extractor</Link></li>
-              <li><Link to="/video-thumbnail-maker" className="text-gray-600 hover:text-cyan-400 transition">Video Thumbnail Maker</Link></li>
             </ul>
           </div>
 

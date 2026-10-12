@@ -85,8 +85,20 @@ const Header: React.FC = () => {
                 <span>YouTube Thumbnail Downloader</span>
                 <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold">NEW</span>
               </Link>
-              <Link to="/video-thumbnail-maker" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors flex items-center justify-between font-medium">
-                <span>Video Thumbnail Maker</span>
+              <Link to="/gif-to-frames" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors flex items-center justify-between font-medium">
+                <span>GIF to Frames</span>
+                <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold">NEW</span>
+              </Link>
+              <Link to="/video-to-sprite-sheet" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors flex items-center justify-between font-medium">
+                <span>Video to Sprite Sheet</span>
+                <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold">NEW</span>
+              </Link>
+              <Link to="/video-notes-extractor" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors flex items-center justify-between font-medium">
+                <span>Video Notes Extractor</span>
+                <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold">NEW</span>
+              </Link>
+              <Link to="/stop-motion-capture" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors flex items-center justify-between font-medium">
+                <span>Stop Motion Capture</span>
                 <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold">NEW</span>
               </Link>
               <Link to="/video-color-palette" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors flex items-center justify-between font-medium">
@@ -216,8 +228,20 @@ const Header: React.FC = () => {
               <span>YouTube Thumbnail Downloader</span>
               <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold mr-2">NEW</span>
             </Link>
-            <Link to="/video-thumbnail-maker" onClick={() => setOpen(false)} className="pl-2 font-medium flex items-center justify-between">
-              <span>Video Thumbnail Maker</span>
+            <Link to="/gif-to-frames" onClick={() => setOpen(false)} className="pl-2 font-medium flex items-center justify-between">
+              <span>GIF to Frames</span>
+              <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold mr-2">NEW</span>
+            </Link>
+            <Link to="/video-to-sprite-sheet" onClick={() => setOpen(false)} className="pl-2 font-medium flex items-center justify-between">
+              <span>Video to Sprite Sheet</span>
+              <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold mr-2">NEW</span>
+            </Link>
+            <Link to="/video-notes-extractor" onClick={() => setOpen(false)} className="pl-2 font-medium flex items-center justify-between">
+              <span>Video Notes Extractor</span>
+              <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold mr-2">NEW</span>
+            </Link>
+            <Link to="/stop-motion-capture" onClick={() => setOpen(false)} className="pl-2 font-medium flex items-center justify-between">
+              <span>Stop Motion Capture</span>
               <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold mr-2">NEW</span>
             </Link>
             <Link to="/video-color-palette" onClick={() => setOpen(false)} className="pl-2 font-medium flex items-center justify-between">

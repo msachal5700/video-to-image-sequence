@@ -71,7 +71,7 @@
     "manualSecondsLabel": "Every N seconds",
     "manualMinutesLabel": "Every N minutes",
     "manualInvalid": "Please enter a positive number.",
-    "manualEstimate": "\u2248 {{count}} frames from this {{duration}} video",
+    "manualEstimate": "≈ {{count}} frames from this {{duration}} video",
     "manualOutOfRange": "Enter a value between {{min}} and {{max}}.",
     "outputFormat": "Output Image Format",
     "frameRate": "Output Frame Rate (FPS)",
@@ -748,11 +748,11 @@
     "keywords": "video to photo, convert video to photo, save video frame as photo, video to picture, extract photo from video, video frame to photo"
   },
   "videoColorPalette": {
-    "title": "Extract Color Palette from Video \u2014 Free, No Signup",
-    "description": "Extract a color palette from any video free in your browser. Get dominant HEX/RGB swatches from MP4, MOV, or WEBM \u2014 no upload, no signup, no watermark.",
+    "title": "Extract Color Palette from Video — Free, No Signup",
+    "description": "Extract a color palette from any video free in your browser. Get dominant HEX/RGB swatches from MP4, MOV, or WEBM — no upload, no signup, no watermark.",
     "h1": "Video Color Palette Extractor",
     "h1Sub": "Dominant Colors from Any Video",
-    "hero": "Turn any video into a designer-ready color palette. Sample frames across the footage, extract the dominant HEX and RGB colors, and copy them straight into Figma, CSS, or your brand kit \u2014 free, in your browser, nothing uploaded ever.",
+    "hero": "Turn any video into a designer-ready color palette. Sample frames across the footage, extract the dominant HEX and RGB colors, and copy them straight into Figma, CSS, or your brand kit — free, in your browser, nothing uploaded ever.",
     "keywords": "extract color palette from video, video color palette generator, video to color palette, dominant colors from video, video color scheme extractor, get hex colors from video"
   },
   "youtubeThumbnailDownloader": {
@@ -772,27 +772,27 @@
     "keywords": "video to sprite sheet, sprite sheet maker, video to sprite animation, make sprite sheet from video, sprite sheet generator, video to game sprite"
   },
   "videoNotesExtractor": {
-    "title": "Video Notes Extractor \u2014 Turn Lectures into Study Notes",
-    "description": "Turn lecture videos into study notes free \u2014 extract key frames, pick the ones you need, download as ZIP or PDF. No upload, no signup.",
+    "title": "Video Notes Extractor — Turn Lectures into Study Notes",
+    "description": "Turn lecture videos into study notes free — extract key frames, pick the ones you need, download as ZIP or PDF. No upload, no signup.",
     "h1": "Video Notes Extractor",
     "h1Sub": "Turn Lecture Videos into Study Notes",
-    "hero": "Stop screenshotting lectures one by one. Extract frames from any class recording, tick the key slides and diagrams in a visual gallery, and download them as a ZIP or a timestamped PDF \u2014 free, private, no signup.",
+    "hero": "Stop screenshotting lectures one by one. Extract frames from any class recording, tick the key slides and diagrams in a visual gallery, and download them as a ZIP or a timestamped PDF — free, private, no signup.",
     "keywords": "extract images from lecture video, lecture video to pdf, video to study notes, video lecture notes extractor, save frames from online class"
   },
   "gifToFrames": {
-    "title": "GIF to Frames \u2014 Free Online Extractor, No Signup",
-    "description": "Extract frames from any GIF or animated WebP free in your browser \u2014 download as JPG, PNG, or WebP images, or grab them all as a ZIP. No upload, no signup.",
+    "title": "GIF to Frames — Free Online Extractor, No Signup",
+    "description": "Extract frames from any GIF or animated WebP free in your browser — download as JPG, PNG, or WebP images, or grab them all as a ZIP. No upload, no signup.",
     "h1": "GIF to Frames",
     "h1Sub": "Extract Every Frame in Your Browser",
-    "hero": "A GIF is a flipbook pretending to be a picture. Drop one in and pull it apart: every frame decoded locally with its timing and transparency intact, downloadable as JPG, PNG, or WebP \u2014 or all at once as a ZIP. Free, no signup, nothing uploaded.",
+    "hero": "A GIF is a flipbook pretending to be a picture. Drop one in and pull it apart: every frame decoded locally with its timing and transparency intact, downloadable as JPG, PNG, or WebP — or all at once as a ZIP. Free, no signup, nothing uploaded.",
     "keywords": "gif to frames, extract frames from gif, gif to image sequence, webp to frames, animated webp to frames, gif frame extractor"
   },
-  "videoThumbnailMaker": {
-    "title": "Video Thumbnail Maker \u2014 Free, No Signup Needed",
-    "description": "Make a YouTube thumbnail from any video frame \u2014 pick the perfect moment, add text and arrows, export 1280\u00d7720. Free in your browser, no signup, no watermark.",
-    "h1": "Video Thumbnail Maker",
-    "h1Sub": "Turn Any Frame into a Click-Worthy Thumbnail",
-    "hero": "Your video already contains the perfect thumbnail \u2014 you just haven\u2019t grabbed it yet. Upload any clip, scrub to the exact frame, add bold text and arrows, and export a crisp 1280\u00d7720 thumbnail. Free, no signup, nothing uploaded.",
-    "keywords": "video thumbnail maker, make thumbnail from video, youtube thumbnail from video frame, create thumbnail from video, video frame thumbnail maker"
+  "stopMotionCapture": {
+    "title": "Free Stop Motion Maker — Onion Skin Animation Studio Online",
+    "description": "Make stop motion animation free online — webcam capture with onion skin ghosting, frame-by-frame preview, and GIF/WebM export. No signup, no app needed.",
+    "h1": "Stop Motion Maker with Onion Skin",
+    "h1Sub": "Animate Frame by Frame in Your Browser",
+    "hero": "Clay, LEGO, paper cut-outs — whatever you can pose, you can animate. Capture frame by frame with your webcam, line up every move with the onion-skin ghost of your last shot, preview at any speed, and export a GIF or WebM. Free, no signup, nothing uploaded.",
+    "keywords": "stop motion maker, free stop motion app, onion skin animation tool, stop motion webcam capture, claymation maker online, lego stop motion app"
   }
 }
