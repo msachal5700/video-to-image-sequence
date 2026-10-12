@@ -99,6 +99,7 @@ const routes = [
   '/video-to-jpg',
   '/video-frame-extractor',
   '/video-to-photo',
+  '/youtube-thumbnail-downloader',
 
   '/privacy',
   '/terms',
@@ -175,6 +176,7 @@ const routeTextMap = {
   '/video-to-jpg': 'Video to JPG Converter',
   '/video-frame-extractor': 'Video Frame Extractor',
   '/video-to-photo': 'Video to Photo Converter',
+  '/youtube-thumbnail-downloader': 'YouTube Thumbnail Downloader',
 
   '/privacy': 'Privacy',
   '/terms': 'Terms',

@@ -471,6 +471,10 @@
       {
         "title": "Video to Photo",
         "desc": "Save any video frame as a full-quality photo — iPhone, Android, or desktop."
+      },
+      {
+        "title": "YouTube Thumbnail Downloader",
+        "desc": "Paste any YouTube link and save its thumbnail in HD — free, no signup."
       }
     ],
     "faq": {
@@ -732,5 +736,13 @@
     "h1Sub": "Save Any Frame as a Photo",
     "hero": "Your videos are full of photos you never took. Drop in any MP4, MOV, or WEBM, pick the perfect moment, and save it as a full-quality JPG or PNG — right in your browser, on any device. Nothing is uploaded, ever.",
     "keywords": "video to photo, convert video to photo, save video frame as photo, video to picture, extract photo from video, video frame to photo"
+  },
+  "youtubeThumbnailDownloader": {
+    "title": "YouTube Thumbnail Downloader — Free HD, No Signup",
+    "description": "Download any YouTube thumbnail in HD free — paste the video URL, preview every resolution, save the image. No signup, no watermark, works on any device.",
+    "h1": "YouTube Thumbnail Downloader",
+    "h1Sub": "Save Any Video’s Thumbnail in HD",
+    "hero": "YouTube has no “download thumbnail” button — this is the next best thing. Paste any video link, preview every thumbnail resolution from 1280×720 HD down, and save the image free. No signup, no watermark, nothing uploaded.",
+    "keywords": "youtube thumbnail downloader, download youtube thumbnail, yt thumbnail grabber, get thumbnail from youtube video, youtube thumbnail saver"
   }
 }
