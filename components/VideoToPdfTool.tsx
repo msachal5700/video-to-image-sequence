@@ -87,13 +87,24 @@ const VideoToPdfTool: React.FC = () => {
     video.src = url;
   }, [showToast]);
 
-  // Capture one frame from a video element at a given time
+  // Capture one frame from a video element at a given time.
+  // Handles the case where seekTime already equals currentTime (setting
+  // currentTime to its current value fires no 'seeked' event) by capturing
+  // directly once frame data is available.
   const captureAt = useCallback((video: HTMLVideoElement, canvas: HTMLCanvasElement, seekTime: number): Promise<{ dataUrl: string; width: number; height: number }> => {
     return new Promise((resolve, reject) => {
-      const timeout = setTimeout(() => reject(new Error('Seeking timed out — the file may be too large for your device.')), 15000);
-      const onSeeked = () => {
+      const cleanup = () => {
         clearTimeout(timeout);
         video.removeEventListener('seeked', onSeeked);
+        video.removeEventListener('canplay', onCanPlay);
+      };
+      const timeout = setTimeout(() => {
+        cleanup();
+        reject(new Error('Seeking timed out — the file may be too large for your device.'));
+      }, 15000);
+
+      const doCapture = () => {
+        cleanup();
         let targetW = video.videoWidth;
         let targetH = video.videoHeight;
         if (targetW > MAX_DIM) {
@@ -120,8 +131,19 @@ const VideoToPdfTool: React.FC = () => {
           reader.readAsDataURL(blob);
         }, 'image/jpeg', quality);
       };
-      video.addEventListener('seeked', onSeeked);
-      video.currentTime = seekTime;
+
+      const onSeeked = () => doCapture();
+      const onCanPlay = () => doCapture();
+
+      const sameTime = Math.abs(video.currentTime - seekTime) < 0.04;
+      if (sameTime) {
+        // Setting currentTime to its current value fires no 'seeked' event.
+        if (video.readyState >= 2) doCapture();
+        else video.addEventListener('canplay', onCanPlay);
+      } else {
+        video.addEventListener('seeked', onSeeked);
+        video.currentTime = seekTime;
+      }
     });
   }, [quality]);
 
@@ -284,8 +306,12 @@ const VideoToPdfTool: React.FC = () => {
       const cellW = (pageW - margin * 2 - gap * (cols - 1)) / cols;
       const cellH = (pageH - margin * 2 - gap * (rows - 1)) / rows;
 
+      // jsPDF starts with one blank page: use it for the first batch unless the
+      // title page already occupies it.
+      let currentPageFresh = !titlePage;
       for (let i = 0; i < frames.length; i += framesPerPage) {
-        pdf.addPage();
+        if (!currentPageFresh) pdf.addPage();
+        currentPageFresh = false;
         const pageFrames = frames.slice(i, i + framesPerPage);
         pageFrames.forEach((f, j) => {
           const col = j % cols;
@@ -468,7 +494,7 @@ const VideoToPdfTool: React.FC = () => {
                   <p className="text-sm font-semibold text-gray-300">{frames.length} frames — drag-free order controls, hover to move or remove</p>
                   <p className="text-xs text-gray-500">PDF preview: {estimatedPages} pages</p>
                 </div>
-                <div className="max-h-[480px] overflow-y-auto rounded-xl border border-gray-800 bg-gray-950/40 p-3">
+                <div id="pdf-strip" className="max-h-[480px] overflow-y-auto rounded-xl border border-gray-800 bg-gray-950/40 p-3">
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
                     {frames.map((f, idx) => (
                       <div key={f.id} className="relative group rounded-lg overflow-hidden border border-gray-800 bg-black">
