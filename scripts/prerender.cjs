@@ -109,6 +109,7 @@ const routes = [
   '/video-color-palette',
   '/video-thumbnail-maker',
   '/video-metadata-inspector',
+  '/video-to-pdf',
 
   '/privacy',
   '/terms',
@@ -194,6 +195,7 @@ const routeTextMap = {
   '/video-color-palette': 'Video Color Palette Extractor',
   '/video-thumbnail-maker': 'Video Thumbnail Maker',
   '/video-metadata-inspector': 'Video Metadata Inspector',
+  '/video-to-pdf': 'Video to PDF',
 
   '/privacy': 'Privacy',
   '/terms': 'Terms',

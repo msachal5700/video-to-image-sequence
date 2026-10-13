@@ -485,6 +485,10 @@
       {
         "title": "YouTube Thumbnail Downloader",
         "desc": "Paste any YouTube link and save its thumbnail in HD — free, no signup."
+      },
+      {
+        "title": "Video to PDF Converter",
+        "desc": "Turn any video into a paginated PDF document — frame strip, title page, timestamps, A4/Letter. Free, private."
       }
     ],
     "faq": {
@@ -778,6 +782,14 @@
     "h1Sub": "Turn Lecture Videos into Study Notes",
     "hero": "Stop screenshotting lectures one by one. Extract frames from any class recording, tick the key slides and diagrams in a visual gallery, and download them as a ZIP or a timestamped PDF \u2014 free, private, no signup.",
     "keywords": "extract images from lecture video, lecture video to pdf, video to study notes, video lecture notes extractor, save frames from online class"
+  },
+  "videoToPdf": {
+    "title": "Video to PDF \u2014 Free Online Converter, No Signup",
+    "description": "Convert video to PDF free in your browser \u2014 extract frames, arrange them, and generate a paginated PDF with title page and timestamps. No upload, no signup.",
+    "h1": "Video to PDF",
+    "h1Sub": "Turn Any Video into a Paginated PDF",
+    "hero": "Convert video to PDF free, right in your browser. Extract frames every N seconds, capture moments manually, arrange the frame strip, and generate a paginated document with a title page, timestamps, and your own title and author \u2014 no upload, no signup, no watermark.",
+    "keywords": "video to pdf, convert video to pdf, video to pdf converter free, video to pdf online, turn video into pdf document, video frames to pdf"
   },
   "gifToFrames": {
     "title": "GIF to Frames \u2014 Free Online Extractor, No Signup",

@@ -45,6 +45,7 @@ const Footer = () => {
               <li><Link to="/video-color-palette" className="text-gray-600 hover:text-cyan-400 transition">Video Color Palette Extractor</Link></li>
               <li><Link to="/video-thumbnail-maker" className="text-gray-600 hover:text-cyan-400 transition">Video Thumbnail Maker</Link></li>
               <li><Link to="/video-metadata-inspector" className="text-gray-600 hover:text-cyan-400 transition">Video Metadata Inspector</Link></li>
+              <li><Link to="/video-to-pdf" className="text-gray-600 hover:text-cyan-400 transition">Video to PDF</Link></li>
             </ul>
           </div>
 
