@@ -59,7 +59,7 @@ const Dropzone: React.FC<DropzoneProps> = ({ onFileSelect }) => {
 
   return (
     <div
-      className={`border-2 border-dashed rounded-3xl p-12 text-center cursor-pointer transition-all duration-300 font-sans my-4 relative
+      className={`border-2 border-dashed rounded-3xl text-center cursor-pointer transition-all duration-300 font-sans my-4 relative
         ${
           isDragging
             ? 'border-cyan-400 bg-cyan-950/30'
@@ -77,15 +77,18 @@ const Dropzone: React.FC<DropzoneProps> = ({ onFileSelect }) => {
         className="sr-only"
         onChange={handleFileInput}
       />
-      <label htmlFor={inputId} className="block cursor-pointer">
+      {/* Label covers the ENTIRE dropzone (including padding area) so every
+          click anywhere in the zone opens the file picker — no dead clicks.
+          Previously p-12 on the parent div left padding outside the label. */}
+      <label htmlFor={inputId} className="block cursor-pointer p-12">
 
       {selectedCount > 1 && (
-        <div className="absolute top-4 right-4 bg-cyan-900/80 text-cyan-400 text-xs font-bold px-3 py-1.5 rounded-full border border-cyan-800">
+        <div className="absolute top-4 right-4 bg-cyan-900/80 text-cyan-400 text-xs font-bold px-3 py-1.5 rounded-full border border-cyan-800 pointer-events-none">
           {t('dropzone.selected', { count: selectedCount, defaultValue: `${selectedCount} videos selected` })}
         </div>
       )}
 
-      <div className="flex flex-col items-center justify-center pt-5 pb-6">
+      <div className="flex flex-col items-center justify-center pt-5 pb-6 pointer-events-none">
         {error ? (
           <AlertCircle className="w-12 h-12 mb-4 text-red-500" />
         ) : (
@@ -103,7 +106,7 @@ const Dropzone: React.FC<DropzoneProps> = ({ onFileSelect }) => {
               <p className="text-gray-500 text-sm mb-1">
                 {t('dropzone.support')}
               </p>
-              <p className="text-cyan-400 text-xs">{t('dropzone.browse')}</p>
+              <p className="text-cyan-400 text-xs underline underline-offset-2">{t('dropzone.browse')}</p>
             </>
           )}
         </div>
