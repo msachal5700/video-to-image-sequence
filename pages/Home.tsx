@@ -282,6 +282,30 @@ const Home: React.FC = () => {
         <VideoToImages />
       </div>
 
+      {/* ── QUICK TOOLS STRIP (above the fold) ── */}
+      <div className="max-w-5xl mx-auto px-4 -mt-2 mb-4">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+          <Link to="/video-to-frames" className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-900 border border-gray-800 rounded-full text-xs sm:text-sm text-gray-300 hover:text-cyan-400 hover:border-cyan-800 transition-all">
+            <span>🎬</span> Video to Frames
+          </Link>
+          <Link to="/extract-frames-from-video" className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-900 border border-gray-800 rounded-full text-xs sm:text-sm text-gray-300 hover:text-cyan-400 hover:border-cyan-800 transition-all">
+            <span>🖼️</span> Extract Frames
+          </Link>
+          <Link to="/video-to-jpg" className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-900 border border-gray-800 rounded-full text-xs sm:text-sm text-gray-300 hover:text-cyan-400 hover:border-cyan-800 transition-all">
+            <span>📷</span> Video to JPG
+          </Link>
+          <Link to="/video-to-gif" className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-900 border border-gray-800 rounded-full text-xs sm:text-sm text-gray-300 hover:text-cyan-400 hover:border-cyan-800 transition-all">
+            <span>🎞️</span> Video to GIF
+          </Link>
+          <Link to="/video-thumbnail-maker" className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-900 border border-gray-800 rounded-full text-xs sm:text-sm text-gray-300 hover:text-cyan-400 hover:border-cyan-800 transition-all">
+            <span>🖌️</span> Thumbnail Maker
+          </Link>
+          <Link to="/gif-to-mp4" className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-900 border border-gray-800 rounded-full text-xs sm:text-sm text-gray-300 hover:text-cyan-400 hover:border-cyan-800 transition-all">
+            <span>🔄</span> GIF to MP4
+          </Link>
+        </div>
+      </div>
+
       {/* Google AdSense ad Block */}
       <div className="max-w-5xl mx-auto">
         <GoogleAdUnit />
