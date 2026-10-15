@@ -842,5 +842,13 @@
     "h1Sub": "Turn Any Video into a Paginated PDF",
     "hero": "Convert video to PDF free, right in your browser. Extract frames every N seconds, capture moments manually, arrange the frame strip, and generate a paginated document with a title page, timestamps, and your own title and author — no upload, no signup, no watermark.",
     "keywords": "video to pdf, convert video to pdf, video to pdf converter free, video to pdf online, turn video into pdf document, video frames to pdf"
+  },
+  "lastFrameExtractor": {
+    "title": "Extract Last Frame from Video — Free Online, No Signup",
+    "description": "Extract the last frame of any video free in your browser, with automatic sharpest-frame detection in the final second. Perfect for AI video chaining (Kling, Runway, Sora). No upload, no signup.",
+    "h1": "Extract Last Frame",
+    "h1Sub": "from Any Video Free",
+    "hero": "Get the exact final frame of any video — plus the sharpest frame from the last second, automatically detected. Built for AI video creators chaining clips in Kling, Runway, Sora, and Veo. 100% in your browser, no upload.",
+    "keywords": "extract last frame from video, video last frame extractor, get last frame of mp4, last frame of video, ai video start frame, kling start frame extractor"
   }
 }
