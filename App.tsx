@@ -53,6 +53,7 @@ import VideoThumbnailMaker from './pages/VideoThumbnailMaker';
 import VideoMetadataInspector from './pages/VideoMetadataInspector';
 import VideoLooper from './pages/VideoLooper';
 import FramesToGif from './pages/FramesToGif';
+import VideoToPdf from './pages/VideoToPdf';
 import VideoFramesForAiDatasets from './pages/VideoFramesForAiDatasets';
 import VideoToImageSequenceForBlender from './pages/VideoToImageSequenceForBlender';
 import VideoFrameForYoutubeThumbnail from './pages/VideoFrameForYoutubeThumbnail';
@@ -210,6 +211,7 @@ const App: React.FC = () => {
                 <Route path="/video-metadata-inspector" element={<VideoMetadataInspector />} />
                 <Route path="/video-looper" element={<VideoLooper />} />
                 <Route path="/frames-to-gif" element={<FramesToGif />} />
+                <Route path="/video-to-pdf" element={<VideoToPdf />} />
                 <Route path="/privacy-policy" element={<Navigate to="/privacy" replace />} />
                 <Route path="/terms-of-service" element={<Navigate to="/terms" replace />} />
                 <Route path="/about-us" element={<Navigate to="/about" replace />} />
