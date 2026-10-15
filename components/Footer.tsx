@@ -35,9 +35,90 @@ const Footer = () => {
               <li><Link to="/extract-frame-every-10-seconds" className="text-gray-600 hover:text-cyan-400 transition">Frame Every 10 Seconds</Link></li>
               <li><Link to="/extract-frame-every-30-seconds" className="text-gray-600 hover:text-cyan-400 transition">Frame Every 30 Seconds</Link></li>
               <li><Link to="/images-to-video" className="text-gray-600 hover:text-cyan-400 transition">Images to Video</Link></li>
+              <li><Link to="/frames-to-gif" className="text-gray-600 hover:text-cyan-400 transition">Frames to GIF</Link></li>
+<li><Link to="/video-looper" className="text-gray-600 hover:text-cyan-400 transition">Video Looper</Link></li>
               <li><Link to="/image-crop" className="text-gray-600 hover:text-cyan-400 transition">Freeform Image Crop</Link></li>
               <li><Link to="/youtube-thumbnail-downloader" className="text-gray-600 hover:text-cyan-400 transition">YouTube Thumbnail Downloader</Link></li>
               <li><Link to="/gif-to-frames" className="text-gray-600 hover:text-cyan-400 transition">GIF to Frames</Link></li>
               <li><Link to="/gif-to-mp4" className="text-gray-600 hover:text-cyan-400 transition">GIF to MP4 Converter</Link></li>
               <li><Link to="/video-looper" className="text-gray-600 hover:text-cyan-400 transition">Video Looper</Link></li>
-              <li><Link to="/frames-to-gif" className="text-gray-600 hover:text-cyan-400 transition">Frames to GIF</Link></li>
+              <li><Link to="/video-to-sprite-sheet" className="text-gray-600 hover:text-cyan-400 transition">Video to Sprite Sheet</Link></li>
+              <li><Link to="/video-notes-extractor" className="text-gray-600 hover:text-cyan-400 transition">Video Notes Extractor</Link></li>
+              <li><Link to="/video-color-palette" className="text-gray-600 hover:text-cyan-400 transition">Video Color Palette Extractor</Link></li>
+              <li><Link to="/video-thumbnail-maker" className="text-gray-600 hover:text-cyan-400 transition">Video Thumbnail Maker</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-white font-semibold mb-3 text-sm">{t('footer.resources')}</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link to="/blog" className="text-gray-600 hover:text-cyan-400 transition">{t('footer.blog')}</Link></li>
+              <li><Link to="/about" className="text-gray-600 hover:text-cyan-400 transition">{t('footer.about')}</Link></li>
+              <li><Link to="/contact" className="text-gray-400 font-medium hover:text-cyan-400 transition">Contact Us</Link></li>
+              <li><Link to="/media-partner" className="text-gray-600 hover:text-cyan-400 transition">Media Partners</Link></li>
+              <li><Link to="/changelog" className="text-gray-600 hover:text-cyan-400 transition">Changelog</Link></li>
+              <li><Link to="/privacy" className="text-gray-600 hover:text-cyan-400 transition">{t('footer.privacy')}</Link></li>
+              <li><Link to="/terms" className="text-gray-600 hover:text-cyan-400 transition">{t('footer.terms')}</Link></li>
+              <li><Link to="/editorial-policy" className="text-gray-600 hover:text-cyan-400 transition">Editorial Policy</Link></li>
+              <li><Link to="/disclaimer" className="text-gray-600 hover:text-cyan-400 transition">Disclaimer</Link></li>
+              <li><Link to="/#how-it-works" className="text-gray-600 hover:text-cyan-400 transition">{t('footer.howItWorks')}</Link></li>
+              <li><Link to="/#faq" className="text-gray-600 hover:text-cyan-400 transition">{t('nav.faq')}</Link></li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+          <p>{t('footer.copyright', { year })}</p>
+          <p>{t('footer.local')}</p>
+        </div>
+      </div>
+
+      <div className="text-center mt-6 pb-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="https://www.toolpilot.ai"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          className="inline-flex items-center gap-2 text-xs text-gray-600 hover:text-gray-400 transition"
+        >
+          <img
+            src="https://www.toolpilot.ai/cdn/shop/files/f-w_690x151_crop_center.png?v=1695883028"
+            alt="Featured on Toolpilot"
+            width="138"
+            height="30"
+            className="h-6 opacity-50 hover:opacity-80 transition"
+          />
+          Featured on Toolpilot
+        </a>
+        <a
+          href="https://google.com/preferences/source?q=www.videotoimagesequence.online"
+          target="_blank"
+          rel="noopener"
+        >
+          <img
+            src="https://mypreferredsources.com/badges/en-dark.png"
+            alt="Add as a preferred source on Google"
+            width="160"
+            height="40"
+            style={{ display: 'block', height: '40px', width: 'auto', border: 0 }}
+          />
+        </a>
+        <a
+          href="https://smartees.tech/t/videotoimagesequence"
+          target="_blank"
+          rel="noopener"
+        >
+          <img
+            src="https://smartees.tech/badge/smartees-listed-dark.svg"
+            alt="Featured on Smartees"
+            width="184"
+            height="44"
+            loading="lazy"
+            style={{ display: 'block', height: '40px', width: 'auto', border: 0 }}
+          />
+        </a>
+      </div>
+    </footer>
+  );
+};
+
+export default memo(Footer);
