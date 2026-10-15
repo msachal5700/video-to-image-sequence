@@ -11,6 +11,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import Breadcrumb from '../../components/Breadcrumb';
+import AuthorBio from '../../components/AuthorBio';
 
 const SITE = 'https://www.videotoimagesequence.online';
 const CANONICAL = `${SITE}/blog/ai-best-frame-from-video`;
@@ -333,7 +334,8 @@ const AiBestFrameFromVideo = () => {
           </section>
 
         </div>
-      </article>
+        <AuthorBio />
+        </article>
     </>
   );
 };

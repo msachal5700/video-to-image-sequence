@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import Breadcrumb from '../../components/Breadcrumb';
 import GoogleAdUnit from '../../components/GoogleAdUnit';
+import AuthorBio from '../../components/AuthorBio';
 
 const VideoCodecsExplained: React.FC = () => {
   useEffect(() => {
@@ -265,7 +266,8 @@ ffmpeg -i input.* -c:v libx264 -crf 18 -preset fast -pix_fmt yuv420p -movflags +
           <GoogleAdUnit />
         </div>
       </div>
-    </article>
+      <AuthorBio />
+      </article>
   );
 };
 

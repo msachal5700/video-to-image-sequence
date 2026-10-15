@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import Breadcrumb from '../../components/Breadcrumb';
 import GoogleAdUnit from '../../components/GoogleAdUnit';
+import AuthorBio from '../../components/AuthorBio';
 
 const VideoToImageSequenceExplained: React.FC = () => {
   useEffect(() => {
@@ -172,6 +173,99 @@ ffmpeg -framerate 30 -i frame_%06d.png -c:v libx264 -crf 18 -pix_fmt yuv420p out
           <GoogleAdUnit />
         </div>
 
+        <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">Image Sequence vs Video Container: When Each Wins</h2>
+        <p>
+          Understanding when to use an image sequence versus keeping the original video file saves both time and
+          storage. The two formats solve different problems.
+        </p>
+        <div className="overflow-x-auto rounded-2xl border border-gray-800 my-4">
+          <table className="w-full text-sm text-left">
+            <thead className="bg-gray-900 text-white uppercase text-xs font-mono">
+              <tr><th className="px-4 py-3">Aspect</th><th className="px-4 py-3">Image Sequence</th><th className="px-4 py-3">Video Container</th></tr>
+            </thead>
+            <tbody className="divide-y divide-gray-800 text-gray-300">
+              <tr className="hover:bg-gray-900/50"><td className="px-4 py-3 font-bold text-white">Random access</td><td className="px-4 py-3 text-cyan-400">Instant — every frame is a file</td><td className="px-4 py-3">Slow — must decode from nearest keyframe</td></tr>
+              <tr className="hover:bg-gray-900/50"><td className="px-4 py-3 font-bold text-white">Storage size</td><td className="px-4 py-3">Large (10–100× video)</td><td className="px-4 py-3 text-cyan-400">Compact (temporal compression)</td></tr>
+              <tr className="hover:bg-gray-900/50"><td className="px-4 py-3 font-bold text-white">Edit-friendliness</td><td className="px-4 py-3 text-cyan-400">Replace/delete individual frames</td><td className="px-4 py-3">Re-encode required for frame edits</td></tr>
+              <tr className="hover:bg-gray-900/50"><td className="px-4 py-3 font-bold text-white">Network transfer</td><td className="px-4 py-3">Thousands of files (slow listing)</td><td className="px-4 py-3 text-cyan-400">Single file (fast)</td></tr>
+              <tr className="hover:bg-gray-900/50"><td className="px-4 py-3 font-bold text-white">Corruption risk</td><td className="px-4 py-3 text-cyan-400">One bad frame ≠ lost sequence</td><td className="px-4 py-3">One bad byte can kill the file</td></tr>
+              <tr className="hover:bg-gray-900/50"><td className="px-4 py-3 font-bold text-white">Color precision</td><td className="px-4 py-3 text-cyan-400">16/32-bit EXR possible</td><td className="px-4 py-3">Usually 8-bit (10-bit in ProRes/H.265)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          <strong className="text-white">Rule of thumb:</strong> use image sequences when you need to <em>work on</em> frames
+          (VFX, ML training, animation, analysis). Keep the video container when you need to <em>store or deliver</em> footage
+          (archiving, streaming, sharing). Most professional pipelines convert video → sequence at ingest, work on frames,
+          then re-encode → video at delivery.
+        </p>
+
+        <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">Choosing Extraction Settings by Use Case</h2>
+        <p>
+          The "right" FPS and format depend entirely on what happens after extraction. Here's a practical decision guide:
+        </p>
+        <div className="space-y-4 mt-4">
+          <div className="bg-gray-900 border border-gray-800 rounded-xl p-5">
+            <h4 className="text-cyan-400 font-semibold mb-2">🎬 VFX / Compositing (Nuke, After Effects)</h4>
+            <p className="text-gray-400 text-sm">Extract at <strong className="text-white">source FPS</strong> (usually 24/25/30) in <strong className="text-white">PNG or EXR</strong>. Never downsample FPS for VFX — every frame matters for tracking and roto. Use 6-digit zero-padded naming.</p>
+          </div>
+          <div className="bg-gray-900 border border-gray-800 rounded-xl p-5">
+            <h4 className="text-cyan-400 font-semibold mb-2">🤖 ML Training Data (YOLO, classification)</h4>
+            <p className="text-gray-400 text-sm"><strong className="text-white">1–5 FPS in JPG (quality 85–92)</strong> is the sweet spot. Consecutive frames at 30 FPS are near-duplicates that waste training time and skew datasets. Deduplicate aggressively — 1,000 diverse frames beat 10,000 redundant ones.</p>
+          </div>
+          <div className="bg-gray-900 border border-gray-800 rounded-xl p-5">
+            <h4 className="text-cyan-400 font-semibold mb-2">🎞️ Animation Reference / Stop Motion</h4>
+            <p className="text-gray-400 text-sm"><strong className="text-white">12 FPS in PNG</strong> matches traditional animation timing (animators work "on twos" at 24 FPS). PNG preserves clean edges for tracing and rotoscoping.</p>
+          </div>
+          <div className="bg-gray-900 border border-gray-800 rounded-xl p-5">
+            <h4 className="text-cyan-400 font-semibold mb-2">📊 Video Analysis / Thumbnails</h4>
+            <p className="text-gray-400 text-sm"><strong className="text-white">1 FPS in JPG</strong> gives you a contact-sheet view of the entire video at minimal cost. A 10-minute video becomes 600 thumbnails — enough to find any moment visually.</p>
+          </div>
+          <div className="bg-gray-900 border border-gray-800 rounded-xl p-5">
+            <h4 className="text-cyan-400 font-semibold mb-2">🌐 Web Delivery / Previews</h4>
+            <p className="text-gray-400 text-sm"><strong className="text-white">WebP at source FPS</strong> — 25–35% smaller than JPG with equal quality, alpha support included. All modern browsers decode it natively.</p>
+          </div>
+        </div>
+
+        <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">Frequently Asked Questions</h2>
+        <div className="space-y-4 mt-4">
+          <details className="border border-gray-800 bg-gray-900/50 rounded-2xl p-5 cursor-pointer group hover:border-cyan-800 transition-colors">
+            <summary className="font-medium text-white text-sm md:text-base list-none flex justify-between items-center group-open:text-cyan-400">
+              How many images will I get from a 1-minute video at 30 FPS?
+              <span className="text-cyan-400 transition-transform group-open:rotate-180">▼</span>
+            </summary>
+            <p className="mt-4 text-gray-400 text-sm leading-relaxed">1,800 frames (60 seconds × 30 FPS). At 1080p JPG that's roughly 270–540 MB as a ZIP; PNG would be 1.8–3.6 GB. For long videos, consider extracting at 1–5 FPS or splitting into chapters first.</p>
+          </details>
+          <details className="border border-gray-800 bg-gray-900/50 rounded-2xl p-5 cursor-pointer group hover:border-cyan-800 transition-colors">
+            <summary className="font-medium text-white text-sm md:text-base list-none flex justify-between items-center group-open:text-cyan-400">
+              Can I extract frames without losing quality?
+              <span className="text-cyan-400 transition-transform group-open:rotate-180">▼</span>
+            </summary>
+            <p className="mt-4 text-gray-400 text-sm leading-relaxed">Yes — use PNG output. The extracted frame will match the decoded video frame pixel-for-pixel. Note that the source video itself is already compressed (H.264/H.265), so "lossless" here means no <em>additional</em> loss beyond what the video codec already introduced.</p>
+          </details>
+          <details className="border border-gray-800 bg-gray-900/50 rounded-2xl p-5 cursor-pointer group hover:border-cyan-800 transition-colors">
+            <summary className="font-medium text-white text-sm md:text-base list-none flex justify-between items-center group-open:text-cyan-400">
+              Why do professionals prefer image sequences over video files?
+              <span className="text-cyan-400 transition-transform group-open:rotate-180">▼</span>
+            </summary>
+            <p className="mt-4 text-gray-400 text-sm leading-relaxed">Three reasons: frame-accurate random access (no keyframe seeking), per-frame editability (fix one frame without re-encoding), and corruption isolation (a damaged frame doesn't destroy the sequence). Every major VFX, animation, and color-grading pipeline is built around sequences.</p>
+          </details>
+          <details className="border border-gray-800 bg-gray-900/50 rounded-2xl p-5 cursor-pointer group hover:border-cyan-800 transition-colors">
+            <summary className="font-medium text-white text-sm md:text-base list-none flex justify-between items-center group-open:text-cyan-400">
+              What's the difference between extracting at 30 FPS vs every 1 second?
+              <span className="text-cyan-400 transition-transform group-open:rotate-180">▼</span>
+            </summary>
+            <p className="mt-4 text-gray-400 text-sm leading-relaxed">30 FPS captures every frame (full temporal resolution — 1,800 frames/minute). Every-1-second captures 1 frame per second (60 frames/minute — a 30× reduction). Use full FPS for VFX/analysis where motion matters; use interval extraction for thumbnails, storyboards, and dataset sampling where coverage matters more than continuity.</p>
+          </details>
+          <details className="border border-gray-800 bg-gray-900/50 rounded-2xl p-5 cursor-pointer group hover:border-cyan-800 transition-colors">
+            <summary className="font-medium text-white text-sm md:text-base list-none flex justify-between items-center group-open:text-cyan-400">
+              Do extracted frames keep the original video's metadata?
+              <span className="text-cyan-400 transition-transform group-open:rotate-180">▼</span>
+            </summary>
+            <p className="mt-4 text-gray-400 text-sm leading-relaxed">No — still image formats (JPG/PNG/WebP) don't carry video container metadata like creation date, camera settings, or GPS. The frame's pixel data and dimensions are preserved, but timestamps, codec info, and camera metadata are lost. If you need metadata, record the source video's properties separately before extracting.</p>
+          </details>
+        </div>
+
         <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">Conclusion</h2>
         <p>
           An image sequence is the universal interchange format for frame-level work. Whether you're compositing in Nuke, training YOLO, animating in Blender, or analyzing motion in Python — extracting frames with the right FPS, format, and naming saves hours of pipeline friction.
@@ -184,7 +278,8 @@ ffmpeg -framerate 30 -i frame_%06d.png -c:v libx264 -crf 18 -pix_fmt yuv420p out
           <GoogleAdUnit />
         </div>
       </div>
-    </article>
+      <AuthorBio />
+      </article>
   );
 };
 

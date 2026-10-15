@@ -12,7 +12,7 @@ import NotFound from './pages/NotFound';
 import BlogIndex from './pages/BlogIndex';
 import ExtractFramesOnline from './pages/blog/ExtractFramesOnline';
 import Mp4ToImageSequence from './pages/blog/Mp4ToImageSequence';
-import { PrivacyPolicy, TermsOfService, AboutUs } from './pages/Legal';
+import { PrivacyPolicy, TermsOfService, AboutUs, EditorialPolicy, Disclaimer } from './pages/Legal';
 import Mp4ToJpg from './pages/Mp4ToJpg';
 import Mp4ToPng from './pages/Mp4ToPng';
 import ScreenshotFromVideo from './pages/ScreenshotFromVideo';
@@ -47,7 +47,6 @@ import GifToFrames from './pages/GifToFrames';
 import GifToMp4 from './pages/GifToMp4';
 import VideoNotesExtractor from './pages/VideoNotesExtractor';
 import VideoToSpriteSheet from './pages/VideoToSpriteSheet';
-import StopMotionCapture from './pages/StopMotionCapture';
 import VideoColorPalette from './pages/VideoColorPalette';
 import VideoThumbnailMaker from './pages/VideoThumbnailMaker';
 import VideoMetadataInspector from './pages/VideoMetadataInspector';
@@ -187,6 +186,8 @@ const App: React.FC = () => {
                 <Route path="/privacy" element={<PrivacyPolicy />} />
                 <Route path="/terms" element={<TermsOfService />} />
                 <Route path="/about" element={<AboutUs />} />
+                <Route path="/editorial-policy" element={<EditorialPolicy />} />
+                <Route path="/disclaimer" element={<Disclaimer />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/media-partner" element={<MediaPartner />} />
                 <Route path="/changelog" element={<Changelog />} />
@@ -200,7 +201,6 @@ const App: React.FC = () => {
                 <Route path="/gif-to-mp4" element={<GifToMp4 />} />
                 <Route path="/video-notes-extractor" element={<VideoNotesExtractor />} />
                 <Route path="/video-to-sprite-sheet" element={<VideoToSpriteSheet />} />
-                <Route path="/stop-motion-capture" element={<StopMotionCapture />} />
                 <Route path="/video-color-palette" element={<VideoColorPalette />} />
                 <Route path="/video-thumbnail-maker" element={<VideoThumbnailMaker />} />
                 <Route path="/video-metadata-inspector" element={<VideoMetadataInspector />} />

@@ -110,6 +110,8 @@ const routes = [
 
   '/privacy',
   '/terms',
+  '/editorial-policy',
+  '/disclaimer',
   '/404',
 ];
 
@@ -132,7 +134,7 @@ const LOCALIZED_PAGES = [
 
 const routeTextMap = {
   '/': 'Video to Image Sequence',
-  '/extract-frames-from-video': 'Extract Frames from Video',
+  '/extract-frames-from-video': 'Extract Every Frame from Video',
   '/images-to-video': 'Images to Video',
   '/mp4-to-jpg': 'MP4 to JPG',
   '/mp4-to-png': 'MP4 to PNG',
@@ -178,10 +180,10 @@ const routeTextMap = {
   '/contact': 'Contact',
   '/media-partner': 'Media Partners',
   '/changelog': 'Changelog',
-  '/video-to-frames': 'Video to Frames Converter',
+  '/video-to-frames': 'Video to Frames',
   '/video-contact-sheet': 'Video Contact Sheet Maker',
   '/video-to-jpg': 'Video to JPG Converter',
-  '/video-frame-extractor': 'Video Frame Extractor',
+  '/video-frame-extractor': 'Video Frame Grabber',
   '/video-to-photo': 'Video to Photo Converter',
   '/youtube-thumbnail-downloader': 'YouTube Thumbnail Downloader',
   '/gif-to-frames': 'GIF to Frames',
@@ -193,6 +195,8 @@ const routeTextMap = {
 
   '/privacy': 'Privacy',
   '/terms': 'Terms',
+  '/editorial-policy': 'Editorial Policy',
+  '/disclaimer': 'Disclaimer',
   '/404': '404',
 };
 

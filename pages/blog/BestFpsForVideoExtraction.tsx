@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import Breadcrumb from '../../components/Breadcrumb';
 import GoogleAdUnit from '../../components/GoogleAdUnit';
+import AuthorBio from '../../components/AuthorBio';
 
 const PUBLISHED = '2026-08-29';
 const CANONICAL = 'https://www.videotoimagesequence.online/blog/best-fps-settings-for-video-frame-extraction';
@@ -274,7 +275,8 @@ const BestFpsForVideoExtraction: React.FC = () => {
 
         <GoogleAdUnit />
       </div>
-    </article>
+      <AuthorBio />
+      </article>
   );
 };
 
