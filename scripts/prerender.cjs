@@ -107,8 +107,10 @@ const routes = [
   '/frames-to-gif',
   '/video-notes-extractor',
   '/video-to-sprite-sheet',
+  '/stop-motion-capture',
   '/video-color-palette',
   '/video-thumbnail-maker',
+  '/video-metadata-inspector',
 
   '/privacy',
   '/terms',
@@ -194,8 +196,10 @@ const routeTextMap = {
   '/frames-to-gif': 'Frames to GIF',
   '/video-notes-extractor': 'Video Notes Extractor',
   '/video-to-sprite-sheet': 'Video to Sprite Sheet',
+  '/stop-motion-capture': 'Stop Motion Maker with Onion Skin',
   '/video-color-palette': 'Video Color Palette Extractor',
   '/video-thumbnail-maker': 'Video Thumbnail Maker',
+  '/video-metadata-inspector': 'Video Metadata Inspector',
 
   '/privacy': 'Privacy',
   '/terms': 'Terms',
