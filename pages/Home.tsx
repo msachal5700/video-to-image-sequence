@@ -201,8 +201,9 @@ const Home: React.FC = () => {
     '/video-to-photo',
     '/youtube-thumbnail-downloader',
     '/video-to-pdf',
+    '/last-frame-extractor',
 ];
-  const relatedEmojis = ['🎯', '🖼️', '🎨', '📚', '🎬', '🔄', '✂️', '🎞️', '📷', '⚙️', '📸', '⬇️', '📄',];
+  const relatedEmojis = ['🎯', '🖼️', '🎨', '📚', '🎬', '🔄', '✂️', '🎞️', '📷', '⚙️', '📸', '⬇️', '📄', '🎯',];
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
