@@ -719,6 +719,14 @@
     "hero": "Convert a sequence of JPG or PNG images into a smooth WebM video directly in your browser. No server upload, no watermarks.",
     "keywords": "images to video, image sequence to video, jpg to video, png to video"
   },
+  "framesToGif": {
+    "title": "Images to GIF / WebP — Free Animated GIF Maker Online, No Signup",
+    "description": "Turn JPG, PNG, or WebP images into animated GIFs free in your browser. Reorder frames, set timing, preview, and download. No upload, no watermark.",
+    "h1": "Images to GIF",
+    "h1Sub": "Free Animated GIF Maker Online",
+    "hero": "Combine JPG, PNG, or WebP images into a looping animated GIF directly in your browser. Reorder frames, control timing, preview, and download — no upload, no watermark.",
+    "keywords": "images to gif, jpg to gif, png to gif, make gif from images, animated gif maker, pictures to gif"
+  },
   "footer": {
     "tagline": "Free browser-based video frame extractor. Convert MP4, MOV, and WEBM videos to JPG/PNG image sequences — no server upload, processed locally in your browser.",
     "converterTools": "Converter Tools",
@@ -818,5 +826,13 @@
     "h1Sub": "Animate Frame by Frame in Your Browser",
     "hero": "Clay, LEGO, paper cut-outs — whatever you can pose, you can animate. Capture frame by frame with your webcam, line up every move with the onion-skin ghost of your last shot, preview at any speed, and export a GIF or WebM. Free, no signup, nothing uploaded.",
     "keywords": "stop motion maker, free stop motion app, onion skin animation tool, stop motion webcam capture, claymation maker online, lego stop motion app"
+  },
+  "videoLooper": {
+    "title": "Video Looper — Repeat Video Online Free, Seamless Loop Maker",
+    "description": "Loop any video 2–10× free in your browser — with automatic seamless loop-point detection. No upload, no signup, no watermark.",
+    "h1": "Video Looper",
+    "h1Sub": "Repeat Video Online Free, Seamless Loop Maker",
+    "hero": "Turn any clip into a perfect loop. Drop in a video, let auto-detect find the seamless cut point no other browser tool can, preview it infinitely, and export — all on your device, free forever.",
+    "keywords": "video looper, loop video online, repeat video, seamless loop maker, video loop maker free, loop mp4 online"
   }
 }

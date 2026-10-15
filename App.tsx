@@ -8,6 +8,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import ImagesToVideoPage from './pages/ImagesToVideoPage';
+import FramesToGif from './pages/FramesToGif';
 import NotFound from './pages/NotFound';
 import BlogIndex from './pages/BlogIndex';
 import ExtractFramesOnline from './pages/blog/ExtractFramesOnline';
@@ -50,6 +51,7 @@ import VideoToSpriteSheet from './pages/VideoToSpriteSheet';
 import VideoColorPalette from './pages/VideoColorPalette';
 import VideoThumbnailMaker from './pages/VideoThumbnailMaker';
 import VideoMetadataInspector from './pages/VideoMetadataInspector';
+import VideoLooper from './pages/VideoLooper';
 import VideoFramesForAiDatasets from './pages/VideoFramesForAiDatasets';
 import VideoToImageSequenceForBlender from './pages/VideoToImageSequenceForBlender';
 import VideoFrameForYoutubeThumbnail from './pages/VideoFrameForYoutubeThumbnail';
@@ -146,6 +148,7 @@ const App: React.FC = () => {
                 <Route path="/ai-social-media-frame-picker" element={<AiSocialMediaFramePicker />} />
 
                 <Route path="/images-to-video" element={<ImagesToVideoPage />} />
+                <Route path="/frames-to-gif" element={<FramesToGif />} />
                 <Route path="/mp4-to-jpg" element={<Mp4ToJpg />} />
                 <Route path="/mp4-to-png" element={<Mp4ToPng />} />
                 <Route path="/video-to-webp" element={<VideoToWebp />} />
@@ -204,6 +207,7 @@ const App: React.FC = () => {
                 <Route path="/video-color-palette" element={<VideoColorPalette />} />
                 <Route path="/video-thumbnail-maker" element={<VideoThumbnailMaker />} />
                 <Route path="/video-metadata-inspector" element={<VideoMetadataInspector />} />
+                <Route path="/video-looper" element={<VideoLooper />} />
                 <Route path="/privacy-policy" element={<Navigate to="/privacy" replace />} />
                 <Route path="/terms-of-service" element={<Navigate to="/terms" replace />} />
                 <Route path="/about-us" element={<Navigate to="/about" replace />} />
