@@ -8,7 +8,6 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import ImagesToVideoPage from './pages/ImagesToVideoPage';
-import FramesToGif from './pages/FramesToGif';
 import NotFound from './pages/NotFound';
 import BlogIndex from './pages/BlogIndex';
 import ExtractFramesOnline from './pages/blog/ExtractFramesOnline';
@@ -148,7 +147,6 @@ const App: React.FC = () => {
                 <Route path="/ai-social-media-frame-picker" element={<AiSocialMediaFramePicker />} />
 
                 <Route path="/images-to-video" element={<ImagesToVideoPage />} />
-                <Route path="/frames-to-gif" element={<FramesToGif />} />
                 <Route path="/mp4-to-jpg" element={<Mp4ToJpg />} />
                 <Route path="/mp4-to-png" element={<Mp4ToPng />} />
                 <Route path="/video-to-webp" element={<VideoToWebp />} />

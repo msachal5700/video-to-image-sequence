@@ -719,14 +719,6 @@
     "hero": "Convert a sequence of JPG or PNG images into a smooth WebM video directly in your browser. No server upload, no watermarks.",
     "keywords": "images to video, image sequence to video, jpg to video, png to video"
   },
-  "framesToGif": {
-    "title": "Images to GIF / WebP — Free Animated GIF Maker Online, No Signup",
-    "description": "Turn JPG, PNG, or WebP images into animated GIFs free in your browser. Reorder frames, set timing, preview, and download. No upload, no watermark.",
-    "h1": "Images to GIF",
-    "h1Sub": "Free Animated GIF Maker Online",
-    "hero": "Combine JPG, PNG, or WebP images into a looping animated GIF directly in your browser. Reorder frames, control timing, preview, and download — no upload, no watermark.",
-    "keywords": "images to gif, jpg to gif, png to gif, make gif from images, animated gif maker, pictures to gif"
-  },
   "footer": {
     "tagline": "Free browser-based video frame extractor. Convert MP4, MOV, and WEBM videos to JPG/PNG image sequences — no server upload, processed locally in your browser.",
     "converterTools": "Converter Tools",
