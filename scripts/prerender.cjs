@@ -110,6 +110,8 @@ const routes = [
 
   '/privacy',
   '/terms',
+  '/editorial-policy',
+  '/disclaimer',
   '/404',
 ];
 
@@ -193,6 +195,8 @@ const routeTextMap = {
 
   '/privacy': 'Privacy',
   '/terms': 'Terms',
+  '/editorial-policy': 'Editorial Policy',
+  '/disclaimer': 'Disclaimer',
   '/404': '404',
 };
 

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import Breadcrumb from '../../components/Breadcrumb';
+import AuthorBio from '../../components/AuthorBio';
 
 const PUBLISHED = '2026-10-12';
 const CANONICAL = 'https://www.videotoimagesequence.online/blog/cloudinary-video-to-image-sequence-alternative';
@@ -305,17 +306,7 @@ const CloudinaryAlternative: React.FC = () => {
               ))}
             </div>
           </section>
-
-          {/* Author Citation Box */}
-          <section className="p-6 rounded-2xl bg-gray-950 border border-gray-800 flex flex-col sm:flex-row items-center gap-4 text-xs">
-            <img src="/muhammad-sachal.jpg" alt="Muhammad Sachal" className="w-14 h-14 rounded-full object-cover border border-cyan-500/40" />
-            <div>
-              <div className="font-bold text-white font-display text-sm">About the Author</div>
-              <p className="text-gray-400 mt-0.5">
-                <strong>Muhammad Sachal (SachalSpeaks)</strong> is a Computer Science engineer specializing in client-side media pipelines, computer vision, and browser performance optimization.
-              </p>
-            </div>
-          </section>
+          <AuthorBio />
 
         </div>
       </article>

@@ -297,4 +297,133 @@ export const TermsOfService: React.FC = () => (
   </>
 );
 
+export const EditorialPolicy: React.FC = () => (
+  <>
+    <SEOHead
+      title="Editorial Policy | Video to Image Sequence Online"
+      description="How Video to Image Sequence Online researches, writes, reviews, and updates its content. Our standards for accuracy, corrections, and editorial independence."
+      canonical="https://www.videotoimagesequence.online/editorial-policy"
+    />
+    <LegalLayout title="Editorial Policy">
+      <p className="text-xs font-mono text-cyan-400">Last updated: October 15, 2026 · Operated by Muhammad Sachal (SachalSpeaks)</p>
+
+      <p>
+        Video to Image Sequence Online publishes free browser-based video tools alongside guides, tutorials,
+        and comparisons that help people work with video more effectively. This page explains how that
+        content is produced, reviewed, and corrected.
+      </p>
+
+      <H2>1. Who Creates the Content</H2>
+      <p>
+        All content on this site — tool pages, guides, tutorials, and comparisons — is written and reviewed by{' '}
+        <strong>Muhammad Sachal (SachalSpeaks)</strong>, a Computer Science engineer specializing in client-side
+        media pipelines, computer vision, and browser performance optimization. There are no anonymous contributors,
+        no content farms, and no outsourced article mills. Every page carries a visible author byline.
+      </p>
+
+      <H2>2. How Content Is Researched</H2>
+      <p>
+        Tool documentation is written from direct, hands-on testing of the tools themselves — every feature
+        described has been run in a real browser. Comparisons with other tools (such as Ezgif or Cloudinary)
+        are based on the competitor's publicly documented features and pricing at the time of writing, and we
+        note where limits may change. Technical claims (codec support, file-size behavior, browser compatibility)
+        are verified against official documentation from browser vendors and standards bodies.
+      </p>
+
+      <H2>3. Review Process</H2>
+      <p>
+        Before publication, each article is checked for: (a) factual accuracy of technical claims, (b) working
+        links and correct tool references, (c) clarity for the intended audience, and (d) consistency with the
+        site's privacy-first positioning. Tool pages are additionally tested end-to-end — upload, extraction,
+        and export — before any feature is described as working.
+      </p>
+
+      <H2>4. Updates and Corrections</H2>
+      <p>
+        Video technology changes quickly. Articles are reviewed periodically and updated when features, browser
+        support, or competitor details change materially. When a factual error is found — by us or reported by a
+        reader — it is corrected promptly and the page's "last updated" date is revised. Significant corrections
+        are noted inline where they affect the reader's understanding.
+      </p>
+      <p>
+        To report an error or suggest a correction, use the{' '}
+        <Link to="/contact" className="text-cyan-400 underline">Contact Page</Link> or email{' '}
+        <a href="mailto:sachalmahar5700@gmail.com" className="text-cyan-400 font-mono">sachalmahar5700@gmail.com</a>.
+        We read every message.
+      </p>
+
+      <H2>5. Editorial Independence</H2>
+      <p>
+        Tool recommendations and comparisons on this site reflect genuine testing and opinion. If the site ever
+        earns revenue from affiliate links or sponsorships, those relationships will be clearly disclosed on the
+        relevant pages and in a dedicated disclosure notice — commercial relationships never determine editorial
+        conclusions.
+      </p>
+
+      <H2>6. AI Assistance Disclosure</H2>
+      <p>
+        Drafting assistance from AI tools may be used in the writing process, but every published article is
+        reviewed, fact-checked, and approved by a human editor (Muhammad Sachal) before publication. No article
+        is published from unreviewed AI output.
+      </p>
+    </LegalLayout>
+  </>
+);
+
+export const Disclaimer: React.FC = () => (
+  <>
+    <SEOHead
+      title="Disclaimer | Video to Image Sequence Online"
+      description="Important disclaimers for Video to Image Sequence Online: tool outputs, no warranties, educational content, and third-party references."
+      canonical="https://www.videotoimagesequence.online/disclaimer"
+    />
+    <LegalLayout title="Disclaimer">
+      <p className="text-xs font-mono text-cyan-400">Last updated: October 15, 2026 · Operated by Muhammad Sachal (SachalSpeaks)</p>
+
+      <p>
+        The information and tools on Video to Image Sequence Online are provided for general informational and
+        educational purposes. Please read the following carefully.
+      </p>
+
+      <H2>1. No Warranty on Tool Outputs</H2>
+      <p>
+        The free tools on this site (frame extraction, format conversion, thumbnail generation, and others) are
+        provided "as is," without warranty of any kind. While we test our tools thoroughly, we cannot guarantee
+        that outputs will be error-free, complete, or suitable for any particular purpose — including professional,
+        commercial, or machine-learning workflows. Always verify critical outputs independently.
+      </p>
+
+      <H2>2. Browser Compatibility</H2>
+      <p>
+        All tools run locally in your web browser using standard web APIs (HTML5 video, Canvas, MediaRecorder).
+        Behavior may vary between browsers and devices. Features that depend on newer APIs may not work in older
+        browsers. We document known limitations on each tool page, but the landscape changes — if something
+        doesn't work in your browser, try a current version of Chrome, Edge, or Firefox.
+      </p>
+
+      <H2>3. Educational Content</H2>
+      <p>
+        Guides, tutorials, and comparisons are educational resources reflecting the author's knowledge and testing
+        at the time of writing. They are not professional advice. Technical details (codec support, file formats,
+        third-party tool limits) change over time; verify against official documentation for mission-critical decisions.
+      </p>
+
+      <H2>4. Third-Party References</H2>
+      <p>
+        References to third-party tools and services (such as Ezgif, Cloudinary, or others) are for comparison and
+        educational purposes. We are not affiliated with, endorsed by, or sponsored by these companies unless
+        explicitly stated. Descriptions of third-party features are based on publicly available information and
+        may become outdated.
+      </p>
+
+      <H2>5. No Professional Relationship</H2>
+      <p>
+        Using this site does not create any professional, client, or advisory relationship between you and the
+        operator. For questions about the tools or content, contact us via the{' '}
+        <Link to="/contact" className="text-cyan-400 underline">Contact Page</Link>.
+      </p>
+    </LegalLayout>
+  </>
+);
+
 export const AboutUs: React.FC = () => <AboutPage />;

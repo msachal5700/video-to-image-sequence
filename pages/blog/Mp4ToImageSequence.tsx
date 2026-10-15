@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import Breadcrumb from '../../components/Breadcrumb';
 import GoogleAdUnit from '../../components/GoogleAdUnit';
+import AuthorBio from '../../components/AuthorBio';
 
 const Mp4ToImageSequence: React.FC = () => {
   useEffect(() => {
@@ -245,7 +246,8 @@ const Mp4ToImageSequence: React.FC = () => {
       <div className="my-10">
         <GoogleAdUnit />
       </div>
-    </article>
+      <AuthorBio />
+      </article>
   );
 };
 

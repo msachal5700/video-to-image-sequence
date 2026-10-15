@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import Breadcrumb from '../../components/Breadcrumb';
 import GoogleAdUnit from '../../components/GoogleAdUnit';
+import AuthorBio from '../../components/AuthorBio';
 
 const PUBLISHED = '2026-08-29';
 const CANONICAL = 'https://www.videotoimagesequence.online/blog/video-frame-extractor-use-cases';
@@ -189,7 +190,8 @@ const VideoFrameExtractorUseCases: React.FC = () => {
           </Link>
         </div>
       </div>
-    </article>
+      <AuthorBio />
+      </article>
   );
 };
 

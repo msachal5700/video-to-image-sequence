@@ -71,7 +71,7 @@
     "manualSecondsLabel": "Every N seconds",
     "manualMinutesLabel": "Every N minutes",
     "manualInvalid": "Please enter a positive number.",
-    "manualEstimate": "\u2248 {{count}} frames from this {{duration}} video",
+    "manualEstimate": "≈ {{count}} frames from this {{duration}} video",
     "manualOutOfRange": "Enter a value between {{min}} and {{max}}.",
     "outputFormat": "Output Image Format",
     "frameRate": "Output Frame Rate (FPS)",
@@ -455,8 +455,8 @@
         "desc": "Complete guide: FPS settings, format choice, Blender import, AI dataset prep."
       },
       {
-        "title": "Exact Frame Extraction Guide",
-        "desc": "How to capture milliseconds-perfect frames for thumbnails & analysis."
+        "title": "Extract Every Frame (Full FPS)",
+        "desc": "Pull complete frame sequences at full frame rate — every single frame for VFX, animation, and ML work."
       },
       {
         "title": "Images to Video Converter",
@@ -468,15 +468,15 @@
       },
       {
         "title": "Video to Frames Converter",
-        "desc": "Extract every frame or Nth frame as JPG, PNG, or WebP — built for ML datasets and animation."
+        "desc": "The main converter — turn any video into JPG, PNG, or WebP frames free in your browser."
       },
       {
         "title": "Video to JPG Frames",
         "desc": "Pull high-quality JPG stills from any video. Fast, private, no signup."
       },
       {
-        "title": "Video Frame Extractor",
-        "desc": "Precision frame extraction with FPS control, timestamps, and batch ZIP download."
+        "title": "Video Frame Grabber",
+        "desc": "Capture individual stills from video instantly — scrub to the moment, grab the frame."
       },
       {
         "title": "Video to Photo",
@@ -632,9 +632,9 @@
     }
   },
   "extractFrames": {
-    "title": "Extract Frames from Video Online Free — JPG & PNG Frame Extractor",
-    "description": "Extract frames from video online for free. Convert MP4, MOV, and WEBM videos to JPG or PNG sequences in your browser. No server upload required.",
-    "h1": "Extract Frames from Video",
+    "title": "Extract Every Frame from Video — Full FPS Image Sequences Free",
+    "description": "Pull complete frame sequences from video at full FPS — every single frame as JPG, PNG, or WebP. Ideal for VFX, animation, and ML datasets. Free, private, no upload.",
+    "h1": "Extract Every Frame from Video",
     "h1Sub": "Free Online Frame Extractor",
     "hero": "Extract every frame from MP4, MOV, and WEBM videos as JPG or PNG images for free. All processing happens locally in your browser — your files are never uploaded.",
     "keywords": "extract frames from video, video frame extractor, extract frames online, video to images"
@@ -672,9 +672,9 @@
     "keywords": "video to gif, convert video to gif, mp4 to gif, gif maker online, make gif from video, video to gif converter"
   },
   "videoToFrames": {
-    "title": "Video to Frames — Free Online Converter, No Signup Needed",
-    "description": "Extract frames from video free in your browser — no upload, no signup, no watermark. Set the frame rate, download JPG/PNG stills or the full sequence as ZIP.",
-    "h1": "Video to Frames Converter",
+    "title": "Video to Frames — Free Online Video Frame Extractor, No Signup",
+    "description": "Convert video to frames free in your browser — extract JPG, PNG, or WebP stills from MP4, MOV, and WebM. No upload, no signup, no watermark.",
+    "h1": "Video to Frames",
     "h1Sub": "Free Online Frame Extractor",
     "hero": "Turn any video into a numbered sequence of still frames — free, in your browser, with no upload and no watermark. Perfect for animation, AI datasets, thumbnails, and contact sheets.",
     "keywords": "video to frames, video to frames converter, video to frames online free, convert video to frames, video frames converter online"
@@ -688,9 +688,9 @@
     "keywords": "video to jpg, convert video to jpg, video to jpg converter, video to jpg online free, extract jpg from video"
   },
   "videoFrameExtractor": {
-    "title": "Video Frame Extractor — Extract Video Frames Online Free",
-    "description": "Free online video frame extractor. Pull still frames from MP4, MOV, and WEBM videos as JPG or PNG images in your browser. No install, no upload, no watermark.",
-    "h1": "Video Frame Extractor",
+    "title": "Video Frame Grabber — Capture Single Stills Instantly Free",
+    "description": "Grab individual still frames from any video instantly. Scrub to the exact moment, capture it as JPG or PNG. Free online frame grabber — no upload, no signup.",
+    "h1": "Video Frame Grabber",
     "h1Sub": "Free Online — No Install",
     "hero": "Extract still frames from any video without installing software — free in your browser, with no upload and no watermark. Compare online, ffmpeg, and VLC methods.",
     "keywords": "video frame extractor, video frame extractor online free, extract video frames online, frame extractor tool, video frame grabber online"
@@ -748,11 +748,11 @@
     "keywords": "video to photo, convert video to photo, save video frame as photo, video to picture, extract photo from video, video frame to photo"
   },
   "videoColorPalette": {
-    "title": "Extract Color Palette from Video \u2014 Free, No Signup",
-    "description": "Extract a color palette from any video free in your browser. Get dominant HEX/RGB swatches from MP4, MOV, or WEBM \u2014 no upload, no signup, no watermark.",
+    "title": "Extract Color Palette from Video — Free, No Signup",
+    "description": "Extract a color palette from any video free in your browser. Get dominant HEX/RGB swatches from MP4, MOV, or WEBM — no upload, no signup, no watermark.",
     "h1": "Video Color Palette Extractor",
     "h1Sub": "Dominant Colors from Any Video",
-    "hero": "Turn any video into a designer-ready color palette. Sample frames across the footage, extract the dominant HEX and RGB colors, and copy them straight into Figma, CSS, or your brand kit \u2014 free, in your browser, nothing uploaded ever.",
+    "hero": "Turn any video into a designer-ready color palette. Sample frames across the footage, extract the dominant HEX and RGB colors, and copy them straight into Figma, CSS, or your brand kit — free, in your browser, nothing uploaded ever.",
     "keywords": "extract color palette from video, video color palette generator, video to color palette, dominant colors from video, video color scheme extractor, get hex colors from video"
   },
   "youtubeThumbnailDownloader": {
@@ -772,35 +772,35 @@
     "keywords": "video to sprite sheet, sprite sheet maker, video to sprite animation, make sprite sheet from video, sprite sheet generator, video to game sprite"
   },
   "videoNotesExtractor": {
-    "title": "Video Notes Extractor \u2014 Turn Lectures into Study Notes",
-    "description": "Turn lecture videos into study notes free \u2014 extract key frames, pick the ones you need, download as ZIP or PDF. No upload, no signup.",
+    "title": "Video Notes Extractor — Turn Lectures into Study Notes",
+    "description": "Turn lecture videos into study notes free — extract key frames, pick the ones you need, download as ZIP or PDF. No upload, no signup.",
     "h1": "Video Notes Extractor",
     "h1Sub": "Turn Lecture Videos into Study Notes",
-    "hero": "Stop screenshotting lectures one by one. Extract frames from any class recording, tick the key slides and diagrams in a visual gallery, and download them as a ZIP or a timestamped PDF \u2014 free, private, no signup.",
+    "hero": "Stop screenshotting lectures one by one. Extract frames from any class recording, tick the key slides and diagrams in a visual gallery, and download them as a ZIP or a timestamped PDF — free, private, no signup.",
     "keywords": "extract images from lecture video, lecture video to pdf, video to study notes, video lecture notes extractor, save frames from online class"
   },
   "gifToFrames": {
-    "title": "GIF to Frames \u2014 Free Online Extractor, No Signup",
-    "description": "Extract frames from any GIF or animated WebP free in your browser \u2014 download as JPG, PNG, or WebP images, or grab them all as a ZIP. No upload, no signup.",
+    "title": "GIF to Frames — Free Online Extractor, No Signup",
+    "description": "Extract frames from any GIF or animated WebP free in your browser — download as JPG, PNG, or WebP images, or grab them all as a ZIP. No upload, no signup.",
     "h1": "GIF to Frames",
     "h1Sub": "Extract Every Frame in Your Browser",
-    "hero": "A GIF is a flipbook pretending to be a picture. Drop one in and pull it apart: every frame decoded locally with its timing and transparency intact, downloadable as JPG, PNG, or WebP \u2014 or all at once as a ZIP. Free, no signup, nothing uploaded.",
+    "hero": "A GIF is a flipbook pretending to be a picture. Drop one in and pull it apart: every frame decoded locally with its timing and transparency intact, downloadable as JPG, PNG, or WebP — or all at once as a ZIP. Free, no signup, nothing uploaded.",
     "keywords": "gif to frames, extract frames from gif, gif to image sequence, webp to frames, animated webp to frames, gif frame extractor"
   },
   "gifToMp4": {
-    "title": "GIF to MP4 \u2014 Convert Animated GIFs Online Free, No Signup",
-    "description": "Convert GIF to MP4 free in your browser \u2014 smaller files, smoother playback, no watermark. Animated GIF and WebP to video in seconds, 100% private, no signup.",
+    "title": "GIF to MP4 — Convert Animated GIFs Online Free, No Signup",
+    "description": "Convert GIF to MP4 free in your browser — smaller files, smoother playback, no watermark. Animated GIF and WebP to video in seconds, 100% private, no signup.",
     "h1": "GIF to MP4",
     "h1Sub": "Convert Animated GIFs to Video",
-    "hero": "GIFs are heavy and capped at 256 colors. Drop one in and get back a real MP4: H.264 video that plays everywhere, looks smoother, and is often 5\u201310\u00d7 smaller. Everything happens in your browser \u2014 no upload, no signup, no watermark.",
+    "hero": "GIFs are heavy and capped at 256 colors. Drop one in and get back a real MP4: H.264 video that plays everywhere, looks smoother, and is often 5–10× smaller. Everything happens in your browser — no upload, no signup, no watermark.",
     "keywords": "gif to mp4, convert gif to mp4, gif to video, animated gif to mp4, webp to mp4, gif to mp4 converter free"
   },
   "videoThumbnailMaker": {
-    "title": "Video Thumbnail Maker \u2014 Free, No Signup Needed",
-    "description": "Make a YouTube thumbnail from any video frame \u2014 pick the perfect moment, add text and arrows, export 1280\u00d7720. Free in your browser, no signup, no watermark.",
+    "title": "Video Thumbnail Maker — Free, No Signup Needed",
+    "description": "Make a YouTube thumbnail from any video frame — pick the perfect moment, add text and arrows, export 1280×720. Free in your browser, no signup, no watermark.",
     "h1": "Video Thumbnail Maker",
     "h1Sub": "Turn Any Frame into a Click-Worthy Thumbnail",
-    "hero": "Your video already contains the perfect thumbnail \u2014 you just haven\u2019t grabbed it yet. Upload any clip, scrub to the exact frame, add bold text and arrows, and export a crisp 1280\u00d7720 thumbnail. Free, no signup, nothing uploaded.",
+    "hero": "Your video already contains the perfect thumbnail — you just haven’t grabbed it yet. Upload any clip, scrub to the exact frame, add bold text and arrows, and export a crisp 1280×720 thumbnail. Free, no signup, nothing uploaded.",
     "keywords": "video thumbnail maker, make thumbnail from video, youtube thumbnail from video frame, create thumbnail from video, video frame thumbnail maker"
   },
   "videoMetadataInspector": {
@@ -810,14 +810,13 @@
     "h1Sub": "Read Every Detail of Your Video File",
     "hero": "Drop in any video and read its hidden dossier: container, codecs, resolution, frame rate, bitrate, and creation date — parsed from the file header on your device. Free, no signup, nothing uploaded.",
     "keywords": "video metadata viewer, check video codec online, mp4 metadata inspector, video file info, read video metadata, video bitrate checker"
-  }
-,
+  },
   "stopMotionCapture": {
-    "title": "Free Stop Motion Maker \u2014 Onion Skin Animation Studio Online",
-    "description": "Make stop motion animation free online \u2014 webcam capture with onion skin ghosting, frame-by-frame preview, and GIF/WebM export. No signup, no app needed.",
+    "title": "Free Stop Motion Maker — Onion Skin Animation Studio Online",
+    "description": "Make stop motion animation free online — webcam capture with onion skin ghosting, frame-by-frame preview, and GIF/WebM export. No signup, no app needed.",
     "h1": "Stop Motion Maker with Onion Skin",
     "h1Sub": "Animate Frame by Frame in Your Browser",
-    "hero": "Clay, LEGO, paper cut-outs \u2014 whatever you can pose, you can animate. Capture frame by frame with your webcam, line up every move with the onion-skin ghost of your last shot, preview at any speed, and export a GIF or WebM. Free, no signup, nothing uploaded.",
+    "hero": "Clay, LEGO, paper cut-outs — whatever you can pose, you can animate. Capture frame by frame with your webcam, line up every move with the onion-skin ghost of your last shot, preview at any speed, and export a GIF or WebM. Free, no signup, nothing uploaded.",
     "keywords": "stop motion maker, free stop motion app, onion skin animation tool, stop motion webcam capture, claymation maker online, lego stop motion app"
   }
 }

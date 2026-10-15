@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import Breadcrumb from '../../components/Breadcrumb';
 import GoogleAdUnit from '../../components/GoogleAdUnit';
+import AuthorBio from '../../components/AuthorBio';
 
 const HowToExtractFramesFromVideo: React.FC = () => {
   useEffect(() => {
@@ -328,7 +329,8 @@ extract_frames_moviepy('video.mp4', 'frames/', fps=5, format='jpg')`}</code></pr
           <GoogleAdUnit />
         </div>
       </div>
-    </article>
+      <AuthorBio />
+      </article>
   );
 };
 

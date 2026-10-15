@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import Breadcrumb from '../../components/Breadcrumb';
 import GoogleAdUnit from '../../components/GoogleAdUnit';
+import AuthorBio from '../../components/AuthorBio';
 
 const WhatIsVideoFrameRate: React.FC = () => {
   useEffect(() => {
@@ -257,7 +258,8 @@ const WhatIsVideoFrameRate: React.FC = () => {
           <GoogleAdUnit />
         </div>
       </div>
-    </article>
+      <AuthorBio />
+      </article>
   );
 };
 

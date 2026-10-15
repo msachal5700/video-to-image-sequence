@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import Breadcrumb from '../../components/Breadcrumb';
 import GoogleAdUnit from '../../components/GoogleAdUnit';
+import AuthorBio from '../../components/AuthorBio';
 
 export default function VideoToPngGuide() {
   useEffect(() => {
@@ -593,6 +594,7 @@ export default function VideoToPngGuide() {
       <div className="my-10">
         <GoogleAdUnit />
       </div>
-    </article>
+      <AuthorBio />
+      </article>
   );
 }

@@ -41,10 +41,8 @@ const Footer = () => {
               <li><Link to="/gif-to-mp4" className="text-gray-600 hover:text-cyan-400 transition">GIF to MP4 Converter</Link></li>
               <li><Link to="/video-to-sprite-sheet" className="text-gray-600 hover:text-cyan-400 transition">Video to Sprite Sheet</Link></li>
               <li><Link to="/video-notes-extractor" className="text-gray-600 hover:text-cyan-400 transition">Video Notes Extractor</Link></li>
-              <li><Link to="/stop-motion-capture" className="text-gray-600 hover:text-cyan-400 transition">Stop Motion Capture</Link></li>
               <li><Link to="/video-color-palette" className="text-gray-600 hover:text-cyan-400 transition">Video Color Palette Extractor</Link></li>
               <li><Link to="/video-thumbnail-maker" className="text-gray-600 hover:text-cyan-400 transition">Video Thumbnail Maker</Link></li>
-              <li><Link to="/video-metadata-inspector" className="text-gray-600 hover:text-cyan-400 transition">Video Metadata Inspector</Link></li>
             </ul>
           </div>
 
@@ -58,6 +56,8 @@ const Footer = () => {
               <li><Link to="/changelog" className="text-gray-600 hover:text-cyan-400 transition">Changelog</Link></li>
               <li><Link to="/privacy" className="text-gray-600 hover:text-cyan-400 transition">{t('footer.privacy')}</Link></li>
               <li><Link to="/terms" className="text-gray-600 hover:text-cyan-400 transition">{t('footer.terms')}</Link></li>
+              <li><Link to="/editorial-policy" className="text-gray-600 hover:text-cyan-400 transition">Editorial Policy</Link></li>
+              <li><Link to="/disclaimer" className="text-gray-600 hover:text-cyan-400 transition">Disclaimer</Link></li>
               <li><Link to="/#how-it-works" className="text-gray-600 hover:text-cyan-400 transition">{t('footer.howItWorks')}</Link></li>
               <li><Link to="/#faq" className="text-gray-600 hover:text-cyan-400 transition">{t('nav.faq')}</Link></li>
             </ul>
