@@ -107,8 +107,8 @@
     "free": "🆓 Free Forever"
   },
   "home": {
-    "title": "Video to Image Sequence Converter — Free Frame Extractor Online",
-    "description": "Convert video to images free — turn MP4, MOV, WEBM into JPG, PNG, WebP frames in your browser. No upload, no signup, 100% private, ZIP download.",
+    "title": "Video to Image Sequence — Free MP4 to JPG/PNG Converter",
+    "description": "Turn any video into JPG/PNG image sequences free — right in your browser. No upload, no signup, 100% private. Custom FPS, ZIP download.",
     "h1": "Free Video Frame Extractor",
     "h1Sub": "Extract Frames from Video",
     "hero": "Extract every frame from MP4, MOV, and WEBM videos as high-quality JPG, PNG, or WebP images. Choose exact timestamps, custom FPS (1–60), or batch extract thousands of frames for AI datasets. All processing runs locally in your browser — no upload, no account, no limits.",
@@ -672,8 +672,8 @@
     "keywords": "video to gif, convert video to gif, mp4 to gif, gif maker online, make gif from video, video to gif converter"
   },
   "videoToFrames": {
-    "title": "Video to Frames — Free Online Video Frame Extractor, No Signup",
-    "description": "Convert video to frames free in your browser — extract JPG, PNG, or WebP stills from MP4, MOV, and WebM. No upload, no signup, no watermark.",
+    "title": "Video to Frames: Free Online Extractor — No Upload Needed",
+    "description": "Extract frames from any video free — no upload, no signup, no watermark. Your video never leaves your device. Set FPS, download JPG/PNG stills or ZIP.",
     "h1": "Video to Frames",
     "h1Sub": "Free Online Frame Extractor",
     "hero": "Turn any video into a numbered sequence of still frames — free, in your browser, with no upload and no watermark. Perfect for animation, AI datasets, thumbnails, and contact sheets.",
