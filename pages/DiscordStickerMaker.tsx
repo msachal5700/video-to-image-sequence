@@ -35,6 +35,7 @@ const faqs = [
   }
 ];
 
+// Animated sticker maker page: Discord (APNG), Telegram (WebM), WhatsApp (animated WebP)
 const DiscordStickerMaker: React.FC = () => {
   const { t } = useTranslation();
   const pageLang = usePageLang();
