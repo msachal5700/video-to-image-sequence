@@ -199,7 +199,7 @@ const Home: React.FC = () => {
     '/video-to-jpg',
     '/video-frame-extractor',
     '/video-to-photo',
-    '/youtube-thumbnail-downloader'
+    '/youtube-thumbnail-downloader',
     '/video-to-pdf',
 ];
   const relatedEmojis = ['🎯', '🖼️', '🎨', '📚', '🎬', '🔄', '✂️', '🎞️', '📷', '⚙️', '📸', '⬇️', '📄',];
