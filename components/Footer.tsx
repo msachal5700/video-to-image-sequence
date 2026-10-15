@@ -36,6 +36,7 @@ const Footer = () => {
               <li><Link to="/extract-frame-every-30-seconds" className="text-gray-600 hover:text-cyan-400 transition">Frame Every 30 Seconds</Link></li>
               <li><Link to="/images-to-video" className="text-gray-600 hover:text-cyan-400 transition">Images to Video</Link></li>
               <li><Link to="/frames-to-gif" className="text-gray-600 hover:text-cyan-400 transition">Frames to GIF</Link></li>
+<li><Link to="/video-to-pdf" className="text-gray-600 hover:text-cyan-400 transition">Video to PDF</Link></li>
 <li><Link to="/video-looper" className="text-gray-600 hover:text-cyan-400 transition">Video Looper</Link></li>
               <li><Link to="/image-crop" className="text-gray-600 hover:text-cyan-400 transition">Freeform Image Crop</Link></li>
               <li><Link to="/youtube-thumbnail-downloader" className="text-gray-600 hover:text-cyan-400 transition">YouTube Thumbnail Downloader</Link></li>
