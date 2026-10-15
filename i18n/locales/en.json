@@ -818,5 +818,13 @@
     "h1Sub": "Animate Frame by Frame in Your Browser",
     "hero": "Clay, LEGO, paper cut-outs — whatever you can pose, you can animate. Capture frame by frame with your webcam, line up every move with the onion-skin ghost of your last shot, preview at any speed, and export a GIF or WebM. Free, no signup, nothing uploaded.",
     "keywords": "stop motion maker, free stop motion app, onion skin animation tool, stop motion webcam capture, claymation maker online, lego stop motion app"
+  },
+  "videoLooper": {
+    "title": "Video Looper — Repeat Video Online Free, Seamless Loop Maker",
+    "description": "Loop any video 2–10× free in your browser — with automatic seamless loop-point detection. No upload, no signup, no watermark.",
+    "h1": "Video Looper",
+    "h1Sub": "Repeat Video Online Free, Seamless Loop Maker",
+    "hero": "Turn any clip into a perfect loop. Drop in a video, let auto-detect find the seamless cut point no other browser tool can, preview it infinitely, and export — all on your device, free forever.",
+    "keywords": "video looper, loop video online, repeat video, seamless loop maker, video loop maker free, loop mp4 online"
   }
 }
