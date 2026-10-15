@@ -73,6 +73,7 @@ import CookieConsent from './components/CookieConsent';
 import FeedbackWidget from './components/FeedbackWidget';
 import ClarityConsent from './components/ClarityConsent';
 import LocalizedRoutes from './components/LocalizedRoutes';
+import LastFrameExtractor from './pages/LastFrameExtractor';
 
 
 
@@ -222,6 +223,7 @@ const App: React.FC = () => {
                     Static routes above outrank this dynamic segment, so /blog/* etc. are unaffected. */}
                 <Route path="/:lang/*" element={<LocalizedRoutes />} />
                 <Route path="*" element={<NotFound />} />
+                <Route path="/last-frame-extractor" element={<LastFrameExtractor />} />
               </Routes>
             </main>
 
