@@ -282,7 +282,7 @@ const ScreenshotFromVideo: React.FC = () => {
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video to PNG</h3>
             <p className="text-gray-500 text-xs">Extract lossless transparent PNG frames.</p>
           </Link>
-          <Link to="/extract-frames-from-video" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+          <Link to="/video-to-frames" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Frame Extractor</h3>
             <p className="text-gray-500 text-xs">Supports MP4, MOV, WEBM and more.</p>
           </Link>

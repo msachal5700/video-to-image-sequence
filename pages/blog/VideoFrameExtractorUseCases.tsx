@@ -122,7 +122,7 @@ const VideoFrameExtractorUseCases: React.FC = () => {
           A reference walk cycle from a live-action film, extracted at 24 FPS, gives the animator a frame-by-frame breakdown of how weight shifts, how long each foot stays on the ground, and where the body's center of mass moves. This is called <em>rotoscoping reference</em>, and it has been used since the 1970s in studios like Disney.
         </p>
         <p>
-          Similarly, 2D animators using software like Procreate or Clip Studio Paint sometimes import individual frames from a video reference as layers, then draw over them. Frame extraction is the first step in that process. The <Link to="/extract-frames-from-video" className="text-cyan-400 hover:text-cyan-300 underline underline-offset-4">Extract Frames from Video</Link> tool handles this cleanly with a live preview grid so you can see each frame before downloading.
+          Similarly, 2D animators using software like Procreate or Clip Studio Paint sometimes import individual frames from a video reference as layers, then draw over them. Frame extraction is the first step in that process. The <Link to="/video-to-frames" className="text-cyan-400 hover:text-cyan-300 underline underline-offset-4">Extract Frames from Video</Link> tool handles this cleanly with a live preview grid so you can see each frame before downloading.
         </p>
 
         <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-4 font-display border-b border-gray-800 pb-2">

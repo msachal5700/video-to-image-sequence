@@ -358,7 +358,7 @@ const AiSocialMediaFramePicker = () => {
             </h2>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {[
-                { label: 'Extract Every Frame', path: '/extract-frames-from-video', desc: 'Full image sequence extraction' },
+                { label: 'Video to Frames', path: '/video-to-frames', desc: 'Full image sequence extraction' },
                 { label: 'MP4 to JPG Converter', path: '/mp4-to-jpg', desc: 'Quick MP4 frame extraction' },
                 { label: 'Video to PNG Frames', path: '/video-to-png', desc: 'Lossless PNG image sequence' },
                 { label: 'Screenshot from Video', path: '/screenshot-from-video', desc: 'Grab single high-res frame' },

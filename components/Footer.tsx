@@ -28,7 +28,7 @@ const Footer = () => {
               <li><Link to="/video-to-png" className="text-gray-600 hover:text-cyan-400 transition">Video to PNG Converter</Link></li>
               <li><Link to="/video-to-gif" className="text-gray-600 hover:text-cyan-400 transition">Video to GIF Converter</Link></li>
               <li><Link to="/screenshot-from-video" className="text-gray-600 hover:text-cyan-400 transition">Screenshot from Video</Link></li>
-              <li><Link to="/extract-frames-from-video" className="text-gray-600 hover:text-cyan-400 transition">Extract Frames from Video</Link></li>
+              <li><Link to="/video-to-frames" className="text-gray-600 hover:text-cyan-400 transition">Video to Frames</Link></li>
               <li><Link to="/video-contact-sheet" className="text-gray-600 hover:text-cyan-400 transition">Video Contact Sheet</Link></li>
               <li><Link to="/extract-frame-every-1-second" className="text-gray-600 hover:text-cyan-400 transition">Frame Every 1 Second</Link></li>
               <li><Link to="/extract-frame-every-5-seconds" className="text-gray-600 hover:text-cyan-400 transition">Frame Every 5 Seconds</Link></li>
@@ -36,8 +36,7 @@ const Footer = () => {
               <li><Link to="/extract-frame-every-30-seconds" className="text-gray-600 hover:text-cyan-400 transition">Frame Every 30 Seconds</Link></li>
               <li><Link to="/images-to-video" className="text-gray-600 hover:text-cyan-400 transition">Images to Video</Link></li>
               <li><Link to="/frames-to-gif" className="text-gray-600 hover:text-cyan-400 transition">Frames to GIF</Link></li>
-                <li><Link to="/discord-sticker-maker" className="text-gray-600 hover:text-cyan-400 transition">Discord Sticker Maker</Link></li>
-<li><Link to="/last-frame-extractor" className="text-gray-600 hover:text-cyan-400 transition">Last Frame Extractor</Link></li>
+              <li><Link to="/last-frame-extractor" className="text-gray-600 hover:text-cyan-400 transition">Last Frame Extractor</Link></li>
 <li><Link to="/video-to-pdf" className="text-gray-600 hover:text-cyan-400 transition">Video to PDF</Link></li>
 <li><Link to="/video-looper" className="text-gray-600 hover:text-cyan-400 transition">Video Looper</Link></li>
               <li><Link to="/image-crop" className="text-gray-600 hover:text-cyan-400 transition">Freeform Image Crop</Link></li>
