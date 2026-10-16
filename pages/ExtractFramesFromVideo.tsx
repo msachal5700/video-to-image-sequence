@@ -88,7 +88,7 @@ const ExtractFramesFromVideo: React.FC = () => {
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "Free Video Frame Extractor — Extract Frames from Video",
-      "url": "https://www.videotoimagesequence.online/extract-frames-from-video",
+      "url": "https://www.videotoimagesequence.online/video-to-frames",
       "image": "https://www.videotoimagesequence.online/og-image.png",
       "description": "Free browser-based video frame extractor — extract every frame from MP4, MOV, and WEBM videos as JPG or PNG images. Perfect for AI datasets, exact timestamp extraction, and professional frame-by-frame workflows. 100% private, no server upload required.",
       "applicationCategory": "MultimediaApplication",

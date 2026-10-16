@@ -30,6 +30,51 @@
       "source": "/about-us",
       "destination": "/about",
       "permanent": true
+    },
+    {
+      "source": "/video-frame-extractor",
+      "destination": "/video-to-frames",
+      "permanent": true
+    },
+    {
+      "source": "/extract-frames-from-video",
+      "destination": "/video-to-frames",
+      "permanent": true
+    },
+    {
+      "source": "/es/extract-frames-from-video",
+      "destination": "/video-to-frames",
+      "permanent": true
+    },
+    {
+      "source": "/fr/extract-frames-from-video",
+      "destination": "/video-to-frames",
+      "permanent": true
+    },
+    {
+      "source": "/de/extract-frames-from-video",
+      "destination": "/video-to-frames",
+      "permanent": true
+    },
+    {
+      "source": "/pt/extract-frames-from-video",
+      "destination": "/video-to-frames",
+      "permanent": true
+    },
+    {
+      "source": "/zh/extract-frames-from-video",
+      "destination": "/video-to-frames",
+      "permanent": true
+    },
+    {
+      "source": "/ar/extract-frames-from-video",
+      "destination": "/video-to-frames",
+      "permanent": true
+    },
+    {
+      "source": "/hi/extract-frames-from-video",
+      "destination": "/video-to-frames",
+      "permanent": true
     }
   ],
   "cleanUrls": true,

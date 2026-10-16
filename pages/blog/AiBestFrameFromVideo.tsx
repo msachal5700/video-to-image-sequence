@@ -318,7 +318,7 @@ const AiBestFrameFromVideo = () => {
           <section className="pt-6 border-t border-gray-800">
             <h3 className="font-display text-lg font-bold text-white mb-4">Related Converter Tools</h3>
             <div className="grid gap-3 sm:grid-cols-2">
-              <Link to="/extract-frames-from-video" className="p-3.5 rounded-xl bg-gray-900 border border-gray-800 hover:border-cyan-500/50 text-sm text-gray-300 hover:text-white transition">
+              <Link to="/video-to-frames" className="p-3.5 rounded-xl bg-gray-900 border border-gray-800 hover:border-cyan-500/50 text-sm text-gray-300 hover:text-white transition">
                 Extract every frame from video →
               </Link>
               <Link to="/mp4-to-jpg" className="p-3.5 rounded-xl bg-gray-900 border border-gray-800 hover:border-cyan-500/50 text-sm text-gray-300 hover:text-white transition">

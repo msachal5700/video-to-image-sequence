@@ -300,7 +300,7 @@ const VideoNotesExtractor: React.FC = () => {
           Related Tools
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <Link to="/extract-frames-from-video" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-700 transition block">
+          <Link to="/video-to-frames" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-700 transition block">
             <h3 className="text-white font-semibold mb-1">Extract Frames from Video</h3>
             <p className="text-gray-500 text-sm">Full-frame extraction at custom frame rates, exported as a ZIP image sequence.</p>
           </Link>

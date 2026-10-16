@@ -181,6 +181,17 @@ const VideoToFrames: React.FC = () => {
         <VideoToImages />
       </div>
 
+      {/* ── EZGIF COMPARISON CROSS-LINK ── */}
+      <section className="max-w-4xl mx-auto px-4 mt-2">
+        <p className="text-center text-sm text-gray-500">
+          Comparing with Ezgif? See our{' '}
+          <Link to="/blog/ezgif-alternative-video-to-image-sequence" className="text-cyan-400 hover:underline">
+            honest Ezgif video-to-JPG comparison
+          </Link>
+          .
+        </p>
+      </section>
+
       {/* ── WHAT VIDEO TO FRAMES MEANS ── */}
       <section className="max-w-4xl mx-auto py-12 px-4 mt-8">
         <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">
@@ -339,13 +350,13 @@ const VideoToFrames: React.FC = () => {
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video to PNG</h3>
             <p className="text-gray-500 text-xs">Lossless PNG frames with transparency support.</p>
           </Link>
-          <Link to="/video-frame-extractor" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
-            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video Frame Extractor</h3>
-            <p className="text-gray-500 text-xs">What frame extractors do and how they compare.</p>
+          <Link to="/screenshot-from-video" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Screenshot from Video</h3>
+            <p className="text-gray-500 text-xs">Capture a single frame at any timestamp.</p>
           </Link>
-          <Link to="/extract-frames-from-video" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
-            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Extract Frames from Video</h3>
-            <p className="text-gray-500 text-xs">FPS-controlled extraction with timestamp capture.</p>
+          <Link to="/video-contact-sheet" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video Contact Sheet</h3>
+            <p className="text-gray-500 text-xs">Grid overview of key frames with timestamps.</p>
           </Link>
           <Link to="/images-to-video" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Images to Video</h3>

@@ -357,7 +357,7 @@ const VideoToSpriteSheet: React.FC = () => {
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video Contact Sheet</h3>
             <p className="text-gray-500 text-xs">Timestamped grid overviews for footage review.</p>
           </Link>
-          <Link to="/extract-frames-from-video" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+          <Link to="/video-to-frames" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Extract Frames from Video</h3>
             <p className="text-gray-500 text-xs">FPS-controlled extraction with timestamp capture.</p>
           </Link>

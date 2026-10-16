@@ -368,7 +368,7 @@ ffmpeg -i input.mp4 -vf "select='gt(scene,0.4)'" -vsync vfr frames/keyframe_%06d
 
         <p className="mt-6 text-center text-gray-500">
           Or use the general extractor for custom FPS:
-          <Link to="/extract-frames-from-video" className="text-cyan-400 hover:underline ml-2">Video Frame Extractor</Link>
+          <Link to="/video-to-frames" className="text-cyan-400 hover:underline ml-2">Video Frame Extractor</Link>
         </p>
 
         <div className="my-10">

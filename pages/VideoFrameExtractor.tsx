@@ -57,7 +57,7 @@ const VideoFrameExtractor: React.FC = () => {
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "Video Frame Extractor — Extract Video Frames Online Free",
-      "url": "https://www.videotoimagesequence.online/video-frame-extractor",
+      "url": "https://www.videotoimagesequence.online/video-to-frames",
       "image": "https://www.videotoimagesequence.online/og-image.png",
       "description": "Free online video frame extractor. Pull still frames from MP4, MOV, and WEBM videos as JPG or PNG images in your browser. No install, no upload, no watermark.",
       "applicationCategory": "MultimediaApplication",
@@ -141,7 +141,7 @@ const VideoFrameExtractor: React.FC = () => {
       <SEOHead
         title={t('videoFrameExtractor.title')}
         description={t('videoFrameExtractor.description')}
-        canonical="https://www.videotoimagesequence.online/video-frame-extractor"
+        canonical="https://www.videotoimagesequence.online/video-to-frames"
         ogTitle={t('videoFrameExtractor.title')}
         ogDescription={t('videoFrameExtractor.description')}
         ogImage="https://www.videotoimagesequence.online/og-image.png"
@@ -325,7 +325,7 @@ const VideoFrameExtractor: React.FC = () => {
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video to JPG</h3>
             <p className="text-gray-500 text-xs">Extract full-resolution JPG stills.</p>
           </Link>
-          <Link to="/extract-frames-from-video" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+          <Link to="/video-to-frames" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Extract Frames from Video</h3>
             <p className="text-gray-500 text-xs">FPS control plus exact timestamp capture.</p>
           </Link>

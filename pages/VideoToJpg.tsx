@@ -181,6 +181,17 @@ const VideoToJpg: React.FC = () => {
         <VideoToImages />
       </div>
 
+      {/* ── EZGIF COMPARISON CROSS-LINK ── */}
+      <section className="max-w-4xl mx-auto px-4 mt-2">
+        <p className="text-center text-sm text-gray-500">
+          Switching from Ezgif? Read our{' '}
+          <Link to="/blog/ezgif-alternative-video-to-image-sequence" className="text-cyan-400 hover:underline">
+            honest Ezgif video-to-JPG comparison
+          </Link>
+          .
+        </p>
+      </section>
+
       {/* ── WHY JPG ── */}
       <section className="max-w-4xl mx-auto py-12 px-4 mt-8">
         <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">
@@ -321,9 +332,9 @@ const VideoToJpg: React.FC = () => {
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video to Frames</h3>
             <p className="text-gray-500 text-xs">Turn video into a numbered frame sequence.</p>
           </Link>
-          <Link to="/video-frame-extractor" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
-            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video Frame Extractor</h3>
-            <p className="text-gray-500 text-xs">Frame extraction methods compared.</p>
+          <Link to="/screenshot-from-video" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Screenshot from Video</h3>
+            <p className="text-gray-500 text-xs">Capture a single frame at any timestamp.</p>
           </Link>
           <Link to="/mp4-to-jpg" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">MP4 to JPG</h3>

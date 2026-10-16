@@ -118,8 +118,8 @@ const Home: React.FC = () => {
         {
           "@type": "SiteNavigationElement",
           "position": 5,
-          "name": "Extract Frames from Video",
-          "url": "https://www.videotoimagesequence.online/extract-frames-from-video"
+          "name": "Video to Frames",
+          "url": "https://www.videotoimagesequence.online/video-to-frames"
         },
         {
           "@type": "SiteNavigationElement",
@@ -192,18 +192,16 @@ const Home: React.FC = () => {
     '/video-to-png',
     '/video-to-webp',
     '/blog/mp4-to-image-sequence-guide',
-    '/extract-frames-from-video',
     '/images-to-video',
     '/image-crop',
     '/video-to-frames',
     '/video-to-jpg',
-    '/video-frame-extractor',
     '/video-to-photo',
     '/youtube-thumbnail-downloader',
     '/video-to-pdf',
-    '/last-frame-extractor',
+    '/blog/ezgif-alternative-video-to-image-sequence',
 ];
-  const relatedEmojis = ['🎯', '🖼️', '🎨', '📚', '🎬', '🔄', '✂️', '🎞️', '📷', '⚙️', '📸', '⬇️', '📄', '🎯',];
+  const relatedEmojis = ['🎯', '🖼️', '🎨', '📚', '🔄', '✂️', '🎞️', '📷', '📸', '⬇️', '📄', '⚖️',];
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
@@ -289,9 +287,6 @@ const Home: React.FC = () => {
         <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
           <Link to="/video-to-frames" className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-900 border border-gray-800 rounded-full text-xs sm:text-sm text-gray-300 hover:text-cyan-400 hover:border-cyan-800 transition-all">
             <span>🎬</span> Video to Frames
-          </Link>
-          <Link to="/extract-frames-from-video" className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-900 border border-gray-800 rounded-full text-xs sm:text-sm text-gray-300 hover:text-cyan-400 hover:border-cyan-800 transition-all">
-            <span>🖼️</span> Extract Frames
           </Link>
           <Link to="/video-to-jpg" className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-900 border border-gray-800 rounded-full text-xs sm:text-sm text-gray-300 hover:text-cyan-400 hover:border-cyan-800 transition-all">
             <span>📷</span> Video to JPG
