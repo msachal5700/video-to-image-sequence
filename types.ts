@@ -27,7 +27,7 @@ export type FrameRate = 1 | 5 | 10 | 12 | 15 | 24 | 25 | 30 | 60;
 
 export const SUPPORTED_FPS: FrameRate[] = [1, 5, 10, 12, 15, 24, 25, 30, 60];
 
-export type OutputFormat = 'jpg' | 'png' | 'webp';
+export type OutputFormat = 'jpg' | 'png' | 'webp' | 'avif';
 
 /** Frame-extraction cadence: fixed FPS, one frame every N seconds, a fully manual custom interval, or smart scene-change detection. */
 export type CadenceMode = 'fps' | 'interval' | 'manual' | 'scene';

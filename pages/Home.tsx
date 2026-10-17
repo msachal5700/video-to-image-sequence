@@ -191,6 +191,7 @@ const Home: React.FC = () => {
     '/mp4-to-jpg',
     '/video-to-png',
     '/video-to-webp',
+    '/video-to-avif',
     '/blog/mp4-to-image-sequence-guide',
     '/images-to-video',
     '/image-crop',
@@ -201,7 +202,7 @@ const Home: React.FC = () => {
     '/video-to-pdf',
     '/blog/ezgif-alternative-video-to-image-sequence',
 ];
-  const relatedEmojis = ['🎯', '🖼️', '🎨', '📚', '🔄', '✂️', '🎞️', '📷', '📸', '⬇️', '📄', '⚖️',];
+  const relatedEmojis = ['🎯', '🖼️', '🎨', '🖼️', '📚', '🔄', '✂️', '🎞️', '📷', '📸', '⬇️', '📄', '⚖️',];
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
