@@ -56,10 +56,10 @@ const VideoToPhoto: React.FC = () => {
     const webAppSchema = {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Video to Photo Converter — Save Any Frame as a Photo",
+      "name": "Video to Photo — Turn Any Video Frame into a Full-Quality Photo",
       "url": "https://www.videotoimagesequence.online/video-to-photo",
       "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Convert video to photo free — save any frame as a JPG or PNG photo in your browser. No upload, no signup, full quality. Works on iPhone, Android & desktop.",
+      "description": "Pull the perfect still from any video — save any frame as a full-quality JPG or PNG photo in your browser. No upload, no app, no signup. Works on iPhone & Android.",
       "applicationCategory": "MultimediaApplication",
       "applicationSubCategory": "Video to Photo Converter",
       "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
