@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { UploadCloud, Image as ImageIcon, Play, Download, Trash2, Video } from 'lucide-react';
 import InterstitialAd from '../components/InterstitialAd';
 import { createVideoFromImages } from '../utils/imageProcessor';
@@ -14,9 +14,32 @@ const ImagesToVideo: React.FC = () => {
   const [showInterstitial, setShowInterstitial] = useState(false);
   const { showToast } = useToast();
 
+  // Cache object URLs per File so we don't create a new URL on every render
+  // (previously URL.createObjectURL was called in the render loop — a leak
+  // that also forced thumbnail re-decodes on each state change).
+  const urlCache = useRef(new Map<File, string>());
+  const getImageUrl = (file: File): string => {
+    let url = urlCache.current.get(file);
+    if (!url) {
+      url = URL.createObjectURL(file);
+      urlCache.current.set(file, url);
+    }
+    return url;
+  };
+  const revokeImageUrl = (file: File) => {
+    const url = urlCache.current.get(file);
+    if (url) {
+      URL.revokeObjectURL(url);
+      urlCache.current.delete(file);
+    }
+  };
+
   useEffect(() => {
     return () => {
       if (downloadUrl) URL.revokeObjectURL(downloadUrl);
+      // Revoke any cached thumbnail URLs on unmount
+      urlCache.current.forEach((url) => URL.revokeObjectURL(url));
+      urlCache.current.clear();
     };
   }, [downloadUrl]);
 
@@ -35,10 +58,15 @@ const ImagesToVideo: React.FC = () => {
   };
 
   const removeImage = (index: number) => {
-    setImages(prev => prev.filter((_, i) => i !== index));
+    setImages(prev => {
+      const removed = prev[index];
+      if (removed) revokeImageUrl(removed);
+      return prev.filter((_, i) => i !== index);
+    });
   };
 
   const clearAll = () => {
+    images.forEach(revokeImageUrl);
     setImages([]);
     setDownloadUrl(null);
     setAppState(AppState.IDLE);
@@ -110,7 +138,7 @@ const ImagesToVideo: React.FC = () => {
             <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2 max-h-64 overflow-y-auto p-3 bg-gray-950/50 rounded-xl border border-gray-800 custom-scrollbar">
               {images.map((img, idx) => (
                 <div key={idx} className="relative group aspect-square bg-gray-800 rounded-lg overflow-hidden border border-gray-700">
-                  <img src={URL.createObjectURL(img)} alt={`frame ${idx}`} className="w-full h-full object-cover" />
+                  <img src={getImageUrl(img)} alt={`frame ${idx}`} className="w-full h-full object-cover" loading="lazy" />
                   <button 
                     onClick={() => removeImage(idx)}
                     className="absolute inset-0 bg-gray-950/60 opacity-0 group-hover:opacity-100 flex items-center justify-center text-red-500 transition-opacity backdrop-blur-sm"
