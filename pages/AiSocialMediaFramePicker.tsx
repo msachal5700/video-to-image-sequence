@@ -143,7 +143,7 @@ const AiSocialMediaFramePicker = () => {
       ],
     };
 
-    script.text = JSON.stringify([softwareSchema, faqSchema, breadcrumbSchema, howToSchema]);
+    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [softwareSchema, faqSchema, breadcrumbSchema, howToSchema] });
     document.head.appendChild(script);
 
     return () => {

@@ -9,6 +9,7 @@ const JpgVsPngVsWebp: React.FC = () => {
   useEffect(() => {
     const script = document.createElement('script');
     script.type = 'application/ld+json';
+    script.id = 'jpg-vs-png-vs-webp-schemas';
     script.text = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "BlogPosting",
@@ -24,7 +25,10 @@ const JpgVsPngVsWebp: React.FC = () => {
       "image": "https://www.videotoimagesequence.online/og-image.png"
     });
     document.head.appendChild(script);
-    return () => { document.head.removeChild(script); };
+    return () => {
+      const el = document.getElementById('jpg-vs-png-vs-webp-schemas');
+      if (el) el.remove();
+    };
   }, []);
 
   return (

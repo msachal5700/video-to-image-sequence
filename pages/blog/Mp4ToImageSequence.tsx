@@ -9,6 +9,7 @@ const Mp4ToImageSequence: React.FC = () => {
   useEffect(() => {
     const script = document.createElement('script');
     script.type = 'application/ld+json';
+    script.id = 'mp4-to-image-sequence-schemas';
     script.text = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "BlogPosting",
@@ -25,7 +26,8 @@ const Mp4ToImageSequence: React.FC = () => {
     });
     document.head.appendChild(script);
     return () => {
-      document.head.removeChild(script);
+      const el = document.getElementById('mp4-to-image-sequence-schemas');
+      if (el) el.remove();
     };
   }, []);
 

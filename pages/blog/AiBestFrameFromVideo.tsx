@@ -51,7 +51,7 @@ const AiBestFrameFromVideo = () => {
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.id = 'ai-best-frame-blog-schemas';
-    script.text = JSON.stringify([
+    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [
       {
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
@@ -96,7 +96,7 @@ const AiBestFrameFromVideo = () => {
           },
         ],
       },
-    ]);
+    ] });
     document.head.appendChild(script);
 
     return () => {

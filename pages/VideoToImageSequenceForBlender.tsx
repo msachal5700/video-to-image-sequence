@@ -94,7 +94,7 @@ const VideoToImageSequenceForBlender: React.FC = () => {
       ]
     };
 
-    script.text = JSON.stringify([webAppSchema, faqSchema, howToSchema]);
+    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
     document.head.appendChild(script);
 
     return () => { const el = document.getElementById('video-to-image-sequence-for-blender-schemas'); if (el) el.remove(); };

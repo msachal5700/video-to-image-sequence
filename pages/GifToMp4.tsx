@@ -101,7 +101,7 @@ const GifToMp4: React.FC = () => {
         { '@type': 'ListItem', position: 2, name: 'GIF to MP4', item: 'https://www.videotoimagesequence.online/gif-to-mp4' }
       ]
     };
-    script.textContent = JSON.stringify([webAppSchema, faqSchema, howToSchema, breadcrumbSchema]);
+    script.textContent = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema, breadcrumbSchema] });
     document.head.appendChild(script);
     return () => { const el = document.getElementById('gif-to-mp4-schemas'); if (el) el.remove(); };
   }, []);

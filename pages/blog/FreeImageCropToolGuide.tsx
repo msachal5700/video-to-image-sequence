@@ -9,6 +9,7 @@ const FreeImageCropToolGuide: React.FC = () => {
   useEffect(() => {
     const script = document.createElement('script');
     script.type = 'application/ld+json';
+    script.id = 'free-image-crop-tool-guide-schemas';
     script.text = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "BlogPosting",
@@ -24,7 +25,10 @@ const FreeImageCropToolGuide: React.FC = () => {
       "image": "https://www.videotoimagesequence.online/og-image.png"
     });
     document.head.appendChild(script);
-    return () => { document.head.removeChild(script); };
+    return () => {
+      const el = document.getElementById('free-image-crop-tool-guide-schemas');
+      if (el) el.remove();
+    };
   }, []);
 
   return (

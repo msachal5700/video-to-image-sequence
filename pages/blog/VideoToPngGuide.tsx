@@ -9,7 +9,7 @@ export default function VideoToPngGuide() {
   useEffect(() => {
     const script = document.createElement('script');
     script.type = 'application/ld+json';
-    script.text = JSON.stringify([
+    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [
       {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
@@ -81,7 +81,7 @@ export default function VideoToPngGuide() {
           }
         ]
       }
-    ]);
+    ] });
     document.head.appendChild(script);
     return () => { document.head.removeChild(script); };
   }, []);

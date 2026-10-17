@@ -9,6 +9,7 @@ const ExtractFramesOnline: React.FC = () => {
   useEffect(() => {
     const script = document.createElement('script');
     script.type = 'application/ld+json';
+    script.id = 'extract-frames-online-schemas';
     script.text = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "BlogPosting",
@@ -25,7 +26,8 @@ const ExtractFramesOnline: React.FC = () => {
     });
     document.head.appendChild(script);
     return () => {
-      document.head.removeChild(script);
+      const el = document.getElementById('extract-frames-online-schemas');
+      if (el) el.remove();
     };
   }, []);
 

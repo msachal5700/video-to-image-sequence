@@ -175,7 +175,7 @@ const Home: React.FC = () => {
       ]
     };
 
-    script.text = JSON.stringify([webAppSchema, faqSchema, navigationSchema, howToSchema, orgSchema]);
+    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, navigationSchema, howToSchema, orgSchema] });
     document.head.appendChild(script);
 
     return () => {

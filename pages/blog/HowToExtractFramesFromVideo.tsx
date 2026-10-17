@@ -9,6 +9,7 @@ const HowToExtractFramesFromVideo: React.FC = () => {
   useEffect(() => {
     const script = document.createElement('script');
     script.type = 'application/ld+json';
+    script.id = 'how-to-extract-frames-from-video-schemas';
     script.text = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "BlogPosting",
@@ -24,7 +25,10 @@ const HowToExtractFramesFromVideo: React.FC = () => {
       "image": "https://www.videotoimagesequence.online/og-image.png"
     });
     document.head.appendChild(script);
-    return () => { document.head.removeChild(script); };
+    return () => {
+      const el = document.getElementById('how-to-extract-frames-from-video-schemas');
+      if (el) el.remove();
+    };
   }, []);
 
   return (

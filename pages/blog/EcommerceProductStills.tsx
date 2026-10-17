@@ -10,7 +10,7 @@ const EcommerceProductStills: React.FC = () => {
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.id = 'product-video-to-product-photos-ecommerce-schemas';
-    script.text = JSON.stringify([
+    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [
       {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
@@ -51,7 +51,7 @@ const EcommerceProductStills: React.FC = () => {
           }
         ]
       }
-    ]);
+    ] });
     document.head.appendChild(script);
     return () => { const el = document.getElementById('product-video-to-product-photos-ecommerce-schemas'); if (el) el.remove(); };
   }, []);

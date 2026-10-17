@@ -9,6 +9,7 @@ const HowManyFramesPerSecond: React.FC = () => {
   useEffect(() => {
     const script = document.createElement('script');
     script.type = 'application/ld+json';
+    script.id = 'how-many-frames-per-second-schemas';
     script.text = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "BlogPosting",
@@ -24,7 +25,10 @@ const HowManyFramesPerSecond: React.FC = () => {
       "image": "https://www.videotoimagesequence.online/og-image.png"
     });
     document.head.appendChild(script);
-    return () => { document.head.removeChild(script); };
+    return () => {
+      const el = document.getElementById('how-many-frames-per-second-schemas');
+      if (el) el.remove();
+    };
   }, []);
 
   return (

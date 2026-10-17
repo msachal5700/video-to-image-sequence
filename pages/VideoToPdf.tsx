@@ -155,7 +155,7 @@ const VideoToPdf: React.FC = () => {
       ]
     };
 
-    script.text = JSON.stringify([webAppSchema, faqSchema, howToSchema, breadcrumbSchema, orgSchema]);
+    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema, breadcrumbSchema, orgSchema] });
     document.head.appendChild(script);
 
     return () => {
