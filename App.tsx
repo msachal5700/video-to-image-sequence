@@ -20,6 +20,7 @@ import VideoToPng from './pages/VideoToPng';
 import VideoToGif from './pages/VideoToGif';
 import ImageCrop from './pages/ImageCrop';
 import VideoToWebp from './pages/VideoToWebp';
+import VideoToAvif from './pages/VideoToAvif';
 import MovToJpg from './pages/MovToJpg';
 import MovToPng from './pages/MovToPng';
 import WebmToJpg from './pages/WebmToJpg';
@@ -53,7 +54,7 @@ import VideoThumbnailMaker from './pages/VideoThumbnailMaker';
 import VideoMetadataInspector from './pages/VideoMetadataInspector';
 import VideoLooper from './pages/VideoLooper';
 import FramesToGif from './pages/FramesToGif';
-import DiscordStickerMaker from './pages/DiscordStickerMaker';
+import LastFrameExtractor from './pages/LastFrameExtractor';
 import VideoToPdf from './pages/VideoToPdf';
 import VideoFramesForAiDatasets from './pages/VideoFramesForAiDatasets';
 import VideoToImageSequenceForBlender from './pages/VideoToImageSequenceForBlender';
@@ -73,7 +74,6 @@ import CookieConsent from './components/CookieConsent';
 import FeedbackWidget from './components/FeedbackWidget';
 import ClarityConsent from './components/ClarityConsent';
 import LocalizedRoutes from './components/LocalizedRoutes';
-import LastFrameExtractor from './pages/LastFrameExtractor';
 
 
 
@@ -155,6 +155,7 @@ const App: React.FC = () => {
                 <Route path="/mp4-to-jpg" element={<Mp4ToJpg />} />
                 <Route path="/mp4-to-png" element={<Mp4ToPng />} />
                 <Route path="/video-to-webp" element={<VideoToWebp />} />
+                <Route path="/video-to-avif" element={<VideoToAvif />} />
                 <Route path="/mov-to-jpg" element={<MovToJpg />} />
                 <Route path="/mov-to-png" element={<MovToPng />} />
                 <Route path="/webm-to-jpg" element={<WebmToJpg />} />
@@ -213,7 +214,7 @@ const App: React.FC = () => {
                 <Route path="/video-metadata-inspector" element={<VideoMetadataInspector />} />
                 <Route path="/video-looper" element={<VideoLooper />} />
                 <Route path="/frames-to-gif" element={<FramesToGif />} />
-                <Route path="/discord-sticker-maker" element={<DiscordStickerMaker />} />
+                <Route path="/last-frame-extractor" element={<LastFrameExtractor />} />
                 <Route path="/video-to-pdf" element={<VideoToPdf />} />
                 <Route path="/privacy-policy" element={<Navigate to="/privacy" replace />} />
                 <Route path="/terms-of-service" element={<Navigate to="/terms" replace />} />
@@ -223,7 +224,6 @@ const App: React.FC = () => {
                     Static routes above outrank this dynamic segment, so /blog/* etc. are unaffected. */}
                 <Route path="/:lang/*" element={<LocalizedRoutes />} />
                 <Route path="*" element={<NotFound />} />
-                <Route path="/last-frame-extractor" element={<LastFrameExtractor />} />
               </Routes>
             </main>
 

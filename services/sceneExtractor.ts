@@ -52,6 +52,7 @@ const MIME: Record<OutputFormat, string> = {
   jpg: 'image/jpeg',
   png: 'image/png',
   webp: 'image/webp',
+  avif: 'image/avif',
 };
 
 /** Load a File into a video element and wait for metadata. */

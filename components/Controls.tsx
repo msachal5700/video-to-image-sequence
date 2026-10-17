@@ -386,7 +386,7 @@ const Controls: React.FC<ControlsProps> = ({
 
             <div>
               <label className="block text-xs font-semibold text-gray-400 mb-3 uppercase tracking-wider">{t('controls.outputFormat')}</label>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-4 gap-3">
                 <button
                   type="button"
                   onClick={() => onFormatChange('jpg')}
@@ -420,11 +420,23 @@ const Controls: React.FC<ControlsProps> = ({
                 >
                   WebP
                 </button>
+                <button
+                  type="button"
+                  onClick={() => onFormatChange('avif')}
+                  className={`py-3 px-4 rounded-xl font-bold transition-all disabled:opacity-50 border ${
+                    outputFormat === 'avif'
+                      ? 'bg-cyan-950/40 border-cyan-500 text-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.2)]'
+                      : 'bg-gray-950 border-gray-800 text-gray-400 hover:border-gray-700'
+                  }`}
+                >
+                  AVIF
+                </button>
               </div>
               <p className="text-gray-500 text-[11px] mt-3 font-medium">
                 {outputFormat === 'jpg' && t('controls.formatJpgDesc')}
                 {outputFormat === 'png' && t('controls.formatPngDesc')}
                 {outputFormat === 'webp' && 'Best for web use — smaller than PNG, supports transparency, modern browser support'}
+                {outputFormat === 'avif' && 'Next-gen format — up to 50% smaller than WebP, best quality per byte. Chrome & Firefox supported.'}
               </p>
             </div>
             

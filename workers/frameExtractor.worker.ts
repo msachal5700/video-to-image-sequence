@@ -96,7 +96,7 @@ async function processVideo(payload: any) {
           const tempCtx = tempCanvas.getContext('2d');
           tempCtx!.drawImage(frame, 0, 0, tempCanvas.width, tempCanvas.height);
 
-          const mimeType = format === 'png' ? 'image/png' : format === 'webp' ? 'image/webp' : 'image/jpeg';
+          const mimeType = format === 'png' ? 'image/png' : format === 'webp' ? 'image/webp' : format === 'avif' ? 'image/avif' : 'image/jpeg';
           const exportQuality = format === 'png' ? 1.0 : quality;
           
           const currentFrameIndex = processedFrames;
@@ -110,13 +110,13 @@ async function processVideo(payload: any) {
                 quality: exportQuality
               });
               
-              const extension = format === 'png' ? 'png' : format === 'webp' ? 'webp' : 'jpg';
+              const extension = format === 'png' ? 'png' : format === 'webp' ? 'webp' : format === 'avif' ? 'avif' : 'jpg';
               const fileName = `frame_${currentFrameIndex.toString().padStart(6, '0')}.${extension}`;
               
               if (zip) {
                 if (format === 'jpg') {
                   zip.file(fileName, blob, { compression: 'STORE' });
-                } else if (format === 'webp') {
+                } else if (format === 'webp' || format === 'avif') {
                   zip.file(fileName, blob, { compression: 'STORE' });
                 } else {
                   zip.file(fileName, blob, { compression: 'DEFLATE', compressionOptions: { level: 3 } });

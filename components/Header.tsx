@@ -68,6 +68,7 @@ const Header: React.FC = () => {
               <Link to="/mp4-to-jpg" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">MP4 to JPG Converter</Link>
               <Link to="/mp4-to-png" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">MP4 to PNG Converter</Link>
               <Link to="/video-to-webp" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">Video to WebP Converter</Link>
+              <Link to="/video-to-avif" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">Video to AVIF Converter</Link>
               <Link to="/mov-to-jpg" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">MOV to JPG Converter</Link>
               <Link to="/mov-to-png" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">MOV to PNG Converter</Link>
               <Link to="/webm-to-jpg" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors block text-left font-medium">WebM to JPG Converter</Link>
@@ -123,10 +124,6 @@ const Header: React.FC = () => {
               </Link>
               <Link to="/frames-to-gif" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors flex items-center justify-between font-medium">
                 <span>Frames to GIF</span>
-                <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold">NEW</span>
-              </Link>
-              <Link to="/discord-sticker-maker" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors flex items-center justify-between font-medium">
-                <span>Discord Sticker Maker</span>
                 <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold">NEW</span>
               </Link>
               <Link to="/last-frame-extractor" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors flex items-center justify-between font-medium">
@@ -243,6 +240,7 @@ const Header: React.FC = () => {
             <Link to="/mp4-to-jpg" onClick={() => setOpen(false)} className="pl-2 font-medium">MP4 to JPG Converter</Link>
             <Link to="/mp4-to-png" onClick={() => setOpen(false)} className="pl-2 font-medium">MP4 to PNG Converter</Link>
             <Link to="/video-to-webp" onClick={() => setOpen(false)} className="pl-2 font-medium">Video to WebP Converter</Link>
+            <Link to="/video-to-avif" onClick={() => setOpen(false)} className="pl-2 font-medium">Video to AVIF Converter</Link>
             <Link to="/mov-to-jpg" onClick={() => setOpen(false)} className="pl-2 font-medium">MOV to JPG Converter</Link>
             <Link to="/mov-to-png" onClick={() => setOpen(false)} className="pl-2 font-medium">MOV to PNG Converter</Link>
             <Link to="/webm-to-jpg" onClick={() => setOpen(false)} className="pl-2 font-medium">WebM to JPG Converter</Link>
@@ -298,10 +296,6 @@ const Header: React.FC = () => {
             </Link>
             <Link to="/frames-to-gif" onClick={() => setOpen(false)} className="pl-2 font-medium flex items-center justify-between">
               <span>Frames to GIF</span>
-              <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold mr-2">NEW</span>
-            </Link>
-            <Link to="/discord-sticker-maker" onClick={() => setOpen(false)} className="pl-2 font-medium flex items-center justify-between">
-              <span>Discord Sticker Maker</span>
               <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold mr-2">NEW</span>
             </Link>
             <Link to="/last-frame-extractor" onClick={() => setOpen(false)} className="pl-2 font-medium flex items-center justify-between">
