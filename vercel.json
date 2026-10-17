@@ -75,6 +75,41 @@
       "source": "/hi/extract-frames-from-video",
       "destination": "/video-to-frames",
       "permanent": true
+    },
+    {
+      "source": "/es/video-frame-extractor",
+      "destination": "/video-to-frames",
+      "permanent": true
+    },
+    {
+      "source": "/fr/video-frame-extractor",
+      "destination": "/video-to-frames",
+      "permanent": true
+    },
+    {
+      "source": "/de/video-frame-extractor",
+      "destination": "/video-to-frames",
+      "permanent": true
+    },
+    {
+      "source": "/pt/video-frame-extractor",
+      "destination": "/video-to-frames",
+      "permanent": true
+    },
+    {
+      "source": "/zh/video-frame-extractor",
+      "destination": "/video-to-frames",
+      "permanent": true
+    },
+    {
+      "source": "/ar/video-frame-extractor",
+      "destination": "/video-to-frames",
+      "permanent": true
+    },
+    {
+      "source": "/hi/video-frame-extractor",
+      "destination": "/video-to-frames",
+      "permanent": true
     }
   ],
   "cleanUrls": true,
