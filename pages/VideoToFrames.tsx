@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import VideoToImages from './VideoToImages';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
@@ -43,101 +43,98 @@ const faqs = [
 
 const VideoToFrames: React.FC = () => {
   const { t } = useTranslation();
-  useEffect(() => {
-    const existing = document.getElementById('video-to-frames-schemas');
-    if (existing) {
-      existing.remove();
+
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "Video to Frames — Free Online Converter, No Signup Needed",
+    "url": "https://www.videotoimagesequence.online/video-to-frames",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Extract frames from video free in your browser — no upload, no signup, no watermark. Set the frame rate, download JPG/PNG stills or the full sequence as ZIP.",
+    "applicationCategory": "MultimediaApplication",
+    "applicationSubCategory": "Video to Frames Converter",
+    "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
+    "browserRequirements": "Requires HTML5, WebAssembly and Javascript support",
+    "featureList": [
+      "Convert any video into a numbered frame sequence",
+      "Adjustable extraction rate from 1 fps to full native fps",
+      "Export frames as JPG or PNG with sequential filenames",
+      "Download all frames as a single ZIP archive",
+      "Import-ready sequences for Blender, Premiere, and After Effects",
+      "100% browser-based — videos never leave your device"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
     }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'video-to-frames-schemas';
-
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Video to Frames — Free Online Converter, No Signup Needed",
-      "url": "https://www.videotoimagesequence.online/video-to-frames",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Extract frames from video free in your browser — no upload, no signup, no watermark. Set the frame rate, download JPG/PNG stills or the full sequence as ZIP.",
-      "applicationCategory": "MultimediaApplication",
-      "applicationSubCategory": "Video to Frames Converter",
-      "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
-      "browserRequirements": "Requires HTML5, WebAssembly and Javascript support",
-      "featureList": [
-        "Convert any video into a numbered frame sequence",
-        "Adjustable extraction rate from 1 fps to full native fps",
-        "Export frames as JPG or PNG with sequential filenames",
-        "Download all frames as a single ZIP archive",
-        "Import-ready sequences for Blender, Premiere, and After Effects",
-        "100% browser-based — videos never leave your device"
-      ],
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
       }
-    };
+    }))
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.a
-        }
-      }))
-    };
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Convert Video to Frames Online",
+    "description": "Turn any video into a numbered sequence of JPG or PNG still images, free in your browser. Pick a frame rate, extract, and download the sequence as a ZIP.",
+    "totalTime": "PT2M",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Load your video",
+        "text": "Drag and drop an MP4, MOV, or WEBM file into the converter above — it never leaves your browser."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Set the frame rate",
+        "text": "Choose how many frames per second to pull: 1 fps for thumbnails and contact sheets, higher for animation or dataset work."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Pick JPG or PNG",
+        "text": "JPG keeps files small; PNG keeps every pixel lossless for editing and compositing."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Convert and preview",
+        "text": "Start the conversion and watch the numbered frame sequence build up in the preview grid."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Download the sequence",
+        "text": "Grab individual frames or download the whole numbered sequence as a ZIP, ready to import into any editor."
+      }
+    ]
+  };
 
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Convert Video to Frames Online",
-      "description": "Turn any video into a numbered sequence of JPG or PNG still images, free in your browser. Pick a frame rate, extract, and download the sequence as a ZIP.",
-      "totalTime": "PT2M",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Load your video",
-          "text": "Drag and drop an MP4, MOV, or WEBM file into the converter above — it never leaves your browser."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Set the frame rate",
-          "text": "Choose how many frames per second to pull: 1 fps for thumbnails and contact sheets, higher for animation or dataset work."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Pick JPG or PNG",
-          "text": "JPG keeps files small; PNG keeps every pixel lossless for editing and compositing."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Convert and preview",
-          "text": "Start the conversion and watch the numbered frame sequence build up in the preview grid."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Download the sequence",
-          "text": "Grab individual frames or download the whole numbered sequence as a ZIP, ready to import into any editor."
-        }
-      ]
-    };
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
 
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
-    document.head.appendChild(script);
-
-    return () => {
-      const el = document.getElementById('video-to-frames-schemas');
-      if (el) el.remove();
-    };
-  }, []);
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, organizationSchema]
+  };
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title={t('videoToFrames.title')}
         description={t('videoToFrames.description')}
