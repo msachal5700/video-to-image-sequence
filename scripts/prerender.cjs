@@ -133,7 +133,6 @@ const LOCALIZED_PAGES = [
   { path: '/video-to-png', key: 'videoToPng' },
   { path: '/screenshot-from-video', key: 'screenshotVideo' },
   { path: '/video-to-webp', key: 'videoToWebp' },
-  { path: '/video-to-avif', key: 'videoToAvif' },
   { path: '/images-to-video', key: 'imagesToVideo' },
 ];
 
