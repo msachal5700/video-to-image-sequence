@@ -93,7 +93,7 @@ const LastFrameExtractor: React.FC = () => {
         { '@type': 'ListItem', position: 2, name: 'Last Frame Extractor', item: 'https://www.videotoimagesequence.online/last-frame-extractor' }
       ]
     };
-    script.textContent = JSON.stringify([webAppSchema, faqSchema, howToSchema, breadcrumbSchema]);
+    script.textContent = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema, breadcrumbSchema] });
     document.head.appendChild(script);
     return () => { const el = document.getElementById('last-frame-extractor-schemas'); if (el) el.remove(); };
   }, []);

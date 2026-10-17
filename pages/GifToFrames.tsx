@@ -317,7 +317,7 @@ const GifToFrames: React.FC = () => {
       description: 'Free online video frame extraction tool. Convert MP4, MOV, and WEBM videos to image sequences in your browser.',
       sameAs: ['https://x.com/videotoimage']
     };
-    script.text = JSON.stringify([webAppSchema, faqSchema, howToSchema, breadcrumbSchema, orgSchema]);
+    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema, breadcrumbSchema, orgSchema] });
     document.head.appendChild(script);
     return () => {
       const el = document.getElementById('gif-to-frames-schemas');

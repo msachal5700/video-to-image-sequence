@@ -98,7 +98,7 @@ const VideoLooper: React.FC = () => {
         { '@type': 'ListItem', position: 2, name: 'Video Looper', item: 'https://www.videotoimagesequence.online/video-looper' }
       ]
     };
-    script.textContent = JSON.stringify([webAppSchema, faqSchema, howToSchema, breadcrumbSchema]);
+    script.textContent = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema, breadcrumbSchema] });
     document.head.appendChild(script);
     return () => { const el = document.getElementById('video-looper-schemas'); if (el) el.remove(); };
   }, []);

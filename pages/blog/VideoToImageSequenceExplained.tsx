@@ -9,6 +9,7 @@ const VideoToImageSequenceExplained: React.FC = () => {
   useEffect(() => {
     const script = document.createElement('script');
     script.type = 'application/ld+json';
+    script.id = 'video-to-image-sequence-explained-schemas';
     script.text = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "BlogPosting",
@@ -24,7 +25,10 @@ const VideoToImageSequenceExplained: React.FC = () => {
       "image": "https://www.videotoimagesequence.online/og-image.png"
     });
     document.head.appendChild(script);
-    return () => { document.head.removeChild(script); };
+    return () => {
+      const el = document.getElementById('video-to-image-sequence-explained-schemas');
+      if (el) el.remove();
+    };
   }, []);
 
   return (

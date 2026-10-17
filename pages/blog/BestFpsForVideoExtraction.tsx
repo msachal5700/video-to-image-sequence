@@ -13,6 +13,7 @@ const BestFpsForVideoExtraction: React.FC = () => {
     window.scrollTo(0, 0);
     const script = document.createElement('script');
     script.type = 'application/ld+json';
+    script.id = 'best-fps-for-video-extraction-schemas';
     script.text = JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'BlogPosting',
@@ -26,7 +27,10 @@ const BestFpsForVideoExtraction: React.FC = () => {
       image: 'https://www.videotoimagesequence.online/og-image.png',
     });
     document.head.appendChild(script);
-    return () => { document.head.removeChild(script); };
+    return () => {
+      const el = document.getElementById('best-fps-for-video-extraction-schemas');
+      if (el) el.remove();
+    };
   }, []);
 
   return (

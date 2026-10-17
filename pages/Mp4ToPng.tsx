@@ -90,7 +90,7 @@ const Mp4ToPng: React.FC = () => {
       ]
     };
 
-    script.text = JSON.stringify([webAppSchema, faqSchema, howToSchema]);
+    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
     document.head.appendChild(script);
 
     return () => { const el = document.getElementById('mp4-to-png-schemas'); if (el) el.remove(); };

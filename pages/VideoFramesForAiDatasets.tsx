@@ -95,7 +95,7 @@ const VideoFramesForAiDatasets: React.FC = () => {
       ]
     };
 
-    script.text = JSON.stringify([webAppSchema, faqSchema, howToSchema]);
+    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
     document.head.appendChild(script);
 
     return () => { const el = document.getElementById('video-frames-for-ai-datasets-schemas'); if (el) el.remove(); };

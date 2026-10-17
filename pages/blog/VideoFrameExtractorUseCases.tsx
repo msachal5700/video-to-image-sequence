@@ -13,6 +13,7 @@ const VideoFrameExtractorUseCases: React.FC = () => {
     window.scrollTo(0, 0);
     const script = document.createElement('script');
     script.type = 'application/ld+json';
+    script.id = 'video-frame-extractor-use-cases-schemas';
     script.text = JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'BlogPosting',
@@ -26,7 +27,10 @@ const VideoFrameExtractorUseCases: React.FC = () => {
       image: 'https://www.videotoimagesequence.online/og-image.png',
     });
     document.head.appendChild(script);
-    return () => { document.head.removeChild(script); };
+    return () => {
+      const el = document.getElementById('video-frame-extractor-use-cases-schemas');
+      if (el) el.remove();
+    };
   }, []);
 
   return (

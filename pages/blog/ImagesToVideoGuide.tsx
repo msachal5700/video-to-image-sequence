@@ -32,9 +32,14 @@ const ImagesToVideoGuide: React.FC = () => {
       dateModified: PUBLISHED,
       author: { '@type': 'Person', name: 'Muhammad Sachal', url: 'https://www.linkedin.com/in/sachalspeaks/' },
     };
-    const s1 = document.createElement('script'); s1.type = 'application/ld+json'; s1.text = JSON.stringify(faqSchema); document.head.appendChild(s1);
-    const s2 = document.createElement('script'); s2.type = 'application/ld+json'; s2.text = JSON.stringify(articleSchema); document.head.appendChild(s2);
-    return () => { document.head.removeChild(s1); document.head.removeChild(s2); };
+    const s1 = document.createElement('script'); s1.type = 'application/ld+json'; s1.id = 'images-to-video-guide-schemas-1'; s1.text = JSON.stringify(faqSchema); document.head.appendChild(s1);
+    const s2 = document.createElement('script'); s2.type = 'application/ld+json'; s2.id = 'images-to-video-guide-schemas-2'; s2.text = JSON.stringify(articleSchema); document.head.appendChild(s2);
+    return () => {
+      const el1 = document.getElementById('images-to-video-guide-schemas-1');
+      if (el1) el1.remove();
+      const el2 = document.getElementById('images-to-video-guide-schemas-2');
+      if (el2) el2.remove();
+    };
   }, []);
 
   return (

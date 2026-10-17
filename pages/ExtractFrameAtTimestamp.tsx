@@ -101,7 +101,7 @@ const ExtractFrameAtTimestamp: React.FC = () => {
       ]
     };
 
-    script.text = JSON.stringify([webAppSchema, faqSchema, howToSchema]);
+    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
     document.head.appendChild(script);
 
     return () => { const el = document.getElementById('extract-frame-at-timestamp-schemas'); if (el) el.remove(); };
