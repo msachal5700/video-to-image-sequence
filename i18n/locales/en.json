@@ -570,8 +570,8 @@
     }
   },
   "mp4ToJpg": {
-    "title": "MP4 to Frames — Convert MP4 to JPG Image Sequence Free",
-    "description": "Turn any MP4 into a numbered JPG image sequence free. Extract all frames at your chosen FPS and download as one ZIP. No upload, no signup, no watermark.",
+    "title": "MP4 to JPG Converter — Free, Online, No Signup",
+    "description": "Convert MP4 to JPG free — extract every frame as high-quality JPG images in your browser. No upload, no signup, no watermark.",
     "h1": "MP4 to JPG Converter",
     "h1Sub": "Online Free — Local Browser Processing",
     "hero": "Convert MP4 video to JPG images online for free. Extract every frame as a high-quality JPG sequence locally in your browser. Since files are processed locally, your video data never leaves your device.",
@@ -673,7 +673,7 @@
   },
   "videoToFrames": {
     "title": "Video to Frames: Free Online Extractor — No Upload Needed",
-    "description": "Extract frames from any video free — no upload, no signup, no watermark. Your video never leaves your device. Set FPS, download JPG/PNG stills or ZIP.",
+    "description": "Convert video to frames online free — frame-by-frame extraction in your browser. No upload, no signup, no watermark. Download JPG/PNG stills or ZIP.",
     "h1": "Video to Frames",
     "h1Sub": "Free Online Frame Extractor",
     "hero": "Turn any video into a numbered sequence of still frames — free, in your browser, with no upload and no watermark. Perfect for animation, AI datasets, thumbnails, and contact sheets.",

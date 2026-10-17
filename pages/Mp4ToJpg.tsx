@@ -54,7 +54,7 @@ const Mp4ToJpg: React.FC = () => {
       "name": "MP4 to JPG Converter",
       "url": "https://www.videotoimagesequence.online/mp4-to-jpg",
       "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Convert MP4 video to JPG images online for free. Extract every frame as a high-quality JPG locally in your browser.",
+      "description": "Convert MP4 to JPG free — extract every frame as high-quality JPG images in your browser. No upload, no signup, no watermark.",
       "applicationCategory": "MultimediaApplication",
       "operatingSystem": "All",
       "browserRequirements": "Requires HTML5 and Javascript support",
