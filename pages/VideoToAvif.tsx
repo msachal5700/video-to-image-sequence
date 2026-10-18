@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import VideoToImages from './VideoToImages';
 import SEOHead from '../components/SEOHead';
 import { localizedUrl } from '../utils/localizedRoutes';
@@ -38,70 +38,76 @@ const faqs = [
 const VideoToAvif: React.FC = () => {
   const { t } = useTranslation();
   const pageLang = usePageLang();
-  useEffect(() => {
-    const existing = document.getElementById('video-to-avif-schemas');
-    if (existing) existing.remove();
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'video-to-avif-schemas';
 
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Video to AVIF Converter — Extract AVIF Frames Free",
-      "url": "https://www.videotoimagesequence.online/video-to-avif",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Convert video to AVIF frames online for free. Extract ultra-efficient AVIF image sequences from MP4, MOV, and WEBM videos in your browser. Up to 50% smaller than WebP. No server upload required.",
-      "applicationCategory": "MultimediaApplication",
-      "applicationSubCategory": "Video Converter",
-      "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
-      "browserRequirements": "Requires HTML5, WebAssembly and Javascript support",
-      "featureList": [
-        "Extract AVIF frames with transparency and HDR support",
-        "Up to 50% smaller than WebP at equivalent quality",
-        "Custom FPS control (1, 5, 10, 12, 15, 24, 25, 30, 60 FPS)",
-        "Process videos entirely in your browser (100% private)",
-        "Batch processing of multiple video files",
-        "ZIP download of extracted AVIF frames",
-        "Supports MP4, MOV, and WEBM input"
-      ],
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-    };
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "Video to AVIF Converter — Extract AVIF Frames Free",
+    "url": "https://www.videotoimagesequence.online/video-to-avif",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Convert video to AVIF frames online for free. Extract ultra-efficient AVIF image sequences from MP4, MOV, and WEBM videos in your browser. Up to 50% smaller than WebP. No server upload required.",
+    "applicationCategory": "MultimediaApplication",
+    "applicationSubCategory": "Video Converter",
+    "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
+    "browserRequirements": "Requires HTML5, WebAssembly and Javascript support",
+    "featureList": [
+      "Extract AVIF frames with transparency and HDR support",
+      "Up to 50% smaller than WebP at equivalent quality",
+      "Custom FPS control (1, 5, 10, 12, 15, 24, 25, 30, 60 FPS)",
+      "Process videos entirely in your browser (100% private)",
+      "Batch processing of multiple video files",
+      "ZIP download of extracted AVIF frames",
+      "Supports MP4, MOV, and WEBM input"
+    ],
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": { "@type": "Answer", "text": faq.a }
-      }))
-    };
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+    }))
+  };
 
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Convert Video to AVIF Frames",
-      "description": "Step-by-step instructions for extracting AVIF frames from video files locally inside your web browser.",
-      "totalTime": "PT1M",
-      "step": [
-        { "@type": "HowToStep", "name": "Load Your Video File", "text": "Drag and drop your MP4, MOV, or WEBM video file into the browser-based upload zone." },
-        { "@type": "HowToStep", "name": "Select AVIF Output Format", "text": "Choose AVIF from the format selector for the most efficient modern image output." },
-        { "@type": "HowToStep", "name": "Configure Frame Rate", "text": "Choose your desired FPS (Frames Per Second) setting for the extraction." },
-        { "@type": "HowToStep", "name": "Extract AVIF Frames", "text": "Click Extract Frames Now and watch the local decoding progress." },
-        { "@type": "HowToStep", "name": "Download AVIF Sequence", "text": "Download individual AVIF frames or get all frames as a single ZIP file." }
-      ]
-    };
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Convert Video to AVIF Frames",
+    "description": "Step-by-step instructions for extracting AVIF frames from video files locally inside your web browser.",
+    "totalTime": "PT1M",
+    "step": [
+      { "@type": "HowToStep", "name": "Load Your Video File", "text": "Drag and drop your MP4, MOV, or WEBM video file into the browser-based upload zone." },
+      { "@type": "HowToStep", "name": "Select AVIF Output Format", "text": "Choose AVIF from the format selector for the most efficient modern image output." },
+      { "@type": "HowToStep", "name": "Configure Frame Rate", "text": "Choose your desired FPS (Frames Per Second) setting for the extraction." },
+      { "@type": "HowToStep", "name": "Extract AVIF Frames", "text": "Click Extract Frames Now and watch the local decoding progress." },
+      { "@type": "HowToStep", "name": "Download AVIF Sequence", "text": "Download individual AVIF frames or get all frames as a single ZIP file." }
+    ]
+  };
 
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
-    document.head.appendChild(script);
 
-    return () => { const el = document.getElementById('video-to-avif-schemas'); if (el) el.remove(); };
-  }, []);
+
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
+
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, organizationSchema]
+  };
+
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title={t('videoToAvif.title')}
         description={t('videoToAvif.description')}

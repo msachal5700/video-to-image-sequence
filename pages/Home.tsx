@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import VideoToImages from './VideoToImages';
 import GoogleAdUnit from '../components/GoogleAdUnit';
@@ -25,166 +25,150 @@ const Home: React.FC = () => {
   const gettingStartedSteps = (t('home.gettingStartedSteps', { returnObjects: true }) || []) as Array<{ title: string; content: string }>;
   const workflowsItems = (t('home.workflowsItems', { returnObjects: true }) || []) as Array<{ title: string; settings: string; desc: string }>;
 
-  useEffect(() => {
-    const existing = document.getElementById('home-schemas');
-    if (existing) {
-      existing.remove();
+
+
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "@id": "https://www.videotoimagesequence.online/#webapp",
+    "name": "Video to Image Sequence Online",
+    "alternateName": [
+      "Video Frame Extractor",
+      "MP4 to Image Sequence Converter",
+      "Video to PNG Sequence Online"
+    ],
+    "url": "https://www.videotoimagesequence.online",
+    "description": "Free browser-based tool to extract frames from MP4, MOV, WEBM videos as JPG/PNG image sequences. Processed locally in device memory, 100% private, batch processing, ZIP download, custom FPS.",
+    "applicationCategory": "MultimediaApplication",
+    "applicationSubCategory": "Video Converter",
+    "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
+    "browserRequirements": "Requires modern browser with JavaScript enabled",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "featureList": [
+      "No server upload — 100% private processing",
+      "Processed locally in browser memory",
+      "JPG and PNG output format selection",
+      "Custom FPS frame rate control (all, 1, 5, 10, 24, 30 FPS)",
+      "ZIP download of all frames",
+      "Batch processing of multiple videos",
+      "MP4, MOV, WEBM input support"
+    ],
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "xPath": [
+        "/html/head/meta[@name='description']/@content"
+      ]
+    },
+    "mainEntity": {
+      "@id": "https://www.videotoimagesequence.online/#faq"
     }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'home-schemas';
-    
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "@id": "https://www.videotoimagesequence.online/#webapp",
-      "name": "Video to Image Sequence Online",
-      "alternateName": [
-        "Video Frame Extractor",
-        "MP4 to Image Sequence Converter",
-        "Video to PNG Sequence Online"
-      ],
-      "url": "https://www.videotoimagesequence.online",
-      "description": "Free browser-based tool to extract frames from MP4, MOV, WEBM videos as JPG/PNG image sequences. Processed locally in device memory, 100% private, batch processing, ZIP download, custom FPS.",
-      "applicationCategory": "MultimediaApplication",
-      "applicationSubCategory": "Video Converter",
-      "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
-      "browserRequirements": "Requires modern browser with JavaScript enabled",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "featureList": [
-        "No server upload — 100% private processing",
-        "Processed locally in browser memory",
-        "JPG and PNG output format selection",
-        "Custom FPS frame rate control (all, 1, 5, 10, 24, 30 FPS)",
-        "ZIP download of all frames",
-        "Batch processing of multiple videos",
-        "MP4, MOV, WEBM input support"
-      ],
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "xPath": [
-          "/html/head/meta[@name='description']/@content"
-        ]
-      },
-      "mainEntity": {
-        "@id": "https://www.videotoimagesequence.online/#faq"
+  const faqSchema = {
+    "@type": "FAQPage",
+    "@id": "https://www.videotoimagesequence.online/#faq",
+    "mainEntity": faqItems.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
       }
-    };
+    }))
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "@id": "https://www.videotoimagesequence.online/#faq",
-      "mainEntity": faqItems.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.a
-        }
-      }))
-    };
-
-    const navigationSchema = {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "name": "Site Navigation Tools",
-      "itemListElement": [
-        {
-          "@type": "SiteNavigationElement",
-          "position": 1,
-          "name": "Video to Image Sequence Converter",
-          "url": "https://www.videotoimagesequence.online"
-        },
-        {
-          "@type": "SiteNavigationElement",
-          "position": 2,
-          "name": "MP4 to JPG Converter",
-          "url": "https://www.videotoimagesequence.online/mp4-to-jpg"
-        },
-        {
-          "@type": "SiteNavigationElement",
-          "position": 3,
-          "name": "Video to PNG Converter",
-          "url": "https://www.videotoimagesequence.online/video-to-png"
-        },
-        {
-          "@type": "SiteNavigationElement",
-          "position": 4,
-          "name": "Screenshot from Video",
-          "url": "https://www.videotoimagesequence.online/screenshot-from-video"
-        },
-        {
-          "@type": "SiteNavigationElement",
-          "position": 5,
-          "name": "Video to Frames",
-          "url": "https://www.videotoimagesequence.online/video-to-frames"
-        },
-        {
-          "@type": "SiteNavigationElement",
-          "position": 6,
-          "name": "Images to Video Converter",
-          "url": "https://www.videotoimagesequence.online/images-to-video"
-        }
-      ]
-    };
-
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Convert Video to Image Sequence Online",
-      "description": "Learn how to extract frame sequences from video files locally inside your web browser.",
-      "totalTime": "PT1M",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Load Your Video File",
-          "text": "Drag and drop your video file (MP4, MOV, or WEBM) into the browser-based upload zone.",
-          "url": "https://www.videotoimagesequence.online/#dropzone"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Select Output Settings",
-          "text": "Choose your desired image format (JPG or PNG) and custom frame rate (FPS).",
-          "url": "https://www.videotoimagesequence.online/#settings"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Extract and Download Frames",
-          "text": "Click Extract Frames and preview the sequence. Download all frames as a ZIP file.",
-          "url": "https://www.videotoimagesequence.online/#preview"
-        }
-      ]
-    };
-
-    const orgSchema = {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Video to Image Sequence Online",
-      "url": "https://www.videotoimagesequence.online",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.videotoimagesequence.online/favicon.svg",
-        "width": 32,
-        "height": 32
+  const navigationSchema = {
+    "@type": "ItemList",
+    "name": "Site Navigation Tools",
+    "itemListElement": [
+      {
+        "@type": "SiteNavigationElement",
+        "position": 1,
+        "name": "Video to Image Sequence Converter",
+        "url": "https://www.videotoimagesequence.online"
       },
-      "description": "Free online video frame extraction tool. Convert MP4, MOV, and WEBM videos to image sequences in your browser.",
-      "sameAs": [
-        "https://x.com/videotoimage"
-      ]
-    };
-
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, navigationSchema, howToSchema, orgSchema] });
-    document.head.appendChild(script);
-
-    return () => {
-      const el = document.getElementById('home-schemas');
-      if (el) {
-        el.remove();
+      {
+        "@type": "SiteNavigationElement",
+        "position": 2,
+        "name": "MP4 to JPG Converter",
+        "url": "https://www.videotoimagesequence.online/mp4-to-jpg"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "position": 3,
+        "name": "Video to PNG Converter",
+        "url": "https://www.videotoimagesequence.online/video-to-png"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "position": 4,
+        "name": "Screenshot from Video",
+        "url": "https://www.videotoimagesequence.online/screenshot-from-video"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "position": 5,
+        "name": "Video to Frames",
+        "url": "https://www.videotoimagesequence.online/video-to-frames"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "position": 6,
+        "name": "Images to Video Converter",
+        "url": "https://www.videotoimagesequence.online/images-to-video"
       }
-    };
-  }, [faqItems]);
+    ]
+  };
+
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Convert Video to Image Sequence Online",
+    "description": "Learn how to extract frame sequences from video files locally inside your web browser.",
+    "totalTime": "PT1M",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Load Your Video File",
+        "text": "Drag and drop your video file (MP4, MOV, or WEBM) into the browser-based upload zone.",
+        "url": "https://www.videotoimagesequence.online/#dropzone"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Select Output Settings",
+        "text": "Choose your desired image format (JPG or PNG) and custom frame rate (FPS).",
+        "url": "https://www.videotoimagesequence.online/#settings"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Extract and Download Frames",
+        "text": "Click Extract Frames and preview the sequence. Download all frames as a ZIP file.",
+        "url": "https://www.videotoimagesequence.online/#preview"
+      }
+    ]
+  };
+
+  const orgSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/favicon.svg",
+      "width": 32,
+      "height": 32
+    },
+    "description": "Free online video frame extraction tool. Convert MP4, MOV, and WEBM videos to image sequences in your browser.",
+    "sameAs": [
+      "https://x.com/videotoimage"
+    ]
+  };
+
+
+
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, navigationSchema, howToSchema, orgSchema]
+  };
+
 
   const moreToolsLinks = ['/extract-frame-at-timestamp', '/screenshot-from-video', '/ai-social-media-frame-picker'];
   const relatedLinks = [
@@ -206,6 +190,9 @@ const Home: React.FC = () => {
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title={t('home.title')}
         description={t('home.description')}
@@ -216,7 +203,7 @@ const Home: React.FC = () => {
         ogType="website"
         keywords={t('home.keywords')}
       />
-      
+
       {/* ── HERO SECTION ── */}
       <section className="text-center max-w-4xl mx-auto pt-16 pb-10 px-4">
         {/* Announcement Pill */}
