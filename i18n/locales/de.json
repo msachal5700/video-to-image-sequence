@@ -75,7 +75,6 @@
   "home": {
     "title": "Kostenloser Video-Frame-Extrahierer — Frames aus Video online extrahieren",
     "description": "Kostenloser browserbasierter Video-Frame-Extrahierer. Extrahieren Sie Frames aus MP4, MOV, WEBM als JPG, PNG oder WebP mit Millisekunden-Genauigkeit. Kein Server-Upload — 100% privat, Stapelverarbeitung, ZIP-Download, benutzerdefinierte FPS.",
-
     "h1": "Kostenloser Video-Frame-Extrahierer",
     "h1Sub": "Frames aus Video extrahieren",
     "hero": "Extrahieren Sie jeden Frame aus MP4-, MOV- und WEBM-Videos als hochwertige JPG-, PNG- oder WebP-Bilder. Wählen Sie genaue Zeitstempel, benutzerdefinierte FPS (1–60) oder extrahieren Sie stapelweise Tausende von Frames für KI-Datensätze. Die gesamte Verarbeitung erfolgt lokal in Ihrem Browser — kein Upload, kein Konto, keine Grenzen.",
@@ -348,7 +347,6 @@
   "mp4ToJpg": {
     "title": "MP4 zu Frames — MP4 zu JPG-Bildsequenz kostenlos konvertieren",
     "description": "Verwandeln Sie jedes MP4 in eine nummerierte JPG-Bildsequenz. Extrahieren Sie alle Frames mit Ihrer gewählten FPS und laden Sie als eine ZIP herunter. Kein Upload, kein Konto, kein Wasserzeichen.",
-
     "h1": "MP4-zu-JPG-Konverter",
     "h1Sub": "Online kostenlos — Lokale Browser-Verarbeitung",
     "hero": "Konvertieren Sie MP4-Video online kostenlos in JPG-Bilder. Extrahieren Sie jeden Frame als hochwertige JPG-Sequenz lokal in Ihrem Browser. Da Dateien lokal verarbeitet werden, verlässt Ihre Videodaten nie Ihr Gerät.",
@@ -459,5 +457,21 @@
     "howItWorks": "So funktioniert es",
     "copyright": "© {{year}} Video zu Bildsequenz online · Für immer kostenlos",
     "local": "Verarbeitung ist 100% lokal · Ihre Videos verlassen nie Ihr Gerät"
+  },
+  "videoToFrames": {
+    "title": "Video zu Frames: Kostenloser Online-Extraktor — Kein Upload Nötig",
+    "description": "Video kostenlos online in Frames umwandeln — Bild-für-Bild-Extraktion in Ihrem Browser. Kein Upload, keine Anmeldung, kein Wasserzeichen. JPG/PNG-Bilder oder ZIP herunterladen.",
+    "h1": "Video zu Frames",
+    "h1Sub": "Kostenloser Online-Extraktor",
+    "hero": "Verwandeln Sie jedes Video in eine nummerierte Folge von Einzelbildern — kostenlos, in Ihrem Browser, ohne Upload und ohne Wasserzeichen. Perfekt für Animation, KI-Datensätze, Thumbnails und Kontaktbögen.",
+    "keywords": "video zu frames, video zu frames konverter, video zu frames online kostenlos, video in frames umwandeln, frame extraktor online"
+  },
+  "videoToJpg": {
+    "title": "Video zu JPG — Video Kostenlos Online in JPG-Bilder Umwandeln",
+    "description": "Video kostenlos online in JPG-Bilder umwandeln. Extrahieren Sie hochauflösende JPG-Einzelbilder aus MP4-, MOV- und WEBM-Videos in Ihrem Browser. Kein Upload, kein Wasserzeichen.",
+    "h1": "Video zu JPG Konverter",
+    "h1Sub": "Kostenlos Online — Hohe Auflösung",
+    "hero": "Extrahieren Sie hochauflösende JPG-Bilder aus jedem Video — kostenlos in Ihrem Browser, ohne Upload und ohne Wasserzeichen. Ideal für Thumbnails, Datensätze und Dokumentation.",
+    "keywords": "video zu jpg, video in jpg umwandeln, video zu jpg konverter, video zu jpg online kostenlos, jpg aus video extrahieren"
   }
 }

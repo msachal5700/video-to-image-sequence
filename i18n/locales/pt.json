@@ -75,7 +75,6 @@
   "home": {
     "title": "Extrator de Quadros de Vídeo Grátis — Extraia Quadros de Vídeo Online",
     "description": "Extrator de quadros de vídeo gratuito baseado no navegador. Extraia quadros de vídeos MP4, MOV e WEBM como JPG, PNG ou WebP com precisão de milissegundos. Sem upload para servidor — 100% privado, processamento em lote, download em ZIP, FPS personalizado.",
-
     "h1": "Extrator de Quadros de Vídeo Grátis",
     "h1Sub": "Extraia Quadros de Vídeo",
     "hero": "Extraia cada quadro de vídeos MP4, MOV e WEBM como imagens JPG, PNG ou WebP de alta qualidade. Escolha timestamps exatos, FPS personalizado (1–60) ou extraia em lote milhares de quadros para conjuntos de dados de IA. Todo o processamento é feito localmente no seu navegador — sem upload, sem conta, sem limites.",
@@ -348,7 +347,6 @@
   "mp4ToJpg": {
     "title": "MP4 para Quadros — Converta MP4 para Sequência de Imagens JPG Grátis",
     "description": "Converta qualquer MP4 em uma sequência de imagens JPG numerada. Extraia todos os quadros na sua taxa de FPS escolhida e baixe como um único ZIP. Sem upload, sem cadastro, sem marca d'água.",
-
     "h1": "Conversor MP4 para JPG",
     "h1Sub": "Online Grátis — Processamento Local no Navegador",
     "hero": "Converta vídeo MP4 em imagens JPG online gratuitamente. Extraia cada quadro como uma sequência JPG de alta qualidade localmente no seu navegador. Como os arquivos são processados localmente, seus dados de vídeo nunca saem do seu dispositivo.",
@@ -459,5 +457,21 @@
     "howItWorks": "Como Funciona",
     "copyright": "© {{year}} Video to Image Sequence Online · Gratuito para sempre",
     "local": "O processamento é 100% local · Seus vídeos nunca saem do seu dispositivo"
+  },
+  "videoToFrames": {
+    "title": "Vídeo para Quadros: Extrator Online Grátis — Sem Upload",
+    "description": "Converta vídeo em quadros online grátis — extração quadro a quadro no seu navegador. Sem upload, sem cadastro, sem marca d’água. Baixe imagens JPG/PNG ou ZIP.",
+    "h1": "Vídeo para Quadros",
+    "h1Sub": "Extrator Online Grátis",
+    "hero": "Transforme qualquer vídeo em uma sequência numerada de quadros — grátis, no seu navegador, sem upload e sem marca d’água. Perfeito para animação, conjuntos de dados de IA, miniaturas e folhas de contato.",
+    "keywords": "vídeo para quadros, conversor de vídeo para quadros, vídeo para quadros online grátis, converter vídeo em quadros, extrator de quadros online"
+  },
+  "videoToJpg": {
+    "title": "Vídeo para JPG — Converter Vídeo em Imagens JPG Online Grátis",
+    "description": "Converta vídeo em imagens JPG online grátis. Extraia imagens JPG em alta resolução de vídeos MP4, MOV e WEBM no seu navegador. Sem upload, sem marca d’água.",
+    "h1": "Conversor de Vídeo para JPG",
+    "h1Sub": "Online Grátis — Alta Resolução",
+    "hero": "Extraia imagens JPG em alta resolução de qualquer vídeo — grátis no seu navegador, sem upload e sem marca d’água. Ideal para miniaturas, conjuntos de dados e documentação.",
+    "keywords": "vídeo para jpg, converter vídeo em jpg, conversor de vídeo para jpg, vídeo para jpg online grátis, extrair jpg de vídeo"
   }
 }

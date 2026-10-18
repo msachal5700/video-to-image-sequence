@@ -10,6 +10,8 @@ import VideoToPng from '../pages/VideoToPng';
 import ScreenshotFromVideo from '../pages/ScreenshotFromVideo';
 import VideoToWebp from '../pages/VideoToWebp';
 import ImagesToVideoPage from '../pages/ImagesToVideoPage';
+import VideoToFrames from '../pages/VideoToFrames';
+import VideoToJpg from '../pages/VideoToJpg';
 import NotFound from '../pages/NotFound';
 
 /**
@@ -51,6 +53,8 @@ const LocalizedRoutes: React.FC = () => {
       <Route path="screenshot-from-video" element={<ScreenshotFromVideo />} />
       <Route path="video-to-webp" element={<VideoToWebp />} />
       <Route path="images-to-video" element={<ImagesToVideoPage />} />
+      <Route path="video-to-frames" element={<VideoToFrames />} />
+      <Route path="video-to-jpg" element={<VideoToJpg />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

@@ -460,5 +460,21 @@
     "howItWorks": "Cómo Funciona",
     "copyright": "© {{year}} Video to Image Sequence Online · Gratis para siempre",
     "local": "El procesamiento es 100% local · Tus videos nunca salen de tu dispositivo"
+  },
+  "videoToFrames": {
+    "title": "Video a Fotogramas: Extractor Online Gratis — Sin Subida",
+    "description": "Convierte video a fotogramas online gratis — extracción fotograma a fotograma en tu navegador. Sin subida, sin registro, sin marca de agua. Descarga imágenes JPG/PNG o ZIP.",
+    "h1": "Video a Fotogramas",
+    "h1Sub": "Extractor Online Gratis",
+    "hero": "Convierte cualquier video en una secuencia numerada de fotogramas — gratis, en tu navegador, sin subida y sin marca de agua. Perfecto para animación, conjuntos de datos de IA, miniaturas y hojas de contacto.",
+    "keywords": "video a fotogramas, convertidor de video a fotogramas, video a fotogramas online gratis, convertir video a fotogramas, extractor de fotogramas online"
+  },
+  "videoToJpg": {
+    "title": "Video a JPG — Convertir Video a Imágenes JPG Online Gratis",
+    "description": "Convierte video a imágenes JPG online gratis. Extrae fotogramas JPG de alta resolución de videos MP4, MOV y WEBM en tu navegador. Sin subida, sin marca de agua.",
+    "h1": "Convertidor de Video a JPG",
+    "h1Sub": "Online Gratis — Alta Resolución",
+    "hero": "Extrae imágenes JPG de alta resolución de cualquier video — gratis en tu navegador, sin subida y sin marca de agua. Ideal para miniaturas, conjuntos de datos y documentación.",
+    "keywords": "video a jpg, convertir video a jpg, convertidor de video a jpg, video a jpg online gratis, extraer jpg de video"
   }
 }

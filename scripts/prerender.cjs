@@ -135,6 +135,8 @@ const LOCALIZED_PAGES = [
   { path: '/screenshot-from-video', key: 'screenshotVideo' },
   { path: '/video-to-webp', key: 'videoToWebp' },
   { path: '/images-to-video', key: 'imagesToVideo' },
+  { path: '/video-to-frames', key: 'videoToFrames' },
+  { path: '/video-to-jpg', key: 'videoToJpg' },
 ];
 
 const routeTextMap = {
