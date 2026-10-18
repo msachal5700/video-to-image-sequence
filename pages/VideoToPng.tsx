@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import VideoToImages from './VideoToImages';
 import SEOHead from '../components/SEOHead';
 import { localizedUrl } from '../utils/localizedRoutes';
@@ -50,87 +50,88 @@ const faqs = [
 const VideoToPng: React.FC = () => {
   const { t } = useTranslation();
   const pageLang = usePageLang();
-  useEffect(() => {
-    const existing = document.getElementById('video-to-png-schemas');
-    if (existing) {
-      existing.remove();
+
+
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "Video to PNG Converter",
+    "url": "https://www.videotoimagesequence.online/video-to-png",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Convert video to PNG images online for free. Extract lossless PNG frames from MP4, MOV, and WEBM videos in your browser.",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires HTML5 and Javascript support",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
     }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'video-to-png-schemas';
-    
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Video to PNG Converter",
-      "url": "https://www.videotoimagesequence.online/video-to-png",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Convert video to PNG images online for free. Extract lossless PNG frames from MP4, MOV, and WEBM videos in your browser.",
-      "applicationCategory": "MultimediaApplication",
-      "operatingSystem": "All",
-      "browserRequirements": "Requires HTML5 and Javascript support",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
       }
-    };
+    }))
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.a
-        }
-      }))
-    };
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Convert Video to PNG Online",
+    "description": "Learn how to extract lossless PNG frames from MP4, MOV, and WEBM videos directly in your browser.",
+    "totalTime": "PT1M",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Select Your Video",
+        "text": "Load your MP4, MOV, or WEBM video file into the converter dropzone."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Configure Lossless PNG",
+        "text": "Select PNG as the output format to preserve pixel-perfect frame accuracy."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Choose Frame Rate",
+        "text": "Specify the target FPS or choose to extract every frame."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Export PNG Sequence",
+        "text": "Generate and download the compiled lossless PNG images inside a ZIP folder."
+      }
+    ]
+  };
 
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Convert Video to PNG Online",
-      "description": "Learn how to extract lossless PNG frames from MP4, MOV, and WEBM videos directly in your browser.",
-      "totalTime": "PT1M",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Select Your Video",
-          "text": "Load your MP4, MOV, or WEBM video file into the converter dropzone."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Configure Lossless PNG",
-          "text": "Select PNG as the output format to preserve pixel-perfect frame accuracy."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Choose Frame Rate",
-          "text": "Specify the target FPS or choose to extract every frame."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Export PNG Sequence",
-          "text": "Generate and download the compiled lossless PNG images inside a ZIP folder."
-        }
-      ]
-    };
 
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
-    document.head.appendChild(script);
 
-    return () => {
-      const el = document.getElementById('video-to-png-schemas');
-      if (el) el.remove();
-    };
-  }, []);
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
+
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, organizationSchema]
+  };
+
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title={t('videoToPng.title')}
         description={t('videoToPng.description')}

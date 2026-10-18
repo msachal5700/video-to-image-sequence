@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import VideoToImages from './VideoToImages';
 import SEOHead from '../components/SEOHead';
 import { localizedUrl } from '../utils/localizedRoutes';
@@ -38,87 +38,88 @@ const Mp4ToJpg: React.FC = () => {
   const faqItems = t('mp4ToJpg.faq.items', { returnObjects: true }) as Array<{ q: string; a: string }>;
   const howToSteps = t('mp4ToJpg.howTo.steps', { returnObjects: true }) as Array<{ title: string; body: string }>;
 
-  useEffect(() => {
-    const existing = document.getElementById('mp4-to-jpg-schemas');
-    if (existing) {
-      existing.remove();
+
+
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "MP4 to JPG Converter",
+    "url": "https://www.videotoimagesequence.online/mp4-to-jpg",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Convert MP4 to JPG free — extract every frame as high-quality JPG images in your browser. No upload, no signup, no watermark.",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires HTML5 and Javascript support",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
     }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'mp4-to-jpg-schemas';
-    
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "MP4 to JPG Converter",
-      "url": "https://www.videotoimagesequence.online/mp4-to-jpg",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Convert MP4 to JPG free — extract every frame as high-quality JPG images in your browser. No upload, no signup, no watermark.",
-      "applicationCategory": "MultimediaApplication",
-      "operatingSystem": "All",
-      "browserRequirements": "Requires HTML5 and Javascript support",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
       }
-    };
+    }))
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.a
-        }
-      }))
-    };
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Convert MP4 to JPG Online",
+    "description": "A quick guide to converting MP4 videos to a sequence of JPG images without uploading files.",
+    "totalTime": "PT1M",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Upload MP4 File",
+        "text": "Drag and drop your MP4 file into the local converter tool zone."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Choose JPG and FPS",
+        "text": "Set the output format to JPG and configure your target frames-per-second rate."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Extract JPG Sequence",
+        "text": "Run local browser decoding to extract every frame as a JPG image."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Download JPG Zip",
+        "text": "Click Download All as ZIP to fetch the entire extracted JPG archive."
+      }
+    ]
+  };
 
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Convert MP4 to JPG Online",
-      "description": "A quick guide to converting MP4 videos to a sequence of JPG images without uploading files.",
-      "totalTime": "PT1M",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Upload MP4 File",
-          "text": "Drag and drop your MP4 file into the local converter tool zone."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Choose JPG and FPS",
-          "text": "Set the output format to JPG and configure your target frames-per-second rate."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Extract JPG Sequence",
-          "text": "Run local browser decoding to extract every frame as a JPG image."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Download JPG Zip",
-          "text": "Click Download All as ZIP to fetch the entire extracted JPG archive."
-        }
-      ]
-    };
 
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
-    document.head.appendChild(script);
 
-    return () => {
-      const el = document.getElementById('mp4-to-jpg-schemas');
-      if (el) el.remove();
-    };
-  }, []);
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
+
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, organizationSchema]
+  };
+
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title={t('mp4ToJpg.title')}
         description={t('mp4ToJpg.description')}

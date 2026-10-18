@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import VideoToImages from './VideoToImages';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
@@ -43,101 +43,102 @@ const faqs = [
 
 const VideoToJpg: React.FC = () => {
   const { t } = useTranslation();
-  useEffect(() => {
-    const existing = document.getElementById('video-to-jpg-schemas');
-    if (existing) {
-      existing.remove();
+
+
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "Video to JPG — Convert Video to JPG Images Online Free",
+    "url": "https://www.videotoimagesequence.online/video-to-jpg",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Convert video to JPG images online for free. Extract full-resolution JPG stills from MP4, MOV, and WEBM videos in your browser. No upload, no watermark.",
+    "applicationCategory": "MultimediaApplication",
+    "applicationSubCategory": "Video to JPG Converter",
+    "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
+    "browserRequirements": "Requires HTML5, WebAssembly and Javascript support",
+    "featureList": [
+      "Convert MP4, MOV, and WEBM videos to JPG images",
+      "Full native resolution — no downscaling",
+      "Adjustable frame extraction rate",
+      "Compact JPG output ideal for web and sharing",
+      "Download stills individually or as a ZIP",
+      "100% browser-based — videos never leave your device"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
     }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'video-to-jpg-schemas';
-
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Video to JPG — Convert Video to JPG Images Online Free",
-      "url": "https://www.videotoimagesequence.online/video-to-jpg",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Convert video to JPG images online for free. Extract full-resolution JPG stills from MP4, MOV, and WEBM videos in your browser. No upload, no watermark.",
-      "applicationCategory": "MultimediaApplication",
-      "applicationSubCategory": "Video to JPG Converter",
-      "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
-      "browserRequirements": "Requires HTML5, WebAssembly and Javascript support",
-      "featureList": [
-        "Convert MP4, MOV, and WEBM videos to JPG images",
-        "Full native resolution — no downscaling",
-        "Adjustable frame extraction rate",
-        "Compact JPG output ideal for web and sharing",
-        "Download stills individually or as a ZIP",
-        "100% browser-based — videos never leave your device"
-      ],
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
       }
-    };
+    }))
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.a
-        }
-      }))
-    };
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Convert Video to JPG Online",
+    "description": "Extract full-resolution JPG still images from any MP4, MOV, or WEBM video, free in your browser. No uploads, no watermarks.",
+    "totalTime": "PT2M",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Load your video",
+        "text": "Drag and drop an MP4, MOV, or WEBM file into the converter. It stays on your device."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Select JPG output",
+        "text": "Choose JPG for compact, shareable still images at full video resolution."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Set the extraction rate",
+        "text": "Pick frames per second: 1 fps for browsing stills, higher when you need dense coverage."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Convert and review",
+        "text": "Run the conversion, then scan the preview grid for the sharpest stills."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Download your JPGs",
+        "text": "Save the keepers individually or download every extracted JPG as a ZIP archive."
+      }
+    ]
+  };
 
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Convert Video to JPG Online",
-      "description": "Extract full-resolution JPG still images from any MP4, MOV, or WEBM video, free in your browser. No uploads, no watermarks.",
-      "totalTime": "PT2M",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Load your video",
-          "text": "Drag and drop an MP4, MOV, or WEBM file into the converter. It stays on your device."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Select JPG output",
-          "text": "Choose JPG for compact, shareable still images at full video resolution."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Set the extraction rate",
-          "text": "Pick frames per second: 1 fps for browsing stills, higher when you need dense coverage."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Convert and review",
-          "text": "Run the conversion, then scan the preview grid for the sharpest stills."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Download your JPGs",
-          "text": "Save the keepers individually or download every extracted JPG as a ZIP archive."
-        }
-      ]
-    };
 
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
-    document.head.appendChild(script);
 
-    return () => {
-      const el = document.getElementById('video-to-jpg-schemas');
-      if (el) el.remove();
-    };
-  }, []);
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
+
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, organizationSchema]
+  };
+
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title={t('videoToJpg.title')}
         description={t('videoToJpg.description')}
