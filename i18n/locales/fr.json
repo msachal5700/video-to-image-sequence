@@ -457,5 +457,21 @@
     "howItWorks": "Comment ça Marche",
     "copyright": "© {{year}} Video to Image Sequence Online · Gratuit pour toujours",
     "local": "Le traitement est 100% local · Vos vidéos ne quittent jamais votre appareil"
+  },
+  "videoToFrames": {
+    "title": "Vidéo en Images : Extracteur En Ligne Gratuit — Sans Téléversement",
+    "description": "Convertissez une vidéo en images en ligne gratuitement — extraction image par image dans votre navigateur. Sans téléversement, sans inscription, sans filigrane. Téléchargez des images JPG/PNG ou un ZIP.",
+    "h1": "Vidéo en Images",
+    "h1Sub": "Extracteur En Ligne Gratuit",
+    "hero": "Transformez n’importe quelle vidéo en une séquence numérotée d’images fixes — gratuitement, dans votre navigateur, sans téléversement ni filigrane. Parfait pour l’animation, les jeux de données IA, les miniatures et les planches-contact.",
+    "keywords": "vidéo en images, convertisseur vidéo en images, vidéo en images en ligne gratuit, convertir vidéo en images, extracteur d’images en ligne"
+  },
+  "videoToJpg": {
+    "title": "Vidéo en JPG — Convertir une Vidéo en Images JPG En Ligne Gratuit",
+    "description": "Convertissez une vidéo en images JPG en ligne gratuitement. Extrayez des images JPG haute résolution de vidéos MP4, MOV et WEBM dans votre navigateur. Sans téléversement, sans filigrane.",
+    "h1": "Convertisseur Vidéo en JPG",
+    "h1Sub": "En Ligne Gratuit — Haute Résolution",
+    "hero": "Extrayez des images JPG haute résolution de n’importe quelle vidéo — gratuitement dans votre navigateur, sans téléversement ni filigrane. Idéal pour les miniatures, les jeux de données et la documentation.",
+    "keywords": "vidéo en jpg, convertir vidéo en jpg, convertisseur vidéo en jpg, vidéo en jpg en ligne gratuit, extraire jpg d’une vidéo"
   }
 }

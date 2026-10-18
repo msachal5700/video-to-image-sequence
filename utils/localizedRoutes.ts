@@ -32,6 +32,8 @@ export const LOCALIZED_PAGE_PATHS = [
   '/screenshot-from-video',
   '/video-to-webp',
   '/images-to-video',
+  '/video-to-frames',
+  '/video-to-jpg',
 ] as const;
 
 export function isLocalizedPath(path: string): boolean {
