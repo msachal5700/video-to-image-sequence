@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import VideoToImages from './VideoToImages';
 import SEOHead from '../components/SEOHead';
 import { localizedUrl } from '../utils/localizedRoutes';
@@ -34,87 +34,83 @@ const faqs = [
 const ScreenshotFromVideo: React.FC = () => {
   const { t } = useTranslation();
   const pageLang = usePageLang();
-  useEffect(() => {
-    const existing = document.getElementById('screenshot-from-video-schemas');
-    if (existing) {
-      existing.remove();
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "Screenshot from Video",
+    "url": "https://www.videotoimagesequence.online/screenshot-from-video",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Take a screenshot from MP4, MOV, and WEBM videos online for free. Capture the exact frame you need locally in your browser.",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires HTML5 and Javascript support",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
     }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'screenshot-from-video-schemas';
-    
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Screenshot from Video",
-      "url": "https://www.videotoimagesequence.online/screenshot-from-video",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Take a screenshot from MP4, MOV, and WEBM videos online for free. Capture the exact frame you need locally in your browser.",
-      "applicationCategory": "MultimediaApplication",
-      "operatingSystem": "All",
-      "browserRequirements": "Requires HTML5 and Javascript support",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
       }
-    };
+    }))
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.a
-        }
-      }))
-    };
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Take a Screenshot from Video Online",
+    "description": "Learn how to capture high-resolution screenshots from MP4, MOV, or WEBM video frames locally.",
+    "totalTime": "PT1M",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Load Your Video",
+        "text": "Select your video file from your local computer or phone."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Seek to Target Frame",
+        "text": "Use the video scrubber or frame-stepping controls to locate the exact moment."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Capture Screenshot",
+        "text": "Click the Capture Screenshot button to draw the frame at full resolution onto a canvas."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Download Still Image",
+        "text": "Download the captured frame as a PNG or JPG still image locally."
+      }
+    ]
+  };
 
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Take a Screenshot from Video Online",
-      "description": "Learn how to capture high-resolution screenshots from MP4, MOV, or WEBM video frames locally.",
-      "totalTime": "PT1M",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Load Your Video",
-          "text": "Select your video file from your local computer or phone."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Seek to Target Frame",
-          "text": "Use the video scrubber or frame-stepping controls to locate the exact moment."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Capture Screenshot",
-          "text": "Click the Capture Screenshot button to draw the frame at full resolution onto a canvas."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Download Still Image",
-          "text": "Download the captured frame as a PNG or JPG still image locally."
-        }
-      ]
-    };
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
 
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
-    document.head.appendChild(script);
-
-    return () => {
-      const el = document.getElementById('screenshot-from-video-schemas');
-      if (el) el.remove();
-    };
-  }, []);
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, organizationSchema]
+  };
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title={t('screenshotVideo.title')}
         description={t('screenshotVideo.description')}
