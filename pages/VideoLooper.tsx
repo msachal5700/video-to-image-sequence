@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
 import GoogleAdUnit from '../components/GoogleAdUnit';
@@ -40,71 +40,78 @@ const faqs = [
 const VideoLooper: React.FC = () => {
   const { t } = useTranslation();
 
-  useEffect(() => {
-    const existing = document.getElementById('video-looper-schemas');
-    if (existing) existing.remove();
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'video-looper-schemas';
-    const webAppSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'WebApplication',
-      name: 'Video Looper — Free Online Seamless Loop Maker',
-      url: 'https://www.videotoimagesequence.online/video-looper',
-      image: 'https://www.videotoimagesequence.online/og-image.png',
-      description: 'Repeat any video 2–10× free in your browser, with automatic seamless loop-point detection. No upload, no signup, no watermark.',
-      applicationCategory: 'MultimediaApplication',
-      applicationSubCategory: 'Video Looper',
-      operatingSystem: 'All — Browser-based (Chrome, Edge, Safari, Firefox)',
-      browserRequirements: 'Requires HTML5 and Javascript support',
-      featureList: [
-        'Repeat any video 2× to 10× in the browser',
-        'Automatic seamless loop-point detection via frame-similarity analysis',
-        'Seamlessness score tells you honestly how clean the loop will be',
-        'Manual start/end trim with visual timeline',
-        'Loop preview with infinite-playback option',
-        'WebM export with honest format labeling',
-        '100% browser-based — nothing uploaded or stored',
-        'Free forever, no account, no watermark'
-      ],
-      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }
-    };
-    const faqSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: faqs.map(faq => ({
-        '@type': 'Question',
-        name: faq.q,
-        acceptedAnswer: { '@type': 'Answer', text: faq.a }
-      }))
-    };
-    const howToSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'HowTo',
-      name: 'How to Loop a Video Online',
-      description: 'Repeat a video segment seamlessly, free in your browser, with automatic loop-point detection.',
-      totalTime: 'PT2M',
-      step: [
-        { '@type': 'HowToStep', name: 'Drop in your video', text: 'Drag the video onto the upload box, or click to browse. Files up to 100 MB are accepted and never leave your device.' },
-        { '@type': 'HowToStep', name: 'Find the seamless cut', text: 'Hit auto-detect to let frame-similarity analysis suggest the smoothest start/end points, or trim manually with the sliders.' },
-        { '@type': 'HowToStep', name: 'Preview and export', text: 'Preview the loop (finite or infinite), pick 2–10 repetitions, and export a WebM you can post anywhere.' }
-      ]
-    };
-    const breadcrumbSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.videotoimagesequence.online/' },
-        { '@type': 'ListItem', position: 2, name: 'Video Looper', item: 'https://www.videotoimagesequence.online/video-looper' }
-      ]
-    };
-    script.textContent = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema, breadcrumbSchema] });
-    document.head.appendChild(script);
-    return () => { const el = document.getElementById('video-looper-schemas'); if (el) el.remove(); };
-  }, []);
+  const webAppSchema = {
+    '@type': 'WebApplication',
+    name: 'Video Looper — Free Online Seamless Loop Maker',
+    url: 'https://www.videotoimagesequence.online/video-looper',
+    image: 'https://www.videotoimagesequence.online/og-image.png',
+    description: 'Repeat any video 2–10× free in your browser, with automatic seamless loop-point detection. No upload, no signup, no watermark.',
+    applicationCategory: 'MultimediaApplication',
+    applicationSubCategory: 'Video Looper',
+    operatingSystem: 'All — Browser-based (Chrome, Edge, Safari, Firefox)',
+    browserRequirements: 'Requires HTML5 and Javascript support',
+    featureList: [
+      'Repeat any video 2× to 10× in the browser',
+      'Automatic seamless loop-point detection via frame-similarity analysis',
+      'Seamlessness score tells you honestly how clean the loop will be',
+      'Manual start/end trim with visual timeline',
+      'Loop preview with infinite-playback option',
+      'WebM export with honest format labeling',
+      '100% browser-based — nothing uploaded or stored',
+      'Free forever, no account, no watermark'
+    ],
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }
+  };
+
+  const faqSchema = {
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a }
+    }))
+  };
+
+  const howToSchema = {
+    '@type': 'HowTo',
+    name: 'How to Loop a Video Online',
+    description: 'Repeat a video segment seamlessly, free in your browser, with automatic loop-point detection.',
+    totalTime: 'PT2M',
+    step: [
+      { '@type': 'HowToStep', name: 'Drop in your video', text: 'Drag the video onto the upload box, or click to browse. Files up to 100 MB are accepted and never leave your device.' },
+      { '@type': 'HowToStep', name: 'Find the seamless cut', text: 'Hit auto-detect to let frame-similarity analysis suggest the smoothest start/end points, or trim manually with the sliders.' },
+      { '@type': 'HowToStep', name: 'Preview and export', text: 'Preview the loop (finite or infinite), pick 2–10 repetitions, and export a WebM you can post anywhere.' }
+    ]
+  };
+
+  const breadcrumbSchema = {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.videotoimagesequence.online/' },
+      { '@type': 'ListItem', position: 2, name: 'Video Looper', item: 'https://www.videotoimagesequence.online/video-looper' }
+    ]
+  };
+
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
+
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, breadcrumbSchema, organizationSchema]
+  };
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title={t('videoLooper.title')}
         description={t('videoLooper.description')}

@@ -24,30 +24,24 @@ const PARTNER_TYPES = [
   },
 ];
 
+const mediaPartnerSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Media Partners — videotoimagesequence.online',
+  url: CANONICAL,
+  description: 'Partner with videotoimagesequence.online: tool directories, tutorial creators, educators, and integrations.',
+};
+
 const MediaPartner: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-    const existing = document.getElementById('media-partner-schemas');
-    if (existing) existing.remove();
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'media-partner-schemas';
-    script.text = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'WebPage',
-      name: 'Media Partners — videotoimagesequence.online',
-      url: CANONICAL,
-      description: 'Partner with videotoimagesequence.online: tool directories, tutorial creators, educators, and integrations.',
-    });
-    document.head.appendChild(script);
-    return () => {
-      const el = document.getElementById('media-partner-schemas');
-      if (el) el.remove();
-    };
   }, []);
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(mediaPartnerSchema)}
+      </script>
       <SEOHead
         title="Media Partners — Video to Image Sequence"
         description="Partner with Video to Image Sequence: tool directories, bloggers, educators, and open-source projects. Get listed as a media partner with a backlink."

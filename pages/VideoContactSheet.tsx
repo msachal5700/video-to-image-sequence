@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, useRef } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import { Loader2, CheckCircle2, Download, AlertTriangle, LayoutGrid } from 'lucide-react';
 import VideoContactSheetTool from '../components/VideoContactSheetTool';
 import SEOHead from '../components/SEOHead';
@@ -44,96 +44,92 @@ const faqs = [
 
 const VideoContactSheet: React.FC = () => {
   const { t } = useTranslation();
-  useEffect(() => {
-    const existing = document.getElementById('video-contact-sheet-schemas');
-    if (existing) {
-      existing.remove();
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "Video Contact Sheet Maker — Free Online",
+    "url": "https://www.videotoimagesequence.online/video-contact-sheet",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Make a video contact sheet online for free. Turn any MP4, MOV, or WEBM video into a printable grid of timestamped thumbnails in your browser. No upload, no watermark, 100% private.",
+    "applicationCategory": "MultimediaApplication",
+    "applicationSubCategory": "Video Contact Sheet Generator",
+    "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
+    "browserRequirements": "Requires HTML5 video and canvas support",
+    "featureList": [
+      "Generate a printable contact sheet from any video",
+      "9 to 36 evenly-spaced thumbnails per sheet",
+      "Adjustable grid columns with timestamp labels",
+      "Header strip with filename, resolution, and duration",
+      "Export as JPG or high-quality PNG",
+      "100% browser-based — videos never leave your device"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
     }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'video-contact-sheet-schemas';
-
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Video Contact Sheet Maker — Free Online",
-      "url": "https://www.videotoimagesequence.online/video-contact-sheet",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Make a video contact sheet online for free. Turn any MP4, MOV, or WEBM video into a printable grid of timestamped thumbnails in your browser. No upload, no watermark, 100% private.",
-      "applicationCategory": "MultimediaApplication",
-      "applicationSubCategory": "Video Contact Sheet Generator",
-      "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
-      "browserRequirements": "Requires HTML5 video and canvas support",
-      "featureList": [
-        "Generate a printable contact sheet from any video",
-        "9 to 36 evenly-spaced thumbnails per sheet",
-        "Adjustable grid columns with timestamp labels",
-        "Header strip with filename, resolution, and duration",
-        "Export as JPG or high-quality PNG",
-        "100% browser-based — videos never leave your device"
-      ],
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
       }
-    };
+    }))
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.a
-        }
-      }))
-    };
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Make a Video Contact Sheet Online",
+    "description": "Turn any video into a single printable grid image of evenly-spaced, timestamped thumbnails — free in your browser.",
+    "totalTime": "PT2M",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Load your video",
+        "text": "Drag and drop an MP4, MOV, or WEBM file into the maker above — it never leaves your browser."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Choose frames and grid",
+        "text": "Pick how many thumbnails the sheet should hold (9–36) and how many columns the grid uses."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Toggle timestamps and header",
+        "text": "Keep timestamp labels and the metadata header on for review work, or turn them off for clean presentation grids."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Generate and download",
+        "text": "Build the sheet and download it as a JPG or PNG — one image summarizing the whole video."
+      }
+    ]
+  };
 
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Make a Video Contact Sheet Online",
-      "description": "Turn any video into a single printable grid image of evenly-spaced, timestamped thumbnails — free in your browser.",
-      "totalTime": "PT2M",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Load your video",
-          "text": "Drag and drop an MP4, MOV, or WEBM file into the maker above — it never leaves your browser."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Choose frames and grid",
-          "text": "Pick how many thumbnails the sheet should hold (9–36) and how many columns the grid uses."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Toggle timestamps and header",
-          "text": "Keep timestamp labels and the metadata header on for review work, or turn them off for clean presentation grids."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Generate and download",
-          "text": "Build the sheet and download it as a JPG or PNG — one image summarizing the whole video."
-        }
-      ]
-    };
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
 
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
-    document.head.appendChild(script);
-
-    return () => {
-      const el = document.getElementById('video-contact-sheet-schemas');
-      if (el) el.remove();
-    };
-  }, []);
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, organizationSchema]
+  };
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title={t('videoContactSheet.title')}
         description={t('videoContactSheet.description')}

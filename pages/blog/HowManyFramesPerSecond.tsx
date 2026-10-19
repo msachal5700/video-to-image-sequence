@@ -1,16 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import Breadcrumb from '../../components/Breadcrumb';
 import GoogleAdUnit from '../../components/GoogleAdUnit';
 import AuthorBio from '../../components/AuthorBio';
 
-const HowManyFramesPerSecond: React.FC = () => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'how-many-frames-per-second-schemas';
-    script.text = JSON.stringify({
+const blogSchema = {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
       "headline": "How Many Frames Per Second Should You Extract? — FPS Decision Guide",
@@ -23,16 +18,16 @@ const HowManyFramesPerSecond: React.FC = () => {
       "author": { "@type": "Person", "name": "Muhammad Sachal", "url": "https://www.linkedin.com/in/sachalspeaks/" },
       "publisher": { "@type": "Organization", "name": "Video to Image Sequence Online" },
       "image": "https://www.videotoimagesequence.online/og-image.png"
-    });
-    document.head.appendChild(script);
-    return () => {
-      const el = document.getElementById('how-many-frames-per-second-schemas');
-      if (el) el.remove();
     };
-  }, []);
+
+const HowManyFramesPerSecond: React.FC = () => {
+
 
   return (
     <article className="max-w-3xl mx-auto py-16 px-6 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(blogSchema)}
+      </script>
       <SEOHead
         title="How Many Frames Per Second Should You Extract? — FPS Decision Guide"
         description="Complete FPS decision guide for frame extraction. Match extraction rate to your workflow: VFX (all frames), ML (1-5 FPS), animation (12-24), thumbnails (exact timestamp). Includes frame count calculator."

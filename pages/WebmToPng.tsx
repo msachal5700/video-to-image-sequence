@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import VideoToImages from './VideoToImages';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
@@ -35,69 +35,70 @@ const faqs = [
 
 const WebmToPng: React.FC = () => {
   const { t } = useTranslation();
-  useEffect(() => {
-    const existing = document.getElementById('webm-to-png-schemas');
-    if (existing) existing.remove();
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "WebM to PNG Converter — Extract Lossless PNG Frames from WebM Free",
+    "url": "https://www.videotoimagesequence.online/webm-to-png",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Convert WebM to PNG frames online for free. Extract lossless, transparent PNG image sequences from WebM videos (VP8, VP9, AV1 with alpha) in your browser. No server upload, custom FPS, ZIP download. Perfect for screen recordings, UI captures, VFX, and ML datasets.",
+    "applicationCategory": "MultimediaApplication",
+    "applicationSubCategory": "Video Converter",
+    "operatingSystem": "All — Browser-based",
+    "browserRequirements": "Requires HTML5 and Javascript support",
+    "featureList": [
+      "Lossless PNG extraction with alpha channel support",
+      "Custom FPS control (1–60 FPS)",
+      "Process WebM entirely in your browser (100% private)",
+      "Batch processing of multiple WebM files",
+      "ZIP download of extracted PNG frames",
+      "Supports VP8, VP9, AV1 WebM codecs"
+    ],
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'webm-to-png-schemas';
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+    }))
+  };
 
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "WebM to PNG Converter — Extract Lossless PNG Frames from WebM Free",
-      "url": "https://www.videotoimagesequence.online/webm-to-png",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Convert WebM to PNG frames online for free. Extract lossless, transparent PNG image sequences from WebM videos (VP8, VP9, AV1 with alpha) in your browser. No server upload, custom FPS, ZIP download. Perfect for screen recordings, UI captures, VFX, and ML datasets.",
-      "applicationCategory": "MultimediaApplication",
-      "applicationSubCategory": "Video Converter",
-      "operatingSystem": "All — Browser-based",
-      "browserRequirements": "Requires HTML5 and Javascript support",
-      "featureList": [
-        "Lossless PNG extraction with alpha channel support",
-        "Custom FPS control (1–60 FPS)",
-        "Process WebM entirely in your browser (100% private)",
-        "Batch processing of multiple WebM files",
-        "ZIP download of extracted PNG frames",
-        "Supports VP8, VP9, AV1 WebM codecs"
-      ],
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-    };
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Convert WebM to PNG Frames",
+    "description": "Step-by-step guide to extracting lossless PNG frames from WebM video locally in your browser.",
+    "totalTime": "PT1M",
+    "step": [
+      { "@type": "HowToStep", "name": "Load Your WebM", "text": "Drag and drop your WebM file into the upload zone." },
+      { "@type": "HowToStep", "name": "Select PNG Format", "text": "Choose PNG for lossless quality with transparency." },
+      { "@type": "HowToStep", "name": "Configure Frame Rate", "text": "Set your desired FPS (1–60) or select every frame." },
+      { "@type": "HowToStep", "name": "Extract PNG Sequence", "text": "Click Extract Frames Now to decode locally." },
+      { "@type": "HowToStep", "name": "Download PNG Frames", "text": "Download individual frames or get all as a ZIP archive." }
+    ]
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": { "@type": "Answer", "text": faq.a }
-      }))
-    };
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
 
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Convert WebM to PNG Frames",
-      "description": "Step-by-step guide to extracting lossless PNG frames from WebM video locally in your browser.",
-      "totalTime": "PT1M",
-      "step": [
-        { "@type": "HowToStep", "name": "Load Your WebM", "text": "Drag and drop your WebM file into the upload zone." },
-        { "@type": "HowToStep", "name": "Select PNG Format", "text": "Choose PNG for lossless quality with transparency." },
-        { "@type": "HowToStep", "name": "Configure Frame Rate", "text": "Set your desired FPS (1–60) or select every frame." },
-        { "@type": "HowToStep", "name": "Extract PNG Sequence", "text": "Click Extract Frames Now to decode locally." },
-        { "@type": "HowToStep", "name": "Download PNG Frames", "text": "Download individual frames or get all as a ZIP archive." }
-      ]
-    };
-
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
-    document.head.appendChild(script);
-
-    return () => { const el = document.getElementById('webm-to-png-schemas'); if (el) el.remove(); };
-  }, []);
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, organizationSchema]
+  };
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title="WebM to PNG Converter — Extract Lossless PNG Frames from WebM Free"
         description="Convert WebM to PNG frames online for free. Extract lossless, transparent PNG image sequences from WebM videos (VP8, VP9, AV1 with alpha) in your browser. No server upload, custom FPS, ZIP download."

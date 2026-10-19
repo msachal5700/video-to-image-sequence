@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
 import GoogleAdUnit from '../components/GoogleAdUnit';
@@ -56,56 +56,54 @@ const ExtractFrameAtTimestamp: React.FC = () => {
   const [videoWidth, setVideoWidth] = useState(0);
   const [videoHeight, setVideoHeight] = useState(0);
 
-  useEffect(() => {
-    const existing = document.getElementById('extract-frame-at-timestamp-schemas');
-    if (existing) existing.remove();
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "Extract Frame at Exact Timestamp — Video Screenshot Tool",
+    "url": "https://www.videotoimagesequence.online/extract-frame-at-timestamp",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Extract a specific frame from video at an exact timestamp (HH:MM:SS.mmm) online for free. Millisecond precision frame capture with frame-by-frame navigation. Supports JPG, PNG, and WebP output. 100% private, no server upload.",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All — Browser-based",
+    "browserRequirements": "Requires HTML5 and Javascript support",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'extract-frame-at-timestamp-schemas';
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+    }))
+  };
 
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Extract Frame at Exact Timestamp — Video Screenshot Tool",
-      "url": "https://www.videotoimagesequence.online/extract-frame-at-timestamp",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Extract a specific frame from video at an exact timestamp (HH:MM:SS.mmm) online for free. Millisecond precision frame capture with frame-by-frame navigation. Supports JPG, PNG, and WebP output. 100% private, no server upload.",
-      "applicationCategory": "MultimediaApplication",
-      "operatingSystem": "All — Browser-based",
-      "browserRequirements": "Requires HTML5 and Javascript support",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-    };
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Extract a Frame from Video at Exact Timestamp",
+    "description": "Step-by-step guide to capture a specific video frame at a precise time using millisecond-level timestamp control.",
+    "totalTime": "PT1M",
+    "step": [
+      { "@type": "HowToStep", "name": "Load Your Video", "text": "Select your MP4, MOV, or WEBM video file from your device." },
+      { "@type": "HowToStep", "name": "Navigate to Target Time", "text": "Use the video player controls, timestamp input, or frame-stepping buttons to reach the exact moment." },
+      { "@type": "HowToStep", "name": "Capture the Frame", "text": "Click 'Capture Frame' to extract the frame at that exact timestamp at full native resolution." },
+      { "@type": "HowToStep", "name": "Download the Image", "text": "Save the captured frame as JPG, PNG, or WebP directly to your device." }
+    ]
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": { "@type": "Answer", "text": faq.a }
-      }))
-    };
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
 
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Extract a Frame from Video at Exact Timestamp",
-      "description": "Step-by-step guide to capture a specific video frame at a precise time using millisecond-level timestamp control.",
-      "totalTime": "PT1M",
-      "step": [
-        { "@type": "HowToStep", "name": "Load Your Video", "text": "Select your MP4, MOV, or WEBM video file from your device." },
-        { "@type": "HowToStep", "name": "Navigate to Target Time", "text": "Use the video player controls, timestamp input, or frame-stepping buttons to reach the exact moment." },
-        { "@type": "HowToStep", "name": "Capture the Frame", "text": "Click 'Capture Frame' to extract the frame at that exact timestamp at full native resolution." },
-        { "@type": "HowToStep", "name": "Download the Image", "text": "Save the captured frame as JPG, PNG, or WebP directly to your device." }
-      ]
-    };
-
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
-    document.head.appendChild(script);
-
-    return () => { const el = document.getElementById('extract-frame-at-timestamp-schemas'); if (el) el.remove(); };
-  }, []);
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, organizationSchema]
+  };
 
   const handleVideoLoad = () => {
     if (videoRef.current) {
@@ -202,6 +200,9 @@ const ExtractFrameAtTimestamp: React.FC = () => {
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title="Extract Frame at Exact Timestamp — Free Video Screenshot Tool"
         description="Extract a specific frame from video at an exact timestamp (HH:MM:SS.mmm) online for free. Millisecond precision frame capture with frame-by-frame navigation. Supports JPG, PNG, and WebP. 100% private, no server upload."

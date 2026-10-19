@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import VideoColorPaletteTool from '../components/VideoColorPaletteTool';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
@@ -35,126 +35,110 @@ const faqs = [
 
 const VideoColorPalette: React.FC = () => {
   const { t } = useTranslation();
-  useEffect(() => {
-    const existing = document.getElementById('video-color-palette-schemas');
-    if (existing) {
-      existing.remove();
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "Video Color Palette Extractor — Free Online Tool",
+    "url": "https://www.videotoimagesequence.online/video-color-palette",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Extract a color palette from any video free in your browser. Get dominant HEX/RGB swatches from MP4, MOV, or WEBM — no upload, no signup, no watermark.",
+    "applicationCategory": "DesignApplication",
+    "applicationSubCategory": "Video Color Palette Generator",
+    "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
+    "browserRequirements": "Requires HTML5 and Javascript support",
+    "featureList": [
+      "Extract dominant colors from any MP4, MOV, or WEBM video",
+      "Median-cut quantization weighted by pixel share",
+      "Click-to-copy HEX and RGB values",
+      "Export as CSS variables, text list, or PNG strip",
+      "100% browser-based — videos never leave your device"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
     }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'video-color-palette-schemas';
-
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Video Color Palette Extractor — Free Online Tool",
-      "url": "https://www.videotoimagesequence.online/video-color-palette",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Extract a color palette from any video free in your browser. Get dominant HEX/RGB swatches from MP4, MOV, or WEBM — no upload, no signup, no watermark.",
-      "applicationCategory": "DesignApplication",
-      "applicationSubCategory": "Video Color Palette Generator",
-      "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
-      "browserRequirements": "Requires HTML5 and Javascript support",
-      "featureList": [
-        "Extract dominant colors from any MP4, MOV, or WEBM video",
-        "Median-cut quantization weighted by pixel share",
-        "Click-to-copy HEX and RGB values",
-        "Export as CSS variables, text list, or PNG strip",
-        "100% browser-based — videos never leave your device"
-      ],
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
       }
-    };
+    }))
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.a
-        }
-      }))
-    };
-
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Extract a Color Palette from a Video",
-      "description": "Get the dominant HEX and RGB colors from any MP4, MOV, or WEBM video, free in your browser.",
-      "totalTime": "PT1M",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Drop in your video",
-          "text": "Add an MP4, MOV, or WEBM file — it is decoded locally in your browser and never uploaded."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Extract the palette",
-          "text": "Choose how many frames to sample and how many colors you want, then run the extraction."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Copy or export",
-          "text": "Click any swatch to copy its HEX code, or export the palette as CSS variables, a text list, or a PNG strip."
-        }
-      ]
-    };
-
-    const breadcrumbSchema = {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.videotoimagesequence.online/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Video Color Palette Extractor",
-          "item": "https://www.videotoimagesequence.online/video-color-palette"
-        }
-      ]
-    };
-
-    const orgSchema = {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Video to Image Sequence Online",
-      "url": "https://www.videotoimagesequence.online",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.videotoimagesequence.online/favicon.svg",
-        "width": 32,
-        "height": 32
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Extract a Color Palette from a Video",
+    "description": "Get the dominant HEX and RGB colors from any MP4, MOV, or WEBM video, free in your browser.",
+    "totalTime": "PT1M",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Drop in your video",
+        "text": "Add an MP4, MOV, or WEBM file — it is decoded locally in your browser and never uploaded."
       },
-      "description": "Free online video frame extraction tool. Convert MP4, MOV, and WEBM videos to image sequences in your browser.",
-      "sameAs": [
-        "https://x.com/videotoimage"
-      ]
-    };
+      {
+        "@type": "HowToStep",
+        "name": "Extract the palette",
+        "text": "Choose how many frames to sample and how many colors you want, then run the extraction."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Copy or export",
+        "text": "Click any swatch to copy its HEX code, or export the palette as CSS variables, a text list, or a PNG strip."
+      }
+    ]
+  };
 
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema, breadcrumbSchema, orgSchema] });
-    document.head.appendChild(script);
+  const breadcrumbSchema = {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.videotoimagesequence.online/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Video Color Palette Extractor",
+        "item": "https://www.videotoimagesequence.online/video-color-palette"
+      }
+    ]
+  };
 
-    return () => {
-      const el = document.getElementById('video-color-palette-schemas');
-      if (el) el.remove();
-    };
-  }, []);
+  const orgSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/favicon.svg",
+      "width": 32,
+      "height": 32
+    },
+    "description": "Free online video frame extraction tool. Convert MP4, MOV, and WEBM videos to image sequences in your browser.",
+    "sameAs": [
+      "https://x.com/videotoimage"
+    ]
+  };
+
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, breadcrumbSchema, orgSchema]
+  };
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title={t('videoColorPalette.title')}
         description={t('videoColorPalette.description')}

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import VideoToImages from './VideoToImages';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
@@ -39,69 +39,70 @@ const faqs = [
 
 const VideoToImageSequenceForBlender: React.FC = () => {
   const { t } = useTranslation();
-  useEffect(() => {
-    const existing = document.getElementById('video-to-image-sequence-for-blender-schemas');
-    if (existing) existing.remove();
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "Video to Image Sequence for Blender — PNG Frames Free",
+    "url": "https://www.videotoimagesequence.online/video-to-image-sequence-for-blender",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Convert video to PNG image sequence for Blender free. Extract lossless frames with alpha, custom FPS (24/25/30/60), ZIP download. 100% private, no server upload. Perfect for VFX, compositing, rotoscoping, camera tracking.",
+    "applicationCategory": "MultimediaApplication",
+    "applicationSubCategory": "VFX Pipeline Tool",
+    "operatingSystem": "All — Browser-based",
+    "browserRequirements": "Requires HTML5 and Javascript support",
+    "featureList": [
+      "Lossless PNG with alpha for Blender compositing",
+      "Custom FPS: 24, 25, 30, 60 (film & broadcast standards)",
+      "Sequential naming: frame_000001.png (Blender native)",
+      "ZIP download → unzip → Add → Image Sequence",
+      "100% private — no upload, local browser processing",
+      "Supports MP4, MOV, WEBM (H.264, ProRes* via transcode)"
+    ],
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'video-to-image-sequence-for-blender-schemas';
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+    }))
+  };
 
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Video to Image Sequence for Blender — PNG Frames Free",
-      "url": "https://www.videotoimagesequence.online/video-to-image-sequence-for-blender",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Convert video to PNG image sequence for Blender free. Extract lossless frames with alpha, custom FPS (24/25/30/60), ZIP download. 100% private, no server upload. Perfect for VFX, compositing, rotoscoping, camera tracking.",
-      "applicationCategory": "MultimediaApplication",
-      "applicationSubCategory": "VFX Pipeline Tool",
-      "operatingSystem": "All — Browser-based",
-      "browserRequirements": "Requires HTML5 and Javascript support",
-      "featureList": [
-        "Lossless PNG with alpha for Blender compositing",
-        "Custom FPS: 24, 25, 30, 60 (film & broadcast standards)",
-        "Sequential naming: frame_000001.png (Blender native)",
-        "ZIP download → unzip → Add → Image Sequence",
-        "100% private — no upload, local browser processing",
-        "Supports MP4, MOV, WEBM (H.264, ProRes* via transcode)"
-      ],
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-    };
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Create Blender Image Sequence from Video",
+    "description": "Step-by-step: video → PNG sequence → Blender import. Match FPS, preserve alpha, composite in Cycles/Eevee.",
+    "totalTime": "PT3M",
+    "step": [
+      { "@type": "HowToStep", "name": "Extract PNG Sequence", "text": "Upload video → PNG format → set FPS (24/25/30/60) → Extract → Download ZIP." },
+      { "@type": "HowToStep", "name": "Unzip to Folder", "text": "Extract ZIP to a dedicated folder (e.g., /project/plates/shot01/)." },
+      { "@type": "HowToStep", "name": "Import in Blender", "text": "Add → Image Sequence → select folder → click first frame (frame_000001.png)." },
+      { "@type": "HowToStep", "name": "Match Frame Rate", "text": "Scene → Frame Rate → Custom → enter extraction FPS. Output → Frame Rate → same." },
+      { "@type": "HowToStep", "name": "Composite & Render", "text": "Use in Compositor, as texture, or background plate. Render at matched frame rate." }
+    ]
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": { "@type": "Answer", "text": faq.a }
-      }))
-    };
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
 
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Create Blender Image Sequence from Video",
-      "description": "Step-by-step: video → PNG sequence → Blender import. Match FPS, preserve alpha, composite in Cycles/Eevee.",
-      "totalTime": "PT3M",
-      "step": [
-        { "@type": "HowToStep", "name": "Extract PNG Sequence", "text": "Upload video → PNG format → set FPS (24/25/30/60) → Extract → Download ZIP." },
-        { "@type": "HowToStep", "name": "Unzip to Folder", "text": "Extract ZIP to a dedicated folder (e.g., /project/plates/shot01/)." },
-        { "@type": "HowToStep", "name": "Import in Blender", "text": "Add → Image Sequence → select folder → click first frame (frame_000001.png)." },
-        { "@type": "HowToStep", "name": "Match Frame Rate", "text": "Scene → Frame Rate → Custom → enter extraction FPS. Output → Frame Rate → same." },
-        { "@type": "HowToStep", "name": "Composite & Render", "text": "Use in Compositor, as texture, or background plate. Render at matched frame rate." }
-      ]
-    };
-
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
-    document.head.appendChild(script);
-
-    return () => { const el = document.getElementById('video-to-image-sequence-for-blender-schemas'); if (el) el.remove(); };
-  }, []);
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, organizationSchema]
+  };
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title="Video to Image Sequence for Blender — PNG Frames Free"
         description="Convert video to PNG image sequence for Blender free. Extract lossless frames with alpha, custom FPS (24/25/30/60), ZIP download. 100% private, no server upload. Perfect for VFX, compositing, rotoscoping."

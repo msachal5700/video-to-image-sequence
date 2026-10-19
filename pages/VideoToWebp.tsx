@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import VideoToImages from './VideoToImages';
 import SEOHead from '../components/SEOHead';
 import { localizedUrl } from '../utils/localizedRoutes';
@@ -38,70 +38,71 @@ const faqs = [
 const VideoToWebp: React.FC = () => {
   const { t } = useTranslation();
   const pageLang = usePageLang();
-  useEffect(() => {
-    const existing = document.getElementById('video-to-webp-schemas');
-    if (existing) existing.remove();
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "Video to WebP Converter — Extract WebP Frames Free",
+    "url": "https://www.videotoimagesequence.online/video-to-webp",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Convert video to WebP frames online for free. Extract high-quality WebP image sequences from MP4, MOV, and WEBM videos in your browser. Supports transparency, smaller file sizes than JPG/PNG. No server upload required.",
+    "applicationCategory": "MultimediaApplication",
+    "applicationSubCategory": "Video Converter",
+    "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
+    "browserRequirements": "Requires HTML5, WebAssembly and Javascript support",
+    "featureList": [
+      "Extract WebP frames with transparency support",
+      "Smaller file sizes than JPG/PNG at equivalent quality",
+      "Custom FPS control (1, 5, 10, 12, 15, 24, 25, 30, 60 FPS)",
+      "Process videos entirely in your browser (100% private)",
+      "Batch processing of multiple video files",
+      "ZIP download of extracted WebP frames",
+      "Supports MP4, MOV, and WEBM input"
+    ],
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'video-to-webp-schemas';
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+    }))
+  };
 
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Video to WebP Converter — Extract WebP Frames Free",
-      "url": "https://www.videotoimagesequence.online/video-to-webp",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Convert video to WebP frames online for free. Extract high-quality WebP image sequences from MP4, MOV, and WEBM videos in your browser. Supports transparency, smaller file sizes than JPG/PNG. No server upload required.",
-      "applicationCategory": "MultimediaApplication",
-      "applicationSubCategory": "Video Converter",
-      "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
-      "browserRequirements": "Requires HTML5, WebAssembly and Javascript support",
-      "featureList": [
-        "Extract WebP frames with transparency support",
-        "Smaller file sizes than JPG/PNG at equivalent quality",
-        "Custom FPS control (1, 5, 10, 12, 15, 24, 25, 30, 60 FPS)",
-        "Process videos entirely in your browser (100% private)",
-        "Batch processing of multiple video files",
-        "ZIP download of extracted WebP frames",
-        "Supports MP4, MOV, and WEBM input"
-      ],
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-    };
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Convert Video to WebP Frames",
+    "description": "Step-by-step instructions for extracting WebP frames from video files locally inside your web browser.",
+    "totalTime": "PT1M",
+    "step": [
+      { "@type": "HowToStep", "name": "Load Your Video File", "text": "Drag and drop your MP4, MOV, or WEBM video file into the browser-based upload zone." },
+      { "@type": "HowToStep", "name": "Select WebP Output Format", "text": "Choose WebP from the format selector for modern, efficient image output with transparency support." },
+      { "@type": "HowToStep", "name": "Configure Frame Rate", "text": "Choose your desired FPS (Frames Per Second) setting for the extraction." },
+      { "@type": "HowToStep", "name": "Extract WebP Frames", "text": "Click Extract Frames Now and watch the local decoding progress." },
+      { "@type": "HowToStep", "name": "Download WebP Sequence", "text": "Download individual WebP frames or get all frames as a single ZIP file." }
+    ]
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": { "@type": "Answer", "text": faq.a }
-      }))
-    };
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
 
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Convert Video to WebP Frames",
-      "description": "Step-by-step instructions for extracting WebP frames from video files locally inside your web browser.",
-      "totalTime": "PT1M",
-      "step": [
-        { "@type": "HowToStep", "name": "Load Your Video File", "text": "Drag and drop your MP4, MOV, or WEBM video file into the browser-based upload zone." },
-        { "@type": "HowToStep", "name": "Select WebP Output Format", "text": "Choose WebP from the format selector for modern, efficient image output with transparency support." },
-        { "@type": "HowToStep", "name": "Configure Frame Rate", "text": "Choose your desired FPS (Frames Per Second) setting for the extraction." },
-        { "@type": "HowToStep", "name": "Extract WebP Frames", "text": "Click Extract Frames Now and watch the local decoding progress." },
-        { "@type": "HowToStep", "name": "Download WebP Sequence", "text": "Download individual WebP frames or get all frames as a single ZIP file." }
-      ]
-    };
-
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
-    document.head.appendChild(script);
-
-    return () => { const el = document.getElementById('video-to-webp-schemas'); if (el) el.remove(); };
-  }, []);
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, organizationSchema]
+  };
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title={t('videoToWebp.title')}
         description={t('videoToWebp.description')}

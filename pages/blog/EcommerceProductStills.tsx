@@ -1,16 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import Breadcrumb from '../../components/Breadcrumb';
 import GoogleAdUnit from '../../components/GoogleAdUnit';
 import AuthorBio from '../../components/AuthorBio';
 
-const EcommerceProductStills: React.FC = () => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'product-video-to-product-photos-ecommerce-schemas';
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [
+const blogSchema = { "@context": "https://schema.org", "@graph": [
       {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
@@ -51,13 +46,16 @@ const EcommerceProductStills: React.FC = () => {
           }
         ]
       }
-    ] });
-    document.head.appendChild(script);
-    return () => { const el = document.getElementById('product-video-to-product-photos-ecommerce-schemas'); if (el) el.remove(); };
-  }, []);
+    ] };
+
+const EcommerceProductStills: React.FC = () => {
+
 
   return (
     <article className="max-w-3xl mx-auto py-16 px-6 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(blogSchema)}
+      </script>
       <SEOHead
         title="Product Videos to Product Photos: E-commerce Stills Guide (2026)"
         description="Turn product video into listing photos: the five shots every listing needs, 4K resolution math for Amazon zoom, and a full workflow — free, private, in your browser."

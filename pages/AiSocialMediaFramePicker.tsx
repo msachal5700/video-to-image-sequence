@@ -7,7 +7,7 @@
  * page exactly like the others.
  */
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
@@ -57,104 +57,101 @@ const FAQS: ReadonlyArray<{ question: string; answer: string }> = [
 ];
 
 const AiSocialMediaFramePicker = () => {
-  useEffect(() => {
-    // Schemas are injected imperatively, matching the pattern used by the other
-    // tool pages so a single prerender pass picks them all up the same way.
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'ai-frame-picker-schemas';
+  const softwareSchema = {
+    '@type': 'SoftwareApplication',
+    name: 'AI Social Media Frame Picker',
+    applicationCategory: 'MultimediaApplication',
+    operatingSystem: 'Any (web browser)',
+    url: CANONICAL,
+    description:
+      'Free AI tool that analyses a video in your browser, scores every keyframe on sharpness, lighting, composition and faces, and picks the best thumbnail for YouTube, Instagram, TikTok, LinkedIn, Pinterest, X and WhatsApp.',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    featureList: [
+      'AI frame scoring from 0 to 100',
+      'Scene-change keyframe extraction',
+      'Perceptual duplicate removal',
+      'Face and eye detection',
+      'Per-platform thumbnail recommendations',
+      'PNG, JPEG and WEBP export',
+      '100% in-browser processing',
+    ],
+    browserRequirements: 'Requires a modern browser with HTML5 video support',
+  };
 
-    const softwareSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'SoftwareApplication',
-      name: 'AI Social Media Frame Picker',
-      applicationCategory: 'MultimediaApplication',
-      operatingSystem: 'Any (web browser)',
-      url: CANONICAL,
-      description:
-        'Free AI tool that analyses a video in your browser, scores every keyframe on sharpness, lighting, composition and faces, and picks the best thumbnail for YouTube, Instagram, TikTok, LinkedIn, Pinterest, X and WhatsApp.',
-      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-      featureList: [
-        'AI frame scoring from 0 to 100',
-        'Scene-change keyframe extraction',
-        'Perceptual duplicate removal',
-        'Face and eye detection',
-        'Per-platform thumbnail recommendations',
-        'PNG, JPEG and WEBP export',
-        '100% in-browser processing',
-      ],
-      browserRequirements: 'Requires a modern browser with HTML5 video support',
-    };
+  const faqSchema = {
+    '@type': 'FAQPage',
+    mainEntity: FAQS.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+    })),
+  };
 
-    const faqSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: FAQS.map(faq => ({
-        '@type': 'Question',
-        name: faq.question,
-        acceptedAnswer: { '@type': 'Answer', text: faq.answer },
-      })),
-    };
+  const breadcrumbSchema = {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'AI Social Media Frame Picker',
+        item: CANONICAL,
+      },
+    ],
+  };
 
-    const breadcrumbSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          name: 'AI Social Media Frame Picker',
-          item: CANONICAL,
-        },
-      ],
-    };
+  const howToSchema = {
+    '@type': 'HowTo',
+    name: 'How to find the best thumbnail frame in a video with AI',
+    totalTime: 'PT2M',
+    step: [
+      {
+        '@type': 'HowToStep',
+        position: 1,
+        name: 'Upload your video',
+        text: 'Drag a video file onto the upload area, or click Browse. Files stay on your device.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 2,
+        name: 'Let the AI analyse it',
+        text: 'The tool detects scene changes, extracts keyframes and scores each one on sharpness, lighting, composition and faces.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 3,
+        name: 'Review the platform picks',
+        text: 'Each card shows the winning frame for one platform with its score and the reasons it won.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 4,
+        name: 'Download',
+        text: 'Download individual frames, the whole set, or just your favourites in PNG, JPEG or WEBP.',
+      },
+    ],
+  };
 
-    const howToSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'HowTo',
-      name: 'How to find the best thumbnail frame in a video with AI',
-      totalTime: 'PT2M',
-      step: [
-        {
-          '@type': 'HowToStep',
-          position: 1,
-          name: 'Upload your video',
-          text: 'Drag a video file onto the upload area, or click Browse. Files stay on your device.',
-        },
-        {
-          '@type': 'HowToStep',
-          position: 2,
-          name: 'Let the AI analyse it',
-          text: 'The tool detects scene changes, extracts keyframes and scores each one on sharpness, lighting, composition and faces.',
-        },
-        {
-          '@type': 'HowToStep',
-          position: 3,
-          name: 'Review the platform picks',
-          text: 'Each card shows the winning frame for one platform with its score and the reasons it won.',
-        },
-        {
-          '@type': 'HowToStep',
-          position: 4,
-          name: 'Download',
-          text: 'Download individual frames, the whole set, or just your favourites in PNG, JPEG or WEBP.',
-        },
-      ],
-    };
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
 
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [softwareSchema, faqSchema, breadcrumbSchema, howToSchema] });
-    document.head.appendChild(script);
-
-    return () => {
-      // Remove on unmount so a client-side navigation does not leave stale
-      // structured data describing a page the user is no longer on.
-      document.getElementById('ai-frame-picker-schemas')?.remove();
-    };
-  }, []);
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [softwareSchema, faqSchema, breadcrumbSchema, howToSchema, organizationSchema]
+  };
 
   return (
     <>
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title="AI Social Media Frame Picker — Find the Best Thumbnail Frame in Any Video"
         description="Free AI thumbnail generator. Upload a video and the AI scores every frame on sharpness, lighting, faces and composition, then picks the best image for YouTube, Instagram, TikTok, LinkedIn and more. Runs entirely in your browser."

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import DiscordStickerTool from '../components/DiscordStickerTool';
 import SEOHead from '../components/SEOHead';
 import { localizedUrl } from '../utils/localizedRoutes';
@@ -39,87 +39,83 @@ const faqs = [
 const DiscordStickerMaker: React.FC = () => {
   const { t } = useTranslation();
   const pageLang = usePageLang();
-  useEffect(() => {
-    const existing = document.getElementById('discord-sticker-maker-schemas');
-    if (existing) {
-      existing.remove();
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "Video to Discord Sticker Maker",
+    "url": "https://www.videotoimagesequence.online/discord-sticker-maker",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Turn video clips into animated stickers for Discord, Telegram, and WhatsApp. Auto-fit file size optimizer hits each platform's limits — 100% in your browser.",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires HTML5 and Javascript support",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
     }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'discord-sticker-maker-schemas';
-
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Video to Discord Sticker Maker",
-      "url": "https://www.videotoimagesequence.online/discord-sticker-maker",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Turn video clips into animated stickers for Discord, Telegram, and WhatsApp. Auto-fit file size optimizer hits each platform's limits — 100% in your browser.",
-      "applicationCategory": "MultimediaApplication",
-      "operatingSystem": "All",
-      "browserRequirements": "Requires HTML5 and Javascript support",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
       }
-    };
+    }))
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.a
-        }
-      }))
-    };
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Make an Animated Discord Sticker from Video",
+    "description": "Convert a short video clip into an animated sticker that fits Discord's 512 KB APNG limit.",
+    "totalTime": "PT2M",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Upload Your Clip",
+        "text": "Drop a short MP4, MOV, or WebM video into the upload zone. Clips under 3 seconds work best for stickers."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Pick Your Platform",
+        "text": "Choose Discord (APNG, 512 KB limit), Telegram (WebM, 256 KB limit), or WhatsApp (animated WebP, 500 KB limit)."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Trim the Clip",
+        "text": "Set the start and end points — 1 to 3 second loops make the snappiest stickers and smallest files."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Auto-Fit and Download",
+        "text": "Leave auto-fit on: the tool tunes frame rate, resolution, and quality until the sticker fits your platform's size limit, then download it."
+      }
+    ]
+  };
 
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Make an Animated Discord Sticker from Video",
-      "description": "Convert a short video clip into an animated sticker that fits Discord's 512 KB APNG limit.",
-      "totalTime": "PT2M",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Upload Your Clip",
-          "text": "Drop a short MP4, MOV, or WebM video into the upload zone. Clips under 3 seconds work best for stickers."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Pick Your Platform",
-          "text": "Choose Discord (APNG, 512 KB limit), Telegram (WebM, 256 KB limit), or WhatsApp (animated WebP, 500 KB limit)."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Trim the Clip",
-          "text": "Set the start and end points — 1 to 3 second loops make the snappiest stickers and smallest files."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Auto-Fit and Download",
-          "text": "Leave auto-fit on: the tool tunes frame rate, resolution, and quality until the sticker fits your platform's size limit, then download it."
-        }
-      ]
-    };
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
 
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
-    document.head.appendChild(script);
-
-    return () => {
-      const el = document.getElementById('discord-sticker-maker-schemas');
-      if (el) el.remove();
-    };
-  }, []);
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, organizationSchema]
+  };
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title={t('discordStickerMaker.title')}
         description={t('discordStickerMaker.description')}

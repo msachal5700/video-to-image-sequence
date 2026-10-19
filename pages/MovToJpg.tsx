@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import VideoToImages from './VideoToImages';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
@@ -35,69 +35,70 @@ const faqs = [
 
 const MovToJpg: React.FC = () => {
   const { t } = useTranslation();
-  useEffect(() => {
-    const existing = document.getElementById('mov-to-jpg-schemas');
-    if (existing) existing.remove();
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "MOV to JPG Converter — Extract JPG Frames from MOV Free",
+    "url": "https://www.videotoimagesequence.online/mov-to-jpg",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Convert MOV to JPG frames online for free. Extract JPG image sequences from MOV videos (iPhone, ProRes, H.264, HEVC) in your browser. No server upload, custom FPS, ZIP download.",
+    "applicationCategory": "MultimediaApplication",
+    "applicationSubCategory": "Video Converter",
+    "operatingSystem": "All — Browser-based",
+    "browserRequirements": "Requires HTML5 and Javascript support",
+    "featureList": [
+      "Extract JPG frames from MOV (H.264, HEVC, ProRes*)",
+      "Custom FPS control (1–60 FPS)",
+      "Process MOV entirely in your browser (100% private)",
+      "Batch processing of multiple MOV files",
+      "ZIP download of extracted JPG frames",
+      "*ProRes requires pre-transcode to H.264"
+    ],
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'mov-to-jpg-schemas';
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+    }))
+  };
 
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "MOV to JPG Converter — Extract JPG Frames from MOV Free",
-      "url": "https://www.videotoimagesequence.online/mov-to-jpg",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Convert MOV to JPG frames online for free. Extract JPG image sequences from MOV videos (iPhone, ProRes, H.264, HEVC) in your browser. No server upload, custom FPS, ZIP download.",
-      "applicationCategory": "MultimediaApplication",
-      "applicationSubCategory": "Video Converter",
-      "operatingSystem": "All — Browser-based",
-      "browserRequirements": "Requires HTML5 and Javascript support",
-      "featureList": [
-        "Extract JPG frames from MOV (H.264, HEVC, ProRes*)",
-        "Custom FPS control (1–60 FPS)",
-        "Process MOV entirely in your browser (100% private)",
-        "Batch processing of multiple MOV files",
-        "ZIP download of extracted JPG frames",
-        "*ProRes requires pre-transcode to H.264"
-      ],
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-    };
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Convert MOV to JPG Frames",
+    "description": "Step-by-step guide to extracting JPG frames from MOV video locally in your browser.",
+    "totalTime": "PT1M",
+    "step": [
+      { "@type": "HowToStep", "name": "Load Your MOV", "text": "Drag and drop your MOV file into the upload zone." },
+      { "@type": "HowToStep", "name": "Select JPG Format", "text": "Choose JPG from the output format options." },
+      { "@type": "HowToStep", "name": "Configure Frame Rate", "text": "Set your desired FPS (1–60) or select every frame." },
+      { "@type": "HowToStep", "name": "Extract JPG Sequence", "text": "Click Extract Frames Now to decode locally." },
+      { "@type": "HowToStep", "name": "Download JPG Frames", "text": "Download individual frames or get all as a ZIP archive." }
+    ]
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": { "@type": "Answer", "text": faq.a }
-      }))
-    };
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
 
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Convert MOV to JPG Frames",
-      "description": "Step-by-step guide to extracting JPG frames from MOV video locally in your browser.",
-      "totalTime": "PT1M",
-      "step": [
-        { "@type": "HowToStep", "name": "Load Your MOV", "text": "Drag and drop your MOV file into the upload zone." },
-        { "@type": "HowToStep", "name": "Select JPG Format", "text": "Choose JPG from the output format options." },
-        { "@type": "HowToStep", "name": "Configure Frame Rate", "text": "Set your desired FPS (1–60) or select every frame." },
-        { "@type": "HowToStep", "name": "Extract JPG Sequence", "text": "Click Extract Frames Now to decode locally." },
-        { "@type": "HowToStep", "name": "Download JPG Frames", "text": "Download individual frames or get all as a ZIP archive." }
-      ]
-    };
-
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
-    document.head.appendChild(script);
-
-    return () => { const el = document.getElementById('mov-to-jpg-schemas'); if (el) el.remove(); };
-  }, []);
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, organizationSchema]
+  };
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title="MOV to JPG Converter — Extract JPG Frames from MOV Free"
         description="Convert MOV to JPG images online for free. Extract JPG frames from MOV videos (iPhone HEVC, ProRes, H.264) in your browser. No server upload, custom FPS, ZIP download."

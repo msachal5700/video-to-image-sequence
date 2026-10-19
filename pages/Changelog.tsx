@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
 
@@ -60,29 +60,21 @@ const entries: Entry[] = [
   },
 ];
 
+const changelogSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Changelog — videotoimagesequence.online',
+  url: 'https://www.videotoimagesequence.online/changelog',
+  description: 'Release history of videotoimagesequence.online: new tools, new guides, and site improvements.',
+};
+
 const Changelog: React.FC = () => {
-  useEffect(() => {
-    const existing = document.getElementById('changelog-schemas');
-    if (existing) existing.remove();
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'changelog-schemas';
-    script.text = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'WebPage',
-      name: 'Changelog — videotoimagesequence.online',
-      url: 'https://www.videotoimagesequence.online/changelog',
-      description: 'Release history of videotoimagesequence.online: new tools, new guides, and site improvements.',
-    });
-    document.head.appendChild(script);
-    return () => {
-      const el = document.getElementById('changelog-schemas');
-      if (el) el.remove();
-    };
-  }, []);
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(changelogSchema)}
+      </script>
       <SEOHead
         title="Changelog — New Tools & Updates | videotoimagesequence.online"
         description="Release history of videotoimagesequence.online: new frame-extraction tools, format support, guides, and site improvements."

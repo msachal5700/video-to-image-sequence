@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import VideoToSpriteSheetTool from '../components/VideoToSpriteSheetTool';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
@@ -43,96 +43,92 @@ const faqs = [
 
 const VideoToSpriteSheet: React.FC = () => {
   const { t } = useTranslation();
-  useEffect(() => {
-    const existing = document.getElementById('video-to-sprite-sheet-schemas');
-    if (existing) {
-      existing.remove();
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "Video to Sprite Sheet Maker — Free for Game Developers",
+    "url": "https://www.videotoimagesequence.online/video-to-sprite-sheet",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Turn any video into a game-ready sprite sheet free — PNG grid plus JSON frame data for Unity & Godot. No upload, no signup, 100% in your browser.",
+    "applicationCategory": "MultimediaApplication",
+    "applicationSubCategory": "Sprite Sheet Generator",
+    "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
+    "browserRequirements": "Requires HTML5 video and canvas support",
+    "featureList": [
+      "Convert video clips into sprite sheet PNG grids",
+      "8 to 32 evenly-spaced frames per sheet",
+      "Adjustable grid columns (2–6) and frame sizes (128–512 px)",
+      "JSON frame data with x/y/width/height per frame",
+      "Unity and Godot usage notes included in every JSON",
+      "100% browser-based — videos never leave your device"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
     }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'video-to-sprite-sheet-schemas';
-
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Video to Sprite Sheet Maker — Free for Game Developers",
-      "url": "https://www.videotoimagesequence.online/video-to-sprite-sheet",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Turn any video into a game-ready sprite sheet free — PNG grid plus JSON frame data for Unity & Godot. No upload, no signup, 100% in your browser.",
-      "applicationCategory": "MultimediaApplication",
-      "applicationSubCategory": "Sprite Sheet Generator",
-      "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
-      "browserRequirements": "Requires HTML5 video and canvas support",
-      "featureList": [
-        "Convert video clips into sprite sheet PNG grids",
-        "8 to 32 evenly-spaced frames per sheet",
-        "Adjustable grid columns (2–6) and frame sizes (128–512 px)",
-        "JSON frame data with x/y/width/height per frame",
-        "Unity and Godot usage notes included in every JSON",
-        "100% browser-based — videos never leave your device"
-      ],
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
       }
-    };
+    }))
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.a
-        }
-      }))
-    };
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Make a Sprite Sheet from a Video",
+    "description": "Turn any video clip into a game-ready sprite sheet — one PNG grid plus JSON frame data — free in your browser.",
+    "totalTime": "PT2M",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Load your video",
+        "text": "Drag and drop an MP4, MOV, or WEBM clip into the maker above — it never leaves your browser."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Choose frames, columns, and size",
+        "text": "Pick 8–32 frames, set the grid columns, and choose the per-frame pixel size (128, 256, or 512)."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Generate the sheet",
+        "text": "The tool samples frames evenly, crops each to a uniform square, and tiles them edge-to-edge into one PNG."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Download PNG + JSON",
+        "text": "Download the sprite sheet PNG and the JSON frame-data file, then import both into Unity, Godot, or any engine."
+      }
+    ]
+  };
 
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Make a Sprite Sheet from a Video",
-      "description": "Turn any video clip into a game-ready sprite sheet — one PNG grid plus JSON frame data — free in your browser.",
-      "totalTime": "PT2M",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Load your video",
-          "text": "Drag and drop an MP4, MOV, or WEBM clip into the maker above — it never leaves your browser."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Choose frames, columns, and size",
-          "text": "Pick 8–32 frames, set the grid columns, and choose the per-frame pixel size (128, 256, or 512)."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Generate the sheet",
-          "text": "The tool samples frames evenly, crops each to a uniform square, and tiles them edge-to-edge into one PNG."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Download PNG + JSON",
-          "text": "Download the sprite sheet PNG and the JSON frame-data file, then import both into Unity, Godot, or any engine."
-        }
-      ]
-    };
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
 
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
-    document.head.appendChild(script);
-
-    return () => {
-      const el = document.getElementById('video-to-sprite-sheet-schemas');
-      if (el) el.remove();
-    };
-  }, []);
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, organizationSchema]
+  };
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title={t('videoToSpriteSheet.title')}
         description={t('videoToSpriteSheet.description')}

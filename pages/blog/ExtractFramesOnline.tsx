@@ -1,16 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import Breadcrumb from '../../components/Breadcrumb';
 import GoogleAdUnit from '../../components/GoogleAdUnit';
 import AuthorBio from '../../components/AuthorBio';
 
-const ExtractFramesOnline: React.FC = () => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'extract-frames-online-schemas';
-    script.text = JSON.stringify({
+const blogSchema = {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
       "headline": "How to Extract Frames from Video Online Free — No Install Needed",
@@ -23,16 +18,16 @@ const ExtractFramesOnline: React.FC = () => {
       "author": { "@type": "Person", "name": "Muhammad Sachal", "url": "https://www.linkedin.com/in/sachalspeaks/", "image": "https://www.videotoimagesequence.online/muhammad-sachal.jpg" },
       "publisher": { "@type": "Organization", "name": "Video to Image Sequence Online", "logo": { "@type": "ImageObject", "url": "https://www.videotoimagesequence.online/og-image.png" } },
       "image": "https://www.videotoimagesequence.online/og-image.png"
-    });
-    document.head.appendChild(script);
-    return () => {
-      const el = document.getElementById('extract-frames-online-schemas');
-      if (el) el.remove();
     };
-  }, []);
+
+const ExtractFramesOnline: React.FC = () => {
+
 
   return (
     <article className="max-w-3xl mx-auto py-16 px-6 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(blogSchema)}
+      </script>
       <SEOHead
         title="How to Extract Frames from Video Online Free — No Install Needed"
         description="A complete step-by-step guide to extracting frames from MP4, MOV, and WEBM videos directly in your browser. No software, no upload, processed locally in device memory."

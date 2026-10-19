@@ -1,15 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import Breadcrumb from '../../components/Breadcrumb';
 import GoogleAdUnit from '../../components/GoogleAdUnit';
 import AuthorBio from '../../components/AuthorBio';
 
-export default function VideoToPngGuide() {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [
+const blogSchema = { "@context": "https://schema.org", "@graph": [
       {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
@@ -81,13 +77,16 @@ export default function VideoToPngGuide() {
           }
         ]
       }
-    ] });
-    document.head.appendChild(script);
-    return () => { document.head.removeChild(script); };
-  }, []);
+    ] };
+
+export default function VideoToPngGuide() {
+
 
   return (
     <article className="max-w-3xl mx-auto py-16 px-6 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(blogSchema)}
+      </script>
       <SEOHead
         title="How to Convert Video to PNG Frames Online Free — Complete 2026 Guide"
         description="Learn exactly how to extract lossless PNG frames from MP4, MOV, and WEBM videos locally in your browser. Private browser processing. Large files depend on your device and browser."

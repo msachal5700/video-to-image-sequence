@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import VideoMetadataInspectorTool from '../components/VideoMetadataInspectorTool';
@@ -35,96 +35,92 @@ const faqs = [
 
 const VideoMetadataInspector: React.FC = () => {
   const { t } = useTranslation();
-  useEffect(() => {
-    const existing = document.getElementById('video-metadata-inspector-schemas');
-    if (existing) {
-      existing.remove();
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "Video Metadata Inspector — Free Online Codec & File Analyzer",
+    "url": "https://www.videotoimagesequence.online/video-metadata-inspector",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Read video metadata free in your browser — container, codec, resolution, FPS, bitrate, and creation date revealed without uploading. No signup, fully private.",
+    "applicationCategory": "MultimediaApplication",
+    "applicationSubCategory": "Video Metadata Analyzer",
+    "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
+    "browserRequirements": "Requires HTML5 video support",
+    "featureList": [
+      "Read container format, brand, and file structure from the file header",
+      "Detect exact video codec (H.264, HEVC, VP9, AV1) and audio codec (AAC, Opus, AC-3)",
+      "Show resolution, frame rate, duration, and overall bitrate",
+      "Reveal creation date, muxing app, and per-stream track details",
+      "Per-field copy buttons plus one-click copy-all as JSON",
+      "Incremental parsing — reads only the file head, never the whole file"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
     }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'video-metadata-inspector-schemas';
-
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Video Metadata Inspector — Free Online Codec & File Analyzer",
-      "url": "https://www.videotoimagesequence.online/video-metadata-inspector",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Read video metadata free in your browser — container, codec, resolution, FPS, bitrate, and creation date revealed without uploading. No signup, fully private.",
-      "applicationCategory": "MultimediaApplication",
-      "applicationSubCategory": "Video Metadata Analyzer",
-      "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
-      "browserRequirements": "Requires HTML5 video support",
-      "featureList": [
-        "Read container format, brand, and file structure from the file header",
-        "Detect exact video codec (H.264, HEVC, VP9, AV1) and audio codec (AAC, Opus, AC-3)",
-        "Show resolution, frame rate, duration, and overall bitrate",
-        "Reveal creation date, muxing app, and per-stream track details",
-        "Per-field copy buttons plus one-click copy-all as JSON",
-        "Incremental parsing — reads only the file head, never the whole file"
-      ],
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
       }
-    };
+    }))
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.a
-        }
-      }))
-    };
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Inspect a Video File's Metadata",
+    "description": "Read a video file's codec, container, resolution, frame rate, and bitrate in seconds — free, in your browser, without uploading anything.",
+    "totalTime": "PT1M",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Drop in the video file",
+        "text": "Drag and drop an MP4, MOV, WebM, or MKV file. It is read locally — nothing is uploaded."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Let the tool read the header",
+        "text": "The inspector parses the file's metadata boxes incrementally, reading only the header instead of loading the whole file."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Read the metadata table",
+        "text": "Container, codecs, resolution, frame rate, duration, bitrate, and creation date appear in a clean readout."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Copy what you need",
+        "text": "Copy any single field, or grab the entire report as JSON for your editor, script, or documentation."
+      }
+    ]
+  };
 
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Inspect a Video File's Metadata",
-      "description": "Read a video file's codec, container, resolution, frame rate, and bitrate in seconds — free, in your browser, without uploading anything.",
-      "totalTime": "PT1M",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Drop in the video file",
-          "text": "Drag and drop an MP4, MOV, WebM, or MKV file. It is read locally — nothing is uploaded."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Let the tool read the header",
-          "text": "The inspector parses the file's metadata boxes incrementally, reading only the header instead of loading the whole file."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Read the metadata table",
-          "text": "Container, codecs, resolution, frame rate, duration, bitrate, and creation date appear in a clean readout."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Copy what you need",
-          "text": "Copy any single field, or grab the entire report as JSON for your editor, script, or documentation."
-        }
-      ]
-    };
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
 
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
-    document.head.appendChild(script);
-
-    return () => {
-      const el = document.getElementById('video-metadata-inspector-schemas');
-      if (el) el.remove();
-    };
-  }, []);
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, organizationSchema]
+  };
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title={t('videoMetadataInspector.title')}
         description={t('videoMetadataInspector.description')}

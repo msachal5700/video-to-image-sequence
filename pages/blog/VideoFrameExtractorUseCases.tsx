@@ -8,13 +8,7 @@ import AuthorBio from '../../components/AuthorBio';
 const PUBLISHED = '2026-08-29';
 const CANONICAL = 'https://www.videotoimagesequence.online/blog/video-frame-extractor-use-cases';
 
-const VideoFrameExtractorUseCases: React.FC = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'video-frame-extractor-use-cases-schemas';
-    script.text = JSON.stringify({
+const blogSchema = {
       '@context': 'https://schema.org',
       '@type': 'BlogPosting',
       headline: '7 Real-World Use Cases for Video Frame Extraction',
@@ -25,16 +19,18 @@ const VideoFrameExtractorUseCases: React.FC = () => {
       author: { '@type': 'Person', name: 'Muhammad Sachal', url: 'https://www.linkedin.com/in/sachalspeaks/' },
       publisher: { '@type': 'Organization', name: 'Video to Image Sequence Online', logo: { '@type': 'ImageObject', url: 'https://www.videotoimagesequence.online/og-image.png' } },
       image: 'https://www.videotoimagesequence.online/og-image.png',
-    });
-    document.head.appendChild(script);
-    return () => {
-      const el = document.getElementById('video-frame-extractor-use-cases-schemas');
-      if (el) el.remove();
     };
+
+const VideoFrameExtractorUseCases: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
   }, []);
 
   return (
     <article className="max-w-3xl mx-auto py-16 px-6 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(blogSchema)}
+      </script>
       <SEOHead
         title="7 Real-World Use Cases for Video Frame Extraction | Video to Image Sequence"
         description="Discover 7 practical ways professionals use video frame extraction — from sports analysis and AI training datasets to e-commerce product shots and social media content creation."

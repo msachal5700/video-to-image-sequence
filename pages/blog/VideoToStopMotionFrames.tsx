@@ -1,16 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import Breadcrumb from '../../components/Breadcrumb';
 import GoogleAdUnit from '../../components/GoogleAdUnit';
 import AuthorBio from '../../components/AuthorBio';
 
-const VideoToStopMotionFrames: React.FC = () => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'video-to-stop-motion-frames-schemas';
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [
+const blogSchema = { "@context": "https://schema.org", "@graph": [
       {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
@@ -51,13 +46,16 @@ const VideoToStopMotionFrames: React.FC = () => {
           }
         ]
       }
-    ] });
-    document.head.appendChild(script);
-    return () => { const el = document.getElementById('video-to-stop-motion-frames-schemas'); if (el) el.remove(); };
-  }, []);
+    ] };
+
+const VideoToStopMotionFrames: React.FC = () => {
+
 
   return (
     <article className="max-w-3xl mx-auto py-16 px-6 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(blogSchema)}
+      </script>
       <SEOHead
         title="Turn Video Clips into Stop-Motion Reference Frames (Free 2026 Guide)"
         description="Plan stop-motion shots with live-action reference: shoot a clip, extract frames every 0.5s, mark the beats, and preview timing — free, private, in your browser."

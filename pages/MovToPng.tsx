@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import VideoToImages from './VideoToImages';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
@@ -35,69 +35,70 @@ const faqs = [
 
 const MovToPng: React.FC = () => {
   const { t } = useTranslation();
-  useEffect(() => {
-    const existing = document.getElementById('mov-to-png-schemas');
-    if (existing) existing.remove();
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "MOV to PNG Converter — Extract Lossless PNG Frames from MOV Free",
+    "url": "https://www.videotoimagesequence.online/mov-to-png",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Convert MOV to PNG frames online for free. Extract lossless, transparent PNG image sequences from MOV videos (H.264, HEVC, ProRes*) in your browser. No server upload, custom FPS, ZIP download. Perfect for VFX, game dev, and ML datasets.",
+    "applicationCategory": "MultimediaApplication",
+    "applicationSubCategory": "Video Converter",
+    "operatingSystem": "All — Browser-based",
+    "browserRequirements": "Requires HTML5 and Javascript support",
+    "featureList": [
+      "Lossless PNG extraction with alpha channel support",
+      "Custom FPS control (1–60 FPS)",
+      "Process MOV entirely in your browser (100% private)",
+      "Batch processing of multiple MOV files",
+      "ZIP download of extracted PNG frames",
+      "*ProRes requires pre-transcode to H.264"
+    ],
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'mov-to-png-schemas';
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+    }))
+  };
 
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "MOV to PNG Converter — Extract Lossless PNG Frames from MOV Free",
-      "url": "https://www.videotoimagesequence.online/mov-to-png",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Convert MOV to PNG frames online for free. Extract lossless, transparent PNG image sequences from MOV videos (H.264, HEVC, ProRes*) in your browser. No server upload, custom FPS, ZIP download. Perfect for VFX, game dev, and ML datasets.",
-      "applicationCategory": "MultimediaApplication",
-      "applicationSubCategory": "Video Converter",
-      "operatingSystem": "All — Browser-based",
-      "browserRequirements": "Requires HTML5 and Javascript support",
-      "featureList": [
-        "Lossless PNG extraction with alpha channel support",
-        "Custom FPS control (1–60 FPS)",
-        "Process MOV entirely in your browser (100% private)",
-        "Batch processing of multiple MOV files",
-        "ZIP download of extracted PNG frames",
-        "*ProRes requires pre-transcode to H.264"
-      ],
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-    };
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Convert MOV to PNG Frames",
+    "description": "Step-by-step guide to extracting lossless PNG frames from MOV video locally in your browser.",
+    "totalTime": "PT1M",
+    "step": [
+      { "@type": "HowToStep", "name": "Load Your MOV", "text": "Drag and drop your MOV file into the upload zone." },
+      { "@type": "HowToStep", "name": "Select PNG Format", "text": "Choose PNG for lossless quality with transparency." },
+      { "@type": "HowToStep", "name": "Configure Frame Rate", "text": "Set your desired FPS (1–60) or select every frame." },
+      { "@type": "HowToStep", "name": "Extract PNG Sequence", "text": "Click Extract Frames Now to decode locally." },
+      { "@type": "HowToStep", "name": "Download PNG Frames", "text": "Download individual frames or get all as a ZIP archive." }
+    ]
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": { "@type": "Answer", "text": faq.a }
-      }))
-    };
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
 
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Convert MOV to PNG Frames",
-      "description": "Step-by-step guide to extracting lossless PNG frames from MOV video locally in your browser.",
-      "totalTime": "PT1M",
-      "step": [
-        { "@type": "HowToStep", "name": "Load Your MOV", "text": "Drag and drop your MOV file into the upload zone." },
-        { "@type": "HowToStep", "name": "Select PNG Format", "text": "Choose PNG for lossless quality with transparency." },
-        { "@type": "HowToStep", "name": "Configure Frame Rate", "text": "Set your desired FPS (1–60) or select every frame." },
-        { "@type": "HowToStep", "name": "Extract PNG Sequence", "text": "Click Extract Frames Now to decode locally." },
-        { "@type": "HowToStep", "name": "Download PNG Frames", "text": "Download individual frames or get all as a ZIP archive." }
-      ]
-    };
-
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
-    document.head.appendChild(script);
-
-    return () => { const el = document.getElementById('mov-to-png-schemas'); if (el) el.remove(); };
-  }, []);
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, organizationSchema]
+  };
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title="MOV to PNG Converter — Extract Lossless PNG Frames from MOV Free"
         description="Convert MOV to PNG frames online for free. Extract lossless, transparent PNG image sequences from MOV videos in your browser. No server upload, custom FPS, ZIP download. Perfect for VFX, game dev, and ML datasets."

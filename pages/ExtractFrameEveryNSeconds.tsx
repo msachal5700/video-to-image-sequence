@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import VideoToImages from './VideoToImages';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
@@ -247,70 +247,69 @@ const ExtractFrameEveryNSeconds: React.FC<ExtractFrameEveryNSecondsProps> = ({ s
     ...detail.extraFaqs
   ];
 
-  useEffect(() => {
-    const scriptId = `extract-every-${seconds}s-schemas`;
-    const existing = document.getElementById(scriptId);
-    if (existing) existing.remove();
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": t('extractEveryN.title', interp),
+    "url": url,
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": t('extractEveryN.description', interp),
+    "applicationCategory": "MultimediaApplication",
+    "applicationSubCategory": "Video Frame Extractor",
+    "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
+    "browserRequirements": "Requires HTML5, WebAssembly and Javascript support",
+    "featureList": [
+      `Extract one frame every ${seconds} second${plural} from any video`,
+      "Presets for 1, 5, 10, and 30 second intervals plus custom 1–3600s input",
+      "JPG, PNG, and WebP output with ZIP download",
+      "Process videos entirely in your browser (100% private)",
+      "No watermark, no sign-up, free forever"
+    ],
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = scriptId;
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+    }))
+  };
 
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": t('extractEveryN.title', interp),
-      "url": url,
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": t('extractEveryN.description', interp),
-      "applicationCategory": "MultimediaApplication",
-      "applicationSubCategory": "Video Frame Extractor",
-      "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
-      "browserRequirements": "Requires HTML5, WebAssembly and Javascript support",
-      "featureList": [
-        `Extract one frame every ${seconds} second${plural} from any video`,
-        "Presets for 1, 5, 10, and 30 second intervals plus custom 1–3600s input",
-        "JPG, PNG, and WebP output with ZIP download",
-        "Process videos entirely in your browser (100% private)",
-        "No watermark, no sign-up, free forever"
-      ],
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-    };
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": `How to Extract a Frame Every ${seconds} Second${plural}`,
+    "description": `Step-by-step instructions for pulling one still image every ${seconds} second${plural} from a video locally inside your web browser.`,
+    "totalTime": "PT1M",
+    "step": [
+      { "@type": "HowToStep", "name": "Upload Your Video", "text": "Drag and drop your MP4, MOV, or WEBM video file into the browser-based upload zone." },
+      { "@type": "HowToStep", "name": "Confirm the Interval", "text": `The “Every N Seconds” mode comes preselected at every ${seconds} second${plural}. Adjust it or type a custom interval (1–3600 seconds) if you like.` },
+      { "@type": "HowToStep", "name": "Choose an Output Format", "text": "Pick JPG for small files, PNG for lossless quality, or WebP for efficient web-ready images." },
+      { "@type": "HowToStep", "name": "Extract the Frames", "text": "Click “Extract Frames Now” — one frame per interval is captured locally in your browser." },
+      { "@type": "HowToStep", "name": "Download the ZIP", "text": "Preview the evenly spaced stills and download them all as a single ZIP archive." }
+    ]
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": { "@type": "Answer", "text": faq.a }
-      }))
-    };
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
 
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": `How to Extract a Frame Every ${seconds} Second${plural}`,
-      "description": `Step-by-step instructions for pulling one still image every ${seconds} second${plural} from a video locally inside your web browser.`,
-      "totalTime": "PT1M",
-      "step": [
-        { "@type": "HowToStep", "name": "Upload Your Video", "text": "Drag and drop your MP4, MOV, or WEBM video file into the browser-based upload zone." },
-        { "@type": "HowToStep", "name": "Confirm the Interval", "text": `The “Every N Seconds” mode comes preselected at every ${seconds} second${plural}. Adjust it or type a custom interval (1–3600 seconds) if you like.` },
-        { "@type": "HowToStep", "name": "Choose an Output Format", "text": "Pick JPG for small files, PNG for lossless quality, or WebP for efficient web-ready images." },
-        { "@type": "HowToStep", "name": "Extract the Frames", "text": "Click “Extract Frames Now” — one frame per interval is captured locally in your browser." },
-        { "@type": "HowToStep", "name": "Download the ZIP", "text": "Preview the evenly spaced stills and download them all as a single ZIP archive." }
-      ]
-    };
-
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
-    document.head.appendChild(script);
-
-    return () => { const el = document.getElementById(scriptId); if (el) el.remove(); };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [seconds]);
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, organizationSchema]
+  };
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title={t('extractEveryN.title', interp)}
         description={t('extractEveryN.description', interp)}

@@ -1,16 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import Breadcrumb from '../../components/Breadcrumb';
 import GoogleAdUnit from '../../components/GoogleAdUnit';
 import AuthorBio from '../../components/AuthorBio';
 
-const FreeImageCropToolGuide: React.FC = () => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'free-image-crop-tool-guide-schemas';
-    script.text = JSON.stringify({
+const blogSchema = {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
       "headline": "Freeform Image Crop: How to Crop an Image Into Any Shape Online (Free)",
@@ -23,16 +18,16 @@ const FreeImageCropToolGuide: React.FC = () => {
       "author": { "@type": "Person", "name": "Muhammad Sachal", "url": "https://www.linkedin.com/in/sachalspeaks/" },
       "publisher": { "@type": "Organization", "name": "Video to Image Sequence Online" },
       "image": "https://www.videotoimagesequence.online/og-image.png"
-    });
-    document.head.appendChild(script);
-    return () => {
-      const el = document.getElementById('free-image-crop-tool-guide-schemas');
-      if (el) el.remove();
     };
-  }, []);
+
+const FreeImageCropToolGuide: React.FC = () => {
+
 
   return (
     <article className="max-w-3xl mx-auto py-16 px-6 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(blogSchema)}
+      </script>
       <SEOHead
         title="Freeform Image Crop: Crop Any Shape Online Free (2026 Guide)"
         description="What is freeform cropping and when does it beat a box crop? Learn to cut any shape from an image with editable points — free, private, no signup. Transparent PNG export."

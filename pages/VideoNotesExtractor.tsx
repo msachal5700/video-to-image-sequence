@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import VideoNotesExtractorTool from '../components/VideoNotesExtractorTool';
@@ -43,101 +43,97 @@ const faqs = [
 
 const VideoNotesExtractor: React.FC = () => {
   const { t } = useTranslation();
-  useEffect(() => {
-    const existing = document.getElementById('video-notes-extractor-schemas');
-    if (existing) {
-      existing.remove();
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "Video Notes Extractor — Free Lecture-to-Notes Tool",
+    "url": "https://www.videotoimagesequence.online/video-notes-extractor",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Turn lecture videos into study notes free. Extract frames from any class recording, pick the key images in a visual gallery, and download them as a ZIP or a timestamped multi-page PDF. 100% browser-based — no upload, no signup.",
+    "applicationCategory": "EducationalApplication",
+    "applicationSubCategory": "Study Notes Generator",
+    "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
+    "browserRequirements": "Requires HTML5 video and canvas support",
+    "featureList": [
+      "Extract frames from lecture videos at 10s–5min intervals",
+      "Scrollable gallery of every extracted frame with timestamps",
+      "Checkbox selection with select-all, deselect-all, and invert",
+      "Download selected frames as a ZIP of JPG/PNG images",
+      "Download selected frames as a multi-page PDF, one frame per page",
+      "100% browser-based — videos never leave your device"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
     }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'video-notes-extractor-schemas';
-
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Video Notes Extractor — Free Lecture-to-Notes Tool",
-      "url": "https://www.videotoimagesequence.online/video-notes-extractor",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Turn lecture videos into study notes free. Extract frames from any class recording, pick the key images in a visual gallery, and download them as a ZIP or a timestamped multi-page PDF. 100% browser-based — no upload, no signup.",
-      "applicationCategory": "EducationalApplication",
-      "applicationSubCategory": "Study Notes Generator",
-      "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
-      "browserRequirements": "Requires HTML5 video and canvas support",
-      "featureList": [
-        "Extract frames from lecture videos at 10s–5min intervals",
-        "Scrollable gallery of every extracted frame with timestamps",
-        "Checkbox selection with select-all, deselect-all, and invert",
-        "Download selected frames as a ZIP of JPG/PNG images",
-        "Download selected frames as a multi-page PDF, one frame per page",
-        "100% browser-based — videos never leave your device"
-      ],
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
       }
-    };
+    }))
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.a
-        }
-      }))
-    };
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Turn a Lecture Video into Study Notes",
+    "description": "Extract key frames from any lecture recording, curate the important ones, and download them as images or a PDF — free in your browser.",
+    "totalTime": "PT5M",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Upload the lecture video",
+        "text": "Drag and drop an MP4, MOV, or WEBM recording. It is decoded locally — nothing is uploaded."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Choose an extraction interval",
+        "text": "Pick every 10 seconds up to every 5 minutes, matched to how fast the lecture visuals change."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Review the frame gallery",
+        "text": "Scroll through every extracted frame, each labeled with its timestamp, and tick the ones worth keeping."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Curate with bulk selection",
+        "text": "Use select-all, deselect-all, or invert-selection to narrow hundreds of frames down to the keepers in seconds."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Download ZIP or PDF",
+        "text": "Export the selected frames as a ZIP of images, or as a multi-page PDF with one timestamped frame per page."
+      }
+    ]
+  };
 
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Turn a Lecture Video into Study Notes",
-      "description": "Extract key frames from any lecture recording, curate the important ones, and download them as images or a PDF — free in your browser.",
-      "totalTime": "PT5M",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Upload the lecture video",
-          "text": "Drag and drop an MP4, MOV, or WEBM recording. It is decoded locally — nothing is uploaded."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Choose an extraction interval",
-          "text": "Pick every 10 seconds up to every 5 minutes, matched to how fast the lecture visuals change."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Review the frame gallery",
-          "text": "Scroll through every extracted frame, each labeled with its timestamp, and tick the ones worth keeping."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Curate with bulk selection",
-          "text": "Use select-all, deselect-all, or invert-selection to narrow hundreds of frames down to the keepers in seconds."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Download ZIP or PDF",
-          "text": "Export the selected frames as a ZIP of images, or as a multi-page PDF with one timestamped frame per page."
-        }
-      ]
-    };
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
 
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
-    document.head.appendChild(script);
-
-    return () => {
-      const el = document.getElementById('video-notes-extractor-schemas');
-      if (el) el.remove();
-    };
-  }, []);
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, organizationSchema]
+  };
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title={t('videoNotesExtractor.title')}
         description={t('videoNotesExtractor.description')}

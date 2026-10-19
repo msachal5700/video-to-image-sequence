@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import VideoToImages from './VideoToImages';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
@@ -43,101 +43,97 @@ const faqs = [
 
 const VideoFrameExtractor: React.FC = () => {
   const { t } = useTranslation();
-  useEffect(() => {
-    const existing = document.getElementById('video-frame-extractor-schemas');
-    if (existing) {
-      existing.remove();
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "Video Frame Extractor — Extract Video Frames Online Free",
+    "url": "https://www.videotoimagesequence.online/video-to-frames",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Free online video frame extractor. Pull still frames from MP4, MOV, and WEBM videos as JPG or PNG images in your browser. No install, no upload, no watermark.",
+    "applicationCategory": "MultimediaApplication",
+    "applicationSubCategory": "Video Frame Extractor",
+    "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
+    "browserRequirements": "Requires HTML5, WebAssembly and Javascript support",
+    "featureList": [
+      "Extract frames from video with no software install",
+      "Online tool, ffmpeg, and VLC methods compared",
+      "Millisecond-precise timestamp frame capture",
+      "JPG and PNG output with ZIP download",
+      "Full-resolution frames from 4K sources",
+      "Private by design — nothing is uploaded"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
     }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'video-frame-extractor-schemas';
-
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Video Frame Extractor — Extract Video Frames Online Free",
-      "url": "https://www.videotoimagesequence.online/video-to-frames",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Free online video frame extractor. Pull still frames from MP4, MOV, and WEBM videos as JPG or PNG images in your browser. No install, no upload, no watermark.",
-      "applicationCategory": "MultimediaApplication",
-      "applicationSubCategory": "Video Frame Extractor",
-      "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
-      "browserRequirements": "Requires HTML5, WebAssembly and Javascript support",
-      "featureList": [
-        "Extract frames from video with no software install",
-        "Online tool, ffmpeg, and VLC methods compared",
-        "Millisecond-precise timestamp frame capture",
-        "JPG and PNG output with ZIP download",
-        "Full-resolution frames from 4K sources",
-        "Private by design — nothing is uploaded"
-      ],
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
       }
-    };
+    }))
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.a
-        }
-      }))
-    };
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Extract Frames with an Online Video Frame Extractor",
+    "description": "The fastest method: extract still frames from any video in your browser with no install. Compare with ffmpeg and VLC alternatives.",
+    "totalTime": "PT2M",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Open the extractor",
+        "text": "Load the browser-based frame extractor below — no install, no account."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Add your video",
+        "text": "Drag in an MP4, MOV, or WEBM file. It is decoded locally on your device."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Choose extraction mode",
+        "text": "Set frames per second for a sequence, or jump to a timestamp for one exact frame."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Extract the frames",
+        "text": "Run the extraction and preview every captured frame in the results grid."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Download",
+        "text": "Save the frames you need individually, or download the full set as a ZIP."
+      }
+    ]
+  };
 
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Extract Frames with an Online Video Frame Extractor",
-      "description": "The fastest method: extract still frames from any video in your browser with no install. Compare with ffmpeg and VLC alternatives.",
-      "totalTime": "PT2M",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Open the extractor",
-          "text": "Load the browser-based frame extractor below — no install, no account."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Add your video",
-          "text": "Drag in an MP4, MOV, or WEBM file. It is decoded locally on your device."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Choose extraction mode",
-          "text": "Set frames per second for a sequence, or jump to a timestamp for one exact frame."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Extract the frames",
-          "text": "Run the extraction and preview every captured frame in the results grid."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Download",
-          "text": "Save the frames you need individually, or download the full set as a ZIP."
-        }
-      ]
-    };
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
 
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
-    document.head.appendChild(script);
-
-    return () => {
-      const el = document.getElementById('video-frame-extractor-schemas');
-      if (el) el.remove();
-    };
-  }, []);
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, organizationSchema]
+  };
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title={t('videoFrameExtractor.title')}
         description={t('videoFrameExtractor.description')}

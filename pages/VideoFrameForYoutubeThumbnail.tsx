@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import VideoToImages from './VideoToImages';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
@@ -39,69 +39,70 @@ const faqs = [
 
 const VideoFrameForYoutubeThumbnail: React.FC = () => {
   const { t } = useTranslation();
-  useEffect(() => {
-    const existing = document.getElementById('video-frame-for-youtube-thumbnail-schemas');
-    if (existing) existing.remove();
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "Extract Frame for YouTube Thumbnail — Perfect Still Free",
+    "url": "https://www.videotoimagesequence.online/video-frame-for-youtube-thumbnail",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Extract the perfect frame for YouTube thumbnails free. Millisecond precision, frame-by-frame step, 4K native resolution, PNG/WebP/JPG. No server upload, 100% private. Works for Shorts too.",
+    "applicationCategory": "MultimediaApplication",
+    "applicationSubCategory": "Thumbnail Creator",
+    "operatingSystem": "All — Browser-based",
+    "browserRequirements": "Requires HTML5 and Javascript support",
+    "featureList": [
+      "Exact timestamp capture (HH:MM:SS.mmm)",
+      "Frame-by-frame step for sharpest frame",
+      "4K native resolution extraction",
+      "PNG (edit) / WebP (upload) / JPG formats",
+      "100% private — no upload, local processing",
+      "Works for YouTube, Shorts, Twitch, TikTok"
+    ],
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'video-frame-for-youtube-thumbnail-schemas';
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+    }))
+  };
 
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Extract Frame for YouTube Thumbnail — Perfect Still Free",
-      "url": "https://www.videotoimagesequence.online/video-frame-for-youtube-thumbnail",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Extract the perfect frame for YouTube thumbnails free. Millisecond precision, frame-by-frame step, 4K native resolution, PNG/WebP/JPG. No server upload, 100% private. Works for Shorts too.",
-      "applicationCategory": "MultimediaApplication",
-      "applicationSubCategory": "Thumbnail Creator",
-      "operatingSystem": "All — Browser-based",
-      "browserRequirements": "Requires HTML5 and Javascript support",
-      "featureList": [
-        "Exact timestamp capture (HH:MM:SS.mmm)",
-        "Frame-by-frame step for sharpest frame",
-        "4K native resolution extraction",
-        "PNG (edit) / WebP (upload) / JPG formats",
-        "100% private — no upload, local processing",
-        "Works for YouTube, Shorts, Twitch, TikTok"
-      ],
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-    };
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Get the Perfect Thumbnail Frame from Video",
+    "description": "Step-by-step: find peak moment → capture at 4K → edit in Canva/Photoshop → upload to YouTube.",
+    "totalTime": "PT2M",
+    "step": [
+      { "@type": "HowToStep", "name": "Open Exact Timestamp Extractor", "text": "Go to the Exact Timestamp Extractor tool and load your video." },
+      { "@type": "HowToStep", "name": "Find the Peak Moment", "text": "Scrub timeline or use frame-step buttons to locate the sharpest, most engaging frame." },
+      { "@type": "HowToStep", "name": "Capture at Full Resolution", "text": "Click Capture Frame — extracts at native 1080p/4K, no player UI." },
+      { "@type": "HowToStep", "name": "Download as PNG", "text": "Choose PNG for lossless editing in Canva/Photoshop." },
+      { "@type": "HowToStep", "name": "Crop & Export for YouTube", "text": "Crop to 1280×720, add text/graphics, export as WebP/JPG, upload to YouTube Studio." }
+    ]
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": { "@type": "Answer", "text": faq.a }
-      }))
-    };
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
 
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Get the Perfect Thumbnail Frame from Video",
-      "description": "Step-by-step: find peak moment → capture at 4K → edit in Canva/Photoshop → upload to YouTube.",
-      "totalTime": "PT2M",
-      "step": [
-        { "@type": "HowToStep", "name": "Open Exact Timestamp Extractor", "text": "Go to the Exact Timestamp Extractor tool and load your video." },
-        { "@type": "HowToStep", "name": "Find the Peak Moment", "text": "Scrub timeline or use frame-step buttons to locate the sharpest, most engaging frame." },
-        { "@type": "HowToStep", "name": "Capture at Full Resolution", "text": "Click Capture Frame — extracts at native 1080p/4K, no player UI." },
-        { "@type": "HowToStep", "name": "Download as PNG", "text": "Choose PNG for lossless editing in Canva/Photoshop." },
-        { "@type": "HowToStep", "name": "Crop & Export for YouTube", "text": "Crop to 1280×720, add text/graphics, export as WebP/JPG, upload to YouTube Studio." }
-      ]
-    };
-
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
-    document.head.appendChild(script);
-
-    return () => { const el = document.getElementById('video-frame-for-youtube-thumbnail-schemas'); if (el) el.remove(); };
-  }, []);
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, organizationSchema]
+  };
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title="Extract Frame for YouTube Thumbnail — Perfect Still Free"
         description="Extract the perfect frame for YouTube thumbnails free. Millisecond precision, frame-by-frame step, 4K native resolution, PNG/WebP/JPG. No server upload, 100% private. Works for Shorts too."

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import VideoToPdfTool from '../components/VideoToPdfTool';
@@ -35,137 +35,121 @@ const faqs = [
 
 const VideoToPdf: React.FC = () => {
   const { t } = useTranslation();
-  useEffect(() => {
-    const existing = document.getElementById('video-to-pdf-schemas');
-    if (existing) {
-      existing.remove();
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "Video to PDF — Free Online Converter, No Signup",
+    "url": "https://www.videotoimagesequence.online/video-to-pdf",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Convert video to PDF free in your browser. Extract frames every N seconds, capture moments manually, arrange the frame strip, and generate a paginated PDF with title page, timestamps, and quality control. No upload, no signup.",
+    "applicationCategory": "UtilitiesApplication",
+    "applicationSubCategory": "Video to PDF Converter",
+    "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
+    "browserRequirements": "Requires HTML5 video and canvas support",
+    "featureList": [
+      "Extract frames every N seconds, N evenly-spaced frames, or manual capture from scrubber",
+      "Frame strip preview with delete and reorder before export",
+      "A4/Letter page size, auto/portrait/landscape orientation, 1/2/4 frames per page",
+      "JPEG quality slider, timestamp caption toggle, optional title page",
+      "Custom document title and author written into PDF metadata",
+      "100% browser-based — videos never leave your device"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
     }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'video-to-pdf-schemas';
-
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Video to PDF — Free Online Converter, No Signup",
-      "url": "https://www.videotoimagesequence.online/video-to-pdf",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Convert video to PDF free in your browser. Extract frames every N seconds, capture moments manually, arrange the frame strip, and generate a paginated PDF with title page, timestamps, and quality control. No upload, no signup.",
-      "applicationCategory": "UtilitiesApplication",
-      "applicationSubCategory": "Video to PDF Converter",
-      "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
-      "browserRequirements": "Requires HTML5 video and canvas support",
-      "featureList": [
-        "Extract frames every N seconds, N evenly-spaced frames, or manual capture from scrubber",
-        "Frame strip preview with delete and reorder before export",
-        "A4/Letter page size, auto/portrait/landscape orientation, 1/2/4 frames per page",
-        "JPEG quality slider, timestamp caption toggle, optional title page",
-        "Custom document title and author written into PDF metadata",
-        "100% browser-based — videos never leave your device"
-      ],
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
       }
-    };
+    }))
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.a
-        }
-      }))
-    };
-
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Convert a Video to PDF Online",
-      "description": "Extract frames from any video, arrange them, and generate a paginated PDF document — free in your browser, no upload.",
-      "totalTime": "PT5M",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Upload the video",
-          "text": "Drag and drop an MP4, MOV, or WEBM file. It is decoded locally — nothing is uploaded to any server."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Choose your frame-picking method",
-          "text": "Extract a frame every N seconds, grab N evenly-spaced frames across the video, or scrub the preview and capture individual moments manually."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Arrange the frame strip",
-          "text": "Delete duplicates, reorder frames with the arrow controls, and preview the estimated page count."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Set the PDF options",
-          "text": "Pick A4 or Letter, orientation, 1/2/4 frames per page, JPEG quality, timestamp captions, title, author, and an optional title page."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Download the PDF",
-          "text": "Generate the document in one click — each frame rendered as a JPEG on its page with your captions and metadata baked in."
-        }
-      ]
-    };
-
-    const breadcrumbSchema = {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.videotoimagesequence.online/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Video to PDF Converter",
-          "item": "https://www.videotoimagesequence.online/video-to-pdf"
-        }
-      ]
-    };
-
-    const orgSchema = {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Video to Image Sequence Online",
-      "url": "https://www.videotoimagesequence.online",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.videotoimagesequence.online/favicon.svg",
-        "width": 32,
-        "height": 32
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Convert a Video to PDF Online",
+    "description": "Extract frames from any video, arrange them, and generate a paginated PDF document — free in your browser, no upload.",
+    "totalTime": "PT5M",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Upload the video",
+        "text": "Drag and drop an MP4, MOV, or WEBM file. It is decoded locally — nothing is uploaded to any server."
       },
-      "description": "Free online video frame extraction tool. Convert MP4, MOV, and WEBM videos to image sequences in your browser.",
-      "sameAs": [
-        "https://x.com/videotoimage"
-      ]
-    };
+      {
+        "@type": "HowToStep",
+        "name": "Choose your frame-picking method",
+        "text": "Extract a frame every N seconds, grab N evenly-spaced frames across the video, or scrub the preview and capture individual moments manually."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Arrange the frame strip",
+        "text": "Delete duplicates, reorder frames with the arrow controls, and preview the estimated page count."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Set the PDF options",
+        "text": "Pick A4 or Letter, orientation, 1/2/4 frames per page, JPEG quality, timestamp captions, title, author, and an optional title page."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Download the PDF",
+        "text": "Generate the document in one click — each frame rendered as a JPEG on its page with your captions and metadata baked in."
+      }
+    ]
+  };
 
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema, breadcrumbSchema, orgSchema] });
-    document.head.appendChild(script);
+  const breadcrumbSchema = {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.videotoimagesequence.online/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Video to PDF Converter",
+        "item": "https://www.videotoimagesequence.online/video-to-pdf"
+      }
+    ]
+  };
 
-    return () => {
-      const el = document.getElementById('video-to-pdf-schemas');
-      if (el) el.remove();
-    };
-  }, []);
+  const orgSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/favicon.svg",
+      "width": 32,
+      "height": 32
+    },
+    "description": "Free online video frame extraction tool. Convert MP4, MOV, and WEBM videos to image sequences in your browser.",
+    "sameAs": [
+      "https://x.com/videotoimage"
+    ]
+  };
+
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, breadcrumbSchema, orgSchema]
+  };
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title={t('videoToPdf.title')}
         description={t('videoToPdf.description')}

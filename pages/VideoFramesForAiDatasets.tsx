@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import VideoToImages from './VideoToImages';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
@@ -39,70 +39,71 @@ const faqs = [
 
 const VideoFramesForAiDatasets: React.FC = () => {
   const { t } = useTranslation();
-  useEffect(() => {
-    const existing = document.getElementById('video-frames-for-ai-datasets-schemas');
-    if (existing) existing.remove();
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "Extract Video Frames for AI & Computer Vision Datasets",
+    "url": "https://www.videotoimagesequence.online/video-frames-for-ai-datasets",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Extract frames from video for AI datasets free. Build YOLO, classification, segmentation training data with custom FPS (1–60), lossless PNG/WebP output, ZIP download. 100% private, no server upload.",
+    "applicationCategory": "MultimediaApplication",
+    "applicationSubCategory": "AI Dataset Preparation",
+    "operatingSystem": "All — Browser-based",
+    "browserRequirements": "Requires HTML5 and Javascript support",
+    "featureList": [
+      "Custom FPS 1–60 for dataset sampling control",
+      "Lossless PNG/WebP for pixel-perfect labels",
+      "Batch multi-video processing for large datasets",
+      "ZIP download compatible with CVAT, LabelImg, Roboflow",
+      "100% private — no data leaves your browser",
+      "Supports MP4, MOV, WEBM (H.264, VP9, AV1)"
+    ],
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'video-frames-for-ai-datasets-schemas';
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+    }))
+  };
 
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Extract Video Frames for AI & Computer Vision Datasets",
-      "url": "https://www.videotoimagesequence.online/video-frames-for-ai-datasets",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Extract frames from video for AI datasets free. Build YOLO, classification, segmentation training data with custom FPS (1–60), lossless PNG/WebP output, ZIP download. 100% private, no server upload.",
-      "applicationCategory": "MultimediaApplication",
-      "applicationSubCategory": "AI Dataset Preparation",
-      "operatingSystem": "All — Browser-based",
-      "browserRequirements": "Requires HTML5 and Javascript support",
-      "featureList": [
-        "Custom FPS 1–60 for dataset sampling control",
-        "Lossless PNG/WebP for pixel-perfect labels",
-        "Batch multi-video processing for large datasets",
-        "ZIP download compatible with CVAT, LabelImg, Roboflow",
-        "100% private — no data leaves your browser",
-        "Supports MP4, MOV, WEBM (H.264, VP9, AV1)"
-      ],
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-    };
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Extract Video Frames for Computer Vision Datasets",
+    "description": "Complete workflow: video → frames → labeling → training. Extract frames locally, download ZIP, import into CVAT/LabelImg/Roboflow.",
+    "totalTime": "PT5M",
+    "step": [
+      { "@type": "HowToStep", "name": "Prepare Source Videos", "text": "Collect MP4/MOV/WEBM videos. Organize by class if doing classification." },
+      { "@type": "HowToStep", "name": "Set Extraction FPS", "text": "Choose 1–5 FPS for detection/segmentation, 5–10 FPS for tracking/action recognition." },
+      { "@type": "HowToStep", "name": "Choose Lossless Format", "text": "Select PNG (universal) or WebP (25–35% smaller, transparency) for pixel-perfect labels." },
+      { "@type": "HowToStep", "name": "Extract & Download ZIP", "text": "Process videos locally. Each video yields a ZIP with sequentially named frames." },
+      { "@type": "HowToStep", "name": "Import to Labeling Tool", "text": "Unzip into CVAT, LabelImg, Roboflow, Labelbox. Frames named frame_000001.png sort correctly." },
+      { "@type": "HowToStep", "name": "Annotate & Export", "text": "Label frames. Export COCO JSON, YOLO TXT, or Pascal VOC XML for training." }
+    ]
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": { "@type": "Answer", "text": faq.a }
-      }))
-    };
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
 
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Extract Video Frames for Computer Vision Datasets",
-      "description": "Complete workflow: video → frames → labeling → training. Extract frames locally, download ZIP, import into CVAT/LabelImg/Roboflow.",
-      "totalTime": "PT5M",
-      "step": [
-        { "@type": "HowToStep", "name": "Prepare Source Videos", "text": "Collect MP4/MOV/WEBM videos. Organize by class if doing classification." },
-        { "@type": "HowToStep", "name": "Set Extraction FPS", "text": "Choose 1–5 FPS for detection/segmentation, 5–10 FPS for tracking/action recognition." },
-        { "@type": "HowToStep", "name": "Choose Lossless Format", "text": "Select PNG (universal) or WebP (25–35% smaller, transparency) for pixel-perfect labels." },
-        { "@type": "HowToStep", "name": "Extract & Download ZIP", "text": "Process videos locally. Each video yields a ZIP with sequentially named frames." },
-        { "@type": "HowToStep", "name": "Import to Labeling Tool", "text": "Unzip into CVAT, LabelImg, Roboflow, Labelbox. Frames named frame_000001.png sort correctly." },
-        { "@type": "HowToStep", "name": "Annotate & Export", "text": "Label frames. Export COCO JSON, YOLO TXT, or Pascal VOC XML for training." }
-      ]
-    };
-
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
-    document.head.appendChild(script);
-
-    return () => { const el = document.getElementById('video-frames-for-ai-datasets-schemas'); if (el) el.remove(); };
-  }, []);
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, organizationSchema]
+  };
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title="Extract Video Frames for AI Datasets — Build CV Training Data Free"
         description="Extract frames from video for AI datasets free. Build YOLO, classification, segmentation training data with custom FPS (1–60), lossless PNG/WebP, ZIP download. 100% private, no server upload."

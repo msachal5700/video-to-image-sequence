@@ -1,16 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import Breadcrumb from '../../components/Breadcrumb';
 import GoogleAdUnit from '../../components/GoogleAdUnit';
 import AuthorBio from '../../components/AuthorBio';
 
-const JpgVsPngVsWebp: React.FC = () => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'jpg-vs-png-vs-webp-schemas';
-    script.text = JSON.stringify({
+const blogSchema = {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
       "headline": "JPG vs PNG vs WebP for Video Frames — Which Format to Choose?",
@@ -23,16 +18,16 @@ const JpgVsPngVsWebp: React.FC = () => {
       "author": { "@type": "Person", "name": "Muhammad Sachal", "url": "https://www.linkedin.com/in/sachalspeaks/" },
       "publisher": { "@type": "Organization", "name": "Video to Image Sequence Online" },
       "image": "https://www.videotoimagesequence.online/og-image.png"
-    });
-    document.head.appendChild(script);
-    return () => {
-      const el = document.getElementById('jpg-vs-png-vs-webp-schemas');
-      if (el) el.remove();
     };
-  }, []);
+
+const JpgVsPngVsWebp: React.FC = () => {
+
 
   return (
     <article className="max-w-3xl mx-auto py-16 px-6 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(blogSchema)}
+      </script>
       <SEOHead
         title="JPG vs PNG vs WebP for Video Frames — Which Format to Choose?"
         description="Complete comparison of JPG, PNG, and WebP for extracted video frames. File sizes, quality, transparency, pipeline compatibility, and recommendations for VFX, ML, web, and thumbnails."

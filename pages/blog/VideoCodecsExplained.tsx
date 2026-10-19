@@ -1,16 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import Breadcrumb from '../../components/Breadcrumb';
 import GoogleAdUnit from '../../components/GoogleAdUnit';
 import AuthorBio from '../../components/AuthorBio';
 
-const VideoCodecsExplained: React.FC = () => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'video-codecs-explained-schemas';
-    script.text = JSON.stringify({
+const blogSchema = {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
       "headline": "Video Codecs Explained — H.264, HEVC, VP9, AV1, ProRes for Frame Extraction",
@@ -23,16 +18,16 @@ const VideoCodecsExplained: React.FC = () => {
       "author": { "@type": "Person", "name": "Muhammad Sachal", "url": "https://www.linkedin.com/in/sachalspeaks/" },
       "publisher": { "@type": "Organization", "name": "Video to Image Sequence Online" },
       "image": "https://www.videotoimagesequence.online/og-image.png"
-    });
-    document.head.appendChild(script);
-    return () => {
-      const el = document.getElementById('video-codecs-explained-schemas');
-      if (el) el.remove();
     };
-  }, []);
+
+const VideoCodecsExplained: React.FC = () => {
+
 
   return (
     <article className="max-w-3xl mx-auto py-16 px-6 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(blogSchema)}
+      </script>
       <SEOHead
         title="Video Codecs Explained — H.264, HEVC, VP9, AV1, ProRes for Frame Extraction"
         description="Complete guide to video codecs for frame extraction. Which codecs work in browsers, which need transcoding, hardware acceleration support, and troubleshooting codec errors."

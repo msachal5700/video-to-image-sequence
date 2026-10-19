@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
 import GoogleAdUnit from '../components/GoogleAdUnit';
@@ -71,123 +71,104 @@ const YoutubeThumbnailDownloader: React.FC = () => {
   const [error, setError] = useState('');
   const [downloading, setDownloading] = useState<string | null>(null);
 
-  useEffect(() => {
-    const existing = document.getElementById('youtube-thumbnail-downloader-schemas');
-    if (existing) {
-      existing.remove();
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "YouTube Thumbnail Downloader — Save Any Thumbnail in HD",
+    "url": "https://www.videotoimagesequence.online/youtube-thumbnail-downloader",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Download any YouTube thumbnail in HD free — paste the video URL, preview every resolution, save the image. No signup, no watermark.",
+    "applicationCategory": "MultimediaApplication",
+    "applicationSubCategory": "YouTube Thumbnail Downloader",
+    "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
+    "browserRequirements": "Requires HTML5 and Javascript support",
+    "featureList": [
+      "Download YouTube thumbnails in up to 1280×720 HD",
+      "Works with watch, youtu.be, Shorts, embed, and live URLs",
+      "Live preview of every available resolution",
+      "100% browser-based — nothing uploaded or stored",
+      "Free forever, no account, no watermark"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
     }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'youtube-thumbnail-downloader-schemas';
-
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "YouTube Thumbnail Downloader — Save Any Thumbnail in HD",
-      "url": "https://www.videotoimagesequence.online/youtube-thumbnail-downloader",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Download any YouTube thumbnail in HD free — paste the video URL, preview every resolution, save the image. No signup, no watermark.",
-      "applicationCategory": "MultimediaApplication",
-      "applicationSubCategory": "YouTube Thumbnail Downloader",
-      "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
-      "browserRequirements": "Requires HTML5 and Javascript support",
-      "featureList": [
-        "Download YouTube thumbnails in up to 1280×720 HD",
-        "Works with watch, youtu.be, Shorts, embed, and live URLs",
-        "Live preview of every available resolution",
-        "100% browser-based — nothing uploaded or stored",
-        "Free forever, no account, no watermark"
-      ],
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
       }
-    };
+    }))
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.a
-        }
-      }))
-    };
-
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Download a YouTube Thumbnail",
-      "description": "Save the thumbnail image of any YouTube video in HD, free in your browser.",
-      "totalTime": "PT30S",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Paste the video URL",
-          "text": "Copy the YouTube link — watch, youtu.be, Shorts, embed, or live URL — and paste it into the box."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Preview the resolutions",
-          "text": "The tool extracts the video ID and shows every thumbnail size YouTube generated, from 1280×720 HD down."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Download the image",
-          "text": "Click Download under the resolution you want. The JPG saves directly to your device."
-        }
-      ]
-    };
-
-    const breadcrumbSchema = {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.videotoimagesequence.online/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "YouTube Thumbnail Downloader",
-          "item": "https://www.videotoimagesequence.online/youtube-thumbnail-downloader"
-        }
-      ]
-    };
-
-    const orgSchema = {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Video to Image Sequence Online",
-      "url": "https://www.videotoimagesequence.online",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.videotoimagesequence.online/favicon.svg",
-        "width": 32,
-        "height": 32
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Download a YouTube Thumbnail",
+    "description": "Save the thumbnail image of any YouTube video in HD, free in your browser.",
+    "totalTime": "PT30S",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Paste the video URL",
+        "text": "Copy the YouTube link — watch, youtu.be, Shorts, embed, or live URL — and paste it into the box."
       },
-      "description": "Free online video frame extraction tool. Convert MP4, MOV, and WEBM videos to image sequences in your browser.",
-      "sameAs": [
-        "https://x.com/videotoimage"
-      ]
-    };
+      {
+        "@type": "HowToStep",
+        "name": "Preview the resolutions",
+        "text": "The tool extracts the video ID and shows every thumbnail size YouTube generated, from 1280×720 HD down."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Download the image",
+        "text": "Click Download under the resolution you want. The JPG saves directly to your device."
+      }
+    ]
+  };
 
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema, breadcrumbSchema, orgSchema] });
-    document.head.appendChild(script);
+  const breadcrumbSchema = {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.videotoimagesequence.online/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "YouTube Thumbnail Downloader",
+        "item": "https://www.videotoimagesequence.online/youtube-thumbnail-downloader"
+      }
+    ]
+  };
 
-    return () => {
-      const el = document.getElementById('youtube-thumbnail-downloader-schemas');
-      if (el) el.remove();
-    };
-  }, []);
+  const orgSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/favicon.svg",
+      "width": 32,
+      "height": 32
+    },
+    "description": "Free online video frame extraction tool. Convert MP4, MOV, and WEBM videos to image sequences in your browser.",
+    "sameAs": [
+      "https://x.com/videotoimage"
+    ]
+  };
+
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, breadcrumbSchema, orgSchema]
+  };
 
   const handleFetch = () => {
     const id = parseVideoId(urlInput);
@@ -226,6 +207,9 @@ const YoutubeThumbnailDownloader: React.FC = () => {
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title={t('youtubeThumbnailDownloader.title')}
         description={t('youtubeThumbnailDownloader.description')}

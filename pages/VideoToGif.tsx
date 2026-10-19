@@ -349,69 +349,70 @@ const VideoToGifTool: React.FC = () => {
 
 const VideoToGif: React.FC = () => {
   const { t } = useTranslation();
-  useEffect(() => {
-    const existing = document.getElementById('video-to-gif-schemas');
-    if (existing) existing.remove();
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "Video to GIF Converter — Free Online GIF Maker",
+    "url": "https://www.videotoimagesequence.online/video-to-gif",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Convert video to GIF free in your browser. Turn MP4, MOV, WEBM clips into high-quality animated GIFs online. No upload, no watermark, 100% private.",
+    "applicationCategory": "MultimediaApplication",
+    "applicationSubCategory": "Video Converter",
+    "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
+    "browserRequirements": "Requires HTML5, WebAssembly and Javascript support",
+    "featureList": [
+      "Convert MP4, MOV, WEBM videos to animated GIFs",
+      "Adjustable frame rate (5–15 FPS) and GIF width",
+      "Loop forever or play-once playback control",
+      "Quality presets to balance size and fidelity",
+      "Process videos entirely in your browser (100% private)",
+      "No watermark, no sign-up, free forever"
+    ],
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'video-to-gif-schemas';
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+    }))
+  };
 
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Video to GIF Converter — Free Online GIF Maker",
-      "url": "https://www.videotoimagesequence.online/video-to-gif",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Convert video to GIF free in your browser. Turn MP4, MOV, WEBM clips into high-quality animated GIFs online. No upload, no watermark, 100% private.",
-      "applicationCategory": "MultimediaApplication",
-      "applicationSubCategory": "Video Converter",
-      "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
-      "browserRequirements": "Requires HTML5, WebAssembly and Javascript support",
-      "featureList": [
-        "Convert MP4, MOV, WEBM videos to animated GIFs",
-        "Adjustable frame rate (5–15 FPS) and GIF width",
-        "Loop forever or play-once playback control",
-        "Quality presets to balance size and fidelity",
-        "Process videos entirely in your browser (100% private)",
-        "No watermark, no sign-up, free forever"
-      ],
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-    };
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Convert Video to GIF",
+    "description": "Step-by-step instructions for turning a video clip into an animated GIF locally inside your web browser.",
+    "totalTime": "PT1M",
+    "step": [
+      { "@type": "HowToStep", "name": "Load Your Video File", "text": "Drag and drop your MP4, MOV, or WEBM video file into the browser-based upload zone." },
+      { "@type": "HowToStep", "name": "Choose Frame Rate and Size", "text": "Pick an FPS (5–15) and GIF width. Lower values make smaller, more shareable GIFs." },
+      { "@type": "HowToStep", "name": "Set Loop Playback", "text": "Choose loop-forever for classic GIF behavior or play-once for a single pass." },
+      { "@type": "HowToStep", "name": "Convert to GIF", "text": "Click Convert to GIF — frames are extracted and encoded locally in your browser." },
+      { "@type": "HowToStep", "name": "Download Your GIF", "text": "Preview the animated result and download it with no watermark." }
+    ]
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": { "@type": "Answer", "text": faq.a }
-      }))
-    };
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
 
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Convert Video to GIF",
-      "description": "Step-by-step instructions for turning a video clip into an animated GIF locally inside your web browser.",
-      "totalTime": "PT1M",
-      "step": [
-        { "@type": "HowToStep", "name": "Load Your Video File", "text": "Drag and drop your MP4, MOV, or WEBM video file into the browser-based upload zone." },
-        { "@type": "HowToStep", "name": "Choose Frame Rate and Size", "text": "Pick an FPS (5–15) and GIF width. Lower values make smaller, more shareable GIFs." },
-        { "@type": "HowToStep", "name": "Set Loop Playback", "text": "Choose loop-forever for classic GIF behavior or play-once for a single pass." },
-        { "@type": "HowToStep", "name": "Convert to GIF", "text": "Click Convert to GIF — frames are extracted and encoded locally in your browser." },
-        { "@type": "HowToStep", "name": "Download Your GIF", "text": "Preview the animated result and download it with no watermark." }
-      ]
-    };
-
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
-    document.head.appendChild(script);
-
-    return () => { const el = document.getElementById('video-to-gif-schemas'); if (el) el.remove(); };
-  }, []);
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, organizationSchema]
+  };
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title={t('videoToGif.title')}
         description={t('videoToGif.description')}

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import VideoToImages from './VideoToImages';
 import SEOHead from '../components/SEOHead';
 import { localizedUrl } from '../utils/localizedRoutes';
@@ -74,102 +74,98 @@ const faqs = [
 const ExtractFramesFromVideo: React.FC = () => {
   const { t } = useTranslation();
   const pageLang = usePageLang();
-  useEffect(() => {
-    const existing = document.getElementById('extract-frames-from-video-schemas');
-    if (existing) {
-      existing.remove();
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "Free Video Frame Extractor — Extract Frames from Video",
+    "url": "https://www.videotoimagesequence.online/video-to-frames",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Free browser-based video frame extractor — extract every frame from MP4, MOV, and WEBM videos as JPG or PNG images. Perfect for AI datasets, exact timestamp extraction, and professional frame-by-frame workflows. 100% private, no server upload required.",
+    "applicationCategory": "MultimediaApplication",
+    "applicationSubCategory": "Video Frame Extractor",
+    "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
+    "browserRequirements": "Requires HTML5, WebAssembly and Javascript support",
+    "featureList": [
+      "Extract frames at exact timestamps with millisecond precision",
+      "Perfect for AI/ML image datasets and computer vision training",
+      "Export JPG or PNG with customizable FPS control",
+      "Process videos entirely in your browser (100% private)",
+      "Batch processing of multiple video files",
+      "ZIP download of extracted frames",
+      "Supports MP4, MOV, and WEBM with fallback codec support"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
     }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'extract-frames-from-video-schemas';
-    
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Free Video Frame Extractor — Extract Frames from Video",
-      "url": "https://www.videotoimagesequence.online/video-to-frames",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Free browser-based video frame extractor — extract every frame from MP4, MOV, and WEBM videos as JPG or PNG images. Perfect for AI datasets, exact timestamp extraction, and professional frame-by-frame workflows. 100% private, no server upload required.",
-      "applicationCategory": "MultimediaApplication",
-      "applicationSubCategory": "Video Frame Extractor",
-      "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
-      "browserRequirements": "Requires HTML5, WebAssembly and Javascript support",
-      "featureList": [
-        "Extract frames at exact timestamps with millisecond precision",
-        "Perfect for AI/ML image datasets and computer vision training",
-        "Export JPG or PNG with customizable FPS control",
-        "Process videos entirely in your browser (100% private)",
-        "Batch processing of multiple video files",
-        "ZIP download of extracted frames",
-        "Supports MP4, MOV, and WEBM with fallback codec support"
-      ],
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
       }
-    };
+    }))
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.a
-        }
-      }))
-    };
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Extract Video Frames at Exact Timestamps",
+    "description": "Step-by-step instructions for extracting individual video frames, perfect for AI datasets, precise frame capture, and professional workflows. Process videos entirely in your browser with millisecond precision.",
+    "totalTime": "PT2M",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Open the Video Frame Extractor",
+        "text": "Access the browser-based tool and load your MP4, MOV, or WEBM video file."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Configure Exact Frame Capture",
+        "text": "Use the video timeline player to jump to the exact timestamp (HH:MM:SS.mmm) where you want to capture a frame."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Capture Specific Frame",
+        "text": "Click 'Capture Frame' to extract the exact frame at that timestamp as JPG or PNG format."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Batch Extract for AI Datasets",
+        "text": "For AI/ML projects, use custom FPS (Frames Per Second) settings to extract multiple frames efficiently. Perfect for computer vision training datasets."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Download Extracted Frames",
+        "text": "Download individual captured frames or get all extracted frames as a ZIP archive for your project."
+      }
+    ]
+  };
 
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Extract Video Frames at Exact Timestamps",
-      "description": "Step-by-step instructions for extracting individual video frames, perfect for AI datasets, precise frame capture, and professional workflows. Process videos entirely in your browser with millisecond precision.",
-      "totalTime": "PT2M",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Open the Video Frame Extractor",
-          "text": "Access the browser-based tool and load your MP4, MOV, or WEBM video file."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Configure Exact Frame Capture",
-          "text": "Use the video timeline player to jump to the exact timestamp (HH:MM:SS.mmm) where you want to capture a frame."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Capture Specific Frame",
-          "text": "Click 'Capture Frame' to extract the exact frame at that timestamp as JPG or PNG format."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Batch Extract for AI Datasets",
-          "text": "For AI/ML projects, use custom FPS (Frames Per Second) settings to extract multiple frames efficiently. Perfect for computer vision training datasets."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Download Extracted Frames",
-          "text": "Download individual captured frames or get all extracted frames as a ZIP archive for your project."
-        }
-      ]
-    };
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
 
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
-    document.head.appendChild(script);
-
-    return () => {
-      const el = document.getElementById('extract-frames-from-video-schemas');
-      if (el) el.remove();
-    };
-  }, []);
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, organizationSchema]
+  };
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title={t('extractFrames.title')}
         description={t('extractFrames.description')}

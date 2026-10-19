@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ImagesToVideo from './ImagesToVideo';
 import SEOHead from '../components/SEOHead';
 import { localizedUrl } from '../utils/localizedRoutes';
@@ -42,87 +42,83 @@ const faqs = [
 const ImagesToVideoPage: React.FC = () => {
   const { t } = useTranslation();
   const pageLang = usePageLang();
-  useEffect(() => {
-    const existing = document.getElementById('images-to-video-schemas');
-    if (existing) {
-      existing.remove();
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "Images to Video Converter",
+    "url": "https://www.videotoimagesequence.online/images-to-video",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Convert a sequence of JPG or PNG images into a video online for free. No upload required. Browser-based, private, and fast.",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires HTML5 and Javascript support",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
     }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'images-to-video-schemas';
-    
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Images to Video Converter",
-      "url": "https://www.videotoimagesequence.online/images-to-video",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Convert a sequence of JPG or PNG images into a video online for free. No upload required. Browser-based, private, and fast.",
-      "applicationCategory": "MultimediaApplication",
-      "operatingSystem": "All",
-      "browserRequirements": "Requires HTML5 and Javascript support",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
       }
-    };
+    }))
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.a
-        }
-      }))
-    };
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Convert Images to Video Online",
+    "description": "Learn how to stitch a sequence of images into a WebM video locally in your browser.",
+    "totalTime": "PT1M",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Select Image Files",
+        "text": "Drop your image sequence files in alphabetical order into the compilation tool."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Set Frame Rate",
+        "text": "Choose the target playback speed (FPS) for the output video."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Encode the Video",
+        "text": "Compile the frames using MediaRecorder directly in your browser memory."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Save Video File",
+        "text": "Download the generated WebM video file to your local drive."
+      }
+    ]
+  };
 
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Convert Images to Video Online",
-      "description": "Learn how to stitch a sequence of images into a WebM video locally in your browser.",
-      "totalTime": "PT1M",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Select Image Files",
-          "text": "Drop your image sequence files in alphabetical order into the compilation tool."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Set Frame Rate",
-          "text": "Choose the target playback speed (FPS) for the output video."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Encode the Video",
-          "text": "Compile the frames using MediaRecorder directly in your browser memory."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Save Video File",
-          "text": "Download the generated WebM video file to your local drive."
-        }
-      ]
-    };
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
 
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
-    document.head.appendChild(script);
-
-    return () => {
-      const el = document.getElementById('images-to-video-schemas');
-      if (el) el.remove();
-    };
-  }, []);
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, organizationSchema]
+  };
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title={t('imagesToVideo.title')}
         description={t('imagesToVideo.description')}

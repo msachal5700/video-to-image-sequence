@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import FramesToGifTool from '../components/FramesToGifTool';
 import SEOHead from '../components/SEOHead';
 import { localizedUrl } from '../utils/localizedRoutes';
@@ -38,87 +38,83 @@ const faqs = [
 const FramesToGif: React.FC = () => {
   const { t } = useTranslation();
   const pageLang = usePageLang();
-  useEffect(() => {
-    const existing = document.getElementById('frames-to-gif-schemas');
-    if (existing) {
-      existing.remove();
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "Images to GIF Maker",
+    "url": "https://www.videotoimagesequence.online/frames-to-gif",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Turn JPG, PNG, or WebP image sequences into animated GIFs online for free. Reorder frames, set timing, preview, and download — 100% in your browser.",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires HTML5 and Javascript support",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
     }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'frames-to-gif-schemas';
-
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Images to GIF Maker",
-      "url": "https://www.videotoimagesequence.online/frames-to-gif",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Turn JPG, PNG, or WebP image sequences into animated GIFs online for free. Reorder frames, set timing, preview, and download — 100% in your browser.",
-      "applicationCategory": "MultimediaApplication",
-      "operatingSystem": "All",
-      "browserRequirements": "Requires HTML5 and Javascript support",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
       }
-    };
+    }))
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.a
-        }
-      }))
-    };
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Make an Animated GIF from Images Online",
+    "description": "Combine a sequence of images into a looping animated GIF directly in your browser.",
+    "totalTime": "PT2M",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Upload Your Frames",
+        "text": "Drop your JPG, PNG, or WebP images into the upload zone. They are sorted by filename automatically."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Arrange the Order",
+        "text": "Reorder frames with the arrow buttons until the sequence plays the way you want."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Set Timing and Looping",
+        "text": "Pick a frame rate or set per-frame delays in milliseconds, then choose loop-forever or a fixed play count."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Preview and Export",
+        "text": "Watch the animation preview, then render and download your animated GIF."
+      }
+    ]
+  };
 
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Make an Animated GIF from Images Online",
-      "description": "Combine a sequence of images into a looping animated GIF directly in your browser.",
-      "totalTime": "PT2M",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Upload Your Frames",
-          "text": "Drop your JPG, PNG, or WebP images into the upload zone. They are sorted by filename automatically."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Arrange the Order",
-          "text": "Reorder frames with the arrow buttons until the sequence plays the way you want."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Set Timing and Looping",
-          "text": "Pick a frame rate or set per-frame delays in milliseconds, then choose loop-forever or a fixed play count."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Preview and Export",
-          "text": "Watch the animation preview, then render and download your animated GIF."
-        }
-      ]
-    };
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
 
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
-    document.head.appendChild(script);
-
-    return () => {
-      const el = document.getElementById('frames-to-gif-schemas');
-      if (el) el.remove();
-    };
-  }, []);
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, organizationSchema]
+  };
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title={t('framesToGif.title')}
         description={t('framesToGif.description')}

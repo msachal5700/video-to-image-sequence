@@ -1,16 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import Breadcrumb from '../../components/Breadcrumb';
 import GoogleAdUnit from '../../components/GoogleAdUnit';
 import AuthorBio from '../../components/AuthorBio';
 
-const Mp4ToImageSequence: React.FC = () => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'mp4-to-image-sequence-schemas';
-    script.text = JSON.stringify({
+const blogSchema = {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
       "headline": "MP4 to Image Sequence: Complete Beginner Guide 2026",
@@ -23,16 +18,16 @@ const Mp4ToImageSequence: React.FC = () => {
       "author": { "@type": "Person", "name": "Muhammad Sachal", "url": "https://www.linkedin.com/in/sachalspeaks/", "image": "https://www.videotoimagesequence.online/muhammad-sachal.jpg" },
       "publisher": { "@type": "Organization", "name": "Video to Image Sequence Online", "logo": { "@type": "ImageObject", "url": "https://www.videotoimagesequence.online/og-image.png" } },
       "image": "https://www.videotoimagesequence.online/og-image.png"
-    });
-    document.head.appendChild(script);
-    return () => {
-      const el = document.getElementById('mp4-to-image-sequence-schemas');
-      if (el) el.remove();
     };
-  }, []);
+
+const Mp4ToImageSequence: React.FC = () => {
+
 
   return (
     <article className="max-w-3xl mx-auto py-16 px-6 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(blogSchema)}
+      </script>
       <SEOHead
         title="MP4 to Image Sequence: Complete Beginner Guide 2026"
         description="Everything you need to know about converting MP4 videos into a sequence of JPG or PNG images for editing, animation, VFX, and machine learning datasets."

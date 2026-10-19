@@ -668,71 +668,72 @@ const ImageCropTool: React.FC = () => {
 const ImageCrop: React.FC = () => {
   const { t } = useTranslation();
 
-  useEffect(() => {
-    const existing = document.getElementById('image-crop-schemas');
-    if (existing) existing.remove();
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "Freeform Image Crop Tool — Crop Any Shape Online Free",
+    "url": "https://www.videotoimagesequence.online/image-crop",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Draw any crop shape with editable points, rotate and zoom, then export the exact cutout as transparent PNG/WebP or JPG. Free, private, no signup, no watermark.",
+    "applicationCategory": "MultimediaApplication",
+    "applicationSubCategory": "Image Editor",
+    "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
+    "browserRequirements": "Requires HTML5 Canvas and Javascript support",
+    "featureList": [
+      "Draw a freeform polygon crop with clickable, draggable points",
+      "Drag nodes, edges and the whole selection to reshape freely",
+      "Rotate the image 90° left/right with the crop staying aligned",
+      "Zoom, undo/redo, and one-click reset",
+      "Export the exact irregular shape as transparent PNG or WebP",
+      "JPG export with white background fill",
+      "Process images entirely in your browser (100% private)",
+      "No watermark, no sign-up, free forever"
+    ],
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'image-crop-schemas';
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+    }))
+  };
 
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Freeform Image Crop Tool — Crop Any Shape Online Free",
-      "url": "https://www.videotoimagesequence.online/image-crop",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Draw any crop shape with editable points, rotate and zoom, then export the exact cutout as transparent PNG/WebP or JPG. Free, private, no signup, no watermark.",
-      "applicationCategory": "MultimediaApplication",
-      "applicationSubCategory": "Image Editor",
-      "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
-      "browserRequirements": "Requires HTML5 Canvas and Javascript support",
-      "featureList": [
-        "Draw a freeform polygon crop with clickable, draggable points",
-        "Drag nodes, edges and the whole selection to reshape freely",
-        "Rotate the image 90° left/right with the crop staying aligned",
-        "Zoom, undo/redo, and one-click reset",
-        "Export the exact irregular shape as transparent PNG or WebP",
-        "JPG export with white background fill",
-        "Process images entirely in your browser (100% private)",
-        "No watermark, no sign-up, free forever"
-      ],
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-    };
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Crop an Image Into Any Shape",
+    "description": "Step-by-step instructions for freeform cropping an image with an editable polygon, locally inside your web browser.",
+    "totalTime": "PT2M",
+    "step": [
+      { "@type": "HowToStep", "name": "Upload your image", "text": "Drag and drop or click to select a JPG, PNG, WebP or GIF file — or try the sample image." },
+      { "@type": "HowToStep", "name": "Trace your shape", "text": "Click anywhere on the image to place points around the area you want to keep." },
+      { "@type": "HowToStep", "name": "Close the shape", "text": "Click the first (cyan) node or press Enter to close the polygon." },
+      { "@type": "HowToStep", "name": "Refine the boundary", "text": "Drag nodes to reshape, drag an edge to add a point, double-click a node to delete it." },
+      { "@type": "HowToStep", "name": "Apply and download", "text": "Click Apply Crop and download the exact cutout as transparent PNG/WebP or JPG." }
+    ]
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": { "@type": "Answer", "text": faq.a }
-      }))
-    };
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
 
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Crop an Image Into Any Shape",
-      "description": "Step-by-step instructions for freeform cropping an image with an editable polygon, locally inside your web browser.",
-      "totalTime": "PT2M",
-      "step": [
-        { "@type": "HowToStep", "name": "Upload your image", "text": "Drag and drop or click to select a JPG, PNG, WebP or GIF file — or try the sample image." },
-        { "@type": "HowToStep", "name": "Trace your shape", "text": "Click anywhere on the image to place points around the area you want to keep." },
-        { "@type": "HowToStep", "name": "Close the shape", "text": "Click the first (cyan) node or press Enter to close the polygon." },
-        { "@type": "HowToStep", "name": "Refine the boundary", "text": "Drag nodes to reshape, drag an edge to add a point, double-click a node to delete it." },
-        { "@type": "HowToStep", "name": "Apply and download", "text": "Click Apply Crop and download the exact cutout as transparent PNG/WebP or JPG." }
-      ]
-    };
-
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
-    document.head.appendChild(script);
-
-    return () => { const el = document.getElementById('image-crop-schemas'); if (el) el.remove(); };
-  }, []);
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, organizationSchema]
+  };
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title={t('imageCrop.title')}
         description={t('imageCrop.description')}

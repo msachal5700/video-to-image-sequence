@@ -7,7 +7,7 @@
  * for the same queries.
  */
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import Breadcrumb from '../../components/Breadcrumb';
@@ -46,12 +46,7 @@ const FAQS: ReadonlyArray<{ question: string; answer: string }> = [
   },
 ];
 
-const AiBestFrameFromVideo = () => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'ai-best-frame-blog-schemas';
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [
+const blogSchema = { "@context": "https://schema.org", "@graph": [
       {
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
@@ -96,16 +91,16 @@ const AiBestFrameFromVideo = () => {
           },
         ],
       },
-    ] });
-    document.head.appendChild(script);
+    ] };
 
-    return () => {
-      document.getElementById('ai-best-frame-blog-schemas')?.remove();
-    };
-  }, []);
+const AiBestFrameFromVideo = () => {
+
 
   return (
     <>
+      <script type="application/ld+json">
+        {JSON.stringify(blogSchema)}
+      </script>
       <SEOHead
         title="How AI Picks the Best Frame From a Video (And Why It Beats Scrubbing)"
         description="A technical look at how computer vision scores video frames on sharpness, motion blur, exposure, composition and face detection to find the best thumbnail for YouTube, Instagram, TikTok and LinkedIn."

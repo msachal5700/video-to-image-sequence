@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import StopMotionCaptureTool from '../components/StopMotionCaptureTool';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
@@ -35,97 +35,93 @@ const faqs = [
 
 const StopMotionCapture: React.FC = () => {
   const { t } = useTranslation();
-  useEffect(() => {
-    const existing = document.getElementById('stop-motion-capture-schemas');
-    if (existing) {
-      existing.remove();
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "Free Stop Motion Maker — Onion Skin Animation Studio Online",
+    "url": "https://www.videotoimagesequence.online/stop-motion-capture",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Make stop motion animation free in your browser — webcam capture with onion skin ghosting, frame-by-frame preview, and GIF/WebM export. No signup, no app needed.",
+    "applicationCategory": "MultimediaApplication",
+    "applicationSubCategory": "Stop Motion Animation Tool",
+    "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
+    "browserRequirements": "Requires webcam (getUserMedia) and canvas support",
+    "featureList": [
+      "Webcam frame-by-frame capture",
+      "Onion skin ghost overlay with adjustable opacity (1–2 frames)",
+      "Spacebar capture shortcut",
+      "Filmstrip with delete and reorder",
+      "Playback preview at 1–24 fps",
+      "Export as animated GIF, WebM video, or ZIP of PNG frames",
+      "100% client-side — camera feed never leaves your browser"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
     }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'stop-motion-capture-schemas';
-
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Free Stop Motion Maker — Onion Skin Animation Studio Online",
-      "url": "https://www.videotoimagesequence.online/stop-motion-capture",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Make stop motion animation free in your browser — webcam capture with onion skin ghosting, frame-by-frame preview, and GIF/WebM export. No signup, no app needed.",
-      "applicationCategory": "MultimediaApplication",
-      "applicationSubCategory": "Stop Motion Animation Tool",
-      "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
-      "browserRequirements": "Requires webcam (getUserMedia) and canvas support",
-      "featureList": [
-        "Webcam frame-by-frame capture",
-        "Onion skin ghost overlay with adjustable opacity (1–2 frames)",
-        "Spacebar capture shortcut",
-        "Filmstrip with delete and reorder",
-        "Playback preview at 1–24 fps",
-        "Export as animated GIF, WebM video, or ZIP of PNG frames",
-        "100% client-side — camera feed never leaves your browser"
-      ],
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
       }
-    };
+    }))
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.a
-        }
-      }))
-    };
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Make a Stop Motion Animation Online",
+    "description": "Capture frame-by-frame animation with your webcam using onion-skin ghosting, then export as GIF or WebM — free in your browser.",
+    "totalTime": "PT10M",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Enable your camera",
+        "text": "Click Enable Camera and allow webcam access. The feed is processed locally and never uploaded."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Capture frames one by one",
+        "text": "Pose your subject, press the capture button or Spacebar, then move the subject slightly and capture again. The onion-skin ghost of the last frame guides each move."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Preview the animation",
+        "text": "Press Play to watch your frames at an adjustable speed from 1 to 24 fps. Delete or reorder frames in the filmstrip."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Export and share",
+        "text": "Download your animation as an animated GIF, a WebM video, or a ZIP of PNG frames for editing."
+      }
+    ]
+  };
 
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Make a Stop Motion Animation Online",
-      "description": "Capture frame-by-frame animation with your webcam using onion-skin ghosting, then export as GIF or WebM — free in your browser.",
-      "totalTime": "PT10M",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Enable your camera",
-          "text": "Click Enable Camera and allow webcam access. The feed is processed locally and never uploaded."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Capture frames one by one",
-          "text": "Pose your subject, press the capture button or Spacebar, then move the subject slightly and capture again. The onion-skin ghost of the last frame guides each move."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Preview the animation",
-          "text": "Press Play to watch your frames at an adjustable speed from 1 to 24 fps. Delete or reorder frames in the filmstrip."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Export and share",
-          "text": "Download your animation as an animated GIF, a WebM video, or a ZIP of PNG frames for editing."
-        }
-      ]
-    };
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
 
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema] });
-    document.head.appendChild(script);
-
-    return () => {
-      const el = document.getElementById('stop-motion-capture-schemas');
-      if (el) el.remove();
-    };
-  }, []);
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, organizationSchema]
+  };
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title={t('stopMotionCapture.title')}
         description={t('stopMotionCapture.description')}

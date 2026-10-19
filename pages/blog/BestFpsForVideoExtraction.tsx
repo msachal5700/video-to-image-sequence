@@ -8,13 +8,7 @@ import AuthorBio from '../../components/AuthorBio';
 const PUBLISHED = '2026-08-29';
 const CANONICAL = 'https://www.videotoimagesequence.online/blog/best-fps-settings-for-video-frame-extraction';
 
-const BestFpsForVideoExtraction: React.FC = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'best-fps-for-video-extraction-schemas';
-    script.text = JSON.stringify({
+const blogSchema = {
       '@context': 'https://schema.org',
       '@type': 'BlogPosting',
       headline: 'Best FPS Settings for Video Frame Extraction (Complete Guide)',
@@ -25,16 +19,18 @@ const BestFpsForVideoExtraction: React.FC = () => {
       author: { '@type': 'Person', name: 'Muhammad Sachal', url: 'https://www.linkedin.com/in/sachalspeaks/' },
       publisher: { '@type': 'Organization', name: 'Video to Image Sequence Online', logo: { '@type': 'ImageObject', url: 'https://www.videotoimagesequence.online/og-image.png' } },
       image: 'https://www.videotoimagesequence.online/og-image.png',
-    });
-    document.head.appendChild(script);
-    return () => {
-      const el = document.getElementById('best-fps-for-video-extraction-schemas');
-      if (el) el.remove();
     };
+
+const BestFpsForVideoExtraction: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
   }, []);
 
   return (
     <article className="max-w-3xl mx-auto py-16 px-6 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(blogSchema)}
+      </script>
       <SEOHead
         title="Best FPS Settings for Video Frame Extraction (Complete Guide) | Video to Image Sequence"
         description="Choose the right FPS when extracting frames from video. Covers 1, 5, 10, 24, and 30 FPS settings with use cases, file size estimates, and practical recommendations for every workflow."

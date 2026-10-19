@@ -252,78 +252,69 @@ const GifToFrames: React.FC = () => {
     };
   }, [frames]);
 
-  useEffect(() => {
-    const existing = document.getElementById('gif-to-frames-schemas');
-    if (existing) existing.remove();
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'gif-to-frames-schemas';
-    const webAppSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'WebApplication',
-      name: 'GIF to Frames — Free Online Extractor',
-      url: 'https://www.videotoimagesequence.online/gif-to-frames',
-      image: 'https://www.videotoimagesequence.online/og-image.png',
-      description: 'Extract every frame from any GIF or animated WebP free in your browser. Download frames as JPG, PNG, or WebP, or all at once as a ZIP.',
-      applicationCategory: 'MultimediaApplication',
-      applicationSubCategory: 'GIF to Frames Converter',
-      operatingSystem: 'All — Browser-based (Chrome, Firefox, Safari, Edge)',
-      browserRequirements: 'Requires HTML5 and Javascript support',
-      featureList: [
-        'Extract every frame from animated GIF and WebP files',
-        'Download frames as PNG, JPG, or WebP',
-        'One-click ZIP download of the full sequence',
-        'Honest frame timing and transparency handling',
-        '100% browser-based — nothing uploaded or stored',
-        'Free forever, no account, no watermark'
-      ],
-      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }
-    };
-    const faqSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: faqs.map(faq => ({
-        '@type': 'Question',
-        name: faq.q,
-        acceptedAnswer: { '@type': 'Answer', text: faq.a }
-      }))
-    };
-    const howToSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'HowTo',
-      name: 'How to Extract Frames from a GIF',
-      description: 'Pull every frame out of an animated GIF or WebP as downloadable images, free in your browser.',
-      totalTime: 'PT1M',
-      step: [
-        { '@type': 'HowToStep', name: 'Drop in your GIF or WebP', text: 'Drag the animated file onto the upload box, or click to browse. Files up to 50 MB are accepted.' },
-        { '@type': 'HowToStep', name: 'Review the extracted frames', text: 'Every frame is decoded locally and shown in a grid with its timing, ready to preview.' },
-        { '@type': 'HowToStep', name: 'Download frames or the ZIP', text: 'Save any single frame as PNG, JPG, or WebP — or download the entire sequence as one ZIP file.' }
-      ]
-    };
-    const breadcrumbSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.videotoimagesequence.online/' },
-        { '@type': 'ListItem', position: 2, name: 'GIF to Frames', item: 'https://www.videotoimagesequence.online/gif-to-frames' }
-      ]
-    };
-    const orgSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'Organization',
-      name: 'Video to Image Sequence Online',
-      url: 'https://www.videotoimagesequence.online',
-      logo: { '@type': 'ImageObject', url: 'https://www.videotoimagesequence.online/favicon.svg', width: 32, height: 32 },
-      description: 'Free online video frame extraction tool. Convert MP4, MOV, and WEBM videos to image sequences in your browser.',
-      sameAs: ['https://x.com/videotoimage']
-    };
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema, breadcrumbSchema, orgSchema] });
-    document.head.appendChild(script);
-    return () => {
-      const el = document.getElementById('gif-to-frames-schemas');
-      if (el) el.remove();
-    };
-  }, []);
+  const webAppSchema = {
+    '@type': 'WebApplication',
+    name: 'GIF to Frames — Free Online Extractor',
+    url: 'https://www.videotoimagesequence.online/gif-to-frames',
+    image: 'https://www.videotoimagesequence.online/og-image.png',
+    description: 'Extract every frame from any GIF or animated WebP free in your browser. Download frames as JPG, PNG, or WebP, or all at once as a ZIP.',
+    applicationCategory: 'MultimediaApplication',
+    applicationSubCategory: 'GIF to Frames Converter',
+    operatingSystem: 'All — Browser-based (Chrome, Firefox, Safari, Edge)',
+    browserRequirements: 'Requires HTML5 and Javascript support',
+    featureList: [
+      'Extract every frame from animated GIF and WebP files',
+      'Download frames as PNG, JPG, or WebP',
+      'One-click ZIP download of the full sequence',
+      'Honest frame timing and transparency handling',
+      '100% browser-based — nothing uploaded or stored',
+      'Free forever, no account, no watermark'
+    ],
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }
+  };
+
+  const faqSchema = {
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a }
+    }))
+  };
+
+  const howToSchema = {
+    '@type': 'HowTo',
+    name: 'How to Extract Frames from a GIF',
+    description: 'Pull every frame out of an animated GIF or WebP as downloadable images, free in your browser.',
+    totalTime: 'PT1M',
+    step: [
+      { '@type': 'HowToStep', name: 'Drop in your GIF or WebP', text: 'Drag the animated file onto the upload box, or click to browse. Files up to 50 MB are accepted.' },
+      { '@type': 'HowToStep', name: 'Review the extracted frames', text: 'Every frame is decoded locally and shown in a grid with its timing, ready to preview.' },
+      { '@type': 'HowToStep', name: 'Download frames or the ZIP', text: 'Save any single frame as PNG, JPG, or WebP — or download the entire sequence as one ZIP file.' }
+    ]
+  };
+
+  const breadcrumbSchema = {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.videotoimagesequence.online/' },
+      { '@type': 'ListItem', position: 2, name: 'GIF to Frames', item: 'https://www.videotoimagesequence.online/gif-to-frames' }
+    ]
+  };
+
+  const orgSchema = {
+    '@type': 'Organization',
+    name: 'Video to Image Sequence Online',
+    url: 'https://www.videotoimagesequence.online',
+    logo: { '@type': 'ImageObject', url: 'https://www.videotoimagesequence.online/favicon.svg', width: 32, height: 32 },
+    description: 'Free online video frame extraction tool. Convert MP4, MOV, and WEBM videos to image sequences in your browser.',
+    sameAs: ['https://x.com/videotoimage']
+  };
+
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, breadcrumbSchema, orgSchema]
+  };
 
   const handleFile = async (file: File) => {
     setError('');
@@ -409,6 +400,9 @@ const GifToFrames: React.FC = () => {
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title={t('gifToFrames.title')}
         description={t('gifToFrames.description')}

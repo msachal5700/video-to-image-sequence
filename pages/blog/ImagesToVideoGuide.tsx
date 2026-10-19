@@ -8,42 +8,42 @@ import AuthorBio from '../../components/AuthorBio';
 const PUBLISHED = '2026-08-29';
 const CANONICAL = 'https://www.videotoimagesequence.online/blog/how-to-convert-images-to-video-guide';
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'What image formats can be stitched into video?', acceptedAnswer: { '@type': 'Answer', text: 'PNG and JPG image sequences are fully supported. PNG is recommended for animation and graphics due to zero compression artifacts. JPG works well for photo-based sequences where file size matters.' } },
+    { '@type': 'Question', name: 'How does frame rate affect video playback length?', acceptedAnswer: { '@type': 'Answer', text: 'Video duration equals total image frames divided by FPS. For example, 120 images at 30 FPS result in a 4-second video. At 12 FPS, the same 120 images produce a 10-second video.' } },
+    { '@type': 'Question', name: 'Does image sequence to video conversion run on a server?', acceptedAnswer: { '@type': 'Answer', text: 'No. All canvas rendering and video encoding happen locally inside your web browser using HTML5 Canvas and MediaRecorder APIs. Your images never leave your device.' } },
+    { '@type': 'Question', name: 'What video format does the output use?', acceptedAnswer: { '@type': 'Answer', text: 'The browser-based encoder outputs WebM format, which is widely supported across Chrome, Firefox, Edge, and Safari. WebM is an open, royalty-free format well suited for web delivery.' } },
+    { '@type': 'Question', name: 'Can I control the order of frames in the output video?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. The tool displays your images in a numbered grid. You can drag and reorder them before rendering to control the sequence of frames in the final video.' } },
+  ],
+};
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: 'How to Convert Image Sequences into Video (Complete Guide)',
+  description: 'Learn how to stitch PNG and JPG image sequences into video files online. Covers FPS settings, frame ordering, file formats, use cases for 3D animation and stop-motion, and browser memory tips.',
+  url: CANONICAL,
+  datePublished: PUBLISHED,
+  dateModified: PUBLISHED,
+  author: { '@type': 'Person', name: 'Muhammad Sachal', url: 'https://www.linkedin.com/in/sachalspeaks/' },
+};
+
 const ImagesToVideoGuide: React.FC = () => {
-  useEffect(() => {
+useEffect(() => {
     window.scrollTo(0, 0);
-    const faqSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: [
-        { '@type': 'Question', name: 'What image formats can be stitched into video?', acceptedAnswer: { '@type': 'Answer', text: 'PNG and JPG image sequences are fully supported. PNG is recommended for animation and graphics due to zero compression artifacts. JPG works well for photo-based sequences where file size matters.' } },
-        { '@type': 'Question', name: 'How does frame rate affect video playback length?', acceptedAnswer: { '@type': 'Answer', text: 'Video duration equals total image frames divided by FPS. For example, 120 images at 30 FPS result in a 4-second video. At 12 FPS, the same 120 images produce a 10-second video.' } },
-        { '@type': 'Question', name: 'Does image sequence to video conversion run on a server?', acceptedAnswer: { '@type': 'Answer', text: 'No. All canvas rendering and video encoding happen locally inside your web browser using HTML5 Canvas and MediaRecorder APIs. Your images never leave your device.' } },
-        { '@type': 'Question', name: 'What video format does the output use?', acceptedAnswer: { '@type': 'Answer', text: 'The browser-based encoder outputs WebM format, which is widely supported across Chrome, Firefox, Edge, and Safari. WebM is an open, royalty-free format well suited for web delivery.' } },
-        { '@type': 'Question', name: 'Can I control the order of frames in the output video?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. The tool displays your images in a numbered grid. You can drag and reorder them before rendering to control the sequence of frames in the final video.' } },
-      ],
-    };
-    const articleSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'TechArticle',
-      headline: 'How to Convert Image Sequences into Video (Complete Guide)',
-      description: 'Learn how to stitch PNG and JPG image sequences into video files online. Covers FPS settings, frame ordering, file formats, use cases for 3D animation and stop-motion, and browser memory tips.',
-      url: CANONICAL,
-      datePublished: PUBLISHED,
-      dateModified: PUBLISHED,
-      author: { '@type': 'Person', name: 'Muhammad Sachal', url: 'https://www.linkedin.com/in/sachalspeaks/' },
-    };
-    const s1 = document.createElement('script'); s1.type = 'application/ld+json'; s1.id = 'images-to-video-guide-schemas-1'; s1.text = JSON.stringify(faqSchema); document.head.appendChild(s1);
-    const s2 = document.createElement('script'); s2.type = 'application/ld+json'; s2.id = 'images-to-video-guide-schemas-2'; s2.text = JSON.stringify(articleSchema); document.head.appendChild(s2);
-    return () => {
-      const el1 = document.getElementById('images-to-video-guide-schemas-1');
-      if (el1) el1.remove();
-      const el2 = document.getElementById('images-to-video-guide-schemas-2');
-      if (el2) el2.remove();
-    };
   }, []);
 
   return (
     <article className="max-w-3xl mx-auto py-16 px-6 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(faqSchema)}
+      </script>
+      <script type="application/ld+json">
+        {JSON.stringify(articleSchema)}
+      </script>
       <SEOHead
         title="How to Convert Images into Video (Step-by-Step Guide) | Video to Image Sequence"
         description="Learn how to turn PNG and JPG image sequences back into video files online. Covers FPS frame rates, canvas stitching, browser encoding, use cases for 3D animation, stop-motion, and time-lapse."

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
 import GoogleAdUnit from '../components/GoogleAdUnit';
@@ -44,70 +44,77 @@ const faqs = [
 const GifToMp4: React.FC = () => {
   const { t } = useTranslation();
 
-  useEffect(() => {
-    const existing = document.getElementById('gif-to-mp4-schemas');
-    if (existing) existing.remove();
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'gif-to-mp4-schemas';
-    const webAppSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'WebApplication',
-      name: 'GIF to MP4 — Free Online Converter',
-      url: 'https://www.videotoimagesequence.online/gif-to-mp4',
-      image: 'https://www.videotoimagesequence.online/og-image.png',
-      description: 'Convert animated GIF and WebP files to MP4 video free in your browser. Smaller files, smoother playback, no upload, no signup.',
-      applicationCategory: 'MultimediaApplication',
-      applicationSubCategory: 'GIF to MP4 Converter',
-      operatingSystem: 'All — Browser-based (Chrome, Edge, Safari, Firefox)',
-      browserRequirements: 'Requires HTML5 and Javascript support',
-      featureList: [
-        'Convert animated GIF to MP4 (H.264) in the browser',
-        'Animated WebP to MP4 supported too',
-        'Manual framerate, quality, and transparency-background controls',
-        'Original vs converted file-size comparison',
-        'Honest browser-support labeling (WebM fallback where MP4 is unavailable)',
-        '100% browser-based — nothing uploaded or stored',
-        'Free forever, no account, no watermark'
-      ],
-      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }
-    };
-    const faqSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: faqs.map(faq => ({
-        '@type': 'Question',
-        name: faq.q,
-        acceptedAnswer: { '@type': 'Answer', text: faq.a }
-      }))
-    };
-    const howToSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'HowTo',
-      name: 'How to Convert a GIF to MP4',
-      description: 'Turn an animated GIF or WebP into a smaller, smoother MP4 video file, free in your browser.',
-      totalTime: 'PT1M',
-      step: [
-        { '@type': 'HowToStep', name: 'Drop in your GIF', text: 'Drag the animated file onto the upload box, or click to browse. Files up to 50 MB are accepted.' },
-        { '@type': 'HowToStep', name: 'Tune the manual settings', text: 'Pick a framerate, quality level, and background color for transparent pixels — or leave the defaults.' },
-        { '@type': 'HowToStep', name: 'Convert and download', text: 'The animation is re-encoded as H.264 video on your device. Download the MP4 and compare the file size.' }
-      ]
-    };
-    const breadcrumbSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.videotoimagesequence.online/' },
-        { '@type': 'ListItem', position: 2, name: 'GIF to MP4', item: 'https://www.videotoimagesequence.online/gif-to-mp4' }
-      ]
-    };
-    script.textContent = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema, breadcrumbSchema] });
-    document.head.appendChild(script);
-    return () => { const el = document.getElementById('gif-to-mp4-schemas'); if (el) el.remove(); };
-  }, []);
+  const webAppSchema = {
+    '@type': 'WebApplication',
+    name: 'GIF to MP4 — Free Online Converter',
+    url: 'https://www.videotoimagesequence.online/gif-to-mp4',
+    image: 'https://www.videotoimagesequence.online/og-image.png',
+    description: 'Convert animated GIF and WebP files to MP4 video free in your browser. Smaller files, smoother playback, no upload, no signup.',
+    applicationCategory: 'MultimediaApplication',
+    applicationSubCategory: 'GIF to MP4 Converter',
+    operatingSystem: 'All — Browser-based (Chrome, Edge, Safari, Firefox)',
+    browserRequirements: 'Requires HTML5 and Javascript support',
+    featureList: [
+      'Convert animated GIF to MP4 (H.264) in the browser',
+      'Animated WebP to MP4 supported too',
+      'Manual framerate, quality, and transparency-background controls',
+      'Original vs converted file-size comparison',
+      'Honest browser-support labeling (WebM fallback where MP4 is unavailable)',
+      '100% browser-based — nothing uploaded or stored',
+      'Free forever, no account, no watermark'
+    ],
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }
+  };
+
+  const faqSchema = {
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a }
+    }))
+  };
+
+  const howToSchema = {
+    '@type': 'HowTo',
+    name: 'How to Convert a GIF to MP4',
+    description: 'Turn an animated GIF or WebP into a smaller, smoother MP4 video file, free in your browser.',
+    totalTime: 'PT1M',
+    step: [
+      { '@type': 'HowToStep', name: 'Drop in your GIF', text: 'Drag the animated file onto the upload box, or click to browse. Files up to 50 MB are accepted.' },
+      { '@type': 'HowToStep', name: 'Tune the manual settings', text: 'Pick a framerate, quality level, and background color for transparent pixels — or leave the defaults.' },
+      { '@type': 'HowToStep', name: 'Convert and download', text: 'The animation is re-encoded as H.264 video on your device. Download the MP4 and compare the file size.' }
+    ]
+  };
+
+  const breadcrumbSchema = {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.videotoimagesequence.online/' },
+      { '@type': 'ListItem', position: 2, name: 'GIF to MP4', item: 'https://www.videotoimagesequence.online/gif-to-mp4' }
+    ]
+  };
+
+  const organizationSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/og-image.png"
+    }
+  };
+
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, breadcrumbSchema, organizationSchema]
+  };
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title={t('gifToMp4.title')}
         description={t('gifToMp4.description')}

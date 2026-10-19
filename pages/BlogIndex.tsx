@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
@@ -81,39 +81,26 @@ const posts = [
 
 
 const BlogIndex: React.FC = () => {
-  useEffect(() => {
-    const existing = document.getElementById('blog-index-schemas');
-    if (existing) {
-      existing.remove();
-    }
-
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'blog-index-schemas';
-    script.text = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "name": "Video to Image Sequence Online Blog Posts",
-      // Derived from `posts` so the schema can never drift out of sync with the
-      // rendered list — the previous hardcoded copy had to be edited twice.
-      "numberOfItems": posts.length,
-      "itemListElement": posts.map((post, index) => ({
-        "@type": "ListItem",
-        "position": index + 1,
-        "name": post.title,
-        "url": `https://www.videotoimagesequence.online/blog/${post.slug}`
-      }))
-    });
-
-    document.head.appendChild(script);
-    return () => {
-      const el = document.getElementById('blog-index-schemas');
-      if (el) el.remove();
-    };
-  }, []);
+  const blogSchemas = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Video to Image Sequence Online Blog Posts",
+    // Derived from `posts` so the schema can never drift out of sync with the
+    // rendered list — the previous hardcoded copy had to be edited twice.
+    "numberOfItems": posts.length,
+    "itemListElement": posts.map((post, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": post.title,
+      "url": `https://www.videotoimagesequence.online/blog/${post.slug}`
+    }))
+  };
 
   return (
     <main className="max-w-4xl mx-auto py-16 px-6 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(blogSchemas)}
+      </script>
       <SEOHead
         title="Video Editing Guides & Tutorials | Video to Image Sequence Blog"
         description="Free guides on extracting video frames, converting MP4 to image sequences, and exporting PNG frames. Tips for animators, developers, and creators."

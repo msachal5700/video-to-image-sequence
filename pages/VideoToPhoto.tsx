@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import VideoToImages from './VideoToImages';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
@@ -43,126 +43,110 @@ const faqs = [
 
 const VideoToPhoto: React.FC = () => {
   const { t } = useTranslation();
-  useEffect(() => {
-    const existing = document.getElementById('video-to-photo-schemas');
-    if (existing) {
-      existing.remove();
+  const webAppSchema = {
+    "@type": "WebApplication",
+    "name": "Video to Photo — Turn Any Video Frame into a Full-Quality Photo",
+    "url": "https://www.videotoimagesequence.online/video-to-photo",
+    "image": "https://www.videotoimagesequence.online/og-image.png",
+    "description": "Pull the perfect still from any video — save any frame as a full-quality JPG or PNG photo in your browser. No upload, no app, no signup. Works on iPhone & Android.",
+    "applicationCategory": "MultimediaApplication",
+    "applicationSubCategory": "Video to Photo Converter",
+    "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
+    "browserRequirements": "Requires HTML5, WebAssembly and Javascript support",
+    "featureList": [
+      "Save any video frame as a JPG or PNG photo",
+      "Full native video resolution — up to 4K stills",
+      "Works on iPhone, Android, and desktop browsers",
+      "100% browser-based — videos never leave your device",
+      "Download single photos or the whole set as a ZIP"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
     }
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'video-to-photo-schemas';
-
-    const webAppSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Video to Photo — Turn Any Video Frame into a Full-Quality Photo",
-      "url": "https://www.videotoimagesequence.online/video-to-photo",
-      "image": "https://www.videotoimagesequence.online/og-image.png",
-      "description": "Pull the perfect still from any video — save any frame as a full-quality JPG or PNG photo in your browser. No upload, no app, no signup. Works on iPhone & Android.",
-      "applicationCategory": "MultimediaApplication",
-      "applicationSubCategory": "Video to Photo Converter",
-      "operatingSystem": "All — Browser-based (Chrome, Firefox, Safari, Edge)",
-      "browserRequirements": "Requires HTML5, WebAssembly and Javascript support",
-      "featureList": [
-        "Save any video frame as a JPG or PNG photo",
-        "Full native video resolution — up to 4K stills",
-        "Works on iPhone, Android, and desktop browsers",
-        "100% browser-based — videos never leave your device",
-        "Download single photos or the whole set as a ZIP"
-      ],
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+  const faqSchema = {
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
       }
-    };
+    }))
+  };
 
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.a
-        }
-      }))
-    };
-
-    const howToSchema = {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Convert a Video to a Photo Online",
-      "description": "Save any frame of an MP4, MOV, or WEBM video as a full-quality JPG or PNG photo, free in your browser.",
-      "totalTime": "PT1M",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Drop in your video",
-          "text": "Add an MP4, MOV, or WEBM file — it is decoded locally in your browser and never uploaded."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Pick the moment",
-          "text": "Browse the extracted frame grid and find the exact photo-worthy instant."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Save the photo",
-          "text": "Download the frame as a JPG or PNG at full native resolution, or ZIP the whole set."
-        }
-      ]
-    };
-
-    const breadcrumbSchema = {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.videotoimagesequence.online/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Video to Photo Converter",
-          "item": "https://www.videotoimagesequence.online/video-to-photo"
-        }
-      ]
-    };
-
-    const orgSchema = {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Video to Image Sequence Online",
-      "url": "https://www.videotoimagesequence.online",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.videotoimagesequence.online/favicon.svg",
-        "width": 32,
-        "height": 32
+  const howToSchema = {
+    "@type": "HowTo",
+    "name": "How to Convert a Video to a Photo Online",
+    "description": "Save any frame of an MP4, MOV, or WEBM video as a full-quality JPG or PNG photo, free in your browser.",
+    "totalTime": "PT1M",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Drop in your video",
+        "text": "Add an MP4, MOV, or WEBM file — it is decoded locally in your browser and never uploaded."
       },
-      "description": "Free online video frame extraction tool. Convert MP4, MOV, and WEBM videos to image sequences in your browser.",
-      "sameAs": [
-        "https://x.com/videotoimage"
-      ]
-    };
+      {
+        "@type": "HowToStep",
+        "name": "Pick the moment",
+        "text": "Browse the extracted frame grid and find the exact photo-worthy instant."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Save the photo",
+        "text": "Download the frame as a JPG or PNG at full native resolution, or ZIP the whole set."
+      }
+    ]
+  };
 
-    script.text = JSON.stringify({ "@context": "https://schema.org", "@graph": [webAppSchema, faqSchema, howToSchema, breadcrumbSchema, orgSchema] });
-    document.head.appendChild(script);
+  const breadcrumbSchema = {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.videotoimagesequence.online/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Video to Photo Converter",
+        "item": "https://www.videotoimagesequence.online/video-to-photo"
+      }
+    ]
+  };
 
-    return () => {
-      const el = document.getElementById('video-to-photo-schemas');
-      if (el) el.remove();
-    };
-  }, []);
+  const orgSchema = {
+    "@type": "Organization",
+    "name": "Video to Image Sequence Online",
+    "url": "https://www.videotoimagesequence.online",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.videotoimagesequence.online/favicon.svg",
+      "width": 32,
+      "height": 32
+    },
+    "description": "Free online video frame extraction tool. Convert MP4, MOV, and WEBM videos to image sequences in your browser.",
+    "sameAs": [
+      "https://x.com/videotoimage"
+    ]
+  };
+
+  const pageSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [webAppSchema, faqSchema, howToSchema, breadcrumbSchema, orgSchema]
+  };
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
+      <script type="application/ld+json">
+        {JSON.stringify(pageSchemas)}
+      </script>
       <SEOHead
         title={t('videoToPhoto.title')}
         description={t('videoToPhoto.description')}
