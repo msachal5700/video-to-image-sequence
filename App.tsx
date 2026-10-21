@@ -33,6 +33,15 @@ import AiSocialMediaFramePicker from './pages/AiSocialMediaFramePicker';
 import AiBestFrameFromVideo from './pages/blog/AiBestFrameFromVideo';
 import ImagesToVideoGuide from './pages/blog/ImagesToVideoGuide';
 import EzgifAlternative from './pages/blog/EzgifAlternative';
+import FrameExtractionFpsGuide from './pages/blog/FrameExtractionFpsGuide';
+import GifToMp4WhyHow from './pages/blog/GifToMp4WhyHow';
+import StopMotionBeginners from './pages/blog/StopMotionBeginners';
+import VideoContactSheetsGuide from './pages/blog/VideoContactSheetsGuide';
+import VideoThumbnailsThatGetClicks from './pages/blog/VideoThumbnailsThatGetClicks';
+import SpriteSheetsGameDevs from './pages/blog/SpriteSheetsGameDevs';
+import ColorPalettesFilmStills from './pages/blog/ColorPalettesFilmStills';
+import LectureNotesFromVideos from './pages/blog/LectureNotesFromVideos';
+import SmartSceneDetectionGuide from './pages/blog/SmartSceneDetectionGuide';
 import VideoFrameExtractorUseCases from './pages/blog/VideoFrameExtractorUseCases';
 import BestFpsForVideoExtraction from './pages/blog/BestFpsForVideoExtraction';
 import ContactPage from './pages/ContactPage';
@@ -173,6 +182,15 @@ const App: React.FC = () => {
                 <Route path="/blog/ai-best-frame-from-video" element={<AiBestFrameFromVideo />} />
                 <Route path="/blog/how-to-convert-images-to-video-guide" element={<ImagesToVideoGuide />} />
                 <Route path="/blog/ezgif-alternative-video-to-image-sequence" element={<EzgifAlternative />} />
+                <Route path="/blog/frame-extraction-fps-vs-interval-guide" element={<FrameExtractionFpsGuide />} />
+                <Route path="/blog/gif-to-mp4-why-and-how" element={<GifToMp4WhyHow />} />
+                <Route path="/blog/stop-motion-for-beginners" element={<StopMotionBeginners />} />
+                <Route path="/blog/video-contact-sheets-guide" element={<VideoContactSheetsGuide />} />
+                <Route path="/blog/video-thumbnails-that-get-clicks" element={<VideoThumbnailsThatGetClicks />} />
+                <Route path="/blog/sprite-sheets-explained-game-devs" element={<SpriteSheetsGameDevs />} />
+                <Route path="/blog/color-palettes-from-film-stills" element={<ColorPalettesFilmStills />} />
+                <Route path="/blog/lecture-notes-from-videos" element={<LectureNotesFromVideos />} />
+                <Route path="/blog/smart-scene-detection-guide" element={<SmartSceneDetectionGuide />} />
                 <Route path="/blog/video-frame-extractor-use-cases" element={<VideoFrameExtractorUseCases />} />
                 <Route path="/blog/best-fps-settings-for-video-frame-extraction" element={<BestFpsForVideoExtraction />} />
                 <Route path="/blog/how-many-frames-per-second" element={<HowManyFramesPerSecond />} />
