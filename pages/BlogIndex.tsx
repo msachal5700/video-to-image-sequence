@@ -6,6 +6,60 @@ import GoogleAdUnit from '../components/GoogleAdUnit';
 
 const posts = [
   {
+    slug: 'frame-extraction-fps-vs-interval-guide',
+    title: 'Frame Extraction: FPS vs Every-N-Seconds — How Browser Extraction Works (2026)',
+    date: 'October 21, 2026',
+    description: 'Video frame extraction guide: how browser-based extraction works, and how to choose between FPS mode and every-N-seconds mode. Get exactly the frames you need — free, no upload.',
+  },
+  {
+    slug: 'gif-to-mp4-why-and-how',
+    title: 'GIF to MP4: Why Converting Saves 80%+ on File Size (Free Converter)',
+    date: 'October 21, 2026',
+    description: 'Why convert GIF to MP4? The same animation is typically 5–10× smaller as MP4 with better color. Learn when conversion pays off, when it doesn’t, and how to do it free in your browser — no upload.',
+  },
+  {
+    slug: 'stop-motion-for-beginners',
+    title: 'Stop Motion for Beginners: Make Your First Animation (2026)',
+    date: 'October 21, 2026',
+    description: 'Stop motion for beginners: the gear you actually need, frame rate math, capture workflow, and free apps — including a browser-based stop motion app with onion skin. No install.',
+  },
+  {
+    slug: 'video-contact-sheets-guide',
+    title: 'Video Contact Sheet: Review a Whole Video at a Glance (2026)',
+    date: 'October 21, 2026',
+    description: 'What is a video contact sheet? Learn how to review long videos at a glance with a thumbnail grid — with ffmpeg, VLC, and a free browser-based tool that never uploads your file.',
+  },
+  {
+    slug: 'video-thumbnails-that-get-clicks',
+    title: 'Video Thumbnails That Get Clicks: 9 YouTube Thumbnail Tips (2026)',
+    date: 'October 21, 2026',
+    description: '9 proven YouTube thumbnail tips that actually increase CTR — phone-first design, faces, contrast, safe zones, specs, and Test & Compare. Free 2026 guide.',
+  },
+  {
+    slug: 'sprite-sheets-explained-game-devs',
+    title: 'Sprite Sheets Explained for Game Devs: From Video Clips to Game-Ready Frames',
+    date: 'October 21, 2026',
+    description: 'What is a sprite sheet? A game-dev guide to sprite sheets — why Godot and Unity love them, and how to convert video clips into game-ready animation frames.',
+  },
+  {
+    slug: 'color-palettes-from-film-stills',
+    title: 'Color Palettes from Film Stills: How to Extract Movie Colors from Any Video',
+    date: 'October 21, 2026',
+    description: 'Learn how to extract color palettes from film stills and any video — the 60-30-10 rule, genre color grammar, k-means extraction explained, and a free browser-based workflow.',
+  },
+  {
+    slug: 'lecture-notes-from-videos',
+    title: 'How to Take Notes from Lecture Videos (Without Rewatching Them Three Times)',
+    date: 'October 21, 2026',
+    description: 'Stop pausing and rewinding. A practical method for lecture videos: watch once with attention, then extract key frames as visual study notes — free, in your browser.',
+  },
+  {
+    slug: 'smart-scene-detection-guide',
+    title: 'Smart Scene Detection in Video: When to Use It (and When Not To)',
+    date: 'October 21, 2026',
+    description: 'Scene detection extracts one frame per shot instead of hundreds of duplicates. Learn how it works, when it beats interval/FPS modes, how to tune sensitivity — free browser tool included.',
+  },
+  {
     slug: 'extract-frames-from-video-online',
     title: 'How to Extract Frames from Video Online (Free, No Install)',
     date: 'April 2026',
