@@ -102,24 +102,6 @@ const VideoThumbnailMaker: React.FC = () => {
     ]
   };
 
-  const breadcrumbSchema = {
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://www.videotoimagesequence.online/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Video Thumbnail Maker",
-        "item": "https://www.videotoimagesequence.online/video-thumbnail-maker"
-      }
-    ]
-  };
-
   const orgSchema = {
     "@type": "Organization",
     "name": "Video to Image Sequence Online",
@@ -138,7 +120,7 @@ const VideoThumbnailMaker: React.FC = () => {
 
   const pageSchemas = {
     "@context": "https://schema.org",
-    "@graph": [webAppSchema, faqSchema, howToSchema, breadcrumbSchema, orgSchema]
+    "@graph": [webAppSchema, faqSchema, howToSchema, orgSchema]
   };
 
   return (

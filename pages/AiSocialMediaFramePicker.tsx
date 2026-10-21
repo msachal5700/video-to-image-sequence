@@ -87,19 +87,6 @@ const AiSocialMediaFramePicker = () => {
     })),
   };
 
-  const breadcrumbSchema = {
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'AI Social Media Frame Picker',
-        item: CANONICAL,
-      },
-    ],
-  };
-
   const howToSchema = {
     '@type': 'HowTo',
     name: 'How to find the best thumbnail frame in a video with AI',
@@ -144,7 +131,7 @@ const AiSocialMediaFramePicker = () => {
 
   const pageSchemas = {
     "@context": "https://schema.org",
-    "@graph": [softwareSchema, faqSchema, breadcrumbSchema, howToSchema, organizationSchema]
+    "@graph": [softwareSchema, faqSchema, howToSchema, organizationSchema]
   };
 
   return (

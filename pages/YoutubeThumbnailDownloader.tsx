@@ -131,24 +131,6 @@ const YoutubeThumbnailDownloader: React.FC = () => {
     ]
   };
 
-  const breadcrumbSchema = {
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://www.videotoimagesequence.online/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "YouTube Thumbnail Downloader",
-        "item": "https://www.videotoimagesequence.online/youtube-thumbnail-downloader"
-      }
-    ]
-  };
-
   const orgSchema = {
     "@type": "Organization",
     "name": "Video to Image Sequence Online",
@@ -167,7 +149,7 @@ const YoutubeThumbnailDownloader: React.FC = () => {
 
   const pageSchemas = {
     "@context": "https://schema.org",
-    "@graph": [webAppSchema, faqSchema, howToSchema, breadcrumbSchema, orgSchema]
+    "@graph": [webAppSchema, faqSchema, howToSchema, orgSchema]
   };
 
   const handleFetch = () => {
