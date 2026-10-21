@@ -58,15 +58,6 @@ const ContactPage: React.FC = () => {
     }
   };
 
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.videotoimagesequence.online/' },
-      { '@type': 'ListItem', position: 2, name: 'Contact', item: CANONICAL }
-    ]
-  };
-
   return (
     <>
       <SEOHead
@@ -80,7 +71,6 @@ const ContactPage: React.FC = () => {
       />
 
       <script type="application/ld+json">{JSON.stringify(contactSchema)}</script>
-      <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
 
       <div className="w-full mx-auto pb-20 font-sans text-gray-300">
         

@@ -84,14 +84,6 @@ const VideoLooper: React.FC = () => {
     ]
   };
 
-  const breadcrumbSchema = {
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.videotoimagesequence.online/' },
-      { '@type': 'ListItem', position: 2, name: 'Video Looper', item: 'https://www.videotoimagesequence.online/video-looper' }
-    ]
-  };
-
   const organizationSchema = {
     "@type": "Organization",
     "name": "Video to Image Sequence Online",
@@ -104,7 +96,7 @@ const VideoLooper: React.FC = () => {
 
   const pageSchemas = {
     "@context": "https://schema.org",
-    "@graph": [webAppSchema, faqSchema, howToSchema, breadcrumbSchema, organizationSchema]
+    "@graph": [webAppSchema, faqSchema, howToSchema, organizationSchema]
   };
 
   return (

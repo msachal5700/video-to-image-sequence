@@ -68,25 +68,6 @@ const AboutPage: React.FC = () => {
     }
   };
 
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: 'https://www.videotoimagesequence.online/'
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'About',
-        item: CANONICAL
-      }
-    ]
-  };
-
   return (
     <>
       <SEOHead
@@ -101,7 +82,6 @@ const AboutPage: React.FC = () => {
 
       <script type="application/ld+json">{JSON.stringify(personSchema)}</script>
       <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
-      <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
 
       <div className="w-full mx-auto pb-20 font-sans text-gray-300">
         

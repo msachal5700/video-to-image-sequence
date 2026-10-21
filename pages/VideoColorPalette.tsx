@@ -95,24 +95,6 @@ const VideoColorPalette: React.FC = () => {
     ]
   };
 
-  const breadcrumbSchema = {
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://www.videotoimagesequence.online/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Video Color Palette Extractor",
-        "item": "https://www.videotoimagesequence.online/video-color-palette"
-      }
-    ]
-  };
-
   const orgSchema = {
     "@type": "Organization",
     "name": "Video to Image Sequence Online",
@@ -131,7 +113,7 @@ const VideoColorPalette: React.FC = () => {
 
   const pageSchemas = {
     "@context": "https://schema.org",
-    "@graph": [webAppSchema, faqSchema, howToSchema, breadcrumbSchema, orgSchema]
+    "@graph": [webAppSchema, faqSchema, howToSchema, orgSchema]
   };
 
   return (
