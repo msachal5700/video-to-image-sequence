@@ -8,6 +8,10 @@ import JSZip from 'jszip';
 
 const faqs = [
   {
+    q: 'What is a GIF splitter?',
+    a: 'A GIF splitter breaks an animated GIF into its individual still frames. Drop your GIF into the tool above and each frame is decoded right in your browser — preview every frame, download any single one as JPG, PNG, or WebP, or grab the whole sequence as a ZIP. Nothing is uploaded to a server.'
+  },
+  {
     q: 'How do I extract frames from a GIF?',
     a: 'Drop your GIF file onto the box above (or click to browse for it). The tool decodes every frame of the animation right in your browser and shows them in a grid. Download any single frame as JPG, PNG, or WebP — or hit "Download all as ZIP" to grab the whole sequence at once. Nothing is uploaded anywhere.'
   },

@@ -793,11 +793,11 @@
     "keywords": "extract images from lecture video, lecture video to pdf, video to study notes, video lecture notes extractor, save frames from online class"
   },
   "gifToFrames": {
-    "title": "GIF to Frames — Free Online Extractor, No Signup",
-    "description": "Extract frames from any GIF or animated WebP free in your browser — download as JPG, PNG, or WebP images, or grab them all as a ZIP. No upload, no signup.",
-    "h1": "GIF to Frames",
-    "h1Sub": "Extract Every Frame in Your Browser",
-    "hero": "A GIF is a flipbook pretending to be a picture. Drop one in and pull it apart: every frame decoded locally with its timing and transparency intact, downloadable as JPG, PNG, or WebP — or all at once as a ZIP. Free, no signup, nothing uploaded.",
+    "title": "GIF Splitter — Split GIF into Frames Online Free",
+    "description": "Free GIF splitter: split animated GIFs and WebP into individual frames online. Extract every frame in your browser, download as JPG/PNG/WebP or ZIP. No upload, no signup.",
+    "h1": "GIF Splitter",
+    "h1Sub": "Split GIF into Frames — Free, In Your Browser",
+    "hero": "Split any animated GIF or WebP into its individual frames right in your browser. Preview every frame, download singles as JPG, PNG, or WebP, or grab the full sequence as a ZIP. No upload, no signup, no watermark.",
     "keywords": "gif to frames, extract frames from gif, gif to image sequence, webp to frames, animated webp to frames, gif frame extractor"
   },
   "gifToMp4": {
