@@ -44,7 +44,7 @@ const ImagesToVideoPage: React.FC = () => {
   const pageLang = usePageLang();
   const webAppSchema = {
     "@type": "WebApplication",
-    "name": "Images to Video Converter",
+    "name": "Image Sequence to MP4 Converter",
     "url": "https://www.videotoimagesequence.online/images-to-video",
     "image": "https://www.videotoimagesequence.online/og-image.png",
     "description": "Convert a sequence of JPG or PNG images into a video online for free. No upload required. Browser-based, private, and fast.",
