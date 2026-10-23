@@ -16,6 +16,14 @@ const faqs = [
     a: 'It depends on the frame rate you choose. At 1 frame per second, a 60-second video produces 60 images. At the video\u2019s native 30 fps, the same clip produces 1,800 images. Lower rates are best for thumbnails and contact sheets; higher rates suit animation work and AI datasets where every moment matters.'
   },
   {
+    q: 'How many frames can I extract without crashing the browser?',
+    a: 'The tool sets no hard frame limit — the real ceiling is your browser tab\u2019s memory, which depends on device RAM, video resolution and length, and output format. The extractor is built to stay lean: frames are captured one at a time and streamed into the ZIP download, the on-screen grid shows only 30 previews at once, and previously processed frames are released between batch videos. As a rule of thumb, extractions of a few hundred frames work smoothly on almost any device; if you need thousands of frames from a long or 4K video, switch to every-N-seconds interval mode or a lower frame rate, keep a single tab open, and download the ZIP instead of opening every image.'
+  },
+  {
+    q: 'What should I do if extraction slows down or the tab runs out of memory?',
+    a: 'Your video is never uploaded — all processing happens locally — so nothing is lost: the original file stays untouched on your device. If the tab stalls, cancel the extraction and retry with a lower frame rate or a longer interval, close other heavy tabs, and prefer a desktop browser (Chrome or Firefox) for very large jobs. PNG output uses more memory than JPG at full resolution, so switching to JPG helps; for very long videos, split the clip into shorter segments and extract each separately.'
+  },
+  {
     q: 'What is the difference between converting video to frames and taking a screenshot?',
     a: 'A screenshot captures one hand-picked moment. Converting video to frames produces the entire sequence systematically — evenly spaced, sequentially numbered, and complete. If you need three stills, take screenshots; if you need every moment of a clip as images, convert the video to frames.'
   },
