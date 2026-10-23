@@ -109,8 +109,8 @@
   "home": {
     "title": "Video to Image Sequence — Free MP4 to JPG/PNG Converter",
     "description": "Turn any video into JPG/PNG image sequences free — right in your browser. No upload, no signup, 100% private. Custom FPS, ZIP download.",
-    "h1": "Free Video Frame Extractor",
-    "h1Sub": "Extract Frames from Video",
+    "h1": "Video to Image Sequence Converter",
+    "h1Sub": "Free — Extract Frames from Any Video",
     "hero": "Extract every frame from MP4, MOV, and WEBM videos as high-quality JPG, PNG, or WebP images. Choose exact timestamps, custom FPS (1–60), or batch extract thousands of frames for AI datasets. All processing runs locally in your browser — no upload, no account, no limits.",
     "keywords": "video frame extractor, extract frames from video, free video frame extractor, video to image sequence, video frame grabber, extract frames online, video to jpg sequence, video to png sequence, video to webp, exact timestamp extraction",
     "badge": "Free · No Upload · Local Browser Processing",
@@ -135,7 +135,7 @@
       "Pick extraction mode: exact time, FPS, or all frames.",
       "Choose JPG, PNG, or WebP and download."
     ],
-    "useCases": "Ideal for AI training datasets, Blender/VFX pipelines, YouTube thumbnails, animation reference, and frame-by-frame analysis.",
+    "useCases": "Ideal for AI training datasets, Blender/VFX pipelines, YouTube thumbnails, animation reference, scroll-driven web animations, and frame-by-frame analysis.",
     "formatsTitle": "Supported Video Formats",
     "formatsDesc1": "Best supported: MP4, MOV, and WEBM (H.264, H.265, VP8, VP9, AV1 where browser supports).",
     "formatsDesc2": "AVI, MKV, FLV, M4V, OGV, 3GP may work if your browser has the codec. For best results, use MP4 H.264.",
@@ -210,6 +210,11 @@
         "icon": "🎞️",
         "title": "Animation Reference",
         "desc": "Frame-by-frame breakdown of motion for rotoscoping, timing study, pose libraries. 60 FPS for smooth analysis."
+      },
+      {
+        "icon": "🖥️",
+        "title": "Scroll-Driven Web Animations",
+        "desc": "Turn videos into lightweight JPG/PNG sequences for scroll-controlled animations, canvas effects, and interactive web experiences. Frame-precise scrubbing with no heavy video files to stream."
       }
     ],
     "compareTitle": "vs. Cloud Converters & Desktop Tools",
