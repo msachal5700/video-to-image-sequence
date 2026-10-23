@@ -2,13 +2,37 @@ interface CreateVideoOptions {
   images: File[];
   fps: number;
   onProgress: (progress: number) => void;
+  /** Preferred output container. 'mp4' is used when the browser supports it,
+      otherwise falls back to webm. Defaults to 'mp4'. */
+  format?: 'mp4' | 'webm';
 }
+
+export interface CreatedVideo {
+  blob: Blob;
+  /** The mime type that was actually used for encoding (may differ from the
+      requested format when the browser lacks support). */
+  mimeType: string;
+  /** File extension matching the actual mime type ('mp4' or 'webm'). */
+  extension: 'mp4' | 'webm';
+}
+
+/** True when this browser can record MP4 via MediaRecorder (Chrome 126+,
+    Edge 126+, Safari 17+). Firefox cannot. */
+export const isMp4RecordingSupported = (): boolean => {
+  try {
+    return typeof MediaRecorder !== 'undefined' &&
+      MediaRecorder.isTypeSupported('video/mp4');
+  } catch {
+    return false;
+  }
+};
 
 export const createVideoFromImages = async ({
   images,
   fps,
-  onProgress
-}: CreateVideoOptions): Promise<Blob> => {
+  onProgress,
+  format = 'mp4'
+}: CreateVideoOptions): Promise<CreatedVideo> => {
   return new Promise(async (resolve, reject) => {
     if (images.length === 0) {
       reject(new Error('No images provided'));
@@ -35,13 +59,21 @@ export const createVideoFromImages = async ({
     canvas.width = firstImg.width;
     canvas.height = firstImg.height;
 
-    // Determine supported mime type
-    const mimeTypes = [
-      'video/webm;codecs=vp9',
-      'video/webm;codecs=vp8',
-      'video/webm',
-      'video/mp4'
-    ];
+    // Determine supported mime type — prefer the requested format first,
+    // then fall back through the other supported types.
+    const mimeTypes = format === 'mp4'
+      ? [
+          'video/mp4',
+          'video/webm;codecs=vp9',
+          'video/webm;codecs=vp8',
+          'video/webm'
+        ]
+      : [
+          'video/webm;codecs=vp9',
+          'video/webm;codecs=vp8',
+          'video/webm',
+          'video/mp4'
+        ];
     
     let selectedMimeType = '';
     for (const type of mimeTypes) {
@@ -70,7 +102,8 @@ export const createVideoFromImages = async ({
 
     recorder.onstop = () => {
       const blob = new Blob(chunks, { type: selectedMimeType });
-      resolve(blob);
+      const extension = selectedMimeType.includes('mp4') ? 'mp4' : 'webm';
+      resolve({ blob, mimeType: selectedMimeType, extension });
     };
 
     recorder.start();

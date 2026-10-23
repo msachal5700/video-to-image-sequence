@@ -725,11 +725,11 @@
     "keywords": "extract frame every {{n}} seconds, video frame every {{n}} seconds, one frame per {{n}} seconds, extract video stills every {{n}} seconds"
   },
   "imagesToVideo": {
-    "title": "Images to Video Online — Create WebM from JPG/PNG Sequences",
-    "description": "Convert image sequences to video online for free. Create WebM video from JPG or PNG frames in your browser. No server upload required.",
-    "h1": "Images to Video",
-    "h1Sub": "Create Video from Image Sequences",
-    "hero": "Convert a sequence of JPG or PNG images into a smooth WebM video directly in your browser. No server upload, no watermarks.",
+    "title": "Image Sequence to MP4 — Convert Images to MP4 Video Online Free",
+    "description": "Convert image sequences to MP4 video online for free. Turn JPG or PNG frames into MP4 (or WebM) in your browser. No server upload, no signup, no watermark.",
+    "h1": "Image Sequence to MP4 Converter",
+    "h1Sub": "Free — Also Export WebM",
+    "hero": "Convert a sequence of JPG or PNG images into a smooth MP4 video directly in your browser — or choose WebM. No server upload, no watermark, no signup. Perfect for stop motion, time-lapses, and animation sequences.",
     "keywords": "images to video, image sequence to video, jpg to video, png to video"
   },
   "footer": {

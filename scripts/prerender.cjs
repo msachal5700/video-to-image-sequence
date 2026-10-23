@@ -150,7 +150,7 @@ const LOCALIZED_PAGES = [
 
 const routeTextMap = {
   '/': 'Video to Image Sequence',
-  '/images-to-video': 'Images to Video',
+  '/images-to-video': 'Image Sequence to MP4',
   '/mp4-to-jpg': 'MP4 to JPG',
   '/mp4-to-png': 'MP4 to PNG',
   '/video-to-webp': 'Video to WebP',

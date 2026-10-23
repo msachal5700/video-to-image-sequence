@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { UploadCloud, Image as ImageIcon, Play, Download, Trash2, Video } from 'lucide-react';
 import InterstitialAd from '../components/InterstitialAd';
-import { createVideoFromImages } from '../utils/imageProcessor';
+import { createVideoFromImages, isMp4RecordingSupported } from '../utils/imageProcessor';
 import { AppState, FrameRate, SUPPORTED_FPS } from '../types';
 import { useToast } from '../components/Toast';
 
@@ -11,8 +11,16 @@ const ImagesToVideo: React.FC = () => {
   const [appState, setAppState] = useState<AppState>(AppState.IDLE);
   const [progress, setProgress] = useState(0);
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
+  const [downloadExt, setDownloadExt] = useState<'mp4' | 'webm'>('mp4');
   const [showInterstitial, setShowInterstitial] = useState(false);
   const { showToast } = useToast();
+
+  // MP4 output needs MediaRecorder MP4 support (Chrome 126+, Edge, Safari 17+).
+  // Firefox falls back to WebM — hide the MP4 option there.
+  const [mp4Supported] = useState(() => isMp4RecordingSupported());
+  const [format, setFormat] = useState<'mp4' | 'webm'>(() =>
+    isMp4RecordingSupported() ? 'mp4' : 'webm'
+  );
 
   // Cache object URLs per File so we don't create a new URL on every render
   // (previously URL.createObjectURL was called in the render loop — a leak
@@ -83,13 +91,15 @@ const ImagesToVideo: React.FC = () => {
     setProgress(0);
 
     try {
-      const videoBlob = await createVideoFromImages({
+      const { blob: videoBlob, extension } = await createVideoFromImages({
         images,
         fps,
+        format,
         onProgress: (prog) => setProgress(prog)
       });
       const url = URL.createObjectURL(videoBlob);
       setDownloadUrl(url);
+      setDownloadExt(extension);
       setAppState(AppState.COMPLETED);
       showToast('Video created successfully!', 'success');
     } catch (error) {
@@ -163,6 +173,21 @@ const ImagesToVideo: React.FC = () => {
                  </select>
                </div>
 
+               <div className="w-full md:w-auto">
+                 <label className="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">Output Format</label>
+                 <select
+                    value={format}
+                    onChange={(e) => setFormat(e.target.value as 'mp4' | 'webm')}
+                    className="bg-gray-900 border border-gray-700 text-white text-sm rounded-xl focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5 outline-none font-medium"
+                 >
+                   {mp4Supported && <option value="mp4">MP4 (recommended)</option>}
+                   <option value="webm">WebM</option>
+                 </select>
+                 {!mp4Supported && (
+                   <p className="text-[11px] text-gray-500 mt-1">MP4 export isn't supported in this browser — using WebM.</p>
+                 )}
+               </div>
+
                <div className="flex-grow flex flex-col items-center">
                   <div className="text-sm text-gray-500 font-medium">
                     Estimated Duration <br className="sm:hidden" />
@@ -210,7 +235,7 @@ const ImagesToVideo: React.FC = () => {
                     </div>
                     <a 
                       href={downloadUrl} 
-                      download="output_video.webm" 
+                      download={`output_video.${downloadExt}`} 
                       className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-gray-950 rounded-xl font-bold transition-all transform hover:scale-[1.02] shadow-lg shadow-cyan-500/20"
                     >
                       <Download className="w-5 h-5" /> Download Video
