@@ -210,7 +210,7 @@ const routeTextMap = {
   '/video-to-jpg': 'Video to JPG Converter',
   '/video-to-photo': 'Video to Photo',
   '/youtube-thumbnail-downloader': 'YouTube Thumbnail Downloader',
-  '/gif-to-frames': 'GIF to Frames',
+  '/gif-to-frames': 'GIF Splitter',
   '/gif-to-mp4': 'GIF to MP4',
   '/video-looper': 'Video Looper',
   '/frames-to-gif': 'Frames to GIF',
