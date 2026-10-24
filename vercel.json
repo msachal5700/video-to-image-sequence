@@ -12,6 +12,11 @@
       "permanent": true
     },
     {
+      "source": "/blog/",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
       "source": "/blog/video-to-png-frames-free",
       "destination": "/blog/video-to-png-frames-guide",
       "permanent": true

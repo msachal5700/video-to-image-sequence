@@ -255,7 +255,7 @@ export const downloadBlob = (blob: Blob, fileName: string): void => {
   link.download = fileName;
   document.body.appendChild(link);
   link.click();
-  document.body.removeChild(link);
+  link.remove();
   // Deferred revoke: Firefox cancels an in-flight download if the URL is
   // released synchronously after `click()`.
   setTimeout(() => URL.revokeObjectURL(url), 1000);
