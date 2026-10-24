@@ -784,6 +784,14 @@
     "hero": "Film it once, animate it forever. Drop in any video clip and get a game-ready sprite sheet: one PNG grid plus JSON frame data that Unity and Godot understand. Free, no signup, nothing uploaded — your footage never leaves your browser.",
     "keywords": "video to sprite sheet, sprite sheet maker, video to sprite animation, make sprite sheet from video, sprite sheet generator, video to game sprite"
   },
+  "spriteSheetSlicer": {
+    "title": "Sprite Sheet Slicer — Split Sprite Sheets into Frames Free",
+    "description": "Free sprite sheet slicer: split any sprite sheet into individual PNG frames in your browser. Grid overlay preview, margin/spacing controls, ZIP + atlas JSON for Unity, Godot & Phaser. No upload, no signup.",
+    "h1": "Sprite Sheet Slicer",
+    "h1Sub": "Split Sprite Sheets into Frames — Free",
+    "hero": "Cut any sprite sheet back into its individual frames, right in your browser. Set the grid, check the cut lines on the live overlay, and download transparent PNGs one by one or as a ZIP with atlas JSON for Unity, Godot, and Phaser. Nothing is uploaded, ever.",
+    "keywords": "sprite sheet slicer, split sprite sheet, sprite sheet splitter, sprite sheet cutter, cut sprite sheet into frames, sprite sheet to frames"
+  },
   "videoNotesExtractor": {
     "title": "Video Notes Extractor — Turn Lectures into Study Notes",
     "description": "Turn lecture videos into study notes free — extract key frames, pick the ones you need, download as ZIP or PDF. No upload, no signup.",

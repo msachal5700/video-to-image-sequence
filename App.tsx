@@ -64,6 +64,7 @@ import VideoMetadataInspector from './pages/VideoMetadataInspector';
 import VideoLooper from './pages/VideoLooper';
 import FramesToGif from './pages/FramesToGif';
 import CompressGif from './pages/CompressGif';
+import SpriteSheetSlicer from './pages/SpriteSheetSlicer';
 import DiscordStickerMaker from './pages/DiscordStickerMaker';
 import LastFrameExtractor from './pages/LastFrameExtractor';
 import VideoToPdf from './pages/VideoToPdf';
@@ -228,6 +229,7 @@ const App: React.FC = () => {
                 <Route path="/gif-to-mp4" element={<GifToMp4 />} />
                 <Route path="/video-notes-extractor" element={<VideoNotesExtractor />} />
                 <Route path="/video-to-sprite-sheet" element={<VideoToSpriteSheet />} />
+                <Route path="/sprite-sheet-slicer" element={<SpriteSheetSlicer />} />
                 <Route path="/stop-motion-capture" element={<StopMotionCapture />} />
                 <Route path="/video-color-palette" element={<VideoColorPalette />} />
                 <Route path="/video-thumbnail-maker" element={<VideoThumbnailMaker />} />
