@@ -848,6 +848,14 @@
     "hero": "Combine JPG, PNG, or WebP images into a looping animated GIF directly in your browser. Reorder frames, control timing, preview, and download — no upload, no watermark.",
     "keywords": "images to gif, jpg to gif, png to gif, make gif from images, animated gif maker, pictures to gif"
   },
+  "compressGif": {
+    "title": "Compress GIF — Reduce GIF File Size Free (Discord 20MB & Emoji)",
+    "description": "Shrink animated GIFs free in your browser: Discord 20 MB and 256 KB emoji presets, downscale, frame-skip, and quality controls. No upload, no signup, no watermark.",
+    "h1": "Compress GIF",
+    "h1Sub": "Reduce GIF File Size Free",
+    "hero": "Is your GIF too big for Discord? Drop it here and shrink it in seconds — one-click presets for Discord's 20 MB upload limit and 256 KB custom emoji limit, plus downscale, frame-skip, and quality controls. 100% in your browser: nothing is uploaded, ever.",
+    "keywords": "compress gif, reduce gif size, gif compressor, make gif smaller, gif size reducer, shrink gif, gif optimizer, discord gif compressor, compress gif for discord emoji"
+  },
   "videoToPdf": {
     "title": "Video to PDF — Free Online Converter, No Signup",
     "description": "Convert video to PDF free in your browser — extract frames, arrange them, and generate a paginated PDF with title page and timestamps. No upload, no signup.",
