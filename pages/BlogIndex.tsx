@@ -6,6 +6,18 @@ import GoogleAdUnit from '../components/GoogleAdUnit';
 
 const posts = [
   {
+    slug: 'how-to-compress-a-gif',
+    title: 'How to Compress a GIF Without Losing Quality (Free, No Upload)',
+    date: 'October 24, 2026',
+    description: 'Most GIFs can shrink 50–90% with no visible quality loss. The four levers that reduce GIF size, in order — plus how to hit Discord\u2019s 20 MB upload and 256 KB emoji limits, free in your browser.',
+  },
+  {
+    slug: 'free-video-tools-online',
+    title: '9 Free Video Tools You Can Use Online Right Now (No Signup, No Watermark)',
+    date: 'October 24, 2026',
+    description: 'Nine free online video tools that run entirely in your browser — frame extraction, GIF conversion, stop motion, thumbnails, metadata, color palettes, sprite sheets. No signup, no watermark, no uploads.',
+  },
+  {
     slug: 'frame-extraction-fps-vs-interval-guide',
     title: 'Frame Extraction: FPS vs Every-N-Seconds — How Browser Extraction Works (2026)',
     date: 'October 21, 2026',
