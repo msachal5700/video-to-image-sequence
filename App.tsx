@@ -35,6 +35,8 @@ import ImagesToVideoGuide from './pages/blog/ImagesToVideoGuide';
 import EzgifAlternative from './pages/blog/EzgifAlternative';
 import FrameExtractionFpsGuide from './pages/blog/FrameExtractionFpsGuide';
 import GifToMp4WhyHow from './pages/blog/GifToMp4WhyHow';
+import HowToCompressGif from './pages/blog/HowToCompressGif';
+import FreeVideoToolsRoundup from './pages/blog/FreeVideoToolsRoundup';
 import StopMotionBeginners from './pages/blog/StopMotionBeginners';
 import VideoContactSheetsGuide from './pages/blog/VideoContactSheetsGuide';
 import VideoThumbnailsThatGetClicks from './pages/blog/VideoThumbnailsThatGetClicks';
@@ -186,6 +188,8 @@ const App: React.FC = () => {
                 <Route path="/blog/ezgif-alternative-video-to-image-sequence" element={<EzgifAlternative />} />
                 <Route path="/blog/frame-extraction-fps-vs-interval-guide" element={<FrameExtractionFpsGuide />} />
                 <Route path="/blog/gif-to-mp4-why-and-how" element={<GifToMp4WhyHow />} />
+                <Route path="/blog/how-to-compress-a-gif" element={<HowToCompressGif />} />
+                <Route path="/blog/free-video-tools-online" element={<FreeVideoToolsRoundup />} />
                 <Route path="/blog/stop-motion-for-beginners" element={<StopMotionBeginners />} />
                 <Route path="/blog/video-contact-sheets-guide" element={<VideoContactSheetsGuide />} />
                 <Route path="/blog/video-thumbnails-that-get-clicks" element={<VideoThumbnailsThatGetClicks />} />
