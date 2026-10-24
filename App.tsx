@@ -63,6 +63,7 @@ import VideoThumbnailMaker from './pages/VideoThumbnailMaker';
 import VideoMetadataInspector from './pages/VideoMetadataInspector';
 import VideoLooper from './pages/VideoLooper';
 import FramesToGif from './pages/FramesToGif';
+import CompressGif from './pages/CompressGif';
 import DiscordStickerMaker from './pages/DiscordStickerMaker';
 import LastFrameExtractor from './pages/LastFrameExtractor';
 import VideoToPdf from './pages/VideoToPdf';
@@ -233,6 +234,7 @@ const App: React.FC = () => {
                 <Route path="/video-metadata-inspector" element={<VideoMetadataInspector />} />
                 <Route path="/video-looper" element={<VideoLooper />} />
                 <Route path="/frames-to-gif" element={<FramesToGif />} />
+                <Route path="/compress-gif" element={<CompressGif />} />
                 <Route path="/discord-sticker-maker" element={<DiscordStickerMaker />} />
                 <Route path="/last-frame-extractor" element={<LastFrameExtractor />} />
                 <Route path="/video-to-pdf" element={<VideoToPdf />} />
