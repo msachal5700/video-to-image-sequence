@@ -1,17 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import { Routes, Route, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { SUPPORTED_LANGUAGES } from '../i18n/index';
 import { isNonEnLang } from '../utils/localizedRoutes';
 import Home from '../pages/Home';
-import Mp4ToJpg from '../pages/Mp4ToJpg';
-import ExtractFramesFromVideo from '../pages/ExtractFramesFromVideo';
-import VideoToPng from '../pages/VideoToPng';
-import ScreenshotFromVideo from '../pages/ScreenshotFromVideo';
-import VideoToWebp from '../pages/VideoToWebp';
-import ImagesToVideoPage from '../pages/ImagesToVideoPage';
-import VideoToFrames from '../pages/VideoToFrames';
-import VideoToJpg from '../pages/VideoToJpg';
+const Mp4ToJpg = lazy(() => import('../pages/Mp4ToJpg'));
+const ExtractFramesFromVideo = lazy(() => import('../pages/ExtractFramesFromVideo'));
+const VideoToPng = lazy(() => import('../pages/VideoToPng'));
+const ScreenshotFromVideo = lazy(() => import('../pages/ScreenshotFromVideo'));
+const VideoToWebp = lazy(() => import('../pages/VideoToWebp'));
+const ImagesToVideoPage = lazy(() => import('../pages/ImagesToVideoPage'));
+const VideoToFrames = lazy(() => import('../pages/VideoToFrames'));
+const VideoToJpg = lazy(() => import('../pages/VideoToJpg'));
 import NotFound from '../pages/NotFound';
 
 /**
@@ -45,7 +45,8 @@ const LocalizedRoutes: React.FC = () => {
   }
 
   return (
-    <Routes>
+    <Suspense fallback={<div className="flex items-center justify-center min-h-[40vh]"><div className="text-gray-500 text-sm font-mono animate-pulse">Loading…</div></div>}>
+<Routes>
       <Route index element={<Home />} />
       <Route path="mp4-to-jpg" element={<Mp4ToJpg />} />
       <Route path="extract-frames-from-video" element={<ExtractFramesFromVideo />} />
@@ -57,6 +58,7 @@ const LocalizedRoutes: React.FC = () => {
       <Route path="video-to-jpg" element={<VideoToJpg />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
+</Suspense>
   );
 };
 

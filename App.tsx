@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react';
 import { ToastProvider } from './components/Toast';
@@ -7,83 +7,87 @@ import { useLocaleSync } from './hooks/usePageLang';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import ImagesToVideoPage from './pages/ImagesToVideoPage';
+const ImagesToVideoPage = lazy(() => import('./pages/ImagesToVideoPage'));
 import NotFound from './pages/NotFound';
-import BlogIndex from './pages/BlogIndex';
-import ExtractFramesOnline from './pages/blog/ExtractFramesOnline';
-import Mp4ToImageSequence from './pages/blog/Mp4ToImageSequence';
-import { PrivacyPolicy, TermsOfService, AboutUs, EditorialPolicy, Disclaimer } from './pages/Legal';
-import Mp4ToJpg from './pages/Mp4ToJpg';
-import Mp4ToPng from './pages/Mp4ToPng';
-import ScreenshotFromVideo from './pages/ScreenshotFromVideo';
-import VideoToPng from './pages/VideoToPng';
-import VideoToGif from './pages/VideoToGif';
-import ImageCrop from './pages/ImageCrop';
-import VideoToWebp from './pages/VideoToWebp';
-import VideoToAvif from './pages/VideoToAvif';
-import MovToJpg from './pages/MovToJpg';
-import MovToPng from './pages/MovToPng';
-import WebmToJpg from './pages/WebmToJpg';
-import WebmToPng from './pages/WebmToPng';
-import VideoToPngGuide from './pages/blog/VideoToPngGuide';
-import ExtractFrameAtTimestamp from './pages/ExtractFrameAtTimestamp';
-import ExtractFramesFromVideo from './pages/ExtractFramesFromVideo';
-import ExtractFrameEveryNSeconds from './pages/ExtractFrameEveryNSeconds';
-import AiSocialMediaFramePicker from './pages/AiSocialMediaFramePicker';
-import AiBestFrameFromVideo from './pages/blog/AiBestFrameFromVideo';
-import ImagesToVideoGuide from './pages/blog/ImagesToVideoGuide';
-import EzgifAlternative from './pages/blog/EzgifAlternative';
-import FrameExtractionFpsGuide from './pages/blog/FrameExtractionFpsGuide';
-import GifToMp4WhyHow from './pages/blog/GifToMp4WhyHow';
-import HowToCompressGif from './pages/blog/HowToCompressGif';
-import FreeVideoToolsRoundup from './pages/blog/FreeVideoToolsRoundup';
-import StopMotionBeginners from './pages/blog/StopMotionBeginners';
-import VideoContactSheetsGuide from './pages/blog/VideoContactSheetsGuide';
-import VideoThumbnailsThatGetClicks from './pages/blog/VideoThumbnailsThatGetClicks';
-import SpriteSheetsGameDevs from './pages/blog/SpriteSheetsGameDevs';
-import ColorPalettesFilmStills from './pages/blog/ColorPalettesFilmStills';
-import LectureNotesFromVideos from './pages/blog/LectureNotesFromVideos';
-import SmartSceneDetectionGuide from './pages/blog/SmartSceneDetectionGuide';
-import VideoFrameExtractorUseCases from './pages/blog/VideoFrameExtractorUseCases';
-import BestFpsForVideoExtraction from './pages/blog/BestFpsForVideoExtraction';
-import ContactPage from './pages/ContactPage';
-import MediaPartner from './pages/MediaPartner';
-import Changelog from './pages/Changelog';
-import VideoToFrames from './pages/VideoToFrames';
-import VideoContactSheet from './pages/VideoContactSheet';
-import VideoToJpg from './pages/VideoToJpg';
-import VideoFrameExtractor from './pages/VideoFrameExtractor';
-import VideoToPhoto from './pages/VideoToPhoto';
-import YoutubeThumbnailDownloader from './pages/YoutubeThumbnailDownloader';
-import GifToFrames from './pages/GifToFrames';
-import GifToMp4 from './pages/GifToMp4';
-import VideoNotesExtractor from './pages/VideoNotesExtractor';
-import VideoToSpriteSheet from './pages/VideoToSpriteSheet';
-import StopMotionCapture from './pages/StopMotionCapture';
-import VideoColorPalette from './pages/VideoColorPalette';
-import VideoThumbnailMaker from './pages/VideoThumbnailMaker';
-import VideoMetadataInspector from './pages/VideoMetadataInspector';
-import VideoLooper from './pages/VideoLooper';
-import FramesToGif from './pages/FramesToGif';
-import CompressGif from './pages/CompressGif';
-import SpriteSheetSlicer from './pages/SpriteSheetSlicer';
-import DiscordStickerMaker from './pages/DiscordStickerMaker';
-import LastFrameExtractor from './pages/LastFrameExtractor';
-import VideoToPdf from './pages/VideoToPdf';
-import VideoFramesForAiDatasets from './pages/VideoFramesForAiDatasets';
-import VideoToImageSequenceForBlender from './pages/VideoToImageSequenceForBlender';
-import VideoFrameForYoutubeThumbnail from './pages/VideoFrameForYoutubeThumbnail';
-import HowManyFramesPerSecond from './pages/blog/HowManyFramesPerSecond';
-import VideoCodecsExplained from './pages/blog/VideoCodecsExplained';
-import ExtractVideoFramesForAI from './pages/blog/ExtractVideoFramesForAI';
-import HowToExtractFramesFromVideo from './pages/blog/HowToExtractFramesFromVideo';
-import VideoToImageSequenceExplained from './pages/blog/VideoToImageSequenceExplained';
-import JpgVsPngVsWebp from './pages/blog/JpgVsPngVsWebp';
-import WhatIsVideoFrameRate from './pages/blog/WhatIsVideoFrameRate';
-import FreeImageCropToolGuide from './pages/blog/FreeImageCropToolGuide';
-import VideoToStopMotionFrames from './pages/blog/VideoToStopMotionFrames';
-import EcommerceProductStills from './pages/blog/EcommerceProductStills';
-import CloudinaryAlternative from './pages/blog/CloudinaryAlternative';
+const BlogIndex = lazy(() => import('./pages/BlogIndex'));
+const ExtractFramesOnline = lazy(() => import('./pages/blog/ExtractFramesOnline'));
+const Mp4ToImageSequence = lazy(() => import('./pages/blog/Mp4ToImageSequence'));
+const PrivacyPolicy = lazy(() => import('./pages/Legal').then((m) => ({ default: m.PrivacyPolicy })));
+const TermsOfService = lazy(() => import('./pages/Legal').then((m) => ({ default: m.TermsOfService })));
+const AboutUs = lazy(() => import('./pages/Legal').then((m) => ({ default: m.AboutUs })));
+const EditorialPolicy = lazy(() => import('./pages/Legal').then((m) => ({ default: m.EditorialPolicy })));
+const Disclaimer = lazy(() => import('./pages/Legal').then((m) => ({ default: m.Disclaimer })));
+const Mp4ToJpg = lazy(() => import('./pages/Mp4ToJpg'));
+const Mp4ToPng = lazy(() => import('./pages/Mp4ToPng'));
+const ScreenshotFromVideo = lazy(() => import('./pages/ScreenshotFromVideo'));
+const VideoToPng = lazy(() => import('./pages/VideoToPng'));
+const VideoToGif = lazy(() => import('./pages/VideoToGif'));
+const ImageCrop = lazy(() => import('./pages/ImageCrop'));
+const VideoToWebp = lazy(() => import('./pages/VideoToWebp'));
+const VideoToAvif = lazy(() => import('./pages/VideoToAvif'));
+const MovToJpg = lazy(() => import('./pages/MovToJpg'));
+const MovToPng = lazy(() => import('./pages/MovToPng'));
+const WebmToJpg = lazy(() => import('./pages/WebmToJpg'));
+const WebmToPng = lazy(() => import('./pages/WebmToPng'));
+const VideoToPngGuide = lazy(() => import('./pages/blog/VideoToPngGuide'));
+const ExtractFrameAtTimestamp = lazy(() => import('./pages/ExtractFrameAtTimestamp'));
+const ExtractFramesFromVideo = lazy(() => import('./pages/ExtractFramesFromVideo'));
+const ExtractFrameEveryNSeconds = lazy(() => import('./pages/ExtractFrameEveryNSeconds'));
+const AiSocialMediaFramePicker = lazy(() => import('./pages/AiSocialMediaFramePicker'));
+const AiBestFrameFromVideo = lazy(() => import('./pages/blog/AiBestFrameFromVideo'));
+const ImagesToVideoGuide = lazy(() => import('./pages/blog/ImagesToVideoGuide'));
+const EzgifAlternative = lazy(() => import('./pages/blog/EzgifAlternative'));
+const FrameExtractionFpsGuide = lazy(() => import('./pages/blog/FrameExtractionFpsGuide'));
+const GifToMp4WhyHow = lazy(() => import('./pages/blog/GifToMp4WhyHow'));
+const HowToCompressGif = lazy(() => import('./pages/blog/HowToCompressGif'));
+const FreeVideoToolsRoundup = lazy(() => import('./pages/blog/FreeVideoToolsRoundup'));
+const StopMotionBeginners = lazy(() => import('./pages/blog/StopMotionBeginners'));
+const VideoContactSheetsGuide = lazy(() => import('./pages/blog/VideoContactSheetsGuide'));
+const VideoThumbnailsThatGetClicks = lazy(() => import('./pages/blog/VideoThumbnailsThatGetClicks'));
+const SpriteSheetsGameDevs = lazy(() => import('./pages/blog/SpriteSheetsGameDevs'));
+const ColorPalettesFilmStills = lazy(() => import('./pages/blog/ColorPalettesFilmStills'));
+const LectureNotesFromVideos = lazy(() => import('./pages/blog/LectureNotesFromVideos'));
+const SmartSceneDetectionGuide = lazy(() => import('./pages/blog/SmartSceneDetectionGuide'));
+const VideoFrameExtractorUseCases = lazy(() => import('./pages/blog/VideoFrameExtractorUseCases'));
+const BestFpsForVideoExtraction = lazy(() => import('./pages/blog/BestFpsForVideoExtraction'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
+const MediaPartner = lazy(() => import('./pages/MediaPartner'));
+const Changelog = lazy(() => import('./pages/Changelog'));
+const VideoToFrames = lazy(() => import('./pages/VideoToFrames'));
+const VideoContactSheet = lazy(() => import('./pages/VideoContactSheet'));
+const VideoToJpg = lazy(() => import('./pages/VideoToJpg'));
+const VideoFrameExtractor = lazy(() => import('./pages/VideoFrameExtractor'));
+const VideoToPhoto = lazy(() => import('./pages/VideoToPhoto'));
+const YoutubeThumbnailDownloader = lazy(() => import('./pages/YoutubeThumbnailDownloader'));
+const GifToFrames = lazy(() => import('./pages/GifToFrames'));
+const GifToMp4 = lazy(() => import('./pages/GifToMp4'));
+const VideoNotesExtractor = lazy(() => import('./pages/VideoNotesExtractor'));
+const VideoToSpriteSheet = lazy(() => import('./pages/VideoToSpriteSheet'));
+const StopMotionCapture = lazy(() => import('./pages/StopMotionCapture'));
+const VideoColorPalette = lazy(() => import('./pages/VideoColorPalette'));
+const VideoThumbnailMaker = lazy(() => import('./pages/VideoThumbnailMaker'));
+const VideoMetadataInspector = lazy(() => import('./pages/VideoMetadataInspector'));
+const VideoLooper = lazy(() => import('./pages/VideoLooper'));
+const FramesToGif = lazy(() => import('./pages/FramesToGif'));
+const CompressGif = lazy(() => import('./pages/CompressGif'));
+const SpriteSheetSlicer = lazy(() => import('./pages/SpriteSheetSlicer'));
+const DiscordStickerMaker = lazy(() => import('./pages/DiscordStickerMaker'));
+const LastFrameExtractor = lazy(() => import('./pages/LastFrameExtractor'));
+const VideoToPdf = lazy(() => import('./pages/VideoToPdf'));
+const VideoFramesForAiDatasets = lazy(() => import('./pages/VideoFramesForAiDatasets'));
+const VideoToImageSequenceForBlender = lazy(() => import('./pages/VideoToImageSequenceForBlender'));
+const VideoFrameForYoutubeThumbnail = lazy(() => import('./pages/VideoFrameForYoutubeThumbnail'));
+const HowManyFramesPerSecond = lazy(() => import('./pages/blog/HowManyFramesPerSecond'));
+const VideoCodecsExplained = lazy(() => import('./pages/blog/VideoCodecsExplained'));
+const ExtractVideoFramesForAI = lazy(() => import('./pages/blog/ExtractVideoFramesForAI'));
+const HowToExtractFramesFromVideo = lazy(() => import('./pages/blog/HowToExtractFramesFromVideo'));
+const VideoToImageSequenceExplained = lazy(() => import('./pages/blog/VideoToImageSequenceExplained'));
+const JpgVsPngVsWebp = lazy(() => import('./pages/blog/JpgVsPngVsWebp'));
+const WhatIsVideoFrameRate = lazy(() => import('./pages/blog/WhatIsVideoFrameRate'));
+const FreeImageCropToolGuide = lazy(() => import('./pages/blog/FreeImageCropToolGuide'));
+const VideoToStopMotionFrames = lazy(() => import('./pages/blog/VideoToStopMotionFrames'));
+const EcommerceProductStills = lazy(() => import('./pages/blog/EcommerceProductStills'));
+const CloudinaryAlternative = lazy(() => import('./pages/blog/CloudinaryAlternative'));
 import CookieConsent from './components/CookieConsent';
 import FeedbackWidget from './components/FeedbackWidget';
 import ClarityConsent from './components/ClarityConsent';
@@ -155,7 +159,8 @@ const App: React.FC = () => {
             <Header />
             
             <main id="__next" className="flex-grow">
-              <Routes>
+              <Suspense fallback={<div className="flex items-center justify-center min-h-[40vh]"><div className="text-gray-500 text-sm font-mono animate-pulse">Loading…</div></div>}>
+<Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/extract-frames-from-video" element={<ExtractFramesFromVideo />} />
                 <Route path="/extract-frame-at-timestamp" element={<ExtractFrameAtTimestamp />} />
@@ -253,6 +258,7 @@ const App: React.FC = () => {
                 <Route path="/:lang/*" element={<LocalizedRoutes />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
+</Suspense>
             </main>
 
             <Footer />
