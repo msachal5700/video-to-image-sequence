@@ -37,3 +37,18 @@ declare module 'gif.js/dist/gif.worker.js?url' {
   const workerUrl: string;
   export default workerUrl;
 }
+
+declare module 'heic-decode' {
+  export interface HeicDecodedImage {
+    width: number;
+    height: number;
+    data: Uint8ClampedArray;
+  }
+
+  export interface HeicDecodeOptions {
+    buffer: Uint8Array;
+  }
+
+  const decode: (options: HeicDecodeOptions) => Promise<HeicDecodedImage>;
+  export default decode;
+}
