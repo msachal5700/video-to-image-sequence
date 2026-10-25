@@ -134,6 +134,10 @@ const Header: React.FC = () => {
                 <span>Compress GIF</span>
                 <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold">NEW</span>
               </Link>
+              <Link to="/heic-to-jpg" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors flex items-center justify-between font-medium">
+                <span>HEIC to JPG</span>
+                <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold">NEW</span>
+              </Link>
               <Link to="/discord-sticker-maker" className="text-gray-400 hover:text-cyan-400 hover:bg-gray-900/60 px-3 py-2 rounded-lg transition-colors flex items-center justify-between font-medium">
                 <span>Discord Sticker Maker</span>
                 <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold">NEW</span>
@@ -316,6 +320,10 @@ const Header: React.FC = () => {
             </Link>
             <Link to="/compress-gif" onClick={() => setOpen(false)} className="pl-2 font-medium flex items-center justify-between">
               <span>Compress GIF</span>
+              <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold mr-2">NEW</span>
+            </Link>
+            <Link to="/heic-to-jpg" onClick={() => setOpen(false)} className="pl-2 font-medium flex items-center justify-between">
+              <span>HEIC to JPG</span>
               <span className="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-1.5 py-0.5 rounded font-mono font-bold mr-2">NEW</span>
             </Link>
             <Link to="/discord-sticker-maker" onClick={() => setOpen(false)} className="pl-2 font-medium flex items-center justify-between">
