@@ -6,6 +6,12 @@ import GoogleAdUnit from '../components/GoogleAdUnit';
 
 const posts = [
   {
+    slug: 'heic-to-jpg-guide',
+    title: 'How to Convert HEIC to JPG (Free, No Upload, No App)',
+    date: 'October 25, 2026',
+    description: 'iPhone photo won\u2019t open on Windows? It\u2019s a HEIC file. What HEIC is, why PCs reject it, and 3 ways to convert HEIC to JPG — including a free in-browser converter with no uploads and no app to install.',
+  },
+  {
     slug: 'how-to-compress-a-gif',
     title: 'How to Compress a GIF Without Losing Quality (Free, No Upload)',
     date: 'October 24, 2026',
