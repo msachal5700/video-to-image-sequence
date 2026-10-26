@@ -20,6 +20,10 @@ const faqs = [
     a: 'That is what the Margin and Spacing controls are for. Margin is the empty border around the whole sheet (in pixels); spacing is the gap between neighbouring frames. Set them to match your sheet and the grid overlay will line up with the real frame boundaries. Many published asset packs are packed edge-to-edge, in which case both stay at zero.'
   },
   {
+    q: 'My sheet is not a regular grid. Can I still slice it?',
+    a: 'Yes — switch the slicer to Auto-detect. It finds each sprite\u2019s real boundaries by looking for the transparent or flat-colour gutters between sprites, so frames of different sizes and uneven spacing slice correctly without any columns/rows setup. If your packer already exported an atlas, use Atlas file mode instead: load the TexturePacker JSON or Sparrow XML that belongs to the sheet and the slicer cuts by the atlas\u2019s exact rectangles.'
+  },
+  {
     q: 'What formats can I slice, and what do I get back?',
     a: 'Input can be PNG, JPG, or WebP — PNG is recommended because sprite sheets usually rely on transparency. Every sliced frame comes out as a PNG so transparency is preserved exactly, named frame_0000, frame_0001, and so on. The optional ZIP also includes an atlas JSON listing each frame\u2019s x, y, width, and height on the original sheet.'
   },
@@ -53,6 +57,8 @@ const SpriteSheetSlicer: React.FC = () => {
       "Slice sprite sheets into individual PNG frames",
       "Live grid overlay preview before cutting",
       "Columns/rows plus margin and spacing controls",
+      "Auto-detect frames in irregular, non-grid sheets",
+      "TexturePacker JSON and Sparrow XML atlas import",
       "Skip fully-empty frames automatically",
       "Download frames individually or as a ZIP",
       "Atlas JSON export with per-frame x/y/width/height",
@@ -90,8 +96,8 @@ const SpriteSheetSlicer: React.FC = () => {
       },
       {
         "@type": "HowToStep",
-        "name": "Set the grid",
-        "text": "Enter the columns and rows of the sheet, plus margin and spacing if the sheet has them. The overlay shows the exact cut lines."
+        "name": "Tell it how the sheet is packed",
+        "text": "For a regular grid, enter columns and rows plus margin and spacing — the overlay shows the exact cut lines. For irregular sheets, choose Auto-detect and the slicer finds each sprite's boundaries. If the sheet came with a TexturePacker JSON or Sparrow XML atlas, load it in Atlas file mode and slice by its exact rectangles."
       },
       {
         "@type": "HowToStep",
@@ -196,8 +202,8 @@ const SpriteSheetSlicer: React.FC = () => {
           <ol className="space-y-4">
             {[
               { num: '1', title: 'Load your sprite sheet', desc: 'Drag and drop a PNG, JPG, or WebP sheet. It is decoded locally in your browser — nothing is uploaded.' },
-              { num: '2', title: 'Set columns and rows', desc: 'Match the grid of the sheet. The cyan overlay redraws live so you can see every cut line before slicing.' },
-              { num: '3', title: 'Adjust margin and spacing if needed', desc: 'Sheets with a border or gaps between frames need those values in pixels; edge-to-edge sheets leave both at zero.' },
+              { num: '2', title: 'Pick how the sheet is packed', desc: 'Grid: set columns and rows to match the sheet. No grid? Auto-detect finds each sprite\u2019s boundaries from the transparent gutters between them. Packed with TexturePacker? Load its JSON or Sparrow XML atlas instead.' },
+              { num: '3', title: 'Check the overlay, adjust if needed', desc: 'The cyan overlay redraws live so you can see every cut before slicing. In Grid mode, sheets with a border or gaps between frames need margin and spacing in pixels; edge-to-edge sheets leave both at zero.' },
               { num: '4', title: 'Slice and download', desc: 'Click Slice Sprite Sheet, then download frames one by one or as a ZIP with the atlas JSON.' }
             ].map(step => (
               <li key={step.num} className="flex gap-4">
