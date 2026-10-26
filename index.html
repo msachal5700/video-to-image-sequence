@@ -99,7 +99,13 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&family=Sora:wght@400;600;700&display=swap">
+    <!-- Font CSS loads asynchronously: as a plain stylesheet it blocked first
+         paint on every page (the LCP text cannot render until it arrives).
+         Preload + onload swap keeps fonts off the render-blocking path;
+         display=swap already handles the fallback-font period, and the
+         noscript copy covers no-JS visitors. -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&family=Sora:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&family=Sora:wght@400;600;700&display=swap"></noscript>
 
   </head>
   <body>

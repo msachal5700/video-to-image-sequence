@@ -45,7 +45,7 @@ const LocalizedRoutes: React.FC = () => {
   }
 
   return (
-    <Suspense fallback={<div className="flex items-center justify-center min-h-[40vh]"><div className="text-gray-500 text-sm font-mono animate-pulse">Loading…</div></div>}>
+    <Suspense fallback={<div className="flex items-center justify-center min-h-[calc(100vh-5rem)]"><div className="text-gray-500 text-sm font-mono animate-pulse">Loading…</div></div>}>
 <Routes>
       <Route index element={<Home />} />
       <Route path="mp4-to-jpg" element={<Mp4ToJpg />} />
