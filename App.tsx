@@ -161,7 +161,7 @@ const App: React.FC = () => {
             <Header />
             
             <main id="__next" className="flex-grow">
-              <Suspense fallback={<div className="flex items-center justify-center min-h-[40vh]"><div className="text-gray-500 text-sm font-mono animate-pulse">Loading…</div></div>}>
+              <Suspense fallback={<div className="flex items-center justify-center min-h-[calc(100vh-5rem)]"><div className="text-gray-500 text-sm font-mono animate-pulse">Loading…</div></div>}>
 <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/extract-frames-from-video" element={<ExtractFramesFromVideo />} />
