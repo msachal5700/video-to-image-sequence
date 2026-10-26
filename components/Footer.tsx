@@ -39,6 +39,7 @@ const Footer = () => {
               <li><Link to="/frames-to-gif" className="text-gray-600 hover:text-cyan-400 transition">Frames to GIF</Link></li>
               <li><Link to="/compress-gif" className="text-gray-600 hover:text-cyan-400 transition">Compress GIF</Link></li>
               <li><Link to="/heic-to-jpg" className="text-gray-600 hover:text-cyan-400 transition">HEIC to JPG Converter</Link></li>
+              <li><Link to="/avif-to-jpg" className="text-gray-600 hover:text-cyan-400 transition">AVIF to JPG Converter</Link></li>
               <li><Link to="/discord-sticker-maker" className="text-gray-600 hover:text-cyan-400 transition">Discord Sticker Maker</Link></li>
               <li><Link to="/last-frame-extractor" className="text-gray-600 hover:text-cyan-400 transition">Last Frame Extractor</Link></li>
 <li><Link to="/video-to-pdf" className="text-gray-600 hover:text-cyan-400 transition">Video to PDF</Link></li>
