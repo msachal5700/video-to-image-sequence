@@ -6,6 +6,12 @@ import GoogleAdUnit from '../components/GoogleAdUnit';
 
 const posts = [
   {
+    slug: 'avif-to-jpg-guide',
+    title: 'How to Convert AVIF to JPG (Free, No Upload, No App)',
+    date: 'October 29, 2026',
+    description: 'Got a .avif file your apps won\u2019t open? What AVIF is, why so much software still rejects it, and how to convert AVIF to JPG free in your browser \u2014 no upload, no app to install.',
+  },
+  {
     slug: 'heic-to-jpg-guide',
     title: 'How to Convert HEIC to JPG (Free, No Upload, No App)',
     date: 'October 25, 2026',
