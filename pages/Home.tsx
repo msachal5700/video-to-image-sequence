@@ -182,7 +182,7 @@ const Home: React.FC = () => {
     '/video-to-frames',
     '/video-to-jpg',
     '/video-to-photo',
-    '/youtube-thumbnail-downloader',
+    '/video-frame-for-youtube-thumbnail', // Review phase (2026-10-29): swapped from '/youtube-thumbnail-downloader' during AdSense review (index preserved for relatedEmojis + home.related alignment) — restore after decision.
     '/video-to-pdf',
     '/blog/ezgif-alternative-video-to-image-sequence',
 ];
