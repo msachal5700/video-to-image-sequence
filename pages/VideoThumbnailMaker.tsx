@@ -176,9 +176,10 @@ const VideoThumbnailMaker: React.FC = () => {
         <div className="bg-cyan-950/20 border border-cyan-900/60 rounded-2xl p-6 text-center">
           <p className="text-gray-300 text-sm leading-relaxed">
             <strong className="text-white">The two-step thumbnail workflow:</strong> studying a competitor&rsquo;s thumbnail first?{' '}
+            {/* Review phase (2026-10-29): link to /youtube-thumbnail-downloader hidden during AdSense review — restore after decision. Original link:
             <Link to="/youtube-thumbnail-downloader" className="text-cyan-400 hover:underline font-medium">
               Download any YouTube thumbnail
-            </Link>{' '}
+            </Link> */}{' '}
             for reference — then come back here and build your own, better one from your footage.
           </p>
         </div>
@@ -366,10 +367,11 @@ const VideoThumbnailMaker: React.FC = () => {
           More Video Tools for Creators
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          {/* Review phase (2026-10-29): card link to /youtube-thumbnail-downloader hidden during AdSense review — restore after decision. Original card:
           <Link to="/youtube-thumbnail-downloader" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">YouTube Thumbnail Downloader</h3>
             <p className="text-gray-500 text-xs">Grab any video&rsquo;s thumbnail for reference first.</p>
-          </Link>
+          </Link> */}
           <Link to="/video-to-photo" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video to Photo</h3>
             <p className="text-gray-500 text-xs">Save any frame as a full-quality photo.</p>
