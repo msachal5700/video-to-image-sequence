@@ -115,7 +115,7 @@ const HowToExtractFramesFromVideo: React.FC = () => {
         <div className="grid gap-4 mt-4">
           <div className="bg-gray-900 border border-gray-800 rounded-xl p-4">
             <h4 className="text-cyan-400 font-semibold mb-2">⏱ Exact Timestamp Extractor</h4>
-            <p className="text-gray-400">Need frames at specific times? Use <a href="/exact-timestamp-extractor" className="text-cyan-400 hover:underline">Exact Timestamp Extractor</a> — enter timestamps (e.g., 00:01:30.500) and get precise frames.</p>
+            <p className="text-gray-400">Need frames at specific times? Use <a href="/extract-frame-at-timestamp" className="text-cyan-400 hover:underline">Exact Timestamp Extractor</a> — enter timestamps (e.g., 00:01:30.500) and get precise frames.</p>
           </div>
           <div className="bg-gray-900 border border-gray-800 rounded-xl p-4">
             <h4 className="text-cyan-400 font-semibold mb-2">🎞 Image Sequence Export</h4>
@@ -308,7 +308,7 @@ extract_frames_moviepy('video.mp4', 'frames/', fps=5, format='jpg')`}</code></pr
         <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-4 font-mono text-sm">
           <div className="grid gap-3 md:grid-cols-2">
             <div className="bg-gray-800 p-3 rounded"><strong>Online:</strong> <a href="/video-to-frames" className="text-cyan-400 hover:underline">/video-to-frames</a></div>
-            <div className="bg-gray-800 p-3 rounded"><strong>Timestamps:</strong> <a href="/exact-timestamp-extractor" className="text-cyan-400 hover:underline">/exact-timestamp-extractor</a></div>
+            <div className="bg-gray-800 p-3 rounded"><strong>Timestamps:</strong> <a href="/extract-frame-at-timestamp" className="text-cyan-400 hover:underline">/extract-frame-at-timestamp</a></div>
             <div className="bg-gray-800 p-3 rounded"><strong>Sequences:</strong> <a href="/" className="text-cyan-400 hover:underline">/video-to-image-sequence</a></div>
             <div className="bg-gray-800 p-3 rounded"><strong>AI Datasets:</strong> <a href="/video-frames-for-ai-datasets" className="text-cyan-400 hover:underline">/video-frames-for-ai-datasets</a></div>
             <div className="bg-gray-800 p-3 rounded"><strong>Format Guide:</strong> <a href="/blog/jpg-vs-png-vs-webp-video-frames" className="text-cyan-400 hover:underline">/blog/jpg-vs-png-vs-webp-video-frames</a></div>
