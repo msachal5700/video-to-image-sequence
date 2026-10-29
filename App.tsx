@@ -41,6 +41,7 @@ const FrameExtractionFpsGuide = lazy(() => import('./pages/blog/FrameExtractionF
 const GifToMp4WhyHow = lazy(() => import('./pages/blog/GifToMp4WhyHow'));
 const HowToCompressGif = lazy(() => import('./pages/blog/HowToCompressGif'));
 const HeicToJpgGuide = lazy(() => import('./pages/blog/HeicToJpgGuide'));
+const AvifToJpgGuide = lazy(() => import('./pages/blog/AvifToJpgGuide'));
 const FreeVideoToolsRoundup = lazy(() => import('./pages/blog/FreeVideoToolsRoundup'));
 const StopMotionBeginners = lazy(() => import('./pages/blog/StopMotionBeginners'));
 const VideoContactSheetsGuide = lazy(() => import('./pages/blog/VideoContactSheetsGuide'));
@@ -198,6 +199,7 @@ const App: React.FC = () => {
                 <Route path="/blog/gif-to-mp4-why-and-how" element={<GifToMp4WhyHow />} />
                 <Route path="/blog/how-to-compress-a-gif" element={<HowToCompressGif />} />
                 <Route path="/blog/heic-to-jpg-guide" element={<HeicToJpgGuide />} />
+                <Route path="/blog/avif-to-jpg-guide" element={<AvifToJpgGuide />} />
                 <Route path="/blog/free-video-tools-online" element={<FreeVideoToolsRoundup />} />
                 <Route path="/blog/stop-motion-for-beginners" element={<StopMotionBeginners />} />
                 <Route path="/blog/video-contact-sheets-guide" element={<VideoContactSheetsGuide />} />
