@@ -11,6 +11,13 @@ interface GoogleAdUnitProps {
   slot?: string;
 }
 
+// REVIEW PHASE (2026-10-29): manual ad units are disabled site-wide while the
+// AdSense review is pending, so no page renders empty manual slots (MFA-pattern
+// risk). Pages rely on the Auto Ads head tag in index.html only. Flip this to
+// true after approval to restore the per-page units exactly as before
+// (including the CLS min-height reserve below).
+const MANUAL_AD_UNITS_ENABLED = false;
+
 const getConsent = (): 'all' | 'essential' | null => {
   try {
     const consent = localStorage.getItem('cookie_consent_accepted');
@@ -28,6 +35,7 @@ const GoogleAdUnit: React.FC<GoogleAdUnitProps> = ({
   const pending = useRef(false);
 
   const loadAds = () => {
+    if (!MANUAL_AD_UNITS_ENABLED) return;
     if (pushed.current || pending.current) return;
     // Only load ads when user has accepted all cookies (including advertising)
     if (getConsent() !== 'all') return;
@@ -52,6 +60,8 @@ const GoogleAdUnit: React.FC<GoogleAdUnitProps> = ({
       window.removeEventListener('cookieConsentChange', handler);
     };
   }, []);
+
+  if (!MANUAL_AD_UNITS_ENABLED) return null;
 
   return (
     // The reserved min-height is ALWAYS rendered — whether the ad fills, is
