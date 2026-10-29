@@ -115,6 +115,11 @@
       "source": "/hi/video-frame-extractor",
       "destination": "/video-to-frames",
       "permanent": true
+    },
+    {
+      "source": "/exact-timestamp-extractor",
+      "destination": "/extract-frame-at-timestamp",
+      "permanent": true
     }
   ],
   "cleanUrls": true,
