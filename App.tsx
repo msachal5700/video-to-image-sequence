@@ -72,6 +72,7 @@ const VideoLooper = lazy(() => import('./pages/VideoLooper'));
 const FramesToGif = lazy(() => import('./pages/FramesToGif'));
 const CompressGif = lazy(() => import('./pages/CompressGif'));
 const HeicToJpg = lazy(() => import('./pages/HeicToJpg'));
+const AvifToJpg = lazy(() => import('./pages/AvifToJpg'));
 const SpriteSheetSlicer = lazy(() => import('./pages/SpriteSheetSlicer'));
 const DiscordStickerMaker = lazy(() => import('./pages/DiscordStickerMaker'));
 const LastFrameExtractor = lazy(() => import('./pages/LastFrameExtractor'));
@@ -250,6 +251,7 @@ const App: React.FC = () => {
                 <Route path="/frames-to-gif" element={<FramesToGif />} />
                 <Route path="/compress-gif" element={<CompressGif />} />
                 <Route path="/heic-to-jpg" element={<HeicToJpg />} />
+                <Route path="/avif-to-jpg" element={<AvifToJpg />} />
                 <Route path="/discord-sticker-maker" element={<DiscordStickerMaker />} />
                 <Route path="/last-frame-extractor" element={<LastFrameExtractor />} />
                 <Route path="/video-to-pdf" element={<VideoToPdf />} />
