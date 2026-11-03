@@ -356,6 +356,13 @@ const Home: React.FC = () => {
         <p className="text-gray-400 leading-relaxed">
           {t('home.outputChoose')}
         </p>
+        <p className="text-gray-400 leading-relaxed mt-6">
+          Need lossless frames specifically? Our dedicated{' '}
+          <Link to="/video-to-png" className="text-cyan-400 underline hover:text-cyan-300">
+            video to png converter
+          </Link>{' '}
+          extracts pixel-perfect PNG sequences with transparency support, right in your browser.
+        </p>
       </section>
 
       {/* ── WHO CAN USE THIS TOOL ── */}

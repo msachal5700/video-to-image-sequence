@@ -228,6 +228,11 @@ const MovToPng: React.FC = () => {
             </tbody>
           </table>
         </div>
+        <p className="text-gray-400 text-sm leading-relaxed mt-6">
+          Working with a mix of formats instead? The{' '}
+          <Link to="/video-to-png" className="text-cyan-400 underline hover:text-cyan-300">video to PNG converter for any format</Link>{' '}
+          runs the same lossless engine on MP4, MOV, WebM, and more.
+        </p>
       </section>
 
       <section className="max-w-4xl mx-auto py-12 px-4">
@@ -249,6 +254,10 @@ const MovToPng: React.FC = () => {
           <Link to="/mp4-to-png" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">MP4 to PNG</h3>
             <p className="text-gray-500 text-xs">Standard MP4 H.264 → lossless PNG.</p>
+          </Link>
+          <Link to="/webm-to-png" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">WebM to PNG</h3>
+            <p className="text-gray-500 text-xs">Lossless PNG frames from WebM clips.</p>
           </Link>
           <Link to="/video-to-webp" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video to WebP</h3>

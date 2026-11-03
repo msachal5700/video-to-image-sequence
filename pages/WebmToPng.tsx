@@ -223,6 +223,11 @@ const WebmToPng: React.FC = () => {
             </tbody>
           </table>
         </div>
+        <p className="text-gray-400 text-sm leading-relaxed mt-6">
+          Have an MP4 or MOV file instead? You can{' '}
+          <Link to="/video-to-png" className="text-cyan-400 underline hover:text-cyan-300">extract lossless PNG frames from video</Link>{' '}
+          in any common format with the same engine.
+        </p>
       </section>
 
       <section className="max-w-4xl mx-auto py-12 px-4">
@@ -253,6 +258,10 @@ const WebmToPng: React.FC = () => {
           <Link to="/mp4-to-png" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">MP4 to PNG</h3>
             <p className="text-gray-500 text-xs">Standard MP4 H.264 → lossless PNG.</p>
+          </Link>
+          <Link to="/mov-to-png" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">MOV to PNG</h3>
+            <p className="text-gray-500 text-xs">Lossless PNG frames from QuickTime MOV videos.</p>
           </Link>
           <Link to="/video-to-webp" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video to WebP</h3>
