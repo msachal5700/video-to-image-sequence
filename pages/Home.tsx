@@ -171,22 +171,25 @@ const Home: React.FC = () => {
 
 
   const moreToolsLinks = ['/extract-frame-at-timestamp', '/screenshot-from-video', '/ai-social-media-frame-picker'];
+  // Index-aligned with home.relatedItems titles/descs in i18n/locales/*.json
+  // (12 cards in en). Fix 2026-11-03: realigned after link/emoji entries were
+  // inserted/deleted here in Oct 2026 (AVIF insert, consolidation deletes)
+  // without matching title changes, shifting hrefs for 5 cards.
   const relatedLinks = [
-    '/mp4-to-jpg',
-    '/video-to-png',
-    '/video-to-webp',
-    '/video-to-avif',
-    '/blog/mp4-to-image-sequence-guide',
-    '/images-to-video',
-    '/image-crop',
-    '/video-to-frames',
-    '/video-to-jpg',
-    '/video-to-photo',
-    '/video-frame-for-youtube-thumbnail', // Review phase (2026-10-29): swapped from '/youtube-thumbnail-downloader' during AdSense review (index preserved for relatedEmojis + home.related alignment) — restore after decision.
-    '/video-to-pdf',
-    '/blog/ezgif-alternative-video-to-image-sequence',
-];
-  const relatedEmojis = ['🎯', '🖼️', '🎨', '🖼️', '📚', '🔄', '✂️', '🎞️', '📷', '📸', '⬇️', '📄', '⚖️',];
+    '/mp4-to-jpg', // 0: MP4 to JPG Converter
+    '/video-to-png', // 1: Video to PNG Converter
+    '/video-to-webp', // 2: Video to WebP Converter
+    '/blog/mp4-to-image-sequence-guide', // 3: MP4 to Image Sequence Guide
+    '/video-to-frames', // 4: Extract Every Frame (Full FPS) — original /extract-frames-from-video was consolidated into /video-to-frames (301, 2026-10-16)
+    '/images-to-video', // 5: Images to Video Converter
+    '/image-crop', // 6: Freeform Image Crop
+    '/video-to-frames', // 7: Video to Frames Converter
+    '/video-to-jpg', // 8: Video to JPG Frames
+    '/screenshot-from-video', // 9: Video Frame Grabber — capture individual stills; original /video-frame-extractor was consolidated away (301 to /video-to-frames, 2026-10-16)
+    '/video-to-photo', // 10: Video to Photo
+    '/video-frame-for-youtube-thumbnail', // 11: YouTube Thumbnail Downloader — Review phase (2026-10-29): substitute for '/youtube-thumbnail-downloader' during AdSense review; restore after decision.
+  ];
+  const relatedEmojis = ['🎯', '🖼️', '🎨', '📚', '🎬', '🔄', '✂️', '🎞️', '📷', '⚙️', '📸', '⬇️'];
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
