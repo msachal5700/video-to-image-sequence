@@ -94,7 +94,7 @@ const VideoFrameExtractorUseCases: React.FC = () => {
           <li><strong className="text-white">Medical imaging:</strong> Extract frames from surgical procedure recordings to build annotated surgical action recognition datasets.</li>
         </ul>
         <p>
-          PNG format is strongly preferred for ML datasets because it's lossless — JPG compression introduces subtle pixel-level artifacts that can confuse training pipelines, especially for edge detection tasks. Use the <Link to="/video-to-png" className="text-cyan-400 hover:text-cyan-300 underline underline-offset-4">Video to PNG extractor</Link> when building training data.
+          PNG format is strongly preferred for ML datasets because it's lossless — JPG compression introduces subtle pixel-level artifacts that can confuse training pipelines, especially for edge detection tasks. Use it to <Link to="/video-to-png" className="text-cyan-400 hover:text-cyan-300 underline underline-offset-4">pull lossless PNG stills from a video</Link> when building training data.
         </p>
 
         <GoogleAdUnit />

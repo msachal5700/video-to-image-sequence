@@ -147,18 +147,21 @@ const VideoToPng: React.FC = () => {
       <Breadcrumb items={[{ label: 'Video to PNG', path: '/video-to-png' }]} />
 
       {/* ── HERO SECTION ── */}
-      <section className="text-center max-w-4xl mx-auto pt-10 pb-10 px-4">
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-tight font-display">
+      <section className="text-center max-w-4xl mx-auto pt-6 pb-4 px-4">
+        <h1 className="text-3xl md:text-5xl font-bold text-white mb-3 leading-tight tracking-tight font-display">
           {t('videoToPng.h1')}<br />
           <span className="text-cyan-400">{t('videoToPng.h1Sub')}</span>
         </h1>
+      </section>
 
-        <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed hero-description">
-          {t('videoToPng.hero')}
-        </p>
-
+      {/* Main Tool Content */}
+      <div className="animate-fade-in min-h-[400px] px-4 max-w-5xl mx-auto text-center">
+        <VideoToImages />
+        <div className="mt-4 inline-block bg-cyan-950/40 border border-cyan-800 text-cyan-400 px-4 py-2 rounded-lg text-sm font-medium">
+          {t('common.tipPng')}
+        </div>
         {/* Trust badges */}
-        <div className="flex flex-wrap justify-center gap-3 text-xs text-gray-400 mb-10">
+        <div className="flex flex-wrap justify-center gap-3 text-xs text-gray-400 mt-6">
           {[
             t('badges.private'),
             t('badges.zip'),
@@ -169,14 +172,6 @@ const VideoToPng: React.FC = () => {
             </span>
           ))}
         </div>
-      </section>
-
-      {/* Main Tool Content */}
-      <div className="animate-fade-in min-h-[400px] px-4 max-w-5xl mx-auto text-center">
-        <div className="mb-4 inline-block bg-cyan-950/40 border border-cyan-800 text-cyan-400 px-4 py-2 rounded-lg text-sm font-medium">
-          {t('common.tipPng')}
-        </div>
-        <VideoToImages />
       </div>
 
       {/* ── BROWSER SECURITY & PRIVACY ── */}
@@ -184,6 +179,9 @@ const VideoToPng: React.FC = () => {
         <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">
           Client-Side Lossless Frame Processing
         </h2>
+        <p className="text-gray-400 leading-relaxed mb-4">
+          {t('videoToPng.hero')}
+        </p>
         <p className="text-gray-400 leading-relaxed">
           Security matters, especially when dealing with proprietary visual designs, motion assets, or client presentations. Our Video to PNG Converter decodes and extracts frames entirely inside your local web browser. Your video is parsed locally and the images are saved in your browser environment. Your files are never transmitted across the network, keeping your sensitive or proprietary footage completely secure.
         </p>
@@ -264,6 +262,19 @@ const VideoToPng: React.FC = () => {
             Video to JPG converter
           </Link>{' '}
           extracts the same frames at a fraction of the size. Choose PNG when every pixel counts.
+          Working with one format only? Use the dedicated{' '}
+          <Link to="/mp4-to-png" className="text-cyan-400 underline hover:text-cyan-300">
+            MP4 to PNG
+          </Link>
+          ,{' '}
+          <Link to="/mov-to-png" className="text-cyan-400 underline hover:text-cyan-300">
+            MOV to PNG
+          </Link>
+          , or{' '}
+          <Link to="/webm-to-png" className="text-cyan-400 underline hover:text-cyan-300">
+            WebM to PNG
+          </Link>{' '}
+          converters — same lossless engine, pre-set for your file type.
         </p>
       </section>
 
@@ -424,6 +435,18 @@ const VideoToPng: React.FC = () => {
           <Link to="/images-to-video" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Images to Video</h3>
             <p className="text-gray-500 text-xs">Stitch frame sequences into a WebM video.</p>
+          </Link>
+          <Link to="/mp4-to-png" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">MP4 to PNG</h3>
+            <p className="text-gray-500 text-xs">Dedicated converter for MP4 files — same lossless PNG output.</p>
+          </Link>
+          <Link to="/mov-to-png" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">MOV to PNG</h3>
+            <p className="text-gray-500 text-xs">Extract PNG frames from QuickTime MOV videos, alpha included.</p>
+          </Link>
+          <Link to="/webm-to-png" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">WebM to PNG</h3>
+            <p className="text-gray-500 text-xs">Pull lossless PNG stills from WebM clips and screen recordings.</p>
           </Link>
         </div>
       </section>

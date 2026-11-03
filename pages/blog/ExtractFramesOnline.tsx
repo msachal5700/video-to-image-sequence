@@ -64,7 +64,7 @@ const ExtractFramesOnline: React.FC = () => {
         </p>
         <ul className="list-disc pl-6 space-y-3 mt-4 text-gray-400">
           <li>
-            <strong className="text-white">Animation & VFX:</strong> Visual effects artists require individual frames to composite CGI element layers, perform clean rotoscoping masks, and adjust color levels. For VFX pipelines, using a <Link to="/video-to-png" className="text-cyan-400 hover:text-cyan-300 transition-colors font-medium underline underline-offset-4 decoration-cyan-400/30 hover:decoration-cyan-400">lossless video to PNG converter</Link> is essential since JPG compression creates color halos and muddy artifacts.
+            <strong className="text-white">Animation & VFX:</strong> Visual effects artists require individual frames to composite CGI element layers, perform clean rotoscoping masks, and adjust color levels. For VFX pipelines, using a tool to <Link to="/video-to-png" className="text-cyan-400 hover:text-cyan-300 transition-colors font-medium underline underline-offset-4 decoration-cyan-400/30 hover:decoration-cyan-400">convert video to PNG online</Link> is essential since JPG compression creates color halos and muddy artifacts.
           </li>
           <li>
             <strong className="text-white">Content Creation:</strong> Creating engaging thumbnails for YouTube, social media, or blogging requires a clean screenshot. Extracting a sequence of frames lets you search frame-by-frame to find the frame with perfect lighting, composition, and focus.

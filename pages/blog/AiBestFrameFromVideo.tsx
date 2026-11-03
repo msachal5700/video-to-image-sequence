@@ -320,7 +320,7 @@ const AiBestFrameFromVideo = () => {
                 Convert MP4 to JPG frames →
               </Link>
               <Link to="/video-to-png" className="p-3.5 rounded-xl bg-gray-900 border border-gray-800 hover:border-cyan-500/50 text-sm text-gray-300 hover:text-white transition">
-                Convert video to PNG sequence →
+                Save video frames as PNG images →
               </Link>
               <Link to="/screenshot-from-video" className="p-3.5 rounded-xl bg-gray-900 border border-gray-800 hover:border-cyan-500/50 text-sm text-gray-300 hover:text-white transition">
                 Take high-res screenshot from video →
