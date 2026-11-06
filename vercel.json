@@ -120,6 +120,11 @@
       "source": "/exact-timestamp-extractor",
       "destination": "/extract-frame-at-timestamp",
       "permanent": true
+    },
+    {
+      "source": "/extract-frame-every-60-seconds",
+      "destination": "/extract-frame-every-30-seconds",
+      "permanent": true
     }
   ],
   "cleanUrls": true,
