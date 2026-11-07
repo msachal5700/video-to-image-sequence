@@ -6,6 +6,30 @@ import GoogleAdUnit from '../components/GoogleAdUnit';
 
 const posts = [
   {
+    slug: "webm-to-png-guide",
+    title: "How to Convert WebM to PNG (Extract Frames from a WebM Video)",
+    date: "November 7, 2026",
+    description: "Convert WebM to PNG three ways — a free browser tool, FFmpeg, and VLC — and why WebM's alpha channel makes lossless PNG the right output for stickers, overlays, and recordings.",
+  },
+  {
+    slug: "convert-video-to-jpg-guide",
+    title: "How to Convert Video to JPG (Extract JPG Frames from Any Video)",
+    date: "November 7, 2026",
+    description: "How to convert video to JPG: it is frame extraction, not container conversion. Three methods — browser tool, FFmpeg, Python/OpenCV — plus how to get sharp JPGs instead of blurry ones.",
+  },
+  {
+    slug: "ezgif-video-to-jpg-guide",
+    title: "Ezgif Video to JPG: How to Use It Step by Step (and When to Skip the Upload)",
+    date: "November 7, 2026",
+    description: "Ezgif's Video to JPG tool, step by step: the settings that matter, the 200 MB upload cap and one-hour deletion — and when to skip the upload for FFmpeg or a browser-local extractor.",
+  },
+  {
+    slug: "slice-irregular-sprite-sheets",
+    title: "How to Slice a Sprite Sheet That Isn't a Grid (Auto-Detect + Atlas Files)",
+    date: "November 7, 2026",
+    description: "Slice a sprite sheet that isn't a grid: auto-detect mode finds irregular sprites by their outlines, and atlas files use the packer's own rectangles — then turn the slices into a working animation.",
+  },
+  {
     slug: "extract-frames-ml-datasets",
     title: "How to Extract Frames from Video for Machine Learning Datasets",
     date: "November 7, 2026",
