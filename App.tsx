@@ -42,6 +42,11 @@ const GifToMp4WhyHow = lazy(() => import('./pages/blog/GifToMp4WhyHow'));
 const HowToCompressGif = lazy(() => import('./pages/blog/HowToCompressGif'));
 const HeicToJpgGuide = lazy(() => import('./pages/blog/HeicToJpgGuide'));
 const AvifToJpgGuide = lazy(() => import('./pages/blog/AvifToJpgGuide'));
+const ExtractFramesMlDatasets = lazy(() => import('./pages/blog/ExtractFramesMlDatasets'));
+const ExtractLastFrameFromVideo = lazy(() => import('./pages/blog/ExtractLastFrameFromVideo'));
+const ExtractSingleFrameExactTimestamp = lazy(() => import('./pages/blog/ExtractSingleFrameExactTimestamp'));
+const ExtractFramesIphoneGuide = lazy(() => import('./pages/blog/ExtractFramesIphoneGuide'));
+const ExtractFramesAndroidGuide = lazy(() => import('./pages/blog/ExtractFramesAndroidGuide'));
 const ImportVideoFramesIntoBlender = lazy(() => import('./pages/blog/ImportVideoFramesIntoBlender'));
 const ImportVideoFramesIntoAfterEffects = lazy(() => import('./pages/blog/ImportVideoFramesIntoAfterEffects'));
 const ImportVideoFramesIntoPremierePro = lazy(() => import('./pages/blog/ImportVideoFramesIntoPremierePro'));
@@ -205,6 +210,11 @@ const App: React.FC = () => {
                 <Route path="/blog/how-to-compress-a-gif" element={<HowToCompressGif />} />
                 <Route path="/blog/heic-to-jpg-guide" element={<HeicToJpgGuide />} />
                 <Route path="/blog/avif-to-jpg-guide" element={<AvifToJpgGuide />} />
+                <Route path="/blog/extract-frames-ml-datasets" element={<ExtractFramesMlDatasets />} />
+                <Route path="/blog/extract-last-frame-from-video" element={<ExtractLastFrameFromVideo />} />
+                <Route path="/blog/extract-single-frame-exact-timestamp" element={<ExtractSingleFrameExactTimestamp />} />
+                <Route path="/blog/extract-frames-iphone-guide" element={<ExtractFramesIphoneGuide />} />
+                <Route path="/blog/extract-frames-android-guide" element={<ExtractFramesAndroidGuide />} />
                 <Route path="/blog/import-video-frames-into-blender" element={<ImportVideoFramesIntoBlender />} />
                 <Route path="/blog/import-video-frames-into-after-effects" element={<ImportVideoFramesIntoAfterEffects />} />
                 <Route path="/blog/import-video-frames-into-premiere-pro" element={<ImportVideoFramesIntoPremierePro />} />

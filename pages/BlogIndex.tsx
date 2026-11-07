@@ -6,6 +6,36 @@ import GoogleAdUnit from '../components/GoogleAdUnit';
 
 const posts = [
   {
+    slug: "extract-frames-ml-datasets",
+    title: "How to Extract Frames from Video for Machine Learning Datasets",
+    date: "November 7, 2026",
+    description: "Extract frames from video for machine learning datasets: sampling strategy, dedup and filtering, dataset-friendly naming — and why train/val/test splits must happen at the video level.",
+  },
+  {
+    slug: "extract-last-frame-from-video",
+    title: "How to Extract the Last Frame from a Video (Browser, FFmpeg, and VLC)",
+    date: "November 7, 2026",
+    description: "How to extract the last frame from a video — a browser tool, FFmpeg, and VLC — plus why the literal last frame is often the wrong frame, and how creators chain AI video clips with it.",
+  },
+  {
+    slug: "extract-single-frame-exact-timestamp",
+    title: "How to Extract a Single Frame from a Video at an Exact Timestamp",
+    date: "November 7, 2026",
+    description: "Extract a single frame from a video at an exact timestamp: a browser tool, FFmpeg seeking, and a VLC snapshot — plus why your frame can land one or two frames off, and how to fix it.",
+  },
+  {
+    slug: "extract-frames-iphone-guide",
+    title: "How to Extract Frames from a Video on iPhone (Full Resolution, No App)",
+    date: "November 7, 2026",
+    description: "Extract full-resolution frames from a video on iPhone: why a Photos screenshot is a photo of your screen, not of your video — and how to pull the real frame in Safari with no app to install.",
+  },
+  {
+    slug: "extract-frames-android-guide",
+    title: "How to Extract Frames from a Video on Android (Full Resolution, No App to Install)",
+    date: "November 7, 2026",
+    description: "Extract full-resolution frames from a video on Android: the screenshot shortcut, VLC's snapshot, and real extraction in Chrome — plus the three settings that quietly lower your quality.",
+  },
+  {
     slug: "import-video-frames-into-blender",
     title: "How to Import Extracted Video Frames into Blender (Image Sequence Guide)",
     date: "November 7, 2026",
