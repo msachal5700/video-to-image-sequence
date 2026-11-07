@@ -6,6 +6,36 @@ import GoogleAdUnit from '../components/GoogleAdUnit';
 
 const posts = [
   {
+    slug: "import-video-frames-into-blender",
+    title: "How to Import Extracted Video Frames into Blender (Image Sequence Guide)",
+    date: "November 7, 2026",
+    description: "Import extracted video frames into Blender as an image sequence: the right extraction settings, the Add > Image/Sequence steps, and matching the frame rate so motion plays true.",
+  },
+  {
+    slug: "import-video-frames-into-after-effects",
+    title: "How to Import Extracted Video Frames into After Effects (Image Sequence Guide)",
+    date: "November 7, 2026",
+    description: "Import extracted video frames into After Effects as an image sequence: select one file, tick Sequence, fix the interpreted frame rate, and build a composition that matches.",
+  },
+  {
+    slug: "import-video-frames-into-premiere-pro",
+    title: "How to Import Extracted Video Frames into Premiere Pro (Image Sequence Guide)",
+    date: "November 7, 2026",
+    description: "Import extracted video frames into Premiere Pro as an image sequence: set the Indeterminate Media Timebase before you import, tick Image Sequence, and match a sequence to the clip.",
+  },
+  {
+    slug: "import-video-frames-into-davinci-resolve",
+    title: "How to Import Extracted Video Frames into DaVinci Resolve (Image Sequence Guide)",
+    date: "November 7, 2026",
+    description: "Import extracted video frames into DaVinci Resolve as one clip: set Frame Display Mode to Sequence on the Media page, then set the frame rate in Clip Attributes before editing.",
+  },
+  {
+    slug: "import-video-frames-into-final-cut-pro",
+    title: "How to Import Extracted Video Frames into Final Cut Pro (Image Sequence Guide)",
+    date: "November 7, 2026",
+    description: "Import extracted video frames into Final Cut Pro: turn the frame folder into one movie clip with QuickTime Player, set the frame rate to match the job, and import it cleanly.",
+  },
+  {
     slug: 'avif-to-jpg-guide',
     title: 'How to Convert AVIF to JPG (Free, No Upload, No App)',
     date: 'October 29, 2026',
