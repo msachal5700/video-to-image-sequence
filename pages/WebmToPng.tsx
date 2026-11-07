@@ -40,7 +40,7 @@ const WebmToPng: React.FC = () => {
     "name": "WebM to PNG Converter — Extract Lossless PNG Frames from WebM Free",
     "url": "https://www.videotoimagesequence.online/webm-to-png",
     "image": "https://www.videotoimagesequence.online/og-image.png",
-    "description": "Convert WebM to PNG frames online for free. Extract lossless, transparent PNG image sequences from WebM videos (VP8, VP9, AV1 with alpha) in your browser. No server upload, custom FPS, ZIP download. Perfect for screen recordings, UI captures, VFX, and ML datasets.",
+    "description": "Free WebM to PNG converter: extract lossless PNG frames from any WebM video right in your browser — transparency (alpha) preserved, no upload, no file-size limit, ZIP download. Perfect for screen recordings, UI captures, VFX, and ML datasets.",
     "applicationCategory": "MultimediaApplication",
     "applicationSubCategory": "Video Converter",
     "operatingSystem": "All — Browser-based",
@@ -101,10 +101,10 @@ const WebmToPng: React.FC = () => {
       </script>
       <SEOHead
         title="WebM to PNG Converter — Extract Lossless PNG Frames from WebM Free"
-        description="Convert WebM to PNG frames online for free. Extract lossless, transparent PNG image sequences from WebM videos (VP8, VP9, AV1 with alpha) in your browser. No server upload, custom FPS, ZIP download."
+        description="Free WebM to PNG converter: extract lossless PNG frames from any WebM video right in your browser — transparency (alpha) preserved, no upload, no file-size limit, ZIP download."
         canonical="https://www.videotoimagesequence.online/webm-to-png"
         ogTitle="WebM to PNG Converter — Extract Lossless PNG Frames from WebM Free"
-        ogDescription="Convert WebM to PNG frames online for free. Extract lossless, transparent PNG image sequences from WebM videos in your browser. No server upload."
+        ogDescription="Free WebM to PNG converter: extract lossless PNG frames from any WebM video right in your browser — transparency (alpha) preserved, no upload, no file-size limit, ZIP download."
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
         keywords="webm to png, webm to png converter, extract png frames from webm, lossless frame extractor, video to png sequence"
