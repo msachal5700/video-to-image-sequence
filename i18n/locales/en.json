@@ -494,6 +494,10 @@
       {
         "title": "WebP to PNG Converter",
         "desc": "Convert WebP images to lossless PNG. Transparency preserved, nothing uploaded."
+      },
+      {
+        "title": "Image to PDF Converter",
+        "desc": "Combine JPG, PNG and WebP images into one PDF. Nothing uploaded."
       }
     ],
     "faq": {
@@ -915,5 +919,13 @@
     "h1Sub": "Convert WebP Images to PNG Free",
     "hero": "Saved an image from the web and got a .webp file your editor, form, or printer refuses to open? Drop up to 20 WebP images here and get lossless PNGs that open everywhere — converted 100% in your browser, transparency preserved, nothing uploaded.",
     "keywords": "webp to png, webp to png converter, convert webp to png, webp converter free, webp to png online free, webp to png transparent"
+  },
+  "imageToPdf": {
+    "title": "Image to PDF Converter — Combine JPG, PNG, WebP into PDF Free",
+    "description": "Combine JPG, PNG and WebP images into one PDF free, entirely in your browser. Fit-to-image, A4 or Letter pages, reorder pages, no upload, no signup, no watermark.",
+    "h1": "Image to PDF Converter",
+    "h1Sub": "Combine Images into One PDF Free",
+    "hero": "Turn a pile of JPG, PNG, or WebP images into a single tidy PDF — in the order you choose, at full quality, without uploading anything. Pick Fit to image for pixel-exact pages, or A4 / Letter for printable documents.",
+    "keywords": "image to pdf, jpg to pdf, png to pdf, combine images into pdf, image to pdf converter free, webp to pdf"
   }
 }
