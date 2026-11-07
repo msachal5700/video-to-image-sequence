@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import VideoToImages from './VideoToImages';
+import HeroScreencast from '../components/HeroScreencast';
 import GoogleAdUnit from '../components/GoogleAdUnit';
 import SEOHead from '../components/SEOHead';
 import { localizedUrl } from '../utils/localizedRoutes';
@@ -250,6 +251,14 @@ const Home: React.FC = () => {
           ))}
         </div>
       </section>
+
+      {/* ── ANIMATED SCREENCAST DEMO (hero visual) ── */}
+      <div className="max-w-5xl mx-auto px-4 mb-12">
+        <p className="text-center text-sm text-gray-500 font-semibold mb-4">
+          Watch it work — a 14-second look at the extractor in action:
+        </p>
+        <HeroScreencast />
+      </div>
 
       {/* Tool Switcher Tabs */}
       <div className="flex justify-center mb-10 px-4">
