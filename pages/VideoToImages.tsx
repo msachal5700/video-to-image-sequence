@@ -488,6 +488,23 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
                   </div>
                 )}
 
+                {/* Reserved results space while processing: mirrors the frame
+                    grid's wrapper so the layout doesn't jump from zero height
+                    when the grid mounts at completion (layout shift). */}
+                {(appState === AppState.PROCESSING || appState === AppState.ZIPPING) && extractedFrames.length === 0 && (
+                  <div className="mt-8 border-t border-gray-800 pt-8" aria-hidden="true">
+                    <div className="flex justify-between items-center mb-6 flex-wrap gap-2">
+                      <div className="h-7 w-48 bg-gray-800/70 rounded-lg animate-pulse" />
+                      <div className="h-7 w-40 bg-gray-800/70 rounded-full animate-pulse" />
+                    </div>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+                      {Array.from({ length: 12 }).map((_, i) => (
+                        <div key={i} className="aspect-square bg-gray-900 rounded-xl border border-gray-800 animate-pulse" />
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {/* Frame Grid - Shows frames for the most recently processed video */}
                 {extractedFrames.length > 0 && (
                   <div className="mt-8 border-t border-gray-800 pt-8 animate-fade-in">
