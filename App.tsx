@@ -90,6 +90,7 @@ const HeicToJpg = lazy(() => import('./pages/HeicToJpg'));
 const AvifToJpg = lazy(() => import('./pages/AvifToJpg'));
 const WebpToPng = lazy(() => import('./pages/WebpToPng'));
 const ImageToPdf = lazy(() => import('./pages/ImageToPdf'));
+const WebmToMp4 = lazy(() => import('./pages/WebmToMp4'));
 const SpriteSheetSlicer = lazy(() => import('./pages/SpriteSheetSlicer'));
 const DiscordStickerMaker = lazy(() => import('./pages/DiscordStickerMaker'));
 const LastFrameExtractor = lazy(() => import('./pages/LastFrameExtractor'));
@@ -286,6 +287,7 @@ const App: React.FC = () => {
                 <Route path="/avif-to-jpg" element={<AvifToJpg />} />
                 <Route path="/webp-to-png" element={<WebpToPng />} />
                 <Route path="/image-to-pdf" element={<ImageToPdf />} />
+                <Route path="/webm-to-mp4" element={<WebmToMp4 />} />
                 <Route path="/discord-sticker-maker" element={<DiscordStickerMaker />} />
                 <Route path="/last-frame-extractor" element={<LastFrameExtractor />} />
                 <Route path="/video-to-pdf" element={<VideoToPdf />} />
