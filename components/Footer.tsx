@@ -41,6 +41,7 @@ const Footer = () => {
               <li><Link to="/heic-to-jpg" className="text-gray-600 hover:text-cyan-400 transition">HEIC to JPG Converter</Link></li>
               <li><Link to="/avif-to-jpg" className="text-gray-600 hover:text-cyan-400 transition">AVIF to JPG Converter</Link></li>
               <li><Link to="/webp-to-png" className="text-gray-600 hover:text-cyan-400 transition">WebP to PNG Converter</Link></li>
+              <li><Link to="/image-to-pdf" className="text-gray-600 hover:text-cyan-400 transition">Image to PDF Converter</Link></li>
               <li><Link to="/discord-sticker-maker" className="text-gray-600 hover:text-cyan-400 transition">Discord Sticker Maker</Link></li>
               <li><Link to="/last-frame-extractor" className="text-gray-600 hover:text-cyan-400 transition">Last Frame Extractor</Link></li>
 <li><Link to="/video-to-pdf" className="text-gray-600 hover:text-cyan-400 transition">Video to PDF</Link></li>

@@ -189,8 +189,9 @@ const Home: React.FC = () => {
     '/video-to-photo', // 10: Video to Photo
     '/video-frame-for-youtube-thumbnail', // 11: YouTube Thumbnail Downloader
     '/webp-to-png', // 12: WebP to PNG Converter — Review phase (2026-10-29): substitute for '/youtube-thumbnail-downloader' during AdSense review; restore after decision.
+    '/image-to-pdf', // 13: Image to PDF Converter
   ];
-  const relatedEmojis = ['🎯', '🖼️', '🎨', '📚', '🎬', '🔄', '✂️', '🎞️', '📷', '⚙️', '📸', '⬇️', '🔀'];
+  const relatedEmojis = ['🎯', '🖼️', '🎨', '📚', '🎬', '🔄', '✂️', '🎞️', '📷', '⚙️', '📸', '⬇️', '🔀', '📄'];
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
