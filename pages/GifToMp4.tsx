@@ -291,6 +291,10 @@ const GifToMp4: React.FC = () => {
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video to PNG</h3>
             <p className="text-gray-500 text-xs">Lossless PNG frames with transparency support.</p>
           </Link>
+          <Link to="/video-looper" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video Looper</h3>
+            <p className="text-gray-500 text-xs">Repeat any video clip in a seamless loop, right in your browser.</p>
+          </Link>
         </div>
       </section>
 

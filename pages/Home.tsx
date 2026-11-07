@@ -187,9 +187,10 @@ const Home: React.FC = () => {
     '/video-to-jpg', // 8: Video to JPG Frames
     '/screenshot-from-video', // 9: Video Frame Grabber — capture individual stills; original /video-frame-extractor was consolidated away (301 to /video-to-frames, 2026-10-16)
     '/video-to-photo', // 10: Video to Photo
-    '/video-frame-for-youtube-thumbnail', // 11: YouTube Thumbnail Downloader — Review phase (2026-10-29): substitute for '/youtube-thumbnail-downloader' during AdSense review; restore after decision.
+    '/video-frame-for-youtube-thumbnail', // 11: YouTube Thumbnail Downloader
+    '/webp-to-png', // 12: WebP to PNG Converter — Review phase (2026-10-29): substitute for '/youtube-thumbnail-downloader' during AdSense review; restore after decision.
   ];
-  const relatedEmojis = ['🎯', '🖼️', '🎨', '📚', '🎬', '🔄', '✂️', '🎞️', '📷', '⚙️', '📸', '⬇️'];
+  const relatedEmojis = ['🎯', '🖼️', '🎨', '📚', '🎬', '🔄', '✂️', '🎞️', '📷', '⚙️', '📸', '⬇️', '🔀'];
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
