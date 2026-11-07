@@ -498,6 +498,10 @@
       {
         "title": "Image to PDF Converter",
         "desc": "Combine JPG, PNG and WebP images into one PDF. Nothing uploaded."
+      },
+      {
+        "title": "WebM to MP4 Converter",
+        "desc": "Convert WebM clips to MP4 that plays everywhere. Nothing uploaded."
       }
     ],
     "faq": {
@@ -927,5 +931,13 @@
     "h1Sub": "Combine Images into One PDF Free",
     "hero": "Turn a pile of JPG, PNG, or WebP images into a single tidy PDF — in the order you choose, at full quality, without uploading anything. Pick Fit to image for pixel-exact pages, or A4 / Letter for printable documents.",
     "keywords": "image to pdf, jpg to pdf, png to pdf, combine images into pdf, image to pdf converter free, webp to pdf"
+  },
+  "webmToMp4": {
+    "title": "WebM to MP4 Converter — Convert WebM to MP4 Free Online",
+    "description": "Convert WebM to MP4 free, entirely in your browser. H.264 MP4 at 30 fps for clips up to 60 seconds, no upload, no signup. Please note: the converted MP4 is silent — the audio track is not carried over.",
+    "h1": "WebM to MP4 Converter",
+    "h1Sub": "Convert WebM to MP4 Free",
+    "hero": "Got a WebM clip that your editor, phone, or presentation refuses to touch? Drop it here and get a standard H.264 MP4 that plays everywhere — converted frame by frame in your browser, nothing uploaded. Clips up to 60 seconds; the output is silent (audio is not carried over).",
+    "keywords": "webm to mp4, webm to mp4 converter, convert webm to mp4, webm converter free, webm to mp4 online free"
   }
 }
