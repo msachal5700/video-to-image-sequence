@@ -42,6 +42,11 @@ const GifToMp4WhyHow = lazy(() => import('./pages/blog/GifToMp4WhyHow'));
 const HowToCompressGif = lazy(() => import('./pages/blog/HowToCompressGif'));
 const HeicToJpgGuide = lazy(() => import('./pages/blog/HeicToJpgGuide'));
 const AvifToJpgGuide = lazy(() => import('./pages/blog/AvifToJpgGuide'));
+const ImportVideoFramesIntoBlender = lazy(() => import('./pages/blog/ImportVideoFramesIntoBlender'));
+const ImportVideoFramesIntoAfterEffects = lazy(() => import('./pages/blog/ImportVideoFramesIntoAfterEffects'));
+const ImportVideoFramesIntoPremierePro = lazy(() => import('./pages/blog/ImportVideoFramesIntoPremierePro'));
+const ImportVideoFramesIntoDavinciResolve = lazy(() => import('./pages/blog/ImportVideoFramesIntoDavinciResolve'));
+const ImportVideoFramesIntoFinalCutPro = lazy(() => import('./pages/blog/ImportVideoFramesIntoFinalCutPro'));
 const FreeVideoToolsRoundup = lazy(() => import('./pages/blog/FreeVideoToolsRoundup'));
 const StopMotionBeginners = lazy(() => import('./pages/blog/StopMotionBeginners'));
 const VideoContactSheetsGuide = lazy(() => import('./pages/blog/VideoContactSheetsGuide'));
@@ -200,6 +205,11 @@ const App: React.FC = () => {
                 <Route path="/blog/how-to-compress-a-gif" element={<HowToCompressGif />} />
                 <Route path="/blog/heic-to-jpg-guide" element={<HeicToJpgGuide />} />
                 <Route path="/blog/avif-to-jpg-guide" element={<AvifToJpgGuide />} />
+                <Route path="/blog/import-video-frames-into-blender" element={<ImportVideoFramesIntoBlender />} />
+                <Route path="/blog/import-video-frames-into-after-effects" element={<ImportVideoFramesIntoAfterEffects />} />
+                <Route path="/blog/import-video-frames-into-premiere-pro" element={<ImportVideoFramesIntoPremierePro />} />
+                <Route path="/blog/import-video-frames-into-davinci-resolve" element={<ImportVideoFramesIntoDavinciResolve />} />
+                <Route path="/blog/import-video-frames-into-final-cut-pro" element={<ImportVideoFramesIntoFinalCutPro />} />
                 <Route path="/blog/free-video-tools-online" element={<FreeVideoToolsRoundup />} />
                 <Route path="/blog/stop-motion-for-beginners" element={<StopMotionBeginners />} />
                 <Route path="/blog/video-contact-sheets-guide" element={<VideoContactSheetsGuide />} />
