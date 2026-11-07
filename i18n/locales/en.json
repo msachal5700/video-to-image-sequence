@@ -490,6 +490,10 @@
       {
         "title": "YouTube Thumbnail Downloader",
         "desc": "Paste any YouTube link and save its thumbnail in HD — free, no signup."
+      },
+      {
+        "title": "WebP to PNG Converter",
+        "desc": "Convert WebP images to lossless PNG. Transparency preserved, nothing uploaded."
       }
     ],
     "faq": {
@@ -903,5 +907,13 @@
     "h1": "Video to Discord Sticker",
     "h1Sub": "Free Animated Sticker Maker Online",
     "hero": "Upload a short clip and get a perfectly-sized animated sticker for Discord, Telegram, or WhatsApp. The auto-fit optimizer tunes FPS, resolution, and quality until your sticker fits under each platform's strict file size limit — no manual tweaking, no uploads."
+  },
+  "webpToPng": {
+    "title": "WebP to PNG Converter — Convert WebP Images to PNG Free",
+    "description": "Convert WebP images to PNG free, entirely in your browser. Lossless PNG output with transparency preserved, batch up to 20 images, ZIP download — no upload, no signup, no watermark.",
+    "h1": "WebP to PNG Converter",
+    "h1Sub": "Convert WebP Images to PNG Free",
+    "hero": "Saved an image from the web and got a .webp file your editor, form, or printer refuses to open? Drop up to 20 WebP images here and get lossless PNGs that open everywhere — converted 100% in your browser, transparency preserved, nothing uploaded.",
+    "keywords": "webp to png, webp to png converter, convert webp to png, webp converter free, webp to png online free, webp to png transparent"
   }
 }

@@ -84,6 +84,12 @@ const posts = [
     description: 'Most GIFs can shrink 50–90% with no visible quality loss. The four levers that reduce GIF size, in order — plus how to hit Discord\u2019s 20 MB upload and 256 KB emoji limits, free in your browser.',
   },
   {
+    slug: 'jpg-vs-png-vs-webp-video-frames',
+    title: 'JPG vs PNG vs WebP for Video Frames — Which Format to Choose?',
+    date: 'October 24, 2026',
+    description: 'Complete comparison of JPG, PNG, and WebP for extracted video frames. File sizes, quality, transparency, pipeline compatibility, and recommendations for VFX, ML, web, and thumbnails.',
+  },
+  {
     slug: 'free-video-tools-online',
     title: '9 Free Video Tools You Can Use Online Right Now (No Signup, No Watermark)',
     date: 'October 24, 2026',

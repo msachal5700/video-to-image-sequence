@@ -345,6 +345,10 @@ const VideoToJpg: React.FC = () => {
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video to PNG</h3>
             <p className="text-gray-500 text-xs">Lossless PNG frames when quality is critical.</p>
           </Link>
+          <Link to="/images-to-video" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Images to Video</h3>
+            <p className="text-gray-500 text-xs">Turn your extracted JPG frames back into an MP4 video clip.</p>
+          </Link>
         </div>
       </section>
 
