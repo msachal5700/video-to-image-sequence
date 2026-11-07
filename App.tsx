@@ -42,6 +42,10 @@ const GifToMp4WhyHow = lazy(() => import('./pages/blog/GifToMp4WhyHow'));
 const HowToCompressGif = lazy(() => import('./pages/blog/HowToCompressGif'));
 const HeicToJpgGuide = lazy(() => import('./pages/blog/HeicToJpgGuide'));
 const AvifToJpgGuide = lazy(() => import('./pages/blog/AvifToJpgGuide'));
+const WebmToPngGuide = lazy(() => import('./pages/blog/WebmToPngGuide'));
+const ConvertVideoToJpgGuide = lazy(() => import('./pages/blog/ConvertVideoToJpgGuide'));
+const EzgifVideoToJpgGuide = lazy(() => import('./pages/blog/EzgifVideoToJpgGuide'));
+const SliceIrregularSpriteSheets = lazy(() => import('./pages/blog/SliceIrregularSpriteSheets'));
 const ExtractFramesMlDatasets = lazy(() => import('./pages/blog/ExtractFramesMlDatasets'));
 const ExtractLastFrameFromVideo = lazy(() => import('./pages/blog/ExtractLastFrameFromVideo'));
 const ExtractSingleFrameExactTimestamp = lazy(() => import('./pages/blog/ExtractSingleFrameExactTimestamp'));
@@ -210,6 +214,10 @@ const App: React.FC = () => {
                 <Route path="/blog/how-to-compress-a-gif" element={<HowToCompressGif />} />
                 <Route path="/blog/heic-to-jpg-guide" element={<HeicToJpgGuide />} />
                 <Route path="/blog/avif-to-jpg-guide" element={<AvifToJpgGuide />} />
+                <Route path="/blog/webm-to-png-guide" element={<WebmToPngGuide />} />
+                <Route path="/blog/convert-video-to-jpg-guide" element={<ConvertVideoToJpgGuide />} />
+                <Route path="/blog/ezgif-video-to-jpg-guide" element={<EzgifVideoToJpgGuide />} />
+                <Route path="/blog/slice-irregular-sprite-sheets" element={<SliceIrregularSpriteSheets />} />
                 <Route path="/blog/extract-frames-ml-datasets" element={<ExtractFramesMlDatasets />} />
                 <Route path="/blog/extract-last-frame-from-video" element={<ExtractLastFrameFromVideo />} />
                 <Route path="/blog/extract-single-frame-exact-timestamp" element={<ExtractSingleFrameExactTimestamp />} />
