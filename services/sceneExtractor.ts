@@ -9,7 +9,10 @@
  *   exceeds the user-adjustable sensitivity threshold, a scene cut is
  *   registered. To avoid keeping blurry mid-transition frames, the frame at
  *   the cut and one 0.15s later are compared with a Laplacian-variance focus
- *   measure and the sharper timestamp wins.
+ *   measure and the sharper timestamp wins. With settle capture enabled
+ *   (screen recordings / tutorials), the cut frame is instead replaced by the
+ *   first frame that stays stable for two consecutive probes — the settled
+ *   page after a scroll or navigation, not a mid-scroll frame.
  *
  *   Phase 2 (export): every kept timestamp is re-seeked at full resolution,
  *   encoded to the requested format, streamed to the preview grid via
@@ -27,6 +30,9 @@ import {
   sceneSensitivityToThreshold,
   SCENE_SAMPLE_FPS,
   SCENE_ANALYSIS_WIDTH,
+  SCENE_SETTLE_THRESHOLD,
+  SCENE_SETTLE_STABLE_PROBES,
+  SCENE_SETTLE_MAX_WAIT_S,
   MAX_SCENE_FRAMES,
 } from '../types';
 import { toLuma, laplacianVariance } from '../ai/imageMetrics';
@@ -35,6 +41,14 @@ export interface SceneExtractionOptions {
   file: File;
   /** 1–100 slider value; higher catches subtler changes. */
   sensitivity: number;
+  /**
+   * When true, a detected cut is not kept immediately: probing continues
+   * until the picture stays stable for two consecutive probes (or the max
+   * settle wait elapses) and the settled frame is kept instead. Built for
+   * screen recordings / tutorials, where the frame at the cut is usually a
+   * mid-scroll blur. Defaults to false (previous behaviour).
+   */
+  settleCapture?: boolean;
   format: OutputFormat;
   quality?: number; // 0 to 1, for jpg/webp
   onProgress: (stats: ProcessingStats) => void;
@@ -126,6 +140,7 @@ export const extractSceneFramesAndZip = async (
   const {
     file,
     sensitivity,
+    settleCapture = false,
     format,
     quality = 0.9,
     onProgress,
@@ -186,22 +201,60 @@ export const extractSceneFramesAndZip = async (
 
       const probe = grabLuma();
       if (frameDifference(probe.luma, lastKept.luma) >= threshold) {
-        // Cut detected. The frame exactly at a cut is often a dissolve or a
-        // compression-starved frame, so compare it against a frame 0.15s later
-        // and keep whichever is sharper.
+        // Cut detected. The frame exactly at a cut is often a dissolve, a
+        // compression-starved frame, or (for screen recordings) a mid-scroll
+        // blur — so never keep the cut frame itself.
         let keepTime = time;
-        try {
-          const laterTime = Math.min(time + 0.15, duration - 0.1);
-          await seekTo(video, laterTime);
-          const later = grabLuma();
-          if (later.sharpness > probe.sharpness * 1.2) {
-            keepTime = laterTime;
-            lastKept = later;
-          } else {
+        if (settleCapture) {
+          // Wait for the picture to stop changing: probe forward at the
+          // normal stride until two consecutive probes are stable (the page
+          // has finished scrolling/loading), or the max wait elapses.
+          // The settled probe is kept; the main loop's next probes compare
+          // against it, so no duplicate scene is registered.
+          let stableRuns = 0;
+          let prev = probe;
+          let settleTime = time;
+          const maxProbes = Math.max(1, Math.ceil(SCENE_SETTLE_MAX_WAIT_S * SCENE_SAMPLE_FPS));
+          for (let s = 0; s < maxProbes; s++) {
+            const nextTime = Math.min(time + (s + 1) * stride, duration - 0.1);
+            if (nextTime <= settleTime || shouldCancel()) break;
+            try {
+              await seekTo(video, nextTime);
+            } catch {
+              break;
+            }
+            const next = grabLuma();
+            if (frameDifference(next.luma, prev.luma) < SCENE_SETTLE_THRESHOLD) {
+              stableRuns += 1;
+              if (stableRuns >= SCENE_SETTLE_STABLE_PROBES) {
+                settleTime = nextTime;
+                prev = next;
+                break;
+              }
+            } else {
+              stableRuns = 0;
+            }
+            prev = next;
+            settleTime = nextTime;
+          }
+          keepTime = settleTime;
+          lastKept = prev;
+        } else {
+          // Default: compare the cut frame against one 0.15s later and keep
+          // whichever is sharper.
+          try {
+            const laterTime = Math.min(time + 0.15, duration - 0.1);
+            await seekTo(video, laterTime);
+            const later = grabLuma();
+            if (later.sharpness > probe.sharpness * 1.2) {
+              keepTime = laterTime;
+              lastKept = later;
+            } else {
+              lastKept = probe;
+            }
+          } catch {
             lastKept = probe;
           }
-        } catch {
-          lastKept = probe;
         }
         sceneTimes.push(Math.round(keepTime * 1000) / 1000);
         onSceneCount?.(sceneTimes.length);
