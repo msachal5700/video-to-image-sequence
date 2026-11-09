@@ -88,6 +88,19 @@ export const SCENE_SAMPLE_FPS = 2;
 /** Analysis width for scene differencing. Small = fast; cuts still obvious. */
 export const SCENE_ANALYSIS_WIDTH = 160;
 
+/**
+ * Settle capture ("pause to capture", ToolKoala-style): after a cut is
+ * detected, keep probing until the picture stops changing, so screen
+ * recordings yield sharp settled pages instead of mid-scroll frames.
+ * A probe counts as stable when its mean-absolute luma difference from the
+ * previous probe is under this threshold (~1 grey level on average).
+ */
+export const SCENE_SETTLE_THRESHOLD = 0.004;
+/** Consecutive stable probes that count as "the screen has settled". */
+export const SCENE_SETTLE_STABLE_PROBES = 2;
+/** Give up waiting for a settle after this long; keep the latest probe. */
+export const SCENE_SETTLE_MAX_WAIT_S = 2;
+
 /** Upper bound on detected scenes per video (memory/time guard). */
 export const MAX_SCENE_FRAMES = 500;
 

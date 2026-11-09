@@ -25,6 +25,9 @@ interface ControlsProps {
   onManualValueChange: (value: number) => void;
   sceneSensitivity: number;
   onSceneSensitivityChange: (sensitivity: number) => void;
+  /** Opt-in settle capture: keep the settled frame after a change (screen recordings). */
+  settleCapture: boolean;
+  onSettleCaptureChange: (enabled: boolean) => void;
   /** Live scene count during scene-mode detection; null before/after. */
   detectedScenes: number | null;
   outputFormat: OutputFormat;
@@ -48,6 +51,8 @@ const Controls: React.FC<ControlsProps> = ({
   onManualValueChange,
   sceneSensitivity,
   onSceneSensitivityChange,
+  settleCapture,
+  onSettleCaptureChange,
   detectedScenes,
   outputFormat,
   onFormatChange,
@@ -380,6 +385,22 @@ const Controls: React.FC<ControlsProps> = ({
                 and gradual pans may be grouped into fewer scenes. Detection runs
                 entirely in your browser.
               </p>
+              <label className="mt-4 flex items-start gap-3 cursor-pointer bg-gray-950 border border-gray-800 rounded-xl p-3.5 hover:border-gray-700 transition-colors">
+                <input
+                  type="checkbox"
+                  checked={settleCapture}
+                  onChange={(e) => onSettleCaptureChange(e.target.checked)}
+                  className="mt-0.5 h-4 w-4 shrink-0 accent-cyan-400 cursor-pointer"
+                />
+                <span>
+                  <span className="block text-sm font-semibold text-white">Capture settled frames</span>
+                  <span className="block text-[11px] text-gray-500 mt-1 leading-relaxed">
+                    For screen recordings &amp; tutorials — waits until the page stops
+                    changing before capturing, so you get sharp settled pages
+                    instead of mid-scroll frames. Slightly slower on long videos.
+                  </span>
+                </span>
+              </label>
               </>
               )}
             </div>

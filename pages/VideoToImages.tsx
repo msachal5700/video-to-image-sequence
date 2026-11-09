@@ -41,6 +41,9 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
   const [manualUnit, setManualUnit] = useState<ManualUnit>('fps');
   const [manualValue, setManualValue] = useState<number>(2);
   const [sceneSensitivity, setSceneSensitivity] = useState<number>(DEFAULT_SCENE_SENSITIVITY);
+  // Opt-in settle capture for Smart scenes: keep the settled frame after a
+  // change instead of the frame at the cut (screen recordings / tutorials).
+  const [settleCapture, setSettleCapture] = useState<boolean>(false);
   // Live count of scenes detected during the scene-mode detection phase.
   const [detectedScenes, setDetectedScenes] = useState<number | null>(null);
   const [outputFormat, setOutputFormat] = useState<OutputFormat>('jpg');
@@ -190,6 +193,7 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
             ? await extractSceneFramesAndZip({
                 file: queue[i],
                 sensitivity: sceneSensitivity,
+                settleCapture,
                 format: outputFormat,
                 onProgress: (stats) => {
                   setProcessingStats(stats);
@@ -245,7 +249,7 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
           showToast('Frames extracted successfully! Your ZIP is ready to download.', 'success');
         }
     }
-  }, [queue, currentQueueIndex, selectedFps, cadenceMode, intervalSeconds, manualUnit, manualValue, sceneSensitivity, videoMetadata, outputFormat, completedZips, handleFrame, cleanupFrameUrls, showToast]);
+  }, [queue, currentQueueIndex, selectedFps, cadenceMode, intervalSeconds, manualUnit, manualValue, sceneSensitivity, settleCapture, videoMetadata, outputFormat, completedZips, handleFrame, cleanupFrameUrls, showToast]);
 
   const handleCancelQueue = () => {
     cancelRef.current = true;
@@ -371,6 +375,8 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
                   onManualValueChange={setManualValue}
                   sceneSensitivity={sceneSensitivity}
                   onSceneSensitivityChange={(s) => setSceneSensitivity(clampSceneSensitivity(s))}
+                  settleCapture={settleCapture}
+                  onSettleCaptureChange={setSettleCapture}
                   detectedScenes={detectedScenes}
                   outputFormat={outputFormat}
                   onFormatChange={setOutputFormat}
