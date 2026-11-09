@@ -455,7 +455,7 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
                       {t('common.complete')}
                     </h3>
                     {!isBatch ? (
-                      <p className="text-gray-400 text-lg">{t('common.framesExtracted', { count: extractedFrames.length })}</p>
+                      <p className="text-gray-400 text-lg">{t('common.framesExtracted', { count: processingStats?.totalFrames || extractedFrames.length })}</p>
                     ) : (
                       <p className="text-gray-400 text-lg">{t('common.framesExtracted', { count: completedZips.length })}</p>
                     )}
@@ -519,7 +519,7 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
                          {isBatch ? `Preview: ${queue[currentQueueIndex]?.name}` : t('common.processed')}
                        </h4>
                        <span className="text-sm font-mono text-cyan-400 bg-cyan-950/30 px-3 py-1 rounded-full border border-cyan-900/50">
-                         {t('common.showingFrames', { showing: Math.min(visibleFrames, extractedFrames.length), total: Math.min(extractedFrames.length, 200) })}
+                         {t('common.showingFrames', { showing: Math.min(visibleFrames, extractedFrames.length), total: processingStats?.totalFrames || extractedFrames.length })}
                        </span>
                      </div>
                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">

@@ -37,7 +37,7 @@
     "failed": "Processing Failed",
     "startOver": "Start Over",
     "downloadAll": "Download All (ZIP)",
-    "framesExtracted": "Successfully extracted {{count}} frames from your video.",
+    "framesExtracted": "{{count}} frames extracted — all of them are in your ZIP download.",
     "processed": "Processed",
     "skipAd": "Skip Ad",
     "skipIn": "Skip in {{seconds}}s",
@@ -54,8 +54,8 @@
     "cancelQueue": "Cancel Queue",
     "downloadAllZips": "Download All ZIPs",
     "loadMore": "Load More Frames",
-    "showingFrames": "Showing {{showing}} of {{total}} frames",
-    "showOnly200": "Displaying first 200 of {{count}} extracted frames. All frames are saved in your ZIP file.",
+    "showingFrames": "Preview: showing {{showing}} of {{total}} frames",
+    "showOnly200": "Preview shows the first 200 of {{count}} frames — all {{count}} frames are in your ZIP, nothing is cut off.",
     "tipPng": "Pro Tip: PNG format preserves lossless color depth and alpha transparency, making it ideal for video editing and VFX workflows."
   },
   "dropzone": {
