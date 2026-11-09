@@ -188,16 +188,24 @@ export const extractSceneFramesAndZip = async (
     const stride = 1 / SCENE_SAMPLE_FPS;
     const probeCount = Math.max(2, Math.floor(duration * SCENE_SAMPLE_FPS));
 
+    // Furthest timestamp probed so far. The settle loop (and the sharpness
+    // check) seek forward past the main loop's next stride time, so the main
+    // loop must resume *after* them — otherwise it would re-probe the
+    // mid-transition times it just settled past and register the same change
+    // again as duplicate scenes.
+    let probedUntil = firstTime;
+
     for (let i = 1; i <= probeCount; i++) {
       if (shouldCancel() || sceneTimes.length >= MAX_SCENE_FRAMES) break;
       const time = Math.min(i * stride, duration - 0.1);
-      if (time <= firstTime) continue;
+      if (time <= firstTime || time <= probedUntil) continue;
 
       try {
         await seekTo(video, time);
       } catch {
         continue; // a failed probe is not fatal
       }
+      probedUntil = time;
 
       const probe = grabLuma();
       if (frameDifference(probe.luma, lastKept.luma) >= threshold) {
@@ -256,6 +264,9 @@ export const extractSceneFramesAndZip = async (
             lastKept = probe;
           }
         }
+        // The sharpness check (+0.15s) and the settle loop both looked ahead
+        // of this probe; the main loop resumes after the furthest time seen.
+        probedUntil = Math.max(probedUntil, keepTime);
         sceneTimes.push(Math.round(keepTime * 1000) / 1000);
         onSceneCount?.(sceneTimes.length);
       }
