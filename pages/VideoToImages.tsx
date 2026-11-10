@@ -47,6 +47,9 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
   // Live count of scenes detected during the scene-mode detection phase.
   const [detectedScenes, setDetectedScenes] = useState<number | null>(null);
   const [outputFormat, setOutputFormat] = useState<OutputFormat>('jpg');
+  // Max frame width in px; 0 = original (full resolution). Applies to every
+  // cadence mode — FPS, interval, manual, and Smart scenes.
+  const [maxWidth, setMaxWidth] = useState<number>(0);
   const [processingStats, setProcessingStats] = useState<ProcessingStats | null>(null);
   const [showInterstitial, setShowInterstitial] = useState(false);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
@@ -195,6 +198,7 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
                 sensitivity: sceneSensitivity,
                 settleCapture,
                 format: outputFormat,
+                maxWidth,
                 onProgress: (stats) => {
                   setProcessingStats(stats);
                   if (stats.progress === 100) {
@@ -210,6 +214,7 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
                 fps: effectiveFps,
                 format: outputFormat,
                 maxFrames: 5000,
+                maxWidth,
                 onProgress: (stats) => {
                   setProcessingStats(stats);
                   if (stats.progress === 100) {
@@ -249,7 +254,7 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
           showToast('Frames extracted successfully! Your ZIP is ready to download.', 'success');
         }
     }
-  }, [queue, currentQueueIndex, selectedFps, cadenceMode, intervalSeconds, manualUnit, manualValue, sceneSensitivity, settleCapture, videoMetadata, outputFormat, completedZips, handleFrame, cleanupFrameUrls, showToast]);
+  }, [queue, currentQueueIndex, selectedFps, cadenceMode, intervalSeconds, manualUnit, manualValue, sceneSensitivity, settleCapture, videoMetadata, outputFormat, maxWidth, completedZips, handleFrame, cleanupFrameUrls, showToast]);
 
   const handleCancelQueue = () => {
     cancelRef.current = true;
@@ -380,6 +385,8 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
                   detectedScenes={detectedScenes}
                   outputFormat={outputFormat}
                   onFormatChange={setOutputFormat}
+                  maxWidth={maxWidth}
+                  onMaxWidthChange={setMaxWidth}
                   onProcess={initiateProcess}
                   onReset={handleReset}
                   appState={appState}

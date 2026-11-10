@@ -1,6 +1,7 @@
 import JSZip from 'jszip';
 // @ts-ignore
 import * as MP4Box from 'mp4box';
+import { resolveExportDimensions } from '../types';
 
 console.log('[WORKER] Script loaded');
 
@@ -25,7 +26,7 @@ self.onmessage = async (e) => {
 
 async function processVideo(payload: any) {
   console.log('[WORKER] processVideo started');
-  const { arrayBuffer, fps, format, quality, maxFrames } = payload;
+  const { arrayBuffer, fps, format, quality, maxFrames, maxWidth } = payload;
   let zip: JSZip | null = new JSZip();
   const startTime = Date.now();
   const pendingFramePromises: Promise<void>[] = [];
@@ -71,16 +72,13 @@ async function processVideo(payload: any) {
     
     totalFrames = Math.max(1, Math.floor((videoTrack.movie_duration / videoTrack.movie_timescale) * fps));
 
-    // Scale down to prevent memory exception on mobile
-    const MAX_DIM = 1920;
-    let targetWidth = videoTrack.video.width;
-    let targetHeight = videoTrack.video.height;
-    
-    if (targetWidth > MAX_DIM || targetHeight > MAX_DIM) {
-      const ratio = Math.min(MAX_DIM / targetWidth, MAX_DIM / targetHeight);
-      targetWidth = Math.round(targetWidth * ratio);
-      targetHeight = Math.round(targetHeight * ratio);
-    }
+    // Scale down to prevent memory exception on mobile; a user maxWidth
+    // (0 = original) shrinks wide videos further — never upscales.
+    const { width: targetWidth, height: targetHeight } = resolveExportDimensions(
+      videoTrack.video.width,
+      videoTrack.video.height,
+      typeof maxWidth === 'number' ? maxWidth : 0
+    );
 
     canvas = new OffscreenCanvas(targetWidth, targetHeight);
     ctx = canvas.getContext('2d') as OffscreenCanvasRenderingContext2D;

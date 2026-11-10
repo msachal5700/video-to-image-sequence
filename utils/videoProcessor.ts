@@ -23,13 +23,15 @@ export interface ProcessVideoOptions {
   format: OutputFormat;
   quality?: number; // 0 to 1
   maxFrames?: number; // default undefined = no limit
+  /** Max frame width in px; 0 = original (full resolution). */
+  maxWidth?: number;
   onProgress: (stats: ProcessingStats) => void;
   onFrame?: (frameBlob: Blob, index: number) => void;
   workerRef?: React.MutableRefObject<Worker | null>;
 }
 
 export const extractFramesAndZip = async (options: ProcessVideoOptions): Promise<Blob> => {
-  const { file, fps, format, quality = 0.8, maxFrames, onProgress, onFrame, workerRef } = options;
+  const { file, fps, format, quality = 0.8, maxFrames, maxWidth = 0, onProgress, onFrame, workerRef } = options;
 
   const supportsWorker = typeof OffscreenCanvas !== 'undefined' && typeof VideoDecoder !== 'undefined';
 
@@ -93,7 +95,8 @@ export const extractFramesAndZip = async (options: ProcessVideoOptions): Promise
           fps,
           format,
           quality,
-          maxFrames
+          maxFrames,
+          maxWidth
         }
       }, [arrayBuffer]);
 
