@@ -457,7 +457,7 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
                     {!isBatch ? (
                       <p className="text-gray-400 text-lg">{t('common.framesExtracted', { count: processingStats?.totalFrames || extractedFrames.length })}</p>
                     ) : (
-                      <p className="text-gray-400 text-lg">{t('common.framesExtracted', { count: completedZips.length })}</p>
+                      <p className="text-gray-400 text-lg">{t('common.batchZipsReady', { count: completedZips.length })}</p>
                     )}
 
                     <div className="flex flex-col sm:flex-row justify-center items-center gap-4 flex-wrap">

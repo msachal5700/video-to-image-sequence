@@ -38,6 +38,7 @@
     "startOver": "Start Over",
     "downloadAll": "Download All (ZIP)",
     "framesExtracted": "{{count}} frames extracted — all of them are in your ZIP download.",
+    "batchZipsReady": "{{count}} ZIP files ready — every frame from your videos is inside.",
     "processed": "Processed",
     "skipAd": "Skip Ad",
     "skipIn": "Skip in {{seconds}}s",
