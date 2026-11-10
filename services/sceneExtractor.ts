@@ -34,6 +34,7 @@ import {
   SCENE_SETTLE_STABLE_PROBES,
   SCENE_SETTLE_MAX_WAIT_S,
   MAX_SCENE_FRAMES,
+  resolveExportDimensions,
 } from '../types';
 import { toLuma, laplacianVariance } from '../ai/imageMetrics';
 
@@ -51,6 +52,8 @@ export interface SceneExtractionOptions {
   settleCapture?: boolean;
   format: OutputFormat;
   quality?: number; // 0 to 1, for jpg/webp
+  /** Max frame width in px; 0 = original (full resolution, 1920 memory cap still applies). */
+  maxWidth?: number;
   onProgress: (stats: ProcessingStats) => void;
   onFrame?: (frameBlob: Blob, index: number) => void;
   /** Called live as scenes are detected, then with the final count. */
@@ -60,7 +63,6 @@ export interface SceneExtractionOptions {
 }
 
 const SEEK_TIMEOUT_MS = 10_000;
-const MAX_EXPORT_DIM = 1920;
 
 const MIME: Record<OutputFormat, string> = {
   jpg: 'image/jpeg',
@@ -143,6 +145,7 @@ export const extractSceneFramesAndZip = async (
     settleCapture = false,
     format,
     quality = 0.9,
+    maxWidth = 0,
     onProgress,
     onFrame,
     onSceneCount,
@@ -291,13 +294,13 @@ export const extractSceneFramesAndZip = async (
   const zip = new JSZip();
   const ext = format === 'jpg' ? 'jpg' : format;
 
-  let targetWidth = video.videoWidth;
-  let targetHeight = video.videoHeight;
-  if (targetWidth > MAX_EXPORT_DIM || targetHeight > MAX_EXPORT_DIM) {
-    const ratio = Math.min(MAX_EXPORT_DIM / targetWidth, MAX_EXPORT_DIM / targetHeight);
-    targetWidth = Math.round(targetWidth * ratio);
-    targetHeight = Math.round(targetHeight * ratio);
-  }
+  // A user maxWidth (0 = original) shrinks wide videos further; the 1920
+  // memory cap on the longest side still applies inside the helper.
+  const { width: targetWidth, height: targetHeight } = resolveExportDimensions(
+    video.videoWidth,
+    video.videoHeight,
+    maxWidth
+  );
   const exportCanvas = document.createElement('canvas');
   exportCanvas.width = targetWidth;
   exportCanvas.height = targetHeight;

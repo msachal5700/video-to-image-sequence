@@ -6,7 +6,7 @@ import {
   clampIntervalSeconds, ManualUnit, MIN_MANUAL_FPS, MAX_MANUAL_FPS,
   MIN_MANUAL_SECONDS, MAX_MANUAL_SECONDS, MIN_MANUAL_MINUTES, MAX_MANUAL_MINUTES,
   clampManualFps, clampManualSeconds, clampManualMinutes, manualToFps,
-  MIN_SCENE_SENSITIVITY, MAX_SCENE_SENSITIVITY,
+  MIN_SCENE_SENSITIVITY, MAX_SCENE_SENSITIVITY, MAX_WIDTH_PRESETS,
 } from '../types';
 import { formatBytes, formatTime } from '../utils/videoProcessor';
 import { useTranslation } from 'react-i18next';
@@ -32,6 +32,9 @@ interface ControlsProps {
   detectedScenes: number | null;
   outputFormat: OutputFormat;
   onFormatChange: (f: OutputFormat) => void;
+  /** Max frame width in px; 0 = original (full resolution). */
+  maxWidth: number;
+  onMaxWidthChange: (w: number) => void;
   onProcess: () => void;
   onReset: () => void;
   appState: AppState;
@@ -56,6 +59,8 @@ const Controls: React.FC<ControlsProps> = ({
   detectedScenes,
   outputFormat,
   onFormatChange,
+  maxWidth,
+  onMaxWidthChange,
   onProcess,
   onReset,
 }) => {
@@ -458,6 +463,29 @@ const Controls: React.FC<ControlsProps> = ({
                 {outputFormat === 'png' && t('controls.formatPngDesc')}
                 {outputFormat === 'webp' && 'Best for web use — smaller than PNG, supports transparency, modern browser support'}
                 {outputFormat === 'avif' && 'Next-gen format — up to 50% smaller than WebP, best quality per byte. Chrome & Firefox supported.'}
+              </p>
+            </div>
+
+            <div>
+              <label className="block text-xs font-semibold text-gray-400 mb-3 uppercase tracking-wider">{t('controls.maxWidth')}</label>
+              <div className="relative">
+                <select
+                  value={maxWidth}
+                  onChange={(e) => onMaxWidthChange(Number(e.target.value))}
+                  className="w-full bg-gray-950 border border-gray-800 text-white font-medium rounded-xl py-3.5 px-4 appearance-none focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {MAX_WIDTH_PRESETS.map((w) => (
+                    <option key={w} value={w}>
+                      {w === 0 ? t('controls.maxWidthOriginal') : `${w} px`}
+                    </option>
+                  ))}
+                </select>
+                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+              </div>
+              <p className="text-gray-500 text-[11px] mt-3 font-medium">
+                {t('controls.maxWidthDesc')}
               </p>
             </div>
             

@@ -104,6 +104,38 @@ export const SCENE_SETTLE_MAX_WAIT_S = 2;
 /** Upper bound on detected scenes per video (memory/time guard). */
 export const MAX_SCENE_FRAMES = 500;
 
+/* ── Max frame width (FramePeel-style downscale) ───────────────────────── */
+
+/** Max-width presets offered in the extractor UI; 0 = original (full resolution). */
+export const MAX_WIDTH_PRESETS = [0, 1920, 1280, 720] as const;
+
+/** Hard memory guard: no exported frame exceeds this on its longest side. */
+export const MAX_EXPORT_DIM = 1920;
+
+/**
+ * Resolve export dimensions for a frame. Never upscales: a maxWidth only
+ * shrinks videos wider than it (aspect ratio preserved), and the 1920
+ * memory cap still applies to the longest side when no maxWidth is set.
+ * `maxWidth = 0` means original — today's behaviour, unchanged.
+ */
+export const resolveExportDimensions = (
+  videoWidth: number,
+  videoHeight: number,
+  maxWidth = 0
+): { width: number; height: number } => {
+  let ratio = 1;
+  if (maxWidth > 0 && videoWidth > maxWidth) {
+    ratio = Math.min(ratio, maxWidth / videoWidth);
+  }
+  if (videoWidth > MAX_EXPORT_DIM || videoHeight > MAX_EXPORT_DIM) {
+    ratio = Math.min(ratio, MAX_EXPORT_DIM / videoWidth, MAX_EXPORT_DIM / videoHeight);
+  }
+  return {
+    width: Math.max(1, Math.round(videoWidth * ratio)),
+    height: Math.max(1, Math.round(videoHeight * ratio)),
+  };
+};
+
 /** Clamp a scene-sensitivity slider value into the sane 1–100 range. */
 export const clampSceneSensitivity = (value: number): number => {
   if (!Number.isFinite(value)) return DEFAULT_SCENE_SENSITIVITY;

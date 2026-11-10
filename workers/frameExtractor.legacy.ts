@@ -1,5 +1,5 @@
 import JSZip from 'jszip';
-import { ProcessingStats, OutputFormat } from '../types';
+import { ProcessingStats, OutputFormat, resolveExportDimensions } from '../types';
 
 interface LegacyProcessOptions {
   file: File;
@@ -7,6 +7,8 @@ interface LegacyProcessOptions {
   format: OutputFormat;
   quality?: number; // 0 to 1
   maxFrames?: number;
+  /** Max frame width in px; 0 = original (full resolution). */
+  maxWidth?: number;
   onProgress: (stats: ProcessingStats) => void;
   onFrame?: (frameBlob: Blob, index: number) => void;
 }
@@ -17,6 +19,7 @@ export const extractFramesLegacy = async ({
   format,
   quality = 0.8,
   maxFrames,
+  maxWidth = 0,
   onProgress,
   onFrame,
 }: LegacyProcessOptions): Promise<Blob> => {
@@ -49,16 +52,13 @@ export const extractFramesLegacy = async ({
     let seekTimeout: NodeJS.Timeout | null = null;
 
     video.onloadedmetadata = async () => {
-      // Scale down large videos to prevent memory exhaustion on mobile
-      const MAX_DIM = 1920;
-      let targetWidth = video.videoWidth;
-      let targetHeight = video.videoHeight;
-      
-      if (targetWidth > MAX_DIM || targetHeight > MAX_DIM) {
-        const ratio = Math.min(MAX_DIM / targetWidth, MAX_DIM / targetHeight);
-        targetWidth = Math.round(targetWidth * ratio);
-        targetHeight = Math.round(targetHeight * ratio);
-      }
+      // Scale down large videos to prevent memory exhaustion on mobile;
+      // a user maxWidth (0 = original) shrinks wide videos further.
+      const { width: targetWidth, height: targetHeight } = resolveExportDimensions(
+        video.videoWidth,
+        video.videoHeight,
+        maxWidth
+      );
 
       canvas.width = targetWidth;
       canvas.height = targetHeight;
