@@ -64,9 +64,14 @@ export const extractFramesLegacy = async ({
       canvas.height = targetHeight;
       
       const duration = video.duration;
+      // Capture slots run from t=0 through t=duration inclusive (one frame
+      // at each 1/fps step, plus the end frame), so the count is floor + 1
+      // — floor(duration * fps) alone undercounts by one (e.g. a 4 s clip
+      // at 1 FPS yields 5 frames, not 4). The loop below seeks each slot
+      // while seekTime <= duration, so it fills exactly this many.
       // Never report zero total frames (e.g. a long interval on a very short
       // clip) — the first frame at t=0 is always captured, so floor at 1.
-      let totalFrames = Math.max(1, Math.floor(duration * fps));
+      let totalFrames = Math.max(1, Math.floor(duration * fps) + 1);
       const timeInterval = 1 / fps;
       
       // Support maxFrames safety cap

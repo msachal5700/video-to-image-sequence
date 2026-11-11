@@ -66,13 +66,16 @@ const Controls: React.FC<ControlsProps> = ({
 }) => {
   const { t } = useTranslation();
   const manualFps = manualToFps(manualUnit, manualValue);
+  // Capture slots run t=0..duration inclusive, so the estimate is floor + 1
+  // (a 4 s clip at 1 FPS yields 5 frames, not 4). Scene mode is unknown
+  // until detection runs, so it keeps its own count.
   const estimatedFrames = cadenceMode === 'scene'
     ? (detectedScenes ?? 0)
     : cadenceMode === 'interval'
-      ? Math.max(1, Math.floor(videoMetadata.duration / intervalSeconds))
+      ? Math.max(1, Math.floor(videoMetadata.duration / intervalSeconds) + 1)
       : cadenceMode === 'manual'
-        ? Math.max(1, Math.floor(videoMetadata.duration * manualFps))
-        : Math.floor(videoMetadata.duration * selectedFps);
+        ? Math.max(1, Math.floor(videoMetadata.duration * manualFps) + 1)
+        : Math.max(1, Math.floor(videoMetadata.duration * selectedFps) + 1);
   // In scene mode the count is unknown until detection runs; show "Auto".
   const estimatedLabel = cadenceMode === 'scene' && detectedScenes == null
     ? 'Auto'
