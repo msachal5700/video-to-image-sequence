@@ -461,12 +461,12 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
                       </div>
                       {t('common.complete')}
                     </h3>
+                    {/* Completion count comes from the frames actually extracted,
+                        not the pre-extraction estimate: the estimate can miss
+                        the end-frame slot (floor(duration*fps) undercounts by
+                        one), so the header must never disagree with the grid
+                        and ZIP below it. */}
                     {!isBatch ? (
-                      {/* Completion count comes from the frames actually extracted,
-                          not the pre-extraction estimate: the estimate can miss
-                          the end-frame slot (floor(duration*fps) undercounts by
-                          one), so the header must never disagree with the grid
-                          and ZIP below it. */}
                       <p className="text-gray-400 text-lg">{t('common.framesExtracted', { count: extractedFrames.length || processingStats?.totalFrames || 0 })}</p>
                     ) : (
                       <p className="text-gray-400 text-lg">{t('common.batchZipsReady', { count: completedZips.length })}</p>
