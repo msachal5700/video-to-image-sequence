@@ -70,7 +70,11 @@ async function processVideo(payload: any) {
        return;
     }
     
-    totalFrames = Math.max(1, Math.floor((videoTrack.movie_duration / videoTrack.movie_timescale) * fps));
+    // Capture slots run from t=0 through t=duration inclusive (one frame at
+    // each 1/fps step, plus the end frame), so the count is floor + 1 —
+    // floor(duration * fps) alone undercounts by one whenever the end slot
+    // is reached (e.g. a 4 s clip at 1 FPS yields 5 frames, not 4).
+    totalFrames = Math.max(1, Math.floor((videoTrack.movie_duration / videoTrack.movie_timescale) * fps) + 1);
 
     // Scale down to prevent memory exception on mobile; a user maxWidth
     // (0 = original) shrinks wide videos further — never upscales.

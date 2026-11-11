@@ -462,7 +462,12 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
                       {t('common.complete')}
                     </h3>
                     {!isBatch ? (
-                      <p className="text-gray-400 text-lg">{t('common.framesExtracted', { count: processingStats?.totalFrames || extractedFrames.length })}</p>
+                      {/* Completion count comes from the frames actually extracted,
+                          not the pre-extraction estimate: the estimate can miss
+                          the end-frame slot (floor(duration*fps) undercounts by
+                          one), so the header must never disagree with the grid
+                          and ZIP below it. */}
+                      <p className="text-gray-400 text-lg">{t('common.framesExtracted', { count: extractedFrames.length || processingStats?.totalFrames || 0 })}</p>
                     ) : (
                       <p className="text-gray-400 text-lg">{t('common.batchZipsReady', { count: completedZips.length })}</p>
                     )}
@@ -526,7 +531,7 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
                          {isBatch ? `Preview: ${queue[currentQueueIndex]?.name}` : t('common.processed')}
                        </h4>
                        <span className="text-sm font-mono text-cyan-400 bg-cyan-950/30 px-3 py-1 rounded-full border border-cyan-900/50">
-                         {t('common.showingFrames', { showing: Math.min(visibleFrames, extractedFrames.length), total: processingStats?.totalFrames || extractedFrames.length })}
+                         {t('common.showingFrames', { showing: Math.min(visibleFrames, extractedFrames.length), total: extractedFrames.length })}
                        </span>
                      </div>
                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
@@ -560,9 +565,9 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
                       ))}
                     </div>
                     
-                    {processingStats && processingStats.totalFrames > 200 && (
+                    {extractedFrames.length > 200 && (
                       <p className="text-gray-400 text-sm mt-8 text-center bg-gray-900 border border-gray-800 py-3 rounded-xl shadow-inner max-w-lg mx-auto">
-                        {t('common.showOnly200', { count: processingStats.totalFrames })}
+                        {t('common.showOnly200', { count: extractedFrames.length })}
                       </p>
                     )}
                     
