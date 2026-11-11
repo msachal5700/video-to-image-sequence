@@ -59,6 +59,14 @@
     "showOnly200": "Preview shows the first 200 of {{count}} frames — all {{count}} frames are in your ZIP, nothing is cut off.",
     "tipPng": "Pro Tip: PNG format preserves lossless color depth and alpha transparency, making it ideal for video editing and VFX workflows."
   },
+  "appreciation": {
+    "title": "Your frames are ready!",
+    "body": "This tool is completely free. If it saved you time, you can show your appreciation — any amount helps keep it running and ad-light.",
+    "custom": "Custom",
+    "showAppreciation": "Show appreciation",
+    "downloadFree": "Download free",
+    "close": "Close"
+  },
   "dropzone": {
     "drop": "Drop your video here",
     "browse": "or click to browse",

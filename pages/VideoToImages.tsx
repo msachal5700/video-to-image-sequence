@@ -3,6 +3,8 @@ import { Loader2, CheckCircle2, Download, AlertTriangle, Eye, X, Film, Copy } fr
 import Dropzone from '../components/Dropzone';
 import Controls from '../components/Controls';
 import InterstitialAd from '../components/InterstitialAd';
+import AppreciationModal from '../components/AppreciationModal';
+import { hasSeenAppreciation, markAppreciationSeen } from '../utils/appreciation';
 import { AppState, FrameRate, VideoMetadata, ProcessingStats, OutputFormat, CadenceMode, ManualUnit, clampIntervalSeconds, manualToFps, DEFAULT_SCENE_SENSITIVITY, clampSceneSensitivity } from '../types';
 import { extractFramesAndZip, formatTime } from '../utils/videoProcessor';
 import { extractSceneFramesAndZip } from '../services/sceneExtractor';
@@ -52,6 +54,7 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
   const [maxWidth, setMaxWidth] = useState<number>(0);
   const [processingStats, setProcessingStats] = useState<ProcessingStats | null>(null);
   const [showInterstitial, setShowInterstitial] = useState(false);
+  const [showAppreciation, setShowAppreciation] = useState(false);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
 
   const [extractedFrames, setExtractedFrames] = useState<ExtractedFrame[]>([]);
@@ -253,6 +256,13 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
         } else {
           showToast('Frames extracted successfully! Your ZIP is ready to download.', 'success');
         }
+        // Appreciation popup: once per browser session, and only when there
+        // is actually a ZIP ready to download. The completion panel behind
+        // it keeps its own download button, so this never blocks anything.
+        if (currentZips.length > 0 && !hasSeenAppreciation()) {
+          markAppreciationSeen();
+          setShowAppreciation(true);
+        }
     }
   }, [queue, currentQueueIndex, selectedFps, cadenceMode, intervalSeconds, manualUnit, manualValue, sceneSensitivity, settleCapture, videoMetadata, outputFormat, maxWidth, completedZips, handleFrame, cleanupFrameUrls, showToast]);
 
@@ -272,6 +282,7 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
     setVideoMetadata(null);
     setProcessingStats(null);
     setShowInterstitial(false);
+    setShowAppreciation(false);
     setPreviewImage(null);
     setErrorMessage(null);
     setRawError(null);
@@ -586,6 +597,19 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
           </div>
         )}
       </div>
+
+      {/* Appreciation popup — shown once per session when a ZIP is ready.
+          "Download free" runs the exact same handler as the completion
+          panel's download button; dismissing it leaves that button in place. */}
+      {showAppreciation && (
+        <AppreciationModal
+          onClose={() => setShowAppreciation(false)}
+          onDownloadFree={() => {
+            setShowAppreciation(false);
+            handleDownloadAllZips();
+          }}
+        />
+      )}
 
       {/* Full Screen Image Preview Modal */}
       {previewImage && (
