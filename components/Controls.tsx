@@ -6,7 +6,7 @@ import {
   clampIntervalSeconds, ManualUnit, MIN_MANUAL_FPS, MAX_MANUAL_FPS,
   MIN_MANUAL_SECONDS, MAX_MANUAL_SECONDS, MIN_MANUAL_MINUTES, MAX_MANUAL_MINUTES,
   clampManualFps, clampManualSeconds, clampManualMinutes, manualToFps,
-  MIN_SCENE_SENSITIVITY, MAX_SCENE_SENSITIVITY,
+  MIN_SCENE_SENSITIVITY, MAX_SCENE_SENSITIVITY, MAX_WIDTH_PRESETS,
 } from '../types';
 import { formatBytes, formatTime } from '../utils/videoProcessor';
 import { useTranslation } from 'react-i18next';
@@ -25,10 +25,16 @@ interface ControlsProps {
   onManualValueChange: (value: number) => void;
   sceneSensitivity: number;
   onSceneSensitivityChange: (sensitivity: number) => void;
+  /** Opt-in settle capture: keep the settled frame after a change (screen recordings). */
+  settleCapture: boolean;
+  onSettleCaptureChange: (enabled: boolean) => void;
   /** Live scene count during scene-mode detection; null before/after. */
   detectedScenes: number | null;
   outputFormat: OutputFormat;
   onFormatChange: (f: OutputFormat) => void;
+  /** Max frame width in px; 0 = original (full resolution). */
+  maxWidth: number;
+  onMaxWidthChange: (w: number) => void;
   onProcess: () => void;
   onReset: () => void;
   appState: AppState;
@@ -48,21 +54,28 @@ const Controls: React.FC<ControlsProps> = ({
   onManualValueChange,
   sceneSensitivity,
   onSceneSensitivityChange,
+  settleCapture,
+  onSettleCaptureChange,
   detectedScenes,
   outputFormat,
   onFormatChange,
+  maxWidth,
+  onMaxWidthChange,
   onProcess,
   onReset,
 }) => {
   const { t } = useTranslation();
   const manualFps = manualToFps(manualUnit, manualValue);
+  // Capture slots run t=0..duration inclusive, so the estimate is floor + 1
+  // (a 4 s clip at 1 FPS yields 5 frames, not 4). Scene mode is unknown
+  // until detection runs, so it keeps its own count.
   const estimatedFrames = cadenceMode === 'scene'
     ? (detectedScenes ?? 0)
     : cadenceMode === 'interval'
-      ? Math.max(1, Math.floor(videoMetadata.duration / intervalSeconds))
+      ? Math.max(1, Math.floor(videoMetadata.duration / intervalSeconds) + 1)
       : cadenceMode === 'manual'
-        ? Math.max(1, Math.floor(videoMetadata.duration * manualFps))
-        : Math.floor(videoMetadata.duration * selectedFps);
+        ? Math.max(1, Math.floor(videoMetadata.duration * manualFps) + 1)
+        : Math.max(1, Math.floor(videoMetadata.duration * selectedFps) + 1);
   // In scene mode the count is unknown until detection runs; show "Auto".
   const estimatedLabel = cadenceMode === 'scene' && detectedScenes == null
     ? 'Auto'
@@ -380,13 +393,29 @@ const Controls: React.FC<ControlsProps> = ({
                 and gradual pans may be grouped into fewer scenes. Detection runs
                 entirely in your browser.
               </p>
+              <label className="mt-4 flex items-start gap-3 cursor-pointer bg-gray-950 border border-gray-800 rounded-xl p-3.5 hover:border-gray-700 transition-colors">
+                <input
+                  type="checkbox"
+                  checked={settleCapture}
+                  onChange={(e) => onSettleCaptureChange(e.target.checked)}
+                  className="mt-0.5 h-4 w-4 shrink-0 accent-cyan-400 cursor-pointer"
+                />
+                <span>
+                  <span className="block text-sm font-semibold text-white">Capture settled frames</span>
+                  <span className="block text-[11px] text-gray-500 mt-1 leading-relaxed">
+                    For screen recordings &amp; tutorials — waits until the page stops
+                    changing before capturing, so you get sharp settled pages
+                    instead of mid-scroll frames. Slightly slower on long videos.
+                  </span>
+                </span>
+              </label>
               </>
               )}
             </div>
 
             <div>
               <label className="block text-xs font-semibold text-gray-400 mb-3 uppercase tracking-wider">{t('controls.outputFormat')}</label>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-4 gap-3">
                 <button
                   type="button"
                   onClick={() => onFormatChange('jpg')}
@@ -420,11 +449,46 @@ const Controls: React.FC<ControlsProps> = ({
                 >
                   WebP
                 </button>
+                <button
+                  type="button"
+                  onClick={() => onFormatChange('avif')}
+                  className={`py-3 px-4 rounded-xl font-bold transition-all disabled:opacity-50 border ${
+                    outputFormat === 'avif'
+                      ? 'bg-cyan-950/40 border-cyan-500 text-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.2)]'
+                      : 'bg-gray-950 border-gray-800 text-gray-400 hover:border-gray-700'
+                  }`}
+                >
+                  AVIF
+                </button>
               </div>
               <p className="text-gray-500 text-[11px] mt-3 font-medium">
                 {outputFormat === 'jpg' && t('controls.formatJpgDesc')}
                 {outputFormat === 'png' && t('controls.formatPngDesc')}
                 {outputFormat === 'webp' && 'Best for web use — smaller than PNG, supports transparency, modern browser support'}
+                {outputFormat === 'avif' && 'Next-gen format — up to 50% smaller than WebP, best quality per byte. Chrome & Firefox supported.'}
+              </p>
+            </div>
+
+            <div>
+              <label className="block text-xs font-semibold text-gray-400 mb-3 uppercase tracking-wider">{t('controls.maxWidth')}</label>
+              <div className="relative">
+                <select
+                  value={maxWidth}
+                  onChange={(e) => onMaxWidthChange(Number(e.target.value))}
+                  className="w-full bg-gray-950 border border-gray-800 text-white font-medium rounded-xl py-3.5 px-4 appearance-none focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {MAX_WIDTH_PRESETS.map((w) => (
+                    <option key={w} value={w}>
+                      {w === 0 ? t('controls.maxWidthOriginal') : `${w} px`}
+                    </option>
+                  ))}
+                </select>
+                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+              </div>
+              <p className="text-gray-500 text-[11px] mt-3 font-medium">
+                {t('controls.maxWidthDesc')}
               </p>
             </div>
             
