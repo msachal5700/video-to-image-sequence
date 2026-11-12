@@ -356,7 +356,7 @@ const Controls: React.FC<ControlsProps> = ({
               <p className="text-gray-500 text-[11px] mt-3 font-medium">
                 {t('controls.manualDesc')}
               </p>
-              <p className="text-cyan-400 text-xs mt-2 font-mono font-bold">
+              <p className="text-gray-500 text-xs mt-2 font-mono cursor-default">
                 {t('controls.manualEstimate', { count: estimatedFrames.toLocaleString(), duration: formatTime(videoMetadata.duration) })}
               </p>
               </>
@@ -492,9 +492,9 @@ const Controls: React.FC<ControlsProps> = ({
               </p>
             </div>
             
-            <div className="bg-cyan-950/20 border-l-2 border-cyan-500 rounded-r-xl p-4 flex justify-between items-center">
-               <span className="text-sm font-medium text-gray-300">{t('controls.estimatedOutput')}</span>
-               <span className="text-xl font-bold text-white font-mono">{estimatedLabel} <span className="text-xs font-medium text-cyan-400 tracking-wider">{t('controls.estimatedImages')}</span></span>
+            <div className="flex justify-between items-baseline py-1 cursor-default">
+               <span className="text-sm text-gray-500">{t('controls.estimatedOutput')}</span>
+               <span className="text-base font-semibold text-gray-300 font-mono">{estimatedLabel} <span className="text-xs font-medium text-gray-500 tracking-wider">{t('controls.estimatedImages')}</span></span>
             </div>
             {cadenceMode !== 'scene' && estimatedFrames > 1000 && (
               <p className="text-yellow-400 text-xs mt-2">
