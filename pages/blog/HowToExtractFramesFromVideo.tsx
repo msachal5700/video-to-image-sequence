@@ -52,7 +52,7 @@ const HowToExtractFramesFromVideo: React.FC = () => {
 
       <div className="text-gray-300 space-y-6 leading-relaxed text-lg lg:text-xl">
         <p className="text-xl text-gray-100">
-          Three ways to do it — pick the one that fits your workflow. All free, no watermarks, no account needed.
+          Three ways to do it — pick the one that fits your workflow. The quickest is our free <a href="/video-to-frames" className="text-cyan-400 hover:underline">video to frames converter</a>, which runs entirely in your browser. All free, no watermarks, no account needed.
         </p>
 
         <div className="bg-cyan-950/20 border border-cyan-800 rounded-2xl p-6 my-8">

@@ -46,6 +46,22 @@ const faqs = [
   {
     q: 'Can I turn extracted frames back into a video?',
     a: 'Yes. A numbered frame sequence can be reassembled into video in any editor, or with our free Images to Video tool, which stitches JPG/PNG sequences into a WebM video right in your browser.'
+  },
+  {
+    q: 'Is there a free tool to extract frames from a video?',
+    a: 'Yes — this free video to frames tool runs entirely in your browser. Upload an MP4, MOV, or WEBM video, pick a frame rate from 1 fps to full native fps, and download JPG or PNG stills individually or as a ZIP. There is no signup, no upload, no watermark, and no file-size cap beyond your device\u2019s memory.'
+  },
+  {
+    q: 'How can I convert a video to photo frames?',
+    a: 'To convert a video to photo frames, load your video into a frame extractor, choose how many frames per second to pull, and pick JPG for small files or PNG for lossless quality. The tool saves each moment as a numbered still image — frame_0001.jpg, frame_0002.jpg — which you can download one by one or as a single ZIP archive.'
+  },
+  {
+    q: 'How do I put a video into a frame?',
+    a: 'Putting a video into a frame means extracting one still image from it. Open the video in a frame extractor, scrub to the exact moment — or enter a precise timestamp — and save that frame as JPG or PNG. For a whole sequence instead of one still, extract at your chosen frame rate and download every frame.'
+  },
+  {
+    q: 'How to convert video into fps?',
+    a: 'To convert video into fps, choose a frame rate in a frame extractor — for example, 1 fps pulls one frame per second, 24 fps matches film, and 30 fps matches most video. The tool then saves one still image for each selected moment, numbered in order, so you can download the frames individually or as a ZIP.'
   }
 ];
 
@@ -186,6 +202,13 @@ const VideoToFrames: React.FC = () => {
         <VideoToImages />
       </div>
 
+      {/* ── INTRO (keyword plan: format + FPS + local processing) ── */}
+      <section className="max-w-4xl mx-auto px-4 mt-2">
+        <p className="text-center text-gray-400 leading-relaxed">
+          Need video to frames in PNG for lossless quality, or JPG for smaller files? Choose your format and frame rate above — every frame is extracted locally in your browser, so your video never leaves your device.
+        </p>
+      </section>
+
       {/* ── EZGIF COMPARISON CROSS-LINK ── */}
       <section className="max-w-4xl mx-auto px-4 mt-2">
         <p className="text-center text-sm text-gray-500">
@@ -298,6 +321,45 @@ const VideoToFrames: React.FC = () => {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* ── HD / ORIGINAL RESOLUTION ── */}
+      <section className="max-w-4xl mx-auto py-12 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">
+          Video to Frames in HD — Keep Original Resolution
+        </h2>
+        <p className="text-gray-400 leading-relaxed mb-4">
+          By default, extracted frames keep your video's original resolution — a 4K clip gives you 4K stills, with no upscaling and no added compression beyond the format you choose. If you need smaller files, the Max frame width control in the tool downscales exports to 1920, 1280, or 720 px while your source video stays untouched.
+        </p>
+        <p className="text-gray-400 leading-relaxed">
+          For lossless HD stills, choose PNG — every pixel preserved, including transparency. For smaller HD files, choose JPG. Need pixel-perfect PNG sequences specifically? Try the dedicated <Link to="/video-to-png" className="text-cyan-400 hover:underline">video to PNG converter</Link>.
+        </p>
+      </section>
+
+      {/* ── ZIP / SINGLE DOWNLOADS ── */}
+      <section className="max-w-4xl mx-auto py-12 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">
+          Download Frames as a ZIP or One by One
+        </h2>
+        <p className="text-gray-400 leading-relaxed mb-4">
+          After extraction, download the whole numbered sequence as a single ZIP archive — the fastest option for large sets, hundreds of frames in one click, with filenames already in timeline order. Or click any frame in the preview grid to save just that still.
+        </p>
+        <p className="text-gray-400 leading-relaxed">
+          ZIP suits full sequences for editing, datasets, and animation; single downloads suit thumbnails and key art, where you only need one perfect moment.
+        </p>
+      </section>
+
+      {/* ── YOUTUBE CREATORS ── */}
+      <section className="max-w-4xl mx-auto py-12 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">
+          Video to Frames for YouTube Creators
+        </h2>
+        <p className="text-gray-400 leading-relaxed mb-4">
+          YouTube has no frame-download button — but any video file you own or have downloaded can be turned into frames here. Drop the MP4 or MOV file into the tool above, pick your frame rate, and pull thumbnails, key art, or storyboard stills at full resolution. Because everything runs locally, your footage never leaves your device.
+        </p>
+        <p className="text-gray-400 leading-relaxed">
+          For thumbnails that actually get clicked, see our guide on <Link to="/blog/video-thumbnails-that-get-clicks" className="text-cyan-400 hover:underline">video thumbnails that get clicks</Link> — or grab one exact moment with the <Link to="/screenshot-from-video" className="text-cyan-400 hover:underline">screenshot from video</Link> tool.
+        </p>
       </section>
 
       {/* ── BROWSER NOTICE ── */}
