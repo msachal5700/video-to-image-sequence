@@ -115,7 +115,7 @@ const ExtractFramesOnline: React.FC = () => {
 
         <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">Step-by-Step: How to Extract Frames</h2>
         <p>
-          Converting your video file to still frames takes less than a minute. Here are the step-by-step instructions:
+          Converting your video file to still frames takes less than a minute — <Link to="/video-to-frames" className="text-cyan-400 hover:text-cyan-300 transition-colors font-medium underline underline-offset-4 decoration-cyan-400/30 hover:decoration-cyan-400">extract frames with this tool</Link> right in your browser, no upload or install. Here are the step-by-step instructions:
         </p>
         <ol className="list-decimal pl-6 space-y-3 mt-4 text-gray-400 marker:text-cyan-500 marker:font-bold">
           <li>Go to the <Link to="/" className="text-cyan-400 hover:text-cyan-300 transition-colors">Video to Image Sequence Converter</Link> page.</li>
