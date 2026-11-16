@@ -80,12 +80,12 @@ const AvifToJpgGuide: React.FC = () => {
   return (
     <>
       <SEOHead
-        title="How to Convert AVIF to JPG (Free, No Upload, No App)"
-        description="Got a .avif file your apps won't open? What AVIF is, why so much software still rejects it, and how to convert AVIF to JPG free in your browser — no upload, no app to install."
+        title="AVIF to JPG Converter Online Free — No Upload, No App Needed"
+        description="Convert AVIF to JPG free online — no upload, no app, no signup. Why .avif files won't open in your apps, what AVIF is, and how to convert them, step by step."
         canonical={CANONICAL}
         keywords="avif to jpg, convert avif to jpg, avif to jpeg converter, avif file won't open"
-        ogTitle="How to Convert AVIF to JPG — Free, No Upload, No App"
-        ogDescription="AVIF is a great web format and a terrible sharing format. Convert the copy you send, keep the original you archive — here's how, in your browser."
+        ogTitle="AVIF to JPG Converter Online Free — No Upload, No App Needed"
+        ogDescription="Convert AVIF to JPG free in your browser — no upload, no app. Keep the AVIF original for your archive; send a JPG every app can open."
         ogType="article"
         articleDate={PUBLISHED}
       />
