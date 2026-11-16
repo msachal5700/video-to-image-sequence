@@ -466,6 +466,17 @@ async function runPrerender() {
       console.error('Prerendering failed:', err);
       exitCode = 1;
     } finally {
+      // Shutdown watchdog (2026-11-16): the 2026-11-15 preview build died
+      // with BUILD_EXCEEDED_MAXIMUM_TIME after "Prerendering complete." —
+      // the process never exited because server.close() waits for lingering
+      // keep-alive connections that never end. Arm a forced exit up front
+      // so a stalled browser.close() or server.close() can never eat the
+      // whole Vercel build timeout again. Cleared on the normal path; the
+      // exit code is preserved either way.
+      const shutdownTimer = setTimeout(() => {
+        console.error('Prerender shutdown timed out after 15s — forcing exit.');
+        process.exit(exitCode);
+      }, 15000);
       if (browser) {
         try {
           await browser.close();
@@ -473,7 +484,13 @@ async function runPrerender() {
           console.error('Error closing browser:', e);
         }
       }
+      // Drop any lingering keep-alive connections first so server.close()
+      // is not held open by them (Node >= 18.2; guarded for older runtimes).
+      if (typeof server.closeAllConnections === 'function') {
+        server.closeAllConnections();
+      }
       server.close(() => {
+        clearTimeout(shutdownTimer);
         if (fs.existsSync(TEMP_INDEX)) {
           fs.unlinkSync(TEMP_INDEX);
           console.log('Cleaned up temp files.');
