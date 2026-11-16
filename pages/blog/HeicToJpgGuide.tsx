@@ -80,12 +80,12 @@ const HeicToJpgGuide: React.FC = () => {
   return (
     <>
       <SEOHead
-        title="How to Convert HEIC to JPG (Free, No Upload, No App)"
-        description="iPhone photo won't open on Windows? It's a HEIC file. What HEIC is, why PCs reject it, and 3 ways to convert HEIC to JPG — including a free in-browser converter with no uploads and no app to install."
+        title="HEIC to JPG Converter Online Free — No Upload, No App Needed"
+        description="Convert HEIC to JPG free online — no upload, no app, no signup. Why iPhone HEIC photos won't open on Windows, and 3 ways to convert them, step by step."
         canonical={CANONICAL}
         keywords="heic to jpg, convert heic to jpg, heic to jpg converter, iphone photo won't open on windows, heic file"
-        ogTitle="How to Convert HEIC to JPG — Free, No Upload, No App"
-        ogDescription="HEIC is a great storage format and a terrible sharing format. Convert the copy you send, keep the original you archive — here's how, in your browser."
+        ogTitle="HEIC to JPG Converter Online Free — No Upload, No App Needed"
+        ogDescription="Convert HEIC to JPG free in your browser — no upload, no app. Keep the HEIC original for your archive; send a JPG everyone can open."
         ogType="article"
         articleDate={PUBLISHED}
       />
