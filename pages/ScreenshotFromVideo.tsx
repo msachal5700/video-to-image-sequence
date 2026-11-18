@@ -28,6 +28,10 @@ const faqs = [
   {
     q: 'Does it work for MP4, MOV, and WEBM videos?',
     a: 'Yes. It supports the three most common video formats used by screen recorders, cameras, and mobile devices.'
+  },
+  {
+    q: 'Should I save my video screenshot as JPG or PNG?',
+    a: 'PNG for anything where sharpness matters — text, logos, UI, or frames you plan to edit further — because it is lossless. JPG for photos and thumbnails where a smaller file matters more than pixel-perfect edges. The tool lets you pick either format before you extract, so you do not need to convert afterwards.'
   }
 ];
 
@@ -227,6 +231,60 @@ const ScreenshotFromVideo: React.FC = () => {
         </div>
       </section>
 
+      {/* ── FORMAT & SETTINGS DECISION TABLE ── */}
+      <section className="max-w-4xl mx-auto py-12 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 font-display">
+          Pick the Right Format and Settings for the Job
+        </h2>
+        <p className="text-gray-400 mb-6 leading-relaxed">
+          A screenshot from a video is only as good as the settings behind it. Use this table to match the format and extraction rate to what you actually need — the wrong combination is the most common reason a still comes out soft, oversized, or missing the moment.
+        </p>
+        <div className="overflow-x-auto rounded-2xl border border-gray-800 mb-8">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="bg-gray-900 border-b border-gray-800">
+                <th className="px-5 py-4 text-left text-gray-400 font-medium">What you need</th>
+                <th className="px-5 py-4 text-center text-gray-400 font-medium">Format</th>
+                <th className="px-5 py-4 text-left text-gray-400 font-medium">Settings</th>
+                <th className="px-5 py-4 text-left text-gray-400 font-medium">Why</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-800/50">
+              <tr className="hover:bg-gray-900/50 transition-colors">
+                <td className="px-5 py-3 text-gray-300 font-medium">One exact frame (a reaction, a product shot)</td>
+                <td className="px-5 py-3 text-center text-cyan-400 font-semibold">PNG</td>
+                <td className="px-5 py-3 text-gray-400">High FPS (30) around the moment, or use our <Link to="/extract-frame-at-timestamp" className="text-cyan-400 hover:underline">timestamp extractor</Link></td>
+                <td className="px-5 py-3 text-gray-400">PNG keeps edges sharp; high FPS shrinks the gap between frames so the moment is actually in the grid.</td>
+              </tr>
+              <tr className="hover:bg-gray-900/50 transition-colors">
+                <td className="px-5 py-3 text-gray-300 font-medium">Thumbnail or social preview</td>
+                <td className="px-5 py-3 text-center text-cyan-400 font-semibold">JPG</td>
+                <td className="px-5 py-3 text-gray-400">Single frame at native resolution</td>
+                <td className="px-5 py-3 text-gray-400">Small file that uploads fast; the quality loss is invisible at thumbnail size.</td>
+              </tr>
+              <tr className="hover:bg-gray-900/50 transition-colors">
+                <td className="px-5 py-3 text-gray-300 font-medium">Storyboard or contact sheet</td>
+                <td className="px-5 py-3 text-center text-cyan-400 font-semibold">JPG</td>
+                <td className="px-5 py-3 text-gray-400">1 FPS</td>
+                <td className="px-5 py-3 text-gray-400">One frame per second covers the whole video without producing a giant ZIP.</td>
+              </tr>
+              <tr className="hover:bg-gray-900/50 transition-colors">
+                <td className="px-5 py-3 text-gray-300 font-medium">Frame for editing or print</td>
+                <td className="px-5 py-3 text-center text-cyan-400 font-semibold">PNG</td>
+                <td className="px-5 py-3 text-gray-400">Native resolution, Max frame width set to Original</td>
+                <td className="px-5 py-3 text-gray-400">Lossless pixels survive cropping, scaling, and re-export without degrading.</td>
+              </tr>
+              <tr className="hover:bg-gray-900/50 transition-colors">
+                <td className="px-5 py-3 text-gray-300 font-medium">Lecture slides or screencast stills</td>
+                <td className="px-5 py-3 text-center text-cyan-400 font-semibold">PNG</td>
+                <td className="px-5 py-3 text-gray-400">1–2 FPS</td>
+                <td className="px-5 py-3 text-gray-400">Text stays readable; JPG artefacts blur small type.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       {/* ── LIMITATIONS & MEMORY WARNING ── */}
       <section className="max-w-4xl mx-auto py-12 px-4">
         <div className="bg-cyan-950/20 border-l-4 border-cyan-500 rounded-r-2xl p-6">
@@ -255,6 +313,18 @@ const ScreenshotFromVideo: React.FC = () => {
             <h3 className="text-white font-semibold mb-2">Black Frames Extracted</h3>
             <p className="text-gray-400 text-sm leading-relaxed">
               Some videos contain black frames at the very beginning (fade-in). Let the parser extract further into the video or check your video codec parameters.
+            </p>
+          </div>
+          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
+            <h3 className="text-white font-semibold mb-2">Screenshot Looks Blurry or Soft</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Most video is compressed, and frames between keyframes are softer than keyframes. If your still looks mushy, extract at a higher FPS and pick a sharper neighbouring frame, keep PNG instead of JPG, and check the source video&apos;s own resolution — a 720p upload cannot yield a sharp 4K still. The tool exports at the video&apos;s native resolution, never above it.
+            </p>
+          </div>
+          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5">
+            <h3 className="text-white font-semibold mb-2">Video Won&apos;t Load or Shows an Error</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              The browser can only decode codecs it supports. HEVC from iPhones works in Safari but not in most other browsers, and ProRes or DNxHD camera files won&apos;t open in any browser. Transcode the clip to H.264 MP4 first — HandBrake (free, with a visual interface) or FFmpeg (<code className="text-gray-300">ffmpeg -i input.mov -c:v libx264 -crf 18 -c:a aac output.mp4</code>) — then drop the converted file in.
             </p>
           </div>
         </div>
