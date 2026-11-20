@@ -28,7 +28,7 @@ const PARTNERS = [
   {
     name: 'AIQuickPrompt',
     url: 'https://aiquickprompt.com',
-    body: 'Save, reuse and improve your AI prompts — write a prompt once, then copy-paste it whenever you need it.',
+    body: 'AIQuickPrompt keeps your best AI prompts in one place. Save, Optimise, Collaborate and Organize prompts for ChatGPT, Claude, and Gemini, then find and reuse them from any device.',
   },
 ];
 
