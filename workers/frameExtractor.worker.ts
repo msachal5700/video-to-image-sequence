@@ -89,14 +89,26 @@ async function processVideo(payload: any) {
 
     decoder = new VideoDecoder({
       output: (frame: VideoFrame) => {
-        if (isCanceled) { frame.close(); return; }
+        try {
+        if (isCanceled) { return; }
 
         // If we are close or past the next frame time, capture it
         if (frame.timestamp >= nextFrameTime) {
           // Create a temporary canvas for this frame to avoid race conditions
           const tempCanvas = new OffscreenCanvas(canvas!.width, canvas!.height);
           const tempCtx = tempCanvas.getContext('2d');
-          tempCtx!.drawImage(frame, 0, 0, tempCanvas.width, tempCanvas.height);
+          try {
+            tempCtx!.drawImage(frame, 0, 0, tempCanvas.width, tempCanvas.height);
+          } catch (drawErr) {
+            // One corrupt/broken frame must not kill the whole extraction:
+            // skip it and let the next good frame fill this capture slot
+            // (nextFrameTime is deliberately NOT advanced here). Previously
+            // this throw escaped the output callback, aborted the decoder
+            // and forced the whole job onto the legacy seeker — the
+            // "broken video frame" JS errors in Clarity.
+            console.error('[WORKER] Skipping broken video frame at timestamp', frame.timestamp, drawErr);
+            return;
+          }
 
           const mimeType = format === 'png' ? 'image/png' : format === 'webp' ? 'image/webp' : format === 'avif' ? 'image/avif' : 'image/jpeg';
           const exportQuality = format === 'png' ? 1.0 : quality;
@@ -152,8 +164,9 @@ async function processVideo(payload: any) {
 
           pendingFramePromises.push(framePromise);
         }
-        
-        frame.close();
+        } finally {
+          frame.close();
+        }
       },
       error: (e) => {
         resolvePromise.reject(e);
