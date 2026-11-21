@@ -24,6 +24,14 @@ const PARTNER_TYPES = [
   },
 ];
 
+const PARTNERS = [
+  {
+    name: 'AIQuickPrompt',
+    url: 'https://aiquickprompt.com',
+    body: 'AIQuickPrompt keeps your best AI prompts in one place. Save, Optimise, Collaborate and Organize prompts for ChatGPT, Claude, and Gemini, then find and reuse them from any device.',
+  },
+];
+
 const mediaPartnerSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
@@ -92,18 +100,33 @@ const MediaPartner: React.FC = () => {
         <h2 className="text-2xl font-bold text-white font-display mb-6">
           Our partners
         </h2>
-        <div className="bg-gray-900/60 border border-gray-800 rounded-2xl p-8 mb-12 text-center">
-          <p className="text-gray-400 leading-relaxed mb-2">
-            We are onboarding our first partners now.
-          </p>
-          <p className="text-gray-500 text-sm leading-relaxed">
-            Featured our tool or listed us in your directory?{' '}
-            <Link to="/contact" className="text-cyan-400 hover:text-cyan-300 underline">
-              Contact us
-            </Link>{' '}
-            with your URL and we will add your listing here.
-          </p>
+        <div className="grid md:grid-cols-2 gap-5 mb-8">
+          {PARTNERS.map((p) => (
+            <div
+              key={p.name}
+              className="bg-gray-900/60 border border-gray-800 rounded-2xl p-6"
+            >
+              <h3 className="text-lg font-semibold mb-2">
+                <a
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-cyan-300 hover:text-cyan-200 underline"
+                >
+                  {p.name}
+                </a>
+              </h3>
+              <p className="text-gray-400 text-sm leading-relaxed">{p.body}</p>
+            </div>
+          ))}
         </div>
+        <p className="text-gray-500 text-sm leading-relaxed mb-12">
+          Featured our tool or listed us in your directory?{' '}
+          <Link to="/contact" className="text-cyan-400 hover:text-cyan-300 underline">
+            Contact us
+          </Link>{' '}
+          with your URL and we will add your listing here.
+        </p>
 
         <h2 className="text-2xl font-bold text-white font-display mb-4">
           How to become a partner
