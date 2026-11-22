@@ -76,12 +76,12 @@ const EzgifVideoToJpgGuide: React.FC = () => {
   return (
     <>
       <SEOHead
-        title="Ezgif Video to JPG: How to Use It Step by Step (and When to Skip the Upload)"
-        description="Ezgif's Video to JPG tool, step by step: the settings that matter, the 200 MB upload cap and one-hour deletion — and when to skip the upload for FFmpeg or a browser-local extractor."
+        title="Ezgif Video to JPG Converter — How to Convert Video to JPG Online Free"
+        description="Convert video to JPG with Ezgif, step by step: FPS, size and quality settings, the 200 MB upload limit — and when a browser-local tool is the better pick."
         canonical={CANONICAL}
         keywords="ezgif video to jpg, convert video to jpg ezgif, ezgif video to jpg 200mb limit"
-        ogTitle="Ezgif Video to JPG: How to Use It Step by Step (and When to Skip the Upload)"
-        ogDescription="Ezgif converts video to JPG well — within its limits: 200 MB uploads, 1920px caps, files deleted after an hour. The full walkthrough plus the two alternatives."
+        ogTitle="Ezgif Video to JPG Converter — How to Convert Video to JPG Online Free"
+        ogDescription="Convert video to JPG with Ezgif, step by step: FPS, size and quality settings, the 200 MB upload limit — and when a browser-local tool is the better pick."
         ogType="article"
         articleDate={PUBLISHED}
       />
@@ -177,7 +177,7 @@ const EzgifVideoToJpgGuide: React.FC = () => {
           </section>
           <section className="space-y-4">
             <h2 className="font-display text-2xl md:text-3xl font-bold text-white border-b border-gray-800 pb-2">Method 3 — Browser-Local Extraction: No Upload, No 200 MB Cap</h2>
-            <p>The third route keeps Ezgif's convenience (a web page, no install) and drops its server. <Link to="/video-to-jpg" className="text-cyan-400 underline hover:text-cyan-300">Video to JPG</Link> decodes your video in your own browser with a local WebAssembly pipeline: MP4, MOV, and WEBM input, JPG output at the video's native resolution — a 4K video yields 3840×2160 JPGs — with a quality setting, a preview grid, and a ZIP download. Nothing uploads, so there is no 200 MB limit, no upload wait, and no copy of your footage on anyone's server. The tradeoff, verified on the live tool page today, is format coverage: browsers decode MP4, MOV, and WEBM best, while AVI and MKV support depends on your browser's codecs. For those, Ezgif or FFmpeg is the honest answer. If you want the whole sequence rather than JPGs alone, the same browser-local pipeline is also available as a <Link to="/video-to-frames" className="text-cyan-400 underline hover:text-cyan-300">video to frames online free</Link> tool — pick any frame rate, JPG or PNG output, and download the numbered frames as a ZIP.</p>
+            <p>The third route keeps Ezgif's convenience (a web page, no install) and drops its server. <Link to="/video-to-jpg" className="text-cyan-400 underline hover:text-cyan-300">Video to JPG</Link> decodes your video in your own browser with a local WebAssembly pipeline: MP4, MOV, and WEBM input, JPG output at the video's native resolution — a 4K video yields 3840×2160 JPGs — with a quality setting, a preview grid, and a ZIP download. Nothing uploads, so there is no 200 MB limit, no upload wait, and no copy of your footage on anyone's server. The tradeoff, verified on the live tool page today, is format coverage: browsers decode MP4, MOV, and WEBM best, while AVI and MKV support depends on your browser's codecs. For those, Ezgif or FFmpeg is the honest answer.</p>
             <p>One practical note from the tool page: very long videos at high frame rates produce thousands of JPGs, and zipping thousands of full-resolution images can exceed browser memory. Extract at a low rate (1 FPS) and download only the keepers, or split the job into shorter clips — the same advice applies to Ezgif's ZIP, for the same reason.</p>
           </section>
           <section className="space-y-4">
