@@ -356,6 +356,10 @@ const ScreenshotFromVideo: React.FC = () => {
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Images to Video</h3>
             <p className="text-gray-500 text-xs">Stitch frame sequences into a WebM video.</p>
           </Link>
+          <Link to="/image-to-pdf" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Image to PDF</h3>
+            <p className="text-gray-500 text-xs">Combine JPG, PNG and WebP images into one PDF — no upload.</p>
+          </Link>
         </div>
       </section>
 

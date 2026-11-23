@@ -314,6 +314,10 @@ const VideoToPdf: React.FC = () => {
             <h3 className="text-white font-semibold mb-1">Extract Frames from Video</h3>
             <p className="text-gray-500 text-sm">Full-frame extraction at custom intervals, exported as a ZIP image sequence.</p>
           </Link>
+          <Link to="/image-to-pdf" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-700 transition block">
+            <h3 className="text-white font-semibold mb-1">Image to PDF Converter</h3>
+            <p className="text-gray-500 text-sm">Combine JPG, PNG and WebP images into one PDF — fit-to-image, A4 or Letter, no upload.</p>
+          </Link>
         </div>
       </section>
     </div>

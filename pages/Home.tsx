@@ -294,6 +294,9 @@ const Home: React.FC = () => {
           <Link to="/gif-to-mp4" className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-900 border border-gray-800 rounded-full text-xs sm:text-sm text-gray-300 hover:text-cyan-400 hover:border-cyan-800 transition-all">
             <span>🔄</span> GIF to MP4
           </Link>
+          <Link to="/video-looper" className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-900 border border-gray-800 rounded-full text-xs sm:text-sm text-gray-300 hover:text-cyan-400 hover:border-cyan-800 transition-all">
+            <span>🔁</span> Video Looper
+          </Link>
         </div>
       </div>
 
