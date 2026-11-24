@@ -213,6 +213,61 @@ const VideoToWebp: React.FC = () => {
       </section>
 
       <section className="max-w-4xl mx-auto py-12 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">WebP vs AVIF: Which Modern Format Fits Your Frames?</h2>
+        <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-4">
+          <p className="text-gray-400 leading-relaxed">
+            This tool outputs WebP, and the site also has a <Link to="/video-to-avif" className="text-cyan-400 hover:underline">video to AVIF converter</Link>. Both formats beat JPG comfortably on file size, so the real choice is not quality versus size — it is compatibility versus maximum compression.
+          </p>
+          <p className="text-gray-400 leading-relaxed">
+            WebP is the safe pair of hands. Every modern browser has supported it since 2020 (Safari joined with version 14), and it opens in Photoshop, Figma, WordPress, and effectively every CMS and chat app you might drop a frame into. It offers lossy and lossless modes plus transparency, at 8-bit color. AVIF, built on the AV1 video codec, compresses further — typically smaller than WebP at the same visual quality, with 10-bit color and cleaner gradients — but it is slower to encode, and some older software still cannot open it.
+          </p>
+        </div>
+        <div className="overflow-x-auto rounded-2xl border border-gray-800 mt-6">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="bg-gray-900 border-b border-gray-800">
+                <th className="px-5 py-4 text-left text-gray-400 font-medium">Factor</th>
+                <th className="px-5 py-4 text-center font-bold text-cyan-400">WebP (This Page)</th>
+                <th className="px-5 py-4 text-center text-gray-400 font-medium">AVIF</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-800/50">
+              <tr className="hover:bg-gray-900/50 transition-colors">
+                <td className="px-5 py-3 text-gray-300 font-medium">Browser support</td>
+                <td className="px-5 py-3 text-center bg-cyan-950/10 text-cyan-400 font-semibold">All modern browsers</td>
+                <td className="px-5 py-3 text-center text-gray-400">All modern browsers (newer versions)</td>
+              </tr>
+              <tr className="hover:bg-gray-900/50 transition-colors">
+                <td className="px-5 py-3 text-gray-300 font-medium">File size</td>
+                <td className="px-5 py-3 text-center text-gray-400">25–35% smaller than JPG</td>
+                <td className="px-5 py-3 text-center bg-cyan-950/10 text-cyan-400 font-semibold">Smaller than WebP</td>
+              </tr>
+              <tr className="hover:bg-gray-900/50 transition-colors">
+                <td className="px-5 py-3 text-gray-300 font-medium">Color depth</td>
+                <td className="px-5 py-3 text-center text-gray-400">8-bit</td>
+                <td className="px-5 py-3 text-center bg-cyan-950/10 text-cyan-400 font-semibold">Up to 10/12-bit, HDR</td>
+              </tr>
+              <tr className="hover:bg-gray-900/50 transition-colors">
+                <td className="px-5 py-3 text-gray-300 font-medium">Opens in</td>
+                <td className="px-5 py-3 text-center bg-cyan-950/10 text-cyan-400 font-semibold">Almost everything</td>
+                <td className="px-5 py-3 text-center text-gray-400">Growing — some editors still lack support</td>
+              </tr>
+              <tr className="hover:bg-gray-900/50 transition-colors">
+                <td className="px-5 py-3 text-gray-300 font-medium">Best for</td>
+                <td className="px-5 py-3 text-center text-gray-400">Web delivery, sharing, CMS uploads</td>
+                <td className="px-5 py-3 text-center text-gray-400">Archiving, maximum quality per MB</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-4 mt-6">
+          <p className="text-gray-400 leading-relaxed">
+            The rule of thumb: if the frames are going on a website, into a document, or to another person, choose WebP — nothing in the chain will fail to open it. If the frames are going into your own archive or a quality-critical pipeline and storage adds up, AVIF's extra compression is worth the narrower support.
+          </p>
+        </div>
+      </section>
+
+      <section className="max-w-4xl mx-auto py-12 px-4">
         <h2 className="text-2xl md:text-3xl font-bold mb-6 font-display">More Free Online Frame Extractors</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           <Link to="/mp4-to-jpg" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">

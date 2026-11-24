@@ -264,6 +264,24 @@ const MovToJpg: React.FC = () => {
       </section>
 
       <section className="max-w-4xl mx-auto py-12 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">MOV Files: ProRes, HEVC, and iPhone Footage</h2>
+        <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-4">
+          <p className="text-gray-400 leading-relaxed">
+            MOV is a container, not a codec — and that one fact explains most of the confusion around the format. Two files can both end in .mov and behave completely differently, because what decides the file size, the quality, and whether a browser can decode the video at all is the codec stored inside. Most MOV files in the wild come from Apple devices, so the three codecs that matter are the ones Apple uses.
+          </p>
+          <p className="text-gray-400 leading-relaxed">
+            Every iPhone records MOV by default. With "High Efficiency" capture enabled, that footage is HEVC (H.265), which keeps roughly the same quality as H.264 at about half the file size — the reason a minute of 4K iPhone video stays small enough to share. Pro iPhone models also offer Apple ProRes, which makes the opposite trade: a minute of 4K ProRes can run to several gigabytes, because it keeps nearly all of the sensor data for color grading and editing instead of throwing most of it away.
+          </p>
+          <p className="text-gray-400 leading-relaxed">
+            This is why some MOV files extract here instantly and others refuse to load. HEVC decodes natively in Safari, while Chrome and Firefox depend on hardware support; ProRes cannot be decoded by any browser, so a ProRes MOV needs transcoding to H.264 first (the guide above covers it). When a MOV fails to load, it is almost always the codec, not a corrupt file.
+          </p>
+          <p className="text-gray-400 leading-relaxed">
+            JPG suits most iPhone footage work — stills for thumbnails, product listings, messages, and quick reviews, in small files that open anywhere. When a frame has to stay pixel-perfect instead, the <Link to="/mov-to-png" className="text-cyan-400 hover:underline">MOV to PNG converter</Link> writes the same frames losslessly.
+          </p>
+        </div>
+      </section>
+
+      <section className="max-w-4xl mx-auto py-12 px-4">
         <h2 className="text-2xl md:text-3xl font-bold mb-6 font-display">Related Frame Extractors</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           <Link to="/mov-to-png" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">

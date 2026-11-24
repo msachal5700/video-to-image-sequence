@@ -245,6 +245,24 @@ const MovToPng: React.FC = () => {
       </section>
 
       <section className="max-w-4xl mx-auto py-12 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">MOV Files: ProRes, HEVC, and iPhone Footage</h2>
+        <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-4">
+          <p className="text-gray-400 leading-relaxed">
+            MOV is a container, not a codec — the .mov extension says nothing about what is inside. The reason to pull PNG frames out of one, specifically, is that PNG is the format you choose when the still itself becomes source material: a master frame for editing, a reference for color work, a dataset image, or an asset that will be processed again later. Every re-save of a JPG throws away a little more of the image; a PNG frame can be opened, edited, and re-saved indefinitely without drifting.
+          </p>
+          <p className="text-gray-400 leading-relaxed">
+            That matters most with iPhone footage. iPhones record MOV with HEVC (H.265) when "High Efficiency" capture is on, and HEVC is already a heavily compressed format — the compression artifacts are baked into every frame before you touch it. Saving an extracted frame as JPG compresses it a second time and adds a fresh layer of artifacts on top. PNG writes the decoded frame exactly as decoded: one generation of loss, not two.
+          </p>
+          <p className="text-gray-400 leading-relaxed">
+            The same logic applies at the professional end. Editors working from ProRes MOV masters use stills for VFX plates, poster frames, and client approvals, where a soft or artifacted frame is useless. One honest limit: no browser can decode ProRes, so a ProRes file has to be transcoded before it can be extracted here — and for a true ProRes master, desktop tools that read the original file directly remain the right choice. This converter covers the far more common case: H.264 and HEVC MOV files from phones and cameras, written out losslessly.
+          </p>
+          <p className="text-gray-400 leading-relaxed">
+            If the frames are only for quick review or sharing, the smaller files from the <Link to="/mov-to-jpg" className="text-cyan-400 hover:underline">MOV to JPG converter</Link> are the better trade. PNG earns its larger file size when the frame has a job to do after extraction.
+          </p>
+        </div>
+      </section>
+
+      <section className="max-w-4xl mx-auto py-12 px-4">
         <h2 className="text-2xl md:text-3xl font-bold mb-6 font-display">Related Frame Extractors</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           <Link to="/mov-to-jpg" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">

@@ -244,6 +244,24 @@ const WebmToJpg: React.FC = () => {
       </section>
 
       <section className="max-w-4xl mx-auto py-12 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">WebM Files: VP8/VP9 and Where They Come From</h2>
+        <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-4">
+          <p className="text-gray-400 leading-relaxed">
+            WebM is the web's own video format: a container built on Matroska, carrying VP8 or VP9 video (usually with Opus audio), royalty-free and designed from the start to play inside browsers. That origin is why WebM files turn up in places MP4 never does — and why they extract so reliably here.
+          </p>
+          <p className="text-gray-400 leading-relaxed">
+            Most WebM files come from the browser itself. Chrome's built-in MediaRecorder — the API behind most "record my screen" web tools — saves WebM by default, so screen recordings, meeting captures, and product demos are very often WebM even when the person recording never chose a format. OBS and other capture tools can record WebM directly, clips downloaded from YouTube arrive as VP9 WebM, and Discord and streaming workflows produce it constantly.
+          </p>
+          <p className="text-gray-400 leading-relaxed">
+            VP9 is the newer of the two codecs: noticeably better compression than VP8, and the codec YouTube serves for most playback. The practical difference for frame extraction is small — both decode natively in every modern browser, with no hardware lottery and no ProRes-style dead ends. If a video was born on the web, it almost certainly extracts on the web without a fight.
+          </p>
+          <p className="text-gray-400 leading-relaxed">
+            JPG fits what WebM usually contains — screen content. Stills from recordings become documentation screenshots, tutorial images, bug-report attachments, and thumbnails: files that need to be small, universal, and quick to review rather than pixel-perfect. When the frame carries fine UI text or transparency that must survive exactly, the <Link to="/webm-to-png" className="text-cyan-400 hover:underline">WebM to PNG converter</Link> is the lossless version of this tool.
+          </p>
+        </div>
+      </section>
+
+      <section className="max-w-4xl mx-auto py-12 px-4">
         <h2 className="text-2xl md:text-3xl font-bold mb-6 font-display">Related Frame Extractors</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           <Link to="/webm-to-png" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">

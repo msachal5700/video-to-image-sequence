@@ -249,6 +249,24 @@ const WebmToPng: React.FC = () => {
       </section>
 
       <section className="max-w-4xl mx-auto py-12 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">WebM Files: VP8/VP9 and Where They Come From</h2>
+        <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-4">
+          <p className="text-gray-400 leading-relaxed">
+            WebM has a feature most people never notice: VP8 and VP9 can carry an alpha channel — real transparency inside a video file. That is how streamers and motion designers move transparent overlays, facecam cutouts, lower-thirds, and animated stickers around as video. And it decides the JPG-versus-PNG question before you start: JPG has no transparency at all, so a transparent frame saved as JPG gets flattened onto a solid background. PNG keeps the alpha channel intact, which is why this page exists.
+          </p>
+          <p className="text-gray-400 leading-relaxed">
+            One honest caveat: the transparency survives only if the source WebM actually has an alpha track. Most WebM files do not — the screen recordings Chrome's MediaRecorder produces by default, OBS captures, and YouTube-sourced clips are ordinary opaque video. For those files PNG's advantage is different, and just as concrete: lossless sharpness.
+          </p>
+          <p className="text-gray-400 leading-relaxed">
+            Screen content is where that sharpness shows. Recordings are full of small UI text, code, and hard interface edges — exactly the content JPG compression smears into fuzzy blocks. A PNG frame keeps every edge pixel-exact, which is what you want when the still becomes documentation, a tutorial image, a UI reference, or an overlay asset that will sit on top of other content.
+          </p>
+          <p className="text-gray-400 leading-relaxed">
+            So the split is simple: overlays, stickers, and UI captures where transparency or text clarity matters — PNG, here. Quick stills for review and sharing, where small files matter more — the <Link to="/webm-to-jpg" className="text-cyan-400 hover:underline">WebM to JPG converter</Link>.
+          </p>
+        </div>
+      </section>
+
+      <section className="max-w-4xl mx-auto py-12 px-4">
         <h2 className="text-2xl md:text-3xl font-bold mb-6 font-display">Related Frame Extractors</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           <Link to="/webm-to-jpg" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
