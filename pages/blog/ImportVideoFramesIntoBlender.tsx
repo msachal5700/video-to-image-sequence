@@ -118,7 +118,6 @@ const ImportVideoFramesIntoBlender: React.FC = () => {
         <div className="mt-10 space-y-12 leading-relaxed text-base md:text-lg">
 
           <section className="space-y-4">
-            <p># How to Import Extracted Video Frames into Blender</p>
             <p>Blender reads a folder of numbered still images as one moving clip. If you have already turned a video into frames — for example with a browser-based extractor that outputs <code className="text-cyan-400">frame_0001.jpg</code>, <code className="text-cyan-400">frame_0002.jpg</code>, and so on — you do not need to convert them back into a video first. Import the numbered files straight into Blender's Video Sequencer, and Blender plays them back in order as a single strip.</p>
             <p>This guide covers the full path: extracting frames with the right settings, importing them as a sequence (not as dozens of separate stills), matching the frame rate so motion plays at the correct speed, and the three most common uses — reference footage for animation, a frame-by-frame edit, and an animated texture.</p>
           </section>

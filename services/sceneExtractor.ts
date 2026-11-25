@@ -144,7 +144,7 @@ export const extractSceneFramesAndZip = async (
     sensitivity,
     settleCapture = false,
     format,
-    quality = 0.9,
+    quality = 0.92, // keep in sync with DEFAULT_FRAME_QUALITY in utils/videoProcessor.ts
     maxWidth = 0,
     onProgress,
     onFrame,

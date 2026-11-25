@@ -63,7 +63,7 @@ const HowToExtractFramesFromVideo: React.FC = () => {
             <li><strong>Choose</strong> FPS (1–60) and format (JPG/WebP/PNG)</li>
             <li><strong>Click</strong> Extract → Download ZIP</li>
           </ol>
-          <p className="mt-4 text-sm text-gray-500">Runs entirely in your browser via WebCodecs. No upload, no server, works offline after first load.</p>
+          <p className="mt-4 text-sm text-gray-500">Runs entirely in your browser (WebCodecs where available). No upload and no server: once the page has loaded, extraction needs no network.</p>
         </div>
 
         <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 font-display border-b border-gray-800 pb-2">Method 1: Free Online Tool (Recommended)</h2>
@@ -96,7 +96,7 @@ const HowToExtractFramesFromVideo: React.FC = () => {
                 <strong>Format:</strong> JPG (small), WebP (smaller), PNG (lossless)
               </div>
               <div className="bg-gray-800 p-3 rounded">
-                <strong>Quality:</strong> JPG 10–100, WebP 10–100
+                <strong>Quality:</strong> JPG and WebP at 92%; PNG lossless
               </div>
             </div>
             <p className="mt-3"><strong className="text-yellow-400">Tip:</strong> See <a href="/blog/how-many-frames-per-second" className="text-cyan-400 hover:underline">FPS decision guide</a> for task-specific recommendations.</p>

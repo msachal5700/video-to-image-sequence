@@ -6,6 +6,32 @@ const chromium = require('@sparticuz/chromium-min');
 
 const PORT = 3456;
 const DIST_DIR = path.join(__dirname, '../dist');
+const INDEXING_POLICY = require('../config/indexing-policy.json');
+
+/**
+ * Third-party hosts that must never run inside the prerender browser.
+ *
+ * Until 2026-11-25 AdSense Auto Ads, reCAPTCHA and Sodar ran during the
+ * snapshot, so every static page shipped with live ad iframes frozen into
+ * its HTML — including an ad request for url=http://localhost:3456/<route>.
+ * Googlebot and the AdSense crawler saw ad markup on pages before any ad was
+ * approved, pointing at a local build server. Blocking the requests keeps
+ * the snapshot to the site's own content; the <script> tags in index.html
+ * stay in the HTML and run normally for real visitors.
+ */
+const BLOCKED_REQUEST_PATTERNS = [
+  'googlesyndication.com',
+  'doubleclick.net',
+  'googleadservices.com',
+  'adtrafficquality.google',
+  'fundingchoicesmessages.google.com',
+  'googletagmanager.com',
+  'google-analytics.com',
+  'google.com/recaptcha',
+  'gstatic.com/recaptcha',
+  'clarity.ms',
+  'preferencenail.com',
+];
 const ORIGINAL_INDEX = path.join(DIST_DIR, 'index.html');
 const TEMP_INDEX = path.join(DIST_DIR, 'index.temp.html');
 
@@ -324,7 +350,62 @@ function cleanHtml(html) {
   // taken. Left in place, every visitor (fresh or returning) would load an
   // unscrollable page, and the gate's own unlock could not clear it.
   html = html.replace(/<(html|body)([^>]*?)\sstyle="overflow:\s*hidden;?"/gi, '<$1$2');
+
+  // Belt and braces for the request blocking above: drop anything Google's
+  // ad stack injects at runtime, in case a request slips through. The
+  // original loader <script src=".../pagead/js/adsbygoogle.js?client=...">
+  // from index.html is NOT matched and stays in place.
+  // Auto-placed / filled ad slots (status attribute is only set at runtime).
+  html = html.replace(/<ins\b[^>]*data-adsbygoogle-status[^>]*>[\s\S]*?<\/ins>/gi, '');
+  // Empty wrappers Auto Ads leaves behind.
+  html = html.replace(/<div\b[^>]*class="[^"]*google-auto-placed[^"]*"[^>]*>\s*<\/div>/gi, '');
+  // Ad, Sodar, reCAPTCHA and consent iframes.
+  html = html.replace(
+    /<iframe\b[^>]*(?:googlesyndication|doubleclick|adtrafficquality|google\.com\/recaptcha|fundingchoices|google_esf|aswift_|google_ads_iframe)[^>]*>[\s\S]*?<\/iframe>/gi,
+    ''
+  );
+  // Scripts the ad loader injects after it runs (impl bundles, Sodar, consent).
+  html = html.replace(
+    /<script\b[^>]*src="[^"]*(?:\/pagead\/managed\/|show_ads_impl|adtrafficquality|fundingchoicesmessages|google\.com\/recaptcha)[^"]*"[^>]*>\s*<\/script>/gi,
+    ''
+  );
   return html;
+}
+
+/** Root-relative path → indexable per config/indexing-policy.json. */
+function isIndexableRoute(route) {
+  const clean = route.split(/[?#]/)[0].replace(/\/+$/, '') || '/';
+  const first = clean.split('/')[1] || '';
+  const withheld = new Set(INDEXING_POLICY.noindexPaths.map((p) => p.path));
+  if (NON_EN_LANGS.includes(first)) {
+    if (INDEXING_POLICY.publishLocalizedPages !== true) return false;
+    return !withheld.has(clean.slice(first.length + 1) || '/');
+  }
+  return !withheld.has(clean);
+}
+
+/**
+ * Fail the build if sitemap.xml offers Google a page the indexing policy
+ * withholds — contradictory signals were part of what got the site flagged.
+ */
+function checkSitemapAgainstPolicy() {
+  const sitemapPath = path.join(DIST_DIR, 'sitemap.xml');
+  if (!fs.existsSync(sitemapPath)) return;
+  const xml = fs.readFileSync(sitemapPath, 'utf8');
+  const origin = 'https://www.videotoimagesequence.online';
+  const locs = [...xml.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/g)].map((m) => m[1]);
+  // hreflang alternates inside the sitemap count too.
+  const alternates = [...xml.matchAll(/<xhtml:link\b[^>]*href="([^"]+)"/g)].map((m) => m[1]);
+  const offenders = [...locs, ...alternates].filter(
+    (url) => url.startsWith(origin) && !isIndexableRoute(url.slice(origin.length) || '/')
+  );
+  if (offenders.length) {
+    throw new Error(
+      `sitemap.xml lists ${offenders.length} URL(s) that config/indexing-policy.json withholds:\n  ` +
+        offenders.join('\n  ')
+    );
+  }
+  console.log(`Sitemap check passed: ${locs.length} URLs, none withheld by the indexing policy.`);
 }
 
 async function runPrerender() {
@@ -390,10 +471,24 @@ async function runPrerender() {
         };
       }
 
+      checkSitemapAgainstPolicy();
+
       browser = await puppeteer.launch(launchOptions);
 
       const page = await browser.newPage();
       await page.setUserAgent('Mozilla/5.0 (compatible; Prerenderer/1.0)');
+
+      // Keep ads, analytics and bot-detection out of the snapshot (see
+      // BLOCKED_REQUEST_PATTERNS). Everything else loads normally.
+      await page.setRequestInterception(true);
+      page.on('request', (request) => {
+        const url = request.url();
+        if (BLOCKED_REQUEST_PATTERNS.some((pattern) => url.includes(pattern))) {
+          request.abort('blockedbyclient').catch(() => {});
+        } else {
+          request.continue().catch(() => {});
+        }
+      });
 
       for (const route of routes) {
         console.log(`Prerendering: ${route}`);
@@ -442,6 +537,19 @@ async function runPrerender() {
         }
         if (!html.includes(expectedText)) {
           throw new Error(`Validation failed for route ${route}: HTML is missing expected text "${expectedText}".`);
+        }
+        // The build server's address must never reach production HTML.
+        if (html.includes(`localhost:${PORT}`) || html.includes(`localhost%3A${PORT}`)) {
+          throw new Error(`Validation failed for route ${route}: HTML still references the prerender server (localhost:${PORT}).`);
+        }
+        // Robots tag must match config/indexing-policy.json. /404 is exempt.
+        if (route !== '/404') {
+          const robots = (html.match(/<meta[^>]*name="robots"[^>]*content="([^"]*)"/i) ||
+            html.match(/<meta[^>]*content="([^"]*)"[^>]*name="robots"/i) || [])[1] || '';
+          const hasNoindex = /noindex/i.test(robots);
+          if (!isIndexableRoute(route) && !hasNoindex) {
+            throw new Error(`Validation failed for route ${route}: withheld by config/indexing-policy.json but robots is "${robots}".`);
+          }
         }
 
         let targetFilePath;

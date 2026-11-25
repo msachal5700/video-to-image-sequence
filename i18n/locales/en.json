@@ -48,8 +48,8 @@
     "noServerUploadsDesc": "Your video files never leave your computer. All frame extraction happens locally in your WebAssembly browser pipeline.",
     "downloadZipTitle": "Instant ZIP Download",
     "downloadZipDesc": "All extracted frame images are archived into a single compressed ZIP file for fast, one-click downloading.",
-    "secureTitle": "No Limits & Zero Cost",
-    "secureDesc": "Free forever with no file size caps, watermarks, or user account registration required.",
+    "secureTitle": "Free, No Account",
+    "secureDesc": "Free to use with no watermark and no sign-up. There is no upload cap because nothing is uploaded; your device memory sets the practical limit.",
     "clear": "Clear Selection",
     "copyRawError": "Copy Error Details",
     "cancelQueue": "Cancel Queue",
@@ -286,7 +286,7 @@
       ]
     ],
     "whyChooseTitle": "Why Choose This Video Frame Extractor?",
-    "whyChooseSub": "Built for professionals who need reliable, private, and fast frame extraction without compromise.",
+    "whyChooseSub": "What changes when the extraction runs on your own device instead of a server.",
     "whyChooseItems": [
       {
         "icon": "🔒",
@@ -310,8 +310,8 @@
       },
       {
         "icon": "🆓",
-        "title": "Completely Free — No Limits",
-        "desc": "No file size caps (only your device RAM), no watermarks, no account required, no trial periods, no feature gates. Free forever for personal and commercial use. Built by developers, for developers."
+        "title": "Free, No Account, No Watermark",
+        "desc": "No account, watermark, trial or paid tier. Because nothing is uploaded there is no file-size cap of our own; the practical limits are your device memory and 5,000 frames per video in one run."
       },
       {
         "icon": "💻",
@@ -332,7 +332,7 @@
       ],
       [
         "Output Formats",
-        "JPG (quality 10–100), PNG (lossless), WebP (quality 10–100, alpha support)"
+        "JPG and WebP at 92% quality, PNG lossless (keeps the alpha channel when the source video has one), AVIF where your browser can encode it"
       ],
       [
         "Frame Rate Control",
@@ -360,11 +360,11 @@
       ],
       [
         "Browser Support",
-        "Chrome 94+, Firefox 93+, Safari 14+, Edge 94+ (WebCodecs API)"
+        "Current Chrome, Edge, Firefox and Safari. Uses the WebCodecs decoder where the browser has it and falls back to frame-by-frame seeking where it does not."
       ],
       [
-        "Offline Capable",
-        "Yes — works after first load (service worker caches app shell)"
+        "Frame Limit",
+        "Up to 5,000 frames per video in one run (FPS and interval modes). Split longer jobs or lower the FPS."
       ]
     ],
     "gettingStartedTitle": "Complete Getting Started Guide",
@@ -476,24 +476,16 @@
         "desc": "Crop images into any custom shape with draggable points — free, private, with transparent PNG export."
       },
       {
-        "title": "Video to Frames Converter",
-        "desc": "The main converter — turn any video into JPG, PNG, or WebP frames free in your browser."
-      },
-      {
         "title": "Video to JPG Frames",
         "desc": "Pull high-quality JPG stills from any video. Fast, private, no signup."
-      },
-      {
-        "title": "Video Frame Grabber",
-        "desc": "Capture individual stills from video instantly — scrub to the moment, grab the frame."
       },
       {
         "title": "Video to Photo",
         "desc": "Save any video frame as a full-quality photo — iPhone, Android, or desktop."
       },
       {
-        "title": "YouTube Thumbnail Downloader",
-        "desc": "Paste any YouTube link and save its thumbnail in HD — free, no signup."
+        "title": "Frame for a YouTube Thumbnail",
+        "desc": "Scrub your own video to the exact moment and save it at full resolution as a thumbnail base."
       },
       {
         "title": "WebP to PNG Converter",
@@ -522,7 +514,7 @@
         },
         {
           "q": "What is the difference between FPS and frame interval?",
-          "a": "FPS = frames extracted per second of video. Interval = every N-th frame (e.g., interval 30 = 1 frame every 30 frames). This tool uses FPS for intuitive control."
+          "a": "FPS sets how many frames are taken per second of video (30 FPS on a 10-second clip gives about 300 frames). An interval takes one frame every N seconds (every 5 seconds on a 1-minute clip gives 12 frames). The extractor supports both: switch between \"By FPS\" and \"Every N Seconds\" before you start."
         },
         {
           "q": "Can I extract every frame from a video?",
@@ -534,7 +526,7 @@
         },
         {
           "q": "Is video frame extraction lossless?",
-          "a": "PNG and WebP (lossless mode) are lossless. JPG is lossy but high quality (92%). For VFX/ML, use PNG. For web/thumbnails, WebP balances quality and size."
+          "a": "PNG is lossless. JPG and WebP are lossy and are exported at 92% quality, which is hard to tell apart from the source on screen. For VFX or ML labels, use PNG. For web pages and thumbnails, WebP gives smaller files at similar quality."
         },
         {
           "q": "JPG vs PNG vs WebP for extracted video frames?",

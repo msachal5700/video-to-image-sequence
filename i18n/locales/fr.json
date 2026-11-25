@@ -30,8 +30,8 @@
     "noServerUploadsDesc": "Vos fichiers vidéo ne quittent jamais votre ordinateur. Toute l'extraction se fait localement dans votre navigateur via WebAssembly.",
     "downloadZipTitle": "Téléchargement ZIP Instantané",
     "downloadZipDesc": "Toutes les images extraites sont archivées dans un seul fichier ZIP compressé pour un téléchargement rapide en un clic.",
-    "secureTitle": "Aucune Limite et Zéro Coût",
-    "secureDesc": "Gratuit pour toujours, sans limite de taille de fichier, sans filigrane et sans inscription requise.",
+    "secureTitle": "Gratuit et sans compte",
+    "secureDesc": "Gratuit, sans filigrane et sans inscription. Aucune limite d'envoi puisque rien n'est envoyé ; la limite pratique est la mémoire de votre appareil.",
     "clear": "Effacer la Sélection",
     "copyRawError": "Copier les Détails de l'Erreur",
     "cancelQueue": "Annuler la File d'Attente",
@@ -299,7 +299,7 @@
         },
         {
           "q": "Quelle est la différence entre FPS et intervalle d'images ?",
-          "a": "FPS = images extraites par seconde de vidéo. Intervalle = chaque N-ième image (par exemple, intervalle 30 = 1 image tous les 30 images). Cet outil utilise les FPS pour un contrôle intuitif."
+          "a": "Le FPS indique combien d'images sont prises par seconde de vidéo (30 FPS sur un clip de 10 secondes donnent environ 300 images). Un intervalle prend une image toutes les N secondes (toutes les 5 secondes sur un clip d'une minute, on obtient 12 images). L'extracteur propose les deux : choisissez « By FPS » ou « Every N Seconds » avant de lancer."
         },
         {
           "q": "Puis-je extraire chaque image d'une vidéo ?",
@@ -311,7 +311,7 @@
         },
         {
           "q": "L'extraction de frames vidéo est-elle sans perte ?",
-          "a": "PNG et WebP (mode sans perte) sont sans perte. JPG est compressé mais de haute qualité (92%). Pour le VFX/ML, utilisez PNG. Pour le web/miniatures, WebP équilibre qualité et taille."
+          "a": "Le PNG est sans perte. Le JPG et le WebP sont avec perte et sont exportés à 92 % de qualité, ce qui est difficile à distinguer de l'original à l'écran. Pour les VFX ou l'annotation ML, utilisez le PNG. Pour le web et les miniatures, le WebP donne des fichiers plus légers à qualité comparable."
         },
         {
           "q": "JPG vs PNG vs WebP pour les images extraites ?",

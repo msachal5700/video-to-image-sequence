@@ -1,0 +1,20 @@
+{
+  "_about": "Single source of truth for which pages are offered to search engines and ad review. Pages listed in noindexPaths stay live for visitors (nothing 404s), but they get <meta name=robots content='noindex, follow'>, are left out of sitemap.xml, and are dropped from the header, footer and homepage link lists. To publish a page again, delete its entry, add its URL back to public/sitemap.xml, and restore its nav link. The prerender build fails if sitemap.xml lists a page this file withholds. Added 2026-11-25 after the AdSense 'Low value content' rejection.",
+  "publishLocalizedPages": true,
+  "_publishLocalizedPagesWhy": "Kept true on 2026-11-25 by the owner's decision: Search Console showed /es/video-to-frames rising from 2 to 13 clicks a week (position 8.4) and other Spanish and Arabic pages gaining. Known risk: the localized bodies are still mostly English, which matches Google's scaled-content pattern. Setting this to false withholds every /es, /fr, /de, /pt, /zh, /ar and /hi URL (noindex, no hreflang); the sitemap must then drop those URLs and their xhtml:link alternates or the build fails.",
+  "noindexPaths": [
+    {
+      "path": "/youtube-thumbnail-downloader",
+      "reason": "Downloads other creators' thumbnail artwork from YouTube's servers; a poor fit for an ads-supported site under review. Already pulled from the footer on 2026-10-29."
+    },
+    {
+      "path": "/extract-frame-every-10-seconds",
+      "reason": "Same page as /extract-frame-every-5-seconds with one preset number changed (doorway pattern). The 5-second page lets visitors pick any interval."
+    },
+    {
+      "path": "/extract-frame-every-30-seconds",
+      "reason": "Same page as /extract-frame-every-5-seconds with one preset number changed (doorway pattern). The 5-second page lets visitors pick any interval."
+    }
+  ],
+  "_reviewAfter": "Kept indexed on 2026-11-25 pending measurement readouts: /heic-to-jpg, /avif-to-jpg and their guides (freeze until about 2026-12-01..07), /webp-to-png and /image-to-pdf (indexing requested 2026-11-11), /video-to-photo. Revisit with Search Console data after the readouts."
+}

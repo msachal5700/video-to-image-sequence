@@ -30,8 +30,8 @@
     "noServerUploadsDesc": "Tus archivos de video nunca salen de tu computadora. Toda la extracción de fotogramas ocurre localmente en tu canal de procesamiento WebAssembly en el navegador.",
     "downloadZipTitle": "Descarga ZIP Instantánea",
     "downloadZipDesc": "Todas las imágenes de fotogramas extraídas se archivan en un solo archivo ZIP comprimido para una descarga rápida con un solo clic.",
-    "secureTitle": "Sin Límites y Costo Cero",
-    "secureDesc": "Gratis para siempre sin límites de tamaño de archivo, marcas de agua o registro de cuenta de usuario.",
+    "secureTitle": "Gratis y sin cuenta",
+    "secureDesc": "Gratis, sin marca de agua y sin registro. No hay límite de subida porque no se sube nada; el límite práctico es la memoria de tu dispositivo.",
     "clear": "Limpiar Selección",
     "copyRawError": "Copiar Detalles del Error",
     "cancelQueue": "Cancelar Cola",
@@ -302,7 +302,7 @@
         },
         {
           "q": "¿Cuál es la diferencia entre FPS e intervalo de fotogramas?",
-          "a": "FPS = fotogramas extraídos por segundo de video. Intervalo = cada N-ésimo fotograma (por ejemplo, intervalo 30 = 1 fotograma cada 30 fotogramas). Esta herramienta usa FPS para un control intuitivo."
+          "a": "FPS indica cuántos fotogramas se toman por cada segundo de vídeo (30 FPS en un clip de 10 segundos dan unos 300 fotogramas). Un intervalo toma un fotograma cada N segundos (cada 5 segundos en un clip de 1 minuto da 12 fotogramas). El extractor admite ambos: elige \"By FPS\" o \"Every N Seconds\" antes de empezar."
         },
         {
           "q": "¿Puedo extraer cada fotograma de un video?",
@@ -314,7 +314,7 @@
         },
         {
           "q": "¿La extracción de fotogramas de video es sin pérdidas?",
-          "a": "PNG y WebP (modo sin pérdidas) son sin pérdidas. JPG es con pérdidas pero de alta calidad (92%). Para VFX/ML, usa PNG. Para web/miniaturas, WebP equilibra calidad y tamaño."
+          "a": "PNG no tiene pérdidas. JPG y WebP tienen pérdidas y se exportan con una calidad del 92 %, difícil de distinguir del original en pantalla. Para VFX o etiquetas de ML, usa PNG. Para páginas web y miniaturas, WebP da archivos más pequeños con una calidad similar."
         },
         {
           "q": "¿JPG vs PNG vs WebP para fotogramas de video extraídos?",

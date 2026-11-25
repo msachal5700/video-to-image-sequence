@@ -7,6 +7,7 @@ import {
   splitLangPrefix,
   isLocalizedPath,
 } from '../utils/localizedRoutes';
+import { isIndexableUrl } from '../utils/indexingPolicy';
 
 interface SEOHeadProps {
   title: string;
@@ -123,8 +124,11 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     // Set description
     setMeta('meta[name="description"]', 'content', description);
 
-    // Set robots
-    const robotsContent = noindex 
+    // Set robots. Pages withheld by config/indexing-policy.json (including
+    // every localized URL while publishLocalizedPages is false) are noindexed
+    // here, so the prerendered HTML carries the tag without per-page edits.
+    const withheld = noindex || !isIndexableUrl(canonical);
+    const robotsContent = withheld
       ? (nofollow ? "noindex, nofollow" : "noindex, follow")
       : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
     setMeta('meta[name="robots"]', 'content', robotsContent);
@@ -159,10 +163,12 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       setMeta('meta[property="article:published_time"]', 'content', articleDate);
     }
 
-    // Set Keywords
-    if (keywords) {
-      setMeta('meta[name="keywords"]', 'content', keywords);
-    }
+    // Meta keywords are deliberately not emitted (2026-11-25). Google ignores
+    // the tag, and long keyword lists in the source read as keyword stuffing
+    // to a human reviewer. The `keywords` prop is kept so pages compile
+    // unchanged; any stale tag from index.html is removed.
+    void keywords;
+    document.head.querySelector('meta[name="keywords"]')?.remove();
 
     // Inject hreflang alternate tags
     updateHreflangTags(canonical, currentLang);

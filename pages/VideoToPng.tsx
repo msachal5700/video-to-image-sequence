@@ -156,7 +156,7 @@ const VideoToPng: React.FC = () => {
 
       {/* Main Tool Content */}
       <div className="animate-fade-in min-h-[400px] px-4 max-w-5xl mx-auto text-center">
-        <VideoToImages />
+        <VideoToImages initialFormat="png" />
         <div className="mt-4 inline-block bg-cyan-950/40 border border-cyan-800 text-cyan-400 px-4 py-2 rounded-lg text-sm font-medium">
           {t('common.tipPng')}
         </div>

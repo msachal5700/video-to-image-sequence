@@ -19,7 +19,7 @@ const ImportVideoFramesIntoPremierePro: React.FC = () => {
   },
   {
     "q": "What frame rate should I set for the Indeterminate Media Timebase?",
-    "a": "The rate you extracted at. If you extracted at 24 fps, set 24; if you extracted one frame per second for review, the sequence is a fast summary, so set the playback rate you want for that summary (for example 24 or 30 fps) rather than 1 fps. The rule is simple: the timebase is the playback rate of the imported clip."
+    "a": "The playback rate you want for the clip. For animation or VFX, that is the rate you extracted at: if you extracted at 24 fps, set 24; if you extracted one frame per second for review, the sequence is a fast summary, so set the playback rate you want for that summary (for example 24 or 30 fps) rather than 1 fps. The rule is simple: the timebase is the playback rate of the imported clip."
   },
   {
     "q": "Can I import frames extracted at different rates into one project?",
@@ -118,7 +118,6 @@ const ImportVideoFramesIntoPremierePro: React.FC = () => {
         <div className="mt-10 space-y-12 leading-relaxed text-base md:text-lg">
 
           <section className="space-y-4">
-            <p># How to Import Extracted Video Frames into Premiere Pro</p>
             <p>Premiere Pro treats a folder of numbered still images as a single video clip — provided you import it the right way. If you have already turned a video into frames — for example with a browser-based extractor that outputs <code className="text-cyan-400">frame_0001.jpg</code>, <code className="text-cyan-400">frame_0002.jpg</code>, and so on — you do not need to stitch them back into a video first. Import the numbered files as an image sequence, and Premiere Pro plays them back in order as one clip you can cut, retime, grade, and export like any other footage.</p>
             <p>There is one step that trips up almost everyone, and it comes before the import, not after: Premiere Pro decides the sequence's frame rate from a preference setting, not from the files themselves. Set that first, and the rest of the workflow is a two-minute job. This guide covers the full path: extracting frames with settings that make the import painless, setting the frame rate before you import, importing the sequence (not hundreds of separate stills), matching a sequence to the clip, and the three most common uses: time-lapse and stop-motion assembly, frame-accurate edits, and review plates.</p>
           </section>
@@ -153,7 +152,7 @@ const ImportVideoFramesIntoPremierePro: React.FC = () => {
           <section className="space-y-4">
             <h2 className="font-display text-2xl md:text-3xl font-bold text-white border-b border-gray-800 pb-2">Step 2: Set the frame rate BEFORE you import — the step everyone misses</h2>
             <p>This is the key difference from After Effects, where you conform the frame rate after import. In Premiere Pro, the frame rate of an image sequence comes from the Indeterminate Media Timebase preference, and Adobe's own help page says to set it before importing:</p>
-            <ol className="list-decimal list-inside space-y-2 text-sm"><li>Go to Edit &gt; Preferences &gt; Media (Windows) or Premiere &gt; Preferences &gt; Media (macOS).</li><li>Choose your extraction frame rate from the Indeterminate Media Timebase menu.</li><li>Click OK.</li></ol>
+            <ol className="list-decimal list-inside space-y-2 text-sm"><li>Go to Edit &gt; Preferences &gt; Media (Windows) or Premiere &gt; Preferences &gt; Media (macOS).</li><li>Choose the playback rate from the Indeterminate Media Timebase menu. For animation or VFX work, that is the rate you extracted at (24 fps extraction, set 24). For review stills taken at 1 fps, pick a normal rate such as 24 or 30 so the stills play as a quick flip-through.</li><li>Click OK.</li></ol>
             <p>That setting is what Premiere Pro applies to the sequence at import time. If you skip it and the clip plays at the wrong speed, the fix is to correct the preference and re-import — not to fight the clip on the timeline. Note the timebase applies to the import, so set it once per project if all your sequences share a rate, and change it before importing any sequence extracted at a different rate.</p>
           </section>
           <section className="space-y-4">

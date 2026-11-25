@@ -1,4 +1,5 @@
 import React from 'react';
+import { isIndexablePath } from '../utils/indexingPolicy';
 import { Link } from 'react-router-dom';
 import VideoToImages from './VideoToImages';
 import GoogleAdUnit from '../components/GoogleAdUnit';
@@ -15,7 +16,6 @@ const Home: React.FC = () => {
   const steps = (t('home.steps', { returnObjects: true }) || []) as string[];
   const whoUsesList = (t('home.whoUsesList', { returnObjects: true }) || []) as string[];
   const howSteps = (t('home.howSteps', { returnObjects: true }) || []) as Array<{ title: string; desc: string }>;
-  const whoUsesItems = (t('home.whoUsesItems', { returnObjects: true }) || []) as Array<{ icon: string; title: string; desc: string }>;
   const compareHeaders = (t('home.compareHeaders', { returnObjects: true }) || []) as string[];
   const compareRows = (t('home.compareRows', { returnObjects: true }) || []) as string[][];
   const moreToolsData = (t('home.moreTools', { returnObjects: true }) || []) as Array<{ title: string; desc: string }>;
@@ -172,27 +172,29 @@ const Home: React.FC = () => {
 
   const moreToolsLinks = ['/extract-frame-at-timestamp', '/screenshot-from-video', '/ai-social-media-frame-picker'];
   // Index-aligned with home.relatedItems titles/descs in i18n/locales/*.json
-  // (12 cards in en). Fix 2026-11-03: realigned after link/emoji entries were
-  // inserted/deleted here in Oct 2026 (AVIF insert, consolidation deletes)
-  // without matching title changes, shifting hrefs for 5 cards.
+  // (non-English locales carry only the first 6). 2026-11-25: removed a
+  // second /video-to-frames card and a "Video Frame Grabber" card that
+  // duplicated /screenshot-from-video in "More tools" above; the card titled
+  // "YouTube Thumbnail Downloader" that linked to
+  // /video-frame-for-youtube-thumbnail is retitled in en.json to match where
+  // it goes. Cards for pages withheld by config/indexing-policy.json are
+  // filtered out at render time.
   const relatedLinks = [
     '/mp4-to-jpg', // 0: MP4 to JPG Converter
     '/video-to-png', // 1: Video to PNG Converter
     '/video-to-webp', // 2: Video to WebP Converter
     '/blog/mp4-to-image-sequence-guide', // 3: MP4 to Image Sequence Guide
-    '/video-to-frames', // 4: Extract Every Frame (Full FPS) — original /extract-frames-from-video was consolidated into /video-to-frames (301, 2026-10-16)
+    '/video-to-frames', // 4: Extract Every Frame (Full FPS)
     '/images-to-video', // 5: Images to Video Converter
     '/image-crop', // 6: Freeform Image Crop
-    '/video-to-frames', // 7: Video to Frames Converter
-    '/video-to-jpg', // 8: Video to JPG Frames
-    '/screenshot-from-video', // 9: Video Frame Grabber — capture individual stills; original /video-frame-extractor was consolidated away (301 to /video-to-frames, 2026-10-16)
-    '/video-to-photo', // 10: Video to Photo
-    '/video-frame-for-youtube-thumbnail', // 11: YouTube Thumbnail Downloader
-    '/webp-to-png', // 12: WebP to PNG Converter — Review phase (2026-10-29): substitute for '/youtube-thumbnail-downloader' during AdSense review; restore after decision.
-    '/image-to-pdf', // 13: Image to PDF Converter
-    '/webm-to-mp4', // 14: WebM to MP4 Converter
+    '/video-to-jpg', // 7: Video to JPG Frames
+    '/video-to-photo', // 8: Video to Photo
+    '/video-frame-for-youtube-thumbnail', // 9: Frame for a YouTube Thumbnail
+    '/webp-to-png', // 10: WebP to PNG Converter
+    '/image-to-pdf', // 11: Image to PDF Converter
+    '/webm-to-mp4', // 12: WebM to MP4 Converter
   ];
-  const relatedEmojis = ['🎯', '🖼️', '🎨', '📚', '🎬', '🔄', '✂️', '🎞️', '📷', '⚙️', '📸', '⬇️', '🔀', '📄', '🎥'];
+  const relatedEmojis = ['🎯', '🖼️', '🎨', '📚', '🎬', '🔄', '✂️', '📷', '📸', '🎞️', '🔀', '📄', '🎥'];
 
   return (
     <div className="w-full mx-auto pb-16 font-sans">
@@ -509,25 +511,10 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* ── USE CASES ── */}
-      <section id="use-cases" className="max-w-5xl mx-auto py-16 px-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-3 font-display">
-          {t('home.whoUsesOnlineTitle')}
-        </h2>
-        <p className="text-gray-500 text-center text-sm mb-10">
-          {t('home.whoUsesOnlineSub')}
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {whoUsesItems.map(({ icon, title, desc }) => (
-            <div key={title}
-              className="bg-gray-900 border border-gray-800 rounded-2xl p-6 hover:border-cyan-800 hover:bg-gray-900/80 transition-all group">
-              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform inline-block">{icon}</div>
-              <h3 className="text-white font-semibold text-lg mb-2">{title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* "Workflows Powered by Frame Extraction" (home.whoUsesItems) removed
+          2026-11-25: it repeated the six use cases already covered by "Who Uses"
+          and "Common Workflows & Recommended Settings". Breadcrumbs that pointed
+          at /#use-cases now point at /#workflows. */}
 
       {/* ── COMPETITOR COMPARISON ── */}
       <section id="compare" className="max-w-5xl mx-auto py-16 px-4">
@@ -587,8 +574,10 @@ const Home: React.FC = () => {
           {t('home.relatedSub')}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {relatedData.map(({ title, desc }, idx) => (
-            <Link key={idx} to={relatedLinks[idx] || '/'} className="bg-gray-900 border border-gray-800 rounded-xl p-5 hover:border-cyan-800 hover:bg-gray-900/80 transition-all group block text-left">
+          {relatedData.map(({ title, desc }, idx) => ({ title, desc, idx, href: relatedLinks[idx] }))
+            .filter(({ href }) => href && isIndexablePath(href) && !moreToolsLinks.includes(href))
+            .map(({ title, desc, idx, href }) => (
+            <Link key={idx} to={href} className="bg-gray-900 border border-gray-800 rounded-xl p-5 hover:border-cyan-800 hover:bg-gray-900/80 transition-all group block text-left">
               <div className="text-3xl mb-3 group-hover:scale-110 transition-transform inline-block">
                 {relatedEmojis[idx] || '🔗'}
               </div>

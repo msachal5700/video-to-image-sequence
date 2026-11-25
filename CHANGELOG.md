@@ -6,6 +6,34 @@ Format: newest entries at the top. Each entry lists the files changed, the reaso
 
 ---
 
+## 2026-11-25 — AdSense "Low value content" fixes: clean prerender output, correct false claims, withhold 3 doorway pages
+
+**Why:** AdSense rejected the site on 2026-11-23 for "Low value content". Audit findings: ad iframes (including an ad request for `url=http://localhost:3456/...`) frozen into every prerendered page; format pages (MP4 to PNG, Video to WebP, AVIF) all exporting JPG by default; spec, FAQ and guide claims the code did not match (92% quality, a quality slider, a service worker/offline mode, "no limits"); a contradictory Premiere Pro guide; broken Arabic strings with Cyrillic and Chinese characters; parameter-swap doorway pages.
+
+**Scope decided with the owner after reading the 2026-11-25 Search Console handoff:** all localized pages stay indexed (Spanish pages are gaining clicks); HEIC/AVIF tools and guides, WebP to PNG, Image to PDF and Video to Photo stay indexed until their measurement readouts (about 2026-12-01..13). No frozen page (/video-to-frames, HEIC/AVIF guides, Ezgif guide) was edited.
+
+**What changed:**
+| Area | Change | Files |
+| --- | --- | --- |
+| Indexing policy | New single list of withheld pages, applied as `noindex, follow` by SEOHead, enforced against the sitemap at build time. Withheld now: /youtube-thumbnail-downloader, /extract-frame-every-10-seconds, /extract-frame-every-30-seconds. Localized URLs stay published (`publishLocalizedPages: true`). | `config/indexing-policy.json`, `utils/indexingPolicy.ts`, `components/SEOHead.tsx`, `utils/localizedRoutes.ts` |
+| Sitemap | 145 → 142 URLs (the three withheld pages removed). | `public/sitemap.xml` |
+| Prerender | Ad, analytics, Sodar and reCAPTCHA requests blocked during snapshots; leftover injected ad markup stripped. Build now fails if HTML contains `localhost:3456`, if a withheld route lacks `noindex`, or if the sitemap (including hreflang alternates) lists a withheld URL. | `scripts/prerender.cjs` |
+| Tool defaults | `VideoToImages` takes `initialFormat`; PNG, WebP and AVIF pages (plus Blender and AI-dataset pages, which tell users to pick PNG) start on that format instead of JPG. | `pages/VideoToImages.tsx`, 12 page files |
+| Output quality | JPG/WebP/AVIF frames export at 0.92, matching the "92%" stated across the site (was 0.80 in the worker/legacy paths, 0.90 in scene mode). | `utils/videoProcessor.ts`, `workers/frameExtractor.legacy.ts`, `services/sceneExtractor.ts` |
+| Claims (en) | Removed "quality 10–100", "service worker / offline", "No Limits", "Safari 14+ WebCodecs", wrong FPS-vs-interval FAQ answer, "WebP lossless mode"; added the real 5,000-frames-per-run limit. | `i18n/locales/en.json` |
+| Claims (7 locales) | Same "No Limits" card and two FAQ answers corrected in es/fr/de/pt/zh/ar/hi; three Arabic strings with stray Cyrillic/Chinese characters repaired. | `i18n/locales/*.json` |
+| Pages and guides | MOV to PNG no longer promises transparent output from opaque MOVs; ProRes FAQ no longer says "Yes" then "can't". How-to guide no longer claims offline mode or a quality slider. Cloudinary comparison row reworded. Premiere Pro guide's frame-rate advice made consistent; stray "# How to Import…" paragraph removed from the Premiere, Blender and After Effects guides. | `pages/MovToPng.tsx`, `pages/blog/*.tsx` (5 files) |
+| Homepage | Removed the duplicate "Workflows Powered by Frame Extraction" section; removed a second /video-to-frames card and a "Video Frame Grabber" card duplicating "More tools"; retitled the mislabeled "YouTube Thumbnail Downloader" card; breadcrumbs `/#use-cases` → `/#workflows`. | `pages/Home.tsx`, `en.json`, 3 page files |
+| Navigation | Links to the two withheld presets removed; duplicate footer "Video Looper" removed. | `components/Header.tsx`, `components/Footer.tsx` |
+| Blog index | Newest-first order (the older block was oldest-first) and an author byline on every card. | `pages/BlogIndex.tsx` |
+| Head | Removed meta keywords (static + per page), `geo.region=US` (publisher is in Pakistan) and the static `language: English` tag; author meta → Muhammad Sachal. | `index.html`, `components/SEOHead.tsx` |
+
+**Verification here:** `npm run build` could not run in the environment that made these edits (no package install access). Changed files were syntax-checked with esbuild, the indexing logic was type-checked, the prerender helpers were unit-tested, and Home, BlogIndex, Header, Footer and Mp4ToPng were server-rendered with stubbed libraries. The first Vercel build of this branch is the real build check.
+
+**To revert:** a single page: delete its entry from `config/indexing-policy.json`, add its `<url>` back to `public/sitemap.xml`, and restore its nav link. Everything else: `git revert` this commit.
+
+---
+
 ## 2026-09-22 — New Tool: Freeform Image Crop (`/image-crop`) + Guide Blog Post
 
 **What:** New free client-side tool page `/image-crop` — a true freeform polygon image cropper (no rectangular box). Click to place points anywhere, drag to trace; draggable circular nodes; drag an edge to insert a point; double-click a node to delete it; drag inside the closed shape to move the whole selection; close via first node / Enter / "Close shape"; Esc clears; 90° rotate L/R with polygon staying aligned; zoom 50–400%; full undo/redo; sample-image button; export of the exact masked shape as transparent PNG/WebP or white-background JPG at original resolution.

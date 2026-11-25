@@ -19,9 +19,16 @@ interface ExtractedFrame {
 interface VideoToImagesProps {
   /** When set, the extractor starts in "every N seconds" mode with this cadence preselected. */
   initialIntervalSeconds?: number;
+  /**
+   * Output format preselected when the page loads. Format landing pages
+   * (/video-to-png, /mp4-to-png, /video-to-webp, /video-to-avif, …) pass the
+   * format they promise; before 2026-11-25 every page started on JPG, so the
+   * "MP4 to PNG" page actually exported JPG unless the visitor changed it.
+   */
+  initialFormat?: OutputFormat;
 }
 
-const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds }) => {
+const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds, initialFormat }) => {
   const { t } = useTranslation();
   const [appState, setAppState] = useState<AppState>(AppState.IDLE);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -46,7 +53,7 @@ const VideoToImages: React.FC<VideoToImagesProps> = ({ initialIntervalSeconds })
   const [settleCapture, setSettleCapture] = useState<boolean>(false);
   // Live count of scenes detected during the scene-mode detection phase.
   const [detectedScenes, setDetectedScenes] = useState<number | null>(null);
-  const [outputFormat, setOutputFormat] = useState<OutputFormat>('jpg');
+  const [outputFormat, setOutputFormat] = useState<OutputFormat>(initialFormat ?? 'jpg');
   // Max frame width in px; 0 = original (full resolution). Applies to every
   // cadence mode — FPS, interval, manual, and Smart scenes.
   const [maxWidth, setMaxWidth] = useState<number>(0);

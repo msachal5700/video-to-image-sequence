@@ -163,7 +163,7 @@ const Mp4ToJpg: React.FC = () => {
 
       {/* Main Tool Content */}
       <div className="animate-fade-in min-h-[400px] px-4">
-        <VideoToImages />
+        <VideoToImages initialFormat="jpg" />
       </div>
 
       {/* ── BROWSER SECURITY & PRIVACY ── */}

@@ -191,7 +191,7 @@ const CloudinaryAlternative: React.FC = () => {
                   <tr className="hover:bg-gray-900/50"><td className="px-4 py-3 font-bold">Time-range selection</td><td className="px-4 py-3 text-center text-green-400">Yes</td><td className="px-4 py-3 text-center text-green-400">Yes, via timestamp tools</td></tr>
                   <tr className="hover:bg-gray-900/50"><td className="px-4 py-3 font-bold">Output formats</td><td className="px-4 py-3 text-center">Image sequence</td><td className="px-4 py-3 text-center">JPG / PNG / WebP + ZIP</td></tr>
                   <tr className="hover:bg-gray-900/50"><td className="px-4 py-3 font-bold">API for bulk automation</td><td className="px-4 py-3 text-center text-green-400">Yes</td><td className="px-4 py-3 text-center text-gray-500">No</td></tr>
-                  <tr className="hover:bg-gray-900/50"><td className="px-4 py-3 font-bold">Works offline / on slow connections</td><td className="px-4 py-3 text-center text-red-400">No — must upload</td><td className="px-4 py-3 text-center text-green-400">Yes, after page load</td></tr>
+                  <tr className="hover:bg-gray-900/50"><td className="px-4 py-3 font-bold">Usable on a slow connection</td><td className="px-4 py-3 text-center text-red-400">No — the whole video must upload</td><td className="px-4 py-3 text-center text-green-400">Yes — nothing is uploaded once the page has loaded</td></tr>
                 </tbody>
               </table>
             </div>

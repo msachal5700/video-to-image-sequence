@@ -115,7 +115,7 @@ const VideoFrameForYoutubeThumbnail: React.FC = () => {
       />
 
       <Breadcrumb items={[
-        { label: 'Use Cases', path: '/#use-cases' },
+        { label: 'Use Cases', path: '/#workflows' },
         { label: 'YouTube Thumbnails', path: '/video-frame-for-youtube-thumbnail' }
       ]} />
 
