@@ -284,6 +284,24 @@ const VideoToAvif: React.FC = () => {
       </section>
 
       <section className="max-w-4xl mx-auto py-12 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">WebP vs AVIF: Which Modern Format Fits Your Frames?</h2>
+        <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-4">
+          <p className="text-gray-400 leading-relaxed">
+            AVIF exists because AV1 compression is a generation ahead of the codecs behind JPG and WebP. At the same file size, an AVIF frame holds visibly cleaner gradients — skies, shadows, fog, and skin tones stay smooth instead of breaking into bands — and fine detail survives at file sizes where a JPG has already gone blocky. If you are extracting stills from a high-quality source and care about how they look, AVIF is the format that throws the least of the original frame away.
+          </p>
+          <p className="text-gray-400 leading-relaxed">
+            The format also removes the 8-bit ceiling. AVIF files can store 10-bit or 12-bit color and HDR metadata, so the format itself never becomes the bottleneck for high-bit-depth sources — it was designed for the HDR era rather than adapted to it. JPG and WebP are 8-bit formats; whatever your source held beyond that is gone the moment the frame is written.
+          </p>
+          <p className="text-gray-400 leading-relaxed">
+            The caveats are real, and worth knowing before you commit a whole sequence. AVIF encoding is computationally heavy, so long extractions take noticeably longer than WebP. Browser support is broad — Chrome, Firefox, Edge, and Safari 16.4 and later — but it is not universal: older Safari versions show nothing, some desktop editors still cannot open AVIF files, and Windows may need a free codec extension to preview them. If the stills are headed to a client, a CMS, or anyone else's machine, test one file in its destination first — or use the <Link to="/video-to-webp" className="text-cyan-400 hover:underline">video to WebP converter</Link>, which nothing modern fails to open.
+          </p>
+          <p className="text-gray-400 leading-relaxed">
+            Choose AVIF when the frames stay in your own pipeline: archiving frame libraries where thousands of images make the size savings real, datasets where storage and bandwidth add up, and quality-critical stills pulled from high-bitrate footage. Choose WebP when the frames are leaving your hands.
+          </p>
+        </div>
+      </section>
+
+      <section className="max-w-4xl mx-auto py-12 px-4">
         <h2 className="text-2xl md:text-3xl font-bold mb-6 font-display">More Free Online Frame Extractors</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           <Link to="/video-to-webp" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
