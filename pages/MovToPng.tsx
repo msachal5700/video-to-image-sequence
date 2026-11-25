@@ -9,11 +9,11 @@ import { useTranslation } from 'react-i18next';
 const faqs = [
   {
     q: 'How do I convert a MOV video to PNG images for free?',
-    a: 'Drag and drop your MOV file, select "PNG" format, choose FPS, and click Extract. Frames are extracted locally as lossless PNG with transparency support, downloaded as ZIP. No server upload.'
+    a: 'Drag and drop your MOV file, select "PNG" format, choose FPS, and click Extract. Frames are extracted locally as lossless PNG and downloaded as a ZIP. No server upload.'
   },
   {
     q: 'Does MOV to PNG preserve transparency from ProRes 4444?',
-    a: 'Yes, if your browser can decode the source. ProRes 4444 MOV carries alpha, but browsers cannot decode ProRes natively. Transcode to a WebM VP9 with alpha or H.264 first, then extract PNG to preserve transparency.'
+    a: 'Not directly. ProRes 4444 carries alpha, but browsers cannot decode ProRes. Transcode it to WebM (VP9 with alpha) first, then extract PNG and the transparency is kept. Transcoding to H.264 instead gives opaque frames, because H.264 has no alpha channel.'
   },
   {
     q: 'Can I extract PNG frames from iPhone HEVC MOV files?',
@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     q: 'Should I use PNG or WebP for MOV frame extraction?',
-    a: 'PNG for maximum compatibility with VFX/game engines (Blender, Unity, Unreal, After Effects). WebP for web delivery — 25–35% smaller with transparency. Both are lossless.'
+    a: 'PNG for maximum compatibility with VFX/game engines (Blender, Unity, Unreal, After Effects). WebP for web delivery: this tool exports WebP at 92% quality (lossy), which keeps transparency and is usually much smaller. Only PNG is lossless.'
   },
   {
     q: 'What FPS for VFX/ML datasets from MOV?',
@@ -40,18 +40,18 @@ const MovToPng: React.FC = () => {
     "name": "MOV to PNG Converter — Extract Lossless PNG Frames from MOV Free",
     "url": "https://www.videotoimagesequence.online/mov-to-png",
     "image": "https://www.videotoimagesequence.online/og-image.png",
-    "description": "Convert MOV to PNG frames online for free. Extract lossless, transparent PNG image sequences from MOV videos (H.264, HEVC, ProRes*) in your browser. No server upload, custom FPS, ZIP download. Perfect for VFX, game dev, and ML datasets.",
+    "description": "Convert MOV to PNG frames online for free. Extract lossless PNG image sequences from MOV videos (H.264, iPhone HEVC) in your browser. No server upload, custom FPS, ZIP download. Perfect for VFX, game dev, and ML datasets.",
     "applicationCategory": "MultimediaApplication",
     "applicationSubCategory": "Video Converter",
     "operatingSystem": "All — Browser-based",
     "browserRequirements": "Requires HTML5 and Javascript support",
     "featureList": [
-      "Lossless PNG extraction with alpha channel support",
+      "Lossless PNG extraction (alpha kept when the source has it)",
       "Custom FPS control (1–60 FPS)",
       "Process MOV entirely in your browser (100% private)",
       "Batch processing of multiple MOV files",
       "ZIP download of extracted PNG frames",
-      "*ProRes requires pre-transcode to H.264"
+      "ProRes must be transcoded first: to WebM VP9 to keep alpha, or to H.264 without alpha"
     ],
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
   };
@@ -72,7 +72,7 @@ const MovToPng: React.FC = () => {
     "totalTime": "PT1M",
     "step": [
       { "@type": "HowToStep", "name": "Load Your MOV", "text": "Drag and drop your MOV file into the upload zone." },
-      { "@type": "HowToStep", "name": "Select PNG Format", "text": "Choose PNG for lossless quality with transparency." },
+      { "@type": "HowToStep", "name": "Select PNG Format", "text": "PNG is preselected on this page: lossless, and it keeps any alpha channel the source has." },
       { "@type": "HowToStep", "name": "Configure Frame Rate", "text": "Set your desired FPS (1–60) or select every frame." },
       { "@type": "HowToStep", "name": "Extract PNG Sequence", "text": "Click Extract Frames Now to decode locally." },
       { "@type": "HowToStep", "name": "Download PNG Frames", "text": "Download individual frames or get all as a ZIP archive." }
@@ -101,10 +101,10 @@ const MovToPng: React.FC = () => {
       </script>
       <SEOHead
         title="MOV to PNG Converter — Extract Lossless PNG Frames from MOV Free"
-        description="Convert MOV to PNG frames online for free. Extract lossless, transparent PNG image sequences from MOV videos in your browser. No server upload, custom FPS, ZIP download. Perfect for VFX, game dev, and ML datasets."
+        description="Convert MOV to PNG frames online for free. Extract lossless PNG image sequences from MOV and iPhone videos in your browser. No server upload, custom FPS, ZIP download. Perfect for VFX, game dev, and ML datasets."
         canonical="https://www.videotoimagesequence.online/mov-to-png"
         ogTitle="MOV to PNG Converter — Extract Lossless PNG Frames from MOV Free"
-        ogDescription="Convert MOV to PNG frames online for free. Extract lossless, transparent PNG image sequences from MOV videos in your browser. No server upload."
+        ogDescription="Convert MOV to PNG frames online for free. Extract lossless PNG image sequences from MOV and iPhone videos in your browser. No server upload."
         ogImage="https://www.videotoimagesequence.online/og-image.png"
         ogType="website"
         keywords="mov to png, mov to png converter, extract png frames from mov, lossless frame extractor, video to png sequence"
@@ -119,7 +119,7 @@ const MovToPng: React.FC = () => {
         </h1>
 
         <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
-          Convert MOV video to lossless PNG images online for free. Extract frames with transparency support, custom FPS, ZIP download. 100% private — no server upload.
+          Convert MOV video to lossless PNG images online for free. Custom FPS, ZIP download; alpha is kept when the source has it. 100% private — no server upload.
         </p>
 
         <div className="flex flex-wrap justify-center gap-3 text-xs text-gray-400 mb-10">
@@ -130,7 +130,7 @@ const MovToPng: React.FC = () => {
       </section>
 
       <div className="animate-fade-in min-h-[400px] px-4 mb-4">
-        <VideoToImages />
+        <VideoToImages initialFormat="png" />
       </div>
 
       <GoogleAdUnit />
@@ -150,7 +150,7 @@ const MovToPng: React.FC = () => {
           </div>
           <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6">
             <h3 className="text-white font-semibold text-lg mb-2">ProRes 4444 (With Alpha)</h3>
-            <p className="text-gray-500 text-sm leading-relaxed mb-3">Carries alpha but not browser-decodable. Transcode to WebM VP9 with alpha or H.264 first, then extract PNG.</p>
+            <p className="text-gray-500 text-sm leading-relaxed mb-3">Carries alpha but not browser-decodable. Transcode to WebM VP9 with alpha first, then extract PNG (H.264 would drop the alpha).</p>
             <span className="inline-block bg-red-950 border border-red-800 text-red-500 text-xs px-2.5 py-1 rounded-full font-semibold">Pre-transcode Required</span>
           </div>
           <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6">
@@ -167,7 +167,7 @@ const MovToPng: React.FC = () => {
           <ol className="space-y-4">
             {[
               { num: '1', title: 'Upload your MOV file', desc: 'Drag and drop or click to select your MOV video.' },
-              { num: '2', title: 'Select PNG format', desc: 'Choose PNG for lossless quality with transparency support.' },
+              { num: '2', title: 'Select PNG format', desc: 'PNG is preselected: lossless, and it keeps any alpha channel the source has.' },
               { num: '3', title: 'Configure frame rate (FPS)', desc: 'Select how many frames per second to extract (1–60 FPS or every frame).' },
               { num: '4', title: 'Start the conversion', desc: 'Click "Extract Frames Now" to decode the video locally.' },
               { num: '5', title: 'Download your PNG frames', desc: 'Download individual frames or get all frames as a single ZIP file.' },

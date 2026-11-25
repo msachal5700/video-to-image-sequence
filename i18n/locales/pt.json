@@ -30,8 +30,8 @@
     "noServerUploadsDesc": "Seus arquivos de vídeo nunca saem do seu computador. Toda a extração de quadros acontece localmente no seu navegador via WebAssembly.",
     "downloadZipTitle": "Download Instantâneo em ZIP",
     "downloadZipDesc": "Todas as imagens de quadros extraídas são compactadas em um único arquivo ZIP para download rápido com um clique.",
-    "secureTitle": "Sem Limites e Zero Custo",
-    "secureDesc": "Gratuito para sempre, sem limite de tamanho de arquivo, marcas d'água ou necessidade de criar conta.",
+    "secureTitle": "Grátis e sem conta",
+    "secureDesc": "Grátis, sem marca d'água e sem cadastro. Não há limite de upload porque nada é enviado; o limite prático é a memória do seu dispositivo.",
     "clear": "Limpar Seleção",
     "copyRawError": "Copiar Detalhes do Erro",
     "cancelQueue": "Cancelar Fila",
@@ -299,7 +299,7 @@
         },
         {
           "q": "Qual é a diferença entre FPS e intervalo de quadro?",
-          "a": "FPS = quadros extraídos por segundo de vídeo. Intervalo = a cada N-ésimo quadro (por exemplo, intervalo 30 = 1 quadro a cada 30 quadros). Esta ferramenta usa FPS para controle intuitivo."
+          "a": "FPS define quantos quadros são capturados por segundo de vídeo (30 FPS em um clipe de 10 segundos geram cerca de 300 quadros). Um intervalo captura um quadro a cada N segundos (a cada 5 segundos em um clipe de 1 minuto, são 12 quadros). O extrator oferece os dois: escolha \"By FPS\" ou \"Every N Seconds\" antes de começar."
         },
         {
           "q": "Posso extrair todos os quadros de um vídeo?",
@@ -311,7 +311,7 @@
         },
         {
           "q": "A extração de quadros de vídeo é sem perdas?",
-          "a": "PNG e WebP (modo sem perdas) são sem perdas. JPG tem perdas, mas alta qualidade (92%). Para VFX/ML, use PNG. Para web/miniaturas, WebP equilibra qualidade e tamanho."
+          "a": "PNG é sem perdas. JPG e WebP têm perdas e são exportados com 92% de qualidade, difícil de distinguir do original na tela. Para VFX ou rótulos de ML, use PNG. Para páginas web e miniaturas, o WebP gera arquivos menores com qualidade parecida."
         },
         {
           "q": "JPG vs PNG vs WebP para quadros de vídeo extraídos?",

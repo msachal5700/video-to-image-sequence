@@ -17,6 +17,14 @@ export const formatBytes = (bytes: number, decimals = 2): string => {
   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 };
 
+/**
+ * JPG/WebP/AVIF export quality for every frame-extraction path (worker,
+ * legacy seeker, scene mode). The site documents 92% in its FAQs, spec
+ * tables and format comparisons; until 2026-11-25 the code used 80%.
+ * PNG ignores this (always lossless).
+ */
+export const DEFAULT_FRAME_QUALITY = 0.92;
+
 export interface ProcessVideoOptions {
   file: File;
   fps: number;
@@ -31,12 +39,12 @@ export interface ProcessVideoOptions {
 }
 
 export const extractFramesAndZip = async (options: ProcessVideoOptions): Promise<Blob> => {
-  const { file, fps, format, quality = 0.8, maxFrames, maxWidth = 0, onProgress, onFrame, workerRef } = options;
+  const { file, fps, format, quality = DEFAULT_FRAME_QUALITY, maxFrames, maxWidth = 0, onProgress, onFrame, workerRef } = options;
 
   const supportsWorker = typeof OffscreenCanvas !== 'undefined' && typeof VideoDecoder !== 'undefined';
 
   if (!supportsWorker) {
-    return extractFramesLegacy(options);
+    return extractFramesLegacy({ ...options, quality });
   }
 
   return new Promise(async (resolve, reject) => {
@@ -56,7 +64,7 @@ export const extractFramesAndZip = async (options: ProcessVideoOptions): Promise
           console.warn('[MAIN] Worker requested FALLBACK, running legacy seeker');
           if (workerRef) workerRef.current = null;
           worker.terminate();
-          extractFramesLegacy(options).then(resolve).catch(reject);
+          extractFramesLegacy({ ...options, quality }).then(resolve).catch(reject);
         } else if (type === 'PROGRESS') {
           onProgress({
             processedFrames: e.data.processedFrames,
@@ -76,7 +84,7 @@ export const extractFramesAndZip = async (options: ProcessVideoOptions): Promise
           console.error('[MAIN] Worker error event received, falling back to legacy', e.data.message);
           if (workerRef) workerRef.current = null;
           worker.terminate();
-          extractFramesLegacy(options).then(resolve).catch(reject);
+          extractFramesLegacy({ ...options, quality }).then(resolve).catch(reject);
         }
       };
 
@@ -84,7 +92,7 @@ export const extractFramesAndZip = async (options: ProcessVideoOptions): Promise
         console.error('[MAIN] Worker.onerror fired, falling back to legacy:', err);
         if (workerRef) workerRef.current = null;
         worker.terminate();
-        extractFramesLegacy(options).then(resolve).catch(reject);
+        extractFramesLegacy({ ...options, quality }).then(resolve).catch(reject);
       };
 
       console.log('[MAIN] Posting START message to worker, buffer size:', arrayBuffer.byteLength);
@@ -103,7 +111,7 @@ export const extractFramesAndZip = async (options: ProcessVideoOptions): Promise
     } catch (err) {
       console.error('[MAIN] Failed in worker startup try block:', err);
       if (workerRef) workerRef.current = null;
-      extractFramesLegacy(options).then(resolve).catch(reject);
+      extractFramesLegacy({ ...options, quality }).then(resolve).catch(reject);
     }
   });
 };

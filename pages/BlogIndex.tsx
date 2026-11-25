@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
 import GoogleAdUnit from '../components/GoogleAdUnit';
+import { isIndexablePath } from '../utils/indexingPolicy';
 
-const posts = [
+const allPosts = [
   {
     slug: "webm-to-png-guide",
     title: "How to Convert WebM to PNG (Extract Frames from a WebM Video)",
@@ -248,6 +249,34 @@ const posts = [
 ];
 
 
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+  'August', 'September', 'October', 'November', 'December'];
+
+/**
+ * "November 7, 2026" → "2026-11-07"; "April 2026" → "2026-04" (no day is
+ * invented). Parsed by hand so the result never shifts with the visitor's
+ * time zone. Unrecognised strings sort last.
+ */
+const postIsoDate = (date: string): string => {
+  const m = date.trim().match(/^([A-Za-z]+)(?:\s+(\d{1,2}),)?\s+(\d{4})$/);
+  const month = m ? MONTHS.indexOf(m[1]) + 1 : 0;
+  if (!m || month === 0) return '';
+  const mm = String(month).padStart(2, '0');
+  return m[2] ? `${m[3]}-${mm}-${m[2].padStart(2, '0')}` : `${m[3]}-${mm}`;
+};
+
+/**
+ * Newest first, and only posts that are offered to search (posts withheld by
+ * config/indexing-policy.json stay reachable by URL but are not listed).
+ * Before 2026-11-25 the list mixed newest-first with an older block in
+ * oldest-first order at the bottom.
+ */
+const posts = allPosts
+  .filter((post) => isIndexablePath(`/blog/${post.slug}`))
+  .sort((a, b) => postIsoDate(b.date).localeCompare(postIsoDate(a.date)));
+
+const AUTHOR_NAME = 'Muhammad Sachal';
+
 const BlogIndex: React.FC = () => {
   const blogSchemas = {
     "@context": "https://schema.org",
@@ -288,7 +317,10 @@ const BlogIndex: React.FC = () => {
       <div className="grid gap-8">
         {posts.map((post) => (
           <article key={post.slug} className="group bg-gray-900 border border-gray-800 rounded-3xl p-6 md:p-8 hover:border-cyan-500/50 transition-colors shadow-xl">
-            <p className="text-xs font-bold text-cyan-400 mb-3 tracking-wider uppercase font-mono">{post.date}</p>
+            <p className="text-xs font-bold text-cyan-400 mb-3 tracking-wider uppercase font-mono">
+              <time dateTime={postIsoDate(post.date) || undefined}>{post.date}</time>
+              <span className="text-gray-500 normal-case tracking-normal font-sans font-medium"> · by <Link to="/about" className="hover:text-cyan-400">{AUTHOR_NAME}</Link></span>
+            </p>
             <h2 className="text-2xl font-bold mb-3 font-display">
               <Link to={`/blog/${post.slug}`} className="text-white group-hover:text-cyan-400 transition-colors">
                 {post.title}

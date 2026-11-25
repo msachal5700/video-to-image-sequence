@@ -118,7 +118,6 @@ const ImportVideoFramesIntoAfterEffects: React.FC = () => {
         <div className="mt-10 space-y-12 leading-relaxed text-base md:text-lg">
 
           <section className="space-y-4">
-            <p># How to Import Extracted Video Frames into After Effects</p>
             <p>After Effects treats a folder of numbered still images as a single moving clip — provided you import it the right way. If you have already turned a video into frames — for example with a browser-based extractor that outputs <code className="text-cyan-400">frame_0001.jpg</code>, <code className="text-cyan-400">frame_0002.jpg</code>, and so on — you do not need to stitch them back into a video first. Import the numbered files as a sequence, and After Effects plays them back in order as one footage item you can drop into a composition, retime, track, or rotoscope over.</p>
             <p>This guide covers the full path: extracting frames with settings that make the import painless, importing them as a sequence (not as hundreds of separate stills), fixing the frame rate — the step almost everyone gets wrong — and the three most common uses: rotoscoping and motion tracking, retimed playback, and frame-by-frame clean-up work.</p>
           </section>

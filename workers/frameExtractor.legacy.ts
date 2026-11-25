@@ -17,7 +17,7 @@ export const extractFramesLegacy = async ({
   file,
   fps,
   format,
-  quality = 0.8,
+  quality = 0.92, // keep in sync with DEFAULT_FRAME_QUALITY in utils/videoProcessor.ts
   maxFrames,
   maxWidth = 0,
   onProgress,

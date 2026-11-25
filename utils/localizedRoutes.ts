@@ -9,7 +9,13 @@
  * (title, description, h1, hero, howTo, faq) are localized. Pages with
  * English-only content stay English-only — a half-translated page is a
  * thin-content liability, not an asset.
+ *
+ * 2026-11-25: the localized URLs are withheld from search (noindex, no
+ * hreflang, out of the sitemap) while config/indexing-policy.json has
+ * publishLocalizedPages=false — their bodies were still mostly English.
+ * The routes keep working for visitors who pick a language.
  */
+import indexingPolicy from '../config/indexing-policy.json';
 
 export const SITE_ORIGIN = 'https://www.videotoimagesequence.online';
 
@@ -63,6 +69,9 @@ export interface HreflangAlternate {
  * that are not localized, so callers fall back to the x-default-only tag.
  */
 export function hreflangAlternates(path: string): HreflangAlternate[] | null {
+  // Never advertise alternates that are themselves noindexed: Google ignores
+  // (and flags) hreflang clusters whose members exclude themselves.
+  if (indexingPolicy.publishLocalizedPages !== true) return null;
   if (!isLocalizedPath(path)) return null;
   const alternates: HreflangAlternate[] = ALL_LANGS.map((lang) => ({
     hreflang: lang,

@@ -130,7 +130,7 @@ const Mp4ToPng: React.FC = () => {
       </section>
 
       <div className="animate-fade-in min-h-[400px] px-4 mb-4">
-        <VideoToImages />
+        <VideoToImages initialFormat="png" />
       </div>
 
       <GoogleAdUnit />

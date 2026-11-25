@@ -30,8 +30,8 @@
     "noServerUploadsDesc": "Ihre Videodateien verlassen nie Ihren Computer. Die gesamte Frame-Extrahierung erfolgt lokal in Ihrer WebAssembly-Browser-Pipeline.",
     "downloadZipTitle": "Sofortiger ZIP-Download",
     "downloadZipDesc": "Alle extrahierten Frame-Bilder werden in einer komprimierten ZIP-Datei archiviert, um einen schnellen Download mit einem Klick zu ermöglichen.",
-    "secureTitle": "Keine Grenzen & null Kosten",
-    "secureDesc": "Für immer kostenlos ohne Größenbegrenzungen, Wasserzeichen oder erforderliche Registrierung.",
+    "secureTitle": "Kostenlos, ohne Konto",
+    "secureDesc": "Kostenlos, ohne Wasserzeichen und ohne Anmeldung. Es gibt keine Upload-Grenze, weil nichts hochgeladen wird; die praktische Grenze ist der Arbeitsspeicher Ihres Geräts.",
     "clear": "Auswahl löschen",
     "copyRawError": "Fehlerdetails kopieren",
     "cancelQueue": "Warteschlange abbrechen",
@@ -299,7 +299,7 @@
         },
         {
           "q": "Was ist der Unterschied zwischen FPS und Frame-Intervall?",
-          "a": "FPS = Frames, die pro Sekunde Video extrahiert werden. Intervall = Jeder N-te Frame (z.B. Intervall 30 = 1 Frame alle 30 Frames). Dieses Tool verwendet FPS für intuitivere Steuerung."
+          "a": "FPS legt fest, wie viele Bilder pro Sekunde Video entnommen werden (30 FPS bei einem 10-Sekunden-Clip ergeben etwa 300 Bilder). Ein Intervall entnimmt alle N Sekunden ein Bild (alle 5 Sekunden bei einem 1-Minuten-Clip ergibt 12 Bilder). Der Extraktor kann beides: Wählen Sie vor dem Start „By FPS“ oder „Every N Seconds“."
         },
         {
           "q": "Kann ich jeden Frame aus einem Video extrahieren?",
@@ -311,7 +311,7 @@
         },
         {
           "q": "Ist die Video-Frame-Extrahierung verlustfrei?",
-          "a": "PNG und WebP (verlustfreier Modus) sind verlustfrei. JPG ist verlustbehaftet, aber hochwertig (92%). Für VFX/ML verwenden Sie PNG. Für Web/Thumbnails balanciert WebP Qualität und Größe."
+          "a": "PNG ist verlustfrei. JPG und WebP sind verlustbehaftet und werden mit 92 % Qualität exportiert, am Bildschirm kaum vom Original zu unterscheiden. Für VFX oder ML-Labels nutzen Sie PNG. Für Webseiten und Thumbnails liefert WebP kleinere Dateien bei ähnlicher Qualität."
         },
         {
           "q": "JPG vs. PNG vs. WebP für extrahierte Videoframes?",

@@ -139,7 +139,7 @@ const VideoToAvif: React.FC = () => {
       </section>
 
       <div className="animate-fade-in min-h-[400px] px-4 mb-4">
-        <VideoToImages />
+        <VideoToImages initialFormat="avif" />
       </div>
 
       <GoogleAdUnit />

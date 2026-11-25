@@ -116,7 +116,7 @@ const VideoFramesForAiDatasets: React.FC = () => {
       />
 
       <Breadcrumb items={[
-        { label: 'Use Cases', path: '/#use-cases' },
+        { label: 'Use Cases', path: '/#workflows' },
         { label: 'AI Datasets', path: '/video-frames-for-ai-datasets' }
       ]} />
 
@@ -138,7 +138,7 @@ const VideoFramesForAiDatasets: React.FC = () => {
       </section>
 
       <div className="animate-fade-in min-h-[400px] px-4 mb-4">
-        <VideoToImages />
+        <VideoToImages initialFormat="png" />
       </div>
 
       <GoogleAdUnit />

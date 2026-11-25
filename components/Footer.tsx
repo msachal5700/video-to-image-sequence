@@ -33,8 +33,6 @@ const Footer = () => {
               <li><Link to="/video-contact-sheet" className="text-gray-600 hover:text-cyan-400 transition">Video Contact Sheet</Link></li>
               <li><Link to="/extract-frame-every-1-second" className="text-gray-600 hover:text-cyan-400 transition">Frame Every 1 Second</Link></li>
               <li><Link to="/extract-frame-every-5-seconds" className="text-gray-600 hover:text-cyan-400 transition">Frame Every 5 Seconds</Link></li>
-              <li><Link to="/extract-frame-every-10-seconds" className="text-gray-600 hover:text-cyan-400 transition">Frame Every 10 Seconds</Link></li>
-              <li><Link to="/extract-frame-every-30-seconds" className="text-gray-600 hover:text-cyan-400 transition">Frame Every 30 Seconds</Link></li>
               <li><Link to="/images-to-video" className="text-gray-600 hover:text-cyan-400 transition">Images to Video</Link></li>
               <li><Link to="/frames-to-gif" className="text-gray-600 hover:text-cyan-400 transition">Frames to GIF</Link></li>
               <li><Link to="/compress-gif" className="text-gray-600 hover:text-cyan-400 transition">Compress GIF</Link></li>
@@ -45,13 +43,12 @@ const Footer = () => {
               <li><Link to="/webm-to-mp4" className="text-gray-600 hover:text-cyan-400 transition">WebM to MP4 Converter</Link></li>
               <li><Link to="/discord-sticker-maker" className="text-gray-600 hover:text-cyan-400 transition">Discord Sticker Maker</Link></li>
               <li><Link to="/last-frame-extractor" className="text-gray-600 hover:text-cyan-400 transition">Last Frame Extractor</Link></li>
-<li><Link to="/video-to-pdf" className="text-gray-600 hover:text-cyan-400 transition">Video to PDF</Link></li>
-<li><Link to="/video-looper" className="text-gray-600 hover:text-cyan-400 transition">Video Looper</Link></li>
+              <li><Link to="/video-to-pdf" className="text-gray-600 hover:text-cyan-400 transition">Video to PDF</Link></li>
+              <li><Link to="/video-looper" className="text-gray-600 hover:text-cyan-400 transition">Video Looper</Link></li>
               <li><Link to="/image-crop" className="text-gray-600 hover:text-cyan-400 transition">Freeform Image Crop</Link></li>
               {/* Review phase (2026-10-29): YouTube Thumbnail Downloader removed from footer during AdSense review — restore after decision. */}
               <li><Link to="/gif-to-frames" className="text-gray-600 hover:text-cyan-400 transition">GIF to Frames</Link></li>
               <li><Link to="/gif-to-mp4" className="text-gray-600 hover:text-cyan-400 transition">GIF to MP4 Converter</Link></li>
-              <li><Link to="/video-looper" className="text-gray-600 hover:text-cyan-400 transition">Video Looper</Link></li>
               <li><Link to="/video-to-sprite-sheet" className="text-gray-600 hover:text-cyan-400 transition">Video to Sprite Sheet</Link></li>
               <li><Link to="/sprite-sheet-slicer" className="text-gray-600 hover:text-cyan-400 transition">Sprite Sheet Slicer</Link></li>
               <li><Link to="/video-notes-extractor" className="text-gray-600 hover:text-cyan-400 transition">Video Notes Extractor</Link></li>

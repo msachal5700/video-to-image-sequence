@@ -115,7 +115,7 @@ const VideoToImageSequenceForBlender: React.FC = () => {
       />
 
       <Breadcrumb items={[
-        { label: 'Use Cases', path: '/#use-cases' },
+        { label: 'Use Cases', path: '/#workflows' },
         { label: 'Blender Pipeline', path: '/video-to-image-sequence-for-blender' }
       ]} />
 
@@ -137,7 +137,7 @@ const VideoToImageSequenceForBlender: React.FC = () => {
       </section>
 
       <div className="animate-fade-in min-h-[400px] px-4 mb-4">
-        <VideoToImages />
+        <VideoToImages initialFormat="png" />
       </div>
 
       <GoogleAdUnit />
