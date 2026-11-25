@@ -549,6 +549,10 @@ const VideoToGif: React.FC = () => {
             <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Stop Motion Capture</h3>
             <p className="text-gray-500 text-xs">Animate frame by frame with your webcam and onion skin.</p>
           </Link>
+          <Link to="/video-looper" className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-cyan-500 transition block">
+            <h3 className="text-cyan-400 font-semibold mb-2 text-sm">Video Looper</h3>
+            <p className="text-gray-500 text-xs">Loop any video 2–10× in your browser, with seamless loop-point detection.</p>
+          </Link>
         </div>
       </section>
 
